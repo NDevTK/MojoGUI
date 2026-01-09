@@ -294,8 +294,11 @@ jobs:
                   full_name = f"{current_ns}.{iface_name}"
                   interface_string = f"{module}.{iface_name}"
                   
-                  # Generate PendingReceiver class first (needed by Remote)
+                  # Create the interface namespace object
                   js_code += f"\n// Interface: {iface_name}\n"
+                  js_code += f"{full_name} = {{}};\n\n"
+                  
+                  # Generate PendingReceiver class first (needed by Remote)
                   js_code += f"{full_name}PendingReceiver = class {{\n"
                   js_code += "  constructor(handle) {\n"
                   js_code += "    this.handle = handle;\n"
