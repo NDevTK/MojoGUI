@@ -56,7 +56,11 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class 
       0,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHan
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -132,7 +136,11 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
       0,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   incrementWallpaperSearchButtonShownCount() {
@@ -141,7 +149,11 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
       1,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setCustomizeChromeSidePanelVisible(visible, section, trigger) {
@@ -150,7 +162,11 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
       2,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec,
       null,
-      [visible, section, trigger]);
+      null,
+      [visible, section, trigger],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -173,7 +189,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -186,7 +202,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonSh
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -202,7 +218,7 @@ customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisib
         { name: 'section', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trigger', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -253,7 +269,11 @@ customize_buttons.mojom.CustomizeButtonsDocumentRemoteCallHandler = class {
       0,  // ordinal
       customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -277,7 +297,7 @@ customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisi
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

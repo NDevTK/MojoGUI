@@ -50,7 +50,11 @@ wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
       wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
-      [t]);
+      wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
+      [t],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -74,7 +78,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
       fields: [
         { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

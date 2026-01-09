@@ -50,7 +50,11 @@ ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
       ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
-      []);
+      ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpe
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

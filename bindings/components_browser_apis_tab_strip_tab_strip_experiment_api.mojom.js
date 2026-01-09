@@ -50,7 +50,11 @@ tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
       0,  // ordinal
       tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec,
       null,
-      [id, visual_data]);
+      null,
+      [id, visual_data],
+      undefined,
+      undefined
+    );
   }
 
   showTabContextMenu(tab_id, location) {
@@ -59,7 +63,11 @@ tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
       1,  // ordinal
       tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec,
       null,
-      [tab_id, location]);
+      null,
+      [tab_id, location],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'visual_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -99,7 +107,7 @@ tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

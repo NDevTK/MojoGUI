@@ -64,7 +64,11 @@ blink.mojom.MediaSessionClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec,
       null,
-      [action, details]);
+      null,
+      [action, details],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +93,7 @@ blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,7 +144,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaSessionService_SetClient_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   setPlaybackState(state) {
@@ -149,7 +157,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
   setPositionState(position) {
@@ -158,7 +170,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.MediaSessionService_SetPositionState_ParamsSpec,
       null,
-      [position]);
+      null,
+      [position],
+      undefined,
+      undefined
+    );
   }
 
   setMetadata(metadata) {
@@ -167,7 +183,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.MediaSessionService_SetMetadata_ParamsSpec,
       null,
-      [metadata]);
+      null,
+      [metadata],
+      undefined,
+      undefined
+    );
   }
 
   setMicrophoneState(microphone_state) {
@@ -176,7 +196,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec,
       null,
-      [microphone_state]);
+      null,
+      [microphone_state],
+      undefined,
+      undefined
+    );
   }
 
   setCameraState(camera_state) {
@@ -185,7 +209,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.MediaSessionService_SetCameraState_ParamsSpec,
       null,
-      [camera_state]);
+      null,
+      [camera_state],
+      undefined,
+      undefined
+    );
   }
 
   enableAction(action) {
@@ -194,7 +222,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.MediaSessionService_EnableAction_ParamsSpec,
       null,
-      [action]);
+      null,
+      [action],
+      undefined,
+      undefined
+    );
   }
 
   disableAction(action) {
@@ -203,7 +235,11 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.MediaSessionService_DisableAction_ParamsSpec,
       null,
-      [action]);
+      null,
+      [action],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -227,7 +263,7 @@ blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,7 +277,7 @@ blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -255,7 +291,7 @@ blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
       fields: [
         { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,7 +305,7 @@ blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +319,7 @@ blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
       fields: [
         { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,7 +333,7 @@ blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
       fields: [
         { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -311,7 +347,7 @@ blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -325,7 +361,7 @@ blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

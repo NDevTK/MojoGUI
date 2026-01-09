@@ -50,7 +50,11 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.HidService_RegisterClient_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   getDevices() {
@@ -59,7 +63,11 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.HidService_GetDevices_ParamsSpec,
       blink.mojom.HidService_GetDevices_ResponseParamsSpec,
-      []);
+      blink.mojom.HidService_GetDevices_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestDevice(filters, exclusion_filters) {
@@ -68,7 +76,11 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.HidService_RequestDevice_ParamsSpec,
       blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
-      [filters, exclusion_filters]);
+      blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
+      [filters, exclusion_filters],
+      undefined,
+      undefined
+    );
   }
 
   connect(device_guid, client) {
@@ -77,7 +89,11 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.HidService_Connect_ParamsSpec,
       blink.mojom.HidService_Connect_ResponseParamsSpec,
-      [device_guid, client]);
+      blink.mojom.HidService_Connect_ResponseParamsSpec,
+      [device_guid, client],
+      undefined,
+      undefined
+    );
   }
 
   forget(device_info) {
@@ -86,7 +102,11 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.HidService_Forget_ParamsSpec,
       null,
-      [device_info]);
+      null,
+      [device_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -110,7 +130,7 @@ blink.mojom.HidService_RegisterClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +143,7 @@ blink.mojom.HidService_GetDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -136,7 +156,7 @@ blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -151,7 +171,7 @@ blink.mojom.HidService_RequestDevice_ParamsSpec = {
         { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -164,7 +184,7 @@ blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +199,7 @@ blink.mojom.HidService_Connect_ParamsSpec = {
         { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -192,7 +212,7 @@ blink.mojom.HidService_Connect_ResponseParamsSpec = {
       fields: [
         { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,7 +226,7 @@ blink.mojom.HidService_Forget_ParamsSpec = {
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

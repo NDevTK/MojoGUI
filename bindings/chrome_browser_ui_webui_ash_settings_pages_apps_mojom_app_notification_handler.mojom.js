@@ -66,7 +66,11 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       0,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   addObserver(observer) {
@@ -75,7 +79,11 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       1,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   setNotificationPermission(app_id, permission) {
@@ -84,7 +92,11 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       2,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
       null,
-      [app_id, permission]);
+      null,
+      [app_id, permission],
+      undefined,
+      undefined
+    );
   }
 
   getApps() {
@@ -93,7 +105,11 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       3,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
-      []);
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getQuietMode() {
@@ -102,7 +118,11 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       4,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
-      []);
+      ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openBrowserNotificationSettings() {
@@ -111,7 +131,11 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       5,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -135,7 +159,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsS
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,7 +173,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSp
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,7 +188,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermi
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -177,7 +201,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,7 +214,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponsePara
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,7 +227,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -216,7 +240,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_Respons
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -229,7 +253,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificat
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -280,7 +304,11 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
       0,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
       null,
-      [app]);
+      null,
+      [app],
+      undefined,
+      undefined
+    );
   }
 
   onQuietModeChanged(enabled) {
@@ -289,7 +317,11 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
       1,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -313,7 +345,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppCh
       fields: [
         { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -327,7 +359,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

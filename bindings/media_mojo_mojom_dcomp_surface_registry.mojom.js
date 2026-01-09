@@ -50,7 +50,11 @@ media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec,
       media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      [surface_handle]);
+      media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
+      [surface_handle],
+      undefined,
+      undefined
+    );
   }
 
   unregisterDCOMPSurfaceHandle(token) {
@@ -59,7 +63,11 @@ media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      [token]);
+      null,
+      [token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec = {
       fields: [
         { name: 'surface_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec =
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,7 +118,7 @@ media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

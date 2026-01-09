@@ -61,7 +61,11 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
-      []);
+      ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   listProperties(device_id) {
@@ -70,7 +74,11 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
-      [device_id]);
+      ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   getProperty(device_id, name) {
@@ -79,7 +87,11 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       2,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
-      [device_id, name]);
+      ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
+      [device_id, name],
+      undefined,
+      undefined
+    );
   }
 
   setProperty(device_id, name, value) {
@@ -88,7 +100,11 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       3,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
-      [device_id, name, value]);
+      ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
+      [device_id, name, value],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -111,7 +127,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,7 +140,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +154,7 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -151,7 +167,7 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -166,7 +182,7 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -180,7 +196,7 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
         { name: 'is_read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -196,7 +212,7 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -209,7 +225,7 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

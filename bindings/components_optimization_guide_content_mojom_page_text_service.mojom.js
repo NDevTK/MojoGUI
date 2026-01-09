@@ -56,7 +56,11 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
       null,
-      [chunk]);
+      null,
+      [chunk],
+      undefined,
+      undefined
+    );
   }
 
   onChunksEnd() {
@@ -65,7 +69,11 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +97,7 @@ optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
       fields: [
         { name: 'chunk', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -102,7 +110,7 @@ optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -153,7 +161,11 @@ optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
       null,
-      [request, consumer]);
+      null,
+      [request, consumer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -178,7 +190,7 @@ optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

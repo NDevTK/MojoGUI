@@ -59,7 +59,11 @@ bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +88,7 @@ bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -135,7 +139,11 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
       bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
-      []);
+      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openInNewTab(node_id) {
@@ -144,7 +152,11 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec,
       null,
-      [node_id]);
+      null,
+      [node_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -167,7 +179,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -180,7 +192,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
       fields: [
         { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,7 +206,7 @@ bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
       fields: [
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,7 +257,11 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   favIconChanged(bookmark_data) {
@@ -254,7 +270,11 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec,
       null,
-      [bookmark_data]);
+      null,
+      [bookmark_data],
+      undefined,
+      undefined
+    );
   }
 
   show() {
@@ -263,7 +283,11 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       bookmark_bar.mojom.Page_Show_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   hide() {
@@ -272,7 +296,11 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       bookmark_bar.mojom.Page_Hide_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -295,7 +323,7 @@ bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -309,7 +337,7 @@ bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
       fields: [
         { name: 'bookmark_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -322,7 +350,7 @@ bookmark_bar.mojom.Page_Show_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -335,7 +363,7 @@ bookmark_bar.mojom.Page_Hide_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -50,7 +50,11 @@ chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ chromecast.mojom.AssistantMessageClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +208,11 @@ chromecast.mojom.AssistantMessageServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec,
       null,
-      [client_id, client, pipe]);
+      null,
+      [client_id, client, pipe],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -226,7 +238,7 @@ chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = {
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

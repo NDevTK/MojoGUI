@@ -51,7 +51,11 @@ ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec,
       ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      []);
+      ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   dismissModule() {
@@ -60,7 +64,11 @@ ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   restoreModule() {
@@ -69,7 +77,11 @@ ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -105,7 +117,7 @@ ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec = {
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +130,7 @@ ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -131,7 +143,7 @@ ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

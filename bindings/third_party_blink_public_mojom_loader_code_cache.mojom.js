@@ -56,7 +56,11 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec,
       blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec,
-      [cache_type]);
+      blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec,
+      [cache_type],
+      undefined,
+      undefined
+    );
   }
 
   didGenerateCacheableMetadata(cache_type, url, expected_response_time, data) {
@@ -65,7 +69,11 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec,
       null,
-      [cache_type, url, expected_response_time, data]);
+      null,
+      [cache_type, url, expected_response_time, data],
+      undefined,
+      undefined
+    );
   }
 
   fetchCachedCode(cache_type, url) {
@@ -74,7 +82,11 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec,
       blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec,
-      [cache_type, url]);
+      blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec,
+      [cache_type, url],
+      undefined,
+      undefined
+    );
   }
 
   clearCodeCacheEntry(cache_type, url) {
@@ -83,7 +95,11 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec,
       null,
-      [cache_type, url]);
+      null,
+      [cache_type, url],
+      undefined,
+      undefined
+    );
   }
 
   didGenerateCacheableMetadataInCacheStorage(url, expected_response_time, data, cache_storage_cache_name) {
@@ -92,7 +108,11 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec,
       null,
-      [url, expected_response_time, data, cache_storage_cache_name]);
+      null,
+      [url, expected_response_time, data, cache_storage_cache_name],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -116,7 +136,7 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec = {
       fields: [
         { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -129,7 +149,7 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec = {
       fields: [
         { name: 'pending_backend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,7 +166,7 @@ blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec = {
         { name: 'expected_response_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -161,7 +181,7 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec = {
         { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -175,7 +195,7 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec = {
         { name: 'response_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -190,7 +210,7 @@ blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec = {
         { name: 'cache_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -207,7 +227,7 @@ blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec 
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cache_storage_cache_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

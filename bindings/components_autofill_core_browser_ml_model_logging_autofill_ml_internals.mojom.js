@@ -57,7 +57,11 @@ autofill_ml_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec,
       null,
-      [log]);
+      null,
+      [log],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
       fields: [
         { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -132,7 +136,11 @@ autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      null,
+      [page],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -156,7 +164,7 @@ autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

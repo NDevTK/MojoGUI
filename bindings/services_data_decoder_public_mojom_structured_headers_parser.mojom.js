@@ -50,7 +50,11 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec,
       data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
-      [header]);
+      data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
+      [header],
+      undefined,
+      undefined
+    );
   }
 
   parseList(header) {
@@ -59,7 +63,11 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec,
       data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
-      [header]);
+      data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
+      [header],
+      undefined,
+      undefined
+    );
   }
 
   parseDictionary(header) {
@@ -68,7 +76,11 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
       2,  // ordinal
       data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec,
       data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
-      [header]);
+      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
+      [header],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
       fields: [
         { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,7 +117,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +131,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
       fields: [
         { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -132,7 +144,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,7 +158,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
       fields: [
         { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -159,7 +171,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

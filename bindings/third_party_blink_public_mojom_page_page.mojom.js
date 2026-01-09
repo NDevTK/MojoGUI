@@ -57,7 +57,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec,
       null,
-      [state, page_restore_params]);
+      null,
+      [state, page_restore_params],
+      undefined,
+      undefined
+    );
   }
 
   audioStateChanged(is_audio_playing) {
@@ -66,7 +70,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec,
       null,
-      [is_audio_playing]);
+      null,
+      [is_audio_playing],
+      undefined,
+      undefined
+    );
   }
 
   activatePrerenderedPage(prerender_page_activation_params) {
@@ -75,7 +83,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec,
       null,
-      [prerender_page_activation_params]);
+      null,
+      [prerender_page_activation_params],
+      undefined,
+      undefined
+    );
   }
 
   updateWebPreferences(preferences) {
@@ -84,7 +96,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec,
       null,
-      [preferences]);
+      null,
+      [preferences],
+      undefined,
+      undefined
+    );
   }
 
   updateRendererPreferences(preferences) {
@@ -93,7 +109,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec,
       null,
-      [preferences]);
+      null,
+      [preferences],
+      undefined,
+      undefined
+    );
   }
 
   setHistoryIndexAndLength(index, length) {
@@ -102,7 +122,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec,
       null,
-      [index, length]);
+      null,
+      [index, length],
+      undefined,
+      undefined
+    );
   }
 
   setPageBaseBackgroundColor(color) {
@@ -111,7 +135,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec,
       null,
-      [color]);
+      null,
+      [color],
+      undefined,
+      undefined
+    );
   }
 
   createRemoteMainFrame(token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces) {
@@ -120,7 +148,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec,
       null,
-      [token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces]);
+      null,
+      [token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces],
+      undefined,
+      undefined
+    );
   }
 
   updatePageBrowsingContextGroup(browsing_context_group_token) {
@@ -129,7 +161,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec,
       null,
-      [browsing_context_group_token]);
+      null,
+      [browsing_context_group_token],
+      undefined,
+      undefined
+    );
   }
 
   setPageAttributionSupport(support) {
@@ -138,7 +174,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec,
       null,
-      [support]);
+      null,
+      [support],
+      undefined,
+      undefined
+    );
   }
 
   updateColorProviders(color_provider_colors) {
@@ -147,7 +187,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec,
       null,
-      [color_provider_colors]);
+      null,
+      [color_provider_colors],
+      undefined,
+      undefined
+    );
   }
 
   setSupportsDraggableRegions(supports_draggable_regions) {
@@ -156,7 +200,11 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec,
       null,
-      [supports_draggable_regions]);
+      null,
+      [supports_draggable_regions],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -181,7 +229,7 @@ blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = {
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'page_restore_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -195,7 +243,7 @@ blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec = {
       fields: [
         { name: 'is_audio_playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,7 +257,7 @@ blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec = {
       fields: [
         { name: 'prerender_page_activation_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,7 +271,7 @@ blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec = {
       fields: [
         { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,7 +285,7 @@ blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec = {
       fields: [
         { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +300,7 @@ blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec = {
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -266,7 +314,7 @@ blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec = {
       fields: [
         { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -287,7 +335,7 @@ blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = {
         { name: 'remote_frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'remote_main_frame_interfaces', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -301,7 +349,7 @@ blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec = {
       fields: [
         { name: 'browsing_context_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -315,7 +363,7 @@ blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec = {
       fields: [
         { name: 'support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -329,7 +377,7 @@ blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec = {
       fields: [
         { name: 'color_provider_colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -343,7 +391,7 @@ blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = {
       fields: [
         { name: 'supports_draggable_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

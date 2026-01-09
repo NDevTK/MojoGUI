@@ -63,7 +63,11 @@ service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec,
       null,
-      [pid]);
+      null,
+      [pid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -87,7 +91,7 @@ service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +142,11 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.Connector_BindInterface_ParamsSpec,
       service_manager.mojom.Connector_BindInterface_ResponseParamsSpec,
-      [filter, interface_name, interface_pipe, priority]);
+      service_manager.mojom.Connector_BindInterface_ResponseParamsSpec,
+      [filter, interface_name, interface_pipe, priority],
+      undefined,
+      undefined
+    );
   }
 
   queryService(service_name) {
@@ -147,7 +155,11 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       1,  // ordinal
       service_manager.mojom.Connector_QueryService_ParamsSpec,
       service_manager.mojom.Connector_QueryService_ResponseParamsSpec,
-      [service_name]);
+      service_manager.mojom.Connector_QueryService_ResponseParamsSpec,
+      [service_name],
+      undefined,
+      undefined
+    );
   }
 
   warmService(filter) {
@@ -156,7 +168,11 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       2,  // ordinal
       service_manager.mojom.Connector_WarmService_ParamsSpec,
       service_manager.mojom.Connector_WarmService_ResponseParamsSpec,
-      [filter]);
+      service_manager.mojom.Connector_WarmService_ResponseParamsSpec,
+      [filter],
+      undefined,
+      undefined
+    );
   }
 
   registerServiceInstance(identity, service, metadata_receiver) {
@@ -165,7 +181,11 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       3,  // ordinal
       service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec,
       service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
-      [identity, service, metadata_receiver]);
+      service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
+      [identity, service, metadata_receiver],
+      undefined,
+      undefined
+    );
   }
 
   clone(receiver) {
@@ -174,7 +194,11 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       4,  // ordinal
       service_manager.mojom.Connector_Clone_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -201,7 +225,7 @@ service_manager.mojom.Connector_BindInterface_ParamsSpec = {
         { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -215,7 +239,7 @@ service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -229,7 +253,7 @@ service_manager.mojom.Connector_QueryService_ParamsSpec = {
       fields: [
         { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -242,7 +266,7 @@ service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -256,7 +280,7 @@ service_manager.mojom.Connector_WarmService_ParamsSpec = {
       fields: [
         { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -270,7 +294,7 @@ service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -286,7 +310,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
         { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'metadata_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -299,7 +323,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,7 +337,7 @@ service_manager.mojom.Connector_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

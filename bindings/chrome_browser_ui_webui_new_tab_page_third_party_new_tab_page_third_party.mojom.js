@@ -50,7 +50,11 @@ new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec =
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ new_tab_page_third_party.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -200,7 +208,11 @@ new_tab_page_third_party.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec,
       null,
-      [theme]);
+      null,
+      [theme],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -224,7 +236,7 @@ new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

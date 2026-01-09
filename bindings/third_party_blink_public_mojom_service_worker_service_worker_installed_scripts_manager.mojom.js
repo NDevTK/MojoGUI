@@ -50,7 +50,11 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec,
       null,
-      [script_url]);
+      null,
+      [script_url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Para
       fields: [
         { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec,
       null,
-      [script_info]);
+      null,
+      [script_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsS
       fields: [
         { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

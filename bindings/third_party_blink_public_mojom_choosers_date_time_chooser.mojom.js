@@ -50,7 +50,11 @@ blink.mojom.DateTimeChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec,
       blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
-      [value]);
+      blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   closeDateTimeDialog() {
@@ -59,7 +63,11 @@ blink.mojom.DateTimeChooserRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'dialog_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -110,7 +118,7 @@ blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

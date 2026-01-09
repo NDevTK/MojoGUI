@@ -50,7 +50,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   createGpuService(gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params) {
@@ -59,7 +63,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.VizMain_CreateGpuService_ParamsSpec,
       null,
-      [gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params]);
+      null,
+      [gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params],
+      undefined,
+      undefined
+    );
   }
 
   setRenderParams(subpixel_rendering, text_contrast, text_gamma) {
@@ -68,7 +76,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.VizMain_SetRenderParams_ParamsSpec,
       null,
-      [subpixel_rendering, text_contrast, text_gamma]);
+      null,
+      [subpixel_rendering, text_contrast, text_gamma],
+      undefined,
+      undefined
+    );
   }
 
   createInfoCollectionGpuService(info_collection_gpu_service) {
@@ -77,7 +89,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec,
       null,
-      [info_collection_gpu_service]);
+      null,
+      [info_collection_gpu_service],
+      undefined,
+      undefined
+    );
   }
 
   setHostProcessId(pid) {
@@ -86,7 +102,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.VizMain_SetHostProcessId_ParamsSpec,
       null,
-      [pid]);
+      null,
+      [pid],
+      undefined,
+      undefined
+    );
   }
 
   notifyWorkloadIncrease() {
@@ -95,7 +115,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startDebugStream(viz_debug) {
@@ -104,7 +128,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.VizMain_StartDebugStream_ParamsSpec,
       null,
-      [viz_debug]);
+      null,
+      [viz_debug],
+      undefined,
+      undefined
+    );
   }
 
   filterDebugStream(filterData) {
@@ -113,7 +141,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.VizMain_FilterDebugStream_ParamsSpec,
       null,
-      [filterData]);
+      null,
+      [filterData],
+      undefined,
+      undefined
+    );
   }
 
   stopDebugStream() {
@@ -122,7 +154,11 @@ viz.mojom.VizMainRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.VizMain_StopDebugStream_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -146,7 +182,7 @@ viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,7 +201,7 @@ viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
         { name: 'use_shader_cache_shm_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'params', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -181,7 +217,7 @@ viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
         { name: 'text_contrast', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'text_gamma', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -195,7 +231,7 @@ viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
       fields: [
         { name: 'info_collection_gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,7 +245,7 @@ viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,7 +258,7 @@ viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -236,7 +272,7 @@ viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
       fields: [
         { name: 'viz_debug', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,7 +286,7 @@ viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
       fields: [
         { name: 'filterData', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -263,7 +299,7 @@ viz.mojom.VizMain_StopDebugStream_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

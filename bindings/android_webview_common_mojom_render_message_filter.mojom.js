@@ -50,7 +50,11 @@ android_webview.mojom.RenderMessageFilterRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec,
       null,
-      [parent_frame_token, child_frame_token]);
+      null,
+      [parent_frame_token, child_frame_token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = {
         { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'child_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

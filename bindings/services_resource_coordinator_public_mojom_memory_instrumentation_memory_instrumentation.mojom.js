@@ -109,7 +109,11 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
       memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
-      [args]);
+      memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
+      [args],
+      undefined,
+      undefined
+    );
   }
 
   requestOSMemoryDump(option, flags, pids) {
@@ -118,7 +122,11 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
       1,  // ordinal
       memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
       memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
-      [option, flags, pids]);
+      memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
+      [option, flags, pids],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -142,7 +150,7 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = 
       fields: [
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,7 +165,7 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParam
         { name: 'dump_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'raw_process_memory_dump', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -173,7 +181,7 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
         { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'pids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -187,7 +195,7 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpe
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dumps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -238,7 +246,11 @@ memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
       memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
-      [strip_path_from_mapped_files, write_proto]);
+      memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
+      [strip_path_from_mapped_files, write_proto],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -263,7 +275,7 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
         { name: 'strip_path_from_mapped_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'write_proto', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -276,7 +288,7 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParams
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -327,7 +339,11 @@ memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
       memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
-      [pids]);
+      memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
+      [pids],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -351,7 +367,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Para
       fields: [
         { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -364,7 +380,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Resp
       fields: [
         { name: 'vm_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -415,7 +431,11 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
-      [dump_type, level_of_detail, determinism, allocator_dump_names]);
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
+      [dump_type, level_of_detail, determinism, allocator_dump_names],
+      undefined,
+      undefined
+    );
   }
 
   requestGlobalMemoryDumpForPid(pid, allocator_dump_names) {
@@ -424,7 +444,11 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       1,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
-      [pid, allocator_dump_names]);
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
+      [pid, allocator_dump_names],
+      undefined,
+      undefined
+    );
   }
 
   requestPrivateMemoryFootprint(pid) {
@@ -433,7 +457,11 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       2,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
-      [pid]);
+      memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
+      [pid],
+      undefined,
+      undefined
+    );
   }
 
   requestGlobalMemoryDumpAndAppendToTrace(dump_type, level_of_detail, determinism) {
@@ -442,7 +470,11 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       3,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
-      [dump_type, level_of_detail, determinism]);
+      memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
+      [dump_type, level_of_detail, determinism],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -469,7 +501,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
         { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'allocator_dump_names', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -483,7 +515,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsS
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -498,7 +530,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpe
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'allocator_dump_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -512,7 +544,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseP
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -526,7 +558,7 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpe
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -540,7 +572,7 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseP
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -556,7 +588,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
         { name: 'level_of_detail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -570,7 +602,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dump_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -621,7 +653,11 @@ memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
       null,
-      [receiver, client_process]);
+      null,
+      [receiver, client_process],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -646,7 +682,7 @@ memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Para
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

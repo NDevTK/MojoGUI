@@ -57,7 +57,11 @@ reading_list.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -133,7 +137,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec,
       reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec,
-      []);
+      reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openURL(url, mark_as_read, click_modifiers) {
@@ -142,7 +150,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       reading_list.mojom.PageHandler_OpenURL_ParamsSpec,
       null,
-      [url, mark_as_read, click_modifiers]);
+      null,
+      [url, mark_as_read, click_modifiers],
+      undefined,
+      undefined
+    );
   }
 
   updateReadStatus(url, read) {
@@ -151,7 +163,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec,
       null,
-      [url, read]);
+      null,
+      [url, read],
+      undefined,
+      undefined
+    );
   }
 
   markCurrentTabAsRead() {
@@ -160,7 +176,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addCurrentTab() {
@@ -169,7 +189,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   removeEntry(url) {
@@ -178,7 +202,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   showContextMenuForURL(url, x, y) {
@@ -187,7 +215,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
-      [url, x, y]);
+      null,
+      [url, x, y],
+      undefined,
+      undefined
+    );
   }
 
   updateCurrentPageActionButtonState() {
@@ -196,7 +228,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showUI() {
@@ -205,7 +241,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       reading_list.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   closeUI() {
@@ -214,7 +254,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       reading_list.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getWindowData() {
@@ -223,7 +267,11 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       reading_list.mojom.PageHandler_GetWindowData_ParamsSpec,
       reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec,
-      []);
+      reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -246,7 +294,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -259,7 +307,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -275,7 +323,7 @@ reading_list.mojom.PageHandler_OpenURL_ParamsSpec = {
         { name: 'mark_as_read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -290,7 +338,7 @@ reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -303,7 +351,7 @@ reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -316,7 +364,7 @@ reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -330,7 +378,7 @@ reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -346,7 +394,7 @@ reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
         { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -359,7 +407,7 @@ reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -372,7 +420,7 @@ reading_list.mojom.PageHandler_ShowUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -385,7 +433,7 @@ reading_list.mojom.PageHandler_CloseUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -398,7 +446,7 @@ reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -411,7 +459,7 @@ reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = {
       fields: [
         { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -462,7 +510,11 @@ reading_list.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       reading_list.mojom.Page_ItemsChanged_ParamsSpec,
       null,
-      [entries]);
+      null,
+      [entries],
+      undefined,
+      undefined
+    );
   }
 
   currentPageActionButtonStateChanged(state) {
@@ -471,7 +523,11 @@ reading_list.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -495,7 +551,7 @@ reading_list.mojom.Page_ItemsChanged_ParamsSpec = {
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -509,7 +565,7 @@ reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

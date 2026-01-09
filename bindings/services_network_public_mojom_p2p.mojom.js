@@ -58,7 +58,11 @@ network.mojom.P2PNetworkNotificationClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec,
       null,
-      [networks, default_ipv4_local_address, default_ipv6_local_address]);
+      null,
+      [networks, default_ipv4_local_address, default_ipv6_local_address],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +88,7 @@ network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
         { name: 'default_ipv4_local_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'default_ipv6_local_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -135,7 +139,11 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   getHostAddress(host_name, address_family, enable_mdns) {
@@ -144,7 +152,11 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec,
       network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec,
-      [host_name, address_family, enable_mdns]);
+      network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec,
+      [host_name, address_family, enable_mdns],
+      undefined,
+      undefined
+    );
   }
 
   createSocket(type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket) {
@@ -153,7 +165,11 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PSocketManager_CreateSocket_ParamsSpec,
       null,
-      [type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket]);
+      null,
+      [type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -177,7 +193,7 @@ network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,7 +209,7 @@ network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
         { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'enable_mdns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -206,7 +222,7 @@ network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
       fields: [
         { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,7 +243,7 @@ network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
         { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -278,7 +294,11 @@ network.mojom.P2PSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PSocket_Send_ParamsSpec,
       null,
-      [data, packet_info]);
+      null,
+      [data, packet_info],
+      undefined,
+      undefined
+    );
   }
 
   sendBatch(packet_batch) {
@@ -287,7 +307,11 @@ network.mojom.P2PSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PSocket_SendBatch_ParamsSpec,
       null,
-      [packet_batch]);
+      null,
+      [packet_batch],
+      undefined,
+      undefined
+    );
   }
 
   setOption(option, value) {
@@ -296,7 +320,11 @@ network.mojom.P2PSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PSocket_SetOption_ParamsSpec,
       null,
-      [option, value]);
+      null,
+      [option, value],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -321,7 +349,7 @@ network.mojom.P2PSocket_Send_ParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -335,7 +363,7 @@ network.mojom.P2PSocket_SendBatch_ParamsSpec = {
       fields: [
         { name: 'packet_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -350,7 +378,7 @@ network.mojom.P2PSocket_SetOption_ParamsSpec = {
         { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -401,7 +429,11 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PSocketClient_SocketCreated_ParamsSpec,
       null,
-      [local_address, remote_address]);
+      null,
+      [local_address, remote_address],
+      undefined,
+      undefined
+    );
   }
 
   sendComplete(send_metrics) {
@@ -410,7 +442,11 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PSocketClient_SendComplete_ParamsSpec,
       null,
-      [send_metrics]);
+      null,
+      [send_metrics],
+      undefined,
+      undefined
+    );
   }
 
   sendBatchComplete(send_metrics_batch) {
@@ -419,7 +455,11 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec,
       null,
-      [send_metrics_batch]);
+      null,
+      [send_metrics_batch],
+      undefined,
+      undefined
+    );
   }
 
   dataReceived(packets) {
@@ -428,7 +468,11 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.P2PSocketClient_DataReceived_ParamsSpec,
       null,
-      [packets]);
+      null,
+      [packets],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -453,7 +497,7 @@ network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
         { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -467,7 +511,7 @@ network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
       fields: [
         { name: 'send_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -481,7 +525,7 @@ network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
       fields: [
         { name: 'send_metrics_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -495,7 +539,7 @@ network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
       fields: [
         { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

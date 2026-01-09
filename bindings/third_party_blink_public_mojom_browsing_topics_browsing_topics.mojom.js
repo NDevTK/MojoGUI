@@ -50,7 +50,11 @@ blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
       null,
-      [observe]);
+      null,
+      [observe],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
       fields: [
         { name: 'observe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

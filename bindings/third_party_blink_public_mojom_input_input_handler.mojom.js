@@ -77,7 +77,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec,
       null,
-      [touch_action]);
+      null,
+      [touch_action],
+      undefined,
+      undefined
+    );
   }
 
   setPanAction(pan_action) {
@@ -86,7 +90,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec,
       null,
-      [pan_action]);
+      null,
+      [pan_action],
+      undefined,
+      undefined
+    );
   }
 
   didOverscroll(params) {
@@ -95,7 +103,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   didStartScrollingViewport() {
@@ -104,7 +116,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   imeCancelComposition() {
@@ -113,7 +129,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   imeCompositionRangeChanged(range, character_bounds) {
@@ -122,7 +142,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec,
       null,
-      [range, character_bounds]);
+      null,
+      [range, character_bounds],
+      undefined,
+      undefined
+    );
   }
 
   setMouseCapture(capture) {
@@ -131,7 +155,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec,
       null,
-      [capture]);
+      null,
+      [capture],
+      undefined,
+      undefined
+    );
   }
 
   setAutoscrollSelectionActiveInMainFrame(autoscroll_selection) {
@@ -140,7 +168,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec,
       null,
-      [autoscroll_selection]);
+      null,
+      [autoscroll_selection],
+      undefined,
+      undefined
+    );
   }
 
   requestMouseLock(from_user_gesture, unadjusted_movement) {
@@ -149,7 +181,11 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec,
       blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec,
-      [from_user_gesture, unadjusted_movement]);
+      blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec,
+      [from_user_gesture, unadjusted_movement],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -173,7 +209,7 @@ blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec = {
       fields: [
         { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -187,7 +223,7 @@ blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec = {
       fields: [
         { name: 'pan_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -201,7 +237,7 @@ blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,7 +250,7 @@ blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -227,7 +263,7 @@ blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,7 +278,7 @@ blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec = {
         { name: 'range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'character_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -256,7 +292,7 @@ blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec = {
       fields: [
         { name: 'capture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -270,7 +306,7 @@ blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_Param
       fields: [
         { name: 'autoscroll_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -285,7 +321,7 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
         { name: 'from_user_gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -299,7 +335,7 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -350,7 +386,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec,
       null,
-      [start, end, ime_text_spans]);
+      null,
+      [start, end, ime_text_spans],
+      undefined,
+      undefined
+    );
   }
 
   clearImeTextSpansByType(start, end, type) {
@@ -359,7 +399,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec,
       null,
-      [start, end, type]);
+      null,
+      [start, end, type],
+      undefined,
+      undefined
+    );
   }
 
   setCompositionFromExistingText(start, end, ime_text_spans) {
@@ -368,7 +412,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec,
       null,
-      [start, end, ime_text_spans]);
+      null,
+      [start, end, ime_text_spans],
+      undefined,
+      undefined
+    );
   }
 
   extendSelectionAndDelete(before, after) {
@@ -377,7 +425,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec,
       null,
-      [before, after]);
+      null,
+      [before, after],
+      undefined,
+      undefined
+    );
   }
 
   extendSelectionAndReplace(before, after, replacement_text) {
@@ -386,7 +438,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec,
       null,
-      [before, after, replacement_text]);
+      null,
+      [before, after, replacement_text],
+      undefined,
+      undefined
+    );
   }
 
   deleteSurroundingText(before, after) {
@@ -395,7 +451,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec,
       null,
-      [before, after]);
+      null,
+      [before, after],
+      undefined,
+      undefined
+    );
   }
 
   deleteSurroundingTextInCodePoints(before, after) {
@@ -404,7 +464,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec,
       null,
-      [before, after]);
+      null,
+      [before, after],
+      undefined,
+      undefined
+    );
   }
 
   setEditableSelectionOffsets(start, end) {
@@ -413,7 +477,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec,
       null,
-      [start, end]);
+      null,
+      [start, end],
+      undefined,
+      undefined
+    );
   }
 
   handleStylusWritingGestureAction(gesture_data) {
@@ -422,7 +490,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec,
-      [gesture_data]);
+      blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec,
+      [gesture_data],
+      undefined,
+      undefined
+    );
   }
 
   executeEditCommand(command, value) {
@@ -431,7 +503,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec,
       null,
-      [command, value]);
+      null,
+      [command, value],
+      undefined,
+      undefined
+    );
   }
 
   undo() {
@@ -440,7 +516,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   redo() {
@@ -449,7 +529,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   cut() {
@@ -458,7 +542,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   copy() {
@@ -467,7 +555,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   copyToFindPboard() {
@@ -476,7 +568,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   centerSelection() {
@@ -485,7 +581,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   paste() {
@@ -494,7 +594,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   pasteAndMatchStyle() {
@@ -503,7 +607,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       17,  // ordinal
       blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   delete() {
@@ -512,7 +620,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       18,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   selectAll() {
@@ -521,7 +633,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       19,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   collapseSelection() {
@@ -530,7 +646,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       20,  // ordinal
       blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   replace(word) {
@@ -539,7 +659,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       21,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec,
       null,
-      [word]);
+      null,
+      [word],
+      undefined,
+      undefined
+    );
   }
 
   replaceMisspelling(word) {
@@ -548,7 +672,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       22,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec,
       null,
-      [word]);
+      null,
+      [word],
+      undefined,
+      undefined
+    );
   }
 
   selectRange(base, extent) {
@@ -557,7 +685,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       23,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec,
       null,
-      [base, extent]);
+      null,
+      [base, extent],
+      undefined,
+      undefined
+    );
   }
 
   adjustSelectionByCharacterOffset(start, end, behavior) {
@@ -566,7 +698,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       24,  // ordinal
       blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec,
       null,
-      [start, end, behavior]);
+      null,
+      [start, end, behavior],
+      undefined,
+      undefined
+    );
   }
 
   selectAroundCaret(granularity, should_show_handle, should_show_context_menu) {
@@ -575,7 +711,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       25,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec,
-      [granularity, should_show_handle, should_show_context_menu]);
+      blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec,
+      [granularity, should_show_handle, should_show_context_menu],
+      undefined,
+      undefined
+    );
   }
 
   moveRangeSelectionExtent(extent) {
@@ -584,7 +724,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       26,  // ordinal
       blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec,
       null,
-      [extent]);
+      null,
+      [extent],
+      undefined,
+      undefined
+    );
   }
 
   scrollFocusedEditableNodeIntoView() {
@@ -593,7 +737,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       27,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   waitForPageScaleAnimationForTesting() {
@@ -602,7 +750,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       28,  // ordinal
       blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   moveCaret(point) {
@@ -611,7 +763,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       29,  // ordinal
       blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec,
       null,
-      [point]);
+      null,
+      [point],
+      undefined,
+      undefined
+    );
   }
 
   startAutoscrollForSelectionToPoint(point) {
@@ -620,7 +776,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       30,  // ordinal
       blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec,
       null,
-      [point]);
+      null,
+      [point],
+      undefined,
+      undefined
+    );
   }
 
   stopAutoscroll() {
@@ -629,7 +789,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       31,  // ordinal
       blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   rectForEditFieldChars(range) {
@@ -638,7 +802,11 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       32,  // ordinal
       blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec,
-      [range]);
+      blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec,
+      [range],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -664,7 +832,7 @@ blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec = {
         { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'ime_text_spans', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -680,7 +848,7 @@ blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec = {
         { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -696,7 +864,7 @@ blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec = 
         { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'ime_text_spans', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -711,7 +879,7 @@ blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec = {
         { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -727,7 +895,7 @@ blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec = {
         { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'replacement_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -742,7 +910,7 @@ blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec = {
         { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -757,7 +925,7 @@ blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec
         { name: 'before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'after', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -772,7 +940,7 @@ blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec = {
         { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -786,7 +954,7 @@ blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec 
       fields: [
         { name: 'gesture_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -799,7 +967,7 @@ blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponsePar
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -814,7 +982,7 @@ blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec = {
         { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -827,7 +995,7 @@ blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -840,7 +1008,7 @@ blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -853,7 +1021,7 @@ blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -866,7 +1034,7 @@ blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -879,7 +1047,7 @@ blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -892,7 +1060,7 @@ blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -905,7 +1073,7 @@ blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -918,7 +1086,7 @@ blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -931,7 +1099,7 @@ blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -944,7 +1112,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -957,7 +1125,7 @@ blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -971,7 +1139,7 @@ blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec = {
       fields: [
         { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -985,7 +1153,7 @@ blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec = {
       fields: [
         { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1000,7 +1168,7 @@ blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec = {
         { name: 'base', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1016,7 +1184,7 @@ blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec 
         { name: 'end', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'behavior', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1032,7 +1200,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
         { name: 'should_show_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'should_show_context_menu', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1045,7 +1213,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1059,7 +1227,7 @@ blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec = {
       fields: [
         { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1072,7 +1240,7 @@ blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1085,7 +1253,7 @@ blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1099,7 +1267,7 @@ blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = {
       fields: [
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1113,7 +1281,7 @@ blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpe
       fields: [
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1126,7 +1294,7 @@ blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1140,7 +1308,7 @@ blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = {
       fields: [
         { name: 'range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1153,7 +1321,7 @@ blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = {
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1204,7 +1372,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
   mouseCaptureLost() {
@@ -1213,7 +1385,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setEditCommandsForNextKeyEvent(commands) {
@@ -1222,7 +1398,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec,
       null,
-      [commands]);
+      null,
+      [commands],
+      undefined,
+      undefined
+    );
   }
 
   cursorVisibilityChanged(visible) {
@@ -1231,7 +1411,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   imeSetComposition(text, ime_text_spans, range, start, end, ime_state) {
@@ -1240,7 +1424,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec,
       null,
-      [text, ime_text_spans, range, start, end, ime_state]);
+      null,
+      [text, ime_text_spans, range, start, end, ime_state],
+      undefined,
+      undefined
+    );
   }
 
   imeCommitText(text, ime_text_spans, range, relative_cursor_position) {
@@ -1249,7 +1437,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec,
       null,
-      [text, ime_text_spans, range, relative_cursor_position]);
+      null,
+      [text, ime_text_spans, range, relative_cursor_position],
+      undefined,
+      undefined
+    );
   }
 
   imeFinishComposingText(keep_selection) {
@@ -1258,7 +1450,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec,
       null,
-      [keep_selection]);
+      null,
+      [keep_selection],
+      undefined,
+      undefined
+    );
   }
 
   requestTextInputStateUpdate() {
@@ -1267,7 +1463,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestCompositionUpdates(immediate_request, monitor_request) {
@@ -1276,7 +1476,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec,
       null,
-      [immediate_request, monitor_request]);
+      null,
+      [immediate_request, monitor_request],
+      undefined,
+      undefined
+    );
   }
 
   dispatchEvent(event, original_event_for_gesture) {
@@ -1285,7 +1489,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec,
       blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec,
-      [event, original_event_for_gesture]);
+      blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec,
+      [event, original_event_for_gesture],
+      undefined,
+      undefined
+    );
   }
 
   dispatchNonBlockingEvent(event) {
@@ -1294,7 +1502,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   waitForInputProcessed() {
@@ -1303,7 +1515,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   pingMainThread() {
@@ -1312,7 +1528,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   attachSynchronousCompositor(control_host, host, compositor_request) {
@@ -1321,7 +1541,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec,
       null,
-      [control_host, host, compositor_request]);
+      null,
+      [control_host, host, compositor_request],
+      undefined,
+      undefined
+    );
   }
 
   getFrameWidgetInputHandler(interface_request) {
@@ -1330,7 +1554,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec,
       null,
-      [interface_request]);
+      null,
+      [interface_request],
+      undefined,
+      undefined
+    );
   }
 
   updateBrowserControlsState(constraints, current, animate, offset_tag_modifications) {
@@ -1339,7 +1567,11 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec,
       null,
-      [constraints, current, animate, offset_tag_modifications]);
+      null,
+      [constraints, current, animate, offset_tag_modifications],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1363,7 +1595,7 @@ blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1376,7 +1608,7 @@ blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1390,7 +1622,7 @@ blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec = {
       fields: [
         { name: 'commands', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1404,7 +1636,7 @@ blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1423,7 +1655,7 @@ blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec = {
         { name: 'end', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'ime_state', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -1440,7 +1672,7 @@ blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec = {
         { name: 'range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'relative_cursor_position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -1454,7 +1686,7 @@ blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec = {
       fields: [
         { name: 'keep_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1467,7 +1699,7 @@ blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1482,7 +1714,7 @@ blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec = {
         { name: 'immediate_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'monitor_request', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1497,7 +1729,7 @@ blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = {
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'original_event_for_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1514,7 +1746,7 @@ blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec = {
         { name: 'overscroll', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'touch_action', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -1528,7 +1760,7 @@ blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1541,7 +1773,7 @@ blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1554,7 +1786,7 @@ blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1570,7 +1802,7 @@ blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = {
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'compositor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1584,7 +1816,7 @@ blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = {
       fields: [
         { name: 'interface_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1601,7 +1833,7 @@ blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = {
         { name: 'animate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'offset_tag_modifications', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

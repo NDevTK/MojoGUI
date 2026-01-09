@@ -105,7 +105,11 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec,
       null,
-      [signal]);
+      null,
+      [signal],
+      undefined,
+      undefined
+    );
   }
 
   setSignalingMessageObserver(observer) {
@@ -114,7 +118,11 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   tearDownSignaling() {
@@ -123,7 +131,11 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -147,7 +159,7 @@ ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = {
       fields: [
         { name: 'signal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +173,7 @@ ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsS
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -174,7 +186,7 @@ ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -225,7 +237,11 @@ ash.eche_app.mojom.SignalingMessageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec,
       null,
-      [signal]);
+      null,
+      [signal],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -249,7 +265,7 @@ ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpe
       fields: [
         { name: 'signal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -300,7 +316,11 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec,
       ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec,
-      []);
+      ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setSystemInfoObserver(observer) {
@@ -309,7 +329,11 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -332,7 +356,7 @@ ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -345,7 +369,7 @@ ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = {
       fields: [
         { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -359,7 +383,7 @@ ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -410,7 +434,11 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
   onReceivedTabletModeChanged(is_tablet_mode) {
@@ -419,7 +447,11 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec,
       null,
-      [is_tablet_mode]);
+      null,
+      [is_tablet_mode],
+      undefined,
+      undefined
+    );
   }
 
   onAndroidDeviceNetworkInfoChanged(is_different_network, android_device_on_cellular) {
@@ -428,7 +460,11 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec,
       null,
-      [is_different_network, android_device_on_cellular]);
+      null,
+      [is_different_network, android_device_on_cellular],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -452,7 +488,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec =
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -466,7 +502,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = {
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -481,7 +517,7 @@ ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSp
         { name: 'is_different_network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'android_device_on_cellular', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -532,7 +568,11 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec,
       null,
-      [serialized_proto]);
+      null,
+      [serialized_proto],
+      undefined,
+      undefined
+    );
   }
 
   setAccessibilityObserver(observer) {
@@ -541,7 +581,11 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   isAccessibilityEnabled() {
@@ -550,7 +594,11 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec,
       ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec,
-      []);
+      ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -574,7 +622,7 @@ ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_Params
       fields: [
         { name: 'serialized_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -588,7 +636,7 @@ ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -601,7 +649,7 @@ ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -614,7 +662,7 @@ ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSp
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -665,7 +713,11 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec,
       null,
-      [enable]);
+      null,
+      [enable],
+      undefined,
+      undefined
+    );
   }
 
   enableExploreByTouch(enable) {
@@ -674,7 +726,11 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec,
       null,
-      [enable]);
+      null,
+      [enable],
+      undefined,
+      undefined
+    );
   }
 
   performAction(serialized_proto) {
@@ -683,7 +739,11 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec,
       ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec,
-      [serialized_proto]);
+      ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec,
+      [serialized_proto],
+      undefined,
+      undefined
+    );
   }
 
   refreshWithExtraData(refresh_data_proto) {
@@ -692,7 +752,11 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec,
       ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec,
-      [refresh_data_proto]);
+      ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec,
+      [refresh_data_proto],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -716,7 +780,7 @@ ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_Params
       fields: [
         { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -730,7 +794,7 @@ ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = {
       fields: [
         { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -744,7 +808,7 @@ ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = {
       fields: [
         { name: 'serialized_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -757,7 +821,7 @@ ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -771,7 +835,7 @@ ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = {
       fields: [
         { name: 'refresh_data_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -784,7 +848,7 @@ ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec
       fields: [
         { name: 'text_location_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -835,7 +899,11 @@ ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec,
       ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec,
-      []);
+      ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -858,7 +926,7 @@ ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -871,7 +939,7 @@ ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = {
       fields: [
         { name: 'local_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -922,7 +990,11 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec,
       null,
-      [title, message, type]);
+      null,
+      [title, message, type],
+      undefined,
+      undefined
+    );
   }
 
   showToast(text) {
@@ -931,7 +1003,11 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec,
       null,
-      [text]);
+      null,
+      [text],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -957,7 +1033,7 @@ ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = {
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -971,7 +1047,7 @@ ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1022,7 +1098,11 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStreamStatusChanged(status) {
@@ -1031,7 +1111,11 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
   setStreamActionObserver(observer) {
@@ -1040,7 +1124,11 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1063,7 +1151,7 @@ ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1077,7 +1165,7 @@ ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1091,7 +1179,7 @@ ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1142,7 +1230,11 @@ ash.eche_app.mojom.StreamActionObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec,
       null,
-      [action]);
+      null,
+      [action],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1166,7 +1258,7 @@ ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1217,7 +1309,11 @@ ash.eche_app.mojom.StreamOrientationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec,
       null,
-      [isLandscape]);
+      null,
+      [isLandscape],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1241,7 +1337,7 @@ ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSp
       fields: [
         { name: 'isLandscape', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1292,7 +1388,11 @@ ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1316,7 +1416,7 @@ ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1367,7 +1467,11 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setKeyboardLayoutObserver(observer) {
@@ -1376,7 +1480,11 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1399,7 +1507,7 @@ ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1413,7 +1521,7 @@ ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1464,7 +1572,11 @@ ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec,
       null,
-      [id, longName, shortName, layoutTag]);
+      null,
+      [id, longName, shortName, layoutTag],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1491,7 +1603,7 @@ ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = {
         { name: 'shortName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'layoutTag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

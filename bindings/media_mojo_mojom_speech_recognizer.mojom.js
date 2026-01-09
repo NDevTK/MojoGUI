@@ -58,7 +58,11 @@ media.mojom.SpeechRecognizerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognizer_Start_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ media.mojom.SpeechRecognizer_Start_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -133,7 +137,11 @@ media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec,
       media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec,
-      [languages]);
+      media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec,
+      [languages],
+      undefined,
+      undefined
+    );
   }
 
   install(languages) {
@@ -142,7 +150,11 @@ media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec,
       media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec,
-      [languages]);
+      media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec,
+      [languages],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -166,7 +178,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = {
       fields: [
         { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +191,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,7 +205,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = {
       fields: [
         { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,7 +218,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

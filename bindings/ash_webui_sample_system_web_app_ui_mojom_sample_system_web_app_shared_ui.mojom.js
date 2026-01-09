@@ -51,7 +51,11 @@ ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec,
       null,
-      [task]);
+      null,
+      [task],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = {
       fields: [
         { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +130,11 @@ ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec,
       ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec,
-      [task]);
+      ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec,
+      [task],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -150,7 +158,7 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
       fields: [
         { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,7 +171,7 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = 
       fields: [
         { name: 'resp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

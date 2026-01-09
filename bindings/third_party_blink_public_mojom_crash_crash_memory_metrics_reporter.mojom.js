@@ -50,7 +50,11 @@ blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec,
       null,
-      [shared_metrics_buffer]);
+      null,
+      [shared_metrics_buffer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = {
       fields: [
         { name: 'shared_metrics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

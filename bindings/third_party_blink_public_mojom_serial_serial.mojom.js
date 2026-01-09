@@ -50,7 +50,11 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SerialService_SetClient_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   getPorts() {
@@ -59,7 +63,11 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SerialService_GetPorts_ParamsSpec,
       blink.mojom.SerialService_GetPorts_ResponseParamsSpec,
-      []);
+      blink.mojom.SerialService_GetPorts_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestPort(filters, allowed_bluetooth_service_class_ids) {
@@ -68,7 +76,11 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SerialService_RequestPort_ParamsSpec,
       blink.mojom.SerialService_RequestPort_ResponseParamsSpec,
-      [filters, allowed_bluetooth_service_class_ids]);
+      blink.mojom.SerialService_RequestPort_ResponseParamsSpec,
+      [filters, allowed_bluetooth_service_class_ids],
+      undefined,
+      undefined
+    );
   }
 
   openPort(token, options, client) {
@@ -77,7 +89,11 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SerialService_OpenPort_ParamsSpec,
       blink.mojom.SerialService_OpenPort_ResponseParamsSpec,
-      [token, options, client]);
+      blink.mojom.SerialService_OpenPort_ResponseParamsSpec,
+      [token, options, client],
+      undefined,
+      undefined
+    );
   }
 
   forgetPort(token) {
@@ -86,7 +102,11 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SerialService_ForgetPort_ParamsSpec,
       null,
-      [token]);
+      null,
+      [token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -110,7 +130,7 @@ blink.mojom.SerialService_SetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +143,7 @@ blink.mojom.SerialService_GetPorts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -136,7 +156,7 @@ blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
       fields: [
         { name: 'ports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -151,7 +171,7 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
         { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'allowed_bluetooth_service_class_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -164,7 +184,7 @@ blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
       fields: [
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +200,7 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -193,7 +213,7 @@ blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
       fields: [
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -207,7 +227,7 @@ blink.mojom.SerialService_ForgetPort_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -258,7 +278,11 @@ blink.mojom.SerialServiceClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
-      [port_info]);
+      null,
+      [port_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -282,7 +306,7 @@ blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
       fields: [
         { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

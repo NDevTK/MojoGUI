@@ -56,7 +56,11 @@ metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec,
       null,
-      [start_timestamp, profile_type, profile]);
+      null,
+      [start_timestamp, profile_type, profile],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
         { name: 'profile_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

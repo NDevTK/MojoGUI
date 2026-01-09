@@ -50,7 +50,11 @@ blink.mojom.WebSocketConnectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebSocketConnector_Connect_ParamsSpec,
       null,
-      [url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id]);
+      null,
+      [url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -80,7 +84,7 @@ blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
         { name: 'handshake_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'throttling_profile_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };

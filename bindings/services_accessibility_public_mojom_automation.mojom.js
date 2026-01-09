@@ -50,7 +50,11 @@ ax.mojom.AutomationRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec,
       null,
-      [tree_id]);
+      null,
+      [tree_id],
+      undefined,
+      undefined
+    );
   }
 
   dispatchActionResult(data, result) {
@@ -59,7 +63,11 @@ ax.mojom.AutomationRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.Automation_DispatchActionResult_ParamsSpec,
       null,
-      [data, result]);
+      null,
+      [data, result],
+      undefined,
+      undefined
+    );
   }
 
   dispatchAccessibilityEvents(tree_id, updates, mouse_location, events) {
@@ -68,7 +76,11 @@ ax.mojom.AutomationRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec,
       null,
-      [tree_id, updates, mouse_location, events]);
+      null,
+      [tree_id, updates, mouse_location, events],
+      undefined,
+      undefined
+    );
   }
 
   dispatchAccessibilityLocationChange(tree_id, node_id, bounds) {
@@ -77,7 +89,11 @@ ax.mojom.AutomationRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec,
       null,
-      [tree_id, node_id, bounds]);
+      null,
+      [tree_id, node_id, bounds],
+      undefined,
+      undefined
+    );
   }
 
   dispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y) {
@@ -86,7 +102,11 @@ ax.mojom.AutomationRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec,
       null,
-      [tree_id, node_id, scroll_x, scroll_y]);
+      null,
+      [tree_id, node_id, scroll_x, scroll_y],
+      undefined,
+      undefined
+    );
   }
 
   dispatchGetTextLocationResult(data, rect) {
@@ -95,7 +115,11 @@ ax.mojom.AutomationRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec,
       null,
-      [data, rect]);
+      null,
+      [data, rect],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -119,7 +143,7 @@ ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = {
       fields: [
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +158,7 @@ ax.mojom.Automation_DispatchActionResult_ParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,7 +175,7 @@ ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = {
         { name: 'mouse_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'events', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -167,7 +191,7 @@ ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = {
         { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -184,7 +208,7 @@ ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = {
         { name: 'scroll_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'scroll_y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -199,7 +223,7 @@ ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

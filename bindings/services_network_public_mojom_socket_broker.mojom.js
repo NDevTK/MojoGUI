@@ -50,7 +50,11 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec,
       network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
-      [address_family]);
+      network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
+      [address_family],
+      undefined,
+      undefined
+    );
   }
 
   createUdpSocket(address_family) {
@@ -59,7 +63,11 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec,
       network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
-      [address_family]);
+      network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
+      [address_family],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
       fields: [
         { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
         { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -111,7 +119,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
       fields: [
         { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +133,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
         { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

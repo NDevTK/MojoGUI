@@ -108,7 +108,11 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
       storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   prepareReadData(size) {
@@ -117,7 +121,11 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
       storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
-      [size]);
+      storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
+      [size],
+      undefined,
+      undefined
+    );
   }
 
   readData() {
@@ -126,7 +134,11 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
       storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +161,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -164,7 +176,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = 
         { name: 'response_head', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -178,7 +190,7 @@ storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,7 +203,7 @@ storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec = {
       fields: [
         { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +216,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -217,7 +229,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -268,7 +280,11 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
       storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
-      [response_head]);
+      storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
+      [response_head],
+      undefined,
+      undefined
+    );
   }
 
   writeData(data) {
@@ -277,7 +293,11 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
       storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
-      [data]);
+      storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -301,7 +321,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
       fields: [
         { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -314,7 +334,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,7 +348,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -341,7 +361,7 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -392,7 +412,11 @@ storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
       storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
-      [data]);
+      storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -416,7 +440,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,7 +453,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSp
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -480,7 +504,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   delete() {
@@ -489,7 +517,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   recover(versions) {
@@ -498,7 +530,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
       null,
-      [versions]);
+      null,
+      [versions],
+      undefined,
+      undefined
+    );
   }
 
   getRegisteredStorageKeys() {
@@ -507,7 +543,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   findRegistrationForClientUrl(client_url, key) {
@@ -516,7 +556,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
-      [client_url, key]);
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
+      [client_url, key],
+      undefined,
+      undefined
+    );
   }
 
   findRegistrationForScope(scope, key) {
@@ -525,7 +569,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
-      [scope, key]);
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
+      [scope, key],
+      undefined,
+      undefined
+    );
   }
 
   findRegistrationForId(registration_id, key) {
@@ -534,7 +582,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
-      [registration_id, key]);
+      storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
+      [registration_id, key],
+      undefined,
+      undefined
+    );
   }
 
   getRegistrationsForStorageKey(key) {
@@ -543,7 +595,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
-      [key]);
+      storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
+      [key],
+      undefined,
+      undefined
+    );
   }
 
   getUsageForStorageKey(key) {
@@ -552,7 +608,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
-      [key]);
+      storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
+      [key],
+      undefined,
+      undefined
+    );
   }
 
   getAllRegistrationsDeprecated() {
@@ -561,7 +621,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getFakeRegistrationForClientUrl(client_url, key) {
@@ -570,7 +634,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       10,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
-      [client_url, key]);
+      storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
+      [client_url, key],
+      undefined,
+      undefined
+    );
   }
 
   storeRegistration(registration, resources) {
@@ -579,7 +647,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       11,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
-      [registration, resources]);
+      storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
+      [registration, resources],
+      undefined,
+      undefined
+    );
   }
 
   deleteRegistration(registration_id, key) {
@@ -588,7 +660,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       12,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
-      [registration_id, key]);
+      storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
+      [registration_id, key],
+      undefined,
+      undefined
+    );
   }
 
   updateToActiveState(registration_id, key) {
@@ -597,7 +673,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       13,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
-      [registration_id, key]);
+      storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
+      [registration_id, key],
+      undefined,
+      undefined
+    );
   }
 
   updateLastUpdateCheckTime(registration_id, key, last_update_check_time) {
@@ -606,7 +686,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       14,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
-      [registration_id, key, last_update_check_time]);
+      storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
+      [registration_id, key, last_update_check_time],
+      undefined,
+      undefined
+    );
   }
 
   updateNavigationPreloadEnabled(registration_id, key, enable) {
@@ -615,7 +699,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       15,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
-      [registration_id, key, enable]);
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
+      [registration_id, key, enable],
+      undefined,
+      undefined
+    );
   }
 
   updateNavigationPreloadHeader(registration_id, key, value) {
@@ -624,7 +712,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       16,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
-      [registration_id, key, value]);
+      storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
+      [registration_id, key, value],
+      undefined,
+      undefined
+    );
   }
 
   updateFetchHandlerType(registration_id, key, type) {
@@ -633,7 +725,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       17,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
-      [registration_id, key, type]);
+      storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
+      [registration_id, key, type],
+      undefined,
+      undefined
+    );
   }
 
   updateResourceSha256Checksums(registratation_id, key, updated_sha256_checksums) {
@@ -642,7 +738,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       18,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
-      [registratation_id, key, updated_sha256_checksums]);
+      storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
+      [registratation_id, key, updated_sha256_checksums],
+      undefined,
+      undefined
+    );
   }
 
   getNewRegistrationId() {
@@ -651,7 +751,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       19,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNewVersionId() {
@@ -660,7 +764,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       20,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNewResourceId() {
@@ -669,7 +777,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       21,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   createResourceReader(resource_id, reader) {
@@ -678,7 +790,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       22,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
-      [resource_id, reader]);
+      null,
+      [resource_id, reader],
+      undefined,
+      undefined
+    );
   }
 
   createResourceWriter(resource_id, writer) {
@@ -687,7 +803,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       23,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
-      [resource_id, writer]);
+      null,
+      [resource_id, writer],
+      undefined,
+      undefined
+    );
   }
 
   createResourceMetadataWriter(resource_id, writer) {
@@ -696,7 +816,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       24,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
-      [resource_id, writer]);
+      null,
+      [resource_id, writer],
+      undefined,
+      undefined
+    );
   }
 
   storeUncommittedResourceId(resource_id) {
@@ -705,7 +829,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       25,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
-      [resource_id]);
+      storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
+      [resource_id],
+      undefined,
+      undefined
+    );
   }
 
   doomUncommittedResources(resource_ids) {
@@ -714,7 +842,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       26,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
-      [resource_ids]);
+      storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
+      [resource_ids],
+      undefined,
+      undefined
+    );
   }
 
   getUserData(registration_id, keys) {
@@ -723,7 +855,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       27,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
-      [registration_id, keys]);
+      storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
+      [registration_id, keys],
+      undefined,
+      undefined
+    );
   }
 
   storeUserData(registration_id, key, user_data) {
@@ -732,7 +868,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       28,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
-      [registration_id, key, user_data]);
+      storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
+      [registration_id, key, user_data],
+      undefined,
+      undefined
+    );
   }
 
   clearUserData(registration_id, keys) {
@@ -741,7 +881,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       29,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
-      [registration_id, keys]);
+      storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
+      [registration_id, keys],
+      undefined,
+      undefined
+    );
   }
 
   getUserDataByKeyPrefix(registration_id, key_prefix) {
@@ -750,7 +894,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       30,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
-      [registration_id, key_prefix]);
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
+      [registration_id, key_prefix],
+      undefined,
+      undefined
+    );
   }
 
   getUserKeysAndDataByKeyPrefix(registration_id, key_prefix) {
@@ -759,7 +907,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       31,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
-      [registration_id, key_prefix]);
+      storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
+      [registration_id, key_prefix],
+      undefined,
+      undefined
+    );
   }
 
   clearUserDataByKeyPrefixes(registratation_id, key_prefixes) {
@@ -768,7 +920,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       32,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
-      [registratation_id, key_prefixes]);
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
+      [registratation_id, key_prefixes],
+      undefined,
+      undefined
+    );
   }
 
   getUserDataForAllRegistrations(key) {
@@ -777,7 +933,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       33,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
-      [key]);
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
+      [key],
+      undefined,
+      undefined
+    );
   }
 
   getUserDataForAllRegistrationsByKeyPrefix(key_prefix) {
@@ -786,7 +946,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       34,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      [key_prefix]);
+      storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
+      [key_prefix],
+      undefined,
+      undefined
+    );
   }
 
   clearUserDataForAllRegistrationsByKeyPrefix(key_prefix) {
@@ -795,7 +959,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       35,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      [key_prefix]);
+      storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
+      [key_prefix],
+      undefined,
+      undefined
+    );
   }
 
   performStorageCleanup() {
@@ -804,7 +972,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       36,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -813,7 +985,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       37,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
-      [policy_updates]);
+      storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
+      [policy_updates],
+      undefined,
+      undefined
+    );
   }
 
   getPurgingResourceIdsForTest() {
@@ -822,7 +998,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       38,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPurgingResourceIdsForLiveVersionForTest(version_id) {
@@ -831,7 +1011,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       39,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
-      [version_id]);
+      storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
+      [version_id],
+      undefined,
+      undefined
+    );
   }
 
   getPurgeableResourceIdsForTest() {
@@ -840,7 +1024,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       40,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getUncommittedResourceIdsForTest() {
@@ -849,7 +1037,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       41,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
-      []);
+      storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setPurgingCompleteCallbackForTest() {
@@ -858,7 +1050,11 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       42,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -881,7 +1077,7 @@ storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -894,7 +1090,7 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -907,7 +1103,7 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -921,7 +1117,7 @@ storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
       fields: [
         { name: 'versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -934,7 +1130,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -947,7 +1143,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParam
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -962,7 +1158,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpe
         { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -977,7 +1173,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseP
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -992,7 +1188,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = 
         { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1006,7 +1202,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParam
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1021,7 +1217,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1035,7 +1231,7 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSp
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1049,7 +1245,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSp
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1063,7 +1259,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_Response
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1077,7 +1273,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1091,7 +1287,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSp
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1104,7 +1300,7 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1118,7 +1314,7 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_Response
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1133,7 +1329,7 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params
         { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1148,7 +1344,7 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Respon
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1163,7 +1359,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1177,7 +1373,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec =
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1192,7 +1388,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1207,7 +1403,7 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec 
         { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'storage_key_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1222,7 +1418,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1235,7 +1431,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1251,7 +1447,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec =
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'last_update_check_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1264,7 +1460,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponsePara
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1280,7 +1476,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsS
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'enable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1293,7 +1489,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_Respons
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1309,7 +1505,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSp
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1322,7 +1518,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_Response
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1338,7 +1534,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1351,7 +1547,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsS
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1367,7 +1563,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSp
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'updated_sha256_checksums', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1380,7 +1576,7 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_Response
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1393,7 +1589,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1406,7 +1602,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpe
       fields: [
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1419,7 +1615,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1433,7 +1629,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec = {
         { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'version_reference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1446,7 +1642,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1459,7 +1655,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec = 
       fields: [
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1474,7 +1670,7 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'reader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1489,7 +1685,7 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1504,7 +1700,7 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpe
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1518,7 +1714,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec 
       fields: [
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1531,7 +1727,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponsePar
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1545,7 +1741,7 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = 
       fields: [
         { name: 'resource_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1558,7 +1754,7 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParam
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1573,7 +1769,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1587,7 +1783,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1603,7 +1799,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1616,7 +1812,7 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1631,7 +1827,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1644,7 +1840,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1659,7 +1855,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1673,7 +1869,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsS
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1688,7 +1884,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSp
         { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1702,7 +1898,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_Response
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1717,7 +1913,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec 
         { name: 'registratation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'key_prefixes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1730,7 +1926,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponsePar
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1744,7 +1940,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsS
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1758,7 +1954,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_Respons
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1772,7 +1968,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
       fields: [
         { name: 'key_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1786,7 +1982,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1800,7 +1996,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
       fields: [
         { name: 'key_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1813,7 +2009,7 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1826,7 +2022,7 @@ storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1840,7 +2036,7 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       fields: [
         { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1853,7 +2049,7 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec 
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1866,7 +2062,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1880,7 +2076,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseP
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1894,7 +2090,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
       fields: [
         { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1908,7 +2104,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1921,7 +2117,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1935,7 +2131,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_Respons
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1948,7 +2144,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1962,7 +2158,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Respo
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1975,7 +2171,7 @@ storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -156,7 +156,11 @@ blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec,
       null,
-      [update]);
+      null,
+      [update],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -180,7 +184,7 @@ blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +235,11 @@ blink.mojom.WebPrintJobControllerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPrintJobController_Cancel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -254,7 +262,7 @@ blink.mojom.WebPrintJobController_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -305,7 +313,11 @@ blink.mojom.WebPrinterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPrinter_FetchAttributes_ParamsSpec,
       blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
-      []);
+      blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   print(document, attributes) {
@@ -314,7 +326,11 @@ blink.mojom.WebPrinterRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebPrinter_Print_ParamsSpec,
       blink.mojom.WebPrinter_Print_ResponseParamsSpec,
-      [document, attributes]);
+      blink.mojom.WebPrinter_Print_ResponseParamsSpec,
+      [document, attributes],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -337,7 +353,7 @@ blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -350,7 +366,7 @@ blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -365,7 +381,7 @@ blink.mojom.WebPrinter_Print_ParamsSpec = {
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -378,7 +394,7 @@ blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,7 +445,11 @@ blink.mojom.WebPrintingServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPrintingService_GetPrinters_ParamsSpec,
       blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
-      []);
+      blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -452,7 +472,7 @@ blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -465,7 +485,7 @@ blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

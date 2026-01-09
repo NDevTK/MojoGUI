@@ -79,7 +79,11 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastWebService_CreateWebView_ParamsSpec,
       null,
-      [params, web_contents, window]);
+      null,
+      [params, web_contents, window],
+      undefined,
+      undefined
+    );
   }
 
   registerWebUiClient(client, hosts) {
@@ -88,7 +92,11 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
       null,
-      [client, hosts]);
+      null,
+      [client, hosts],
+      undefined,
+      undefined
+    );
   }
 
   flushDomLocalStorage() {
@@ -97,7 +105,11 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   clearLocalStorage() {
@@ -106,7 +118,11 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -132,7 +148,7 @@ chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
         { name: 'web_contents', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'window', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -147,7 +163,7 @@ chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -160,7 +176,7 @@ chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -173,7 +189,7 @@ chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

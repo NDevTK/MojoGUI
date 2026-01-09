@@ -50,7 +50,11 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
       null,
-      [service_info]);
+      null,
+      [service_info],
+      undefined,
+      undefined
+    );
   }
 
   serviceLost(service_info) {
@@ -59,7 +63,11 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
       null,
-      [service_info]);
+      null,
+      [service_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
       fields: [
         { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
       fields: [
         { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -148,7 +156,11 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   startDiscoverySession(service_type) {
@@ -157,7 +169,11 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
       sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
-      [service_type]);
+      sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
+      [service_type],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   stopDiscoverySession(service_type) {
@@ -166,7 +182,11 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
       2,  // ordinal
       sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
       sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
-      [service_type]);
+      sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
+      [service_type],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -190,7 +210,7 @@ sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +224,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
       fields: [
         { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,7 +237,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +251,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
       fields: [
         { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,7 +264,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

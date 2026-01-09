@@ -50,7 +50,11 @@ viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,7 +128,11 @@ viz.mojom.CompositingModeReporterRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
       null,
-      [watcher]);
+      null,
+      [watcher],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -148,7 +156,7 @@ viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
       fields: [
         { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

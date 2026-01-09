@@ -50,7 +50,11 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.DemuxerStream_Initialize_ParamsSpec,
       media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
-      []);
+      media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   read(count) {
@@ -59,7 +63,11 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.DemuxerStream_Read_ParamsSpec,
       media.mojom.DemuxerStream_Read_ResponseParamsSpec,
-      [count]);
+      media.mojom.DemuxerStream_Read_ResponseParamsSpec,
+      [count],
+      undefined,
+      undefined
+    );
   }
 
   enableBitstreamConverter() {
@@ -68,7 +76,11 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ media.mojom.DemuxerStream_Initialize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -107,7 +119,7 @@ media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
         { name: 'audio_config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'video_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -121,7 +133,7 @@ media.mojom.DemuxerStream_Read_ParamsSpec = {
       fields: [
         { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -137,7 +149,7 @@ media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
         { name: 'audio_config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'video_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -150,7 +162,7 @@ media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

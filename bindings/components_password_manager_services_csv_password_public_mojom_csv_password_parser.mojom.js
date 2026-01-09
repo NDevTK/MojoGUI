@@ -57,7 +57,11 @@ password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
       0,  // ordinal
       password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
       password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
-      [raw_csv]);
+      password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
+      [raw_csv],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
       fields: [
         { name: 'raw_csv', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -94,7 +98,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
       fields: [
         { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

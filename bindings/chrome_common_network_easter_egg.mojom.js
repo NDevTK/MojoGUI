@@ -50,7 +50,11 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec,
       chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec,
-      []);
+      chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateHighScore(high_score) {
@@ -59,7 +63,11 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec,
       null,
-      [high_score]);
+      null,
+      [high_score],
+      undefined,
+      undefined
+    );
   }
 
   resetHighScore() {
@@ -68,7 +76,11 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -104,7 +116,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
       fields: [
         { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +130,7 @@ chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
       fields: [
         { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -131,7 +143,7 @@ chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

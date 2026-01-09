@@ -50,7 +50,11 @@ blink.mojom.HyphenationRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Hyphenation_OpenDictionary_ParamsSpec,
       blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec,
-      [locale]);
+      blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec,
+      [locale],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
       fields: [
         { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
       fields: [
         { name: 'hyphenation_dictionary_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

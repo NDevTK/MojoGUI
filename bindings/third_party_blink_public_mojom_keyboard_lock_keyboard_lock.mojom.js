@@ -66,7 +66,11 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec,
       blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
-      [key_codes]);
+      blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
+      [key_codes],
+      undefined,
+      undefined
+    );
   }
 
   cancelKeyboardLock() {
@@ -75,7 +79,11 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getKeyboardLayoutMap() {
@@ -84,7 +92,11 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec,
       blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
-      []);
+      blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -108,7 +120,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
       fields: [
         { name: 'key_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,7 +133,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +146,7 @@ blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +159,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -160,7 +172,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

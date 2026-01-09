@@ -50,7 +50,11 @@ viz.mojom.TextureReleaserRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.TextureReleaser_Release_ParamsSpec,
       null,
-      [sync_token, is_lost]);
+      null,
+      [sync_token, is_lost],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ viz.mojom.TextureReleaser_Release_ParamsSpec = {
         { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_lost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

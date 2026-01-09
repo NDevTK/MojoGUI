@@ -88,7 +88,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandle
       0,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec,
       null,
-      [client, handler]);
+      null,
+      [client, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -113,7 +117,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomize
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -164,7 +168,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       0,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec,
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec,
-      []);
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   listCategories() {
@@ -173,7 +181,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       1,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec,
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec,
-      []);
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   pinAction(action_id, pinned) {
@@ -182,7 +194,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       2,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec,
       null,
-      [action_id, pinned]);
+      null,
+      [action_id, pinned],
+      undefined,
+      undefined
+    );
   }
 
   getIsCustomized() {
@@ -191,7 +207,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       3,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec,
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec,
-      []);
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   resetToDefault() {
@@ -200,7 +220,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       4,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -223,7 +247,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -236,7 +260,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponsePa
       fields: [
         { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,7 +273,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -262,7 +286,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_Respons
       fields: [
         { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +301,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec =
         { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -290,7 +314,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -303,7 +327,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Respon
       fields: [
         { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -316,7 +340,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -367,7 +391,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
       0,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec,
       null,
-      [action_id, pinned]);
+      null,
+      [action_id, pinned],
+      undefined,
+      undefined
+    );
   }
 
   notifyActionsUpdated() {
@@ -376,7 +404,11 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
       1,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -401,7 +433,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsS
         { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -414,7 +446,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

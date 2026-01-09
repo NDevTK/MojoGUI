@@ -50,7 +50,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec,
       null,
-      [url, id, message, source_file, line_number, column_number]);
+      null,
+      [url, id, message, source_file, line_number, column_number],
+      undefined,
+      undefined
+    );
   }
 
   queueDeprecationReport(url, id, anticipatedRemoval, message, source_file, line_number, column_number) {
@@ -59,7 +63,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec,
       null,
-      [url, id, anticipatedRemoval, message, source_file, line_number, column_number]);
+      null,
+      [url, id, anticipatedRemoval, message, source_file, line_number, column_number],
+      undefined,
+      undefined
+    );
   }
 
   queueCspViolationReport(url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number) {
@@ -68,7 +76,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec,
       null,
-      [url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number]);
+      null,
+      [url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number],
+      undefined,
+      undefined
+    );
   }
 
   queueIntegrityViolationReport(url, endpoint, document_url, blocked_url, destination, report_only) {
@@ -77,7 +89,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec,
       null,
-      [url, endpoint, document_url, blocked_url, destination, report_only]);
+      null,
+      [url, endpoint, document_url, blocked_url, destination, report_only],
+      undefined,
+      undefined
+    );
   }
 
   queuePermissionsPolicyViolationReport(url, endpoint, policy_id, disposition, message, source_file, line_number, column_number) {
@@ -86,7 +102,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec,
       null,
-      [url, endpoint, policy_id, disposition, message, source_file, line_number, column_number]);
+      null,
+      [url, endpoint, policy_id, disposition, message, source_file, line_number, column_number],
+      undefined,
+      undefined
+    );
   }
 
   queuePotentialPermissionsPolicyViolationReport(url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number) {
@@ -95,7 +115,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec,
       null,
-      [url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number]);
+      null,
+      [url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number],
+      undefined,
+      undefined
+    );
   }
 
   queueDocumentPolicyViolationReport(url, group, policy_id, disposition, message, source_file, line_number, column_number) {
@@ -104,7 +128,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec,
       null,
-      [url, group, policy_id, disposition, message, source_file, line_number, column_number]);
+      null,
+      [url, group, policy_id, disposition, message, source_file, line_number, column_number],
+      undefined,
+      undefined
+    );
   }
 
   queueCSPHashReport(url, endpoint, subresource_url, integrity_hash, type, destination) {
@@ -113,7 +141,11 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec,
       null,
-      [url, endpoint, subresource_url, integrity_hash, type, destination]);
+      null,
+      [url, endpoint, subresource_url, integrity_hash, type, destination],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -142,7 +174,7 @@ blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = {
         { name: 'line_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -162,7 +194,7 @@ blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = {
         { name: 'line_number', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -188,7 +220,7 @@ blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = {
         { name: 'line_number', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 112}]
     }
   }
 };
@@ -207,7 +239,7 @@ blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec = {
         { name: 'destination', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'report_only', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -228,7 +260,7 @@ blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSp
         { name: 'line_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -251,7 +283,7 @@ blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport
         { name: 'line_number', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };
@@ -272,7 +304,7 @@ blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec 
         { name: 'line_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'column_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -291,7 +323,7 @@ blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec = {
         { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'destination', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

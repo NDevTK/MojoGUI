@@ -50,7 +50,11 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
       null,
-      [image, page_index]);
+      null,
+      [image, page_index],
+      undefined,
+      undefined
+    );
   }
 
   deletePage(page_index) {
@@ -59,7 +63,11 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
       null,
-      [page_index]);
+      null,
+      [page_index],
+      undefined,
+      undefined
+    );
   }
 
   save() {
@@ -68,7 +76,11 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
       pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
-      []);
+      pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -93,7 +105,7 @@ pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -107,7 +119,7 @@ pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
       fields: [
         { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -120,7 +132,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -133,7 +145,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
       fields: [
         { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

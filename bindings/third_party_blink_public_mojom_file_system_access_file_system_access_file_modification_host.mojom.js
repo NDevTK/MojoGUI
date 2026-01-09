@@ -50,7 +50,11 @@ blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
       blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
-      [capacity_delta]);
+      blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
+      [capacity_delta],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   onContentsModified() {
@@ -59,7 +63,11 @@ blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpe
       fields: [
         { name: 'capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseP
       fields: [
         { name: 'granted_capacity_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,7 +117,7 @@ blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -51,7 +51,11 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getTabGroups() {
@@ -60,7 +64,11 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec,
       ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
-      []);
+      ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openTabGroup(id) {
@@ -69,7 +77,11 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   dismissModule() {
@@ -78,7 +90,11 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   restoreModule() {
@@ -87,7 +103,11 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -110,7 +130,7 @@ ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,7 +143,7 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -137,7 +157,7 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
         { name: 'tab_groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'showZeroState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,7 +171,7 @@ ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,7 +184,7 @@ ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -177,7 +197,7 @@ ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

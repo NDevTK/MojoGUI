@@ -50,7 +50,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   hasInputContext() {
@@ -59,7 +63,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   isRTL() {
@@ -68,7 +76,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       2,  // ordinal
       remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getSelectionRange() {
@@ -77,7 +89,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       3,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getSelectionText() {
@@ -86,7 +102,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       4,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   insertText(text, as_character) {
@@ -95,7 +115,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       5,  // ordinal
       remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec,
       null,
-      [text, as_character]);
+      null,
+      [text, as_character],
+      undefined,
+      undefined
+    );
   }
 
   deleteRange(range) {
@@ -104,7 +128,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       6,  // ordinal
       remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec,
       null,
-      [range]);
+      null,
+      [range],
+      undefined,
+      undefined
+    );
   }
 
   setCompositionText(text, selected_range, replacement_range) {
@@ -113,7 +141,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       7,  // ordinal
       remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec,
       null,
-      [text, selected_range, replacement_range]);
+      null,
+      [text, selected_range, replacement_range],
+      undefined,
+      undefined
+    );
   }
 
   confirmCompositionText() {
@@ -122,7 +154,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       8,  // ordinal
       remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   hasCompositionText() {
@@ -131,7 +167,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       9,  // ordinal
       remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getCompositionTextRange() {
@@ -140,7 +180,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       10,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getAttributedSubstringForRange(requested_range) {
@@ -149,7 +193,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       11,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec,
-      [requested_range]);
+      remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec,
+      [requested_range],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getFirstRectForRange(requested_range) {
@@ -158,7 +206,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       12,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec,
-      [requested_range]);
+      remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec,
+      [requested_range],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   isTextEditCommandEnabled(command) {
@@ -167,7 +219,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       13,  // ordinal
       remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec,
-      [command]);
+      remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec,
+      [command],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   setTextEditCommandForNextKeyEvent(command) {
@@ -176,7 +232,11 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       14,  // ordinal
       remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec,
       null,
-      [command]);
+      null,
+      [command],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -199,7 +259,7 @@ remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -212,7 +272,7 @@ remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = {
       fields: [
         { name: 'has_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +285,7 @@ remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -238,7 +298,7 @@ remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec = {
       fields: [
         { name: 'has_input_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -251,7 +311,7 @@ remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -264,7 +324,7 @@ remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec = {
       fields: [
         { name: 'is_rtl', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +337,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -290,7 +350,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec = {
       fields: [
         { name: 'range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -303,7 +363,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -317,7 +377,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -332,7 +392,7 @@ remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec = {
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'as_character', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -346,7 +406,7 @@ remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec = {
       fields: [
         { name: 'range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -362,7 +422,7 @@ remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec = {
         { name: 'selected_range', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'replacement_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -375,7 +435,7 @@ remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -388,7 +448,7 @@ remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -401,7 +461,7 @@ remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec = {
       fields: [
         { name: 'has_composition_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -414,7 +474,7 @@ remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -427,7 +487,7 @@ remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec = {
       fields: [
         { name: 'composition_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -441,7 +501,7 @@ remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec = {
       fields: [
         { name: 'requested_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,7 +515,7 @@ remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSp
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'actual_range', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -469,7 +529,7 @@ remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec = {
       fields: [
         { name: 'requested_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -483,7 +543,7 @@ remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec = {
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'actual_range', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -497,7 +557,7 @@ remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec = {
       fields: [
         { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -510,7 +570,7 @@ remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -524,7 +584,7 @@ remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec = 
       fields: [
         { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

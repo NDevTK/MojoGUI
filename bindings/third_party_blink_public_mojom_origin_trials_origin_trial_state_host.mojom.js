@@ -50,7 +50,11 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
-      [origin_trial_features]);
+      null,
+      [origin_trial_features],
+      undefined,
+      undefined
+    );
   }
 
   enablePersistentTrial(token, script_origins) {
@@ -59,7 +63,11 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
-      [token, script_origins]);
+      null,
+      [token, script_origins],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
       fields: [
         { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -98,7 +106,7 @@ blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

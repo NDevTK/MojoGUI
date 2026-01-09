@@ -50,7 +50,11 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ApiBindings_GetAll_ParamsSpec,
       chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
-      []);
+      chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   connect(port_name, port) {
@@ -59,7 +63,11 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.ApiBindings_Connect_ParamsSpec,
       null,
-      [port_name, port]);
+      null,
+      [port_name, port],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
       fields: [
         { name: 'bindings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,7 +118,7 @@ chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
         { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

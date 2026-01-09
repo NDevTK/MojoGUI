@@ -52,7 +52,11 @@ ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -128,7 +132,11 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getTimezones() {
@@ -137,7 +145,11 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec,
       ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
-      []);
+      ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showSetDateTimeUI() {
@@ -146,7 +158,11 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -169,7 +185,7 @@ ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -182,7 +198,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -195,7 +211,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
       fields: [
         { name: 'timezones', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,7 +224,7 @@ ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -259,7 +275,11 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
       null,
-      [is_allowed]);
+      null,
+      [is_allowed],
+      undefined,
+      undefined
+    );
   }
 
   onParentAccessValidationComplete(success) {
@@ -268,7 +288,11 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
       null,
-      [success]);
+      null,
+      [success],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -292,7 +316,7 @@ ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
       fields: [
         { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -306,7 +330,7 @@ ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

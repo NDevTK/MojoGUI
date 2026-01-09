@@ -50,7 +50,11 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       0,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   didCaptureContent(data, first_data) {
@@ -59,7 +63,11 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       1,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec,
       null,
-      [data, first_data]);
+      null,
+      [data, first_data],
+      undefined,
+      undefined
+    );
   }
 
   didUpdateContent(data) {
@@ -68,7 +76,11 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       2,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec,
       null,
-      [data]);
+      null,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
   didRemoveContent(ids) {
@@ -77,7 +89,11 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       3,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec,
       null,
-      [ids]);
+      null,
+      [ids],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -100,7 +116,7 @@ content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -115,7 +131,7 @@ content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'first_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -129,7 +145,7 @@ content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +159,7 @@ content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = {
       fields: [
         { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,7 +210,11 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
       0,  // ordinal
       content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   stopCapture() {
@@ -203,7 +223,11 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
       1,  // ordinal
       content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -226,7 +250,7 @@ content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,7 +263,7 @@ content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

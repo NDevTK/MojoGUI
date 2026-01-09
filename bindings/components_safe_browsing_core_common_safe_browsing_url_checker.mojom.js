@@ -50,7 +50,11 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec,
       safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
-      [url, method]);
+      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
+      [url, method],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -89,7 +93,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
         { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'showed_interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

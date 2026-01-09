@@ -56,7 +56,11 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
       null,
-      [prerender_attribute]);
+      null,
+      [prerender_attribute],
+      undefined,
+      undefined
+    );
   }
 
   cancel() {
@@ -65,7 +69,11 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +97,7 @@ blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
       fields: [
         { name: 'prerender_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -102,7 +110,7 @@ blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -70,7 +70,11 @@ storage.mojom.MockFailureInjectorRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.MockFailureInjector_FailOperation_ParamsSpec,
       null,
-      [failure_class, failure_method, instance_num, call_num]);
+      null,
+      [failure_class, failure_method, instance_num, call_num],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -97,7 +101,7 @@ storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
         { name: 'instance_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'call_num', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -148,7 +152,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
-      []);
+      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getFilePathForTesting(bucket_locator, for_sqlite) {
@@ -157,7 +165,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
-      [bucket_locator, for_sqlite]);
+      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
+      [bucket_locator, for_sqlite],
+      undefined,
+      undefined
+    );
   }
 
   resetCachesForTesting() {
@@ -166,7 +178,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPathForBlobForTesting(bucket_locator, database_id, blob_number) {
@@ -175,7 +191,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
-      [bucket_locator, database_id, blob_number]);
+      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
+      [bucket_locator, database_id, blob_number],
+      undefined,
+      undefined
+    );
   }
 
   flushBackingStoreForTesting(bucket_locator) {
@@ -184,7 +204,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
       null,
-      [bucket_locator]);
+      null,
+      [bucket_locator],
+      undefined,
+      undefined
+    );
   }
 
   flushBucketSequenceForTesting(bucket_locator) {
@@ -193,7 +217,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
       null,
-      [bucket_locator]);
+      null,
+      [bucket_locator],
+      undefined,
+      undefined
+    );
   }
 
   getUsageForTesting() {
@@ -202,7 +230,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
-      []);
+      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   bindMockFailureSingletonForTesting(receiver) {
@@ -211,7 +243,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
   forceInitializeFromFilesForTesting() {
@@ -220,7 +256,11 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -243,7 +283,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -256,7 +296,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec 
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -271,7 +311,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'for_sqlite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -284,7 +324,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,7 +337,7 @@ storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -313,7 +353,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
         { name: 'database_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'blob_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -326,7 +366,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec =
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -340,7 +380,7 @@ storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
       fields: [
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -354,7 +394,7 @@ storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
       fields: [
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -367,7 +407,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -380,7 +420,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
       fields: [
         { name: 'total_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -394,7 +434,7 @@ storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -407,7 +447,7 @@ storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -82,7 +82,11 @@ ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      [is_tablet_mode]);
+      null,
+      [is_tablet_mode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -106,7 +110,7 @@ ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,7 +161,11 @@ ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -180,7 +188,7 @@ ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -231,7 +239,11 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      [brightness_percent, triggered_by_als]);
+      null,
+      [brightness_percent, triggered_by_als],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -256,7 +268,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_
         { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'triggered_by_als', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -307,7 +319,11 @@ ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      [is_ambient_light_sensor_enabled]);
+      null,
+      [is_ambient_light_sensor_enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -331,7 +347,7 @@ ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged
       fields: [
         { name: 'is_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -382,7 +398,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec,
-      [observer]);
+      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   observeDisplayConfiguration(observer) {
@@ -391,7 +411,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   observeDisplayBrightnessSettings(observer) {
@@ -400,7 +424,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec,
-      [observer]);
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   observeAmbientLightSensor(observer) {
@@ -409,7 +437,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec,
-      [observer]);
+      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   recordChangingDisplaySettings(type, value) {
@@ -418,7 +450,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec,
       null,
-      [type, value]);
+      null,
+      [type, value],
+      undefined,
+      undefined
+    );
   }
 
   setShinyPerformance(enabled) {
@@ -427,7 +463,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   setInternalDisplayScreenBrightness(percent) {
@@ -436,7 +476,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec,
       null,
-      [percent]);
+      null,
+      [percent],
+      undefined,
+      undefined
+    );
   }
 
   setInternalDisplayAmbientLightSensorEnabled(enabled) {
@@ -445,7 +489,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   startNativeTouchscreenMappingExperience() {
@@ -454,7 +502,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   hasAmbientLightSensor() {
@@ -463,7 +515,11 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      []);
+      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -487,7 +543,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -500,7 +556,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec 
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -514,7 +570,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpe
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -528,7 +584,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Para
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -541,7 +597,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Resp
       fields: [
         { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -555,7 +611,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -568,7 +624,7 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponsePar
       fields: [
         { name: 'is_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -583,7 +639,7 @@ ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsS
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -597,7 +653,7 @@ ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -611,7 +667,7 @@ ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_Pa
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -625,7 +681,7 @@ ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorE
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -638,7 +694,7 @@ ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperien
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -651,7 +707,7 @@ ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -664,7 +720,7 @@ ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsS
       fields: [
         { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

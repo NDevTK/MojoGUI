@@ -50,7 +50,11 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,7 +128,11 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
       screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
-      [library_path, model_files, ocr_service_receiver]);
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
+      [library_path, model_files, ocr_service_receiver],
+      undefined,
+      undefined
+    );
   }
 
   initializeMainContentExtraction(library_path, model_files, main_content_extractor_service) {
@@ -133,7 +141,11 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
       1,  // ordinal
       screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
       screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
-      [library_path, model_files, main_content_extractor_service]);
+      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
+      [library_path, model_files, main_content_extractor_service],
+      undefined,
+      undefined
+    );
   }
 
   bindShutdownHandler(shutdown_handler) {
@@ -142,7 +154,11 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
       2,  // ordinal
       screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
       null,
-      [shutdown_handler]);
+      null,
+      [shutdown_handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -168,7 +184,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
         { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -181,7 +197,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = {
       fields: [
         { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -197,7 +213,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpe
         { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -210,7 +226,7 @@ screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseP
       fields: [
         { name: 'initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,7 +240,7 @@ screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
       fields: [
         { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

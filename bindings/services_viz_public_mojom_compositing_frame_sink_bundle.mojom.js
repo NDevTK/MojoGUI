@@ -50,7 +50,11 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [sink_id, needs_begin_frame]);
+      null,
+      [sink_id, needs_begin_frame],
+      undefined,
+      undefined
+    );
   }
 
   submit(submissions) {
@@ -59,7 +63,11 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkBundle_Submit_ParamsSpec,
       null,
-      [submissions]);
+      null,
+      [submissions],
+      undefined,
+      undefined
+    );
   }
 
   setThreads(sink_id, threads) {
@@ -68,7 +76,11 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec,
       null,
-      [sink_id, threads]);
+      null,
+      [sink_id, threads],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -93,7 +105,7 @@ viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'needs_begin_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -107,7 +119,7 @@ viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
       fields: [
         { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -122,7 +134,7 @@ viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -173,7 +185,11 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec,
       null,
-      [acks, begin_frames, reclaimed_resources]);
+      null,
+      [acks, begin_frames, reclaimed_resources],
+      undefined,
+      undefined
+    );
   }
 
   onBeginFramePausedChanged(sink_id, paused) {
@@ -182,7 +198,11 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      [sink_id, paused]);
+      null,
+      [sink_id, paused],
+      undefined,
+      undefined
+    );
   }
 
   onCompositorFrameTransitionDirectiveProcessed(sink_id, sequence_id) {
@@ -191,7 +211,11 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [sink_id, sequence_id]);
+      null,
+      [sink_id, sequence_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -217,7 +241,7 @@ viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
         { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -232,7 +256,7 @@ viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'paused', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -247,7 +271,7 @@ viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_Pa
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'sequence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

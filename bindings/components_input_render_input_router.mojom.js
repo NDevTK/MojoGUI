@@ -50,7 +50,11 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       0,  // ordinal
       input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
   forceEnableZoomStateChanged(force_enable_zoom, frame_sink_id) {
@@ -59,7 +63,11 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       1,  // ordinal
       input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
       null,
-      [force_enable_zoom, frame_sink_id]);
+      null,
+      [force_enable_zoom, frame_sink_id],
+      undefined,
+      undefined
+    );
   }
 
   stopFlingingOnViz(frame_sink_id) {
@@ -68,7 +76,11 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       2,  // ordinal
       input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
       null,
-      [frame_sink_id]);
+      null,
+      [frame_sink_id],
+      undefined,
+      undefined
+    );
   }
 
   restartInputEventAckTimeoutIfNecessary(frame_sink_id) {
@@ -77,7 +89,11 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       3,  // ordinal
       input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
       null,
-      [frame_sink_id]);
+      null,
+      [frame_sink_id],
+      undefined,
+      undefined
+    );
   }
 
   notifyVisibilityChanged(frame_sink_id, is_hidden) {
@@ -86,7 +102,11 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       4,  // ordinal
       input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
       null,
-      [frame_sink_id, is_hidden]);
+      null,
+      [frame_sink_id, is_hidden],
+      undefined,
+      undefined
+    );
   }
 
   resetGestureDetection(root_widget_frame_sink_id) {
@@ -95,7 +115,11 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       5,  // ordinal
       input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
       null,
-      [root_widget_frame_sink_id]);
+      null,
+      [root_widget_frame_sink_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -119,7 +143,7 @@ input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +158,7 @@ input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
         { name: 'force_enable_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -148,7 +172,7 @@ input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -162,7 +186,7 @@ input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Par
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -177,7 +201,7 @@ input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -191,7 +215,7 @@ input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
       fields: [
         { name: 'root_widget_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -242,7 +266,11 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       0,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
       null,
-      [event, dispatched_to_renderer]);
+      null,
+      [event, dispatched_to_renderer],
+      undefined,
+      undefined
+    );
   }
 
   notifyObserversOfInputEventAcks(ack_source, ack_result, event) {
@@ -251,7 +279,11 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       1,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
       null,
-      [ack_source, ack_result, event]);
+      null,
+      [ack_source, ack_result, event],
+      undefined,
+      undefined
+    );
   }
 
   onInvalidInputEventSource() {
@@ -260,7 +292,11 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       2,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   stateOnOverscrollTransfer(overscroll) {
@@ -269,7 +305,11 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       3,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
       null,
-      [overscroll]);
+      null,
+      [overscroll],
+      undefined,
+      undefined
+    );
   }
 
   rendererInputResponsivenessChanged(is_responsive, ack_timeout_ts) {
@@ -278,7 +318,11 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       4,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
       null,
-      [is_responsive, ack_timeout_ts]);
+      null,
+      [is_responsive, ack_timeout_ts],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -303,7 +347,7 @@ input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSp
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dispatched_to_renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -319,7 +363,7 @@ input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Para
         { name: 'ack_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -332,7 +376,7 @@ input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -346,7 +390,7 @@ input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec
       fields: [
         { name: 'overscroll', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -361,7 +405,7 @@ input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_P
         { name: 'is_responsive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'ack_timeout_ts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

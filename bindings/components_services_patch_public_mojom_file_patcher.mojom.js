@@ -65,7 +65,11 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
       0,  // ordinal
       patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec,
       patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec,
-      [input_file, patch_file, output_file]);
+      patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec,
+      [input_file, patch_file, output_file],
+      undefined,
+      undefined
+    );
   }
 
   patchFileZucchini(input_file, patch_file, output_file) {
@@ -74,7 +78,11 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
       1,  // ordinal
       patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec,
       patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec,
-      [input_file, patch_file, output_file]);
+      patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec,
+      [input_file, patch_file, output_file],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -100,7 +108,7 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
         { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -113,7 +121,7 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -129,7 +137,7 @@ patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
         { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -142,7 +150,7 @@ patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

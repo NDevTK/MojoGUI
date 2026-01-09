@@ -50,7 +50,11 @@ device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
       null,
-      [tag, receiver, client_id]);
+      null,
+      [tag, receiver, client_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -76,7 +80,7 @@ device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -50,7 +50,11 @@ blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec,
       null,
-      [origin, flags]);
+      null,
+      [origin, flags],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

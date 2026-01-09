@@ -50,7 +50,11 @@ audio.mojom.TestingApiRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.TestingApi_Crash_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ audio.mojom.TestingApi_Crash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

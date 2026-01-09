@@ -59,7 +59,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onThermalStateChange(thermal_state) {
@@ -68,7 +72,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec,
       null,
-      [thermal_state]);
+      null,
+      [thermal_state],
+      undefined,
+      undefined
+    );
   }
 
   startEventLog(peer_connection_local_id, output_period_ms) {
@@ -77,7 +85,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec,
       null,
-      [peer_connection_local_id, output_period_ms]);
+      null,
+      [peer_connection_local_id, output_period_ms],
+      undefined,
+      undefined
+    );
   }
 
   stopEventLog(peer_connection_local_id) {
@@ -86,7 +98,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec,
       null,
-      [peer_connection_local_id]);
+      null,
+      [peer_connection_local_id],
+      undefined,
+      undefined
+    );
   }
 
   startDataChannelLog(peer_connection_local_id) {
@@ -95,7 +111,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec,
       null,
-      [peer_connection_local_id]);
+      null,
+      [peer_connection_local_id],
+      undefined,
+      undefined
+    );
   }
 
   stopDataChannelLog(peer_connection_local_id) {
@@ -104,7 +124,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec,
       null,
-      [peer_connection_local_id]);
+      null,
+      [peer_connection_local_id],
+      undefined,
+      undefined
+    );
   }
 
   getStandardStats() {
@@ -113,7 +137,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getCurrentState() {
@@ -122,7 +150,11 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -145,7 +177,7 @@ blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -159,7 +191,7 @@ blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
       fields: [
         { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -174,7 +206,7 @@ blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = {
         { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'output_period_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -188,7 +220,7 @@ blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = {
       fields: [
         { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -202,7 +234,7 @@ blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = {
       fields: [
         { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,7 +248,7 @@ blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = {
       fields: [
         { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -229,7 +261,7 @@ blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,7 +274,7 @@ blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -293,7 +325,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec,
       null,
-      [info]);
+      null,
+      [info],
+      undefined,
+      undefined
+    );
   }
 
   removePeerConnection(lid) {
@@ -302,7 +338,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec,
       null,
-      [lid]);
+      null,
+      [lid],
+      undefined,
+      undefined
+    );
   }
 
   updatePeerConnection(lid, type, value) {
@@ -311,7 +351,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec,
       null,
-      [lid, type, value]);
+      null,
+      [lid, type, value],
+      undefined,
+      undefined
+    );
   }
 
   onPeerConnectionSessionIdSet(lid, session_id) {
@@ -320,7 +364,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec,
       null,
-      [lid, session_id]);
+      null,
+      [lid, session_id],
+      undefined,
+      undefined
+    );
   }
 
   getUserMedia(request_id, audio, video, audio_constraints, video_constraints) {
@@ -329,7 +377,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec,
       null,
-      [request_id, audio, video, audio_constraints, video_constraints]);
+      null,
+      [request_id, audio, video, audio_constraints, video_constraints],
+      undefined,
+      undefined
+    );
   }
 
   getUserMediaSuccess(request_id, stream_id, audio_track_info, video_track_info) {
@@ -338,7 +390,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec,
       null,
-      [request_id, stream_id, audio_track_info, video_track_info]);
+      null,
+      [request_id, stream_id, audio_track_info, video_track_info],
+      undefined,
+      undefined
+    );
   }
 
   getUserMediaFailure(request_id, error, error_message) {
@@ -347,7 +403,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec,
       null,
-      [request_id, error, error_message]);
+      null,
+      [request_id, error, error_message],
+      undefined,
+      undefined
+    );
   }
 
   getDisplayMedia(request_id, audio, video, audio_constraints, video_constraints) {
@@ -356,7 +416,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec,
       null,
-      [request_id, audio, video, audio_constraints, video_constraints]);
+      null,
+      [request_id, audio, video, audio_constraints, video_constraints],
+      undefined,
+      undefined
+    );
   }
 
   getDisplayMediaSuccess(request_id, stream_id, audio_track_info, video_track_info) {
@@ -365,7 +429,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec,
       null,
-      [request_id, stream_id, audio_track_info, video_track_info]);
+      null,
+      [request_id, stream_id, audio_track_info, video_track_info],
+      undefined,
+      undefined
+    );
   }
 
   getDisplayMediaFailure(request_id, error, error_message) {
@@ -374,7 +442,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec,
       null,
-      [request_id, error, error_message]);
+      null,
+      [request_id, error, error_message],
+      undefined,
+      undefined
+    );
   }
 
   webRtcEventLogWrite(lid, output) {
@@ -383,7 +455,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec,
       null,
-      [lid, output]);
+      null,
+      [lid, output],
+      undefined,
+      undefined
+    );
   }
 
   webRtcDataChannelLogWrite(lid, output) {
@@ -392,7 +468,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec,
       null,
-      [lid, output]);
+      null,
+      [lid, output],
+      undefined,
+      undefined
+    );
   }
 
   addStandardStats(lid, value) {
@@ -401,7 +481,11 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec,
       null,
-      [lid, value]);
+      null,
+      [lid, value],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -425,7 +509,7 @@ blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -439,7 +523,7 @@ blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = {
       fields: [
         { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,7 +539,7 @@ blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = {
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -470,7 +554,7 @@ blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = 
         { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -488,7 +572,7 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = {
         { name: 'audio_constraints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'video_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -505,7 +589,7 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = {
         { name: 'audio_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'video_track_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -521,7 +605,7 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = {
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -539,7 +623,7 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = {
         { name: 'audio_constraints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'video_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -556,7 +640,7 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = {
         { name: 'audio_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'video_track_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -572,7 +656,7 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = {
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -587,7 +671,7 @@ blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = {
         { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -602,7 +686,7 @@ blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = {
         { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -617,7 +701,7 @@ blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
         { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

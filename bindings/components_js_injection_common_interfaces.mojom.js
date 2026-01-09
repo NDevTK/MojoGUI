@@ -50,7 +50,11 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec,
       null,
-      [message, ports]);
+      null,
+      [message, ports],
+      undefined,
+      undefined
+    );
   }
 
   setBrowserToJsMessaging(browser_to_js_messaging) {
@@ -59,7 +63,11 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
       1,  // ordinal
       js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec,
       null,
-      [browser_to_js_messaging]);
+      null,
+      [browser_to_js_messaging],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = {
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'ports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -98,7 +106,7 @@ js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = {
       fields: [
         { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,7 +157,11 @@ js_injection.mojom.JsObjectsClientRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -172,7 +184,7 @@ js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -223,7 +235,11 @@ js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec,
       null,
-      [browser_to_js_messaging]);
+      null,
+      [browser_to_js_messaging],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -247,7 +263,7 @@ js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSp
       fields: [
         { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -298,7 +314,11 @@ js_injection.mojom.BrowserToJsMessagingRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -322,7 +342,7 @@ js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -373,7 +393,11 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec,
       null,
-      [js_objects, client]);
+      null,
+      [js_objects, client],
+      undefined,
+      undefined
+    );
   }
 
   addPersistentJavaScript(script) {
@@ -382,7 +406,11 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
       1,  // ordinal
       js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec,
       null,
-      [script]);
+      null,
+      [script],
+      undefined,
+      undefined
+    );
   }
 
   removePersistentJavaScript(script_id) {
@@ -391,7 +419,11 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
       2,  // ordinal
       js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec,
       null,
-      [script_id]);
+      null,
+      [script_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -416,7 +448,7 @@ js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = {
         { name: 'js_objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -430,7 +462,7 @@ js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = {
       fields: [
         { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -444,7 +476,7 @@ js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = {
       fields: [
         { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

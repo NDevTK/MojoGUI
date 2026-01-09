@@ -50,7 +50,11 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
       null,
-      [features]);
+      null,
+      [features],
+      undefined,
+      undefined
+    );
   }
 
   updateRecord(targets) {
@@ -59,7 +63,11 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
       null,
-      [targets]);
+      null,
+      [targets],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
       fields: [
         { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
       fields: [
         { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onPaused() {
@@ -59,7 +63,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onSeeking() {
@@ -68,7 +76,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onEnded() {
@@ -77,7 +89,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onError(status) {
@@ -86,7 +102,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
   onBuffering() {
@@ -95,7 +115,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onBufferingComplete() {
@@ -104,7 +128,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onNaturalSizeChanged(size) {
@@ -113,7 +141,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec,
       null,
-      [size]);
+      null,
+      [size],
+      undefined,
+      undefined
+    );
   }
 
   onPipelineStatistics(stats) {
@@ -122,7 +154,11 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec,
       null,
-      [stats]);
+      null,
+      [stats],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -145,7 +181,7 @@ media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -158,7 +194,7 @@ media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,7 +207,7 @@ media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -184,7 +220,7 @@ media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -198,7 +234,7 @@ media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -211,7 +247,7 @@ media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -224,7 +260,7 @@ media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -238,7 +274,7 @@ media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +288,7 @@ media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,14 +50,16 @@ blink.mojom.MimeRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
       blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
+      blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
       [extension],
       undefined,
-      mojo.internal.kMessageFlagIsSync);
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
 
-blink.mojom.MimeRegistry.getRemote = function () {
+blink.mojom.MimeRegistry.getRemote = function() {
   let remote = new blink.mojom.MimeRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
@@ -76,7 +78,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
       fields: [
         { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{ version: 0, packedSize: 16 }]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -89,7 +91,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{ version: 0, packedSize: 16 }]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec,
       null,
-      [process_probability_pct, process_index]);
+      null,
+      [process_probability_pct, process_index],
+      undefined,
+      undefined
+    );
   }
 
   logMetricsWithoutSnapshot() {
@@ -59,7 +63,11 @@ heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
         { name: 'process_probability_pct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'process_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +105,7 @@ heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

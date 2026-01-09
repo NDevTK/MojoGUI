@@ -50,7 +50,11 @@ webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
       0,  // ordinal
       webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
       webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
-      []);
+      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
       fields: [
         { name: 'web_page_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

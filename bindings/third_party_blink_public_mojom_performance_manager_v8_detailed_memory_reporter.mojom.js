@@ -57,7 +57,11 @@ blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
       blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
-      [mode]);
+      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
+      [mode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -94,7 +98,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
       fields: [
         { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

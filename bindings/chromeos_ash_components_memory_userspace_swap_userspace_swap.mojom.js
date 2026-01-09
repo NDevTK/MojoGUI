@@ -50,7 +50,11 @@ userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
       0,  // ordinal
       userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
       null,
-      [uffd_error, uffd_handle, mmap_error, swap_area]);
+      null,
+      [uffd_error, uffd_handle, mmap_error, swap_area],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -77,7 +81,7 @@ userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec 
         { name: 'mmap_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'swap_area', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -128,7 +132,11 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
       0,  // ordinal
       userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
       null,
-      [src, dest]);
+      null,
+      [src, dest],
+      undefined,
+      undefined
+    );
   }
 
   mapArea(area) {
@@ -137,7 +145,11 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
       1,  // ordinal
       userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec,
       null,
-      [area]);
+      null,
+      [area],
+      undefined,
+      undefined
+    );
   }
 
   getPartitionAllocSuperPagesUsed(max_superpages) {
@@ -146,7 +158,11 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
       2,  // ordinal
       userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
       userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
-      [max_superpages]);
+      userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
+      [max_superpages],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -171,7 +187,7 @@ userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = {
         { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -185,7 +201,7 @@ userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
       fields: [
         { name: 'area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +215,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = 
       fields: [
         { name: 'max_superpages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +228,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParam
       fields: [
         { name: 'superpages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

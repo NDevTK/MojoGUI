@@ -56,7 +56,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onImportFinished(succeeded, error_msg) {
@@ -65,7 +69,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec,
       null,
-      [succeeded, error_msg]);
+      null,
+      [succeeded, error_msg],
+      undefined,
+      undefined
+    );
   }
 
   onImportItemStart(item) {
@@ -74,7 +82,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec,
       null,
-      [item]);
+      null,
+      [item],
+      undefined,
+      undefined
+    );
   }
 
   onImportItemFinished(item) {
@@ -83,7 +95,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec,
       null,
-      [item]);
+      null,
+      [item],
+      undefined,
+      undefined
+    );
   }
 
   onHistoryImportStart(total_history_rows_count) {
@@ -92,7 +108,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec,
       null,
-      [total_history_rows_count]);
+      null,
+      [total_history_rows_count],
+      undefined,
+      undefined
+    );
   }
 
   onHistoryImportGroup(history_rows_group, visit_source) {
@@ -101,7 +121,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec,
       null,
-      [history_rows_group, visit_source]);
+      null,
+      [history_rows_group, visit_source],
+      undefined,
+      undefined
+    );
   }
 
   onHomePageImportReady(home_page) {
@@ -110,7 +134,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec,
       null,
-      [home_page]);
+      null,
+      [home_page],
+      undefined,
+      undefined
+    );
   }
 
   onBookmarksImportStart(first_folder_name, total_bookmarks_count) {
@@ -119,7 +147,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       7,  // ordinal
       chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec,
       null,
-      [first_folder_name, total_bookmarks_count]);
+      null,
+      [first_folder_name, total_bookmarks_count],
+      undefined,
+      undefined
+    );
   }
 
   onBookmarksImportGroup(bookmarks_group) {
@@ -128,7 +160,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       8,  // ordinal
       chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec,
       null,
-      [bookmarks_group]);
+      null,
+      [bookmarks_group],
+      undefined,
+      undefined
+    );
   }
 
   onFaviconsImportStart(total_favicons_count) {
@@ -137,7 +173,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       9,  // ordinal
       chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec,
       null,
-      [total_favicons_count]);
+      null,
+      [total_favicons_count],
+      undefined,
+      undefined
+    );
   }
 
   onFaviconsImportGroup(favicons_group) {
@@ -146,7 +186,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       10,  // ordinal
       chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec,
       null,
-      [favicons_group]);
+      null,
+      [favicons_group],
+      undefined,
+      undefined
+    );
   }
 
   onPasswordFormImportReady(form) {
@@ -155,7 +199,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       11,  // ordinal
       chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec,
       null,
-      [form]);
+      null,
+      [form],
+      undefined,
+      undefined
+    );
   }
 
   onKeywordsImportReady(search_engines, unique_on_host_and_path) {
@@ -164,7 +212,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       12,  // ordinal
       chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec,
       null,
-      [search_engines, unique_on_host_and_path]);
+      null,
+      [search_engines, unique_on_host_and_path],
+      undefined,
+      undefined
+    );
   }
 
   onAutofillFormDataImportStart(total_autofill_form_data_entry_count) {
@@ -173,7 +225,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       13,  // ordinal
       chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec,
       null,
-      [total_autofill_form_data_entry_count]);
+      null,
+      [total_autofill_form_data_entry_count],
+      undefined,
+      undefined
+    );
   }
 
   onAutofillFormDataImportGroup(autofill_form_data_entry_group) {
@@ -182,7 +238,11 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       14,  // ordinal
       chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec,
       null,
-      [autofill_form_data_entry_group]);
+      null,
+      [autofill_form_data_entry_group],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -205,7 +265,7 @@ chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -220,7 +280,7 @@ chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = {
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -234,7 +294,7 @@ chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
       fields: [
         { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -248,7 +308,7 @@ chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
       fields: [
         { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,7 +322,7 @@ chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = {
       fields: [
         { name: 'total_history_rows_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +337,7 @@ chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = {
         { name: 'history_rows_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'visit_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -291,7 +351,7 @@ chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
       fields: [
         { name: 'home_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -306,7 +366,7 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
         { name: 'first_folder_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'total_bookmarks_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -320,7 +380,7 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = {
       fields: [
         { name: 'bookmarks_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -334,7 +394,7 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = {
       fields: [
         { name: 'total_favicons_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -348,7 +408,7 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
       fields: [
         { name: 'favicons_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -362,7 +422,7 @@ chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
       fields: [
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,7 +437,7 @@ chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = {
         { name: 'search_engines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'unique_on_host_and_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -391,7 +451,7 @@ chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = {
       fields: [
         { name: 'total_autofill_form_data_entry_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -405,7 +465,7 @@ chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = {
       fields: [
         { name: 'autofill_form_data_entry_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -456,7 +516,11 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ProfileImport_StartImport_ParamsSpec,
       null,
-      [source_profile, items, localized_strings, observer]);
+      null,
+      [source_profile, items, localized_strings, observer],
+      undefined,
+      undefined
+    );
   }
 
   cancelImport() {
@@ -465,7 +529,11 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ProfileImport_CancelImport_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reportImportItemFinished(item) {
@@ -474,7 +542,11 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec,
       null,
-      [item]);
+      null,
+      [item],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -501,7 +573,7 @@ chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
         { name: 'localized_strings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -514,7 +586,7 @@ chrome.mojom.ProfileImport_CancelImport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -528,7 +600,7 @@ chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
       fields: [
         { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -63,7 +63,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec,
-      [mode]);
+      blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec,
+      [mode],
+      undefined,
+      undefined
+    );
   }
 
   requestPermission(mode) {
@@ -72,7 +76,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec,
-      [mode]);
+      blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec,
+      [mode],
+      undefined,
+      undefined
+    );
   }
 
   asBlob() {
@@ -81,7 +89,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   createFileWriter(keep_existing_data, auto_close, mode) {
@@ -90,7 +102,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec,
-      [keep_existing_data, auto_close, mode]);
+      blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec,
+      [keep_existing_data, auto_close, mode],
+      undefined,
+      undefined
+    );
   }
 
   rename(new_entry_name) {
@@ -99,7 +115,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec,
-      [new_entry_name]);
+      blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec,
+      [new_entry_name],
+      undefined,
+      undefined
+    );
   }
 
   move(destination_directory, new_entry_name) {
@@ -108,7 +128,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec,
-      [destination_directory, new_entry_name]);
+      blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec,
+      [destination_directory, new_entry_name],
+      undefined,
+      undefined
+    );
   }
 
   remove() {
@@ -117,7 +141,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openAccessHandle(mode) {
@@ -126,7 +154,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec,
-      [mode]);
+      blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec,
+      [mode],
+      undefined,
+      undefined
+    );
   }
 
   isSameEntry(other) {
@@ -135,7 +167,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec,
-      [other]);
+      blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec,
+      [other],
+      undefined,
+      undefined
+    );
   }
 
   transfer(token) {
@@ -144,7 +180,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec,
       null,
-      [token]);
+      null,
+      [token],
+      undefined,
+      undefined
+    );
   }
 
   getUniqueId() {
@@ -153,7 +193,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getCloudIdentifiers() {
@@ -162,7 +206,11 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -186,7 +234,7 @@ blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +247,7 @@ blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec = 
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -213,7 +261,7 @@ blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,7 +275,7 @@ blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -240,7 +288,7 @@ blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -255,7 +303,7 @@ blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec = {
         { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -271,7 +319,7 @@ blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec = {
         { name: 'auto_close', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -285,7 +333,7 @@ blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -299,7 +347,7 @@ blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec = {
       fields: [
         { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -312,7 +360,7 @@ blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -327,7 +375,7 @@ blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec = {
         { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -340,7 +388,7 @@ blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -353,7 +401,7 @@ blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -366,7 +414,7 @@ blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -380,7 +428,7 @@ blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -395,7 +443,7 @@ blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec = {
         { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'access_handle_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -409,7 +457,7 @@ blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec = {
       fields: [
         { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -423,7 +471,7 @@ blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_same', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -437,7 +485,7 @@ blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -450,7 +498,7 @@ blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -464,7 +512,7 @@ blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -477,7 +525,7 @@ blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -491,7 +539,7 @@ blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec = 
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cloud_identifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

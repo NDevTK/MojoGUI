@@ -59,7 +59,11 @@ blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec,
       blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec,
-      [provider_receiver, cloud_project_number]);
+      blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec,
+      [provider_receiver, cloud_project_number],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +88,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
         { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +101,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -148,7 +152,11 @@ blink.mojom.WebViewMediaIntegrityProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec,
       blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec,
-      [content_binding]);
+      blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec,
+      [content_binding],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -172,7 +180,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
       fields: [
         { name: 'content_binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +193,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

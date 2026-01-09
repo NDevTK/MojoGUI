@@ -64,7 +64,11 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec,
       ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec,
-      []);
+      ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getProfileInfo() {
@@ -73,7 +77,11 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec,
       ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec,
-      []);
+      ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onScreenSwitched(screen) {
@@ -82,7 +90,11 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec,
       null,
-      [screen]);
+      null,
+      [screen],
+      undefined,
+      undefined
+    );
   }
 
   onTransferComplete() {
@@ -91,7 +103,11 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -114,7 +130,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -127,7 +143,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSp
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,7 +156,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -153,7 +169,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = 
       fields: [
         { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -167,7 +183,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
       fields: [
         { name: 'screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +196,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

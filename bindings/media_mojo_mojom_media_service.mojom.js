@@ -50,7 +50,11 @@ media.mojom.MediaServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces]);
+      null,
+      [factory, frame_interfaces],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -50,7 +50,11 @@ shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec,
       null,
-      [receiver, options]);
+      null,
+      [receiver, options],
+      undefined,
+      undefined
+    );
   }
 
   enumerateSupportedFormats() {
@@ -59,7 +63,11 @@ shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
       1,  // ordinal
       shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec,
       shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
-      []);
+      shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +105,7 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -110,7 +118,7 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_Respons
       fields: [
         { name: 'supported_formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

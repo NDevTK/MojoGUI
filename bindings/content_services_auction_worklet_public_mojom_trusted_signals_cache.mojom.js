@@ -57,7 +57,11 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
       null,
-      [compression_scheme, compression_group_data]);
+      null,
+      [compression_scheme, compression_group_data],
+      undefined,
+      undefined
+    );
   }
 
   onError(error_message) {
@@ -66,7 +70,11 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
       null,
-      [error_message]);
+      null,
+      [error_message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +99,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
         { name: 'compression_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'compression_group_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -105,7 +113,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,7 +164,11 @@ auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
       null,
-      [compression_group_token, client]);
+      null,
+      [compression_group_token, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -181,7 +193,7 @@ auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
         { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

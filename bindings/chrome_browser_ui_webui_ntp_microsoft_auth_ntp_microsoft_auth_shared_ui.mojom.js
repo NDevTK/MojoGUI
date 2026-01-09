@@ -56,7 +56,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   acquireTokenSilent() {
@@ -65,7 +69,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
       1,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   signOut() {
@@ -74,7 +82,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
       2,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -97,7 +109,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -110,7 +122,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,7 +135,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -67,7 +67,11 @@ media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
       null,
-      [key_systems]);
+      null,
+      [key_systems],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +95,7 @@ media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
       fields: [
         { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -142,7 +146,11 @@ media.mojom.KeySystemSupportRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.KeySystemSupport_SetObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -166,7 +174,7 @@ media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

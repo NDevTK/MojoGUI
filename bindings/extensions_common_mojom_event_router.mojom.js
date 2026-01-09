@@ -50,7 +50,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
       null,
-      [event_listener]);
+      null,
+      [event_listener],
+      undefined,
+      undefined
+    );
   }
 
   addListenerForServiceWorker(event_listener) {
@@ -59,7 +63,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
       null,
-      [event_listener]);
+      null,
+      [event_listener],
+      undefined,
+      undefined
+    );
   }
 
   addLazyListenerForMainThread(extension_id, event_name) {
@@ -68,7 +76,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
       null,
-      [extension_id, event_name]);
+      null,
+      [extension_id, event_name],
+      undefined,
+      undefined
+    );
   }
 
   addLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name) {
@@ -77,7 +89,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, worker_scope_url, event_name]);
+      null,
+      [extension_id, worker_scope_url, event_name],
+      undefined,
+      undefined
+    );
   }
 
   addFilteredListenerForMainThread(listener_owner, event_name, filter, add_lazy_listener) {
@@ -86,7 +102,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
       null,
-      [listener_owner, event_name, filter, add_lazy_listener]);
+      null,
+      [listener_owner, event_name, filter, add_lazy_listener],
+      undefined,
+      undefined
+    );
   }
 
   addFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, add_lazy_listener) {
@@ -95,7 +115,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, event_name, service_worker_context, filter, add_lazy_listener]);
+      null,
+      [extension_id, event_name, service_worker_context, filter, add_lazy_listener],
+      undefined,
+      undefined
+    );
   }
 
   removeListenerForMainThread(event_listener) {
@@ -104,7 +128,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
       null,
-      [event_listener]);
+      null,
+      [event_listener],
+      undefined,
+      undefined
+    );
   }
 
   removeListenerForServiceWorker(event_listener) {
@@ -113,7 +141,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
       null,
-      [event_listener]);
+      null,
+      [event_listener],
+      undefined,
+      undefined
+    );
   }
 
   removeLazyListenerForMainThread(extension_id, event_name) {
@@ -122,7 +154,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       8,  // ordinal
       extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
       null,
-      [extension_id, event_name]);
+      null,
+      [extension_id, event_name],
+      undefined,
+      undefined
+    );
   }
 
   removeLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name) {
@@ -131,7 +167,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       9,  // ordinal
       extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, worker_scope_url, event_name]);
+      null,
+      [extension_id, worker_scope_url, event_name],
+      undefined,
+      undefined
+    );
   }
 
   removeFilteredListenerForMainThread(listener_owner, event_name, filter, remove_lazy_listener) {
@@ -140,7 +180,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       10,  // ordinal
       extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
       null,
-      [listener_owner, event_name, filter, remove_lazy_listener]);
+      null,
+      [listener_owner, event_name, filter, remove_lazy_listener],
+      undefined,
+      undefined
+    );
   }
 
   removeFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, remove_lazy_listener) {
@@ -149,7 +193,11 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       11,  // ordinal
       extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, event_name, service_worker_context, filter, remove_lazy_listener]);
+      null,
+      [extension_id, event_name, service_worker_context, filter, remove_lazy_listener],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -173,7 +221,7 @@ extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = {
       fields: [
         { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -187,7 +235,7 @@ extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = {
       fields: [
         { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -202,7 +250,7 @@ extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = {
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -218,7 +266,7 @@ extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = {
         { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -235,7 +283,7 @@ extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = {
         { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'add_lazy_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -253,7 +301,7 @@ extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = {
         { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'add_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -267,7 +315,7 @@ extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = {
       fields: [
         { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,7 +329,7 @@ extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = {
       fields: [
         { name: 'event_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -296,7 +344,7 @@ extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = {
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -312,7 +360,7 @@ extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = {
         { name: 'worker_scope_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -329,7 +377,7 @@ extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = {
         { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'remove_lazy_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -347,7 +395,7 @@ extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec =
         { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'remove_lazy_listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

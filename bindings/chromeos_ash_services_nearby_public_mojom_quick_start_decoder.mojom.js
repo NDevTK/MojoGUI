@@ -51,7 +51,11 @@ ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {
       0,  // ordinal
       ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec,
       ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec,
-      [data]);
+      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -89,7 +93,7 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSp
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -101,7 +101,11 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
       safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
-      [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker]);
+      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
+      [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker],
+      undefined,
+      undefined
+    );
   }
 
   clone(receiver) {
@@ -110,7 +114,11 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
       1,  // ordinal
       safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -141,7 +149,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
         { name: 'has_user_gesture', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'originated_from_service_worker', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -155,7 +163,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
         { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'showed_interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,7 +177,7 @@ safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,7 +228,11 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
       safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
-      []);
+      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -243,7 +255,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -256,7 +268,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
       fields: [
         { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,7 +319,11 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
       safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
-      [url, request_type]);
+      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
+      [url, request_type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -332,7 +348,7 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -346,7 +362,7 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec =
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -397,7 +413,11 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
       null,
-      [region, tflite_model, image_embedding_model]);
+      null,
+      [region, tflite_model, image_embedding_model],
+      undefined,
+      undefined
+    );
   }
 
   attachImageEmbeddingModel(image_embedding_model) {
@@ -406,7 +426,11 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       1,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
-      [image_embedding_model]);
+      null,
+      [image_embedding_model],
+      undefined,
+      undefined
+    );
   }
 
   setPhishingFlatBufferModel(region, tflite_model) {
@@ -415,7 +439,11 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       2,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
-      [region, tflite_model]);
+      null,
+      [region, tflite_model],
+      undefined,
+      undefined
+    );
   }
 
   clearScorer() {
@@ -424,7 +452,11 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       3,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setTestObserver(observer) {
@@ -433,7 +465,11 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       4,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -459,7 +495,7 @@ safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferMo
         { name: 'tflite_model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'image_embedding_model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -473,7 +509,7 @@ safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
       fields: [
         { name: 'image_embedding_model', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -488,7 +524,7 @@ safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = 
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'tflite_model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -501,7 +537,7 @@ safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -515,7 +551,7 @@ safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -566,7 +602,11 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -589,7 +629,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -640,7 +680,11 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
       safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
-      [url]);
+      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -664,7 +708,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -678,7 +722,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponsePa
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'image_embedding_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -729,7 +773,11 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
       null,
-      [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type]);
+      null,
+      [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type],
+      undefined,
+      undefined
+    );
   }
 
   clone(receiver) {
@@ -738,7 +786,11 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
       1,  // ordinal
       safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -765,7 +817,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = 
         { name: 'protocol_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'contact_initiator_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -779,7 +831,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

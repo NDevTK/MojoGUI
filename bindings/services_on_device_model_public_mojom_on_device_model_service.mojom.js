@@ -143,7 +143,11 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
       on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
-      [params, model]);
+      on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
+      [params, model],
+      undefined,
+      undefined
+    );
   }
 
   getCapabilities(weights) {
@@ -152,7 +156,11 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       1,  // ordinal
       on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
       on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
-      [weights]);
+      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
+      [weights],
+      undefined,
+      undefined
+    );
   }
 
   loadTextSafetyModel(params, model) {
@@ -161,7 +169,11 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       2,  // ordinal
       on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
       null,
-      [params, model]);
+      null,
+      [params, model],
+      undefined,
+      undefined
+    );
   }
 
   getDeviceAndPerformanceInfo() {
@@ -170,7 +182,11 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       3,  // ordinal
       on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
       on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      []);
+      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -195,7 +211,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -208,7 +224,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,7 +238,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
       fields: [
         { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -235,7 +251,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = 
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,7 +266,7 @@ on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -263,7 +279,7 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -277,7 +293,7 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseP
         { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

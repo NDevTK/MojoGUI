@@ -50,7 +50,11 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setIsShowingDownloadButtonInErrorPage(showing_download_button) {
@@ -59,7 +63,11 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
-      [showing_download_button]);
+      null,
+      [showing_download_button],
+      undefined,
+      undefined
+    );
   }
 
   showPortalSignin() {
@@ -68,7 +76,11 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -105,7 +117,7 @@ chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpe
       fields: [
         { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +130,7 @@ chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

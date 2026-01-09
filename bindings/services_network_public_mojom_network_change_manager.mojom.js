@@ -110,7 +110,11 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
       null,
-      [type]);
+      null,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
   onNetworkChanged(type) {
@@ -119,7 +123,11 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
       null,
-      [type]);
+      null,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -143,7 +151,7 @@ network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,7 +165,7 @@ network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,7 +216,11 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [client_remote]);
+      null,
+      [client_remote],
+      undefined,
+      undefined
+    );
   }
 
   onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype) {
@@ -217,7 +229,11 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
       null,
-      [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype]);
+      null,
+      [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype],
+      undefined,
+      undefined
+    );
   }
 
   bindNetworkInterfaceChangeListener(notifier) {
@@ -226,7 +242,11 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
       null,
-      [notifier]);
+      null,
+      [notifier],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -250,7 +270,7 @@ network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
       fields: [
         { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,7 +289,7 @@ network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
         { name: 'connection_subtype_changed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'new_connection_subtype', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -283,7 +303,7 @@ network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec
       fields: [
         { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -90,7 +90,11 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemoteCallHandler = 
       0,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      [config]);
+      null,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -114,7 +118,7 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdat
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,7 +169,11 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverRemoteCallHandler = class 
       0,  // ordinal
       ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -188,7 +196,7 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpda
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,7 +247,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       0,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec,
-      [source]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   isCustomizationAllowedByPolicy() {
@@ -248,7 +260,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       1,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec,
-      []);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getMetaKeyToDisplay() {
@@ -257,7 +273,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       2,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      []);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getConflictAccelerator(source, action_id, accelerator) {
@@ -266,7 +286,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       3,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec,
-      [source, action_id, accelerator]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec,
+      [source, action_id, accelerator],
+      undefined,
+      undefined
+    );
   }
 
   getDefaultAcceleratorsForId(action_id) {
@@ -275,7 +299,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       4,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec,
-      [action_id]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec,
+      [action_id],
+      undefined,
+      undefined
+    );
   }
 
   getAccelerators() {
@@ -284,7 +312,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       5,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec,
-      []);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addObserver(observer) {
@@ -293,7 +325,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       6,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   addPolicyObserver(observer) {
@@ -302,7 +338,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       7,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   getAcceleratorLayoutInfos() {
@@ -311,7 +351,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       8,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec,
-      []);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   preventProcessingAccelerators(prevent_processing_accelerators) {
@@ -320,7 +364,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       9,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec,
       null,
-      [prevent_processing_accelerators]);
+      null,
+      [prevent_processing_accelerators],
+      undefined,
+      undefined
+    );
   }
 
   addAccelerator(source, action_id, accelerator) {
@@ -329,7 +377,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       10,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec,
-      [source, action_id, accelerator]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec,
+      [source, action_id, accelerator],
+      undefined,
+      undefined
+    );
   }
 
   removeAccelerator(source, action_id, accelerator) {
@@ -338,7 +390,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       11,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec,
-      [source, action_id, accelerator]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec,
+      [source, action_id, accelerator],
+      undefined,
+      undefined
+    );
   }
 
   replaceAccelerator(source, action_id, old_accelerator, new_accelerator) {
@@ -347,7 +403,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       12,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec,
-      [source, action_id, old_accelerator, new_accelerator]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec,
+      [source, action_id, old_accelerator, new_accelerator],
+      undefined,
+      undefined
+    );
   }
 
   restoreDefault(source, action_id) {
@@ -356,7 +416,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       13,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec,
-      [source, action_id]);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec,
+      [source, action_id],
+      undefined,
+      undefined
+    );
   }
 
   restoreAllDefaults() {
@@ -365,7 +429,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       14,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec,
-      []);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   recordUserAction(user_action) {
@@ -374,7 +442,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       15,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec,
       null,
-      [user_action]);
+      null,
+      [user_action],
+      undefined,
+      undefined
+    );
   }
 
   recordMainCategoryNavigation(category) {
@@ -383,7 +455,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       16,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec,
       null,
-      [category]);
+      null,
+      [category],
+      undefined,
+      undefined
+    );
   }
 
   recordEditDialogCompletedActions(completed_actions) {
@@ -392,7 +468,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       17,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec,
       null,
-      [completed_actions]);
+      null,
+      [completed_actions],
+      undefined,
+      undefined
+    );
   }
 
   recordAddOrEditSubactions(is_add, subactions) {
@@ -401,7 +481,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       18,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec,
       null,
-      [is_add, subactions]);
+      null,
+      [is_add, subactions],
+      undefined,
+      undefined
+    );
   }
 
   hasCustomAccelerators() {
@@ -410,7 +494,11 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       19,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec,
-      []);
+      ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -434,7 +522,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_Para
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -447,7 +535,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_Resp
       fields: [
         { name: 'is_mutable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -460,7 +548,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizatio
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -473,7 +561,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizatio
       fields: [
         { name: 'is_customization_allowed_by_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -486,7 +574,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDi
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -499,7 +587,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDi
       fields: [
         { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -515,7 +603,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAcc
         { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'accelerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -528,7 +616,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAcc
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -542,7 +630,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcce
       fields: [
         { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -555,7 +643,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcce
       fields: [
         { name: 'accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -568,7 +656,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -581,7 +669,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -595,7 +683,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_Pa
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -609,7 +697,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObser
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -622,7 +710,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -635,7 +723,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerator
       fields: [
         { name: 'layout_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -649,7 +737,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcess
       fields: [
         { name: 'prevent_processing_accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -665,7 +753,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator
         { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'accelerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -678,7 +766,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -694,7 +782,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelera
         { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'accelerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -707,7 +795,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelera
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -724,7 +812,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAcceler
         { name: 'old_accelerator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_accelerator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -737,7 +825,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAcceler
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -752,7 +840,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -765,7 +853,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -778,7 +866,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -791,7 +879,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefa
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -805,7 +893,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserActi
       fields: [
         { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -819,7 +907,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCate
       fields: [
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -833,7 +921,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDial
       fields: [
         { name: 'completed_actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -848,7 +936,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEdi
         { name: 'is_add', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'subactions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -861,7 +949,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccel
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -874,7 +962,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccel
       fields: [
         { name: 'has_custom_accelerators', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

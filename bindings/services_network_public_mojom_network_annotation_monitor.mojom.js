@@ -50,7 +50,11 @@ network.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
       null,
-      [hash_code]);
+      null,
+      [hash_code],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
       fields: [
         { name: 'hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

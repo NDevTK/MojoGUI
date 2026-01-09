@@ -65,7 +65,11 @@ image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
       0,  // ordinal
       image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec,
       image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
-      []);
+      image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -88,7 +92,7 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -103,7 +107,7 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = {
         { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -154,7 +158,11 @@ image_annotation.mojom.AnnotatorRemoteCallHandler = class {
       0,  // ordinal
       image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec,
       image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
-      [source_id, description_language_tag, image_processor]);
+      image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
+      [source_id, description_language_tag, image_processor],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -180,7 +188,7 @@ image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = {
         { name: 'description_language_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'image_processor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -193,7 +201,7 @@ image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,7 +252,11 @@ image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
       0,  // ordinal
       image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -268,7 +280,7 @@ image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -58,7 +58,11 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onNetworkEvent(event) {
@@ -67,7 +71,11 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   onConnectionFailed() {
@@ -76,7 +84,11 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -99,7 +111,7 @@ network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -113,7 +125,7 @@ network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +138,7 @@ network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -50,7 +50,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   triggerFormExtractionWithResponse() {
@@ -59,7 +63,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec,
       autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec,
-      []);
+      autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   applyFieldsAction(action_type, action_persistence, fields, fill_id, supports_refill) {
@@ -68,7 +76,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec,
       null,
-      [action_type, action_persistence, fields, fill_id, supports_refill]);
+      null,
+      [action_type, action_persistence, fields, fill_id, supports_refill],
+      undefined,
+      undefined
+    );
   }
 
   applyFieldAction(action_type, action_persistence, field, value) {
@@ -77,7 +89,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec,
       null,
-      [action_type, action_persistence, field, value]);
+      null,
+      [action_type, action_persistence, field, value],
+      undefined,
+      undefined
+    );
   }
 
   extractFormWithField(field_id) {
@@ -86,7 +102,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec,
       autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec,
-      [field_id]);
+      autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec,
+      [field_id],
+      undefined,
+      undefined
+    );
   }
 
   extractLabeledTextNodeValue(value_regex, label_regex, number_of_ancestor_levels_to_search) {
@@ -95,7 +115,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec,
       autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec,
-      [value_regex, label_regex, number_of_ancestor_levels_to_search]);
+      autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec,
+      [value_regex, label_regex, number_of_ancestor_levels_to_search],
+      undefined,
+      undefined
+    );
   }
 
   fieldTypePredictionsAvailable(forms) {
@@ -104,7 +128,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec,
       null,
-      [forms]);
+      null,
+      [forms],
+      undefined,
+      undefined
+    );
   }
 
   exposeDomNodeIds() {
@@ -113,7 +141,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   clearPreviewedForm() {
@@ -122,7 +154,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       8,  // ordinal
       autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   triggerSuggestions(field, trigger_source) {
@@ -131,7 +167,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       9,  // ordinal
       autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec,
       null,
-      [field, trigger_source]);
+      null,
+      [field, trigger_source],
+      undefined,
+      undefined
+    );
   }
 
   setSuggestionAvailability(field, suggestion_availability) {
@@ -140,7 +180,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       10,  // ordinal
       autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec,
       null,
-      [field, suggestion_availability]);
+      null,
+      [field, suggestion_availability],
+      undefined,
+      undefined
+    );
   }
 
   acceptDataListSuggestion(field, value) {
@@ -149,7 +193,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       11,  // ordinal
       autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec,
       null,
-      [field, value]);
+      null,
+      [field, value],
+      undefined,
+      undefined
+    );
   }
 
   previewPasswordSuggestion(username, password) {
@@ -158,7 +206,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       12,  // ordinal
       autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec,
       null,
-      [username, password]);
+      null,
+      [username, password],
+      undefined,
+      undefined
+    );
   }
 
   previewPasswordGenerationSuggestion(password) {
@@ -167,7 +219,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       13,  // ordinal
       autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec,
       null,
-      [password]);
+      null,
+      [password],
+      undefined,
+      undefined
+    );
   }
 
   getPotentialLastFourCombinationsForStandaloneCvc() {
@@ -176,7 +232,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       14,  // ordinal
       autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec,
       autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec,
-      []);
+      autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   dispatchEmailVerifiedEvent(field_id, presentation_token) {
@@ -185,7 +245,11 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
       15,  // ordinal
       autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec,
       null,
-      [field_id, presentation_token]);
+      null,
+      [field_id, presentation_token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -208,7 +272,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -221,7 +285,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,7 +298,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpe
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +316,7 @@ autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec = {
         { name: 'fill_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'supports_refill', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -269,7 +333,7 @@ autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec = {
         { name: 'field', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -283,7 +347,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec = {
       fields: [
         { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -296,7 +360,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec = {
       fields: [
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -312,7 +376,7 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec = {
         { name: 'label_regex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'number_of_ancestor_levels_to_search', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -325,7 +389,7 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -339,7 +403,7 @@ autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec = {
       fields: [
         { name: 'forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -352,7 +416,7 @@ autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -365,7 +429,7 @@ autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -380,7 +444,7 @@ autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec = {
         { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trigger_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -395,7 +459,7 @@ autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec = {
         { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'suggestion_availability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -410,7 +474,7 @@ autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec = {
         { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -425,7 +489,7 @@ autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec = {
         { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -439,7 +503,7 @@ autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec = {
       fields: [
         { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -452,7 +516,7 @@ autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -465,7 +529,7 @@ autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Re
       fields: [
         { name: 'potential_matches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -480,7 +544,7 @@ autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec = {
         { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'presentation_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -531,7 +595,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec,
       null,
-      [form_data]);
+      null,
+      [form_data],
+      undefined,
+      undefined
+    );
   }
 
   fillPasswordSuggestion(username, password) {
@@ -540,7 +608,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec,
       autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec,
-      [username, password]);
+      autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec,
+      [username, password],
+      undefined,
+      undefined
+    );
   }
 
   fillPasswordSuggestionById(username_element_id, password_element_id, username, password, suggestion_source) {
@@ -549,7 +621,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec,
       null,
-      [username_element_id, password_element_id, username, password, suggestion_source]);
+      null,
+      [username_element_id, password_element_id, username, password, suggestion_source],
+      undefined,
+      undefined
+    );
   }
 
   previewPasswordSuggestionById(username_element_id, password_element_id, username, password) {
@@ -558,7 +634,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec,
       null,
-      [username_element_id, password_element_id, username, password]);
+      null,
+      [username_element_id, password_element_id, username, password],
+      undefined,
+      undefined
+    );
   }
 
   informNoSavedCredentials(should_show_popup_without_passwords) {
@@ -567,7 +647,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec,
       null,
-      [should_show_popup_without_passwords]);
+      null,
+      [should_show_popup_without_passwords],
+      undefined,
+      undefined
+    );
   }
 
   fillIntoFocusedField(is_password, credential) {
@@ -576,7 +660,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec,
       null,
-      [is_password, credential]);
+      null,
+      [is_password, credential],
+      undefined,
+      undefined
+    );
   }
 
   previewField(field_id, value) {
@@ -585,7 +673,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec,
       null,
-      [field_id, value]);
+      null,
+      [field_id, value],
+      undefined,
+      undefined
+    );
   }
 
   fillField(field_id, value, field_properties) {
@@ -594,7 +686,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec,
       autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec,
-      [field_id, value, field_properties]);
+      autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec,
+      [field_id, value, field_properties],
+      undefined,
+      undefined
+    );
   }
 
   fillChangePasswordForm(password_element_id, new_password_element_id, confirm_password_element_id, old_password, new_password) {
@@ -603,7 +699,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       8,  // ordinal
       autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec,
       autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec,
-      [password_element_id, new_password_element_id, confirm_password_element_id, old_password, new_password]);
+      autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec,
+      [password_element_id, new_password_element_id, confirm_password_element_id, old_password, new_password],
+      undefined,
+      undefined
+    );
   }
 
   setLoggingState(active) {
@@ -612,7 +712,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       9,  // ordinal
       autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec,
       null,
-      [active]);
+      null,
+      [active],
+      undefined,
+      undefined
+    );
   }
 
   triggerFormSubmission() {
@@ -621,7 +725,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       10,  // ordinal
       autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   annotateFieldsWithParsingResult(parsing_result) {
@@ -630,7 +738,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       11,  // ordinal
       autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec,
       null,
-      [parsing_result]);
+      null,
+      [parsing_result],
+      undefined,
+      undefined
+    );
   }
 
   checkViewAreaVisible(field_id) {
@@ -639,7 +751,11 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
       12,  // ordinal
       autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec,
       autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec,
-      [field_id]);
+      autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec,
+      [field_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -663,7 +779,7 @@ autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -678,7 +794,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec = {
         { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -691,7 +807,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec =
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -709,7 +825,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec = {
         { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'suggestion_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -726,7 +842,7 @@ autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec = 
         { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -740,7 +856,7 @@ autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec = {
       fields: [
         { name: 'should_show_popup_without_passwords', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -755,7 +871,7 @@ autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec = {
         { name: 'is_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -770,7 +886,7 @@ autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec = {
         { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -786,7 +902,7 @@ autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec = {
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'field_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -799,7 +915,7 @@ autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -817,7 +933,7 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec = {
         { name: 'old_password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -830,7 +946,7 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec =
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -844,7 +960,7 @@ autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec = {
       fields: [
         { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -857,7 +973,7 @@ autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -871,7 +987,7 @@ autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec 
       fields: [
         { name: 'parsing_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -885,7 +1001,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = {
       fields: [
         { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -898,7 +1014,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = {
       fields: [
         { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -949,7 +1065,11 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec,
       null,
-      [generated_password]);
+      null,
+      [generated_password],
+      undefined,
+      undefined
+    );
   }
 
   generatedPasswordRejected() {
@@ -958,7 +1078,11 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   triggeredGeneratePassword() {
@@ -967,7 +1091,11 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec,
       autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec,
-      []);
+      autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   foundFormEligibleForGeneration(form) {
@@ -976,7 +1104,11 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec,
       null,
-      [form]);
+      null,
+      [form],
+      undefined,
+      undefined
+    );
   }
 
   focusNextFieldAfterPasswords() {
@@ -985,7 +1117,11 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1009,7 +1145,7 @@ autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec = {
       fields: [
         { name: 'generated_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1022,7 +1158,7 @@ autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1035,7 +1171,7 @@ autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1048,7 +1184,7 @@ autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsS
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1062,7 +1198,7 @@ autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec
       fields: [
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1075,7 +1211,7 @@ autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

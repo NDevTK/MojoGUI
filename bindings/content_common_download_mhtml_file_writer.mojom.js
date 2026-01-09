@@ -62,7 +62,11 @@ content.mojom.MhtmlFileWriterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
       content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
-      [params]);
+      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -86,7 +90,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -100,7 +104,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

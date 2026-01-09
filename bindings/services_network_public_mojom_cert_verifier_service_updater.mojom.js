@@ -50,7 +50,11 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
       null,
-      [certificates]);
+      null,
+      [certificates],
+      undefined,
+      undefined
+    );
   }
 
   waitUntilNextUpdateForTesting() {
@@ -59,7 +63,11 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
       1,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setCTPolicy(ct_policy) {
@@ -68,7 +76,11 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
       2,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec,
       null,
-      [ct_policy]);
+      null,
+      [ct_policy],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Para
       fields: [
         { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,7 +117,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -119,7 +131,7 @@ cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
       fields: [
         { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

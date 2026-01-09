@@ -57,7 +57,11 @@ webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
       webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
-      [options]);
+      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -94,7 +98,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

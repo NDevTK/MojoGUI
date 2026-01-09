@@ -51,7 +51,11 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
       0,  // ordinal
       components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
       null,
-      [blocked]);
+      null,
+      [blocked],
+      undefined,
+      undefined
+    );
   }
 
   setBackgroundVideoPlaybackEnabled(enabled) {
@@ -60,7 +64,11 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
       1,  // ordinal
       components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   setRendererType(type) {
@@ -69,7 +77,11 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
       2,  // ordinal
       components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
       null,
-      [type]);
+      null,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -93,7 +105,7 @@ components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Param
       fields: [
         { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -107,7 +119,7 @@ components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEn
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,7 +133,7 @@ components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec =
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

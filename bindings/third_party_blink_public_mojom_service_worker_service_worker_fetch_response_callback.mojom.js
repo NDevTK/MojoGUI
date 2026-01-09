@@ -50,7 +50,11 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
-      [response, timing]);
+      null,
+      [response, timing],
+      undefined,
+      undefined
+    );
   }
 
   onResponseStream(response, body_as_stream, timing) {
@@ -59,7 +63,11 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
-      [response, body_as_stream, timing]);
+      null,
+      [response, body_as_stream, timing],
+      undefined,
+      undefined
+    );
   }
 
   onFallback(request_body, timing) {
@@ -68,7 +76,11 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
-      [request_body, timing]);
+      null,
+      [request_body, timing],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -93,7 +105,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,7 +121,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
         { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -124,7 +136,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
         { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

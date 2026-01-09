@@ -66,7 +66,11 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -90,7 +94,7 @@ ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,7 +145,11 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
       null,
-      [metadata]);
+      null,
+      [metadata],
+      undefined,
+      undefined
+    );
   }
 
   onActivationFinished(result) {
@@ -150,7 +158,11 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
       1,  // ordinal
       ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -174,7 +186,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -188,7 +200,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -239,7 +251,11 @@ ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec,
       ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
-      [delegate]);
+      ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
+      [delegate],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -263,7 +279,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
       fields: [
         { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -276,7 +292,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

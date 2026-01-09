@@ -70,7 +70,11 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
-      [action]);
+      null,
+      [action],
+      undefined,
+      undefined
+    );
   }
 
   contextMenuClosed(link_followed, impression) {
@@ -79,7 +83,11 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
-      [link_followed, impression]);
+      null,
+      [link_followed, impression],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -103,7 +111,7 @@ blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +126,7 @@ blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
         { name: 'link_followed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

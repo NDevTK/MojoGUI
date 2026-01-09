@@ -50,7 +50,11 @@ webui_examples.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       webui_examples.mojom.PageHandler_Navigate_ParamsSpec,
       null,
-      [guest_contents_id, src]);
+      null,
+      [guest_contents_id, src],
+      undefined,
+      undefined
+    );
   }
 
   goBack(guest_contents_id) {
@@ -134,7 +142,11 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       webui_examples.mojom.PageHandler_GoBack_ParamsSpec,
       null,
-      [guest_contents_id]);
+      null,
+      [guest_contents_id],
+      undefined,
+      undefined
+    );
   }
 
   goForward(guest_contents_id) {
@@ -143,7 +155,11 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       webui_examples.mojom.PageHandler_GoForward_ParamsSpec,
       null,
-      [guest_contents_id]);
+      null,
+      [guest_contents_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -168,7 +184,7 @@ webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
         { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'src', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -182,7 +198,7 @@ webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
       fields: [
         { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,7 +212,7 @@ webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
       fields: [
         { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

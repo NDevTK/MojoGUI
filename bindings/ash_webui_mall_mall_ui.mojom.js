@@ -51,7 +51,11 @@ ash.mall.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
       ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
-      [path]);
+      ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
+      [path],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -88,7 +92,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

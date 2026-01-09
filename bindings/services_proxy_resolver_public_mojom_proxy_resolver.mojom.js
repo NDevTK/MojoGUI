@@ -73,7 +73,11 @@ proxy_resolver.mojom.HostResolverRequestClientRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      [error, result]);
+      null,
+      [error, result],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -98,7 +102,7 @@ proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,7 +153,11 @@ proxy_resolver.mojom.ProxyResolverRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec,
       null,
-      [url, network_anonymization_key, client]);
+      null,
+      [url, network_anonymization_key, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -175,7 +183,7 @@ proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = {
         { name: 'network_anonymization_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -226,7 +234,11 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      [error, proxy_info]);
+      null,
+      [error, proxy_info],
+      undefined,
+      undefined
+    );
   }
 
   alert(error) {
@@ -235,7 +247,11 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       1,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec,
       null,
-      [error]);
+      null,
+      [error],
+      undefined,
+      undefined
+    );
   }
 
   onError(line_number, error) {
@@ -244,7 +260,11 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       2,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec,
       null,
-      [line_number, error]);
+      null,
+      [line_number, error],
+      undefined,
+      undefined
+    );
   }
 
   resolveDns(host, operation, network_anonymization_key, client) {
@@ -253,7 +273,11 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       3,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec,
       null,
-      [host, operation, network_anonymization_key, client]);
+      null,
+      [host, operation, network_anonymization_key, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -278,7 +302,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'proxy_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -292,7 +316,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,7 +331,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec = {
         { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -324,7 +348,7 @@ proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = {
         { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -375,7 +399,11 @@ proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec,
       null,
-      [pac_script, receiver, client]);
+      null,
+      [pac_script, receiver, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -401,7 +429,7 @@ proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec = {
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -452,7 +480,11 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec,
       null,
-      [error]);
+      null,
+      [error],
+      undefined,
+      undefined
+    );
   }
 
   alert(error) {
@@ -461,7 +493,11 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       1,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec,
       null,
-      [error]);
+      null,
+      [error],
+      undefined,
+      undefined
+    );
   }
 
   onError(line_number, error) {
@@ -470,7 +506,11 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       2,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec,
       null,
-      [line_number, error]);
+      null,
+      [line_number, error],
+      undefined,
+      undefined
+    );
   }
 
   resolveDns(host, operation, network_anonymization_key, client) {
@@ -479,7 +519,11 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       3,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec,
       null,
-      [host, operation, network_anonymization_key, client]);
+      null,
+      [host, operation, network_anonymization_key, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -503,7 +547,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec =
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -517,7 +561,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -532,7 +576,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec = {
         { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -549,7 +593,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec = {
         { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -600,7 +644,11 @@ proxy_resolver.mojom.SystemProxyResolverRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec,
       proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec,
-      [url]);
+      proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -624,7 +672,7 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -638,7 +686,7 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = {
         { name: 'proxy_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

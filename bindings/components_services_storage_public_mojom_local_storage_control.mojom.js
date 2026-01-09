@@ -50,7 +50,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
       null,
-      [storage_key, receiver]);
+      null,
+      [storage_key, receiver],
+      undefined,
+      undefined
+    );
   }
 
   getUsage() {
@@ -59,7 +63,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.LocalStorageControl_GetUsage_ParamsSpec,
       storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
-      []);
+      storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   deleteStorage(storage_key) {
@@ -68,7 +76,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
       null,
-      [storage_key]);
+      null,
+      [storage_key],
+      undefined,
+      undefined
+    );
   }
 
   cleanUpStorage() {
@@ -77,7 +89,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   flush() {
@@ -86,7 +102,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.LocalStorageControl_Flush_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   purgeMemory() {
@@ -95,7 +115,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -104,7 +128,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [policy_updates]);
+      null,
+      [policy_updates],
+      undefined,
+      undefined
+    );
   }
 
   forceKeepSessionState() {
@@ -113,7 +141,11 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -138,7 +170,7 @@ storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = {
         { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,7 +183,7 @@ storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -164,7 +196,7 @@ storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +210,7 @@ storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = {
       fields: [
         { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,7 +223,7 @@ storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -204,7 +236,7 @@ storage.mojom.LocalStorageControl_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -217,7 +249,7 @@ storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -231,7 +263,7 @@ storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       fields: [
         { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,7 +276,7 @@ storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

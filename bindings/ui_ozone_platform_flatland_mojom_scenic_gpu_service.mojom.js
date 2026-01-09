@@ -50,7 +50,11 @@ ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
       0,  // ordinal
       ui.mojom.ScenicGpuService_Initialize_ParamsSpec,
       null,
-      [scenic_gpu_host]);
+      null,
+      [scenic_gpu_host],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
       fields: [
         { name: 'scenic_gpu_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

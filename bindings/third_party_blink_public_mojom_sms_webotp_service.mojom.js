@@ -60,7 +60,11 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebOTPService_Receive_ParamsSpec,
       blink.mojom.WebOTPService_Receive_ResponseParamsSpec,
-      []);
+      blink.mojom.WebOTPService_Receive_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   abort() {
@@ -69,7 +73,11 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebOTPService_Abort_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +100,7 @@ blink.mojom.WebOTPService_Receive_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -106,7 +114,7 @@ blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'otp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -119,7 +127,7 @@ blink.mojom.WebOTPService_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

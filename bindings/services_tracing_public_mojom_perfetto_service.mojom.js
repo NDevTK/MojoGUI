@@ -71,7 +71,11 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.ProducerHost_CommitData_ParamsSpec,
       null,
-      [data_request]);
+      null,
+      [data_request],
+      undefined,
+      undefined
+    );
   }
 
   registerDataSource(registration_info) {
@@ -80,7 +84,11 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
       null,
-      [registration_info]);
+      null,
+      [registration_info],
+      undefined,
+      undefined
+    );
   }
 
   updateDataSource(registration_info) {
@@ -89,7 +97,11 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
       null,
-      [registration_info]);
+      null,
+      [registration_info],
+      undefined,
+      undefined
+    );
   }
 
   registerTraceWriter(writer_id, target_buffer) {
@@ -98,7 +110,11 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       3,  // ordinal
       tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
       null,
-      [writer_id, target_buffer]);
+      null,
+      [writer_id, target_buffer],
+      undefined,
+      undefined
+    );
   }
 
   unregisterTraceWriter(writer_id) {
@@ -107,7 +123,11 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       4,  // ordinal
       tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
       null,
-      [writer_id]);
+      null,
+      [writer_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -131,7 +151,7 @@ tracing.mojom.ProducerHost_CommitData_ParamsSpec = {
       fields: [
         { name: 'data_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -145,7 +165,7 @@ tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec = {
       fields: [
         { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -159,7 +179,7 @@ tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec = {
       fields: [
         { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -174,7 +194,7 @@ tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec = {
         { name: 'writer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'target_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -188,7 +208,7 @@ tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec = {
       fields: [
         { name: 'writer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -239,7 +259,11 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startDataSource(id, data_source_config) {
@@ -248,7 +272,11 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       null,
-      [id, data_source_config]);
+      null,
+      [id, data_source_config],
+      undefined,
+      undefined
+    );
   }
 
   stopDataSource(id) {
@@ -257,7 +285,11 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   flush(flush_request_id, data_source_ids) {
@@ -266,7 +298,11 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       3,  // ordinal
       tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
-      [flush_request_id, data_source_ids]);
+      null,
+      [flush_request_id, data_source_ids],
+      undefined,
+      undefined
+    );
   }
 
   clearIncrementalState() {
@@ -275,7 +311,11 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       4,  // ordinal
       tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -298,7 +338,7 @@ tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -313,7 +353,7 @@ tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'data_source_config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -327,7 +367,7 @@ tracing.mojom.ProducerClient_StopDataSource_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -342,7 +382,7 @@ tracing.mojom.ProducerClient_Flush_ParamsSpec = {
         { name: 'flush_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'data_source_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -355,7 +395,7 @@ tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -406,7 +446,11 @@ tracing.mojom.PerfettoServiceRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
       null,
-      [producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes]);
+      null,
+      [producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -433,7 +477,7 @@ tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec = {
         { name: 'shared_memory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shared_memory_buffer_page_size_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -484,7 +528,11 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec,
       null,
-      [tracing_session_host, tracing_session_client, config, output_file]);
+      null,
+      [tracing_session_host, tracing_session_client, config, output_file],
+      undefined,
+      undefined
+    );
   }
 
   cloneSession(tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled) {
@@ -493,7 +541,11 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
       tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
-      [tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled]);
+      tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
+      [tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -520,7 +572,7 @@ tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec = {
         { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -537,7 +589,7 @@ tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
         { name: 'unguessable_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'privacy_filtering_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -552,7 +604,7 @@ tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -603,7 +655,11 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
       null,
-      [config]);
+      null,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
   disableTracing() {
@@ -612,7 +668,11 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   readBuffers(stream) {
@@ -621,7 +681,11 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
       null,
-      [stream]);
+      null,
+      [stream],
+      undefined,
+      undefined
+    );
   }
 
   requestBufferUsage() {
@@ -630,7 +694,11 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       3,  // ordinal
       tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
       tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
-      []);
+      tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   disableTracingAndEmitJson(agent_label_filter, stream, privacy_filtering_enabled) {
@@ -639,7 +707,11 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       4,  // ordinal
       tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
       null,
-      [agent_label_filter, stream, privacy_filtering_enabled]);
+      null,
+      [agent_label_filter, stream, privacy_filtering_enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -663,7 +735,7 @@ tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -676,7 +748,7 @@ tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -690,7 +762,7 @@ tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec = {
       fields: [
         { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -703,7 +775,7 @@ tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -718,7 +790,7 @@ tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
         { name: 'percent_full', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'data_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -734,7 +806,7 @@ tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec = {
         { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'privacy_filtering_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -785,7 +857,11 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onTracingDisabled(tracing_succeeded) {
@@ -794,7 +870,11 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
       null,
-      [tracing_succeeded]);
+      null,
+      [tracing_succeeded],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -817,7 +897,7 @@ tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -831,7 +911,7 @@ tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec = {
       fields: [
         { name: 'tracing_succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

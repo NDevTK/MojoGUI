@@ -50,7 +50,11 @@ blink.mojom.ReportingObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ReportingObserver_Notify_ParamsSpec,
       null,
-      [report]);
+      null,
+      [report],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.ReportingObserver_Notify_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

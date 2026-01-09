@@ -56,7 +56,11 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   onComplete(success) {
@@ -65,7 +69,11 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
       null,
-      [success]);
+      null,
+      [success],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +97,7 @@ sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -103,7 +111,7 @@ sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,7 +162,11 @@ sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -177,7 +189,7 @@ sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -228,7 +240,11 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
       sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
-      [self_id, peer_id, location_hint, message]);
+      sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
+      [self_id, peer_id, location_hint, message],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   startReceivingMessages(self_id, location_hint, listener) {
@@ -237,7 +253,11 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
       sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
-      [self_id, location_hint, listener]);
+      sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
+      [self_id, location_hint, listener],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -264,7 +284,7 @@ sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
         { name: 'location_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -277,7 +297,7 @@ sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -293,7 +313,7 @@ sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
         { name: 'location_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -307,7 +327,7 @@ sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

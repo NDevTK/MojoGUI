@@ -51,7 +51,11 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec,
       ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
-      []);
+      ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   processModuleClick() {
@@ -60,7 +64,11 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   dismissModule() {
@@ -69,7 +77,11 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   restoreModule() {
@@ -78,7 +90,11 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -101,7 +117,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -114,7 +130,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = {
       fields: [
         { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,7 +143,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -140,7 +156,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -153,7 +169,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

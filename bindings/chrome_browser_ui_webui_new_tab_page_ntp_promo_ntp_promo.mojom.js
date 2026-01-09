@@ -57,7 +57,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onPromosShown(eligible_shown, completed_shown) {
@@ -66,7 +70,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec,
       null,
-      [eligible_shown, completed_shown]);
+      null,
+      [eligible_shown, completed_shown],
+      undefined,
+      undefined
+    );
   }
 
   onPromoClicked(promo_id) {
@@ -75,7 +83,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec,
       null,
-      [promo_id]);
+      null,
+      [promo_id],
+      undefined,
+      undefined
+    );
   }
 
   snoozeSetupList() {
@@ -84,7 +96,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   unsnoozeSetupList() {
@@ -93,7 +109,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       4,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   disableSetupList() {
@@ -102,7 +122,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       5,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   undisableSetupList() {
@@ -111,7 +135,11 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
       6,  // ordinal
       ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -134,7 +162,7 @@ ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -149,7 +177,7 @@ ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
         { name: 'eligible_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'completed_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -163,7 +191,7 @@ ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
       fields: [
         { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -176,7 +204,7 @@ ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -189,7 +217,7 @@ ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -202,7 +230,7 @@ ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -215,7 +243,7 @@ ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -266,7 +294,11 @@ ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
       0,  // ordinal
       ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec,
       null,
-      [eligible, completed]);
+      null,
+      [eligible, completed],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -291,7 +323,7 @@ ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
         { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -342,7 +374,11 @@ ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec,
       null,
-      [client, handler]);
+      null,
+      [client, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -367,7 +403,7 @@ ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

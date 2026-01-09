@@ -52,7 +52,11 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       0,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
-      [local_credentials, shared_credentials, public_credential_type]);
+      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
+      [local_credentials, shared_credentials, public_credential_type],
+      undefined,
+      undefined
+    );
   }
 
   getPublicCredentials(public_credential_type) {
@@ -61,7 +65,11 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       1,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
-      [public_credential_type]);
+      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
+      [public_credential_type],
+      undefined,
+      undefined
+    );
   }
 
   getPrivateCredentials() {
@@ -70,7 +78,11 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       2,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
-      []);
+      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateLocalCredential(local_credential) {
@@ -79,7 +91,11 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       3,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
-      [local_credential]);
+      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
+      [local_credential],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -105,7 +121,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Params
         { name: 'shared_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'public_credential_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -118,7 +134,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Respon
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -132,7 +148,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_P
       fields: [
         { name: 'public_credential_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,7 +162,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_R
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shared_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -159,7 +175,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -173,7 +189,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'local_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -187,7 +203,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
       fields: [
         { name: 'local_credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +216,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

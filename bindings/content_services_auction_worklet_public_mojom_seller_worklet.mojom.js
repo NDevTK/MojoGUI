@@ -50,7 +50,11 @@ auction_worklet.mojom.ScoreAdClientRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec,
       null,
-      [score, reject_reason, component_auction_modified_bid_params, bid_in_seller_currency, scoring_signals_data_version, debug_loss_report_url, debug_win_report_url, pa_requests, real_time_contributions, score_ad_timing_metrics, score_ad_dependency_latencies, errors]);
+      null,
+      [score, reject_reason, component_auction_modified_bid_params, bid_in_seller_currency, scoring_signals_data_version, debug_loss_report_url, debug_win_report_url, pa_requests, real_time_contributions, score_ad_timing_metrics, score_ad_dependency_latencies, errors],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -85,7 +89,7 @@ auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec = {
         { name: 'score_ad_dependency_latencies', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'errors', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 104}]
     }
   }
 };
@@ -136,7 +140,11 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec,
       null,
-      [ad_metadata_json, bid, bid_currency, auction_ad_config_non_shared_params, key_value_signals_cache_key, ad, ad_components, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, component_expect_bid_currency, browser_signal_interest_group_owner, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_buyer_and_seller_reporting_id, browser_signal_bidding_duration_msecs, browser_signal_for_debugging_only_in_cooldown_or_lockout, browser_signal_for_debugging_only_sampling, seller_timeout, group_by_origin_id, allow_group_by_origin_mode, trace_id, bidder_joining_origin, score_ad_client]);
+      null,
+      [ad_metadata_json, bid, bid_currency, auction_ad_config_non_shared_params, key_value_signals_cache_key, ad, ad_components, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, component_expect_bid_currency, browser_signal_interest_group_owner, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_buyer_and_seller_reporting_id, browser_signal_bidding_duration_msecs, browser_signal_for_debugging_only_in_cooldown_or_lockout, browser_signal_for_debugging_only_sampling, seller_timeout, group_by_origin_id, allow_group_by_origin_mode, trace_id, bidder_joining_origin, score_ad_client],
+      undefined,
+      undefined
+    );
   }
 
   sendPendingSignalsRequests() {
@@ -145,7 +153,11 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reportResult(auction_ad_config_non_shared_params, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, browser_signal_interest_group_owner, browser_signal_buyer_and_seller_reporting_id, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_desirability, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signals_component_auction_report_result_params, scoring_signals_data_version, trace_id) {
@@ -154,7 +166,11 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
       2,  // ordinal
       auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec,
       auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec,
-      [auction_ad_config_non_shared_params, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, browser_signal_interest_group_owner, browser_signal_buyer_and_seller_reporting_id, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_desirability, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signals_component_auction_report_result_params, scoring_signals_data_version, trace_id]);
+      auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec,
+      [auction_ad_config_non_shared_params, direct_from_seller_seller_signals, direct_from_seller_seller_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, browser_signals_other_seller, browser_signal_interest_group_owner, browser_signal_buyer_and_seller_reporting_id, browser_signal_selected_buyer_and_seller_reporting_id, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_desirability, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signals_component_auction_report_result_params, scoring_signals_data_version, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   connectDevToolsAgent(agent, thread_index) {
@@ -163,7 +179,11 @@ auction_worklet.mojom.SellerWorkletRemoteCallHandler = class {
       3,  // ordinal
       auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec,
       null,
-      [agent, thread_index]);
+      null,
+      [agent, thread_index],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -211,7 +231,7 @@ auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec = {
         { name: 'bidder_joining_origin', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'score_ad_client', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 200}]
     }
   }
 };
@@ -224,7 +244,7 @@ auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -255,7 +275,7 @@ auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec = {
         { name: 'scoring_signals_data_version', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
         { name: 'trace_id', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 152}]
     }
   }
 };
@@ -273,7 +293,7 @@ auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec = {
         { name: 'time_metrics', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msgs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -288,7 +308,7 @@ auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec = {
         { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
         { name: 'thread_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

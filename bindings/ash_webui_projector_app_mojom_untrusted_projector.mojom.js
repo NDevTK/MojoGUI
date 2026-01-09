@@ -51,7 +51,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
-      []);
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   shouldDownloadSoda() {
@@ -60,7 +64,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
-      []);
+      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   installSoda() {
@@ -69,7 +77,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
-      []);
+      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPendingScreencasts() {
@@ -78,7 +90,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
-      []);
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getUserPref(pref) {
@@ -87,7 +103,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
-      [pref]);
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
+      [pref],
+      undefined,
+      undefined
+    );
   }
 
   setUserPref(pref, value) {
@@ -96,7 +116,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
       null,
-      [pref, value]);
+      null,
+      [pref, value],
+      undefined,
+      undefined
+    );
   }
 
   openFeedbackDialog() {
@@ -105,7 +129,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startProjectorSession(storage_dir_name) {
@@ -114,7 +142,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
-      [storage_dir_name]);
+      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
+      [storage_dir_name],
+      undefined,
+      undefined
+    );
   }
 
   sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email) {
@@ -123,7 +155,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
-      [url, method, request_body, use_credentials, use_api_key, headers, account_email]);
+      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
+      [url, method, request_body, use_credentials, use_api_key, headers, account_email],
+      undefined,
+      undefined
+    );
   }
 
   getAccounts() {
@@ -132,7 +168,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
-      []);
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getVideo(video_file_id, resource_key) {
@@ -141,7 +181,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
-      [video_file_id, resource_key]);
+      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
+      [video_file_id, resource_key],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -164,7 +208,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -177,7 +221,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_R
       fields: [
         { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -190,7 +234,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -203,7 +247,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponsePar
       fields: [
         { name: 'should_download', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,7 +260,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -229,7 +273,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec
       fields: [
         { name: 'triggered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -242,7 +286,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -255,7 +299,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_Response
       fields: [
         { name: 'pending_screencasts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,7 +313,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
       fields: [
         { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -282,7 +326,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,7 +341,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
         { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -310,7 +354,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -324,7 +368,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSp
       fields: [
         { name: 'storage_dir_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -337,7 +381,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_Response
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -357,7 +401,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
         { name: 'headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
         { name: 'account_email', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -370,7 +414,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -383,7 +427,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -396,7 +440,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec
       fields: [
         { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -411,7 +455,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = {
         { name: 'video_file_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'resource_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -424,7 +468,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -475,7 +519,11 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       0,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
       null,
-      [precondition]);
+      null,
+      [precondition],
+      undefined,
+      undefined
+    );
   }
 
   onSodaInstallProgressUpdated(progress) {
@@ -484,7 +532,11 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       1,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
       null,
-      [progress]);
+      null,
+      [progress],
+      undefined,
+      undefined
+    );
   }
 
   onSodaInstalled() {
@@ -493,7 +545,11 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       2,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onSodaInstallError() {
@@ -502,7 +558,11 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       3,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onScreencastsStateChange(pending_screencasts) {
@@ -511,7 +571,11 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       4,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
       null,
-      [pending_screencasts]);
+      null,
+      [pending_screencasts],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -535,7 +599,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Pa
       fields: [
         { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -549,7 +613,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSp
       fields: [
         { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -562,7 +626,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -575,7 +639,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -589,7 +653,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec =
       fields: [
         { name: 'pending_screencasts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -640,7 +704,11 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = clas
       0,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
       null,
-      [handler, page]);
+      null,
+      [handler, page],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -665,7 +733,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = {
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

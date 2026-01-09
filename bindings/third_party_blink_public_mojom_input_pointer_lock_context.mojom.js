@@ -50,7 +50,11 @@ blink.mojom.PointerLockContextRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
       blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
-      [unadjusted_movement]);
+      blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
+      [unadjusted_movement],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
       fields: [
         { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

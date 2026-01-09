@@ -157,7 +157,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Authenticator_MakeCredential_ParamsSpec,
       blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
-      [options]);
+      blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   getCredential(options) {
@@ -166,7 +170,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Authenticator_GetCredential_ParamsSpec,
       blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
-      [options]);
+      blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   isUserVerifyingPlatformAuthenticatorAvailable() {
@@ -175,7 +183,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      []);
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   isConditionalMediationAvailable() {
@@ -184,7 +196,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
       blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
-      []);
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   report(options) {
@@ -193,7 +209,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.Authenticator_Report_ParamsSpec,
       blink.mojom.Authenticator_Report_ResponseParamsSpec,
-      [options]);
+      blink.mojom.Authenticator_Report_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   getClientCapabilities() {
@@ -202,7 +222,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
       blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
-      []);
+      blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   cancel() {
@@ -211,7 +235,11 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.Authenticator_Cancel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -235,7 +263,7 @@ blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,7 +278,7 @@ blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
         { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -264,7 +292,7 @@ blink.mojom.Authenticator_GetCredential_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +305,7 @@ blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -290,7 +318,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -303,7 +331,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Response
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -316,7 +344,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -329,7 +357,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -343,7 +371,7 @@ blink.mojom.Authenticator_Report_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -357,7 +385,7 @@ blink.mojom.Authenticator_Report_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dom_exception_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -370,7 +398,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -383,7 +411,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -396,7 +424,7 @@ blink.mojom.Authenticator_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

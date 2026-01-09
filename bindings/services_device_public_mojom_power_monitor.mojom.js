@@ -50,7 +50,11 @@ device.mojom.PowerMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PowerMonitor_AddClient_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ device.mojom.PowerMonitor_AddClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec,
       null,
-      [battery_power_status]);
+      null,
+      [battery_power_status],
+      undefined,
+      undefined
+    );
   }
 
   suspend() {
@@ -134,7 +142,11 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.PowerMonitorClient_Suspend_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   resume() {
@@ -143,7 +155,11 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.PowerMonitorClient_Resume_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -167,7 +183,7 @@ device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
       fields: [
         { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +196,7 @@ device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -193,7 +209,7 @@ device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

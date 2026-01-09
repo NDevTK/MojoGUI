@@ -70,7 +70,11 @@ device.mojom.SensorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec,
       device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec,
-      []);
+      device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addConfiguration(configuration) {
@@ -79,7 +83,11 @@ device.mojom.SensorRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.Sensor_AddConfiguration_ParamsSpec,
       device.mojom.Sensor_AddConfiguration_ResponseParamsSpec,
-      [configuration]);
+      device.mojom.Sensor_AddConfiguration_ResponseParamsSpec,
+      [configuration],
+      undefined,
+      undefined
+    );
   }
 
   removeConfiguration(configuration) {
@@ -88,7 +96,11 @@ device.mojom.SensorRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.Sensor_RemoveConfiguration_ParamsSpec,
       null,
-      [configuration]);
+      null,
+      [configuration],
+      undefined,
+      undefined
+    );
   }
 
   suspend() {
@@ -97,7 +109,11 @@ device.mojom.SensorRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.Sensor_Suspend_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   resume() {
@@ -106,7 +122,11 @@ device.mojom.SensorRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.Sensor_Resume_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   configureReadingChangeNotifications(enabled) {
@@ -115,7 +135,11 @@ device.mojom.SensorRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -138,7 +162,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -151,7 +175,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
       fields: [
         { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,7 +189,7 @@ device.mojom.Sensor_AddConfiguration_ParamsSpec = {
       fields: [
         { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +202,7 @@ device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,7 +216,7 @@ device.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
       fields: [
         { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -205,7 +229,7 @@ device.mojom.Sensor_Suspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -218,7 +242,7 @@ device.mojom.Sensor_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -232,7 +256,7 @@ device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +307,11 @@ device.mojom.SensorClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SensorClient_RaiseError_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   sensorReadingChanged() {
@@ -292,7 +320,11 @@ device.mojom.SensorClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SensorClient_SensorReadingChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -315,7 +347,7 @@ device.mojom.SensorClient_RaiseError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -328,7 +360,7 @@ device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

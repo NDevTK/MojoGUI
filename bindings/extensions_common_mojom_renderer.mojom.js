@@ -50,7 +50,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.Renderer_ActivateExtension_ParamsSpec,
       null,
-      [extension_id]);
+      null,
+      [extension_id],
+      undefined,
+      undefined
+    );
   }
 
   setActivityLoggingEnabled(enabled) {
@@ -59,7 +63,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   loadExtensions(params) {
@@ -68,7 +76,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.Renderer_LoadExtensions_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   unloadExtension(extension_id) {
@@ -77,7 +89,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.Renderer_UnloadExtension_ParamsSpec,
       null,
-      [extension_id]);
+      null,
+      [extension_id],
+      undefined,
+      undefined
+    );
   }
 
   suspendExtension(extension_id) {
@@ -86,7 +102,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.Renderer_SuspendExtension_ParamsSpec,
       null,
-      [extension_id]);
+      null,
+      [extension_id],
+      undefined,
+      undefined
+    );
   }
 
   cancelSuspendExtension(extension_id) {
@@ -95,7 +115,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
       null,
-      [extension_id]);
+      null,
+      [extension_id],
+      undefined,
+      undefined
+    );
   }
 
   setDeveloperMode(developer_mode_only) {
@@ -104,7 +128,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec,
       null,
-      [developer_mode_only]);
+      null,
+      [developer_mode_only],
+      undefined,
+      undefined
+    );
   }
 
   setUserScriptsAllowed(extension_id, allowed) {
@@ -113,7 +141,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
       null,
-      [extension_id, allowed]);
+      null,
+      [extension_id, allowed],
+      undefined,
+      undefined
+    );
   }
 
   setSessionInfo(channel, session) {
@@ -122,7 +154,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       8,  // ordinal
       extensions.mojom.Renderer_SetSessionInfo_ParamsSpec,
       null,
-      [channel, session]);
+      null,
+      [channel, session],
+      undefined,
+      undefined
+    );
   }
 
   setSystemFont(font_family, font_size) {
@@ -131,7 +167,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       9,  // ordinal
       extensions.mojom.Renderer_SetSystemFont_ParamsSpec,
       null,
-      [font_family, font_size]);
+      null,
+      [font_family, font_size],
+      undefined,
+      undefined
+    );
   }
 
   setWebViewPartitionID(partition_id) {
@@ -140,7 +180,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       10,  // ordinal
       extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
       null,
-      [partition_id]);
+      null,
+      [partition_id],
+      undefined,
+      undefined
+    );
   }
 
   setScriptingAllowlist(extension_ids) {
@@ -149,7 +193,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       11,  // ordinal
       extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
       null,
-      [extension_ids]);
+      null,
+      [extension_ids],
+      undefined,
+      undefined
+    );
   }
 
   updateUserScriptWorlds(infos) {
@@ -158,7 +206,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       12,  // ordinal
       extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
       null,
-      [infos]);
+      null,
+      [infos],
+      undefined,
+      undefined
+    );
   }
 
   clearUserScriptWorldConfig(extension_id, world_id) {
@@ -167,7 +219,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       13,  // ordinal
       extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
       null,
-      [extension_id, world_id]);
+      null,
+      [extension_id, world_id],
+      undefined,
+      undefined
+    );
   }
 
   shouldSuspend() {
@@ -176,7 +232,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       14,  // ordinal
       extensions.mojom.Renderer_ShouldSuspend_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   transferBlobs() {
@@ -185,7 +245,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       15,  // ordinal
       extensions.mojom.Renderer_TransferBlobs_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updatePermissions(extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions) {
@@ -194,7 +258,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       16,  // ordinal
       extensions.mojom.Renderer_UpdatePermissions_ParamsSpec,
       null,
-      [extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions]);
+      null,
+      [extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions],
+      undefined,
+      undefined
+    );
   }
 
   updateDefaultPolicyHostRestrictions(default_policy_blocked_hosts, default_policy_allowed_hosts) {
@@ -203,7 +271,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       17,  // ordinal
       extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
       null,
-      [default_policy_blocked_hosts, default_policy_allowed_hosts]);
+      null,
+      [default_policy_blocked_hosts, default_policy_allowed_hosts],
+      undefined,
+      undefined
+    );
   }
 
   updateUserHostRestrictions(user_blocked_hosts, user_allowed_hosts) {
@@ -212,7 +284,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       18,  // ordinal
       extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
       null,
-      [user_blocked_hosts, user_allowed_hosts]);
+      null,
+      [user_blocked_hosts, user_allowed_hosts],
+      undefined,
+      undefined
+    );
   }
 
   updateTabSpecificPermissions(extension_id, new_hosts, tab_id, update_origin_allowlist) {
@@ -221,7 +297,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       19,  // ordinal
       extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
       null,
-      [extension_id, new_hosts, tab_id, update_origin_allowlist]);
+      null,
+      [extension_id, new_hosts, tab_id, update_origin_allowlist],
+      undefined,
+      undefined
+    );
   }
 
   updateUserScripts(region, owner) {
@@ -230,7 +310,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       20,  // ordinal
       extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec,
       null,
-      [region, owner]);
+      null,
+      [region, owner],
+      undefined,
+      undefined
+    );
   }
 
   clearTabSpecificPermissions(extension_ids, tab_id, update_origin_allowlist) {
@@ -239,7 +323,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       21,  // ordinal
       extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
       null,
-      [extension_ids, tab_id, update_origin_allowlist]);
+      null,
+      [extension_ids, tab_id, update_origin_allowlist],
+      undefined,
+      undefined
+    );
   }
 
   watchPages(css_selectors) {
@@ -248,7 +336,11 @@ extensions.mojom.RendererRemoteCallHandler = class {
       22,  // ordinal
       extensions.mojom.Renderer_WatchPages_ParamsSpec,
       null,
-      [css_selectors]);
+      null,
+      [css_selectors],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -272,7 +364,7 @@ extensions.mojom.Renderer_ActivateExtension_ParamsSpec = {
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -286,7 +378,7 @@ extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -300,7 +392,7 @@ extensions.mojom.Renderer_LoadExtensions_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -314,7 +406,7 @@ extensions.mojom.Renderer_UnloadExtension_ParamsSpec = {
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,7 +420,7 @@ extensions.mojom.Renderer_SuspendExtension_ParamsSpec = {
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -342,7 +434,7 @@ extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -356,7 +448,7 @@ extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = {
       fields: [
         { name: 'developer_mode_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -371,7 +463,7 @@ extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -386,7 +478,7 @@ extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = {
         { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -401,7 +493,7 @@ extensions.mojom.Renderer_SetSystemFont_ParamsSpec = {
         { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'font_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -415,7 +507,7 @@ extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = {
       fields: [
         { name: 'partition_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,7 +521,7 @@ extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = {
       fields: [
         { name: 'extension_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -443,7 +535,7 @@ extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = {
       fields: [
         { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -458,7 +550,7 @@ extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'world_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -471,7 +563,7 @@ extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -484,7 +576,7 @@ extensions.mojom.Renderer_TransferBlobs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -503,7 +595,7 @@ extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = {
         { name: 'policy_allowed_hosts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'uses_default_policy_host_restrictions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -518,7 +610,7 @@ extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
         { name: 'default_policy_blocked_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'default_policy_allowed_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -533,7 +625,7 @@ extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
         { name: 'user_blocked_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_allowed_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -550,7 +642,7 @@ extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
         { name: 'tab_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'update_origin_allowlist', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -565,7 +657,7 @@ extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'owner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -581,7 +673,7 @@ extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = {
         { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'update_origin_allowlist', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -595,7 +687,7 @@ extensions.mojom.Renderer_WatchPages_ParamsSpec = {
       fields: [
         { name: 'css_selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

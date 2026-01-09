@@ -49,7 +49,11 @@ mojom.ModuleEventSinkRemoteCallHandler = class {
       0,  // ordinal
       mojom.ModuleEventSink_OnModuleEvents_ParamsSpec,
       null,
-      [module_load_addresses]);
+      null,
+      [module_load_addresses],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ mojom.ModuleEventSink_OnModuleEvents_ParamsSpec = {
       fields: [
         { name: 'module_load_addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

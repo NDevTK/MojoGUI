@@ -50,7 +50,11 @@ extensions.mojom.RendererAutomationRegistryRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
       null,
-      [automation]);
+      null,
+      [automation],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
       fields: [
         { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

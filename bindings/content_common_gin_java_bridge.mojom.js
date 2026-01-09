@@ -62,7 +62,11 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
       null,
-      [name, object_id, origin_matcher]);
+      null,
+      [name, object_id, origin_matcher],
+      undefined,
+      undefined
+    );
   }
 
   removeNamedObject(name) {
@@ -71,7 +75,11 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
       null,
-      [name]);
+      null,
+      [name],
+      undefined,
+      undefined
+    );
   }
 
   setHost(host) {
@@ -80,7 +88,11 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.GinJavaBridge_SetHost_ParamsSpec,
       null,
-      [host]);
+      null,
+      [host],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -106,7 +118,7 @@ content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
         { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'origin_matcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -120,7 +132,7 @@ content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +146,7 @@ content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +197,11 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
       content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
-      []);
+      content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   hasMethod(method_name) {
@@ -194,7 +210,11 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
       content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
-      [method_name]);
+      content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
+      [method_name],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   invokeMethod(method_name, arguments) {
@@ -203,7 +223,11 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
       content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
-      [method_name, arguments]);
+      content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
+      [method_name, arguments],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -226,7 +250,7 @@ content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,7 +263,7 @@ content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
       fields: [
         { name: 'method_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -253,7 +277,7 @@ content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
       fields: [
         { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,7 +290,7 @@ content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,7 +305,7 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
         { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -295,7 +319,7 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -346,7 +370,11 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
       null,
-      [object_id, receiver]);
+      null,
+      [object_id, receiver],
+      undefined,
+      undefined
+    );
   }
 
   objectWrapperDeleted(object_id) {
@@ -355,7 +383,11 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
       null,
-      [object_id]);
+      null,
+      [object_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -380,7 +412,7 @@ content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
         { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -394,7 +426,7 @@ content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
       fields: [
         { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

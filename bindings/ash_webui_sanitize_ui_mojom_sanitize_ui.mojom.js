@@ -51,7 +51,11 @@ ash.sanitize_ui.mojom.SettingsResetterRemoteCallHandler = class {
       0,  // ordinal
       ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

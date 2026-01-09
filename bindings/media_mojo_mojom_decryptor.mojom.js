@@ -50,7 +50,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Decryptor_Initialize_ParamsSpec,
       null,
-      [audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe]);
+      null,
+      [audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe],
+      undefined,
+      undefined
+    );
   }
 
   decrypt(stream_type, encrypted) {
@@ -59,7 +63,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Decryptor_Decrypt_ParamsSpec,
       media.mojom.Decryptor_Decrypt_ResponseParamsSpec,
-      [stream_type, encrypted]);
+      media.mojom.Decryptor_Decrypt_ResponseParamsSpec,
+      [stream_type, encrypted],
+      undefined,
+      undefined
+    );
   }
 
   cancelDecrypt(stream_type) {
@@ -68,7 +76,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Decryptor_CancelDecrypt_ParamsSpec,
       null,
-      [stream_type]);
+      null,
+      [stream_type],
+      undefined,
+      undefined
+    );
   }
 
   initializeAudioDecoder(config) {
@@ -77,7 +89,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec,
       media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec,
-      [config]);
+      media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
   initializeVideoDecoder(config) {
@@ -86,7 +102,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec,
       media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec,
-      [config]);
+      media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
   decryptAndDecodeAudio(encrypted) {
@@ -95,7 +115,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec,
       media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec,
-      [encrypted]);
+      media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec,
+      [encrypted],
+      undefined,
+      undefined
+    );
   }
 
   decryptAndDecodeVideo(encrypted) {
@@ -104,7 +128,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec,
       media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec,
-      [encrypted]);
+      media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec,
+      [encrypted],
+      undefined,
+      undefined
+    );
   }
 
   resetDecoder(stream_type) {
@@ -113,7 +141,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.Decryptor_ResetDecoder_ParamsSpec,
       null,
-      [stream_type]);
+      null,
+      [stream_type],
+      undefined,
+      undefined
+    );
   }
 
   deinitializeDecoder(stream_type) {
@@ -122,7 +154,11 @@ media.mojom.DecryptorRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec,
       null,
-      [stream_type]);
+      null,
+      [stream_type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +185,7 @@ media.mojom.Decryptor_Initialize_ParamsSpec = {
         { name: 'decrypt_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'decrypted_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -164,7 +200,7 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
         { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -178,7 +214,7 @@ media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -192,7 +228,7 @@ media.mojom.Decryptor_CancelDecrypt_ParamsSpec = {
       fields: [
         { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,7 +242,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -219,7 +255,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -233,7 +269,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,7 +282,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,7 +296,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
       fields: [
         { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -274,7 +310,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'audio_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -288,7 +324,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
       fields: [
         { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -303,7 +339,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
         { name: 'video_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -317,7 +353,7 @@ media.mojom.Decryptor_ResetDecoder_ParamsSpec = {
       fields: [
         { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -331,7 +367,7 @@ media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = {
       fields: [
         { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

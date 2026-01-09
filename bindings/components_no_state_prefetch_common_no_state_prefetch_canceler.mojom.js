@@ -50,7 +50,11 @@ prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler = class {
       0,  // ordinal
       prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   cancelNoStatePrefetchAfterSubresourcesDiscovered() {
@@ -59,7 +63,11 @@ prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler = class {
       1,  // ordinal
       prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedSchem
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDi
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

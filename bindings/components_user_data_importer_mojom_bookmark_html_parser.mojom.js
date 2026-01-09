@@ -50,7 +50,11 @@ user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
       0,  // ordinal
       user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
       user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
-      [raw_html]);
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
+      [raw_html],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
       fields: [
         { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

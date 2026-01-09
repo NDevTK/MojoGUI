@@ -50,7 +50,11 @@ device.mojom.WakeLockContextRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WakeLockContext_GetWakeLock_ParamsSpec,
       null,
-      [type, reason, description, wake_lock]);
+      null,
+      [type, reason, description, wake_lock],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = {
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'wake_lock', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

@@ -50,7 +50,11 @@ chrome.mojom.FontPrewarmerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
-      [font_names]);
+      null,
+      [font_names],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
       fields: [
         { name: 'font_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
       chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
-      []);
+      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -148,7 +156,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -161,7 +169,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec
       fields: [
         { name: 'font_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

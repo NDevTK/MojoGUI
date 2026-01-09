@@ -50,7 +50,11 @@ content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
       content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
-      []);
+      content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

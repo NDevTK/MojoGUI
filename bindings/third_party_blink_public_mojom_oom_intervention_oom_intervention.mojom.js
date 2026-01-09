@@ -50,7 +50,11 @@ blink.mojom.OomInterventionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,7 +128,11 @@ blink.mojom.OomInterventionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OomIntervention_StartDetection_ParamsSpec,
       null,
-      [host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled]);
+      null,
+      [host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -152,7 +160,7 @@ blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
         { name: 'navigate_ads_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'purge_v8_memory_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

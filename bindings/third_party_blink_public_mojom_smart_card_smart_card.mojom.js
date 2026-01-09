@@ -50,7 +50,11 @@ blink.mojom.SmartCardServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SmartCardService_CreateContext_ParamsSpec,
       blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
-      []);
+      blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -57,7 +57,11 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationContext_BindGeolocation_ParamsSpec,
       null,
-      [receiver, requesting_url, client_id, has_precise_permission]);
+      null,
+      [receiver, requesting_url, client_id, has_precise_permission],
+      undefined,
+      undefined
+    );
   }
 
   onPermissionUpdated(origin, permission_level) {
@@ -66,7 +70,11 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec,
       null,
-      [origin, permission_level]);
+      null,
+      [origin, permission_level],
+      undefined,
+      undefined
+    );
   }
 
   setOverride(result) {
@@ -75,7 +83,11 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GeolocationContext_SetOverride_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
   clearOverride() {
@@ -84,7 +96,11 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.GeolocationContext_ClearOverride_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -111,7 +127,7 @@ device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = {
         { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'has_precise_permission', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -126,7 +142,7 @@ device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = {
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'permission_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,7 +156,7 @@ device.mojom.GeolocationContext_SetOverride_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -153,7 +169,7 @@ device.mojom.GeolocationContext_ClearOverride_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

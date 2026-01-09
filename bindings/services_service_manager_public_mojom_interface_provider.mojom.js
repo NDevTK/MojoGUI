@@ -50,7 +50,11 @@ service_manager.mojom.InterfaceProviderRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec,
       null,
-      [interface_name, pipe]);
+      null,
+      [interface_name, pipe],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
         { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

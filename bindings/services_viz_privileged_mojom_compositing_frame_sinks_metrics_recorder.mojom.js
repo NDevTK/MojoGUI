@@ -50,7 +50,11 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
-      [start_time, bucket_size]);
+      null,
+      [start_time, bucket_size],
+      undefined,
+      undefined
+    );
   }
 
   stopFrameCounting() {
@@ -59,7 +63,11 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
       viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
-      []);
+      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startOverdrawTracking(root_frame_sink_id, bucket_size) {
@@ -68,7 +76,11 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
-      [root_frame_sink_id, bucket_size]);
+      null,
+      [root_frame_sink_id, bucket_size],
+      undefined,
+      undefined
+    );
   }
 
   stopOverdrawTracking(root_frame_sink_id) {
@@ -77,7 +89,11 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
       viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
-      [root_frame_sink_id]);
+      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
+      [root_frame_sink_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -102,7 +118,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
         { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -115,7 +131,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -128,7 +144,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +159,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
         { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -157,7 +173,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
       fields: [
         { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,7 +186,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

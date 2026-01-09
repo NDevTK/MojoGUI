@@ -50,7 +50,11 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec,
       null,
-      [url_loader_factory]);
+      null,
+      [url_loader_factory],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec 
       fields: [
         { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec,
       null,
-      [url_loader_factory, reconnector]);
+      null,
+      [url_loader_factory, reconnector],
+      undefined,
+      undefined
+    );
   }
 
   verify(params, net_log_source, cert_verifier_request) {
@@ -134,7 +142,11 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       1,  // ordinal
       cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec,
       null,
-      [params, net_log_source, cert_verifier_request]);
+      null,
+      [params, net_log_source, cert_verifier_request],
+      undefined,
+      undefined
+    );
   }
 
   verify2QwacBinding(binding, hostname, tls_certificate, net_log_source) {
@@ -143,7 +155,11 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       2,  // ordinal
       cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec,
       cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec,
-      [binding, hostname, tls_certificate, net_log_source]);
+      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec,
+      [binding, hostname, tls_certificate, net_log_source],
+      undefined,
+      undefined
+    );
   }
 
   setConfig(config) {
@@ -152,7 +168,11 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       3,  // ordinal
       cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec,
       null,
-      [config]);
+      null,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -177,7 +197,7 @@ cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
         { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -193,7 +213,7 @@ cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
         { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -210,7 +230,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
         { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -223,7 +243,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = 
       fields: [
         { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,7 +257,7 @@ cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -288,7 +308,11 @@ cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -311,7 +335,7 @@ cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -362,7 +386,11 @@ cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec,
       null,
-      [result, net_error]);
+      null,
+      [result, net_error],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -387,7 +415,7 @@ cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

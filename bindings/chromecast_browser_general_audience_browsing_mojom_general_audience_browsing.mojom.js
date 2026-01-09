@@ -50,7 +50,11 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class 
       0,  // ordinal
       chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec,
       null,
-      [api_key]);
+      null,
+      [api_key],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsing
       fields: [
         { name: 'api_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsing
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

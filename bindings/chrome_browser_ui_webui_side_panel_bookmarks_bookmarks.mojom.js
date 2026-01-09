@@ -73,7 +73,11 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -98,7 +102,7 @@ side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSp
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,7 +153,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec,
       null,
-      [folder_id]);
+      null,
+      [folder_id],
+      undefined,
+      undefined
+    );
   }
 
   createFolder(folder_id, title) {
@@ -158,7 +166,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
       side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
-      [folder_id, title]);
+      side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
+      [folder_id, title],
+      undefined,
+      undefined
+    );
   }
 
   dropBookmarks(folder_id) {
@@ -167,7 +179,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
       null,
-      [folder_id]);
+      null,
+      [folder_id],
+      undefined,
+      undefined
+    );
   }
 
   executeEditCommand(node_ids, source) {
@@ -176,7 +192,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      null,
+      [node_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeMoveCommand(node_ids, source) {
@@ -185,7 +205,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      null,
+      [node_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeOpenInNewTabCommand(side_panel_ids, source) {
@@ -194,7 +218,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      null,
+      [side_panel_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeOpenInNewWindowCommand(side_panel_ids, source) {
@@ -203,7 +231,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      null,
+      [side_panel_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeOpenInIncognitoWindowCommand(side_panel_ids, source) {
@@ -212,7 +244,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      null,
+      [side_panel_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeOpenInNewTabGroupCommand(side_panel_ids, source) {
@@ -221,7 +257,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      null,
+      [side_panel_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeOpenInSplitViewCommand(node_ids, source) {
@@ -230,7 +270,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      null,
+      [node_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   executeAddToBookmarksBarCommand(node_id, source) {
@@ -239,7 +283,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
       null,
-      [node_id, source]);
+      null,
+      [node_id, source],
+      undefined,
+      undefined
+    );
   }
 
   executeRemoveFromBookmarksBarCommand(node_id, source) {
@@ -248,7 +296,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
       null,
-      [node_id, source]);
+      null,
+      [node_id, source],
+      undefined,
+      undefined
+    );
   }
 
   executeDeleteCommand(node_ids, source) {
@@ -257,7 +309,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      null,
+      [node_ids, source],
+      undefined,
+      undefined
+    );
   }
 
   openBookmark(node_id, parent_folder_depth, click_modifiers, source) {
@@ -266,7 +322,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
       null,
-      [node_id, parent_folder_depth, click_modifiers, source]);
+      null,
+      [node_id, parent_folder_depth, click_modifiers, source],
+      undefined,
+      undefined
+    );
   }
 
   undo() {
@@ -275,7 +335,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   renameBookmark(node_id, new_title) {
@@ -284,7 +348,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
       null,
-      [node_id, new_title]);
+      null,
+      [node_id, new_title],
+      undefined,
+      undefined
+    );
   }
 
   moveBookmark(node_id, folder_id) {
@@ -293,7 +361,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
       null,
-      [node_id, folder_id]);
+      null,
+      [node_id, folder_id],
+      undefined,
+      undefined
+    );
   }
 
   removeBookmarks(node_ids) {
@@ -302,7 +374,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       17,  // ordinal
       side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       null,
-      [node_ids]);
+      null,
+      [node_ids],
+      undefined,
+      undefined
+    );
   }
 
   setSortOrder(sort_order) {
@@ -311,7 +387,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       18,  // ordinal
       side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
-      [sort_order]);
+      null,
+      [sort_order],
+      undefined,
+      undefined
+    );
   }
 
   setViewType(view_type) {
@@ -320,7 +400,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       19,  // ordinal
       side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
-      [view_type]);
+      null,
+      [view_type],
+      undefined,
+      undefined
+    );
   }
 
   showContextMenu(id, point, source) {
@@ -329,7 +413,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       20,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [id, point, source]);
+      null,
+      [id, point, source],
+      undefined,
+      undefined
+    );
   }
 
   showUI() {
@@ -338,7 +426,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       21,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getAllBookmarks() {
@@ -347,7 +439,11 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       22,  // ordinal
       side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
       side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
-      []);
+      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -371,7 +467,7 @@ side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
       fields: [
         { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -386,7 +482,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
         { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -399,7 +495,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
       fields: [
         { name: 'new_folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -413,7 +509,7 @@ side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
       fields: [
         { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -428,7 +524,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -443,7 +539,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -458,7 +554,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
         { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -473,7 +569,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec =
         { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -488,7 +584,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_Params
         { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -503,7 +599,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec
         { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -518,7 +614,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec =
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -533,7 +629,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -548,7 +644,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_Param
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -563,7 +659,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -580,7 +676,7 @@ side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
         { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -593,7 +689,7 @@ side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -608,7 +704,7 @@ side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -623,7 +719,7 @@ side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'folder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -637,7 +733,7 @@ side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
       fields: [
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -651,7 +747,7 @@ side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
       fields: [
         { name: 'sort_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -665,7 +761,7 @@ side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
       fields: [
         { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -681,7 +777,7 @@ side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
         { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -694,7 +790,7 @@ side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -707,7 +803,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -720,7 +816,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
       fields: [
         { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -771,7 +867,11 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec,
       null,
-      [node]);
+      null,
+      [node],
+      undefined,
+      undefined
+    );
   }
 
   onBookmarkNodesRemoved(node_ids) {
@@ -780,7 +880,11 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       1,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec,
       null,
-      [node_ids]);
+      null,
+      [node_ids],
+      undefined,
+      undefined
+    );
   }
 
   onBookmarkParentFolderChildrenReordered(folder_id, children_ordered_ids) {
@@ -789,7 +893,11 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       2,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec,
       null,
-      [folder_id, children_ordered_ids]);
+      null,
+      [folder_id, children_ordered_ids],
+      undefined,
+      undefined
+    );
   }
 
   onBookmarkNodeMoved(old_parent_index, old_node_index, new_parent_index, new_node_index) {
@@ -798,7 +906,11 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       3,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec,
       null,
-      [old_parent_index, old_node_index, new_parent_index, new_node_index]);
+      null,
+      [old_parent_index, old_node_index, new_parent_index, new_node_index],
+      undefined,
+      undefined
+    );
   }
 
   onBookmarkNodeChanged(id, new_title, new_url) {
@@ -807,7 +919,11 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       4,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec,
       null,
-      [id, new_title, new_url]);
+      null,
+      [id, new_title, new_url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -831,7 +947,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
       fields: [
         { name: 'node', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -845,7 +961,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
       fields: [
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -860,7 +976,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpe
         { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'children_ordered_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -877,7 +993,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
         { name: 'new_parent_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_node_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -893,7 +1009,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
         { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

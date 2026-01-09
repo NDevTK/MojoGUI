@@ -67,7 +67,11 @@ emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +95,7 @@ emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -142,7 +146,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   insertEmoji(emoji, is_variant, search_length) {
@@ -151,7 +159,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec,
       null,
-      [emoji, is_variant, search_length]);
+      null,
+      [emoji, is_variant, search_length],
+      undefined,
+      undefined
+    );
   }
 
   insertGif(gif) {
@@ -160,7 +172,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec,
       null,
-      [gif]);
+      null,
+      [gif],
+      undefined,
+      undefined
+    );
   }
 
   isIncognitoTextField() {
@@ -169,7 +185,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec,
       emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec,
-      []);
+      emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getFeatureList() {
@@ -178,7 +198,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec,
-      []);
+      emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getCategories() {
@@ -187,7 +211,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec,
-      []);
+      emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getFeaturedGifs(pos) {
@@ -196,7 +224,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec,
-      [pos]);
+      emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec,
+      [pos],
+      undefined,
+      undefined
+    );
   }
 
   searchGifs(query, pos) {
@@ -205,7 +237,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec,
       emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec,
-      [query, pos]);
+      emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec,
+      [query, pos],
+      undefined,
+      undefined
+    );
   }
 
   getGifsByIds(ids) {
@@ -214,7 +250,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec,
-      [ids]);
+      emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec,
+      [ids],
+      undefined,
+      undefined
+    );
   }
 
   onUiFullyLoaded() {
@@ -223,7 +263,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getInitialCategory() {
@@ -232,7 +276,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec,
-      []);
+      emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getInitialQuery() {
@@ -241,7 +289,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec,
-      []);
+      emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateHistoryInPrefs(category, history) {
@@ -250,7 +302,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec,
       null,
-      [category, history]);
+      null,
+      [category, history],
+      undefined,
+      undefined
+    );
   }
 
   updatePreferredVariantsInPrefs(preferred_variants) {
@@ -259,7 +315,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec,
       null,
-      [preferred_variants]);
+      null,
+      [preferred_variants],
+      undefined,
+      undefined
+    );
   }
 
   getHistoryFromPrefs(category) {
@@ -268,7 +328,11 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec,
-      [category]);
+      emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec,
+      [category],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -291,7 +355,7 @@ emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -307,7 +371,7 @@ emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
         { name: 'is_variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'search_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -321,7 +385,7 @@ emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
       fields: [
         { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -334,7 +398,7 @@ emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -347,7 +411,7 @@ emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = {
       fields: [
         { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -360,7 +424,7 @@ emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -373,7 +437,7 @@ emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = {
       fields: [
         { name: 'feature_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -386,7 +450,7 @@ emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -400,7 +464,7 @@ emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'gif_categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -414,7 +478,7 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = {
       fields: [
         { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -428,7 +492,7 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'featured_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -443,7 +507,7 @@ emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -457,7 +521,7 @@ emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'search_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -471,7 +535,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
       fields: [
         { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -485,7 +549,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'selected_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -498,7 +562,7 @@ emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -511,7 +575,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -524,7 +588,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
       fields: [
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -537,7 +601,7 @@ emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -550,7 +614,7 @@ emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = {
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -565,7 +629,7 @@ emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -579,7 +643,7 @@ emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = {
       fields: [
         { name: 'preferred_variants', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -593,7 +657,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
       fields: [
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -606,7 +670,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = {
       fields: [
         { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

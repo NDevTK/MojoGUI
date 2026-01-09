@@ -118,7 +118,11 @@ network.mojom.ResolveHostHandleRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ResolveHostHandle_Cancel_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -142,7 +146,7 @@ network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,7 +197,11 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ResolveHostClient_OnComplete_ParamsSpec,
       null,
-      [result, resolve_error_info, resolved_addresses, alternative_endpoints]);
+      null,
+      [result, resolve_error_info, resolved_addresses, alternative_endpoints],
+      undefined,
+      undefined
+    );
   }
 
   onTextResults(text_results) {
@@ -202,7 +210,11 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ResolveHostClient_OnTextResults_ParamsSpec,
       null,
-      [text_results]);
+      null,
+      [text_results],
+      undefined,
+      undefined
+    );
   }
 
   onHostnameResults(hosts) {
@@ -211,7 +223,11 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec,
       null,
-      [hosts]);
+      null,
+      [hosts],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -238,7 +254,7 @@ network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
         { name: 'resolved_addresses', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'alternative_endpoints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -252,7 +268,7 @@ network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
       fields: [
         { name: 'text_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,7 +282,7 @@ network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
       fields: [
         { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -317,7 +333,11 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec,
       null,
-      [update_type, query_type, endpoint]);
+      null,
+      [update_type, query_type, endpoint],
+      undefined,
+      undefined
+    );
   }
 
   onTextResult(update_type, query_type, text_records) {
@@ -326,7 +346,11 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.MdnsListenClient_OnTextResult_ParamsSpec,
       null,
-      [update_type, query_type, text_records]);
+      null,
+      [update_type, query_type, text_records],
+      undefined,
+      undefined
+    );
   }
 
   onHostnameResult(update_type, query_type, host) {
@@ -335,7 +359,11 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec,
       null,
-      [update_type, query_type, host]);
+      null,
+      [update_type, query_type, host],
+      undefined,
+      undefined
+    );
   }
 
   onUnhandledResult(update_type, query_type) {
@@ -344,7 +372,11 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec,
       null,
-      [update_type, query_type]);
+      null,
+      [update_type, query_type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -370,7 +402,7 @@ network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
         { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -386,7 +418,7 @@ network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
         { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'text_records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -402,7 +434,7 @@ network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
         { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -417,7 +449,7 @@ network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
         { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -468,7 +500,11 @@ network.mojom.HostResolverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.HostResolver_ResolveHost_ParamsSpec,
       null,
-      [host, network_anonymization_key, optional_parameters, response_client]);
+      null,
+      [host, network_anonymization_key, optional_parameters, response_client],
+      undefined,
+      undefined
+    );
   }
 
   mdnsListen(host, query_type, response_client) {
@@ -477,7 +513,11 @@ network.mojom.HostResolverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.HostResolver_MdnsListen_ParamsSpec,
       network.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
-      [host, query_type, response_client]);
+      network.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
+      [host, query_type, response_client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -504,7 +544,7 @@ network.mojom.HostResolver_ResolveHost_ParamsSpec = {
         { name: 'optional_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'response_client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -520,7 +560,7 @@ network.mojom.HostResolver_MdnsListen_ParamsSpec = {
         { name: 'query_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'response_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -533,7 +573,7 @@ network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -584,7 +624,11 @@ network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -607,7 +651,7 @@ network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -658,7 +702,11 @@ network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -682,7 +730,7 @@ network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

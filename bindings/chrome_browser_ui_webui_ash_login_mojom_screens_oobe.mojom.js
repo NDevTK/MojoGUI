@@ -60,7 +60,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onAcceptCellularClicked() {
@@ -69,7 +73,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onSkipClicked() {
@@ -78,7 +86,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onBackClicked() {
@@ -87,7 +99,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -110,7 +126,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,7 +139,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -136,7 +152,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -149,7 +165,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -200,7 +216,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setLowBatteryWarningVisible(visible) {
@@ -209,7 +229,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   setScreenStep(step) {
@@ -218,7 +242,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec,
       null,
-      [step]);
+      null,
+      [step],
+      undefined,
+      undefined
+    );
   }
 
   setUpdateStatusMessage(percent, percent_message, time_left_message) {
@@ -227,7 +255,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec,
       null,
-      [percent, percent_message, time_left_message]);
+      null,
+      [percent, percent_message, time_left_message],
+      undefined,
+      undefined
+    );
   }
 
   setAutoTransition(enabled) {
@@ -236,7 +268,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -259,7 +295,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -273,7 +309,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -287,7 +323,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
       fields: [
         { name: 'step', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -303,7 +339,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
         { name: 'percent_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'time_left_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -317,7 +353,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -368,7 +404,11 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onEnrollClicked() {
@@ -377,7 +417,11 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -400,7 +444,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -413,7 +457,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

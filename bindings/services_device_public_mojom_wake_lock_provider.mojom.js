@@ -50,7 +50,11 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec,
       null,
-      [context_id, context]);
+      null,
+      [context_id, context],
+      undefined,
+      undefined
+    );
   }
 
   getWakeLockWithoutContext(type, reason, description, wake_lock) {
@@ -59,7 +63,11 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec,
       null,
-      [type, reason, description, wake_lock]);
+      null,
+      [type, reason, description, wake_lock],
+      undefined,
+      undefined
+    );
   }
 
   notifyOnWakeLockDeactivation(type, observer) {
@@ -68,7 +76,11 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec,
       null,
-      [type, observer]);
+      null,
+      [type, observer],
+      undefined,
+      undefined
+    );
   }
 
   getActiveWakeLocksForTests(type) {
@@ -77,7 +89,11 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec,
       device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec,
-      [type]);
+      device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -102,7 +118,7 @@ device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = {
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -119,7 +135,7 @@ device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = {
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'wake_lock', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -134,7 +150,7 @@ device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -148,7 +164,7 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +177,7 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
       fields: [
         { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +228,11 @@ device.mojom.WakeLockObserverRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec,
       null,
-      [type]);
+      null,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -236,7 +256,7 @@ device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

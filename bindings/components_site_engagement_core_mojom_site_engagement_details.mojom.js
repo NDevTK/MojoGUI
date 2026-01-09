@@ -50,7 +50,11 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
       0,  // ordinal
       site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec,
       site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
-      []);
+      site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setSiteEngagementBaseScoreForUrl(url, score) {
@@ -59,7 +63,11 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
       1,  // ordinal
       site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec,
       null,
-      [url, score]);
+      null,
+      [url, score],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Res
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,7 +118,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

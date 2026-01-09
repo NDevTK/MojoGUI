@@ -50,7 +50,11 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
-      [index]);
+      null,
+      [index],
+      undefined,
+      undefined
+    );
   }
 
   gotFirstRectForRange(rect) {
@@ -59,7 +63,11 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
-      [rect]);
+      null,
+      [rect],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
       fields: [
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

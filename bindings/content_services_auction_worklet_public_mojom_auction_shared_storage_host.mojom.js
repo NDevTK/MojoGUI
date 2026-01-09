@@ -58,7 +58,11 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec,
       null,
-      [method_with_options, source_auction_worklet_function]);
+      null,
+      [method_with_options, source_auction_worklet_function],
+      undefined,
+      undefined
+    );
   }
 
   sharedStorageBatchUpdate(methods_with_options, with_lock, source_auction_worklet_function) {
@@ -67,7 +71,11 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec,
       null,
-      [methods_with_options, with_lock, source_auction_worklet_function]);
+      null,
+      [methods_with_options, with_lock, source_auction_worklet_function],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +100,7 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = 
         { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source_auction_worklet_function', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -108,7 +116,7 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSp
         { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'source_auction_worklet_function', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

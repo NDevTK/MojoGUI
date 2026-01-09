@@ -51,7 +51,11 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec,
       null,
-      [forceVisible]);
+      null,
+      [forceVisible],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisible
       fields: [
         { name: 'forceVisible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +130,11 @@ ash.common.mojom.AccessibilityFeaturesRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec,
       ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec,
-      [observer]);
+      ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -150,7 +158,7 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsS
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,7 +171,7 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Respons
       fields: [
         { name: 'forceVisible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

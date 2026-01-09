@@ -50,7 +50,11 @@ media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec,
       null,
-      [gpu_feature_info, receiver, gpu_remote]);
+      null,
+      [gpu_feature_info, receiver, gpu_remote],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -76,7 +80,7 @@ media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec 
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'gpu_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

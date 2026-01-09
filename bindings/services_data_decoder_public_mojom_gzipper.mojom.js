@@ -50,7 +50,11 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.Gzipper_Deflate_ParamsSpec,
       data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
-      [data]);
+      data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
   inflate(data, max_uncompressed_size) {
@@ -59,7 +63,11 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.Gzipper_Inflate_ParamsSpec,
       data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
-      [data, max_uncompressed_size]);
+      data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
+      [data, max_uncompressed_size],
+      undefined,
+      undefined
+    );
   }
 
   compress(data) {
@@ -68,7 +76,11 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       2,  // ordinal
       data_decoder.mojom.Gzipper_Compress_ParamsSpec,
       data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
-      [data]);
+      data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
   uncompress(compressed_data) {
@@ -77,7 +89,11 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       3,  // ordinal
       data_decoder.mojom.Gzipper_Uncompress_ParamsSpec,
       data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
-      [compressed_data]);
+      data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
+      [compressed_data],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -101,7 +117,7 @@ data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,7 +130,7 @@ data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
       fields: [
         { name: 'deflated_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -129,7 +145,7 @@ data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'max_uncompressed_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -142,7 +158,7 @@ data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
       fields: [
         { name: 'inflated_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,7 +172,7 @@ data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,7 +185,7 @@ data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
       fields: [
         { name: 'compressed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,7 +199,7 @@ data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
       fields: [
         { name: 'compressed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,7 +212,7 @@ data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

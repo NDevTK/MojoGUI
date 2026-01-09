@@ -51,7 +51,11 @@ chromecast.media.mojom.MediaCapsRemoteCallHandler = class {
       0,  // ordinal
       chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +130,11 @@ chromecast.media.mojom.MediaCapsObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec,
       null,
-      [codec_profile_level]);
+      null,
+      [codec_profile_level],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -150,7 +158,7 @@ chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpe
       fields: [
         { name: 'codec_profile_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

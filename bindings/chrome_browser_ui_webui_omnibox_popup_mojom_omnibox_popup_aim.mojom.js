@@ -50,7 +50,11 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   navigateCurrentTab(url) {
@@ -135,7 +143,11 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +170,7 @@ omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -172,7 +184,7 @@ omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,7 +235,11 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec,
       null,
-      [context]);
+      null,
+      [context],
+      undefined,
+      undefined
+    );
   }
 
   addContext(context) {
@@ -232,7 +248,11 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec,
       null,
-      [context]);
+      null,
+      [context],
+      undefined,
+      undefined
+    );
   }
 
   onPopupHidden() {
@@ -241,7 +261,11 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec,
       omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec,
-      []);
+      omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setPreserveContextOnClose(preserve_context_on_close) {
@@ -250,7 +274,11 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec,
       null,
-      [preserve_context_on_close]);
+      null,
+      [preserve_context_on_close],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -274,7 +302,7 @@ omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
       fields: [
         { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -288,7 +316,7 @@ omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
       fields: [
         { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -301,7 +329,7 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -314,7 +342,7 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,7 +356,7 @@ omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
       fields: [
         { name: 'preserve_context_on_close', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

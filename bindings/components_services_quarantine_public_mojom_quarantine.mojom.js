@@ -61,7 +61,11 @@ quarantine.mojom.QuarantineRemoteCallHandler = class {
       0,  // ordinal
       quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec,
       quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
-      [full_path, source_url, referrer_url, request_initiator, client_guid]);
+      quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
+      [full_path, source_url, referrer_url, request_initiator, client_guid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +93,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
         { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'client_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -102,7 +106,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_P
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      [height]);
+      null,
+      [height],
+      undefined,
+      undefined
+    );
   }
 
   accept(uninstall_account_extensions) {
@@ -135,7 +143,11 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       signout_confirmation.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      [uninstall_account_extensions]);
+      null,
+      [uninstall_account_extensions],
+      undefined,
+      undefined
+    );
   }
 
   cancel(uninstall_account_extensions) {
@@ -144,7 +156,11 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      [uninstall_account_extensions]);
+      null,
+      [uninstall_account_extensions],
+      undefined,
+      undefined
+    );
   }
 
   performReauth() {
@@ -153,7 +169,11 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   close() {
@@ -162,7 +182,11 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       signout_confirmation.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -186,7 +210,7 @@ signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       fields: [
         { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +224,7 @@ signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
       fields: [
         { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,7 +238,7 @@ signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
       fields: [
         { name: 'uninstall_account_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,7 +251,7 @@ signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -240,7 +264,7 @@ signout_confirmation.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -291,7 +315,11 @@ signout_confirmation.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
       null,
-      [data]);
+      null,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -315,7 +343,7 @@ signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

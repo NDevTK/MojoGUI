@@ -50,7 +50,11 @@ service_manager.mojom.ServiceControlRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

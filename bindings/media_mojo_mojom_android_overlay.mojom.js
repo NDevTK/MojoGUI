@@ -50,7 +50,11 @@ media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec,
       null,
-      [overlay, client, config]);
+      null,
+      [overlay, client, config],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -76,7 +80,7 @@ media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -127,7 +131,11 @@ media.mojom.AndroidOverlayRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec,
       null,
-      [rect]);
+      null,
+      [rect],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -151,7 +159,7 @@ media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -202,7 +210,11 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec,
       null,
-      [surface_key]);
+      null,
+      [surface_key],
+      undefined,
+      undefined
+    );
   }
 
   onDestroyed() {
@@ -211,7 +223,11 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onSynchronouslyDestroyed() {
@@ -220,7 +236,11 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   onPowerEfficientState(is_power_efficient) {
@@ -229,7 +249,11 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec,
       null,
-      [is_power_efficient]);
+      null,
+      [is_power_efficient],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -253,7 +277,7 @@ media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
       fields: [
         { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,7 +290,7 @@ media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -279,7 +303,7 @@ media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -293,7 +317,7 @@ media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
       fields: [
         { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

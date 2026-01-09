@@ -86,7 +86,11 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
       null,
-      [index, gamepad]);
+      null,
+      [index, gamepad],
+      undefined,
+      undefined
+    );
   }
 
   gamepadDisconnected(index, gamepad) {
@@ -95,7 +99,11 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
       null,
-      [index, gamepad]);
+      null,
+      [index, gamepad],
+      undefined,
+      undefined
+    );
   }
 
   gamepadRawInputChanged(index, gamepad) {
@@ -104,7 +112,11 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
       null,
-      [index, gamepad]);
+      null,
+      [index, gamepad],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -129,7 +141,7 @@ device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -144,7 +156,7 @@ device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -159,7 +171,7 @@ device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -210,7 +222,11 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
       device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
-      []);
+      device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   gamepadStopPolling() {
@@ -219,7 +235,11 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   setObserver(gamepad_observer) {
@@ -228,7 +248,11 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GamepadMonitor_SetObserver_ParamsSpec,
       null,
-      [gamepad_observer]);
+      null,
+      [gamepad_observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -251,7 +275,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -264,7 +288,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
       fields: [
         { name: 'memory_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +301,7 @@ device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -291,7 +315,7 @@ device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
       fields: [
         { name: 'gamepad_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -342,7 +366,11 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
       device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
-      [pad_index, type, params]);
+      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
+      [pad_index, type, params],
+      undefined,
+      undefined
+    );
   }
 
   resetVibrationActuator(pad_index) {
@@ -351,7 +379,11 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
       device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
-      [pad_index]);
+      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
+      [pad_index],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -377,7 +409,7 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -390,7 +422,7 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -404,7 +436,7 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
       fields: [
         { name: 'pad_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -417,7 +449,7 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

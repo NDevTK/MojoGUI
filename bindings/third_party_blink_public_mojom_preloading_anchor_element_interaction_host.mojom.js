@@ -50,7 +50,11 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
       null,
-      [target]);
+      null,
+      [target],
+      undefined,
+      undefined
+    );
   }
 
   onPointerHoverEager(target, mouse_data) {
@@ -59,7 +63,11 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
       null,
-      [target, mouse_data]);
+      null,
+      [target, mouse_data],
+      undefined,
+      undefined
+    );
   }
 
   onPointerHoverModerate(target, mouse_data) {
@@ -68,7 +76,11 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
       null,
-      [target, mouse_data]);
+      null,
+      [target, mouse_data],
+      undefined,
+      undefined
+    );
   }
 
   onModerateViewportHeuristicTriggered(target) {
@@ -77,7 +89,11 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
       null,
-      [target]);
+      null,
+      [target],
+      undefined,
+      undefined
+    );
   }
 
   onEagerViewportHeuristicTriggered(targets) {
@@ -86,7 +102,11 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
       null,
-      [targets]);
+      null,
+      [targets],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -110,7 +130,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec = {
       fields: [
         { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +145,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec = {
         { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,7 +160,7 @@ blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec = {
         { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mouse_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -154,7 +174,7 @@ blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Pa
       fields: [
         { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -168,7 +188,7 @@ blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Param
       fields: [
         { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

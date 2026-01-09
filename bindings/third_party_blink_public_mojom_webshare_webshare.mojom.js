@@ -50,7 +50,11 @@ blink.mojom.ShareServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ShareService_Share_ParamsSpec,
       blink.mojom.ShareService_Share_ResponseParamsSpec,
-      [title, text, url, files]);
+      blink.mojom.ShareService_Share_ResponseParamsSpec,
+      [title, text, url, files],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ blink.mojom.ShareService_Share_ParamsSpec = {
         { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -90,7 +94,7 @@ blink.mojom.ShareService_Share_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

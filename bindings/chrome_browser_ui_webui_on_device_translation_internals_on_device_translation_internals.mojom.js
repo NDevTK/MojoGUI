@@ -57,7 +57,11 @@ on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler = clas
       0,  // ordinal
       on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Param
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -133,7 +137,11 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
       null,
-      [package_index]);
+      null,
+      [package_index],
+      undefined,
+      undefined
+    );
   }
 
   uninstallLanguagePackage(package_index) {
@@ -142,7 +150,11 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
       null,
-      [package_index]);
+      null,
+      [package_index],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -166,7 +178,7 @@ on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsS
       fields: [
         { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +192,7 @@ on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Param
       fields: [
         { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +243,11 @@ on_device_translation_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -255,7 +271,7 @@ on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ blink.mojom.InstalledAppProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec,
       blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
-      [related_apps, manifest_url, add_saved_related_applications]);
+      blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
+      [related_apps, manifest_url, add_saved_related_applications],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -76,7 +80,7 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
         { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'add_saved_related_applications', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,7 +93,7 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
       fields: [
         { name: 'installed_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

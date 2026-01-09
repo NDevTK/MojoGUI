@@ -76,7 +76,11 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
-      [image]);
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
+      [image],
+      undefined,
+      undefined
+    );
   }
 
   performOcrAndReturnAnnotation(image) {
@@ -85,7 +89,11 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       1,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
-      [image]);
+      screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
+      [image],
+      undefined,
+      undefined
+    );
   }
 
   setClientType(client_type) {
@@ -94,7 +102,11 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       2,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
       null,
-      [client_type]);
+      null,
+      [client_type],
+      undefined,
+      undefined
+    );
   }
 
   getMaxImageDimension() {
@@ -103,7 +115,11 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       3,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
-      []);
+      screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setOCRLightMode(enabled) {
@@ -112,7 +128,11 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       4,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   isOCRBusy() {
@@ -121,7 +141,11 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       5,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
-      []);
+      screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -145,7 +169,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +182,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParams
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,7 +196,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +209,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSp
       fields: [
         { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +223,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
       fields: [
         { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +236,7 @@ screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -225,7 +249,7 @@ screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = {
       fields: [
         { name: 'max_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -239,7 +263,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +276,7 @@ screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,7 +289,7 @@ screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
       fields: [
         { name: 'busy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -316,7 +340,11 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec,
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
-      [snapshot]);
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
+      [snapshot],
+      undefined,
+      undefined
+    );
   }
 
   extractMainNode(snapshot) {
@@ -325,7 +353,11 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       1,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec,
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
-      [snapshot]);
+      screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
+      [snapshot],
+      undefined,
+      undefined
+    );
   }
 
   identifyMainNode(ax_tree) {
@@ -334,7 +366,11 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       2,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec,
       screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
-      [ax_tree]);
+      screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
+      [ax_tree],
+      undefined,
+      undefined
+    );
   }
 
   setClientType(client_type) {
@@ -343,7 +379,11 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       3,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec,
       null,
-      [client_type]);
+      null,
+      [client_type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -367,7 +407,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
       fields: [
         { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -380,7 +420,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSp
       fields: [
         { name: 'content_node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -394,7 +434,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
       fields: [
         { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -407,7 +447,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec 
       fields: [
         { name: 'main_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -421,7 +461,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
       fields: [
         { name: 'ax_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -435,7 +475,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -449,7 +489,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
       fields: [
         { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -500,7 +540,11 @@ screen_ai.mojom.OCRServiceRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec,
       null,
-      [annotator]);
+      null,
+      [annotator],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -524,7 +568,7 @@ screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = {
       fields: [
         { name: 'annotator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -575,7 +619,11 @@ screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec,
       null,
-      [main_content_extractor]);
+      null,
+      [main_content_extractor],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -599,7 +647,7 @@ screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec
       fields: [
         { name: 'main_content_extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

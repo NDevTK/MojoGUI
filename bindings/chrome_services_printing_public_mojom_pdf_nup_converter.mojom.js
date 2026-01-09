@@ -57,7 +57,11 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec,
       printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
-      [pages_per_sheet, page_size, printable_area, pdf_page_regions]);
+      printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
+      [pages_per_sheet, page_size, printable_area, pdf_page_regions],
+      undefined,
+      undefined
+    );
   }
 
   nupDocumentConvert(pages_per_sheet, page_size, printable_area, src_pdf_region) {
@@ -66,7 +70,11 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec,
       printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
-      [pages_per_sheet, page_size, printable_area, src_pdf_region]);
+      printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
+      [pages_per_sheet, page_size, printable_area, src_pdf_region],
+      undefined,
+      undefined
+    );
   }
 
   setWebContentsURL(url) {
@@ -75,7 +83,11 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   setUseSkiaRendererPolicy(use_skia) {
@@ -84,7 +96,11 @@ printing.mojom.PdfNupConverterRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia]);
+      null,
+      [use_skia],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -111,7 +127,7 @@ printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
         { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pdf_page_regions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -125,7 +141,7 @@ printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -142,7 +158,7 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
         { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'src_pdf_region', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -156,7 +172,7 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -170,7 +186,7 @@ printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +200,7 @@ printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       fields: [
         { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

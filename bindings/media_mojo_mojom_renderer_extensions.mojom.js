@@ -50,7 +50,11 @@ media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec =
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
       media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
-      []);
+      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setVideoStreamEnabled(enabled) {
@@ -134,7 +142,11 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   setOutputRect(rect) {
@@ -143,7 +155,11 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
       media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
-      [rect]);
+      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
+      [rect],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -166,7 +182,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -180,7 +196,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec 
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -194,7 +210,7 @@ media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,7 +224,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -221,7 +237,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -324,7 +340,11 @@ media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -348,7 +368,7 @@ media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Param
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

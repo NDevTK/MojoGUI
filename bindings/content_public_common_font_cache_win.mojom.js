@@ -50,7 +50,11 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
       null,
-      [log_font]);
+      null,
+      [log_font],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   releaseCachedFonts() {
@@ -59,7 +63,11 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
       fields: [
         { name: 'log_font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

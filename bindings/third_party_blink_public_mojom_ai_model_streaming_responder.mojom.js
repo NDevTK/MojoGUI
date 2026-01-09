@@ -70,7 +70,11 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec,
       null,
-      [context_info]);
+      null,
+      [context_info],
+      undefined,
+      undefined
+    );
   }
 
   onError(status, quota_error_info) {
@@ -79,7 +83,11 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ModelStreamingResponder_OnError_ParamsSpec,
       null,
-      [status, quota_error_info]);
+      null,
+      [status, quota_error_info],
+      undefined,
+      undefined
+    );
   }
 
   onStreaming(text) {
@@ -88,7 +96,11 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec,
       null,
-      [text]);
+      null,
+      [text],
+      undefined,
+      undefined
+    );
   }
 
   onQuotaOverflow() {
@@ -97,7 +109,11 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -121,7 +137,7 @@ blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
       fields: [
         { name: 'context_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -136,7 +152,7 @@ blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -150,7 +166,7 @@ blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,7 +179,7 @@ blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

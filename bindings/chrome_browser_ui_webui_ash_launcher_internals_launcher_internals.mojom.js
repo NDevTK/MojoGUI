@@ -50,7 +50,11 @@ launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page]);
+      null,
+      [page],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ launcher_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       launcher_internals.mojom.Page_UpdateResults_ParamsSpec,
       null,
-      [query, keywords, results]);
+      null,
+      [query, keywords, results],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -151,7 +159,7 @@ launcher_internals.mojom.Page_UpdateResults_ParamsSpec = {
         { name: 'keywords', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

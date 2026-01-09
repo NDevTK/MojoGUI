@@ -65,7 +65,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       0,  // ordinal
       midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
       null,
-      [info]);
+      null,
+      [info],
+      undefined,
+      undefined
+    );
   }
 
   addOutputPort(info) {
@@ -74,7 +78,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       1,  // ordinal
       midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
       null,
-      [info]);
+      null,
+      [info],
+      undefined,
+      undefined
+    );
   }
 
   setInputPortState(port, state) {
@@ -83,7 +91,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       2,  // ordinal
       midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
       null,
-      [port, state]);
+      null,
+      [port, state],
+      undefined,
+      undefined
+    );
   }
 
   setOutputPortState(port, state) {
@@ -92,7 +104,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       3,  // ordinal
       midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
       null,
-      [port, state]);
+      null,
+      [port, state],
+      undefined,
+      undefined
+    );
   }
 
   sessionStarted(result) {
@@ -101,7 +117,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       4,  // ordinal
       midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
   acknowledgeSentData(bytes) {
@@ -110,7 +130,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       5,  // ordinal
       midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
       null,
-      [bytes]);
+      null,
+      [bytes],
+      undefined,
+      undefined
+    );
   }
 
   dataReceived(port, data, timestamp) {
@@ -119,7 +143,11 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       6,  // ordinal
       midi.mojom.MidiSessionClient_DataReceived_ParamsSpec,
       null,
-      [port, data, timestamp]);
+      null,
+      [port, data, timestamp],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -143,7 +171,7 @@ midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,7 +185,7 @@ midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,7 +200,7 @@ midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -187,7 +215,7 @@ midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -201,7 +229,7 @@ midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -215,7 +243,7 @@ midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
       fields: [
         { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +259,7 @@ midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -282,7 +310,11 @@ midi.mojom.MidiSessionProviderRemoteCallHandler = class {
       0,  // ordinal
       midi.mojom.MidiSessionProvider_StartSession_ParamsSpec,
       null,
-      [receiver, client]);
+      null,
+      [receiver, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -307,7 +339,7 @@ midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -358,7 +390,11 @@ midi.mojom.MidiSessionRemoteCallHandler = class {
       0,  // ordinal
       midi.mojom.MidiSession_SendData_ParamsSpec,
       null,
-      [port, data, timestamp]);
+      null,
+      [port, data, timestamp],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -384,7 +420,7 @@ midi.mojom.MidiSession_SendData_ParamsSpec = {
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

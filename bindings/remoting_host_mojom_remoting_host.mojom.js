@@ -58,7 +58,11 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec,
       null,
-      [config]);
+      null,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
   initializePairingRegistry(privileged_handle, unprivileged_handle) {
@@ -67,7 +71,11 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec,
       null,
-      [privileged_handle, unprivileged_handle]);
+      null,
+      [privileged_handle, unprivileged_handle],
+      undefined,
+      undefined
+    );
   }
 
   bindChromotingHostServices(receiver, peer_pid) {
@@ -76,7 +84,11 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec,
       null,
-      [receiver, peer_pid]);
+      null,
+      [receiver, peer_pid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -100,7 +112,7 @@ remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -115,7 +127,7 @@ remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
         { name: 'privileged_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'unprivileged_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -130,7 +142,7 @@ remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'peer_pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -181,7 +193,11 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec,
       null,
-      [terminal_id]);
+      null,
+      [terminal_id],
+      undefined,
+      undefined
+    );
   }
 
   onDesktopSessionAgentAttached(terminal_id, session_id, desktop_pipe) {
@@ -190,7 +206,11 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec,
       null,
-      [terminal_id, session_id, desktop_pipe]);
+      null,
+      [terminal_id, session_id, desktop_pipe],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -214,7 +234,7 @@ remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec 
       fields: [
         { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +250,7 @@ remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Para
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'desktop_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -281,7 +301,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec,
       null,
-      [signaling_id]);
+      null,
+      [signaling_id],
+      undefined,
+      undefined
+    );
   }
 
   onClientAuthenticated(signaling_id) {
@@ -290,7 +314,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec,
       null,
-      [signaling_id]);
+      null,
+      [signaling_id],
+      undefined,
+      undefined
+    );
   }
 
   onClientConnected(signaling_id) {
@@ -299,7 +327,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec,
       null,
-      [signaling_id]);
+      null,
+      [signaling_id],
+      undefined,
+      undefined
+    );
   }
 
   onClientDisconnected(signaling_id) {
@@ -308,7 +340,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       3,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec,
       null,
-      [signaling_id]);
+      null,
+      [signaling_id],
+      undefined,
+      undefined
+    );
   }
 
   onClientRouteChange(signaling_id, channel_name, route) {
@@ -317,7 +353,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       4,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec,
       null,
-      [signaling_id, channel_name, route]);
+      null,
+      [signaling_id, channel_name, route],
+      undefined,
+      undefined
+    );
   }
 
   onHostStarted(owner_email) {
@@ -326,7 +366,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       5,  // ordinal
       remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec,
       null,
-      [owner_email]);
+      null,
+      [owner_email],
+      undefined,
+      undefined
+    );
   }
 
   onHostShutdown() {
@@ -335,7 +379,11 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       6,  // ordinal
       remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -359,7 +407,7 @@ remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
       fields: [
         { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -373,7 +421,7 @@ remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
       fields: [
         { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -387,7 +435,7 @@ remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
       fields: [
         { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -401,7 +449,7 @@ remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
       fields: [
         { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -417,7 +465,7 @@ remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
         { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'route', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -431,7 +479,7 @@ remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
       fields: [
         { name: 'owner_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -444,7 +492,7 @@ remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

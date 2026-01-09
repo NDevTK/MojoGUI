@@ -50,7 +50,11 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   cloneWorkerClientRegistry(host) {
@@ -59,7 +63,11 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
       null,
-      [host]);
+      null,
+      [host],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = 
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSp
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

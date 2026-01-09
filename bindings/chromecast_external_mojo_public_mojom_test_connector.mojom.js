@@ -51,7 +51,11 @@ chromecast.external_mojo.mojom.TestExternalConnectorRemoteCallHandler = class {
       0,  // ordinal
       chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec,
       null,
-      [service_name, interface_name, interface_pipe]);
+      null,
+      [service_name, interface_name, interface_pipe],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_Param
         { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

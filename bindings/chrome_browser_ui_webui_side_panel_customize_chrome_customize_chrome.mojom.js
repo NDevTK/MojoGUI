@@ -83,7 +83,11 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -108,7 +112,7 @@ side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec 
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -159,7 +163,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
-      [shortcuts_types, shortcuts_visible, personal_shortcuts_visible]);
+      null,
+      [shortcuts_types, shortcuts_visible, personal_shortcuts_visible],
+      undefined,
+      undefined
+    );
   }
 
   updateMostVisitedSettings() {
@@ -168,7 +176,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getBackgroundCollections() {
@@ -177,7 +189,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       2,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec,
       side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
-      []);
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getReplacementCollectionPreviewImage(collection_id) {
@@ -186,7 +202,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       3,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec,
       side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
-      [collection_id]);
+      side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
+      [collection_id],
+      undefined,
+      undefined
+    );
   }
 
   getBackgroundImages(collection_id) {
@@ -195,7 +215,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       4,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec,
       side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
-      [collection_id]);
+      side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
+      [collection_id],
+      undefined,
+      undefined
+    );
   }
 
   updateModulesSettings() {
@@ -204,7 +228,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       5,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateTheme() {
@@ -213,7 +241,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       6,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateThemeEditable(is_theme_editable) {
@@ -222,7 +254,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       7,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec,
       null,
-      [is_theme_editable]);
+      null,
+      [is_theme_editable],
+      undefined,
+      undefined
+    );
   }
 
   setDefaultColor() {
@@ -231,7 +267,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       8,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setFollowDeviceTheme(follow) {
@@ -240,7 +280,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       9,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec,
       null,
-      [follow]);
+      null,
+      [follow],
+      undefined,
+      undefined
+    );
   }
 
   removeBackgroundImage() {
@@ -249,7 +293,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       10,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   chooseLocalCustomBackground() {
@@ -258,7 +306,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       11,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec,
       side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
-      []);
+      side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setBackgroundImage(attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id) {
@@ -267,7 +319,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       12,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec,
       null,
-      [attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id]);
+      null,
+      [attribution_1, attribution_2, attribution_url, image_url, thumbnail_url, collection_id],
+      undefined,
+      undefined
+    );
   }
 
   setDailyRefreshCollectionId(collection_id) {
@@ -276,7 +332,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       13,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec,
       null,
-      [collection_id]);
+      null,
+      [collection_id],
+      undefined,
+      undefined
+    );
   }
 
   openChromeWebStore() {
@@ -285,7 +345,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       14,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openChromeWebStoreHomePage() {
@@ -294,7 +358,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       15,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openThirdPartyThemePage(theme_id) {
@@ -303,7 +371,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       16,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec,
       null,
-      [theme_id]);
+      null,
+      [theme_id],
+      undefined,
+      undefined
+    );
   }
 
   openChromeWebStoreCategoryPage(category) {
@@ -312,7 +384,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       17,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec,
       null,
-      [category]);
+      null,
+      [category],
+      undefined,
+      undefined
+    );
   }
 
   openChromeWebStoreCollectionPage(collection) {
@@ -321,7 +397,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       18,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec,
       null,
-      [collection]);
+      null,
+      [collection],
+      undefined,
+      undefined
+    );
   }
 
   openNtpManagedByPage() {
@@ -330,7 +410,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       19,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setModulesVisible(visible) {
@@ -339,7 +423,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       20,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   setModuleDisabled(module_id, disabled) {
@@ -348,7 +436,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       21,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec,
       null,
-      [module_id, disabled]);
+      null,
+      [module_id, disabled],
+      undefined,
+      undefined
+    );
   }
 
   setToolChipsVisible(visible) {
@@ -357,7 +449,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       22,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   updateToolChipsSettings() {
@@ -366,7 +462,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       23,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateScrollToSection() {
@@ -375,7 +475,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       24,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateAttachedTabState() {
@@ -384,7 +488,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       25,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateNtpManagedByName() {
@@ -393,7 +501,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       26,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setFooterVisible(visible) {
@@ -402,7 +514,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       27,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   updateFooterSettings() {
@@ -411,7 +527,11 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
       28,  // ordinal
       side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -437,7 +557,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec = 
         { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'personal_shortcuts_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -450,7 +570,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -463,7 +583,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -476,7 +596,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponsePar
       fields: [
         { name: 'collections', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -490,7 +610,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -503,7 +623,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage
       fields: [
         { name: 'preview_image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -517,7 +637,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -530,7 +650,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSp
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -543,7 +663,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -556,7 +676,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -570,7 +690,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec = {
       fields: [
         { name: 'is_theme_editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -583,7 +703,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -597,7 +717,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec = {
       fields: [
         { name: 'follow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -610,7 +730,7 @@ side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -623,7 +743,7 @@ side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -636,7 +756,7 @@ side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_Response
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -655,7 +775,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec = {
         { name: 'thumbnail_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'collection_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -669,7 +789,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSp
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -682,7 +802,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -695,7 +815,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -709,7 +829,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec =
       fields: [
         { name: 'theme_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -723,7 +843,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_Param
       fields: [
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -737,7 +857,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_Par
       fields: [
         { name: 'collection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -750,7 +870,7 @@ side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -764,7 +884,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -779,7 +899,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec = {
         { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -793,7 +913,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -806,7 +926,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -819,7 +939,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -832,7 +952,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -845,7 +965,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -859,7 +979,7 @@ side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -872,7 +992,7 @@ side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -923,7 +1043,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec,
       null,
-      [modules_settings, managed, visible]);
+      null,
+      [modules_settings, managed, visible],
+      undefined,
+      undefined
+    );
   }
 
   setMostVisitedSettings(shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts) {
@@ -932,7 +1056,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       1,  // ordinal
       side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec,
       null,
-      [shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts]);
+      null,
+      [shortcuts_types, visible, personal_shortcuts_visible, disabled_shortcuts],
+      undefined,
+      undefined
+    );
   }
 
   setToolsSettings(visible) {
@@ -941,7 +1069,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       2,  // ordinal
       side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   setFooterSettings(visible, extension_policy_enabled, management_notice_state) {
@@ -950,7 +1082,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       3,  // ordinal
       side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec,
       null,
-      [visible, extension_policy_enabled, management_notice_state]);
+      null,
+      [visible, extension_policy_enabled, management_notice_state],
+      undefined,
+      undefined
+    );
   }
 
   setTheme(theme) {
@@ -959,7 +1095,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       4,  // ordinal
       side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec,
       null,
-      [theme]);
+      null,
+      [theme],
+      undefined,
+      undefined
+    );
   }
 
   setThemeEditable(is_theme_editable) {
@@ -968,7 +1108,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       5,  // ordinal
       side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec,
       null,
-      [is_theme_editable]);
+      null,
+      [is_theme_editable],
+      undefined,
+      undefined
+    );
   }
 
   scrollToSection(section) {
@@ -977,7 +1121,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       6,  // ordinal
       side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec,
       null,
-      [section]);
+      null,
+      [section],
+      undefined,
+      undefined
+    );
   }
 
   attachedTabStateUpdated(ntp_type) {
@@ -986,7 +1134,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       7,  // ordinal
       side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec,
       null,
-      [ntp_type]);
+      null,
+      [ntp_type],
+      undefined,
+      undefined
+    );
   }
 
   ntpManagedByNameUpdated(name, description) {
@@ -995,7 +1147,11 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
       8,  // ordinal
       side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec,
       null,
-      [name, description]);
+      null,
+      [name, description],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1021,7 +1177,7 @@ side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec = {
         { name: 'managed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1038,7 +1194,7 @@ side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec = {
         { name: 'personal_shortcuts_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'disabled_shortcuts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1052,7 +1208,7 @@ side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1068,7 +1224,7 @@ side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec = {
         { name: 'extension_policy_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'management_notice_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1082,7 +1238,7 @@ side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1096,7 +1252,7 @@ side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec = {
       fields: [
         { name: 'is_theme_editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1110,7 +1266,7 @@ side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec = {
       fields: [
         { name: 'section', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1124,7 +1280,7 @@ side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec = {
       fields: [
         { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1139,7 +1295,7 @@ side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

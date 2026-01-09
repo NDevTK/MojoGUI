@@ -59,7 +59,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
       null,
-      [clicked]);
+      null,
+      [clicked],
+      undefined,
+      undefined
+    );
   }
 
   reportNewAnchorElements(metrics, removed_elements) {
@@ -68,7 +72,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
       null,
-      [metrics, removed_elements]);
+      null,
+      [metrics, removed_elements],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementsEnteredViewport(elements) {
@@ -77,7 +85,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
       null,
-      [elements]);
+      null,
+      [elements],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementsLeftViewport(elements) {
@@ -86,7 +98,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
       null,
-      [elements]);
+      null,
+      [elements],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementsPositionUpdate(elements) {
@@ -95,7 +111,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
       null,
-      [elements]);
+      null,
+      [elements],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementPointerOver(pointer_over_event) {
@@ -104,7 +124,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
       null,
-      [pointer_over_event]);
+      null,
+      [pointer_over_event],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementPointerOut(hover_event) {
@@ -113,7 +137,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
       null,
-      [hover_event]);
+      null,
+      [hover_event],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementPointerDown(pointer_down_event) {
@@ -122,7 +150,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
       null,
-      [pointer_down_event]);
+      null,
+      [pointer_down_event],
+      undefined,
+      undefined
+    );
   }
 
   reportAnchorElementPointerDataOnHoverTimerFired(pointer_data) {
@@ -131,7 +163,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
       null,
-      [pointer_data]);
+      null,
+      [pointer_data],
+      undefined,
+      undefined
+    );
   }
 
   processPointerEventUsingMLModel(pointer_event) {
@@ -140,7 +176,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
       null,
-      [pointer_event]);
+      null,
+      [pointer_event],
+      undefined,
+      undefined
+    );
   }
 
   shouldSkipUpdateDelays() {
@@ -149,7 +189,11 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
       blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
-      []);
+      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -173,7 +217,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = {
       fields: [
         { name: 'clicked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -188,7 +232,7 @@ blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = {
         { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'removed_elements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -202,7 +246,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsS
       fields: [
         { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,7 +260,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec
       fields: [
         { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +274,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSp
       fields: [
         { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,7 +288,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec =
       fields: [
         { name: 'pointer_over_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -258,7 +302,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = 
       fields: [
         { name: 'hover_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -272,7 +316,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec =
       fields: [
         { name: 'pointer_down_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -286,7 +330,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerF
       fields: [
         { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -300,7 +344,7 @@ blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec 
       fields: [
         { name: 'pointer_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,7 +357,7 @@ blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -326,7 +370,7 @@ blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec =
       fields: [
         { name: 'should_skip_for_testing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

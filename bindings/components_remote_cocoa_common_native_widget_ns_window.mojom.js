@@ -81,7 +81,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   setParent(parent_id) {
@@ -90,7 +94,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec,
       null,
-      [parent_id]);
+      null,
+      [parent_id],
+      undefined,
+      undefined
+    );
   }
 
   createSelectFileDialog(dialog) {
@@ -99,7 +107,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       2,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec,
       null,
-      [dialog]);
+      null,
+      [dialog],
+      undefined,
+      undefined
+    );
   }
 
   showCertificateViewer(certificate) {
@@ -108,7 +120,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       3,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec,
       null,
-      [certificate]);
+      null,
+      [certificate],
+      undefined,
+      undefined
+    );
   }
 
   stackAbove(sibling_id) {
@@ -117,7 +133,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       4,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec,
       null,
-      [sibling_id]);
+      null,
+      [sibling_id],
+      undefined,
+      undefined
+    );
   }
 
   stackAtTop() {
@@ -126,7 +146,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       5,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showEmojiPanel() {
@@ -135,7 +159,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       6,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   initWindow(params) {
@@ -144,7 +172,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       7,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   initCompositorView() {
@@ -153,7 +185,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       8,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec,
       remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec,
-      []);
+      remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   createContentView(ns_view_id, bounds, corner_radius) {
@@ -162,7 +198,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       9,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec,
       null,
-      [ns_view_id, bounds, corner_radius]);
+      null,
+      [ns_view_id, bounds, corner_radius],
+      undefined,
+      undefined
+    );
   }
 
   destroyContentView() {
@@ -171,7 +211,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       10,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   closeWindow() {
@@ -180,7 +224,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       11,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   closeWindowNow() {
@@ -189,7 +237,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       12,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setInitialBounds(new_bounds, minimum_content_size) {
@@ -198,7 +250,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       13,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec,
       null,
-      [new_bounds, minimum_content_size]);
+      null,
+      [new_bounds, minimum_content_size],
+      undefined,
+      undefined
+    );
   }
 
   setBounds(new_bounds, minimum_content_size, maximum_content_size) {
@@ -207,7 +263,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       14,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec,
       null,
-      [new_bounds, minimum_content_size, maximum_content_size]);
+      null,
+      [new_bounds, minimum_content_size, maximum_content_size],
+      undefined,
+      undefined
+    );
   }
 
   setSize(new_size, minimum_content_size) {
@@ -216,7 +276,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       15,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec,
       null,
-      [new_size, minimum_content_size]);
+      null,
+      [new_size, minimum_content_size],
+      undefined,
+      undefined
+    );
   }
 
   setSizeAndCenter(content_size, minimum_content_size) {
@@ -225,7 +289,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       16,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec,
       null,
-      [content_size, minimum_content_size]);
+      null,
+      [content_size, minimum_content_size],
+      undefined,
+      undefined
+    );
   }
 
   setVisibilityState(new_state) {
@@ -234,7 +302,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       17,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec,
       null,
-      [new_state]);
+      null,
+      [new_state],
+      undefined,
+      undefined
+    );
   }
 
   setAnimationEnabled(animation_enabled) {
@@ -243,7 +315,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       18,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec,
       null,
-      [animation_enabled]);
+      null,
+      [animation_enabled],
+      undefined,
+      undefined
+    );
   }
 
   setTransitionsToAnimate(transitions) {
@@ -252,7 +328,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       19,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec,
       null,
-      [transitions]);
+      null,
+      [transitions],
+      undefined,
+      undefined
+    );
   }
 
   setVisibleOnAllSpaces(always_visible) {
@@ -261,7 +341,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       20,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec,
       null,
-      [always_visible]);
+      null,
+      [always_visible],
+      undefined,
+      undefined
+    );
   }
 
   enterFullscreen(target_display_id) {
@@ -270,7 +354,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       21,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec,
       null,
-      [target_display_id]);
+      null,
+      [target_display_id],
+      undefined,
+      undefined
+    );
   }
 
   exitFullscreen() {
@@ -279,7 +367,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       22,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setCanAppearInExistingFullscreenSpaces(can_appear_in_existing_fullscreen_spaces) {
@@ -288,7 +380,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       23,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec,
       null,
-      [can_appear_in_existing_fullscreen_spaces]);
+      null,
+      [can_appear_in_existing_fullscreen_spaces],
+      undefined,
+      undefined
+    );
   }
 
   setMiniaturized(miniaturized) {
@@ -297,7 +393,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       24,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec,
       null,
-      [miniaturized]);
+      null,
+      [miniaturized],
+      undefined,
+      undefined
+    );
   }
 
   setZoomed(zoomed) {
@@ -306,7 +406,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       25,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec,
       null,
-      [zoomed]);
+      null,
+      [zoomed],
+      undefined,
+      undefined
+    );
   }
 
   setSizeConstraints(min_size, max_size, is_resizable, is_maximizable) {
@@ -315,7 +419,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       26,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec,
       null,
-      [min_size, max_size, is_resizable, is_maximizable]);
+      null,
+      [min_size, max_size, is_resizable, is_maximizable],
+      undefined,
+      undefined
+    );
   }
 
   setOpacity(opacity) {
@@ -324,7 +432,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       27,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec,
       null,
-      [opacity]);
+      null,
+      [opacity],
+      undefined,
+      undefined
+    );
   }
 
   setWindowLevel(level) {
@@ -333,7 +445,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       28,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec,
       null,
-      [level]);
+      null,
+      [level],
+      undefined,
+      undefined
+    );
   }
 
   setActivationIndependence(independence) {
@@ -342,7 +458,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       29,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec,
       null,
-      [independence]);
+      null,
+      [independence],
+      undefined,
+      undefined
+    );
   }
 
   setAspectRatio(aspect_ratio, excluded_margin) {
@@ -351,7 +471,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       30,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec,
       null,
-      [aspect_ratio, excluded_margin]);
+      null,
+      [aspect_ratio, excluded_margin],
+      undefined,
+      undefined
+    );
   }
 
   setCALayerParams(ca_layer_params) {
@@ -360,7 +484,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       31,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec,
       null,
-      [ca_layer_params]);
+      null,
+      [ca_layer_params],
+      undefined,
+      undefined
+    );
   }
 
   setWindowTitle(title) {
@@ -369,7 +497,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       32,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec,
       null,
-      [title]);
+      null,
+      [title],
+      undefined,
+      undefined
+    );
   }
 
   setIgnoresMouseEvents(ignores_mouse_events) {
@@ -378,7 +510,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       33,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec,
       null,
-      [ignores_mouse_events]);
+      null,
+      [ignores_mouse_events],
+      undefined,
+      undefined
+    );
   }
 
   makeFirstResponder() {
@@ -387,7 +523,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       34,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   sortSubviews(attached_subview_ids) {
@@ -396,7 +536,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       35,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec,
       null,
-      [attached_subview_ids]);
+      null,
+      [attached_subview_ids],
+      undefined,
+      undefined
+    );
   }
 
   clearTouchBar() {
@@ -405,7 +549,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       36,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateTooltip() {
@@ -414,7 +562,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       37,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   acquireCapture() {
@@ -423,7 +575,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       38,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   releaseCapture() {
@@ -432,7 +588,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       39,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   redispatchKeyEvent(native_event_data) {
@@ -441,7 +601,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       40,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec,
       null,
-      [native_event_data]);
+      null,
+      [native_event_data],
+      undefined,
+      undefined
+    );
   }
 
   setLocalEventMonitorEnabled(enabled) {
@@ -450,7 +614,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       41,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
   setCursor(cursor) {
@@ -459,7 +627,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       42,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec,
       null,
-      [cursor]);
+      null,
+      [cursor],
+      undefined,
+      undefined
+    );
   }
 
   enableImmersiveFullscreen(fullscreen_overlay_widget_id, tab_widget_id) {
@@ -468,7 +640,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       43,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec,
       null,
-      [fullscreen_overlay_widget_id, tab_widget_id]);
+      null,
+      [fullscreen_overlay_widget_id, tab_widget_id],
+      undefined,
+      undefined
+    );
   }
 
   disableImmersiveFullscreen() {
@@ -477,7 +653,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       44,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateToolbarVisibility(style) {
@@ -486,7 +666,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       45,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec,
       null,
-      [style]);
+      null,
+      [style],
+      undefined,
+      undefined
+    );
   }
 
   onTopContainerViewBoundsChanged(bounds) {
@@ -495,7 +679,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       46,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec,
       null,
-      [bounds]);
+      null,
+      [bounds],
+      undefined,
+      undefined
+    );
   }
 
   immersiveFullscreenRevealLock() {
@@ -504,7 +692,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       47,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   immersiveFullscreenRevealUnlock() {
@@ -513,7 +705,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       48,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setCanGoBack(can_go_back) {
@@ -522,7 +718,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       49,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec,
       null,
-      [can_go_back]);
+      null,
+      [can_go_back],
+      undefined,
+      undefined
+    );
   }
 
   setCanGoForward(can_go_forward) {
@@ -531,7 +731,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       50,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec,
       null,
-      [can_go_forward]);
+      null,
+      [can_go_forward],
+      undefined,
+      undefined
+    );
   }
 
   displayContextMenu(menu, host, receiver) {
@@ -540,7 +744,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       51,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec,
       null,
-      [menu, host, receiver]);
+      null,
+      [menu, host, receiver],
+      undefined,
+      undefined
+    );
   }
 
   setAllowScreenshots(allow) {
@@ -549,7 +757,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       52,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec,
       null,
-      [allow]);
+      null,
+      [allow],
+      undefined,
+      undefined
+    );
   }
 
   setColorMode(color_mode) {
@@ -558,7 +770,11 @@ remote_cocoa.mojom.NativeWidgetNSWindowRemoteCallHandler = class {
       53,  // ordinal
       remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec,
       null,
-      [color_mode]);
+      null,
+      [color_mode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -582,7 +798,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -596,7 +812,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec = {
       fields: [
         { name: 'parent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -610,7 +826,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec = {
       fields: [
         { name: 'dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -624,7 +840,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec = {
       fields: [
         { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -638,7 +854,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec = {
       fields: [
         { name: 'sibling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -651,7 +867,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -664,7 +880,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -678,7 +894,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -691,7 +907,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -704,7 +920,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec = 
       fields: [
         { name: 'cg_window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -720,7 +936,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec = {
         { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'corner_radius', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -733,7 +949,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -746,7 +962,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -759,7 +975,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -774,7 +990,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec = {
         { name: 'new_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'minimum_content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -790,7 +1006,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec = {
         { name: 'minimum_content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'maximum_content_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -805,7 +1021,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec = {
         { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'minimum_content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -820,7 +1036,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec = {
         { name: 'content_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'minimum_content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -834,7 +1050,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec = {
       fields: [
         { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -848,7 +1064,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec = {
       fields: [
         { name: 'animation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -862,7 +1078,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec = {
       fields: [
         { name: 'transitions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -876,7 +1092,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec = {
       fields: [
         { name: 'always_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -890,7 +1106,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec = {
       fields: [
         { name: 'target_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -903,7 +1119,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -917,7 +1133,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_P
       fields: [
         { name: 'can_appear_in_existing_fullscreen_spaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -931,7 +1147,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec = {
       fields: [
         { name: 'miniaturized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -945,7 +1161,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec = {
       fields: [
         { name: 'zoomed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -962,7 +1178,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec = {
         { name: 'is_resizable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_maximizable', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -976,7 +1192,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec = {
       fields: [
         { name: 'opacity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -990,7 +1206,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec = {
       fields: [
         { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1004,7 +1220,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec = {
       fields: [
         { name: 'independence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1019,7 +1235,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec = {
         { name: 'aspect_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'excluded_margin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1033,7 +1249,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec = {
       fields: [
         { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1047,7 +1263,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec = {
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1061,7 +1277,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec = {
       fields: [
         { name: 'ignores_mouse_events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1074,7 +1290,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1088,7 +1304,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec = {
       fields: [
         { name: 'attached_subview_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1101,7 +1317,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1114,7 +1330,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1127,7 +1343,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1140,7 +1356,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1154,7 +1370,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec = {
       fields: [
         { name: 'native_event_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1168,7 +1384,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec =
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1182,7 +1398,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec = {
       fields: [
         { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1197,7 +1413,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec = {
         { name: 'fullscreen_overlay_widget_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'tab_widget_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1210,7 +1426,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1224,7 +1440,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec = {
       fields: [
         { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1238,7 +1454,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSp
       fields: [
         { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1251,7 +1467,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1264,7 +1480,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1278,7 +1494,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec = {
       fields: [
         { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1292,7 +1508,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec = {
       fields: [
         { name: 'can_go_forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1308,7 +1524,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec = {
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1322,7 +1538,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec = {
       fields: [
         { name: 'allow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1336,7 +1552,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec = {
       fields: [
         { name: 'color_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

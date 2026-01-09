@@ -50,7 +50,11 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   suspendProcess() {
@@ -59,7 +63,11 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   bindRemotingHostControl(receiver) {
@@ -68,7 +76,11 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -104,7 +116,7 @@ remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -118,7 +130,7 @@ remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,7 +181,11 @@ remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec,
       null,
-      [agent_process]);
+      null,
+      [agent_process],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -193,7 +209,7 @@ remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = {
       fields: [
         { name: 'agent_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

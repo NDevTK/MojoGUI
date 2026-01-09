@@ -50,7 +50,11 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemot
       0,  // ordinal
       contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_Crea
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemoteCallHa
       0,  // ordinal
       contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec,
       contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec,
-      [request]);
+      contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -150,7 +158,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,7 +171,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,7 +222,11 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemoteCallHandler =
       0,  // ordinal
       contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec,
       null,
-      [event_time, source_file, source_line, message]);
+      null,
+      [event_time, source_file, source_line, message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -241,7 +253,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_
         { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

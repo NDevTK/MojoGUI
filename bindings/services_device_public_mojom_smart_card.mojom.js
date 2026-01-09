@@ -124,7 +124,11 @@ device.mojom.SmartCardTransactionRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
       device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
-      [disposition]);
+      device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
+      [disposition],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -148,7 +152,7 @@ device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
       fields: [
         { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +165,7 @@ device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +216,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardConnection_Disconnect_ParamsSpec,
       device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
-      [disposition]);
+      device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
+      [disposition],
+      undefined,
+      undefined
+    );
   }
 
   transmit(protocol, data) {
@@ -221,7 +229,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SmartCardConnection_Transmit_ParamsSpec,
       device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
-      [protocol, data]);
+      device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
+      [protocol, data],
+      undefined,
+      undefined
+    );
   }
 
   control(control_code, data) {
@@ -230,7 +242,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SmartCardConnection_Control_ParamsSpec,
       device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
-      [control_code, data]);
+      device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
+      [control_code, data],
+      undefined,
+      undefined
+    );
   }
 
   getAttrib(id) {
@@ -239,7 +255,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
       device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
-      [id]);
+      device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   setAttrib(id, data) {
@@ -248,7 +268,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
       device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
-      [id, data]);
+      device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
+      [id, data],
+      undefined,
+      undefined
+    );
   }
 
   status() {
@@ -257,7 +281,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.SmartCardConnection_Status_ParamsSpec,
       device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
-      []);
+      device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   beginTransaction() {
@@ -266,7 +294,11 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
       device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
-      []);
+      device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -290,7 +322,7 @@ device.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
       fields: [
         { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -303,7 +335,7 @@ device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -318,7 +350,7 @@ device.mojom.SmartCardConnection_Transmit_ParamsSpec = {
         { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -331,7 +363,7 @@ device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -346,7 +378,7 @@ device.mojom.SmartCardConnection_Control_ParamsSpec = {
         { name: 'control_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -359,7 +391,7 @@ device.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -373,7 +405,7 @@ device.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -386,7 +418,7 @@ device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -401,7 +433,7 @@ device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -414,7 +446,7 @@ device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -427,7 +459,7 @@ device.mojom.SmartCardConnection_Status_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -440,7 +472,7 @@ device.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -453,7 +485,7 @@ device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -466,7 +498,7 @@ device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -517,7 +549,11 @@ device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -540,7 +576,7 @@ device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -591,7 +627,11 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardContext_ListReaders_ParamsSpec,
       device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
-      []);
+      device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getStatusChange(timeout, reader_states) {
@@ -600,7 +640,11 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
       device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
-      [timeout, reader_states]);
+      device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
+      [timeout, reader_states],
+      undefined,
+      undefined
+    );
   }
 
   cancel() {
@@ -609,7 +653,11 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SmartCardContext_Cancel_ParamsSpec,
       device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
-      []);
+      device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   connect(reader, share_mode, preferred_protocols, connection_watcher) {
@@ -618,7 +666,11 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SmartCardContext_Connect_ParamsSpec,
       device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
-      [reader, share_mode, preferred_protocols, connection_watcher]);
+      device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
+      [reader, share_mode, preferred_protocols, connection_watcher],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -641,7 +693,7 @@ device.mojom.SmartCardContext_ListReaders_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -654,7 +706,7 @@ device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -669,7 +721,7 @@ device.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
         { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reader_states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -682,7 +734,7 @@ device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -695,7 +747,7 @@ device.mojom.SmartCardContext_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -708,7 +760,7 @@ device.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -725,7 +777,7 @@ device.mojom.SmartCardContext_Connect_ParamsSpec = {
         { name: 'preferred_protocols', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'connection_watcher', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -738,7 +790,7 @@ device.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -789,7 +841,11 @@ device.mojom.SmartCardContextFactoryRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
       device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
-      []);
+      device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -812,7 +868,7 @@ device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -825,7 +881,7 @@ device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

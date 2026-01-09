@@ -50,7 +50,11 @@ blink.mojom.TranslatorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Translator_Translate_ParamsSpec,
       null,
-      [input, pending_responder]);
+      null,
+      [input, pending_responder],
+      undefined,
+      undefined
+    );
   }
 
   translateStreaming(input, pending_responder) {
@@ -59,7 +63,11 @@ blink.mojom.TranslatorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Translator_TranslateStreaming_ParamsSpec,
       null,
-      [input, pending_responder]);
+      null,
+      [input, pending_responder],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ blink.mojom.Translator_Translate_ParamsSpec = {
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -99,7 +107,7 @@ blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

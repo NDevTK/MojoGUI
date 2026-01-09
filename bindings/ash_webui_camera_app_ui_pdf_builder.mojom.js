@@ -51,7 +51,11 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       0,  // ordinal
       ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec,
       null,
-      [jpeg, page_index]);
+      null,
+      [jpeg, page_index],
+      undefined,
+      undefined
+    );
   }
 
   addPageInline(jpeg, page_index) {
@@ -60,7 +64,11 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       1,  // ordinal
       ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec,
       null,
-      [jpeg, page_index]);
+      null,
+      [jpeg, page_index],
+      undefined,
+      undefined
+    );
   }
 
   deletePage(page_index) {
@@ -69,7 +77,11 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       2,  // ordinal
       ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec,
       null,
-      [page_index]);
+      null,
+      [page_index],
+      undefined,
+      undefined
+    );
   }
 
   save() {
@@ -78,7 +90,11 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       3,  // ordinal
       ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec,
       ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec,
-      []);
+      ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   saveInline() {
@@ -87,7 +103,11 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       4,  // ordinal
       ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec,
       ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec,
-      []);
+      ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -112,7 +132,7 @@ ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = {
         { name: 'jpeg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -127,7 +147,7 @@ ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec = {
         { name: 'jpeg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -141,7 +161,7 @@ ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec = {
       fields: [
         { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,7 +174,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -167,7 +187,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = {
       fields: [
         { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +200,7 @@ ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -193,7 +213,7 @@ ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = {
       fields: [
         { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

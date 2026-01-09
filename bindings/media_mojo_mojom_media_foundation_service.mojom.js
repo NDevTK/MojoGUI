@@ -50,7 +50,11 @@ media.mojom.GpuInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec,
       null,
-      [gpu_info]);
+      null,
+      [gpu_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
       fields: [
         { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec,
       media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
-      [key_system]);
+      media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
+      [key_system],
+      undefined,
+      undefined
+    );
   }
 
   createInterfaceFactory(factory, frame_interfaces) {
@@ -134,7 +142,11 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces]);
+      null,
+      [factory, frame_interfaces],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +170,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
       fields: [
         { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,7 +184,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -187,7 +199,7 @@ media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -238,7 +250,11 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec,
       media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
-      [gpu_info]);
+      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
+      [gpu_info],
+      undefined,
+      undefined
+    );
   }
 
   getService(cdm_path, receiver) {
@@ -247,7 +263,11 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec,
       null,
-      [cdm_path, receiver]);
+      null,
+      [cdm_path, receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -271,7 +291,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
       fields: [
         { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -284,7 +304,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
       fields: [
         { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -299,7 +319,7 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
         { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

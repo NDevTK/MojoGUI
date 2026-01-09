@@ -64,7 +64,11 @@ policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +93,7 @@ policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = 
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,7 +144,11 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
       policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
-      []);
+      policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   uploadOrDeleteNow() {
@@ -149,7 +157,11 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   close() {
@@ -158,7 +170,11 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       policy.local_user_files.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -181,7 +197,7 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -196,7 +212,7 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpe
         { name: 'remaining_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'start_date_and_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -209,7 +225,7 @@ policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -222,7 +238,7 @@ policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -273,7 +289,11 @@ policy.local_user_files.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec,
       null,
-      [remaining_time]);
+      null,
+      [remaining_time],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -297,7 +317,7 @@ policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
       fields: [
         { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

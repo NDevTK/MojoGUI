@@ -50,7 +50,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
       null,
-      [kelvin]);
+      null,
+      [kelvin],
+      undefined,
+      undefined
+    );
   }
 
   setColorTemperatureSmooth(kelvin, duration) {
@@ -59,7 +63,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
       null,
-      [kelvin, duration]);
+      null,
+      [kelvin, duration],
+      undefined,
+      undefined
+    );
   }
 
   resetColorTemperature() {
@@ -68,7 +76,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setBrightness(brightness) {
@@ -77,7 +89,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec,
       null,
-      [brightness]);
+      null,
+      [brightness],
+      undefined,
+      undefined
+    );
   }
 
   setBrightnessSmooth(brightness, duration) {
@@ -86,7 +102,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
       null,
-      [brightness, duration]);
+      null,
+      [brightness, duration],
+      undefined,
+      undefined
+    );
   }
 
   resetBrightness() {
@@ -95,7 +115,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setScreenOn(display_on) {
@@ -104,7 +128,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       6,  // ordinal
       chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
       null,
-      [display_on]);
+      null,
+      [display_on],
+      undefined,
+      undefined
+    );
   }
 
   setAllowScreenPowerOff(allow_power_off) {
@@ -113,7 +141,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       7,  // ordinal
       chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
       null,
-      [allow_power_off]);
+      null,
+      [allow_power_off],
+      undefined,
+      undefined
+    );
   }
 
   addDisplaySettingsObserver(observer) {
@@ -122,7 +154,11 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       8,  // ordinal
       chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -146,7 +182,7 @@ chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
       fields: [
         { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +197,7 @@ chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
         { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,7 +210,7 @@ chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -188,7 +224,7 @@ chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
       fields: [
         { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,7 +239,7 @@ chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
         { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -216,7 +252,7 @@ chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -230,7 +266,7 @@ chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
       fields: [
         { name: 'display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,7 +280,7 @@ chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
       fields: [
         { name: 'allow_power_off', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -258,7 +294,7 @@ chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -309,7 +345,11 @@ chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      [brightness]);
+      null,
+      [brightness],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -333,7 +373,7 @@ chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec =
       fields: [
         { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

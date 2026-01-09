@@ -50,7 +50,11 @@ quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
       0,  // ordinal
       quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec,
       quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec,
-      [dictionary_file]);
+      quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec,
+      [dictionary_file],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
       fields: [
         { name: 'dictionary_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
       fields: [
         { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +142,11 @@ quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler = class {
       0,  // ordinal
       quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec,
       quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec,
-      [word]);
+      quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec,
+      [word],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -162,7 +170,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
       fields: [
         { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -175,7 +183,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
       fields: [
         { name: 'correctness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -81,7 +81,11 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec,
       connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec,
-      []);
+      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   deleteDeviceTrustKey() {
@@ -90,7 +94,11 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getClientCertificateState() {
@@ -99,7 +107,11 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec,
       connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec,
-      []);
+      connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getSignalsReportingState() {
@@ -108,7 +120,11 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec,
       connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec,
-      []);
+      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -131,7 +147,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -144,7 +160,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = 
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,7 +173,7 @@ connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -170,7 +186,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -183,7 +199,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsS
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,7 +212,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -209,7 +225,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSp
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

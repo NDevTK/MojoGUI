@@ -50,7 +50,11 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BadgeService_SetBadge_ParamsSpec,
       null,
-      [value]);
+      null,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   clearBadge() {
@@ -59,7 +63,11 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BadgeService_ClearBadge_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.BadgeService_SetBadge_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

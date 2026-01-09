@@ -51,7 +51,11 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHand
       0,  // ordinal
       ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResul
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -125,7 +129,11 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec,
       ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec,
-      [query, max_num_results]);
+      ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec,
+      [query, max_num_results],
+      undefined,
+      undefined
+    );
   }
 
   addSearchResultsAvailabilityObserver(observer) {
@@ -134,7 +142,11 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -159,7 +171,7 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -172,7 +184,7 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -186,7 +198,7 @@ ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObser
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

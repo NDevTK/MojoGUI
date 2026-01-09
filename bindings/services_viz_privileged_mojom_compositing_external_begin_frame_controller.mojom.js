@@ -50,7 +50,11 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
       viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
-      [args, force]);
+      viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
+      [args, force],
+      undefined,
+      undefined
+    );
   }
 
   issueExternalBeginFrameNoAck(args) {
@@ -59,7 +63,11 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec,
       null,
-      [args]);
+      null,
+      [args],
+      undefined,
+      undefined
+    );
   }
 
   issueExternalVSync(params) {
@@ -68,7 +76,11 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   setSupportedDisplayLinkId(display_id, is_supported) {
@@ -77,7 +89,11 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec,
       null,
-      [display_id, is_supported]);
+      null,
+      [display_id, is_supported],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -102,7 +118,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -115,7 +131,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpe
       fields: [
         { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -129,7 +145,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec =
       fields: [
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +159,7 @@ viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +174,7 @@ viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -209,7 +225,11 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [needs_begin_frames]);
+      null,
+      [needs_begin_frames],
+      undefined,
+      undefined
+    );
   }
 
   needsBeginFrameWithId(display_id, needs_begin_frames) {
@@ -218,7 +238,11 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
       null,
-      [display_id, needs_begin_frames]);
+      null,
+      [display_id, needs_begin_frames],
+      undefined,
+      undefined
+    );
   }
 
   setPreferredInterval(interval) {
@@ -227,7 +251,11 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
       null,
-      [interval]);
+      null,
+      [interval],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -251,7 +279,7 @@ viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
       fields: [
         { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,7 +294,7 @@ viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = 
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -280,7 +308,7 @@ viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
       fields: [
         { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

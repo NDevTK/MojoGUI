@@ -50,7 +50,11 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       0,  // ordinal
       legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
       legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
-      []);
+      legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   completeHandshake(response) {
@@ -59,7 +63,11 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       1,  // ordinal
       legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
       legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
-      [response]);
+      legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
+      [response],
+      undefined,
+      undefined
+    );
   }
 
   encrypt(input) {
@@ -68,7 +76,11 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       2,  // ordinal
       legion.mojom.OakSession_Encrypt_ParamsSpec,
       legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
-      [input]);
+      legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
+      [input],
+      undefined,
+      undefined
+    );
   }
 
   decrypt(input) {
@@ -77,7 +89,11 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       3,  // ordinal
       legion.mojom.OakSession_Decrypt_ParamsSpec,
       legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
-      [input]);
+      legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
+      [input],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -100,7 +116,7 @@ legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -113,7 +129,7 @@ legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,7 +143,7 @@ legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,7 +156,7 @@ legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,7 +170,7 @@ legion.mojom.OakSession_Encrypt_ParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -167,7 +183,7 @@ legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -181,7 +197,7 @@ legion.mojom.OakSession_Decrypt_ParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,7 +210,7 @@ legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

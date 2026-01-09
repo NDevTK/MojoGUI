@@ -63,7 +63,11 @@ media.mojom.CdmStorageRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmStorage_Open_ParamsSpec,
       media.mojom.CdmStorage_Open_ResponseParamsSpec,
-      [file_name]);
+      media.mojom.CdmStorage_Open_ResponseParamsSpec,
+      [file_name],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -87,7 +91,7 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
       fields: [
         { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -101,7 +105,7 @@ media.mojom.CdmStorage_Open_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cdm_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -152,7 +156,11 @@ media.mojom.CdmFileRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmFile_Read_ParamsSpec,
       media.mojom.CdmFile_Read_ResponseParamsSpec,
-      []);
+      media.mojom.CdmFile_Read_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   write(data) {
@@ -161,7 +169,11 @@ media.mojom.CdmFileRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.CdmFile_Write_ParamsSpec,
       media.mojom.CdmFile_Write_ResponseParamsSpec,
-      [data]);
+      media.mojom.CdmFile_Write_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -184,7 +196,7 @@ media.mojom.CdmFile_Read_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -198,7 +210,7 @@ media.mojom.CdmFile_Read_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -212,7 +224,7 @@ media.mojom.CdmFile_Write_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +237,7 @@ media.mojom.CdmFile_Write_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

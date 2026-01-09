@@ -50,7 +50,11 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec,
       null,
-      [controller]);
+      null,
+      [controller],
+      undefined,
+      undefined
+    );
   }
 
   connectProfileCollector(collector) {
@@ -59,7 +63,11 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec,
       null,
-      [collector]);
+      null,
+      [collector],
+      undefined,
+      undefined
+    );
   }
 
   disconnect() {
@@ -68,7 +76,11 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
       2,  // ordinal
       heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = {
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,7 +118,7 @@ heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = {
       fields: [
         { name: 'collector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +131,7 @@ heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

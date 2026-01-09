@@ -50,7 +50,11 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
       printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
-      [page_index]);
+      printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
+      [page_index],
+      undefined,
+      undefined
+    );
   }
 
   setWebContentsURL(url) {
@@ -59,7 +63,11 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   setUseSkiaRendererPolicy(use_skia) {
@@ -68,7 +76,11 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia]);
+      null,
+      [use_skia],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
       fields: [
         { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,7 +118,7 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
         { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -120,7 +132,7 @@ printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +146,7 @@ printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       fields: [
         { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +197,11 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
       printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
-      [pdf_region, render_settings]);
+      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
+      [pdf_region, render_settings],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -210,7 +226,7 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
         { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -224,7 +240,7 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
         { name: 'converter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

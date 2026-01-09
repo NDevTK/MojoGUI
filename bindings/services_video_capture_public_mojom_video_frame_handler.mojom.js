@@ -50,7 +50,11 @@ video_capture.mojom.VideoFrameAccessHandlerRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec,
       null,
-      [buffer_id]);
+      null,
+      [buffer_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onNewBuffer(buffer_id, buffer_handle) {
@@ -134,7 +142,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
-      [buffer_id, buffer_handle]);
+      null,
+      [buffer_id, buffer_handle],
+      undefined,
+      undefined
+    );
   }
 
   onFrameAccessHandlerReady(frame_access_handler) {
@@ -143,7 +155,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      [frame_access_handler]);
+      null,
+      [frame_access_handler],
+      undefined,
+      undefined
+    );
   }
 
   onFrameReadyInBuffer(buffer) {
@@ -152,7 +168,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [buffer]);
+      null,
+      [buffer],
+      undefined,
+      undefined
+    );
   }
 
   onBufferRetired(buffer_id) {
@@ -161,7 +181,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
-      [buffer_id]);
+      null,
+      [buffer_id],
+      undefined,
+      undefined
+    );
   }
 
   onError(error) {
@@ -170,7 +194,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
-      [error]);
+      null,
+      [error],
+      undefined,
+      undefined
+    );
   }
 
   onFrameDropped(reason) {
@@ -179,7 +207,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       6,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
   onNewCaptureVersion(capture_version) {
@@ -188,7 +220,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       7,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
-      [capture_version]);
+      null,
+      [capture_version],
+      undefined,
+      undefined
+    );
   }
 
   onFrameWithEmptyRegionCapture() {
@@ -197,7 +233,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       8,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onLog(message) {
@@ -206,7 +246,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       9,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   onStarted() {
@@ -215,7 +259,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       10,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStartedUsingGpuDecode() {
@@ -224,7 +272,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       11,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStopped() {
@@ -233,7 +285,11 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
       12,  // ordinal
       video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -256,7 +312,7 @@ video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -271,7 +327,7 @@ video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec = {
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -285,7 +341,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec = {
       fields: [
         { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -299,7 +355,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,7 +369,7 @@ video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec = {
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -327,7 +383,7 @@ video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -341,7 +397,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -355,7 +411,7 @@ video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec = {
       fields: [
         { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -368,7 +424,7 @@ video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -382,7 +438,7 @@ video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -395,7 +451,7 @@ video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -408,7 +464,7 @@ video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -421,7 +477,7 @@ video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

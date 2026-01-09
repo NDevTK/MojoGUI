@@ -79,7 +79,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec,
-      [request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities]);
+      blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec,
+      [request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities],
+      undefined,
+      undefined
+    );
   }
 
   getVideoInputCapabilities() {
@@ -88,7 +92,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec,
-      []);
+      blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getAllVideoInputDeviceFormats(device_id) {
@@ -97,7 +105,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec,
-      [device_id]);
+      blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   getAvailableVideoInputDeviceFormats(device_id) {
@@ -106,7 +118,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec,
-      [device_id]);
+      blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   getAudioInputCapabilities() {
@@ -115,7 +131,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec,
-      []);
+      blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addMediaDevicesListener(subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener) {
@@ -124,7 +144,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec,
       null,
-      [subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener]);
+      null,
+      [subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener],
+      undefined,
+      undefined
+    );
   }
 
   setCaptureHandleConfig(config) {
@@ -133,7 +157,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec,
       null,
-      [config]);
+      null,
+      [config],
+      undefined,
+      undefined
+    );
   }
 
   closeFocusWindowOfOpportunity(label) {
@@ -142,7 +170,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec,
       null,
-      [label]);
+      null,
+      [label],
+      undefined,
+      undefined
+    );
   }
 
   produceSubCaptureTargetId(type) {
@@ -151,7 +183,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec,
-      [type]);
+      blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
   setPreferredSinkId(sink_id) {
@@ -160,7 +196,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec,
-      [sink_id]);
+      blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec,
+      [sink_id],
+      undefined,
+      undefined
+    );
   }
 
   selectAudioOutput(device_id) {
@@ -169,7 +209,11 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec,
-      [device_id]);
+      blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -197,7 +241,7 @@ blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec = {
         { name: 'request_video_input_capabilities', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
         { name: 'request_audio_input_capabilities', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +256,7 @@ blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec = {
         { name: 'video_input_device_capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'audio_input_device_capabilities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -225,7 +269,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -238,7 +282,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsS
       fields: [
         { name: 'video_input_device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +296,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec 
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -265,7 +309,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponsePar
       fields: [
         { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,7 +323,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_Param
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,7 +336,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_Respo
       fields: [
         { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -305,7 +349,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -318,7 +362,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsS
       fields: [
         { name: 'audio_input_device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -335,7 +379,7 @@ blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec = {
         { name: 'subscribe_audio_output', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
         { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -349,7 +393,7 @@ blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -363,7 +407,7 @@ blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec 
       fields: [
         { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,7 +421,7 @@ blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -390,7 +434,7 @@ blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsS
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -404,7 +448,7 @@ blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec = {
       fields: [
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -417,7 +461,7 @@ blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -431,7 +475,7 @@ blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -444,7 +488,7 @@ blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -495,7 +539,11 @@ blink.mojom.MediaDevicesListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec,
       null,
-      [type, device_infos]);
+      null,
+      [type, device_infos],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -520,7 +568,7 @@ blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

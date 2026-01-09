@@ -57,7 +57,11 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.AlertBridge_Show_ParamsSpec,
       remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
-      [params]);
+      remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   dismiss() {
@@ -66,7 +70,11 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -90,7 +98,7 @@ remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,7 +113,7 @@ remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
         { name: 'text_field_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'check_box_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -118,7 +126,7 @@ remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

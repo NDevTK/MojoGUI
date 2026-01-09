@@ -62,7 +62,11 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebBundleHandle_Clone_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
   onWebBundleError(type, message) {
@@ -71,7 +75,11 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
       null,
-      [type, message]);
+      null,
+      [type, message],
+      undefined,
+      undefined
+    );
   }
 
   onWebBundleLoadFinished(success) {
@@ -80,7 +88,11 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
       null,
-      [success]);
+      null,
+      [success],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -104,7 +116,7 @@ network.mojom.WebBundleHandle_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +131,7 @@ network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -133,7 +145,7 @@ network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHand
       0,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec,
       null,
-      [child_document]);
+      null,
+      [child_document],
+      undefined,
+      undefined
+    );
   }
 
   createPageHandler(handler, document) {
@@ -59,7 +63,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHand
       1,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler, document]);
+      null,
+      [handler, document],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToPare
       fields: [
         { name: 'child_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -98,7 +106,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHan
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,7 +157,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   maybeAcquireTokenSilent() {
@@ -158,7 +170,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setAccessToken(access_token) {
@@ -167,7 +183,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec,
       null,
-      [access_token]);
+      null,
+      [access_token],
+      undefined,
+      undefined
+    );
   }
 
   setAuthStateError(error_code, error_message) {
@@ -176,7 +196,11 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec,
       null,
-      [error_code, error_message]);
+      null,
+      [error_code, error_message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -199,7 +223,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -212,7 +236,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -226,7 +250,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec =
       fields: [
         { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,7 +265,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpe
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

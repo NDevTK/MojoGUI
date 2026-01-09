@@ -56,7 +56,11 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec,
       data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec,
-      [encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size]);
+      data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec,
+      [encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size],
+      undefined,
+      undefined
+    );
   }
 
   decodeAnimation(encoded_data, shrink_to_fit, max_size_in_bytes) {
@@ -65,7 +69,11 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec,
       data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec,
-      [encoded_data, shrink_to_fit, max_size_in_bytes]);
+      data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec,
+      [encoded_data, shrink_to_fit, max_size_in_bytes],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -93,7 +101,7 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
         { name: 'max_size_in_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'desired_image_frame_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -107,7 +115,7 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = {
         { name: 'decoding_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'decoded_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -123,7 +131,7 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
         { name: 'shrink_to_fit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'max_size_in_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -136,7 +144,7 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = {
       fields: [
         { name: 'decoded_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

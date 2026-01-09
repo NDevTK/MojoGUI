@@ -51,7 +51,11 @@ ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler, page]);
+      null,
+      [handler, page],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -76,7 +80,7 @@ ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -127,7 +131,11 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec,
       ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
-      []);
+      ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   send(message) {
@@ -136,7 +144,11 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.sample_swa.PageHandler_Send_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   doSomething() {
@@ -145,7 +157,11 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -168,7 +184,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -181,7 +197,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
       fields: [
         { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,7 +211,7 @@ ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,7 +224,7 @@ ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -259,7 +275,11 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec,
       null,
-      [name]);
+      null,
+      [name],
+      undefined,
+      undefined
+    );
   }
 
   createParentPage(child_untrusted_page, parent_trusted_page) {
@@ -268,7 +288,11 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec,
       null,
-      [child_untrusted_page, parent_trusted_page]);
+      null,
+      [child_untrusted_page, parent_trusted_page],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -292,7 +316,7 @@ ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,7 +331,7 @@ ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
         { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'parent_trusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -65,7 +65,11 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
       null,
-      [device_info]);
+      null,
+      [device_info],
+      undefined,
+      undefined
+    );
   }
 
   inputDeviceRemoved(id) {
@@ -74,7 +78,11 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -98,7 +106,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -112,7 +120,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,7 +171,11 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
       device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      [client]);
+      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   getDevices() {
@@ -172,7 +184,11 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.InputDeviceManager_GetDevices_ParamsSpec,
       device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
-      []);
+      device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -196,7 +212,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,7 +225,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,7 +238,7 @@ device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -235,7 +251,7 @@ device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

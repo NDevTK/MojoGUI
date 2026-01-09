@@ -50,7 +50,11 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AecDumpAgent_Start_ParamsSpec,
       null,
-      [file]);
+      null,
+      [file],
+      undefined,
+      undefined
+    );
   }
 
   stop() {
@@ -59,7 +63,11 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AecDumpAgent_Stop_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.AecDumpAgent_Start_ParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +155,11 @@ blink.mojom.AecDumpManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AecDumpManager_Add_ParamsSpec,
       null,
-      [agent]);
+      null,
+      [agent],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -171,7 +183,7 @@ blink.mojom.AecDumpManager_Add_ParamsSpec = {
       fields: [
         { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

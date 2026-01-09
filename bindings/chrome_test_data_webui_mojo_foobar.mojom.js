@@ -50,7 +50,11 @@ test.mojom.FooRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.Foo_GetFoo_ParamsSpec,
       test.mojom.Foo_GetFoo_ResponseParamsSpec,
-      []);
+      test.mojom.Foo_GetFoo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ test.mojom.Foo_GetFoo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ test.mojom.Foo_GetFoo_ResponseParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -137,7 +141,11 @@ test.mojom.BarRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.Bar_GetBar_ParamsSpec,
       test.mojom.Bar_GetBar_ResponseParamsSpec,
-      []);
+      test.mojom.Bar_GetBar_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -160,7 +168,7 @@ test.mojom.Bar_GetBar_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -173,7 +181,7 @@ test.mojom.Bar_GetBar_ResponseParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,7 +232,11 @@ test.mojom.BazRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.Baz_GetBaz_ParamsSpec,
       test.mojom.Baz_GetBaz_ResponseParamsSpec,
-      []);
+      test.mojom.Baz_GetBaz_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -247,7 +259,7 @@ test.mojom.Baz_GetBaz_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -260,7 +272,7 @@ test.mojom.Baz_GetBaz_ResponseParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -74,7 +74,11 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SensorProvider_GetSensor_ParamsSpec,
       device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
-      [type]);
+      device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
   createVirtualSensor(type, metadata) {
@@ -83,7 +87,11 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
       device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
-      [type, metadata]);
+      device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
+      [type, metadata],
+      undefined,
+      undefined
+    );
   }
 
   updateVirtualSensor(type, reading) {
@@ -92,7 +100,11 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
       device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
-      [type, reading]);
+      device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
+      [type, reading],
+      undefined,
+      undefined
+    );
   }
 
   removeVirtualSensor(type) {
@@ -101,7 +113,11 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
       null,
-      [type]);
+      null,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
   getVirtualSensorInformation(type) {
@@ -110,7 +126,11 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
       device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
-      [type]);
+      device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -134,7 +154,7 @@ device.mojom.SensorProvider_GetSensor_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -148,7 +168,7 @@ device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -163,7 +183,7 @@ device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -176,7 +196,7 @@ device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,7 +211,7 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reading', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -204,7 +224,7 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -218,7 +238,7 @@ device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -232,7 +252,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,7 +265,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

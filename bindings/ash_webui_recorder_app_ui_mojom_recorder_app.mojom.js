@@ -61,7 +61,11 @@ ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
       0,  // ordinal
       ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -85,7 +89,7 @@ ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -136,7 +140,11 @@ ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
       0,  // ordinal
       ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec,
       null,
-      [in_quiet_mode]);
+      null,
+      [in_quiet_mode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -160,7 +168,7 @@ ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = {
       fields: [
         { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -211,7 +219,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      [feature]);
+      ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
+      [feature],
+      undefined,
+      undefined
+    );
   }
 
   loadModel(model_id, model) {
@@ -220,7 +232,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      [model_id, model]);
+      ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
+      [model_id, model],
+      undefined,
+      undefined
+    );
   }
 
   formatModelInput(uuid, feature, fields) {
@@ -229,7 +245,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
-      [uuid, feature, fields]);
+      ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
+      [uuid, feature, fields],
+      undefined,
+      undefined
+    );
   }
 
   validateSafetyResult(safety_feature, text, safety_info) {
@@ -238,7 +258,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
-      [safety_feature, text, safety_info]);
+      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
+      [safety_feature, text, safety_info],
+      undefined,
+      undefined
+    );
   }
 
   addModelMonitor(model_id, monitor) {
@@ -247,7 +271,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
-      [model_id, monitor]);
+      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
+      [model_id, monitor],
+      undefined,
+      undefined
+    );
   }
 
   getAvailableLangPacks() {
@@ -256,7 +284,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
-      []);
+      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getDefaultLanguage() {
@@ -265,7 +297,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
-      []);
+      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addSodaMonitor(language, monitor) {
@@ -274,7 +310,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
-      [language, monitor]);
+      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
+      [language, monitor],
+      undefined,
+      undefined
+    );
   }
 
   installSoda(language) {
@@ -283,7 +323,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec,
       null,
-      [language]);
+      null,
+      [language],
+      undefined,
+      undefined
+    );
   }
 
   loadSpeechRecognizer(language, soda_client, soda_recognizer) {
@@ -292,7 +336,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
-      [language, soda_client, soda_recognizer]);
+      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
+      [language, soda_client, soda_recognizer],
+      undefined,
+      undefined
+    );
   }
 
   openAiFeedbackDialog(description_template) {
@@ -301,7 +349,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
       null,
-      [description_template]);
+      null,
+      [description_template],
+      undefined,
+      undefined
+    );
   }
 
   getMicrophoneInfo(source_id) {
@@ -310,7 +362,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
-      [source_id]);
+      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
+      [source_id],
+      undefined,
+      undefined
+    );
   }
 
   addQuietModeMonitor(monitor) {
@@ -319,7 +375,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
-      [monitor]);
+      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
+      [monitor],
+      undefined,
+      undefined
+    );
   }
 
   setQuietMode(quiet_mode) {
@@ -328,7 +388,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec,
       null,
-      [quiet_mode]);
+      null,
+      [quiet_mode],
+      undefined,
+      undefined
+    );
   }
 
   canUseSpeakerLabel() {
@@ -337,7 +401,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
-      []);
+      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   recordSpeakerLabelConsent(consent_given, consent_description_names, consent_confirmation_name) {
@@ -346,7 +414,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
       null,
-      [consent_given, consent_description_names, consent_confirmation_name]);
+      null,
+      [consent_given, consent_description_names, consent_confirmation_name],
+      undefined,
+      undefined
+    );
   }
 
   canCaptureSystemAudioWithLoopback() {
@@ -355,7 +427,11 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
-      []);
+      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -379,7 +455,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -392,7 +468,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       fields: [
         { name: 'model_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -407,7 +483,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
         { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -420,7 +496,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -436,7 +512,7 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
         { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -449,7 +525,7 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -465,7 +541,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
         { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -478,7 +554,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
       fields: [
         { name: 'is_safe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -493,7 +569,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
         { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -506,7 +582,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -519,7 +595,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -532,7 +608,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
       fields: [
         { name: 'lang_packs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -545,7 +621,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -558,7 +634,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
       fields: [
         { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -573,7 +649,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -586,7 +662,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -600,7 +676,7 @@ ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec = {
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -616,7 +692,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
         { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'soda_recognizer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -629,7 +705,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -643,7 +719,7 @@ ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
       fields: [
         { name: 'description_template', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -657,7 +733,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -670,7 +746,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -684,7 +760,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
       fields: [
         { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -697,7 +773,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
       fields: [
         { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -711,7 +787,7 @@ ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec = {
       fields: [
         { name: 'quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -724,7 +800,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -737,7 +813,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -753,7 +829,7 @@ ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
         { name: 'consent_description_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'consent_confirmation_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -766,7 +842,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -779,7 +855,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponsePar
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

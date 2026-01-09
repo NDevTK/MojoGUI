@@ -52,7 +52,11 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -128,7 +132,11 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec,
-      []);
+      ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   connectToOneDrive() {
@@ -137,7 +145,11 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec,
-      []);
+      ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   disconnectFromOneDrive() {
@@ -146,7 +158,11 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec,
-      []);
+      ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openOneDriveFolder() {
@@ -155,7 +171,11 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec,
-      []);
+      ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -178,7 +198,7 @@ ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -191,7 +211,7 @@ ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec 
       fields: [
         { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +224,7 @@ ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -217,7 +237,7 @@ ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +250,7 @@ ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -243,7 +263,7 @@ ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -256,7 +276,7 @@ ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -269,7 +289,7 @@ ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec =
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -320,7 +340,11 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onAllowUserToRemoveODFSChanged(is_allowed) {
@@ -329,7 +353,11 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec,
       null,
-      [is_allowed]);
+      null,
+      [is_allowed],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -352,7 +380,7 @@ ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -366,7 +394,7 @@ ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = {
       fields: [
         { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

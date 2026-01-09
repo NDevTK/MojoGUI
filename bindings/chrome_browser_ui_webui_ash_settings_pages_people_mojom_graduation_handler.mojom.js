@@ -52,7 +52,11 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addObserver(observer) {
@@ -61,7 +65,11 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -98,7 +106,7 @@ ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,7 +157,11 @@ ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
       null,
-      [is_app_enabled]);
+      null,
+      [is_app_enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -173,7 +185,7 @@ ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSp
       fields: [
         { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

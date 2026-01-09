@@ -64,7 +64,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec,
       null,
-      [parent_ns_view_id]);
+      null,
+      [parent_ns_view_id],
+      undefined,
+      undefined
+    );
   }
 
   resetParentNSView() {
@@ -73,7 +77,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setBounds(bounds_in_superview) {
@@ -82,7 +90,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       2,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec,
       null,
-      [bounds_in_superview]);
+      null,
+      [bounds_in_superview],
+      undefined,
+      undefined
+    );
   }
 
   setVisible(visible) {
@@ -91,7 +103,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       3,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   makeFirstResponder() {
@@ -100,7 +116,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       4,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   takeFocus(reverse) {
@@ -109,7 +129,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       5,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec,
       null,
-      [reverse]);
+      null,
+      [reverse],
+      undefined,
+      undefined
+    );
   }
 
   startDrag(drop_data, source_origin, operation_mask, image, image_offset, is_privileged) {
@@ -118,7 +142,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       6,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec,
       null,
-      [drop_data, source_origin, operation_mask, image, image_offset, is_privileged]);
+      null,
+      [drop_data, source_origin, operation_mask, image, image_offset, is_privileged],
+      undefined,
+      undefined
+    );
   }
 
   destroy() {
@@ -127,7 +155,11 @@ remote_cocoa.mojom.WebContentsNSViewRemoteCallHandler = class {
       7,  // ordinal
       remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -151,7 +183,7 @@ remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
       fields: [
         { name: 'parent_ns_view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,7 +196,7 @@ remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -178,7 +210,7 @@ remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
       fields: [
         { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,7 +224,7 @@ remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -205,7 +237,7 @@ remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -219,7 +251,7 @@ remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
       fields: [
         { name: 'reverse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -238,7 +270,7 @@ remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
         { name: 'image_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_privileged', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -251,7 +283,7 @@ remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -302,7 +334,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   onBecameFirstResponder(direction) {
@@ -311,7 +347,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec,
       null,
-      [direction]);
+      null,
+      [direction],
+      undefined,
+      undefined
+    );
   }
 
   onWindowVisibilityChanged(visibility) {
@@ -320,7 +360,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       2,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec,
       null,
-      [visibility]);
+      null,
+      [visibility],
+      undefined,
+      undefined
+    );
   }
 
   setDropData(drop_data) {
@@ -329,7 +373,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       3,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec,
       null,
-      [drop_data]);
+      null,
+      [drop_data],
+      undefined,
+      undefined
+    );
   }
 
   draggingEntered(dragging_info) {
@@ -338,7 +386,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       4,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec,
       remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec,
-      [dragging_info]);
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec,
+      [dragging_info],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   draggingExited() {
@@ -347,7 +399,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       5,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   draggingUpdated(dragging_info) {
@@ -356,7 +412,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       6,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec,
       remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec,
-      [dragging_info]);
+      remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec,
+      [dragging_info],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   performDragOperation(dragging_info) {
@@ -365,7 +425,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       7,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec,
       remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec,
-      [dragging_info]);
+      remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec,
+      [dragging_info],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   dragPromisedFileTo(file_path, drop_data, download_url, source_origin) {
@@ -374,7 +438,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       8,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec,
       remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec,
-      [file_path, drop_data, download_url, source_origin]);
+      remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec,
+      [file_path, drop_data, download_url, source_origin],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   endDrag(drag_operation, local_point, screen_point) {
@@ -383,7 +451,11 @@ remote_cocoa.mojom.WebContentsNSViewHostRemoteCallHandler = class {
       9,  // ordinal
       remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec,
       null,
-      [drag_operation, local_point, screen_point]);
+      null,
+      [drag_operation, local_point, screen_point],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -407,7 +479,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -421,7 +493,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
       fields: [
         { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -435,7 +507,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = 
       fields: [
         { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -449,7 +521,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
       fields: [
         { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -463,7 +535,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
       fields: [
         { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -476,7 +548,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -489,7 +561,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -503,7 +575,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
       fields: [
         { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -516,7 +588,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -530,7 +602,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
       fields: [
         { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -543,7 +615,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -560,7 +632,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
         { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -573,7 +645,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec =
       fields: [
         { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -589,7 +661,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
         { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

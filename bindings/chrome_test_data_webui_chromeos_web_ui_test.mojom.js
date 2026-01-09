@@ -50,7 +50,11 @@ web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
       0,  // ordinal
       web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec,
       null,
-      [failureMessage]);
+      null,
+      [failureMessage],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
       fields: [
         { name: 'failureMessage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

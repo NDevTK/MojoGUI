@@ -50,7 +50,11 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracingService_Initialize_ParamsSpec,
       null,
-      [clients]);
+      null,
+      [clients],
+      undefined,
+      undefined
+    );
   }
 
   addClient(client) {
@@ -59,7 +63,11 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.TracingService_AddClient_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   bindConsumerHost(receiver) {
@@ -68,7 +76,11 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.TracingService_BindConsumerHost_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ tracing.mojom.TracingService_Initialize_ParamsSpec = {
       fields: [
         { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,7 +118,7 @@ tracing.mojom.TracingService_AddClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -120,7 +132,7 @@ tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

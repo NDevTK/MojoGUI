@@ -50,7 +50,11 @@ chromecast.mojom.FeatureUpdateObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec,
       null,
-      [features]);
+      null,
+      [features],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = {
       fields: [
         { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec =
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

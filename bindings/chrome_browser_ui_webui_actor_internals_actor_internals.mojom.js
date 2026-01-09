@@ -50,7 +50,11 @@ actor_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec,
       null,
-      [entry]);
+      null,
+      [entry],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = {
       fields: [
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ actor_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       actor_internals.mojom.PageHandler_StartLogging_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   stopLogging() {
@@ -134,7 +142,11 @@ actor_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       actor_internals.mojom.PageHandler_StopLogging_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -157,7 +169,7 @@ actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -170,7 +182,7 @@ actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -221,7 +233,11 @@ actor_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -246,7 +262,7 @@ actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

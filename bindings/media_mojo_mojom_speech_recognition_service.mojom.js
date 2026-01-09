@@ -50,7 +50,11 @@ media.mojom.AudioSourceSpeechRecognitionContextRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec,
       media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec,
-      [fetcher_receiver, client, options]);
+      media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec,
+      [fetcher_receiver, client, options],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -76,7 +80,7 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpe
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,7 +93,7 @@ media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseP
       fields: [
         { name: 'is_multichannel_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,7 +144,11 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec,
       null,
-      [context]);
+      null,
+      [context],
+      undefined,
+      undefined
+    );
   }
 
   bindAudioSourceSpeechRecognitionContext(context) {
@@ -149,7 +157,11 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec,
       null,
-      [context]);
+      null,
+      [context],
+      undefined,
+      undefined
+    );
   }
 
   setSodaPaths(binary_path, config_paths, primary_language_name) {
@@ -158,7 +170,11 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec,
       null,
-      [binary_path, config_paths, primary_language_name]);
+      null,
+      [binary_path, config_paths, primary_language_name],
+      undefined,
+      undefined
+    );
   }
 
   setSodaParams(mask_offensive_words) {
@@ -167,7 +183,11 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec,
       null,
-      [mask_offensive_words]);
+      null,
+      [mask_offensive_words],
+      undefined,
+      undefined
+    );
   }
 
   setSodaConfigPaths(config_paths) {
@@ -176,7 +196,11 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec,
       null,
-      [config_paths]);
+      null,
+      [config_paths],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -200,7 +224,7 @@ media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec = {
       fields: [
         { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,7 +238,7 @@ media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_Par
       fields: [
         { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +254,7 @@ media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec = {
         { name: 'config_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'primary_language_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -244,7 +268,7 @@ media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec = {
       fields: [
         { name: 'mask_offensive_words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -258,7 +282,7 @@ media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec = {
       fields: [
         { name: 'config_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -309,7 +333,11 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioSourceFetcher_Start_ParamsSpec,
       null,
-      [factory, device_id, audio_parameters]);
+      null,
+      [factory, device_id, audio_parameters],
+      undefined,
+      undefined
+    );
   }
 
   stop() {
@@ -318,7 +346,11 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioSourceFetcher_Stop_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -344,7 +376,7 @@ media.mojom.AudioSourceFetcher_Start_ParamsSpec = {
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'audio_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -357,7 +389,7 @@ media.mojom.AudioSourceFetcher_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

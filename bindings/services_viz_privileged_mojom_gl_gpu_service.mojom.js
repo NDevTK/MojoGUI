@@ -50,7 +50,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec,
       viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec,
-      [client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation]);
+      viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec,
+      [client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   setChannelClientPid(client_id, client_pid) {
@@ -59,7 +63,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.GpuService_SetChannelClientPid_ParamsSpec,
       null,
-      [client_id, client_pid]);
+      null,
+      [client_id, client_pid],
+      undefined,
+      undefined
+    );
   }
 
   setChannelDiskCacheHandle(client_id, cache_handle) {
@@ -68,7 +76,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec,
       null,
-      [client_id, cache_handle]);
+      null,
+      [client_id, cache_handle],
+      undefined,
+      undefined
+    );
   }
 
   setChannelPersistentCachePendingBackend(client_id, cache_handle, pending_backend) {
@@ -77,7 +89,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec,
       null,
-      [client_id, cache_handle, pending_backend]);
+      null,
+      [client_id, cache_handle, pending_backend],
+      undefined,
+      undefined
+    );
   }
 
   onDiskCacheHandleDestoyed(cache_handle) {
@@ -86,7 +102,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec,
       null,
-      [cache_handle]);
+      null,
+      [cache_handle],
+      undefined,
+      undefined
+    );
   }
 
   closeChannel(client_id) {
@@ -95,7 +115,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.GpuService_CloseChannel_ParamsSpec,
       null,
-      [client_id]);
+      null,
+      [client_id],
+      undefined,
+      undefined
+    );
   }
 
   createJpegDecodeAccelerator(jda) {
@@ -104,7 +128,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
-      [jda]);
+      null,
+      [jda],
+      undefined,
+      undefined
+    );
   }
 
   createJpegEncodeAccelerator(jea) {
@@ -113,7 +141,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec,
       null,
-      [jea]);
+      null,
+      [jea],
+      undefined,
+      undefined
+    );
   }
 
   registerDCOMPSurfaceHandle(surface_handle) {
@@ -122,7 +154,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec,
       viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      [surface_handle]);
+      viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
+      [surface_handle],
+      undefined,
+      undefined
+    );
   }
 
   unregisterDCOMPSurfaceHandle(token) {
@@ -131,7 +167,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      [token]);
+      null,
+      [token],
+      undefined,
+      undefined
+    );
   }
 
   createVideoEncodeAcceleratorProvider(vea_provider) {
@@ -140,7 +180,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      [vea_provider]);
+      null,
+      [vea_provider],
+      undefined,
+      undefined
+    );
   }
 
   bindWebNNContextProvider(receiver, client_id) {
@@ -149,7 +193,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       11,  // ordinal
       viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec,
       null,
-      [receiver, client_id]);
+      null,
+      [receiver, client_id],
+      undefined,
+      undefined
+    );
   }
 
   getVideoMemoryUsageStats() {
@@ -158,7 +206,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       12,  // ordinal
       viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec,
       viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec,
-      []);
+      viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startPeakMemoryMonitor(sequence_num) {
@@ -167,7 +219,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       13,  // ordinal
       viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec,
       null,
-      [sequence_num]);
+      null,
+      [sequence_num],
+      undefined,
+      undefined
+    );
   }
 
   getPeakMemoryUsage(sequence_num) {
@@ -176,7 +232,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       14,  // ordinal
       viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec,
       viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec,
-      [sequence_num]);
+      viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec,
+      [sequence_num],
+      undefined,
+      undefined
+    );
   }
 
   requestDXGIInfo() {
@@ -185,7 +245,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       15,  // ordinal
       viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec,
       viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec,
-      []);
+      viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   loadedBlob(cache_handle, key, data) {
@@ -194,7 +258,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       16,  // ordinal
       viz.mojom.GpuService_LoadedBlob_ParamsSpec,
       null,
-      [cache_handle, key, data]);
+      null,
+      [cache_handle, key, data],
+      undefined,
+      undefined
+    );
   }
 
   wakeUpGpu() {
@@ -203,7 +271,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       17,  // ordinal
       viz.mojom.GpuService_WakeUpGpu_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   gpuSwitched() {
@@ -212,7 +284,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       18,  // ordinal
       viz.mojom.GpuService_GpuSwitched_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   displayAdded() {
@@ -221,7 +297,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       19,  // ordinal
       viz.mojom.GpuService_DisplayAdded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   displayRemoved() {
@@ -230,7 +310,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       20,  // ordinal
       viz.mojom.GpuService_DisplayRemoved_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   displayMetricsChanged() {
@@ -239,7 +323,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       21,  // ordinal
       viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   destroyAllChannels() {
@@ -248,7 +336,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       22,  // ordinal
       viz.mojom.GpuService_DestroyAllChannels_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onBackgroundCleanup() {
@@ -257,7 +349,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       23,  // ordinal
       viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onBackgrounded() {
@@ -266,7 +362,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       24,  // ordinal
       viz.mojom.GpuService_OnBackgrounded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onForegrounded() {
@@ -275,7 +375,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       25,  // ordinal
       viz.mojom.GpuService_OnForegrounded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   beginCATransaction() {
@@ -284,7 +388,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       26,  // ordinal
       viz.mojom.GpuService_BeginCATransaction_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   commitCATransaction() {
@@ -293,7 +401,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       27,  // ordinal
       viz.mojom.GpuService_CommitCATransaction_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   writeClangProfilingProfile() {
@@ -302,7 +414,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       28,  // ordinal
       viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getDawnInfo(collect_metrics) {
@@ -311,7 +427,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       29,  // ordinal
       viz.mojom.GpuService_GetDawnInfo_ParamsSpec,
       viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec,
-      [collect_metrics]);
+      viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec,
+      [collect_metrics],
+      undefined,
+      undefined
+    );
   }
 
   crash() {
@@ -320,7 +440,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       30,  // ordinal
       viz.mojom.GpuService_Crash_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   hang() {
@@ -329,7 +453,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       31,  // ordinal
       viz.mojom.GpuService_Hang_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   throwJavaException() {
@@ -338,7 +466,11 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       32,  // ordinal
       viz.mojom.GpuService_ThrowJavaException_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -365,7 +497,7 @@ viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
         { name: 'is_gpu_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'enable_extra_handles_validation', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -381,7 +513,7 @@ viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec = {
         { name: 'gpu_feature_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shared_image_capabilities', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -396,7 +528,7 @@ viz.mojom.GpuService_SetChannelClientPid_ParamsSpec = {
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'client_pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -411,7 +543,7 @@ viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec = {
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -427,7 +559,7 @@ viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec = {
         { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pending_backend', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -441,7 +573,7 @@ viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec = {
       fields: [
         { name: 'cache_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,7 +587,7 @@ viz.mojom.GpuService_CloseChannel_ParamsSpec = {
       fields: [
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -469,7 +601,7 @@ viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec = {
       fields: [
         { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -483,7 +615,7 @@ viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec = {
       fields: [
         { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -497,7 +629,7 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec = {
       fields: [
         { name: 'surface_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -510,7 +642,7 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -524,7 +656,7 @@ viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -538,7 +670,7 @@ viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       fields: [
         { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -553,7 +685,7 @@ viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
         { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -566,7 +698,7 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -579,7 +711,7 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec = {
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -593,7 +725,7 @@ viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec = {
       fields: [
         { name: 'sequence_num', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -607,7 +739,7 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec = {
       fields: [
         { name: 'sequence_num', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -621,7 +753,7 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec = {
         { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'memory_per_allocation_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -634,7 +766,7 @@ viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -647,7 +779,7 @@ viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec = {
       fields: [
         { name: 'dxgi_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -663,7 +795,7 @@ viz.mojom.GpuService_LoadedBlob_ParamsSpec = {
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -676,7 +808,7 @@ viz.mojom.GpuService_WakeUpGpu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -689,7 +821,7 @@ viz.mojom.GpuService_GpuSwitched_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -702,7 +834,7 @@ viz.mojom.GpuService_DisplayAdded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -715,7 +847,7 @@ viz.mojom.GpuService_DisplayRemoved_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -728,7 +860,7 @@ viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -741,7 +873,7 @@ viz.mojom.GpuService_DestroyAllChannels_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -754,7 +886,7 @@ viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -767,7 +899,7 @@ viz.mojom.GpuService_OnBackgrounded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -780,7 +912,7 @@ viz.mojom.GpuService_OnForegrounded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -793,7 +925,7 @@ viz.mojom.GpuService_BeginCATransaction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -806,7 +938,7 @@ viz.mojom.GpuService_CommitCATransaction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -819,7 +951,7 @@ viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -833,7 +965,7 @@ viz.mojom.GpuService_GetDawnInfo_ParamsSpec = {
       fields: [
         { name: 'collect_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -846,7 +978,7 @@ viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec = {
       fields: [
         { name: 'dawn_info_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -859,7 +991,7 @@ viz.mojom.GpuService_Crash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -872,7 +1004,7 @@ viz.mojom.GpuService_Hang_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -885,7 +1017,7 @@ viz.mojom.GpuService_ThrowJavaException_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

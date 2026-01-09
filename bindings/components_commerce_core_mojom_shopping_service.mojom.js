@@ -65,7 +65,11 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +93,7 @@ shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandle
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,7 +144,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       0,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getProductInfoForUrl(url) {
@@ -149,7 +157,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       1,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      [url]);
+      shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   getProductInfoForUrls(urls) {
@@ -158,7 +170,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       2,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec,
-      [urls]);
+      shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec,
+      [urls],
+      undefined,
+      undefined
+    );
   }
 
   getPriceInsightsInfoForCurrentUrl() {
@@ -167,7 +183,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       3,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPriceInsightsInfoForUrl(url) {
@@ -176,7 +196,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       4,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec,
-      [url]);
+      shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   getProductSpecificationsForUrls(urls) {
@@ -185,7 +209,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       5,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec,
-      [urls]);
+      shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec,
+      [urls],
+      undefined,
+      undefined
+    );
   }
 
   getUrlInfosForProductTabs() {
@@ -194,7 +222,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       6,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getUrlInfosForRecentlyViewedTabs() {
@@ -203,7 +235,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       7,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   isShoppingListEligible() {
@@ -212,7 +248,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       8,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPriceTrackingStatusForCurrentUrl() {
@@ -221,7 +261,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       9,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openUrlInNewTab(url) {
@@ -230,7 +274,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       10,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   switchToOrOpenTab(url) {
@@ -239,7 +287,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       11,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   getAllProductSpecificationsSets() {
@@ -248,7 +300,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       12,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getProductSpecificationsSetByUuid(uuid) {
@@ -257,7 +313,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       13,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec,
-      [uuid]);
+      shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec,
+      [uuid],
+      undefined,
+      undefined
+    );
   }
 
   addProductSpecificationsSet(name, urls) {
@@ -266,7 +326,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       14,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec,
-      [name, urls]);
+      shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec,
+      [name, urls],
+      undefined,
+      undefined
+    );
   }
 
   deleteProductSpecificationsSet(uuid) {
@@ -275,7 +339,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       15,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec,
       null,
-      [uuid]);
+      null,
+      [uuid],
+      undefined,
+      undefined
+    );
   }
 
   setNameForProductSpecificationsSet(uuid, name) {
@@ -284,7 +352,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       16,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec,
-      [uuid, name]);
+      shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec,
+      [uuid, name],
+      undefined,
+      undefined
+    );
   }
 
   setUrlsForProductSpecificationsSet(uuid, urls) {
@@ -293,7 +365,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       17,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec,
-      [uuid, urls]);
+      shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec,
+      [uuid, urls],
+      undefined,
+      undefined
+    );
   }
 
   setProductSpecificationsUserFeedback(feedback) {
@@ -302,7 +378,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       18,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec,
       null,
-      [feedback]);
+      null,
+      [feedback],
+      undefined,
+      undefined
+    );
   }
 
   getProductSpecificationsFeatureState() {
@@ -311,7 +391,11 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       19,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec,
-      []);
+      shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -334,7 +418,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -347,7 +431,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_Respon
       fields: [
         { name: 'productInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -361,7 +445,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec = 
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -375,7 +459,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParam
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'productInfo', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -389,7 +473,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec =
       fields: [
         { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -402,7 +486,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponsePara
       fields: [
         { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -415,7 +499,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -428,7 +512,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_
       fields: [
         { name: 'priceInsightsInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -442,7 +526,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsS
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -456,7 +540,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_Respons
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'priceInsightsInfo', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -470,7 +554,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_Pa
       fields: [
         { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -483,7 +567,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_Re
       fields: [
         { name: 'productSpecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -496,7 +580,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -509,7 +593,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_Response
       fields: [
         { name: 'url_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -522,7 +606,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -535,7 +619,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_R
       fields: [
         { name: 'url_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -548,7 +632,7 @@ shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -561,7 +645,7 @@ shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponsePar
       fields: [
         { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -574,7 +658,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUr
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -587,7 +671,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUr
       fields: [
         { name: 'tracked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -601,7 +685,7 @@ shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -615,7 +699,7 @@ shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -628,7 +712,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -641,7 +725,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_Re
       fields: [
         { name: 'sets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -655,7 +739,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -668,7 +752,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_
       fields: [
         { name: 'set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -683,7 +767,7 @@ shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_Params
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -696,7 +780,7 @@ shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_Respon
       fields: [
         { name: 'created_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -710,7 +794,7 @@ shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_Par
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -725,7 +809,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -738,7 +822,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet
       fields: [
         { name: 'updated_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -753,7 +837,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -766,7 +850,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet
       fields: [
         { name: 'updated_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -780,7 +864,7 @@ shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedba
       fields: [
         { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -793,7 +877,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureSta
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -806,7 +890,7 @@ shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureSta
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

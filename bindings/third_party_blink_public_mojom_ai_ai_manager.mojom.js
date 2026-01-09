@@ -75,7 +75,11 @@ blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
       null,
-      [writer]);
+      null,
+      [writer],
+      undefined,
+      undefined
+    );
   }
 
   onError(error, quota_error_info) {
@@ -84,7 +88,11 @@ blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec,
       null,
-      [error, quota_error_info]);
+      null,
+      [error, quota_error_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -108,7 +116,7 @@ blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = {
       fields: [
         { name: 'writer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +131,7 @@ blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,7 +182,11 @@ blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
       null,
-      [rewriter]);
+      null,
+      [rewriter],
+      undefined,
+      undefined
+    );
   }
 
   onError(error, quota_error_info) {
@@ -183,7 +195,11 @@ blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec,
       null,
-      [error, quota_error_info]);
+      null,
+      [error, quota_error_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -207,7 +223,7 @@ blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = {
       fields: [
         { name: 'rewriter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,7 +238,7 @@ blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -273,7 +289,11 @@ blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
       null,
-      [summarizer]);
+      null,
+      [summarizer],
+      undefined,
+      undefined
+    );
   }
 
   onError(error, quota_error_info) {
@@ -282,7 +302,11 @@ blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec,
       null,
-      [error, quota_error_info]);
+      null,
+      [error, quota_error_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -306,7 +330,7 @@ blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = {
       fields: [
         { name: 'summarizer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -321,7 +345,7 @@ blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -372,7 +396,11 @@ blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
       null,
-      [proofreader]);
+      null,
+      [proofreader],
+      undefined,
+      undefined
+    );
   }
 
   onError(error, quota_error_info) {
@@ -381,7 +409,11 @@ blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec,
       null,
-      [error, quota_error_info]);
+      null,
+      [error, quota_error_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -405,7 +437,7 @@ blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = {
       fields: [
         { name: 'proofreader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -420,7 +452,7 @@ blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -471,7 +503,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec,
       blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
-      [options]);
+      blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   createLanguageModel(client, options) {
@@ -480,7 +516,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManager_CreateLanguageModel_ParamsSpec,
       null,
-      [client, options]);
+      null,
+      [client, options],
+      undefined,
+      undefined
+    );
   }
 
   canCreateSummarizer(options) {
@@ -489,7 +529,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec,
       blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
-      [options]);
+      blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   createSummarizer(client, options) {
@@ -498,7 +542,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AIManager_CreateSummarizer_ParamsSpec,
       null,
-      [client, options]);
+      null,
+      [client, options],
+      undefined,
+      undefined
+    );
   }
 
   getLanguageModelParams() {
@@ -507,7 +555,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec,
       blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
-      []);
+      blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   canCreateWriter(options) {
@@ -516,7 +568,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.AIManager_CanCreateWriter_ParamsSpec,
       blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
-      [options]);
+      blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   createWriter(client, options) {
@@ -525,7 +581,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.AIManager_CreateWriter_ParamsSpec,
       null,
-      [client, options]);
+      null,
+      [client, options],
+      undefined,
+      undefined
+    );
   }
 
   canCreateRewriter(options) {
@@ -534,7 +594,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.AIManager_CanCreateRewriter_ParamsSpec,
       blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
-      [options]);
+      blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   createRewriter(client, options) {
@@ -543,7 +607,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.AIManager_CreateRewriter_ParamsSpec,
       null,
-      [client, options]);
+      null,
+      [client, options],
+      undefined,
+      undefined
+    );
   }
 
   canCreateProofreader(options) {
@@ -552,7 +620,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.AIManager_CanCreateProofreader_ParamsSpec,
       blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
-      [options]);
+      blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   createProofreader(client, options) {
@@ -561,7 +633,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.AIManager_CreateProofreader_ParamsSpec,
       null,
-      [client, options]);
+      null,
+      [client, options],
+      undefined,
+      undefined
+    );
   }
 
   addModelDownloadProgressObserver(observer_remote) {
@@ -570,7 +646,11 @@ blink.mojom.AIManagerRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec,
       null,
-      [observer_remote]);
+      null,
+      [observer_remote],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -594,7 +674,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -607,7 +687,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -622,7 +702,7 @@ blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -636,7 +716,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -649,7 +729,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -664,7 +744,7 @@ blink.mojom.AIManager_CreateSummarizer_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -677,7 +757,7 @@ blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -690,7 +770,7 @@ blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
       fields: [
         { name: 'language_model_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -704,7 +784,7 @@ blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -717,7 +797,7 @@ blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -732,7 +812,7 @@ blink.mojom.AIManager_CreateWriter_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -746,7 +826,7 @@ blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -759,7 +839,7 @@ blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -774,7 +854,7 @@ blink.mojom.AIManager_CreateRewriter_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -788,7 +868,7 @@ blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -801,7 +881,7 @@ blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -816,7 +896,7 @@ blink.mojom.AIManager_CreateProofreader_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -830,7 +910,7 @@ blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = {
       fields: [
         { name: 'observer_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.SingularUkmInterface_Submit_ParamsSpec,
       null,
-      [entry]);
+      null,
+      [entry],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
       fields: [
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +208,11 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
       null,
-      [entry]);
+      null,
+      [entry],
+      undefined,
+      undefined
+    );
   }
 
   updateSourceURL(source_id, url) {
@@ -209,7 +221,11 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       1,  // ordinal
       ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
       null,
-      [source_id, url]);
+      null,
+      [source_id, url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -233,7 +249,7 @@ ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
       fields: [
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -248,7 +264,7 @@ ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -299,7 +315,11 @@ ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
       null,
-      [receiver, client_remote]);
+      null,
+      [receiver, client_remote],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -324,7 +344,7 @@ ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

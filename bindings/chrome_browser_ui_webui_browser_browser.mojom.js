@@ -69,7 +69,11 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
   getTabStripInset() {
@@ -78,7 +82,11 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
       webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
-      []);
+      webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -103,7 +111,7 @@ webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -116,7 +124,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -129,7 +137,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
       fields: [
         { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +188,11 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec,
       null,
-      [is_user_initiated]);
+      null,
+      [is_user_initiated],
+      undefined,
+      undefined
+    );
   }
 
   setReloadStopState(is_loading) {
@@ -189,7 +201,11 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.Page_SetReloadStopState_ParamsSpec,
       null,
-      [is_loading]);
+      null,
+      [is_loading],
+      undefined,
+      undefined
+    );
   }
 
   showSidePanel(guest_contents_id, title) {
@@ -198,7 +214,11 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       webui_browser.mojom.Page_ShowSidePanel_ParamsSpec,
       null,
-      [guest_contents_id, title]);
+      null,
+      [guest_contents_id, title],
+      undefined,
+      undefined
+    );
   }
 
   closeSidePanel() {
@@ -207,7 +227,11 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       webui_browser.mojom.Page_CloseSidePanel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onFullscreenModeChanged(is_fullscreen, context) {
@@ -216,7 +240,11 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
       null,
-      [is_fullscreen, context]);
+      null,
+      [is_fullscreen, context],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -240,7 +268,7 @@ webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
       fields: [
         { name: 'is_user_initiated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -254,7 +282,7 @@ webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
       fields: [
         { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,7 +297,7 @@ webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
         { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -282,7 +310,7 @@ webui_browser.mojom.Page_CloseSidePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -297,7 +325,7 @@ webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
         { name: 'is_fullscreen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -348,7 +376,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
       webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
-      [tab_id, handler]);
+      webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
+      [tab_id, handler],
+      undefined,
+      undefined
+    );
   }
 
   loadTabSearch() {
@@ -357,7 +389,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec,
       webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
-      []);
+      webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showTabSearchBubble(anchor_name) {
@@ -366,7 +402,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
       null,
-      [anchor_name]);
+      null,
+      [anchor_name],
+      undefined,
+      undefined
+    );
   }
 
   openAppMenu() {
@@ -375,7 +415,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openProfileMenu() {
@@ -384,7 +428,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   launchDevToolsForBrowser() {
@@ -393,7 +441,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onSidePanelClosed() {
@@ -402,7 +454,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   minimize() {
@@ -411,7 +467,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       webui_browser.mojom.PageHandler_Minimize_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   maximize() {
@@ -420,7 +480,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       webui_browser.mojom.PageHandler_Maximize_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   restore() {
@@ -429,7 +493,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       webui_browser.mojom.PageHandler_Restore_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   close() {
@@ -438,7 +506,11 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       webui_browser.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -463,7 +535,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -476,7 +548,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
       fields: [
         { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -489,7 +561,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -502,7 +574,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
       fields: [
         { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -516,7 +588,7 @@ webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
       fields: [
         { name: 'anchor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -529,7 +601,7 @@ webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -542,7 +614,7 @@ webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -555,7 +627,7 @@ webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -568,7 +640,7 @@ webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -581,7 +653,7 @@ webui_browser.mojom.PageHandler_Minimize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -594,7 +666,7 @@ webui_browser.mojom.PageHandler_Maximize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -607,7 +679,7 @@ webui_browser.mojom.PageHandler_Restore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -620,7 +692,7 @@ webui_browser.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -671,7 +743,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.GuestHandler_Navigate_ParamsSpec,
       null,
-      [src]);
+      null,
+      [src],
+      undefined,
+      undefined
+    );
   }
 
   canGoBack() {
@@ -680,7 +756,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec,
       webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
-      []);
+      webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   goBack() {
@@ -689,7 +769,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       2,  // ordinal
       webui_browser.mojom.GuestHandler_GoBack_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   canGoForward() {
@@ -698,7 +782,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       3,  // ordinal
       webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec,
       webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
-      []);
+      webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   goForward() {
@@ -707,7 +795,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       4,  // ordinal
       webui_browser.mojom.GuestHandler_GoForward_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reload() {
@@ -716,7 +808,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       5,  // ordinal
       webui_browser.mojom.GuestHandler_Reload_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   stopLoading() {
@@ -725,7 +821,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       6,  // ordinal
       webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openPageInfoMenu() {
@@ -734,7 +834,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       7,  // ordinal
       webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getSecurityIcon() {
@@ -743,7 +847,11 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       8,  // ordinal
       webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
       webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
-      []);
+      webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -767,7 +875,7 @@ webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
       fields: [
         { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -780,7 +888,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -793,7 +901,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
       fields: [
         { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -806,7 +914,7 @@ webui_browser.mojom.GuestHandler_GoBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -819,7 +927,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -832,7 +940,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
       fields: [
         { name: 'can_go_forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -845,7 +953,7 @@ webui_browser.mojom.GuestHandler_GoForward_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -858,7 +966,7 @@ webui_browser.mojom.GuestHandler_Reload_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -871,7 +979,7 @@ webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -884,7 +992,7 @@ webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -897,7 +1005,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -910,7 +1018,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
       fields: [
         { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

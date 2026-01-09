@@ -50,7 +50,11 @@ content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MediaInternalLogRecords_Log_ParamsSpec,
       null,
-      [events]);
+      null,
+      [events],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

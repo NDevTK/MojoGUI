@@ -50,7 +50,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec,
       null,
-      [devtool_request_id, cookies_with_access_result, headers, timestamp, client_security_state, other_partition_info, applied_network_conditions_id]);
+      null,
+      [devtool_request_id, cookies_with_access_result, headers, timestamp, client_security_state, other_partition_info, applied_network_conditions_id],
+      undefined,
+      undefined
+    );
   }
 
   onRawResponse(devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key) {
@@ -59,7 +63,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec,
       null,
-      [devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key]);
+      null,
+      [devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key],
+      undefined,
+      undefined
+    );
   }
 
   onEarlyHintsResponse(devtool_request_id, headers) {
@@ -68,7 +76,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec,
       null,
-      [devtool_request_id, headers]);
+      null,
+      [devtool_request_id, headers],
+      undefined,
+      undefined
+    );
   }
 
   onPrivateNetworkRequest(devtool_request_id, url, is_warning, resource_address_space, client_security_state) {
@@ -77,7 +89,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec,
       null,
-      [devtool_request_id, url, is_warning, resource_address_space, client_security_state]);
+      null,
+      [devtool_request_id, url, is_warning, resource_address_space, client_security_state],
+      undefined,
+      undefined
+    );
   }
 
   onCorsPreflightRequest(devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id) {
@@ -86,7 +102,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec,
       null,
-      [devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id]);
+      null,
+      [devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id],
+      undefined,
+      undefined
+    );
   }
 
   onCorsPreflightResponse(devtool_request_id, url, head) {
@@ -95,7 +115,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec,
       null,
-      [devtool_request_id, url, head]);
+      null,
+      [devtool_request_id, url, head],
+      undefined,
+      undefined
+    );
   }
 
   onCorsPreflightRequestCompleted(devtool_request_id, status) {
@@ -104,7 +128,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec,
       null,
-      [devtool_request_id, status]);
+      null,
+      [devtool_request_id, status],
+      undefined,
+      undefined
+    );
   }
 
   onTrustTokenOperationDone(devtool_request_id, result) {
@@ -113,7 +141,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec,
       null,
-      [devtool_request_id, result]);
+      null,
+      [devtool_request_id, result],
+      undefined,
+      undefined
+    );
   }
 
   onCorsError(devtool_request_id, initiator_origin, client_security_state, url, status, is_warning) {
@@ -122,7 +154,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.DevToolsObserver_OnCorsError_ParamsSpec,
       null,
-      [devtool_request_id, initiator_origin, client_security_state, url, status, is_warning]);
+      null,
+      [devtool_request_id, initiator_origin, client_security_state, url, status, is_warning],
+      undefined,
+      undefined
+    );
   }
 
   onOrbError(devtools_request_id, url) {
@@ -131,7 +167,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.DevToolsObserver_OnOrbError_ParamsSpec,
       null,
-      [devtools_request_id, url]);
+      null,
+      [devtools_request_id, url],
+      undefined,
+      undefined
+    );
   }
 
   onSharedDictionaryError(devtool_request_id, url, error) {
@@ -140,7 +180,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec,
       null,
-      [devtool_request_id, url, error]);
+      null,
+      [devtool_request_id, url, error],
+      undefined,
+      undefined
+    );
   }
 
   onSRIMessageSignatureIssue(devtool_request_id, url, issues) {
@@ -149,7 +193,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec,
       null,
-      [devtool_request_id, url, issues]);
+      null,
+      [devtool_request_id, url, issues],
+      undefined,
+      undefined
+    );
   }
 
   onUnencodedDigestError(devtool_request_id, url, issue) {
@@ -158,7 +206,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       12,  // ordinal
       network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec,
       null,
-      [devtool_request_id, url, issue]);
+      null,
+      [devtool_request_id, url, issue],
+      undefined,
+      undefined
+    );
   }
 
   clone(listener) {
@@ -167,7 +219,11 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
       13,  // ordinal
       network.mojom.DevToolsObserver_Clone_ParamsSpec,
       null,
-      [listener]);
+      null,
+      [listener],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -197,7 +253,7 @@ network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
         { name: 'other_partition_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'applied_network_conditions_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -217,7 +273,7 @@ network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
         { name: 'http_status_code', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'cookie_partition_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -232,7 +288,7 @@ network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
         { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -250,7 +306,7 @@ network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
         { name: 'resource_address_space', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client_security_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -268,7 +324,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
         { name: 'initiator_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'initiator_devtool_request_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -284,7 +340,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'head', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -299,7 +355,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
         { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -314,7 +370,7 @@ network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
         { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -333,7 +389,7 @@ network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
         { name: 'status', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_warning', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -348,7 +404,7 @@ network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
         { name: 'devtools_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -364,7 +420,7 @@ network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -380,7 +436,7 @@ network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'issues', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -396,7 +452,7 @@ network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'issue', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -410,7 +466,7 @@ network.mojom.DevToolsObserver_Clone_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

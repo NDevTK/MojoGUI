@@ -50,7 +50,11 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
-      [referrer_policy]);
+      null,
+      [referrer_policy],
+      undefined,
+      undefined
+    );
   }
 
   addContentSecurityPolicies(content_security_policies) {
@@ -59,7 +63,11 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
-      [content_security_policies]);
+      null,
+      [content_security_policies],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
       fields: [
         { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
       fields: [
         { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

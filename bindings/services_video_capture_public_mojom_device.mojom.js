@@ -50,7 +50,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.Device_Start_ParamsSpec,
       null,
-      [requested_settings, handler]);
+      null,
+      [requested_settings, handler],
+      undefined,
+      undefined
+    );
   }
 
   maybeSuspend() {
@@ -59,7 +63,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.Device_MaybeSuspend_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   resume() {
@@ -68,7 +76,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.Device_Resume_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPhotoState() {
@@ -77,7 +89,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.Device_GetPhotoState_ParamsSpec,
       video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec,
-      []);
+      video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setPhotoOptions(settings) {
@@ -86,7 +102,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.Device_SetPhotoOptions_ParamsSpec,
       video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec,
-      [settings]);
+      video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec,
+      [settings],
+      undefined,
+      undefined
+    );
   }
 
   takePhoto() {
@@ -95,7 +115,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.Device_TakePhoto_ParamsSpec,
       video_capture.mojom.Device_TakePhoto_ResponseParamsSpec,
-      []);
+      video_capture.mojom.Device_TakePhoto_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   processFeedback(feedback) {
@@ -104,7 +128,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       6,  // ordinal
       video_capture.mojom.Device_ProcessFeedback_ParamsSpec,
       null,
-      [feedback]);
+      null,
+      [feedback],
+      undefined,
+      undefined
+    );
   }
 
   requestRefreshFrame() {
@@ -113,7 +141,11 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       7,  // ordinal
       video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -138,7 +170,7 @@ video_capture.mojom.Device_Start_ParamsSpec = {
         { name: 'requested_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,7 +183,7 @@ video_capture.mojom.Device_MaybeSuspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -164,7 +196,7 @@ video_capture.mojom.Device_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -177,7 +209,7 @@ video_capture.mojom.Device_GetPhotoState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,7 +222,7 @@ video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = {
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +236,7 @@ video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = {
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,7 +249,7 @@ video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +262,7 @@ video_capture.mojom.Device_TakePhoto_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -243,7 +275,7 @@ video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = {
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,7 +289,7 @@ video_capture.mojom.Device_ProcessFeedback_ParamsSpec = {
       fields: [
         { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -270,7 +302,7 @@ video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

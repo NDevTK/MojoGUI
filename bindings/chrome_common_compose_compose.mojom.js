@@ -83,7 +83,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class
       0,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
       null,
-      [client_handler, handler, dialog]);
+      null,
+      [client_handler, handler, dialog],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -109,7 +113,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntr
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'dialog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -160,7 +164,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   compose(input, mode, edited) {
@@ -169,7 +177,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
       null,
-      [input, mode, edited]);
+      null,
+      [input, mode, edited],
+      undefined,
+      undefined
+    );
   }
 
   rewrite(style) {
@@ -178,7 +190,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
       null,
-      [style]);
+      null,
+      [style],
+      undefined,
+      undefined
+    );
   }
 
   logEditInput() {
@@ -187,7 +203,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   saveWebUIState(webui_state) {
@@ -196,7 +216,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
       null,
-      [webui_state]);
+      null,
+      [webui_state],
+      undefined,
+      undefined
+    );
   }
 
   acceptComposeResult() {
@@ -205,7 +229,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
-      []);
+      compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestInitialState() {
@@ -214,7 +242,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
-      []);
+      compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   undo() {
@@ -223,7 +255,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
-      []);
+      compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   recoverFromErrorState() {
@@ -232,7 +268,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
-      []);
+      compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   redo() {
@@ -241,7 +281,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
-      []);
+      compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openBugReportingLink() {
@@ -250,7 +294,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openComposeLearnMorePage() {
@@ -259,7 +307,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openEnterpriseComposeLearnMorePage() {
@@ -268,7 +320,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openFeedbackSurveyLink() {
@@ -277,7 +333,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openSignInPage() {
@@ -286,7 +346,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setUserFeedback(feedback) {
@@ -295,7 +359,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
       null,
-      [feedback]);
+      null,
+      [feedback],
+      undefined,
+      undefined
+    );
   }
 
   editResult(new_result) {
@@ -304,7 +372,11 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
-      [new_result]);
+      compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
+      [new_result],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -327,7 +399,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -343,7 +415,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec = {
         { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'edited', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -357,7 +429,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec = {
       fields: [
         { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -370,7 +442,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -384,7 +456,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec = {
       fields: [
         { name: 'webui_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -397,7 +469,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -410,7 +482,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponsePar
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -423,7 +495,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -436,7 +508,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponsePar
       fields: [
         { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -449,7 +521,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -462,7 +534,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
       fields: [
         { name: 'last_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -475,7 +547,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -488,7 +560,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseP
       fields: [
         { name: 'state_before_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -501,7 +573,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -514,7 +586,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
       fields: [
         { name: 'next_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -527,7 +599,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -540,7 +612,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -553,7 +625,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMoreP
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -566,7 +638,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -579,7 +651,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -593,7 +665,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec = {
       fields: [
         { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -607,7 +679,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
       fields: [
         { name: 'new_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -620,7 +692,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec =
       fields: [
         { name: 'is_edited', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -671,7 +743,11 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   closeUI(reason) {
@@ -680,7 +756,11 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
   completeFirstRun() {
@@ -689,7 +769,11 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openComposeSettings() {
@@ -698,7 +782,11 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -721,7 +809,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -735,7 +823,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -748,7 +836,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -761,7 +849,7 @@ compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -812,7 +900,11 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
       0,  // ordinal
       compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
       null,
-      [response]);
+      null,
+      [response],
+      undefined,
+      undefined
+    );
   }
 
   partialResponseReceived(partial_response) {
@@ -821,7 +913,11 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
       1,  // ordinal
       compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
       null,
-      [partial_response]);
+      null,
+      [partial_response],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -845,7 +941,7 @@ compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -859,7 +955,7 @@ compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = {
       fields: [
         { name: 'partial_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
       webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
-      []);
+      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getActiveRuntimes() {
@@ -59,7 +63,11 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
       webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
-      []);
+      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   subscribeToEvents(listener) {
@@ -68,7 +76,11 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
       null,
-      [listener]);
+      null,
+      [listener],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -104,7 +116,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,7 +129,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -130,7 +142,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
       fields: [
         { name: 'active_runtimes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -144,7 +156,7 @@ webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,7 +207,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       0,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
       null,
-      [session_requested_record]);
+      null,
+      [session_requested_record],
+      undefined,
+      undefined
+    );
   }
 
   logXrSessionRejected(session_rejected_record) {
@@ -204,7 +220,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       1,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
       null,
-      [session_rejected_record]);
+      null,
+      [session_rejected_record],
+      undefined,
+      undefined
+    );
   }
 
   logXrSessionStarted(session_started_record) {
@@ -213,7 +233,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       2,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
       null,
-      [session_started_record]);
+      null,
+      [session_started_record],
+      undefined,
+      undefined
+    );
   }
 
   logXrSessionStopped(session_stopped_record) {
@@ -222,7 +246,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       3,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
       null,
-      [session_stopped_record]);
+      null,
+      [session_stopped_record],
+      undefined,
+      undefined
+    );
   }
 
   logXrRuntimeAdded(runtime_added_record) {
@@ -231,7 +259,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       4,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
       null,
-      [runtime_added_record]);
+      null,
+      [runtime_added_record],
+      undefined,
+      undefined
+    );
   }
 
   logXrRuntimeRemoved(device_id) {
@@ -240,7 +272,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       5,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
       null,
-      [device_id]);
+      null,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   logFrameData(xrframe_statistics) {
@@ -249,7 +285,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       6,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
       null,
-      [xrframe_statistics]);
+      null,
+      [xrframe_statistics],
+      undefined,
+      undefined
+    );
   }
 
   logConsoleMessages(xrlogging_statistics) {
@@ -258,7 +298,11 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       7,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
       null,
-      [xrlogging_statistics]);
+      null,
+      [xrlogging_statistics],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -282,7 +326,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
       fields: [
         { name: 'session_requested_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -296,7 +340,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
       fields: [
         { name: 'session_rejected_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -310,7 +354,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
       fields: [
         { name: 'session_started_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -324,7 +368,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
       fields: [
         { name: 'session_stopped_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -338,7 +382,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
       fields: [
         { name: 'runtime_added_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -352,7 +396,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -366,7 +410,7 @@ webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
       fields: [
         { name: 'xrframe_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -380,7 +424,7 @@ webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
       fields: [
         { name: 'xrlogging_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

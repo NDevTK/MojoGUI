@@ -50,7 +50,11 @@ android_webview.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.Renderer_ClearCache_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setJsOnlineProperty(network_up) {
@@ -59,7 +63,11 @@ android_webview.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
       null,
-      [network_up]);
+      null,
+      [network_up],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,7 +104,7 @@ android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
       fields: [
         { name: 'network_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

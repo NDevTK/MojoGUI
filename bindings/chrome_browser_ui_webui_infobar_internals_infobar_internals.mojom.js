@@ -106,7 +106,11 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec,
       infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
-      []);
+      infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   triggerInfoBar(type) {
@@ -115,7 +119,11 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
       infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
-      [type]);
+      infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -138,7 +146,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -151,7 +159,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
       fields: [
         { name: 'infobars', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,7 +173,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +186,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -229,7 +237,11 @@ infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -254,7 +266,7 @@ infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

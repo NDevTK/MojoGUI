@@ -65,7 +65,11 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
       null,
-      [event, origin, touch_location]);
+      null,
+      [event, origin, touch_location],
+      undefined,
+      undefined
+    );
   }
 
   sendPlatformInfo(platform_info_json) {
@@ -74,7 +78,11 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
       null,
-      [platform_info_json]);
+      null,
+      [platform_info_json],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -100,7 +108,7 @@ chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
         { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'touch_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -114,7 +122,7 @@ chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
       fields: [
         { name: 'platform_info_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,7 +173,11 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.SettingsPlatform_Connect_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   requestVisible(visible) {
@@ -174,7 +186,11 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -198,7 +214,7 @@ chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +228,7 @@ chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

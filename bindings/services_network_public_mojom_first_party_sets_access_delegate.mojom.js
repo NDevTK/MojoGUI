@@ -50,7 +50,11 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
       null,
-      [ready_event]);
+      null,
+      [ready_event],
+      undefined,
+      undefined
+    );
   }
 
   setEnabled(enabled) {
@@ -59,7 +63,11 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
       fields: [
         { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

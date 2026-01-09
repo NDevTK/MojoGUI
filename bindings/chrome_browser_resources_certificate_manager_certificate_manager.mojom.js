@@ -67,7 +67,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler 
       0,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +96,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificate
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -143,7 +147,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       0,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
-      [source]);
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   getCertManagementMetadata() {
@@ -152,7 +160,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       1,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
-      []);
+      certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   viewCertificate(source, sha256_hash_hex) {
@@ -161,7 +173,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       2,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec,
       null,
-      [source, sha256_hash_hex]);
+      null,
+      [source, sha256_hash_hex],
+      undefined,
+      undefined
+    );
   }
 
   exportCertificates(source) {
@@ -170,7 +186,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       3,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec,
       null,
-      [source]);
+      null,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   importCertificate(source) {
@@ -179,7 +199,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       4,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
-      [source]);
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   importAndBindCertificate(source) {
@@ -188,7 +212,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       5,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
-      [source]);
+      certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   deleteCertificate(source, display_name, sha256_hash_hex) {
@@ -197,7 +225,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       6,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
-      [source, display_name, sha256_hash_hex]);
+      certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
+      [source, display_name, sha256_hash_hex],
+      undefined,
+      undefined
+    );
   }
 
   showNativeManageCertificates() {
@@ -206,7 +238,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       7,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setIncludeSystemTrustStore(include) {
@@ -215,7 +251,11 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
       8,  // ordinal
       certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
       null,
-      [include]);
+      null,
+      [include],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -239,7 +279,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSp
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +292,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_Response
       fields: [
         { name: 'certs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -265,7 +305,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -278,7 +318,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -293,7 +333,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSp
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'sha256_hash_hex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -307,7 +347,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Param
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -321,7 +361,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -334,7 +374,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Respon
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -348,7 +388,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -361,7 +401,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,7 +417,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params
         { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'sha256_hash_hex', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -390,7 +430,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Respon
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -403,7 +443,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertific
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -417,7 +457,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustSto
       fields: [
         { name: 'include', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -468,7 +508,11 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
       0,  // ordinal
       certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
-      []);
+      certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   askForConfirmation(title, message) {
@@ -477,7 +521,11 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
       1,  // ordinal
       certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec,
       certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
-      [title, message]);
+      certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
+      [title, message],
+      undefined,
+      undefined
+    );
   }
 
   triggerReload(sources) {
@@ -486,7 +534,11 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
       2,  // ordinal
       certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec,
       null,
-      [sources]);
+      null,
+      [sources],
+      undefined,
+      undefined
+    );
   }
 
   triggerMetadataUpdate() {
@@ -495,7 +547,11 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
       3,  // ordinal
       certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -518,7 +574,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -531,7 +587,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponsePa
       fields: [
         { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -546,7 +602,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec =
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -559,7 +615,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponsePara
       fields: [
         { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -573,7 +629,7 @@ certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = {
       fields: [
         { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -586,7 +642,7 @@ certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

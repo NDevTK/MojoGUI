@@ -59,7 +59,11 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
   onNewBuffer(buffer_id, buffer_handle) {
@@ -68,7 +72,11 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
       null,
-      [buffer_id, buffer_handle]);
+      null,
+      [buffer_id, buffer_handle],
+      undefined,
+      undefined
+    );
   }
 
   onBufferReady(buffer) {
@@ -77,7 +85,11 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
       null,
-      [buffer]);
+      null,
+      [buffer],
+      undefined,
+      undefined
+    );
   }
 
   onBufferDestroyed(buffer_id) {
@@ -86,7 +98,11 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
       null,
-      [buffer_id]);
+      null,
+      [buffer_id],
+      undefined,
+      undefined
+    );
   }
 
   onFrameDropped(reason) {
@@ -95,7 +111,11 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
   onNewCaptureVersion(capture_version) {
@@ -104,7 +124,11 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
       null,
-      [capture_version]);
+      null,
+      [capture_version],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -128,7 +152,7 @@ media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +167,7 @@ media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -157,7 +181,7 @@ media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,7 +195,7 @@ media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +209,7 @@ media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +223,7 @@ media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
       fields: [
         { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,7 +274,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoCaptureHost_Start_ParamsSpec,
       null,
-      [device_id, session_id, params, observer]);
+      null,
+      [device_id, session_id, params, observer],
+      undefined,
+      undefined
+    );
   }
 
   stop(device_id) {
@@ -259,7 +287,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoCaptureHost_Stop_ParamsSpec,
       null,
-      [device_id]);
+      null,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   pause(device_id) {
@@ -268,7 +300,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoCaptureHost_Pause_ParamsSpec,
       null,
-      [device_id]);
+      null,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   resume(device_id, session_id, params) {
@@ -277,7 +313,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoCaptureHost_Resume_ParamsSpec,
       null,
-      [device_id, session_id, params]);
+      null,
+      [device_id, session_id, params],
+      undefined,
+      undefined
+    );
   }
 
   requestRefreshFrame(device_id) {
@@ -286,7 +326,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
       null,
-      [device_id]);
+      null,
+      [device_id],
+      undefined,
+      undefined
+    );
   }
 
   releaseBuffer(device_id, buffer_id, feedback) {
@@ -295,7 +339,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
       null,
-      [device_id, buffer_id, feedback]);
+      null,
+      [device_id, buffer_id, feedback],
+      undefined,
+      undefined
+    );
   }
 
   getDeviceSupportedFormats(device_id, session_id) {
@@ -304,7 +352,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
       media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
-      [device_id, session_id]);
+      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
+      [device_id, session_id],
+      undefined,
+      undefined
+    );
   }
 
   getDeviceFormatsInUse(device_id, session_id) {
@@ -313,7 +365,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
       media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
-      [device_id, session_id]);
+      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
+      [device_id, session_id],
+      undefined,
+      undefined
+    );
   }
 
   onLog(device_id, message) {
@@ -322,7 +378,11 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.VideoCaptureHost_OnLog_ParamsSpec,
       null,
-      [device_id, message]);
+      null,
+      [device_id, message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -349,7 +409,7 @@ media.mojom.VideoCaptureHost_Start_ParamsSpec = {
         { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -363,7 +423,7 @@ media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,7 +437,7 @@ media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -393,7 +453,7 @@ media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -407,7 +467,7 @@ media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -423,7 +483,7 @@ media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
         { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -438,7 +498,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -451,7 +511,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
       fields: [
         { name: 'formats_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -466,7 +526,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -479,7 +539,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
       fields: [
         { name: 'formats_in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -494,7 +554,7 @@ media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

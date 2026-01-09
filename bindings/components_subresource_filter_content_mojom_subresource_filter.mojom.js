@@ -50,7 +50,11 @@ subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
       0,  // ordinal
       subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec,
       null,
-      [activation_state, ad_evidence]);
+      null,
+      [activation_state, ad_evidence],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Par
         { name: 'activation_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'ad_evidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       0,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   frameIsAd() {
@@ -135,7 +143,11 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       1,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   frameWasCreatedByAdScript() {
@@ -144,7 +156,11 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       2,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   adScriptDidCreateFencedFrame(fenced_frame_root_placeholder_token) {
@@ -153,7 +169,11 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       3,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec,
       null,
-      [fenced_frame_root_placeholder_token]);
+      null,
+      [fenced_frame_root_placeholder_token],
+      undefined,
+      undefined
+    );
   }
 
   setDocumentLoadStatistics(statistics) {
@@ -162,7 +182,11 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       4,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec,
       null,
-      [statistics]);
+      null,
+      [statistics],
+      undefined,
+      undefined
+    );
   }
 
   onAdsViolationTriggered(violation) {
@@ -171,7 +195,11 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       5,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec,
       null,
-      [violation]);
+      null,
+      [violation],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -194,7 +222,7 @@ subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -207,7 +235,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -220,7 +248,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,7 +262,7 @@ subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Para
       fields: [
         { name: 'fenced_frame_root_placeholder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -248,7 +276,7 @@ subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsS
       fields: [
         { name: 'statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,7 +290,7 @@ subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpe
       fields: [
         { name: 'violation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

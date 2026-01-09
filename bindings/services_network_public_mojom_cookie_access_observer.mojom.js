@@ -56,7 +56,11 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
       null,
-      [details]);
+      null,
+      [details],
+      undefined,
+      undefined
+    );
   }
 
   clone(listener) {
@@ -65,7 +69,11 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.CookieAccessObserver_Clone_ParamsSpec,
       null,
-      [listener]);
+      null,
+      [listener],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +97,7 @@ network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -103,7 +111,7 @@ network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

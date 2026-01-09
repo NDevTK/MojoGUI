@@ -50,7 +50,11 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec,
       null,
-      [interface_name, pipe]);
+      null,
+      [interface_name, pipe],
+      undefined,
+      undefined
+    );
   }
 
   addClient(receiver) {
@@ -59,7 +63,11 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
         { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -98,7 +106,7 @@ chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

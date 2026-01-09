@@ -50,7 +50,11 @@ cast_streaming.mojom.RendererControllerRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec,
       null,
-      [renderer]);
+      null,
+      [renderer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = {
       fields: [
         { name: 'renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   stopWorker() {
@@ -59,7 +63,11 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +155,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec,
       blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
-      []);
+      blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   countFeature(feature) {
@@ -156,7 +168,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec,
       null,
-      [feature]);
+      null,
+      [feature],
+      undefined,
+      undefined
+    );
   }
 
   onReadyForInspection(agent, agent_host) {
@@ -165,7 +181,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec,
       null,
-      [agent, agent_host]);
+      null,
+      [agent, agent_host],
+      undefined,
+      undefined
+    );
   }
 
   onScriptLoaded() {
@@ -174,7 +194,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onScriptEvaluationStart() {
@@ -183,7 +207,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStarted(status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing) {
@@ -192,7 +220,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec,
       null,
-      [status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing]);
+      null,
+      [status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing],
+      undefined,
+      undefined
+    );
   }
 
   onReportException(error_message, line_number, column_number, source_url) {
@@ -201,7 +233,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec,
       null,
-      [error_message, line_number, column_number, source_url]);
+      null,
+      [error_message, line_number, column_number, source_url],
+      undefined,
+      undefined
+    );
   }
 
   onReportConsoleMessage(source, message_level, message, line_number, source_url) {
@@ -210,7 +246,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec,
       null,
-      [source, message_level, message, line_number, source_url]);
+      null,
+      [source, message_level, message, line_number, source_url],
+      undefined,
+      undefined
+    );
   }
 
   onStopped() {
@@ -219,7 +259,11 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -242,7 +286,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -255,7 +299,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = {
       fields: [
         { name: 'will_be_terminated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,7 +313,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = {
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -284,7 +328,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = {
         { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -297,7 +341,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -310,7 +354,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -329,7 +373,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = {
         { name: 'thread_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'start_timing', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -346,7 +390,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = {
         { name: 'column_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -364,7 +408,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = {
         { name: 'line_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'source_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -377,7 +421,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

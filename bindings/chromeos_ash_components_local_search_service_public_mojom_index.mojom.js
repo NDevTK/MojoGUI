@@ -51,7 +51,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       0,  // ordinal
       ash.local_search_service.mojom.Index_GetSize_ParamsSpec,
       ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
-      []);
+      ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   addOrUpdate(data) {
@@ -60,7 +64,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       1,  // ordinal
       ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
       null,
-      [data]);
+      null,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
   delete(ids) {
@@ -69,7 +77,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       2,  // ordinal
       ash.local_search_service.mojom.Index_Delete_ParamsSpec,
       ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
-      [ids]);
+      ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
+      [ids],
+      undefined,
+      undefined
+    );
   }
 
   updateDocuments(data) {
@@ -78,7 +90,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       3,  // ordinal
       ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec,
       ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
-      [data]);
+      ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
   find(query, max_results) {
@@ -87,7 +103,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       4,  // ordinal
       ash.local_search_service.mojom.Index_Find_ParamsSpec,
       ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
-      [query, max_results]);
+      ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
+      [query, max_results],
+      undefined,
+      undefined
+    );
   }
 
   clearIndex() {
@@ -96,7 +116,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       5,  // ordinal
       ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setSearchParams(search_params) {
@@ -105,7 +129,11 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       6,  // ordinal
       ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
       null,
-      [search_params]);
+      null,
+      [search_params],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -128,7 +156,7 @@ ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -141,7 +169,7 @@ ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = {
       fields: [
         { name: 'num_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -155,7 +183,7 @@ ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -169,7 +197,7 @@ ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
       fields: [
         { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,7 +210,7 @@ ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = {
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,7 +224,7 @@ ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,7 +237,7 @@ ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,7 +252,7 @@ ash.local_search_service.mojom.Index_Find_ParamsSpec = {
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -238,7 +266,7 @@ ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -251,7 +279,7 @@ ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,7 +293,7 @@ ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = {
       fields: [
         { name: 'search_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

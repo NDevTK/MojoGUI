@@ -61,7 +61,11 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
       null,
-      [contributions]);
+      null,
+      [contributions],
+      undefined,
+      undefined
+    );
   }
 
   contributeToHistogramOnEvent(error_event, contributions) {
@@ -70,7 +74,11 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
       null,
-      [error_event, contributions]);
+      null,
+      [error_event, contributions],
+      undefined,
+      undefined
+    );
   }
 
   enableDebugMode(debug_key) {
@@ -79,7 +87,11 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
       null,
-      [debug_key]);
+      null,
+      [debug_key],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -103,7 +115,7 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
       fields: [
         { name: 'contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +130,7 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
         { name: 'error_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'contributions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -132,7 +144,7 @@ blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
       fields: [
         { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -59,7 +59,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       0,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec,
-      []);
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateApp(app_id, is_blocked) {
@@ -68,7 +72,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       1,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec,
       null,
-      [app_id, is_blocked]);
+      null,
+      [app_id, is_blocked],
+      undefined,
+      undefined
+    );
   }
 
   addObserver(observer) {
@@ -77,7 +85,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       2,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   onControlsDisabled() {
@@ -86,7 +98,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       3,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   validatePin(pin) {
@@ -95,7 +111,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       4,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec,
-      [pin]);
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec,
+      [pin],
+      undefined,
+      undefined
+    );
   }
 
   setUpPin(pin) {
@@ -104,7 +124,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       5,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec,
-      [pin]);
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec,
+      [pin],
+      undefined,
+      undefined
+    );
   }
 
   verifyPin(pin) {
@@ -113,7 +137,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       6,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec,
-      [pin]);
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec,
+      [pin],
+      undefined,
+      undefined
+    );
   }
 
   isSetupCompleted() {
@@ -122,7 +150,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       7,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec,
-      []);
+      ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -145,7 +177,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -158,7 +190,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_Resp
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -173,7 +205,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_Pa
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -187,7 +219,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +232,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDi
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -214,7 +246,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_
       fields: [
         { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,7 +259,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,7 +273,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_Par
       fields: [
         { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -254,7 +286,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_Res
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -268,7 +300,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_Pa
       fields: [
         { name: 'pin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,7 +313,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_Re
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -294,7 +326,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompl
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -307,7 +339,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompl
       fields: [
         { name: 'is_completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -358,7 +390,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
       0,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec,
       null,
-      [app]);
+      null,
+      [app],
+      undefined,
+      undefined
+    );
   }
 
   onAppUninstalled(app) {
@@ -367,7 +403,11 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
       1,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec,
       null,
-      [app]);
+      null,
+      [app],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -391,7 +431,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstal
       fields: [
         { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -405,7 +445,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninst
       fields: [
         { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

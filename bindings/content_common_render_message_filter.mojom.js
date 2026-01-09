@@ -50,7 +50,11 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
       content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
-      []);
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   generateFrameRoutingInfos() {
@@ -59,7 +63,11 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
       content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
-      []);
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -82,7 +90,7 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsS
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,7 +116,7 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -121,7 +129,7 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec =
       fields: [
         { name: 'info_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

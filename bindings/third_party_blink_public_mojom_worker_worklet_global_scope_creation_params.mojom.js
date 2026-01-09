@@ -50,7 +50,11 @@ blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
       null,
-      [agent, agent_host]);
+      null,
+      [agent, agent_host],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
         { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

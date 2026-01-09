@@ -50,7 +50,11 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
-      [proxy_config]);
+      null,
+      [proxy_config],
+      undefined,
+      undefined
+    );
   }
 
   flushProxyConfig() {
@@ -59,7 +63,11 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = {
       fields: [
         { name: 'proxy_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +155,11 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -170,7 +182,7 @@ network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -221,7 +233,11 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
-      [line_number, details]);
+      null,
+      [line_number, details],
+      undefined,
+      undefined
+    );
   }
 
   onRequestMaybeFailedDueToProxySettings(net_error) {
@@ -230,7 +246,11 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
-      [net_error]);
+      null,
+      [net_error],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -255,7 +275,7 @@ network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = {
         { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -269,7 +289,7 @@ network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -64,7 +64,11 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec,
       null,
-      [peripheral_address]);
+      null,
+      [peripheral_address],
+      undefined,
+      undefined
+    );
   }
 
   cancel() {
@@ -73,7 +77,11 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   rescan() {
@@ -82,7 +90,11 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -106,7 +118,7 @@ content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec = {
       fields: [
         { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +131,7 @@ content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -132,7 +144,7 @@ content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -183,7 +195,11 @@ content.mojom.FakeBluetoothChooserFactoryRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec,
       null,
-      [fake_chooser, client]);
+      null,
+      [fake_chooser, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -208,7 +224,7 @@ content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec 
         { name: 'fake_chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -259,7 +275,11 @@ content.mojom.FakeBluetoothChooserClientRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -283,7 +303,7 @@ content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

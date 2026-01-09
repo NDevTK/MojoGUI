@@ -51,7 +51,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       0,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec,
       null,
-      [bookmark_id]);
+      null,
+      [bookmark_id],
+      undefined,
+      undefined
+    );
   }
 
   untrackPriceForBookmark(bookmark_id) {
@@ -60,7 +64,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       1,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec,
       null,
-      [bookmark_id]);
+      null,
+      [bookmark_id],
+      undefined,
+      undefined
+    );
   }
 
   setPriceTrackingStatusForCurrentUrl(track) {
@@ -69,7 +77,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       2,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       null,
-      [track]);
+      null,
+      [track],
+      undefined,
+      undefined
+    );
   }
 
   getAllShoppingBookmarkProductInfo() {
@@ -78,7 +90,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       3,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec,
       commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
-      []);
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getAllPriceTrackedBookmarkProductInfo() {
@@ -87,7 +103,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       4,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec,
       commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
-      []);
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getShoppingCollectionBookmarkFolderId() {
@@ -96,7 +116,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       5,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec,
       commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
-      []);
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getParentBookmarkFolderNameForCurrentUrl() {
@@ -105,7 +129,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       6,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec,
       commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
-      []);
+      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showBookmarkEditorForCurrentUrl() {
@@ -114,7 +142,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
       7,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -138,7 +170,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsS
       fields: [
         { name: 'bookmark_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -152,7 +184,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_Param
       fields: [
         { name: 'bookmark_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -166,7 +198,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurr
       fields: [
         { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +211,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -192,7 +224,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
       fields: [
         { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -205,7 +237,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -218,7 +250,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
       fields: [
         { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +263,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -244,7 +276,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
       fields: [
         { name: 'collectionId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,7 +289,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -270,7 +302,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +315,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentU
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -334,7 +366,11 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec,
       null,
-      [bookmark_product]);
+      null,
+      [bookmark_product],
+      undefined,
+      undefined
+    );
   }
 
   priceUntrackedForBookmark(bookmark_product) {
@@ -343,7 +379,11 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec,
       null,
-      [bookmark_product]);
+      null,
+      [bookmark_product],
+      undefined,
+      undefined
+    );
   }
 
   operationFailedForBookmark(bookmark_product, attempted_track) {
@@ -352,7 +392,11 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec,
       null,
-      [bookmark_product, attempted_track]);
+      null,
+      [bookmark_product, attempted_track],
+      undefined,
+      undefined
+    );
   }
 
   onProductBookmarkMoved(bookmark_product) {
@@ -361,7 +405,11 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec,
       null,
-      [bookmark_product]);
+      null,
+      [bookmark_product],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -385,7 +433,7 @@ commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
       fields: [
         { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -399,7 +447,7 @@ commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
       fields: [
         { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -414,7 +462,7 @@ commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
         { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'attempted_track', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -428,7 +476,7 @@ commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
       fields: [
         { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -479,7 +527,11 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = cla
       0,  // ordinal
       commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -504,7 +556,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHan
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

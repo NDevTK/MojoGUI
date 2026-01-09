@@ -174,7 +174,11 @@ actor.mojom.JournalClientRemoteCallHandler = class {
       0,  // ordinal
       actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
-      [entries]);
+      null,
+      [entries],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -198,7 +202,7 @@ actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,7 +253,11 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
       0,  // ordinal
       actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       null,
-      [observation_delay]);
+      null,
+      [observation_delay],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -273,7 +281,7 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
       fields: [
         { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

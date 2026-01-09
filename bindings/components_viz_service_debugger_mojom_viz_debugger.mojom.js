@@ -50,7 +50,11 @@ viz.mojom.VizDebugOutputRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VizDebugOutput_LogFrame_ParamsSpec,
       null,
-      [frameData]);
+      null,
+      [frameData],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
       fields: [
         { name: 'frameData', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

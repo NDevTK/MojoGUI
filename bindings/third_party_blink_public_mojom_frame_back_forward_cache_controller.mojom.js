@@ -50,7 +50,11 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
       null,
-      [reason, source]);
+      null,
+      [reason, source],
+      undefined,
+      undefined
+    );
   }
 
   didChangeBackForwardCacheDisablingFeatures(details) {
@@ -59,7 +63,11 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
       null,
-      [details]);
+      null,
+      [details],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec 
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -98,7 +106,7 @@ blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFea
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

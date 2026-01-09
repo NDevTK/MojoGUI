@@ -56,7 +56,11 @@ data_decoder.mojom.XmlParserRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.XmlParser_Parse_ParamsSpec,
       data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec,
-      [xml, whitespace_behavior]);
+      data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec,
+      [xml, whitespace_behavior],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
         { name: 'xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'whitespace_behavior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -95,7 +99,7 @@ data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

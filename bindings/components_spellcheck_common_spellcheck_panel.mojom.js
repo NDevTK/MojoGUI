@@ -50,7 +50,11 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   advanceToNextMisspelling() {
@@ -59,7 +63,11 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
       1,  // ordinal
       spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +155,11 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec,
       null,
-      [show]);
+      null,
+      [show],
+      undefined,
+      undefined
+    );
   }
 
   updateSpellingPanelWithMisspelledWord(word) {
@@ -156,7 +168,11 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
       1,  // ordinal
       spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec,
       null,
-      [word]);
+      null,
+      [word],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -180,7 +196,7 @@ spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
       fields: [
         { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,7 +210,7 @@ spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Param
       fields: [
         { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

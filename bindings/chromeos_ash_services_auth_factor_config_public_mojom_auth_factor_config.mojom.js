@@ -105,7 +105,11 @@ ash.auth.mojom.FactorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec,
       null,
-      [factor]);
+      null,
+      [factor],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -129,7 +133,7 @@ ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = {
       fields: [
         { name: 'factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +184,11 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   isSupported(auth_token, factor) {
@@ -189,7 +197,11 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       1,  // ordinal
       ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec,
-      [auth_token, factor]);
+      ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec,
+      [auth_token, factor],
+      undefined,
+      undefined
+    );
   }
 
   isConfigured(auth_token, factor) {
@@ -198,7 +210,11 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       2,  // ordinal
       ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec,
-      [auth_token, factor]);
+      ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec,
+      [auth_token, factor],
+      undefined,
+      undefined
+    );
   }
 
   getManagementType(auth_token, factor) {
@@ -207,7 +223,11 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       3,  // ordinal
       ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec,
-      [auth_token, factor]);
+      ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec,
+      [auth_token, factor],
+      undefined,
+      undefined
+    );
   }
 
   isEditable(auth_token, factor) {
@@ -216,7 +236,11 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       4,  // ordinal
       ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec,
-      [auth_token, factor]);
+      ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec,
+      [auth_token, factor],
+      undefined,
+      undefined
+    );
   }
 
   getLocalAuthFactorsComplexity(auth_token) {
@@ -225,7 +249,11 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       5,  // ordinal
       ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec,
       null,
-      [auth_token]);
+      null,
+      [auth_token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -249,7 +277,7 @@ ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -264,7 +292,7 @@ ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -277,7 +305,7 @@ ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec = {
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,7 +320,7 @@ ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -305,7 +333,7 @@ ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec = {
       fields: [
         { name: 'configured', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -320,7 +348,7 @@ ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -333,7 +361,7 @@ ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec = {
       fields: [
         { name: 'management', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -348,7 +376,7 @@ ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -361,7 +389,7 @@ ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = {
       fields: [
         { name: 'editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -375,7 +403,7 @@ ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec = {
       fields: [
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -426,7 +454,11 @@ ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec,
       ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec,
-      [auth_token, enabled]);
+      ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec,
+      [auth_token, enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -451,7 +483,7 @@ ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -464,7 +496,7 @@ ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -515,7 +547,11 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec,
-      [auth_token, pin]);
+      ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec,
+      [auth_token, pin],
+      undefined,
+      undefined
+    );
   }
 
   updatePin(auth_token, pin) {
@@ -524,7 +560,11 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       1,  // ordinal
       ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec,
-      [auth_token, pin]);
+      ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec,
+      [auth_token, pin],
+      undefined,
+      undefined
+    );
   }
 
   removePin(auth_token) {
@@ -533,7 +573,11 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       2,  // ordinal
       ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec,
-      [auth_token]);
+      ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec,
+      [auth_token],
+      undefined,
+      undefined
+    );
   }
 
   getConfiguredPinFactor(auth_token) {
@@ -542,7 +586,11 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       3,  // ordinal
       ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec,
-      [auth_token]);
+      ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec,
+      [auth_token],
+      undefined,
+      undefined
+    );
   }
 
   checkPinComplexity(auth_token, pin) {
@@ -551,7 +599,11 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       4,  // ordinal
       ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec,
-      [auth_token, pin]);
+      ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec,
+      [auth_token, pin],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -576,7 +628,7 @@ ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -589,7 +641,7 @@ ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -604,7 +656,7 @@ ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -617,7 +669,7 @@ ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -631,7 +683,7 @@ ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec = {
       fields: [
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -644,7 +696,7 @@ ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -658,7 +710,7 @@ ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec = {
       fields: [
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -671,7 +723,7 @@ ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec = {
       fields: [
         { name: 'pin_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -686,7 +738,7 @@ ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -699,7 +751,7 @@ ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec = {
       fields: [
         { name: 'complexity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -750,7 +802,11 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec,
+      [auth_token, new_password],
+      undefined,
+      undefined
+    );
   }
 
   updateOrSetOnlinePassword(auth_token, new_password) {
@@ -759,7 +815,11 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       1,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec,
+      [auth_token, new_password],
+      undefined,
+      undefined
+    );
   }
 
   setLocalPassword(auth_token, new_password) {
@@ -768,7 +828,11 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       2,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec,
+      [auth_token, new_password],
+      undefined,
+      undefined
+    );
   }
 
   setOnlinePassword(auth_token, new_password) {
@@ -777,7 +841,11 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       3,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec,
+      [auth_token, new_password],
+      undefined,
+      undefined
+    );
   }
 
   checkLocalPasswordComplexity(password) {
@@ -786,7 +854,11 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       4,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec,
-      [password]);
+      ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec,
+      [password],
+      undefined,
+      undefined
+    );
   }
 
   removePassword(auth_token) {
@@ -795,7 +867,11 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       5,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec,
-      [auth_token]);
+      ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec,
+      [auth_token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -820,7 +896,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -833,7 +909,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -848,7 +924,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -861,7 +937,7 @@ ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -876,7 +952,7 @@ ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -889,7 +965,7 @@ ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -904,7 +980,7 @@ ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec = {
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -917,7 +993,7 @@ ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -931,7 +1007,7 @@ ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec = {
       fields: [
         { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -944,7 +1020,7 @@ ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsS
       fields: [
         { name: 'complexity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -958,7 +1034,7 @@ ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec = {
       fields: [
         { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -971,7 +1047,7 @@ ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

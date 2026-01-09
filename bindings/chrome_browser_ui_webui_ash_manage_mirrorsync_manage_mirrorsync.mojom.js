@@ -58,7 +58,11 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -133,7 +137,11 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec,
       ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
-      [path]);
+      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
+      [path],
+      undefined,
+      undefined
+    );
   }
 
   getSyncingPaths() {
@@ -142,7 +150,11 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
       ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
-      []);
+      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -166,7 +178,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +191,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
       fields: [
         { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,7 +204,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -206,7 +218,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'syncing_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

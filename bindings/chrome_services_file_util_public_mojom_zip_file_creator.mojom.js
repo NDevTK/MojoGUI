@@ -50,7 +50,11 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ZipListener_OnProgress_ParamsSpec,
       null,
-      [bytes, files, directories]);
+      null,
+      [bytes, files, directories],
+      undefined,
+      undefined
+    );
   }
 
   onFinished(success) {
@@ -59,7 +63,11 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ZipListener_OnFinished_ParamsSpec,
       null,
-      [success]);
+      null,
+      [success],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -85,7 +93,7 @@ chrome.mojom.ZipListener_OnProgress_ParamsSpec = {
         { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'directories', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -99,7 +107,7 @@ chrome.mojom.ZipListener_OnFinished_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -150,7 +158,11 @@ chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec,
       null,
-      [src_dir, relative_paths, zip_file, listener]);
+      null,
+      [src_dir, relative_paths, zip_file, listener],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -177,7 +189,7 @@ chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
         { name: 'zip_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

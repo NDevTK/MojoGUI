@@ -50,7 +50,11 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
       null,
-      [files]);
+      null,
+      [files],
+      undefined,
+      undefined
+    );
   }
 
   enqueueLaunchParams(launch_url, time_navigation_started_in_browser, navigation_started) {
@@ -59,7 +63,11 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
       null,
-      [launch_url, time_navigation_started_in_browser, navigation_started]);
+      null,
+      [launch_url, time_navigation_started_in_browser, navigation_started],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
       fields: [
         { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -99,7 +107,7 @@ blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
         { name: 'time_navigation_started_in_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'navigation_started', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

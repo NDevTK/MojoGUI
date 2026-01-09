@@ -51,7 +51,11 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec,
       null,
-      [subscription]);
+      null,
+      [subscription],
+      undefined,
+      undefined
+    );
   }
 
   onPasspointSubscriptionRemoved(subscription) {
@@ -60,7 +64,11 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
       1,  // ordinal
       chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec,
       null,
-      [subscription]);
+      null,
+      [subscription],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded
       fields: [
         { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -98,7 +106,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemov
       fields: [
         { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,7 +157,11 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec,
       chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
-      [id]);
+      chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   listPasspointSubscriptions() {
@@ -158,7 +170,11 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec,
       chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
-      []);
+      chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   deletePasspointSubscription(id) {
@@ -167,7 +183,11 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       2,  // ordinal
       chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec,
       chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
-      [id]);
+      chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   registerPasspointListener(listener) {
@@ -176,7 +196,11 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       3,  // ordinal
       chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec,
       null,
-      [listener]);
+      null,
+      [listener],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -200,7 +224,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -213,7 +237,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponsePa
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -226,7 +250,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,7 +263,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Response
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -253,7 +277,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,7 +290,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_Respons
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -280,7 +304,7 @@ chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpe
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

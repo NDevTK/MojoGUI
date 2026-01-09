@@ -76,7 +76,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec,
       null,
-      [url, click_modifiers]);
+      null,
+      [url, click_modifiers],
+      undefined,
+      undefined
+    );
   }
 
   setPage(page) {
@@ -85,7 +89,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_clusters.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      null,
+      [page],
+      undefined,
+      undefined
+    );
   }
 
   showContextMenuForSearchbox(query, point) {
@@ -94,7 +102,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec,
       null,
-      [query, point]);
+      null,
+      [query, point],
+      undefined,
+      undefined
+    );
   }
 
   showContextMenuForURL(url, point) {
@@ -103,7 +115,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
-      [url, point]);
+      null,
+      [url, point],
+      undefined,
+      undefined
+    );
   }
 
   showSidePanelUI() {
@@ -112,7 +128,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   toggleVisibility(visible) {
@@ -121,7 +141,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec,
       history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec,
-      [visible]);
+      history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   startQueryClusters(query, begin_time, recluster) {
@@ -130,7 +154,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec,
       null,
-      [query, begin_time, recluster]);
+      null,
+      [query, begin_time, recluster],
+      undefined,
+      undefined
+    );
   }
 
   loadMoreClusters(query) {
@@ -139,7 +167,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec,
       null,
-      [query]);
+      null,
+      [query],
+      undefined,
+      undefined
+    );
   }
 
   hideVisits(visits) {
@@ -148,7 +180,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       history_clusters.mojom.PageHandler_HideVisits_ParamsSpec,
       history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec,
-      [visits]);
+      history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec,
+      [visits],
+      undefined,
+      undefined
+    );
   }
 
   removeVisits(visits) {
@@ -157,7 +193,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec,
       history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
-      [visits]);
+      history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
+      [visits],
+      undefined,
+      undefined
+    );
   }
 
   removeVisitByUrlAndTime(url, timestamp) {
@@ -166,7 +206,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec,
       history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec,
-      [url, timestamp]);
+      history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec,
+      [url, timestamp],
+      undefined,
+      undefined
+    );
   }
 
   openVisitUrlsInTabGroup(visits, tab_group_name) {
@@ -175,7 +219,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec,
       null,
-      [visits, tab_group_name]);
+      null,
+      [visits, tab_group_name],
+      undefined,
+      undefined
+    );
   }
 
   recordVisitAction(visit_action, visit_index, visit_type) {
@@ -184,7 +232,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec,
       null,
-      [visit_action, visit_index, visit_type]);
+      null,
+      [visit_action, visit_index, visit_type],
+      undefined,
+      undefined
+    );
   }
 
   recordRelatedSearchAction(action, visit_index) {
@@ -193,7 +245,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec,
       null,
-      [action, visit_index]);
+      null,
+      [action, visit_index],
+      undefined,
+      undefined
+    );
   }
 
   recordClusterAction(cluster_action, cluster_index) {
@@ -202,7 +258,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec,
       null,
-      [cluster_action, cluster_index]);
+      null,
+      [cluster_action, cluster_index],
+      undefined,
+      undefined
+    );
   }
 
   recordToggledVisibility(visible) {
@@ -211,7 +271,11 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -236,7 +300,7 @@ history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -250,7 +314,7 @@ history_clusters.mojom.PageHandler_SetPage_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -265,7 +329,7 @@ history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec = {
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -280,7 +344,7 @@ history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -293,7 +357,7 @@ history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -307,7 +371,7 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -320,7 +384,7 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -336,7 +400,7 @@ history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec = {
         { name: 'begin_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'recluster', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -350,7 +414,7 @@ history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec = {
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -364,7 +428,7 @@ history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = {
       fields: [
         { name: 'visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,7 +441,7 @@ history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -391,7 +455,7 @@ history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = {
       fields: [
         { name: 'visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -404,7 +468,7 @@ history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -419,7 +483,7 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -432,7 +496,7 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -447,7 +511,7 @@ history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec = {
         { name: 'visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'tab_group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -463,7 +527,7 @@ history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec = {
         { name: 'visit_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'visit_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -478,7 +542,7 @@ history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec = {
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'visit_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -493,7 +557,7 @@ history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = {
         { name: 'cluster_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cluster_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -507,7 +571,7 @@ history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -558,7 +622,11 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
   onClusterImageUpdated(cluster_index, image_url) {
@@ -567,7 +635,11 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec,
       null,
-      [cluster_index, image_url]);
+      null,
+      [cluster_index, image_url],
+      undefined,
+      undefined
+    );
   }
 
   onVisitsHidden(hidden_visits) {
@@ -576,7 +648,11 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec,
       null,
-      [hidden_visits]);
+      null,
+      [hidden_visits],
+      undefined,
+      undefined
+    );
   }
 
   onVisitsRemoved(removed_visits) {
@@ -585,7 +661,11 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec,
       null,
-      [removed_visits]);
+      null,
+      [removed_visits],
+      undefined,
+      undefined
+    );
   }
 
   onHistoryDeleted() {
@@ -594,7 +674,11 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onQueryChangedByUser(query) {
@@ -603,7 +687,11 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec,
       null,
-      [query]);
+      null,
+      [query],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -627,7 +715,7 @@ history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -642,7 +730,7 @@ history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = {
         { name: 'cluster_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'image_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -656,7 +744,7 @@ history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec = {
       fields: [
         { name: 'hidden_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -670,7 +758,7 @@ history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec = {
       fields: [
         { name: 'removed_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -683,7 +771,7 @@ history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -697,7 +785,7 @@ history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec = {
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

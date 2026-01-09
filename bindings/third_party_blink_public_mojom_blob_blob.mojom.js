@@ -50,7 +50,11 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
       null,
-      [total_size, expected_content_size]);
+      null,
+      [total_size, expected_content_size],
+      undefined,
+      undefined
+    );
   }
 
   onComplete(status, data_length) {
@@ -59,7 +63,11 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobReaderClient_OnComplete_ParamsSpec,
       null,
-      [status, data_length]);
+      null,
+      [status, data_length],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
         { name: 'total_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'expected_content_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -99,7 +107,7 @@ blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -150,7 +158,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Blob_Clone_ParamsSpec,
       null,
-      [blob]);
+      null,
+      [blob],
+      undefined,
+      undefined
+    );
   }
 
   asDataPipeGetter(data_pipe_getter) {
@@ -159,7 +171,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Blob_AsDataPipeGetter_ParamsSpec,
       null,
-      [data_pipe_getter]);
+      null,
+      [data_pipe_getter],
+      undefined,
+      undefined
+    );
   }
 
   readAll(pipe, client) {
@@ -168,7 +184,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.Blob_ReadAll_ParamsSpec,
       null,
-      [pipe, client]);
+      null,
+      [pipe, client],
+      undefined,
+      undefined
+    );
   }
 
   readRange(offset, length, pipe, client) {
@@ -177,7 +197,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.Blob_ReadRange_ParamsSpec,
       null,
-      [offset, length, pipe, client]);
+      null,
+      [offset, length, pipe, client],
+      undefined,
+      undefined
+    );
   }
 
   load(loader, request_method, headers, client) {
@@ -186,7 +210,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.Blob_Load_ParamsSpec,
       null,
-      [loader, request_method, headers, client]);
+      null,
+      [loader, request_method, headers, client],
+      undefined,
+      undefined
+    );
   }
 
   readSideData() {
@@ -195,7 +223,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.Blob_ReadSideData_ParamsSpec,
       blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
-      []);
+      blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   captureSnapshot() {
@@ -204,7 +236,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.Blob_CaptureSnapshot_ParamsSpec,
       blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
-      []);
+      blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getInternalUUID() {
@@ -213,7 +249,11 @@ blink.mojom.BlobRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.Blob_GetInternalUUID_ParamsSpec,
       blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
-      []);
+      blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -237,7 +277,7 @@ blink.mojom.Blob_Clone_ParamsSpec = {
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -251,7 +291,7 @@ blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
       fields: [
         { name: 'data_pipe_getter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,7 +306,7 @@ blink.mojom.Blob_ReadAll_ParamsSpec = {
         { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -283,7 +323,7 @@ blink.mojom.Blob_ReadRange_ParamsSpec = {
         { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -300,7 +340,7 @@ blink.mojom.Blob_Load_ParamsSpec = {
         { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -313,7 +353,7 @@ blink.mojom.Blob_ReadSideData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -326,7 +366,7 @@ blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -339,7 +379,7 @@ blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -353,7 +393,7 @@ blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'modification_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -366,7 +406,7 @@ blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -379,7 +419,7 @@ blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

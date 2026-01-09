@@ -71,7 +71,11 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CacheStorageCache_Match_ParamsSpec,
       null,
-      [request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id]);
+      null,
+      [request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   matchAll(request, query_options, trace_id) {
@@ -80,7 +84,11 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CacheStorageCache_MatchAll_ParamsSpec,
       null,
-      [request, query_options, trace_id]);
+      null,
+      [request, query_options, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   getAllMatchedEntries(request, query_options, trace_id) {
@@ -89,7 +97,11 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec,
       null,
-      [request, query_options, trace_id]);
+      null,
+      [request, query_options, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   keys(request, query_options, trace_id) {
@@ -98,7 +110,11 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.CacheStorageCache_Keys_ParamsSpec,
       null,
-      [request, query_options, trace_id]);
+      null,
+      [request, query_options, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   batch(batch_operations, trace_id) {
@@ -107,7 +123,11 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.CacheStorageCache_Batch_ParamsSpec,
       blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec,
-      [batch_operations, trace_id]);
+      blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec,
+      [batch_operations, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   writeSideData(url, expected_response_time, data, trace_id) {
@@ -116,7 +136,11 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec,
       blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec,
-      [url, expected_response_time, data, trace_id]);
+      blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec,
+      [url, expected_response_time, data, trace_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -144,7 +168,7 @@ blink.mojom.CacheStorageCache_Match_ParamsSpec = {
         { name: 'in_range_fetch_event', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -160,7 +184,7 @@ blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = {
         { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -176,7 +200,7 @@ blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = {
         { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -192,7 +216,7 @@ blink.mojom.CacheStorageCache_Keys_ParamsSpec = {
         { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -207,7 +231,7 @@ blink.mojom.CacheStorageCache_Batch_ParamsSpec = {
         { name: 'batch_operations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -220,7 +244,7 @@ blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,7 +261,7 @@ blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = {
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -250,7 +274,7 @@ blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -301,7 +325,11 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CacheStorage_Has_ParamsSpec,
       blink.mojom.CacheStorage_Has_ResponseParamsSpec,
-      [cache_name, trace_id]);
+      blink.mojom.CacheStorage_Has_ResponseParamsSpec,
+      [cache_name, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   delete(cache_name, trace_id) {
@@ -310,7 +338,11 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CacheStorage_Delete_ParamsSpec,
       blink.mojom.CacheStorage_Delete_ResponseParamsSpec,
-      [cache_name, trace_id]);
+      blink.mojom.CacheStorage_Delete_ResponseParamsSpec,
+      [cache_name, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   keys(trace_id) {
@@ -319,7 +351,11 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CacheStorage_Keys_ParamsSpec,
       blink.mojom.CacheStorage_Keys_ResponseParamsSpec,
-      [trace_id]);
+      blink.mojom.CacheStorage_Keys_ResponseParamsSpec,
+      [trace_id],
+      undefined,
+      undefined
+    );
   }
 
   match(request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id) {
@@ -328,7 +364,11 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.CacheStorage_Match_ParamsSpec,
       null,
-      [request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id]);
+      null,
+      [request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id],
+      undefined,
+      undefined
+    );
   }
 
   open(cache_name, trace_id) {
@@ -337,7 +377,11 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.CacheStorage_Open_ParamsSpec,
       null,
-      [cache_name, trace_id]);
+      null,
+      [cache_name, trace_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -362,7 +406,7 @@ blink.mojom.CacheStorage_Has_ParamsSpec = {
         { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -375,7 +419,7 @@ blink.mojom.CacheStorage_Has_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -390,7 +434,7 @@ blink.mojom.CacheStorage_Delete_ParamsSpec = {
         { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -403,7 +447,7 @@ blink.mojom.CacheStorage_Delete_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -417,7 +461,7 @@ blink.mojom.CacheStorage_Keys_ParamsSpec = {
       fields: [
         { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -430,7 +474,7 @@ blink.mojom.CacheStorage_Keys_ResponseParamsSpec = {
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -448,7 +492,7 @@ blink.mojom.CacheStorage_Match_ParamsSpec = {
         { name: 'in_range_fetch_event', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -463,7 +507,7 @@ blink.mojom.CacheStorage_Open_ParamsSpec = {
         { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

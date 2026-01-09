@@ -64,7 +64,11 @@ history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +93,7 @@ history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,7 +144,11 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_sync_optin.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reject() {
@@ -149,7 +157,11 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_sync_optin.mojom.PageHandler_Reject_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestAccountInfo() {
@@ -158,7 +170,11 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateDialogHeight(height) {
@@ -167,7 +183,11 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
       null,
-      [height]);
+      null,
+      [height],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -190,7 +210,7 @@ history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -203,7 +223,7 @@ history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -216,7 +236,7 @@ history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -230,7 +250,7 @@ history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
       fields: [
         { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,7 +301,11 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      [account_info]);
+      null,
+      [account_info],
+      undefined,
+      undefined
+    );
   }
 
   sendScreenMode(screen_mode) {
@@ -290,7 +314,11 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec,
       null,
-      [screen_mode]);
+      null,
+      [screen_mode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -314,7 +342,7 @@ history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
       fields: [
         { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,7 +356,7 @@ history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
       fields: [
         { name: 'screen_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

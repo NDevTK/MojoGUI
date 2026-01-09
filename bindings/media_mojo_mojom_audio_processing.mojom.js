@@ -50,7 +50,11 @@ media.mojom.AudioProcessorControlsRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioProcessorControls_GetStats_ParamsSpec,
       media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
-      []);
+      media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setPreferredNumCaptureChannels(num_preferred_channels) {
@@ -59,7 +63,11 @@ media.mojom.AudioProcessorControlsRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
       null,
-      [num_preferred_channels]);
+      null,
+      [num_preferred_channels],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,7 +117,7 @@ media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
       fields: [
         { name: 'num_preferred_channels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

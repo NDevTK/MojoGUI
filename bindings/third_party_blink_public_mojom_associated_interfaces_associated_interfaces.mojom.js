@@ -102,7 +102,11 @@ blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
       null,
-      [name, receiver]);
+      null,
+      [name, receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -127,7 +131,7 @@ blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

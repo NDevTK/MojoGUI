@@ -58,7 +58,11 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec,
       null,
-      [encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode]);
+      null,
+      [encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode],
+      undefined,
+      undefined
+    );
   }
 
   setEncodedFrameCount(encoder_id, num_encoded_frames) {
@@ -67,7 +71,11 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec,
       null,
-      [encoder_id, num_encoded_frames]);
+      null,
+      [encoder_id, num_encoded_frames],
+      undefined,
+      undefined
+    );
   }
 
   setError(encoder_id, status) {
@@ -76,7 +84,11 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec,
       null,
-      [encoder_id, status]);
+      null,
+      [encoder_id, status],
+      undefined,
+      undefined
+    );
   }
 
   complete(encoder_id) {
@@ -85,7 +97,11 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec,
       null,
-      [encoder_id]);
+      null,
+      [encoder_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -114,7 +130,7 @@ media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec = {
         { name: 'is_hardware_encoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'svc_mode', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -129,7 +145,7 @@ media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec = {
         { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'num_encoded_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -144,7 +160,7 @@ media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec = {
         { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -158,7 +174,7 @@ media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec = {
       fields: [
         { name: 'encoder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

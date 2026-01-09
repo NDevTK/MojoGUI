@@ -50,7 +50,11 @@ pdf.mojom.PdfSearchifierRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfSearchifier_Searchify_ParamsSpec,
       pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
-      [pdf]);
+      pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
+      [pdf],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
       fields: [
         { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
       fields: [
         { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

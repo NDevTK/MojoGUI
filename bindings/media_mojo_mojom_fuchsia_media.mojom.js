@@ -57,7 +57,11 @@ media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec,
       null,
-      [key_system, cdm_request]);
+      null,
+      [key_system, cdm_request],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
         { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -133,7 +137,11 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec,
       null,
-      [codec, secure_mode, stream_processor_request]);
+      null,
+      [codec, secure_mode, stream_processor_request],
+      undefined,
+      undefined
+    );
   }
 
   getSupportedVideoDecoderConfigs() {
@@ -142,7 +150,11 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec,
       media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec,
-      []);
+      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -168,7 +180,7 @@ media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
         { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -181,7 +193,7 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -194,7 +206,7 @@ media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponsePa
       fields: [
         { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

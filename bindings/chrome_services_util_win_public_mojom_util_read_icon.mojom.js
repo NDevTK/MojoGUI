@@ -57,7 +57,11 @@ chrome.mojom.UtilReadIconRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec,
       chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
-      [file, size, scale]);
+      chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
+      [file, size, scale],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +87,7 @@ chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -96,7 +100,7 @@ chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

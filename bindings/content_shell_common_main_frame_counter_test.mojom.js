@@ -50,7 +50,11 @@ content.mojom.MainFrameCounterTestRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
       content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
-      []);
+      content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
       fields: [
         { name: 'has_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

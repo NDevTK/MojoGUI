@@ -51,7 +51,11 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec,
       null,
-      [receiver, page]);
+      null,
+      [receiver, page],
+      undefined,
+      undefined
+    );
   }
 
   createMahiUntrustedService(receiver, page, file_name) {
@@ -60,7 +64,11 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec,
       null,
-      [receiver, page, file_name]);
+      null,
+      [receiver, page, file_name],
+      undefined,
+      undefined
+    );
   }
 
   isMantisAvailable() {
@@ -69,7 +77,11 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec,
       ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec,
-      []);
+      ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   createMantisUntrustedService(page, dlc_uuid) {
@@ -78,7 +90,11 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec,
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec,
-      [page, dlc_uuid]);
+      ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec,
+      [page, dlc_uuid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -103,7 +119,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsS
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -119,7 +135,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -132,7 +148,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -145,7 +161,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsS
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -160,7 +176,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'dlc_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -173,7 +189,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Resp
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,7 +240,11 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec,
       null,
-      [page_metadata]);
+      null,
+      [page_metadata],
+      undefined,
+      undefined
+    );
   }
 
   pageContentsUpdated(dirty_page_id) {
@@ -233,7 +253,11 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec,
       null,
-      [dirty_page_id]);
+      null,
+      [dirty_page_id],
+      undefined,
+      undefined
+    );
   }
 
   viewportUpdated(viewport_box, scale_factor) {
@@ -242,7 +266,11 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec,
       null,
-      [viewport_box, scale_factor]);
+      null,
+      [viewport_box, scale_factor],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -266,7 +294,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec = {
       fields: [
         { name: 'page_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -280,7 +308,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec = {
       fields: [
         { name: 'dirty_page_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -295,7 +323,7 @@ ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec = {
         { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -346,7 +374,11 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec,
       ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec,
-      [requestedPageId]);
+      ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec,
+      [requestedPageId],
+      undefined,
+      undefined
+    );
   }
 
   setViewport(viewport_box) {
@@ -355,7 +387,11 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec,
       null,
-      [viewport_box]);
+      null,
+      [viewport_box],
+      undefined,
+      undefined
+    );
   }
 
   setPdfOcrEnabled(enabled) {
@@ -364,7 +400,11 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -388,7 +428,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = {
       fields: [
         { name: 'requestedPageId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -401,7 +441,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -415,7 +455,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec = {
       fields: [
         { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,7 +469,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -480,7 +520,11 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onPdfFileNameUpdated(new_name) {
@@ -489,7 +533,11 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec,
       null,
-      [new_name]);
+      null,
+      [new_name],
+      undefined,
+      undefined
+    );
   }
 
   onPdfContextMenuShow(anchor, selected_text) {
@@ -498,7 +546,11 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec,
       null,
-      [anchor, selected_text]);
+      null,
+      [anchor, selected_text],
+      undefined,
+      undefined
+    );
   }
 
   onPdfContextMenuHide() {
@@ -507,7 +559,11 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -530,7 +586,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -544,7 +600,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec = {
       fields: [
         { name: 'new_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -559,7 +615,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec = {
         { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'selected_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -572,7 +628,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -623,7 +679,11 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPdfContent(limit) {
@@ -632,7 +692,11 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec,
       ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec,
-      [limit]);
+      ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec,
+      [limit],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -655,7 +719,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -669,7 +733,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = {
       fields: [
         { name: 'limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -682,7 +746,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec = {
       fields: [
         { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -733,7 +797,11 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec,
-      [image, selection]);
+      ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec,
+      [image, selection],
+      undefined,
+      undefined
+    );
   }
 
   generativeFillImage(image, mask, text, seed) {
@@ -742,7 +810,11 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec,
-      [image, mask, text, seed]);
+      ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec,
+      [image, mask, text, seed],
+      undefined,
+      undefined
+    );
   }
 
   inpaintImage(image, mask, seed) {
@@ -751,7 +823,11 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec,
-      [image, mask, seed]);
+      ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec,
+      [image, mask, seed],
+      undefined,
+      undefined
+    );
   }
 
   outpaintImage(image, mask, seed) {
@@ -760,7 +836,11 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec,
-      [image, mask, seed]);
+      ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec,
+      [image, mask, seed],
+      undefined,
+      undefined
+    );
   }
 
   classifyImageSafety(image) {
@@ -769,7 +849,11 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec,
-      [image]);
+      ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec,
+      [image],
+      undefined,
+      undefined
+    );
   }
 
   inferSegmentationMode(gesture) {
@@ -778,7 +862,11 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       5,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec,
-      [gesture]);
+      ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec,
+      [gesture],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -803,7 +891,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = {
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -816,7 +904,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -833,7 +921,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec = {
         { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -846,7 +934,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParams
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -862,7 +950,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec = {
         { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -875,7 +963,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec = 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -891,7 +979,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec = {
         { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -904,7 +992,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec =
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -918,7 +1006,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec = {
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -931,7 +1019,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParams
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -945,7 +1033,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec =
       fields: [
         { name: 'gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -958,7 +1046,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponsePara
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1009,7 +1097,11 @@ ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec,
       null,
-      [progress]);
+      null,
+      [progress],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1033,7 +1125,7 @@ ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec = {
       fields: [
         { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -73,7 +73,11 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      [client, handler]);
+      null,
+      [client, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -98,7 +102,7 @@ help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = 
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,7 +153,11 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      [client, handler]);
+      null,
+      [client, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -174,7 +182,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -225,7 +233,11 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
   helpBubbleButtonPressed(native_identifier, button_index) {
@@ -234,7 +246,11 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
       1,  // ordinal
       help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
       null,
-      [native_identifier, button_index]);
+      null,
+      [native_identifier, button_index],
+      undefined,
+      undefined
+    );
   }
 
   helpBubbleClosed(native_identifier, reason) {
@@ -243,7 +259,11 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
       2,  // ordinal
       help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
       null,
-      [native_identifier, reason]);
+      null,
+      [native_identifier, reason],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -267,7 +287,7 @@ help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -282,7 +302,7 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'button_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -297,7 +317,7 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -348,7 +368,11 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   toggleFocusForAccessibility(native_identifier) {
@@ -357,7 +381,11 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       1,  // ordinal
       help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec,
       null,
-      [native_identifier]);
+      null,
+      [native_identifier],
+      undefined,
+      undefined
+    );
   }
 
   hideHelpBubble(native_identifier) {
@@ -366,7 +394,11 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       2,  // ordinal
       help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec,
       null,
-      [native_identifier]);
+      null,
+      [native_identifier],
+      undefined,
+      undefined
+    );
   }
 
   externalHelpBubbleUpdated(native_identifier, shown) {
@@ -375,7 +407,11 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       3,  // ordinal
       help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec,
       null,
-      [native_identifier, shown]);
+      null,
+      [native_identifier, shown],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -399,7 +435,7 @@ help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -413,7 +449,7 @@ help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -427,7 +463,7 @@ help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -442,7 +478,7 @@ help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

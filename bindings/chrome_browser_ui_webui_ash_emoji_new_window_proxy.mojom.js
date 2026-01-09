@@ -50,7 +50,11 @@ new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {
       0,  // ordinal
       new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

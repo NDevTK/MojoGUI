@@ -50,7 +50,11 @@ sharing.mojom.SharingRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.Sharing_Connect_ParamsSpec,
       null,
-      [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder]);
+      null,
+      [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder],
+      undefined,
+      undefined
+    );
   }
 
   shutDown() {
@@ -59,7 +63,11 @@ sharing.mojom.SharingRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.Sharing_ShutDown_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -87,7 +95,7 @@ sharing.mojom.Sharing_Connect_ParamsSpec = {
         { name: 'decoder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'quick_start_decoder', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -100,7 +108,7 @@ sharing.mojom.Sharing_ShutDown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

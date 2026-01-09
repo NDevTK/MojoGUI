@@ -59,7 +59,11 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec,
       heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec,
-      [pid, client, process_type, params]);
+      heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec,
+      [pid, client, process_type, params],
+      undefined,
+      undefined
+    );
   }
 
   getProfiledPids() {
@@ -68,7 +72,11 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec,
       heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec,
-      []);
+      heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -95,7 +103,7 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
         { name: 'process_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -108,7 +116,7 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,7 +129,7 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -134,7 +142,7 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
       fields: [
         { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

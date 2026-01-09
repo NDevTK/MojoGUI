@@ -59,7 +59,11 @@ zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +87,7 @@ zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +138,11 @@ zero_state_promo.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec,
       null,
-      [link]);
+      null,
+      [link],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +166,7 @@ zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
       fields: [
         { name: 'link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
       null,
-      [device_info]);
+      null,
+      [device_info],
+      undefined,
+      undefined
+    );
   }
 
   onDeviceRemoved(device_info) {
@@ -59,7 +63,11 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
       null,
-      [device_info]);
+      null,
+      [device_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

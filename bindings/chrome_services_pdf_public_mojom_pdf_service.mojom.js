@@ -50,7 +50,11 @@ pdf.mojom.OcrRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.Ocr_PerformOcr_ParamsSpec,
       pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
-      [image]);
+      pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
+      [image],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -74,7 +78,7 @@ pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
       fields: [
         { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +142,11 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec,
       null,
-      [receiver, ocr]);
+      null,
+      [receiver, ocr],
+      undefined,
+      undefined
+    );
   }
 
   bindPdfSearchifier(receiver, ocr) {
@@ -147,7 +155,11 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec,
       null,
-      [receiver, ocr]);
+      null,
+      [receiver, ocr],
+      undefined,
+      undefined
+    );
   }
 
   bindPdfThumbnailer(receiver) {
@@ -156,7 +168,11 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -181,7 +197,7 @@ pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -196,7 +212,7 @@ pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -210,7 +226,7 @@ pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

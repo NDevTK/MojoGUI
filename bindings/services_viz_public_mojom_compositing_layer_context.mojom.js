@@ -56,7 +56,11 @@ viz.mojom.LayerContextRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.LayerContext_SetVisible_ParamsSpec,
       null,
-      [visible]);
+      null,
+      [visible],
+      undefined,
+      undefined
+    );
   }
 
   updateDisplayTree(update) {
@@ -65,7 +69,11 @@ viz.mojom.LayerContextRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
       null,
-      [update]);
+      null,
+      [update],
+      undefined,
+      undefined
+    );
   }
 
   updateDisplayTiling(tiling) {
@@ -74,7 +82,11 @@ viz.mojom.LayerContextRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
       null,
-      [tiling]);
+      null,
+      [tiling],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -98,7 +110,7 @@ viz.mojom.LayerContext_SetVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -112,7 +124,7 @@ viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +138,7 @@ viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
       fields: [
         { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -177,7 +189,11 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
       null,
-      [args]);
+      null,
+      [args],
+      undefined,
+      undefined
+    );
   }
 
   onTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up) {
@@ -186,7 +202,11 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
       null,
-      [layer_id, tiling_scales_to_clean_up]);
+      null,
+      [layer_id, tiling_scales_to_clean_up],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -210,7 +230,7 @@ viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
       fields: [
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +245,7 @@ viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
         { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'tiling_scales_to_clean_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -50,7 +50,11 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
       null,
-      [gaia_id, encryption_keys]);
+      null,
+      [gaia_id, encryption_keys],
+      undefined,
+      undefined
+    );
   }
 
   addTrustedRecoveryMethod(gaia_id, public_key, method_type_hint) {
@@ -59,7 +63,11 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
       null,
-      [gaia_id, public_key, method_type_hint]);
+      null,
+      [gaia_id, public_key, method_type_hint],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = 
         { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'encryption_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -100,7 +108,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params
         { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'method_type_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

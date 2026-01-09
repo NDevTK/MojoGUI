@@ -65,7 +65,11 @@ pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec,
       pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec,
-      [offset, block_size]);
+      pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec,
+      [offset, block_size],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -90,7 +94,7 @@ pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'block_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,7 +107,7 @@ pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = {
       fields: [
         { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,7 +158,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec,
       null,
-      [position]);
+      null,
+      [position],
+      undefined,
+      undefined
+    );
   }
 
   moveRangeSelectionExtent(extent) {
@@ -163,7 +171,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec,
       null,
-      [extent]);
+      null,
+      [extent],
+      undefined,
+      undefined
+    );
   }
 
   setSelectionBounds(base, extent) {
@@ -172,7 +184,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec,
       null,
-      [base, extent]);
+      null,
+      [base, extent],
+      undefined,
+      undefined
+    );
   }
 
   getPdfBytes(size_limit) {
@@ -181,7 +197,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       3,  // ordinal
       pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec,
       pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec,
-      [size_limit]);
+      pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec,
+      [size_limit],
+      undefined,
+      undefined
+    );
   }
 
   getPageText(page_index) {
@@ -190,7 +210,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       4,  // ordinal
       pdf.mojom.PdfListener_GetPageText_ParamsSpec,
       pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec,
-      [page_index]);
+      pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec,
+      [page_index],
+      undefined,
+      undefined
+    );
   }
 
   getMostVisiblePageIndex() {
@@ -199,7 +223,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       5,  // ordinal
       pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec,
       pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec,
-      []);
+      pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getSaveDataBufferHandlerForDrive(request_type) {
@@ -208,7 +236,11 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       6,  // ordinal
       pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec,
       pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec,
-      [request_type]);
+      pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec,
+      [request_type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -232,7 +264,7 @@ pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = {
       fields: [
         { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,7 +278,7 @@ pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = {
       fields: [
         { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -261,7 +293,7 @@ pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = {
         { name: 'base', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -275,7 +307,7 @@ pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = {
       fields: [
         { name: 'size_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -290,7 +322,7 @@ pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = {
         { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -304,7 +336,7 @@ pdf.mojom.PdfListener_GetPageText_ParamsSpec = {
       fields: [
         { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -317,7 +349,7 @@ pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -330,7 +362,7 @@ pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -343,7 +375,7 @@ pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = {
       fields: [
         { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -357,7 +389,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
       fields: [
         { name: 'request_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -370,7 +402,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -421,7 +453,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfHost_SetListener_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   onDocumentLoadComplete() {
@@ -430,7 +466,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateContentRestrictions(restrictions) {
@@ -439,7 +479,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec,
       null,
-      [restrictions]);
+      null,
+      [restrictions],
+      undefined,
+      undefined
+    );
   }
 
   saveUrlAs(url, policy) {
@@ -448,7 +492,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       3,  // ordinal
       pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec,
       null,
-      [url, policy]);
+      null,
+      [url, policy],
+      undefined,
+      undefined
+    );
   }
 
   selectionChanged(left, left_height, right, right_height) {
@@ -457,7 +505,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       4,  // ordinal
       pdf.mojom.PdfHost_SelectionChanged_ParamsSpec,
       null,
-      [left, left_height, right, right_height]);
+      null,
+      [left, left_height, right, right_height],
+      undefined,
+      undefined
+    );
   }
 
   setPluginCanSave(can_save) {
@@ -466,7 +518,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       5,  // ordinal
       pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec,
       null,
-      [can_save]);
+      null,
+      [can_save],
+      undefined,
+      undefined
+    );
   }
 
   onSearchifyStarted() {
@@ -475,7 +531,11 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       6,  // ordinal
       pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -499,7 +559,7 @@ pdf.mojom.PdfHost_SetListener_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -512,7 +572,7 @@ pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -526,7 +586,7 @@ pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = {
       fields: [
         { name: 'restrictions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -541,7 +601,7 @@ pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -558,7 +618,7 @@ pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
         { name: 'right', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'right_height', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -572,7 +632,7 @@ pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = {
       fields: [
         { name: 'can_save', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -585,7 +645,7 @@ pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

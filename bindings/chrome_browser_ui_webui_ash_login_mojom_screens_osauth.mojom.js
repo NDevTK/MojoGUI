@@ -51,7 +51,11 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       0,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onRecreateUser() {
@@ -60,7 +64,11 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       1,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onCancel() {
@@ -69,7 +77,11 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       2,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onBack() {
@@ -78,7 +90,11 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       3,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -101,7 +117,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -114,7 +130,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -127,7 +143,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -140,7 +156,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

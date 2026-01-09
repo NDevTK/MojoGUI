@@ -50,7 +50,11 @@ ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
       null,
-      [enabled_features]);
+      null,
+      [enabled_features],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
       fields: [
         { name: 'enabled_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
       null,
-      [accessibility_service_client]);
+      null,
+      [accessibility_service_client],
+      undefined,
+      undefined
+    );
   }
 
   bindAssistiveTechnologyController(at_controller, enabled_features) {
@@ -134,7 +142,11 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
       null,
-      [at_controller, enabled_features]);
+      null,
+      [at_controller, enabled_features],
+      undefined,
+      undefined
+    );
   }
 
   connectDevToolsAgent(agent, type) {
@@ -143,7 +155,11 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
       null,
-      [agent, type]);
+      null,
+      [agent, type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -167,7 +183,7 @@ ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
       fields: [
         { name: 'accessibility_service_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,7 +198,7 @@ ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
         { name: 'at_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -197,7 +213,7 @@ ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
         { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -248,7 +264,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
       null,
-      [automation]);
+      null,
+      [automation],
+      undefined,
+      undefined
+    );
   }
 
   bindAutomationClient(automation_client) {
@@ -257,7 +277,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
       null,
-      [automation_client]);
+      null,
+      [automation_client],
+      undefined,
+      undefined
+    );
   }
 
   bindAutoclickClient(autoclick_client) {
@@ -266,7 +290,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
       null,
-      [autoclick_client]);
+      null,
+      [autoclick_client],
+      undefined,
+      undefined
+    );
   }
 
   bindSpeechRecognition(sr_receiver) {
@@ -275,7 +303,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
       null,
-      [sr_receiver]);
+      null,
+      [sr_receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindTts(tts_receiver) {
@@ -284,7 +316,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
       null,
-      [tts_receiver]);
+      null,
+      [tts_receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindUserInput(user_input_receiver) {
@@ -293,7 +329,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
       null,
-      [user_input_receiver]);
+      null,
+      [user_input_receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindUserInterface(user_interface_receiver) {
@@ -302,7 +342,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       6,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
       null,
-      [user_interface_receiver]);
+      null,
+      [user_interface_receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindAccessibilityFileLoader(file_loader_receiver) {
@@ -311,7 +355,11 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       7,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
       null,
-      [file_loader_receiver]);
+      null,
+      [file_loader_receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -335,7 +383,7 @@ ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
       fields: [
         { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -349,7 +397,7 @@ ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
       fields: [
         { name: 'automation_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -363,7 +411,7 @@ ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
       fields: [
         { name: 'autoclick_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -377,7 +425,7 @@ ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
       fields: [
         { name: 'sr_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -391,7 +439,7 @@ ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
       fields: [
         { name: 'tts_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -405,7 +453,7 @@ ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
       fields: [
         { name: 'user_input_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -419,7 +467,7 @@ ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
       fields: [
         { name: 'user_interface_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -433,7 +481,7 @@ ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
       fields: [
         { name: 'file_loader_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

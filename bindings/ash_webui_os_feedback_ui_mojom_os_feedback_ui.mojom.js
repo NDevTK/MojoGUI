@@ -106,7 +106,11 @@ ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec,
       ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec,
-      [request]);
+      ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -130,7 +134,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +147,7 @@ ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec 
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -194,7 +198,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec,
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec,
-      []);
+      ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getScreenshotPng() {
@@ -203,7 +211,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec,
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec,
-      []);
+      ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   sendReport(report) {
@@ -212,7 +224,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec,
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec,
-      [report]);
+      ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec,
+      [report],
+      undefined,
+      undefined
+    );
   }
 
   openDiagnosticsApp() {
@@ -221,7 +237,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openExploreApp() {
@@ -230,7 +250,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openMetricsDialog() {
@@ -239,7 +263,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openSystemInfoDialog() {
@@ -248,7 +276,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openAutofillDialog(autofill_metadata) {
@@ -257,7 +289,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec,
       null,
-      [autofill_metadata]);
+      null,
+      [autofill_metadata],
+      undefined,
+      undefined
+    );
   }
 
   recordPostSubmitAction(action) {
@@ -266,7 +302,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec,
       null,
-      [action]);
+      null,
+      [action],
+      undefined,
+      undefined
+    );
   }
 
   recordPreSubmitAction(action) {
@@ -275,7 +315,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec,
       null,
-      [action]);
+      null,
+      [action],
+      undefined,
+      undefined
+    );
   }
 
   recordExitPath(exit_path) {
@@ -284,7 +328,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec,
       null,
-      [exit_path]);
+      null,
+      [exit_path],
+      undefined,
+      undefined
+    );
   }
 
   recordHelpContentOutcome(outcome) {
@@ -293,7 +341,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec,
       null,
-      [outcome]);
+      null,
+      [outcome],
+      undefined,
+      undefined
+    );
   }
 
   recordHelpContentSearchResultCount(count) {
@@ -302,7 +354,11 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec,
       null,
-      [count]);
+      null,
+      [count],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -325,7 +381,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -338,7 +394,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponsePara
       fields: [
         { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -351,7 +407,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -364,7 +420,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParams
       fields: [
         { name: 'png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -378,7 +434,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -391,7 +447,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -404,7 +460,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -417,7 +473,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -430,7 +486,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -443,7 +499,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -457,7 +513,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec =
       fields: [
         { name: 'autofill_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -471,7 +527,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSp
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -485,7 +541,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpe
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -499,7 +555,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
       fields: [
         { name: 'exit_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -513,7 +569,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -527,7 +583,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCo
       fields: [
         { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

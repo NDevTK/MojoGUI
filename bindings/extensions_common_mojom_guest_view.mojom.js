@@ -50,7 +50,11 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
       null,
-      [success]);
+      null,
+      [success],
+      undefined,
+      undefined
+    );
   }
 
   canExecuteContentScript(script_id) {
@@ -59,7 +63,11 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
       extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
-      [script_id]);
+      extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
+      [script_id],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -83,7 +91,7 @@ extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
       fields: [
         { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,7 +118,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +169,11 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
       null,
-      [token_id]);
+      null,
+      [token_id],
+      undefined,
+      undefined
+    );
   }
 
   createBeforeUnloadControl() {
@@ -170,7 +182,11 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
       extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
-      []);
+      extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   destroyFrameContainer(element_instance_id) {
@@ -179,7 +195,11 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
       null,
-      [element_instance_id]);
+      null,
+      [element_instance_id],
+      undefined,
+      undefined
+    );
   }
 
   didLoad(mime_handler_view_guest_element_instance_id, resource_url) {
@@ -188,7 +208,11 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
       null,
-      [mime_handler_view_guest_element_instance_id, resource_url]);
+      null,
+      [mime_handler_view_guest_element_instance_id, resource_url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -212,7 +236,7 @@ extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
       fields: [
         { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +249,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -238,7 +262,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Respo
       fields: [
         { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +276,7 @@ extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpe
       fields: [
         { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -267,7 +291,7 @@ extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
         { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'resource_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

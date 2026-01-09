@@ -50,7 +50,11 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
-      []);
+      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getUniqueNameLookupTable() {
@@ -59,7 +63,11 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      []);
+      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,7 +104,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponsePar
         { name: 'sync_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'font_lookup_table', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,7 +117,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -122,7 +130,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
       fields: [
         { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

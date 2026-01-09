@@ -49,7 +49,11 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindTestInterface(receiver) {
@@ -58,7 +62,11 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

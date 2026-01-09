@@ -57,7 +57,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       0,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec,
       null,
-      [optional_bool]);
+      null,
+      [optional_bool],
+      undefined,
+      undefined
+    );
   }
 
   sendNullUint8(optional_uint8) {
@@ -66,7 +70,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       1,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec,
       null,
-      [optional_uint8]);
+      null,
+      [optional_uint8],
+      undefined,
+      undefined
+    );
   }
 
   sendNullInt8(optional_int8) {
@@ -75,7 +83,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       2,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec,
       null,
-      [optional_int8]);
+      null,
+      [optional_int8],
+      undefined,
+      undefined
+    );
   }
 
   sendNullUint16(optional_uint16) {
@@ -84,7 +96,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       3,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec,
       null,
-      [optional_uint16]);
+      null,
+      [optional_uint16],
+      undefined,
+      undefined
+    );
   }
 
   sendNullInt16(optional_int16) {
@@ -93,7 +109,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       4,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec,
       null,
-      [optional_int16]);
+      null,
+      [optional_int16],
+      undefined,
+      undefined
+    );
   }
 
   sendNullUint32(optional_uint32) {
@@ -102,7 +122,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       5,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec,
       null,
-      [optional_uint32]);
+      null,
+      [optional_uint32],
+      undefined,
+      undefined
+    );
   }
 
   sendNullInt32(optional_int32) {
@@ -111,7 +135,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       6,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec,
       null,
-      [optional_int32]);
+      null,
+      [optional_int32],
+      undefined,
+      undefined
+    );
   }
 
   sendNullUint64(optional_uint64) {
@@ -120,7 +148,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       7,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec,
       null,
-      [optional_uint64]);
+      null,
+      [optional_uint64],
+      undefined,
+      undefined
+    );
   }
 
   sendNullInt64(optional_int64) {
@@ -129,7 +161,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       8,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec,
       null,
-      [optional_int64]);
+      null,
+      [optional_int64],
+      undefined,
+      undefined
+    );
   }
 
   sendNullFloat(optional_float) {
@@ -138,7 +174,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       9,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec,
       null,
-      [optional_float]);
+      null,
+      [optional_float],
+      undefined,
+      undefined
+    );
   }
 
   sendNullDouble(optional_double) {
@@ -147,7 +187,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       10,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec,
       null,
-      [optional_double]);
+      null,
+      [optional_double],
+      undefined,
+      undefined
+    );
   }
 
   sendNullEnum(optional_enum) {
@@ -156,7 +200,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       11,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec,
       null,
-      [optional_enum]);
+      null,
+      [optional_enum],
+      undefined,
+      undefined
+    );
   }
 
   sendNullBools(optional_bools) {
@@ -165,7 +213,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       12,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec,
       null,
-      [optional_bools]);
+      null,
+      [optional_bools],
+      undefined,
+      undefined
+    );
   }
 
   sendNullInt16s(optional_int16s) {
@@ -174,7 +226,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       13,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec,
       null,
-      [optional_int16s]);
+      null,
+      [optional_int16s],
+      undefined,
+      undefined
+    );
   }
 
   sendNullUint32s(optional_uint32s) {
@@ -183,7 +239,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       14,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec,
       null,
-      [optional_uint32s]);
+      null,
+      [optional_uint32s],
+      undefined,
+      undefined
+    );
   }
 
   sendNullDoubles(optional_doubles) {
@@ -192,7 +252,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       15,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec,
       null,
-      [optional_doubles]);
+      null,
+      [optional_doubles],
+      undefined,
+      undefined
+    );
   }
 
   sendNullEnums(optional_enums) {
@@ -201,7 +265,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       16,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec,
       null,
-      [optional_enums]);
+      null,
+      [optional_enums],
+      undefined,
+      undefined
+    );
   }
 
   sendNullBoolMap(values) {
@@ -210,7 +278,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       17,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec,
       null,
-      [values]);
+      null,
+      [values],
+      undefined,
+      undefined
+    );
   }
 
   sendNullDoubleMap(values) {
@@ -219,7 +291,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       18,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec,
       null,
-      [values]);
+      null,
+      [values],
+      undefined,
+      undefined
+    );
   }
 
   sendNullEnumMap(values) {
@@ -228,7 +304,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       19,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec,
       null,
-      [values]);
+      null,
+      [values],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalBool(optional_bool) {
@@ -237,7 +317,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       20,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
-      [optional_bool]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
+      [optional_bool],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalUint8(optional_uint8) {
@@ -246,7 +330,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       21,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
-      [optional_uint8]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
+      [optional_uint8],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalInt8(optional_int8) {
@@ -255,7 +343,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       22,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
-      [optional_int8]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
+      [optional_int8],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalUint16(optional_uint16) {
@@ -264,7 +356,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       23,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
-      [optional_uint16]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
+      [optional_uint16],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalInt16(optional_int16) {
@@ -273,7 +369,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       24,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
-      [optional_int16]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
+      [optional_int16],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalUint32(optional_uint32) {
@@ -282,7 +382,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       25,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
-      [optional_uint32]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
+      [optional_uint32],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalInt32(optional_int32) {
@@ -291,7 +395,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       26,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
-      [optional_int32]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
+      [optional_int32],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalUint64(optional_uint64) {
@@ -300,7 +408,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       27,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
-      [optional_uint64]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
+      [optional_uint64],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalInt64(optional_int64) {
@@ -309,7 +421,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       28,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
-      [optional_int64]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
+      [optional_int64],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalFloat(optional_float) {
@@ -318,7 +434,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       29,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
-      [optional_float]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
+      [optional_float],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalDouble(optional_double) {
@@ -327,7 +447,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       30,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
-      [optional_double]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
+      [optional_double],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalEnum(optional_enum) {
@@ -336,7 +460,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       31,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
-      [optional_enum]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
+      [optional_enum],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalBools(optional_enums) {
@@ -345,7 +473,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       32,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
-      [optional_enums]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
+      [optional_enums],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalInt16s(optional_int16s) {
@@ -354,7 +486,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       33,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
-      [optional_int16s]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
+      [optional_int16s],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalUint32s(optional_uint32s) {
@@ -363,7 +499,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       34,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
-      [optional_uint32s]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
+      [optional_uint32s],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalDoubles(optional_doubles) {
@@ -372,7 +512,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       35,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
-      [optional_doubles]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
+      [optional_doubles],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalEnums(optional_enums) {
@@ -381,7 +525,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       36,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
-      [optional_enums]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
+      [optional_enums],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalBoolMap(values) {
@@ -390,7 +538,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       37,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
-      [values]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
+      [values],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalDoubleMap(values) {
@@ -399,7 +551,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       38,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
-      [values]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
+      [values],
+      undefined,
+      undefined
+    );
   }
 
   sendOptionalEnumMap(values) {
@@ -408,7 +564,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       39,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
-      [values]);
+      content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
+      [values],
+      undefined,
+      undefined
+    );
   }
 
   sendNullStructWithOptionalNumerics(s) {
@@ -417,7 +577,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       40,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec,
       null,
-      [s]);
+      null,
+      [s],
+      undefined,
+      undefined
+    );
   }
 
   sendStructWithNullOptionalNumerics(s) {
@@ -426,7 +590,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       41,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec,
       null,
-      [s]);
+      null,
+      [s],
+      undefined,
+      undefined
+    );
   }
 
   sendStructWithOptionalNumerics(s) {
@@ -435,7 +603,11 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       42,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
-      [s]);
+      content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
+      [s],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -459,7 +631,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec = {
       fields: [
         { name: 'optional_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -473,7 +645,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec = {
       fields: [
         { name: 'optional_uint8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -487,7 +659,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec = {
       fields: [
         { name: 'optional_int8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -501,7 +673,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec = {
       fields: [
         { name: 'optional_uint16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -515,7 +687,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec = {
       fields: [
         { name: 'optional_int16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -529,7 +701,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec = {
       fields: [
         { name: 'optional_uint32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -543,7 +715,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec = {
       fields: [
         { name: 'optional_int32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -557,7 +729,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec = {
       fields: [
         { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -571,7 +743,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec = {
       fields: [
         { name: 'optional_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -585,7 +757,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec = {
       fields: [
         { name: 'optional_float', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -599,7 +771,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec = {
       fields: [
         { name: 'optional_double', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -613,7 +785,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec = {
       fields: [
         { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -627,7 +799,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec = {
       fields: [
         { name: 'optional_bools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -641,7 +813,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec = {
       fields: [
         { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -655,7 +827,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec = {
       fields: [
         { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -669,7 +841,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec = {
       fields: [
         { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -683,7 +855,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec = {
       fields: [
         { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -697,7 +869,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec = {
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -711,7 +883,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec = {
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -725,7 +897,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec = {
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -739,7 +911,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec = {
       fields: [
         { name: 'optional_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -752,7 +924,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -766,7 +938,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec = {
       fields: [
         { name: 'optional_uint8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -779,7 +951,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParams
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -793,7 +965,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec = {
       fields: [
         { name: 'optional_int8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -806,7 +978,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -820,7 +992,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec = 
       fields: [
         { name: 'optional_uint16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -833,7 +1005,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParam
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -847,7 +1019,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec = {
       fields: [
         { name: 'optional_int16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -860,7 +1032,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParams
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -874,7 +1046,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec = 
       fields: [
         { name: 'optional_uint32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -887,7 +1059,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParam
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -901,7 +1073,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec = {
       fields: [
         { name: 'optional_int32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -914,7 +1086,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParams
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -928,7 +1100,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec = 
       fields: [
         { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -941,7 +1113,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParam
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -955,7 +1127,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec = {
       fields: [
         { name: 'optional_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -968,7 +1140,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParams
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -982,7 +1154,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec = {
       fields: [
         { name: 'optional_float', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -995,7 +1167,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParams
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1009,7 +1181,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec = 
       fields: [
         { name: 'optional_double', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1022,7 +1194,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParam
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1036,7 +1208,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec = {
       fields: [
         { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1049,7 +1221,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1063,7 +1235,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec = {
       fields: [
         { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1076,7 +1248,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParams
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1090,7 +1262,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec = 
       fields: [
         { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1103,7 +1275,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParam
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1117,7 +1289,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec =
       fields: [
         { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1130,7 +1302,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponsePara
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1144,7 +1316,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec =
       fields: [
         { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1157,7 +1329,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponsePara
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1171,7 +1343,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec = {
       fields: [
         { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1184,7 +1356,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1198,7 +1370,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec =
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1211,7 +1383,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponsePara
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1225,7 +1397,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1238,7 +1410,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponsePa
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1252,7 +1424,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec =
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1265,7 +1437,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponsePara
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1279,7 +1451,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumeri
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1293,7 +1465,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumeri
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1307,7 +1479,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_P
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1331,7 +1503,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_R
         { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 104}]
     }
   }
 };
@@ -1382,7 +1554,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       0,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullUint8() {
@@ -1391,7 +1567,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       1,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullInt8() {
@@ -1400,7 +1580,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       2,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullUint16() {
@@ -1409,7 +1593,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       3,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullInt16() {
@@ -1418,7 +1606,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       4,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullUint32() {
@@ -1427,7 +1619,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       5,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullInt32() {
@@ -1436,7 +1632,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       6,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullUint64() {
@@ -1445,7 +1645,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       7,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullInt64() {
@@ -1454,7 +1658,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       8,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullFloat() {
@@ -1463,7 +1671,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       9,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullDouble() {
@@ -1472,7 +1684,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       10,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullEnum() {
@@ -1481,7 +1697,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       11,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullBools() {
@@ -1490,7 +1710,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       12,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullInt16s() {
@@ -1499,7 +1723,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       13,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullUint32s() {
@@ -1508,7 +1736,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       14,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullDoubles() {
@@ -1517,7 +1749,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       15,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullEnums() {
@@ -1526,7 +1762,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       16,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullBoolMap() {
@@ -1535,7 +1775,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       17,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullInt32Map() {
@@ -1544,7 +1788,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       18,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getNullEnumMap() {
@@ -1553,7 +1801,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       19,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalBool(value) {
@@ -1562,7 +1814,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       20,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalUint8(value) {
@@ -1571,7 +1827,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       21,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalInt8(value) {
@@ -1580,7 +1840,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       22,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalUint16(value) {
@@ -1589,7 +1853,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       23,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalInt16(value) {
@@ -1598,7 +1866,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       24,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalUint32(value) {
@@ -1607,7 +1879,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       25,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalInt32(value) {
@@ -1616,7 +1892,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       26,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalUint64(value) {
@@ -1625,7 +1905,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       27,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalInt64(value) {
@@ -1634,7 +1918,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       28,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalFloat(value) {
@@ -1643,7 +1931,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       29,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalDouble(value) {
@@ -1652,7 +1944,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       30,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalEnum(value) {
@@ -1661,7 +1957,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       31,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalBools(value) {
@@ -1670,7 +1970,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       32,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalInt16s(value) {
@@ -1679,7 +1983,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       33,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalUint32s(value) {
@@ -1688,7 +1996,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       34,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalDoubles(value) {
@@ -1697,7 +2009,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       35,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalEnums(value) {
@@ -1706,7 +2022,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       36,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
-      [value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalBoolMap(key, value) {
@@ -1715,7 +2035,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       37,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
-      [key, value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
+      [key, value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalFloatMap(key, value) {
@@ -1724,7 +2048,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       38,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
-      [key, value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
+      [key, value],
+      undefined,
+      undefined
+    );
   }
 
   getOptionalEnumMap(key, value) {
@@ -1733,7 +2061,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       39,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
-      [key, value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
+      [key, value],
+      undefined,
+      undefined
+    );
   }
 
   getNullStructWithOptionalNumerics() {
@@ -1742,7 +2074,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       40,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getStructWithNullOptionalNumerics() {
@@ -1751,7 +2087,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       41,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
-      []);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
@@ -1760,7 +2100,11 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       42,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
-      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value]);
+      content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
+      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1783,7 +2127,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1796,7 +2140,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponsePara
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1809,7 +2153,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1822,7 +2166,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponsePar
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1835,7 +2179,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1848,7 +2192,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponsePara
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1861,7 +2205,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1874,7 +2218,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponsePa
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1887,7 +2231,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1900,7 +2244,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponsePar
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1913,7 +2257,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1926,7 +2270,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponsePa
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1939,7 +2283,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1952,7 +2296,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponsePar
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1965,7 +2309,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1978,7 +2322,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponsePa
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1991,7 +2335,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2004,7 +2348,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponsePar
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2017,7 +2361,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2030,7 +2374,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponsePar
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2043,7 +2387,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2056,7 +2400,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponsePa
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2069,7 +2413,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2082,7 +2426,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponsePara
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2095,7 +2439,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2108,7 +2452,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponsePar
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2121,7 +2465,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2134,7 +2478,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponsePa
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2147,7 +2491,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2160,7 +2504,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseP
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2173,7 +2517,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2186,7 +2530,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseP
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2199,7 +2543,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2212,7 +2556,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponsePar
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2225,7 +2569,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2238,7 +2582,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseP
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2251,7 +2595,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2264,7 +2608,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_Response
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2277,7 +2621,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2290,7 +2634,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseP
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2304,7 +2648,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSp
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2317,7 +2661,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_Response
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2331,7 +2675,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2344,7 +2688,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_Respons
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2358,7 +2702,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSp
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2371,7 +2715,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_Response
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2385,7 +2729,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2398,7 +2742,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Respon
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2412,7 +2756,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2425,7 +2769,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_Respons
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2439,7 +2783,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2452,7 +2796,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Respon
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2466,7 +2810,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2479,7 +2823,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_Respons
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2493,7 +2837,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2506,7 +2850,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Respon
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2520,7 +2864,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2533,7 +2877,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_Respons
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2547,7 +2891,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2560,7 +2904,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_Respons
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2574,7 +2918,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2587,7 +2931,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Respon
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2601,7 +2945,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSp
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2614,7 +2958,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Response
       fields: [
         { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2628,7 +2972,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2641,7 +2985,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_Respons
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2655,7 +2999,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2668,7 +3012,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Respon
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2682,7 +3026,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Param
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2695,7 +3039,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Respo
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2709,7 +3053,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Param
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2722,7 +3066,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Respo
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2736,7 +3080,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsS
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2749,7 +3093,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Respons
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2764,7 +3108,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Param
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2777,7 +3121,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Respo
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2792,7 +3136,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Para
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2805,7 +3149,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Resp
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2820,7 +3164,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Param
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2833,7 +3177,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Respo
       fields: [
         { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2846,7 +3190,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2859,7 +3203,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2872,7 +3216,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2885,7 +3229,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2910,7 +3254,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
         { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 104}]
     }
   }
 };
@@ -2923,7 +3267,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

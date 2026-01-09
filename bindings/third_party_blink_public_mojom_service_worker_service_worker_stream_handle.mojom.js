@@ -50,7 +50,11 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onAborted() {
@@ -59,7 +63,11 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

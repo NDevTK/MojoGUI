@@ -50,7 +50,11 @@ content.mojom.RouteProviderRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
-      [frame_token, receiver]);
+      null,
+      [frame_token, receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ content.mojom.RouteProvider_GetRoute_ParamsSpec = {
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -70,7 +70,11 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
       0,  // ordinal
       ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
-      [credentials]);
+      ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
+      [credentials],
+      undefined,
+      undefined
+    );
   }
 
   connectToWifiDirectGroup(credentials, frequency) {
@@ -79,7 +83,11 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
       1,  // ordinal
       ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
-      [credentials, frequency]);
+      ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
+      [credentials, frequency],
+      undefined,
+      undefined
+    );
   }
 
   getWifiP2PCapabilities() {
@@ -88,7 +96,11 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
       2,  // ordinal
       ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
-      []);
+      ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -112,7 +124,7 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +138,7 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'wifi_direct_connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -141,7 +153,7 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -155,7 +167,7 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsS
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'wifi_direct_connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -168,7 +180,7 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -181,7 +193,7 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpe
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -232,7 +244,11 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
       0,  // ordinal
       ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
-      []);
+      ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   associateSocket(socket) {
@@ -241,7 +257,11 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
       1,  // ordinal
       ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
-      [socket]);
+      ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
+      [socket],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -264,7 +284,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -277,7 +297,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -291,7 +311,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
       fields: [
         { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -304,7 +324,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

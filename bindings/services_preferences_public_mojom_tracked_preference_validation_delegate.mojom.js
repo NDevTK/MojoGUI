@@ -67,7 +67,11 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
       0,  // ordinal
       prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
-      [pref_path, value, value_state, external_validation_value_state, is_personal]);
+      null,
+      [pref_path, value, value_state, external_validation_value_state, is_personal],
+      undefined,
+      undefined
+    );
   }
 
   onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
@@ -76,7 +80,11 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
       1,  // ordinal
       prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
-      [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal]);
+      null,
+      [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -104,7 +112,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Par
         { name: 'external_validation_value_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -123,7 +131,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Para
         { name: 'external_validation_value_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_personal', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

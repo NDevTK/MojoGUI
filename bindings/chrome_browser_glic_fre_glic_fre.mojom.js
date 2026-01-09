@@ -63,7 +63,11 @@ glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -87,7 +91,7 @@ glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +142,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.FrePageHandler_AcceptFre_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   rejectFre() {
@@ -147,7 +155,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       glic.mojom.FrePageHandler_RejectFre_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   dismissFre(panel) {
@@ -156,7 +168,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       2,  // ordinal
       glic.mojom.FrePageHandler_DismissFre_ParamsSpec,
       null,
-      [panel]);
+      null,
+      [panel],
+      undefined,
+      undefined
+    );
   }
 
   freReloaded() {
@@ -165,7 +181,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       3,  // ordinal
       glic.mojom.FrePageHandler_FreReloaded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   prepareForClient() {
@@ -174,7 +194,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       4,  // ordinal
       glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
       glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
-      []);
+      glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   validateAndOpenLinkInNewTab(url) {
@@ -183,7 +207,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       5,  // ordinal
       glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
-      [url]);
+      null,
+      [url],
+      undefined,
+      undefined
+    );
   }
 
   webUiStateChanged(new_state) {
@@ -192,7 +220,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       6,  // ordinal
       glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
       null,
-      [new_state]);
+      null,
+      [new_state],
+      undefined,
+      undefined
+    );
   }
 
   exceededTimeoutError() {
@@ -201,7 +233,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       7,  // ordinal
       glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   logWebUiLoadComplete() {
@@ -210,7 +246,11 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       8,  // ordinal
       glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -233,7 +273,7 @@ glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -246,7 +286,7 @@ glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -260,7 +300,7 @@ glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
       fields: [
         { name: 'panel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -273,7 +313,7 @@ glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -286,7 +326,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -299,7 +339,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,7 +353,7 @@ glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -327,7 +367,7 @@ glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
       fields: [
         { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -340,7 +380,7 @@ glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -353,7 +393,7 @@ glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

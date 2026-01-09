@@ -50,7 +50,11 @@ chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec,
       null,
-      [failed_url]);
+      null,
+      [failed_url],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
       fields: [
         { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec,
       null,
-      [can_show]);
+      null,
+      [can_show],
+      undefined,
+      undefined
+    );
   }
 
   dNSProbeStatus(status) {
@@ -134,7 +142,11 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +170,7 @@ chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsS
       fields: [
         { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,7 +184,7 @@ chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

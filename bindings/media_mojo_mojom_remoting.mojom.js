@@ -50,7 +50,11 @@ media.mojom.RemoterFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemoterFactory_Create_ParamsSpec,
       null,
-      [source, remoter]);
+      null,
+      [source, remoter],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ media.mojom.RemoterFactory_Create_ParamsSpec = {
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec,
       null,
-      [frame]);
+      null,
+      [frame],
+      undefined,
+      undefined
+    );
   }
 
   cancelInFlightData() {
@@ -135,7 +143,11 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -159,7 +171,7 @@ media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
       fields: [
         { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,7 +184,7 @@ media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -223,7 +235,11 @@ media.mojom.RemoterRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Remoter_Start_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startWithPermissionAlreadyGranted() {
@@ -232,7 +248,11 @@ media.mojom.RemoterRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender) {
@@ -241,7 +261,11 @@ media.mojom.RemoterRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Remoter_StartDataStreams_ParamsSpec,
       null,
-      [audio_pipe, video_pipe, audio_sender, video_sender]);
+      null,
+      [audio_pipe, video_pipe, audio_sender, video_sender],
+      undefined,
+      undefined
+    );
   }
 
   stop(reason) {
@@ -250,7 +274,11 @@ media.mojom.RemoterRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Remoter_Stop_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
   sendMessageToSink(message) {
@@ -259,7 +287,11 @@ media.mojom.RemoterRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Remoter_SendMessageToSink_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   estimateTransmissionCapacity() {
@@ -268,7 +300,11 @@ media.mojom.RemoterRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec,
       media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec,
-      []);
+      media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -291,7 +327,7 @@ media.mojom.Remoter_Start_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -304,7 +340,7 @@ media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -321,7 +357,7 @@ media.mojom.Remoter_StartDataStreams_ParamsSpec = {
         { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
         { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -335,7 +371,7 @@ media.mojom.Remoter_Stop_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -349,7 +385,7 @@ media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -362,7 +398,7 @@ media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -375,7 +411,7 @@ media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
       fields: [
         { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -426,7 +462,11 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec,
       null,
-      [metadata]);
+      null,
+      [metadata],
+      undefined,
+      undefined
+    );
   }
 
   onSinkGone() {
@@ -435,7 +475,11 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RemotingSource_OnSinkGone_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStarted() {
@@ -444,7 +488,11 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.RemotingSource_OnStarted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStartFailed(reason) {
@@ -453,7 +501,11 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.RemotingSource_OnStartFailed_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
   onMessageFromSink(message) {
@@ -462,7 +514,11 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   onStopped(reason) {
@@ -471,7 +527,11 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.RemotingSource_OnStopped_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -495,7 +555,7 @@ media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -508,7 +568,7 @@ media.mojom.RemotingSource_OnSinkGone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -521,7 +581,7 @@ media.mojom.RemotingSource_OnStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -535,7 +595,7 @@ media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -549,7 +609,7 @@ media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -563,7 +623,7 @@ media.mojom.RemotingSource_OnStopped_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -614,7 +674,11 @@ media.mojom.RemoteeRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec,
       null,
-      [sink]);
+      null,
+      [sink],
+      undefined,
+      undefined
+    );
   }
 
   sendMessageToSource(message) {
@@ -623,7 +687,11 @@ media.mojom.RemoteeRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Remotee_SendMessageToSource_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   startDataStreams(audio_stream, video_stream) {
@@ -632,7 +700,11 @@ media.mojom.RemoteeRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Remotee_StartDataStreams_ParamsSpec,
       null,
-      [audio_stream, video_stream]);
+      null,
+      [audio_stream, video_stream],
+      undefined,
+      undefined
+    );
   }
 
   onFlushUntil(audio_frame_count, video_frame_count) {
@@ -641,7 +713,11 @@ media.mojom.RemoteeRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Remotee_OnFlushUntil_ParamsSpec,
       null,
-      [audio_frame_count, video_frame_count]);
+      null,
+      [audio_frame_count, video_frame_count],
+      undefined,
+      undefined
+    );
   }
 
   onVideoNaturalSizeChange(size) {
@@ -650,7 +726,11 @@ media.mojom.RemoteeRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      [size]);
+      null,
+      [size],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -674,7 +754,7 @@ media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
       fields: [
         { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -688,7 +768,7 @@ media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -703,7 +783,7 @@ media.mojom.Remotee_StartDataStreams_ParamsSpec = {
         { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -718,7 +798,7 @@ media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
         { name: 'audio_frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'video_frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -732,7 +812,7 @@ media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -783,7 +863,11 @@ media.mojom.RemotingSinkRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -807,7 +891,7 @@ media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -858,7 +942,11 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec,
       null,
-      [data_pipe]);
+      null,
+      [data_pipe],
+      undefined,
+      undefined
+    );
   }
 
   receiveFrame(frame_count, buffer) {
@@ -867,7 +955,11 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec,
       null,
-      [frame_count, buffer]);
+      null,
+      [frame_count, buffer],
+      undefined,
+      undefined
+    );
   }
 
   flushUntil(frame_count) {
@@ -876,7 +968,11 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec,
       null,
-      [frame_count]);
+      null,
+      [frame_count],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -900,7 +996,7 @@ media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
       fields: [
         { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -915,7 +1011,7 @@ media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
         { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -929,7 +1025,7 @@ media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
       fields: [
         { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ content.mojom.FrameHostTestInterfaceRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FrameHostTestInterface_Ping_ParamsSpec,
       null,
-      [source_url, source_event]);
+      null,
+      [source_url, source_event],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ content.mojom.FrameHostTestInterface_Ping_ParamsSpec = {
         { name: 'source_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

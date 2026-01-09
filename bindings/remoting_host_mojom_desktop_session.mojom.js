@@ -157,7 +157,11 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec,
       null,
-      [desktop_pipe]);
+      null,
+      [desktop_pipe],
+      undefined,
+      undefined
+    );
   }
 
   injectSecureAttentionSequence() {
@@ -166,7 +170,11 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   crashNetworkProcess() {
@@ -175,7 +183,11 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -199,7 +211,7 @@ remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
       fields: [
         { name: 'desktop_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +224,7 @@ remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -225,7 +237,7 @@ remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -276,7 +288,11 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec,
       null,
-      [terminal_id, screen_resolution, is_virtual_terminal]);
+      null,
+      [terminal_id, screen_resolution, is_virtual_terminal],
+      undefined,
+      undefined
+    );
   }
 
   closeDesktopSession(terminal_id) {
@@ -285,7 +301,11 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec,
       null,
-      [terminal_id]);
+      null,
+      [terminal_id],
+      undefined,
+      undefined
+    );
   }
 
   setScreenResolution(terminal_id, screen_resolution) {
@@ -294,7 +314,11 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec,
       null,
-      [terminal_id, screen_resolution]);
+      null,
+      [terminal_id, screen_resolution],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -320,7 +344,7 @@ remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
         { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_virtual_terminal', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -334,7 +358,7 @@ remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
       fields: [
         { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -349,7 +373,7 @@ remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
         { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -400,7 +424,11 @@ remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionAgent_Start_ParamsSpec,
       remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec,
-      [authenticated_jid, resolution, options]);
+      remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec,
+      [authenticated_jid, resolution, options],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -426,7 +454,7 @@ remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
         { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -439,7 +467,7 @@ remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
       fields: [
         { name: 'desktop_session_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -490,7 +518,11 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.FileWriter_WriteChunk_ParamsSpec,
       remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec,
-      [data]);
+      remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec,
+      [data],
+      undefined,
+      undefined
+    );
   }
 
   closeFile() {
@@ -499,7 +531,11 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.FileWriter_CloseFile_ParamsSpec,
       remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec,
-      []);
+      remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -523,7 +559,7 @@ remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -536,7 +572,7 @@ remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -549,7 +585,7 @@ remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -562,7 +598,7 @@ remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -613,7 +649,11 @@ remoting.mojom.FileReaderRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.FileReader_ReadChunk_ParamsSpec,
       remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec,
-      [bytes_to_read]);
+      remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec,
+      [bytes_to_read],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -637,7 +677,7 @@ remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
       fields: [
         { name: 'bytes_to_read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -650,7 +690,7 @@ remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -701,7 +741,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec,
       remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec,
-      [desktop_display_id]);
+      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec,
+      [desktop_display_id],
+      undefined,
+      undefined
+    );
   }
 
   setScreenResolution(new_resolution) {
@@ -710,7 +754,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec,
       null,
-      [new_resolution]);
+      null,
+      [new_resolution],
+      undefined,
+      undefined
+    );
   }
 
   lockWorkstation() {
@@ -719,7 +767,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   injectSendAttentionSequence() {
@@ -728,7 +780,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       3,  // ordinal
       remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   injectClipboardEvent(event) {
@@ -737,7 +793,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       4,  // ordinal
       remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   injectKeyEvent(event) {
@@ -746,7 +806,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       5,  // ordinal
       remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   injectMouseEvent(event) {
@@ -755,7 +819,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       6,  // ordinal
       remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   injectTextEvent(event) {
@@ -764,7 +832,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       7,  // ordinal
       remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   injectTouchEvent(event) {
@@ -773,7 +845,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       8,  // ordinal
       remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   setUpUrlForwarder() {
@@ -782,7 +858,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       9,  // ordinal
       remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   signalWebAuthnExtension() {
@@ -791,7 +871,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       10,  // ordinal
       remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   beginFileRead() {
@@ -800,7 +884,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       11,  // ordinal
       remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec,
       remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec,
-      []);
+      remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   beginFileWrite(file_path) {
@@ -809,7 +897,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       12,  // ordinal
       remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec,
       remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec,
-      [file_path]);
+      remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec,
+      [file_path],
+      undefined,
+      undefined
+    );
   }
 
   setHostCursorRenderedByClient() {
@@ -818,7 +910,11 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
       13,  // ordinal
       remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -842,7 +938,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
       fields: [
         { name: 'desktop_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -855,7 +951,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -869,7 +965,7 @@ remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
       fields: [
         { name: 'new_resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -882,7 +978,7 @@ remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -895,7 +991,7 @@ remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -909,7 +1005,7 @@ remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -923,7 +1019,7 @@ remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -937,7 +1033,7 @@ remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -951,7 +1047,7 @@ remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -965,7 +1061,7 @@ remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -978,7 +1074,7 @@ remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -991,7 +1087,7 @@ remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1004,7 +1100,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1017,7 +1113,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1031,7 +1127,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
       fields: [
         { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1044,7 +1140,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1057,7 +1153,7 @@ remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1108,7 +1204,11 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setComposeEnabled(enabled) {
@@ -1117,7 +1217,11 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec,
       null,
-      [enabled]);
+      null,
+      [enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1140,7 +1244,7 @@ remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1154,7 +1258,7 @@ remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1205,7 +1309,11 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec,
       null,
-      [id, region, size]);
+      null,
+      [id, region, size],
+      undefined,
+      undefined
+    );
   }
 
   onSharedMemoryRegionReleased(id) {
@@ -1214,7 +1322,11 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   onCaptureResult(result) {
@@ -1223,7 +1335,11 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec,
       null,
-      [result]);
+      null,
+      [result],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1249,7 +1365,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec 
         { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1263,7 +1379,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1277,7 +1393,7 @@ remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1328,7 +1444,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec,
       null,
-      [event]);
+      null,
+      [event],
+      undefined,
+      undefined
+    );
   }
 
   onUrlForwarderStateChange(state) {
@@ -1337,7 +1457,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
   onAudioPacket(audio_packet) {
@@ -1346,7 +1470,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec,
       null,
-      [audio_packet]);
+      null,
+      [audio_packet],
+      undefined,
+      undefined
+    );
   }
 
   onDesktopDisplayChanged(layout) {
@@ -1355,7 +1483,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       3,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec,
       null,
-      [layout]);
+      null,
+      [layout],
+      undefined,
+      undefined
+    );
   }
 
   onMouseCursorChanged(mouse_cursor) {
@@ -1364,7 +1496,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       4,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec,
       null,
-      [mouse_cursor]);
+      null,
+      [mouse_cursor],
+      undefined,
+      undefined
+    );
   }
 
   onMouseCursorFractionalPositionChanged(position) {
@@ -1373,7 +1509,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       5,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec,
       null,
-      [position]);
+      null,
+      [position],
+      undefined,
+      undefined
+    );
   }
 
   onKeyboardLayoutChanged(keyboard_layout) {
@@ -1382,7 +1522,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       6,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec,
       null,
-      [keyboard_layout]);
+      null,
+      [keyboard_layout],
+      undefined,
+      undefined
+    );
   }
 
   onLocalMouseMoveDetected(new_position) {
@@ -1391,7 +1535,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       7,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec,
       null,
-      [new_position]);
+      null,
+      [new_position],
+      undefined,
+      undefined
+    );
   }
 
   onLocalKeyboardInputDetected(usb_keycode) {
@@ -1400,7 +1548,11 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
       8,  // ordinal
       remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec,
       null,
-      [usb_keycode]);
+      null,
+      [usb_keycode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1424,7 +1576,7 @@ remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1438,7 +1590,7 @@ remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec =
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1452,7 +1604,7 @@ remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
       fields: [
         { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1466,7 +1618,7 @@ remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
       fields: [
         { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1480,7 +1632,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
       fields: [
         { name: 'mouse_cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1494,7 +1646,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged
       fields: [
         { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1508,7 +1660,7 @@ remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
       fields: [
         { name: 'keyboard_layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1522,7 +1674,7 @@ remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = 
       fields: [
         { name: 'new_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1536,7 +1688,7 @@ remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpe
       fields: [
         { name: 'usb_keycode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1587,7 +1739,11 @@ remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec,
       null,
-      [error_code, error_details, error_location]);
+      null,
+      [error_code, error_details, error_location],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1613,7 +1769,7 @@ remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
         { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1664,7 +1820,11 @@ remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec,
       null,
-      [function_name, file_name, line_number]);
+      null,
+      [function_name, file_name, line_number],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -1690,7 +1850,7 @@ remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
         { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

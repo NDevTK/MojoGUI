@@ -50,7 +50,11 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
       null,
-      [messages]);
+      null,
+      [messages],
+      undefined,
+      undefined
+    );
   }
 
   onStopped() {
@@ -59,7 +63,11 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
       fields: [
         { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +155,11 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   stop() {
@@ -156,7 +168,11 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -180,7 +196,7 @@ chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,7 +209,7 @@ chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

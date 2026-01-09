@@ -50,7 +50,11 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = 
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
       most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
-      [url, title]);
+      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
+      [url, title],
+      undefined,
+      undefined
+    );
   }
 
   deleteMostVisitedTile(tile) {
@@ -135,7 +143,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      null,
+      [tile],
+      undefined,
+      undefined
+    );
   }
 
   reorderMostVisitedTile(tile, new_pos) {
@@ -144,7 +156,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
       null,
-      [tile, new_pos]);
+      null,
+      [tile, new_pos],
+      undefined,
+      undefined
+    );
   }
 
   restoreMostVisitedDefaults(source) {
@@ -153,7 +169,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
       null,
-      [source]);
+      null,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   undoMostVisitedAutoRemoval() {
@@ -162,7 +182,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   undoMostVisitedTileAction(source) {
@@ -171,7 +195,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
       null,
-      [source]);
+      null,
+      [source],
+      undefined,
+      undefined
+    );
   }
 
   updateMostVisitedInfo() {
@@ -180,7 +208,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateMostVisitedTile(tile, new_url, new_title) {
@@ -189,7 +221,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
       most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
-      [tile, new_url, new_title]);
+      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
+      [tile, new_url, new_title],
+      undefined,
+      undefined
+    );
   }
 
   prerenderMostVisitedTile(tile) {
@@ -198,7 +234,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      null,
+      [tile],
+      undefined,
+      undefined
+    );
   }
 
   prefetchMostVisitedTile(tile) {
@@ -207,7 +247,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      null,
+      [tile],
+      undefined,
+      undefined
+    );
   }
 
   preconnectMostVisitedTile(tile) {
@@ -216,7 +260,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      null,
+      [tile],
+      undefined,
+      undefined
+    );
   }
 
   cancelPrerender() {
@@ -225,7 +273,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getMostVisitedExpandedState() {
@@ -234,7 +286,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
       most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
-      []);
+      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setMostVisitedExpandedState(is_expanded) {
@@ -243,7 +299,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
       null,
-      [is_expanded]);
+      null,
+      [is_expanded],
+      undefined,
+      undefined
+    );
   }
 
   onMostVisitedTilesRendered(tiles, time) {
@@ -252,7 +312,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
       null,
-      [tiles, time]);
+      null,
+      [tiles, time],
+      undefined,
+      undefined
+    );
   }
 
   onMostVisitedTileNavigation(tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
@@ -261,7 +325,11 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
       null,
-      [tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
+      null,
+      [tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -286,7 +354,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -299,7 +367,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,7 +381,7 @@ most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
       fields: [
         { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,7 +396,7 @@ most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
         { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -342,7 +410,7 @@ most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec 
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -355,7 +423,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -369,7 +437,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec =
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -382,7 +450,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -398,7 +466,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
         { name: 'new_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -411,7 +479,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -425,7 +493,7 @@ most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = 
       fields: [
         { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -439,7 +507,7 @@ most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
       fields: [
         { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -453,7 +521,7 @@ most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec =
       fields: [
         { name: 'tile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -466,7 +534,7 @@ most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -479,7 +547,7 @@ most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -492,7 +560,7 @@ most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponsePa
       fields: [
         { name: 'is_expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -506,7 +574,7 @@ most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec
       fields: [
         { name: 'is_expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -521,7 +589,7 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec 
         { name: 'tiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -541,7 +609,7 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec
         { name: 'meta_key', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
         { name: 'shift_key', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -592,7 +660,11 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
       0,  // ordinal
       most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
       null,
-      [info]);
+      null,
+      [info],
+      undefined,
+      undefined
+    );
   }
 
   onMostVisitedTilesAutoRemoval() {
@@ -601,7 +673,11 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
       1,  // ordinal
       most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -625,7 +701,7 @@ most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -638,7 +714,7 @@ most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

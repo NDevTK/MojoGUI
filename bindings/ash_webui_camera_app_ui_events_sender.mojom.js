@@ -223,7 +223,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       0,  // ordinal
       ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendCaptureEvent(params) {
@@ -232,7 +236,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       1,  // ordinal
       ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendAndroidIntentEvent(params) {
@@ -241,7 +249,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       2,  // ordinal
       ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendOpenPTZPanelEvent(params) {
@@ -250,7 +262,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       3,  // ordinal
       ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendDocScanActionEvent(params) {
@@ -259,7 +275,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       4,  // ordinal
       ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendDocScanResultEvent(params) {
@@ -268,7 +288,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       5,  // ordinal
       ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendOpenCameraEvent(params) {
@@ -277,7 +301,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       6,  // ordinal
       ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendLowStorageActionEvent(params) {
@@ -286,7 +314,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       7,  // ordinal
       ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendBarcodeDetectedEvent(params) {
@@ -295,7 +327,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       8,  // ordinal
       ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendPerfEvent(params) {
@@ -304,7 +340,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       9,  // ordinal
       ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendUnsupportedProtocolEvent() {
@@ -313,7 +353,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       10,  // ordinal
       ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   updateMemoryUsageEventParams(params) {
@@ -322,7 +366,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       11,  // ordinal
       ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
   sendOcrEvent(params) {
@@ -331,7 +379,11 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       12,  // ordinal
       ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -355,7 +407,7 @@ ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -369,7 +421,7 @@ ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -383,7 +435,7 @@ ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -397,7 +449,7 @@ ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -411,7 +463,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -425,7 +477,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -439,7 +491,7 @@ ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -453,7 +505,7 @@ ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -467,7 +519,7 @@ ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -481,7 +533,7 @@ ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -494,7 +546,7 @@ ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -508,7 +560,7 @@ ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -522,7 +574,7 @@ ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

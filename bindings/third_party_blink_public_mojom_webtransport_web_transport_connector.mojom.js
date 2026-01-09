@@ -50,7 +50,11 @@ blink.mojom.WebTransportConnectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
-      [url, fingerprints, application_protocols, client]);
+      null,
+      [url, fingerprints, application_protocols, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
         { name: 'application_protocols', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

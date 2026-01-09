@@ -50,7 +50,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       0,  // ordinal
       security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   proceed() {
@@ -59,7 +63,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       1,  // ordinal
       security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showMoreSection() {
@@ -68,7 +76,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       2,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openHelpCenter() {
@@ -77,7 +89,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       3,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openDiagnostic() {
@@ -86,7 +102,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       4,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reload() {
@@ -95,7 +115,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       5,  // ordinal
       security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openDateSettings() {
@@ -104,7 +128,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       6,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openLogin() {
@@ -113,7 +141,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       7,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   doReport() {
@@ -122,7 +154,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       8,  // ordinal
       security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   dontReport() {
@@ -131,7 +167,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       9,  // ordinal
       security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openReportingPrivacy() {
@@ -140,7 +180,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       10,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openWhitepaper() {
@@ -149,7 +193,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       11,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openHelpCenterInNewTab() {
@@ -158,7 +206,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       12,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openDiagnosticInNewTab() {
@@ -167,7 +219,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       13,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openReportingPrivacyInNewTab() {
@@ -176,7 +232,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       14,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openWhitepaperInNewTab() {
@@ -185,7 +245,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       15,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reportPhishingErrorInNewTab() {
@@ -194,7 +258,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       16,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   reportPhishingError() {
@@ -203,7 +271,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       17,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openEnhancedProtectionSettings() {
@@ -212,7 +284,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       18,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showCertificateViewer() {
@@ -221,7 +297,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       19,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   openAndroidAdvancedProtectionSettings() {
@@ -230,7 +310,11 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       20,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -253,7 +337,7 @@ security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -266,7 +350,7 @@ security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -279,7 +363,7 @@ security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -292,7 +376,7 @@ security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -305,7 +389,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -318,7 +402,7 @@ security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -331,7 +415,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -344,7 +428,7 @@ security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -357,7 +441,7 @@ security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -370,7 +454,7 @@ security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -383,7 +467,7 @@ security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -396,7 +480,7 @@ security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -409,7 +493,7 @@ security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -422,7 +506,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -435,7 +519,7 @@ security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -448,7 +532,7 @@ security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -461,7 +545,7 @@ security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -474,7 +558,7 @@ security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -487,7 +571,7 @@ security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -500,7 +584,7 @@ security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -513,7 +597,7 @@ security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

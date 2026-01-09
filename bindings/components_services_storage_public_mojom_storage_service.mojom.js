@@ -50,7 +50,11 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setDataDirectory(path, directory) {
@@ -59,7 +63,11 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.StorageService_SetDataDirectory_ParamsSpec,
       null,
-      [path, directory]);
+      null,
+      [path, directory],
+      undefined,
+      undefined
+    );
   }
 
   bindSessionStorageControl(path, receiver) {
@@ -68,7 +76,11 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
-      [path, receiver]);
+      null,
+      [path, receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindLocalStorageControl(path, receiver) {
@@ -77,7 +89,11 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
       null,
-      [path, receiver]);
+      null,
+      [path, receiver],
+      undefined,
+      undefined
+    );
   }
 
   bindTestApi(test_api_receiver) {
@@ -86,7 +102,11 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.StorageService_BindTestApi_ParamsSpec,
       null,
-      [test_api_receiver]);
+      null,
+      [test_api_receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -109,7 +129,7 @@ storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,7 +144,7 @@ storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -139,7 +159,7 @@ storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -154,7 +174,7 @@ storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -168,7 +188,7 @@ storage.mojom.StorageService_BindTestApi_ParamsSpec = {
       fields: [
         { name: 'test_api_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

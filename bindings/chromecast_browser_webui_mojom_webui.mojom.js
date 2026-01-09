@@ -50,7 +50,11 @@ chromecast.mojom.MessageCallbackRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.MessageCallback_OnMessage_ParamsSpec,
       null,
-      [list]);
+      null,
+      [list],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
       fields: [
         { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
       null,
-      [message, cb]);
+      null,
+      [message, cb],
+      undefined,
+      undefined
+    );
   }
 
   callJavascriptFunction(function, args) {
@@ -134,7 +142,11 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
       null,
-      [function, args]);
+      null,
+      [function, args],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -159,7 +171,7 @@ chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'cb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,7 +186,7 @@ chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
         { name: 'function', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -225,7 +237,11 @@ chromecast.mojom.ResourcesRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec,
       chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
-      [path]);
+      chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
+      [path],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -249,7 +265,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,7 +278,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
       fields: [
         { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -313,7 +329,11 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.WebUiClient_CreateController_ParamsSpec,
       null,
-      [host, web_ui, resources]);
+      null,
+      [host, web_ui, resources],
+      undefined,
+      undefined
+    );
   }
 
   createResources(host, resources) {
@@ -322,7 +342,11 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.WebUiClient_CreateResources_ParamsSpec,
       null,
-      [host, resources]);
+      null,
+      [host, resources],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -348,7 +372,7 @@ chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
         { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -363,7 +387,7 @@ chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

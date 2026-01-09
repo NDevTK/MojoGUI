@@ -68,7 +68,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.SessionObserver_OnError_ParamsSpec,
       null,
-      [error]);
+      null,
+      [error],
+      undefined,
+      undefined
+    );
   }
 
   didStart() {
@@ -77,7 +81,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       1,  // ordinal
       mirroring.mojom.SessionObserver_DidStart_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   didStop() {
@@ -86,7 +94,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       2,  // ordinal
       mirroring.mojom.SessionObserver_DidStop_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   logInfoMessage(message) {
@@ -95,7 +107,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       3,  // ordinal
       mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   logErrorMessage(message) {
@@ -104,7 +120,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       4,  // ordinal
       mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   onSourceChanged() {
@@ -113,7 +133,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       5,  // ordinal
       mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onRemotingStateChanged(is_remoting) {
@@ -122,7 +146,11 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
       6,  // ordinal
       mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec,
       null,
-      [is_remoting]);
+      null,
+      [is_remoting],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -146,7 +174,7 @@ mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -159,7 +187,7 @@ mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -172,7 +200,7 @@ mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -186,7 +214,7 @@ mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +228,7 @@ mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -213,7 +241,7 @@ mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -227,7 +255,7 @@ mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
       fields: [
         { name: 'is_remoting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

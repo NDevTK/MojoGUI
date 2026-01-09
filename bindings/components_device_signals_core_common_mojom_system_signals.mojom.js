@@ -66,7 +66,11 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
       0,  // ordinal
       device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
       device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
-      [requests]);
+      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
+      [requests],
+      undefined,
+      undefined
+    );
   }
 
   getAntiVirusSignals() {
@@ -75,7 +79,11 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
       1,  // ordinal
       device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
       device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
-      []);
+      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getHotfixSignals() {
@@ -84,7 +92,11 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
       2,  // ordinal
       device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
       device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
-      []);
+      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -108,7 +120,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
       fields: [
         { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,7 +133,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpe
       fields: [
         { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,7 +146,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +159,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec
       fields: [
         { name: 'av_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -160,7 +172,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -173,7 +185,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = 
       fields: [
         { name: 'hotfix_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
       gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
-      [in]);
+      gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
+      [in],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   echoImageSkia(in) {
@@ -59,7 +63,11 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
       gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
-      [in]);
+      gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
+      [in],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -83,7 +91,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
       fields: [
         { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,7 +118,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
       fields: [
         { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +131,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ network.mojom.SystemDnsResolverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SystemDnsResolver_Resolve_ParamsSpec,
       network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
-      [hostname, addr_family, flags, network]);
+      network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
+      [hostname, addr_family, flags, network],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -77,7 +81,7 @@ network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
         { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'network', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -92,7 +96,7 @@ network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
         { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

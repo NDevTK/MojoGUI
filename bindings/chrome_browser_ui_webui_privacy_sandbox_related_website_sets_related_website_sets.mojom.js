@@ -57,7 +57,11 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = clas
       0,  // ordinal
       related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec,
       related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
-      []);
+      related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -80,7 +84,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -93,7 +97,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_R
       fields: [
         { name: 'related_website_sets_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

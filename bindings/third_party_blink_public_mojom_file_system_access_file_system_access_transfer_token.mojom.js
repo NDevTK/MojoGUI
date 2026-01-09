@@ -50,7 +50,11 @@ blink.mojom.FileSystemAccessTransferTokenRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec,
       blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   clone(token_clone) {
@@ -59,7 +63,11 @@ blink.mojom.FileSystemAccessTransferTokenRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec,
       null,
-      [token_clone]);
+      null,
+      [token_clone],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,7 +117,7 @@ blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec = {
       fields: [
         { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

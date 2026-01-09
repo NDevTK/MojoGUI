@@ -50,7 +50,11 @@ extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec,
       null,
-      [active_permissions, withheld_permissions]);
+      null,
+      [active_permissions, withheld_permissions],
+      undefined,
+      undefined
+    );
   }
 
   dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host) {
@@ -59,7 +63,11 @@ extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec,
       extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec,
-      [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host]);
+      extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec,
+      [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
         { name: 'active_permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'withheld_permissions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -104,7 +112,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
         { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
         { name: 'port_host', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -117,7 +125,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

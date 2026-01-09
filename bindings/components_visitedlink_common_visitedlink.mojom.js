@@ -50,7 +50,11 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       0,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
       null,
-      [table_region]);
+      null,
+      [table_region],
+      undefined,
+      undefined
+    );
   }
 
   addVisitedLinks(link_hashes) {
@@ -59,7 +63,11 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       1,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
       null,
-      [link_hashes]);
+      null,
+      [link_hashes],
+      undefined,
+      undefined
+    );
   }
 
   resetVisitedLinks(invalidate_cached_hashes) {
@@ -68,7 +76,11 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       2,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
       null,
-      [invalidate_cached_hashes]);
+      null,
+      [invalidate_cached_hashes],
+      undefined,
+      undefined
+    );
   }
 
   updateOriginSalts(origin_salts) {
@@ -77,7 +89,11 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       3,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
       null,
-      [origin_salts]);
+      null,
+      [origin_salts],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -101,7 +117,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
       fields: [
         { name: 'table_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -115,7 +131,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
       fields: [
         { name: 'link_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -129,7 +145,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
       fields: [
         { name: 'invalidate_cached_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +159,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
       fields: [
         { name: 'origin_salts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

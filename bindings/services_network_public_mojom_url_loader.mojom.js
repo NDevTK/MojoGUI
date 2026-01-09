@@ -50,7 +50,11 @@ network.mojom.URLLoaderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.URLLoader_FollowRedirect_ParamsSpec,
       null,
-      [removed_headers, modified_headers, modified_cors_exempt_headers, new_url]);
+      null,
+      [removed_headers, modified_headers, modified_cors_exempt_headers, new_url],
+      undefined,
+      undefined
+    );
   }
 
   setPriority(priority, intra_priority_value) {
@@ -59,7 +63,11 @@ network.mojom.URLLoaderRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.URLLoader_SetPriority_ParamsSpec,
       null,
-      [priority, intra_priority_value]);
+      null,
+      [priority, intra_priority_value],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -86,7 +94,7 @@ network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
         { name: 'modified_cors_exempt_headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -101,7 +109,7 @@ network.mojom.URLLoader_SetPriority_ParamsSpec = {
         { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'intra_priority_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -152,7 +160,11 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec,
       null,
-      [early_hints]);
+      null,
+      [early_hints],
+      undefined,
+      undefined
+    );
   }
 
   onReceiveResponse(head, body, cached_metadata) {
@@ -161,7 +173,11 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec,
       null,
-      [head, body, cached_metadata]);
+      null,
+      [head, body, cached_metadata],
+      undefined,
+      undefined
+    );
   }
 
   onReceiveRedirect(redirect_info, head) {
@@ -170,7 +186,11 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec,
       null,
-      [redirect_info, head]);
+      null,
+      [redirect_info, head],
+      undefined,
+      undefined
+    );
   }
 
   onUploadProgress(current_position, total_size) {
@@ -179,7 +199,11 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
       null,
-      [current_position, total_size]);
+      null,
+      [current_position, total_size],
+      undefined,
+      undefined
+    );
   }
 
   onTransferSizeUpdated(transfer_size_diff) {
@@ -188,7 +212,11 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec,
       null,
-      [transfer_size_diff]);
+      null,
+      [transfer_size_diff],
+      undefined,
+      undefined
+    );
   }
 
   onComplete(status) {
@@ -197,7 +225,11 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.URLLoaderClient_OnComplete_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -221,7 +253,7 @@ network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
       fields: [
         { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,7 +269,7 @@ network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
         { name: 'body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'cached_metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -252,7 +284,7 @@ network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
         { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'head', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -267,7 +299,7 @@ network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
         { name: 'current_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -281,7 +313,7 @@ network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
       fields: [
         { name: 'transfer_size_diff', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -295,7 +327,7 @@ network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

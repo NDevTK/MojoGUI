@@ -99,7 +99,11 @@ ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      [network_guids, active_guid]);
+      null,
+      [network_guids, active_guid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -124,7 +128,7 @@ ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
         { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -175,7 +179,11 @@ ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec,
       null,
-      [network]);
+      null,
+      [network],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -199,7 +207,7 @@ ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
       fields: [
         { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,7 +258,11 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   observeNetwork(observer, guid) {
@@ -259,7 +271,11 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec,
       null,
-      [observer, guid]);
+      null,
+      [observer, guid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -283,7 +299,7 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -298,7 +314,7 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

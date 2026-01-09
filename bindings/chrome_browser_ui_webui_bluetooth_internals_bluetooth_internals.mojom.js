@@ -49,7 +49,11 @@ mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec,
       null,
-      [should_debug_logs_be_enabled]);
+      null,
+      [should_debug_logs_be_enabled],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = {
       fields: [
         { name: 'should_debug_logs_be_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,7 +128,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec,
       mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec,
-      []);
+      mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getDebugLogsChangeHandler() {
@@ -133,7 +141,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec,
       mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec,
-      []);
+      mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   checkSystemPermissions() {
@@ -142,7 +154,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec,
       mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec,
-      []);
+      mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestSystemPermissions() {
@@ -151,7 +167,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   requestLocationServices() {
@@ -160,7 +180,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   restartSystemBluetooth() {
@@ -169,7 +193,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   startBtsnoop() {
@@ -178,7 +206,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec,
       mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec,
-      []);
+      mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   isBtsnoopFeatureEnabled() {
@@ -187,7 +219,11 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       7,  // ordinal
       mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec,
       mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec,
-      []);
+      mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -210,7 +246,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -223,7 +259,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = {
       fields: [
         { name: 'adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -236,7 +272,7 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -250,7 +286,7 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'initial_toggle_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -263,7 +299,7 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -279,7 +315,7 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = {
         { name: 'need_location_services', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
         { name: 'can_request_permissions', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,7 +328,7 @@ mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -305,7 +341,7 @@ mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -318,7 +354,7 @@ mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -331,7 +367,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -344,7 +380,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = {
       fields: [
         { name: 'btsnoop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -357,7 +393,7 @@ mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -370,7 +406,7 @@ mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -421,7 +457,11 @@ mojom.BluetoothBtsnoopRemoteCallHandler = class {
       0,  // ordinal
       mojom.BluetoothBtsnoop_Stop_ParamsSpec,
       mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec,
-      []);
+      mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -444,7 +484,7 @@ mojom.BluetoothBtsnoop_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -457,7 +497,7 @@ mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
       gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
-      [p]);
+      gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
+      [p],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   echoRangeF(p) {
@@ -59,7 +63,11 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
       gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
-      [p]);
+      gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
+      [p],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -83,7 +91,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
       fields: [
         { name: 'p', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,7 +118,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
       fields: [
         { name: 'p', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +131,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

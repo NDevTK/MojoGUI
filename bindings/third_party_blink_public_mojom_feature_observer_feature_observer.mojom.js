@@ -108,7 +108,11 @@ blink.mojom.FeatureObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FeatureObserver_Register_ParamsSpec,
       null,
-      [feature, type]);
+      null,
+      [feature, type],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -133,7 +137,7 @@ blink.mojom.FeatureObserver_Register_ParamsSpec = {
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

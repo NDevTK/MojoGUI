@@ -50,7 +50,11 @@ chromecast.mojom.AudioSocketBrokerRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec,
       chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
-      []);
+      chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

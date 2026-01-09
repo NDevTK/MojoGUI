@@ -50,7 +50,11 @@ network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
       network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
-      []);
+      network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

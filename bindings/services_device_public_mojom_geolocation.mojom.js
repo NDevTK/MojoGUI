@@ -50,7 +50,11 @@ device.mojom.GeolocationRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
       null,
-      [high_accuracy]);
+      null,
+      [high_accuracy],
+      undefined,
+      undefined
+    );
   }
 
   queryNextPosition() {
@@ -59,7 +63,11 @@ device.mojom.GeolocationRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.Geolocation_QueryNextPosition_ParamsSpec,
       device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
-      []);
+      device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec = {
       fields: [
         { name: 'high_accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -109,7 +117,7 @@ device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

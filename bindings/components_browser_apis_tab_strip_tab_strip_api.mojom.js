@@ -50,7 +50,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       0,  // ordinal
       tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getTab(id) {
@@ -59,7 +63,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       1,  // ordinal
       tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   createTabAt(pos, url) {
@@ -68,7 +76,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       2,  // ordinal
       tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
       null,
-      [pos, url]);
+      null,
+      [pos, url],
+      undefined,
+      undefined
+    );
   }
 
   closeTabs(id) {
@@ -77,7 +89,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       3,  // ordinal
       tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   activateTab(id) {
@@ -86,7 +102,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       4,  // ordinal
       tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
       null,
-      [id]);
+      null,
+      [id],
+      undefined,
+      undefined
+    );
   }
 
   setSelectedTabs(selection, tab_to_activate) {
@@ -95,7 +115,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       5,  // ordinal
       tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
       null,
-      [selection, tab_to_activate]);
+      null,
+      [selection, tab_to_activate],
+      undefined,
+      undefined
+    );
   }
 
   moveNode(id, position) {
@@ -104,7 +128,11 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       6,  // ordinal
       tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
       null,
-      [id, position]);
+      null,
+      [id, position],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -127,7 +155,7 @@ tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -141,7 +169,7 @@ tabs_api.mojom.TabStripService_GetTab_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,7 +184,7 @@ tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = {
         { name: 'pos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -170,7 +198,7 @@ tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +212,7 @@ tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +227,7 @@ tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = {
         { name: 'selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'tab_to_activate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -214,7 +242,7 @@ tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -265,7 +293,11 @@ tabs_api.mojom.TabsObserverRemoteCallHandler = class {
       0,  // ordinal
       tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
       null,
-      [events]);
+      null,
+      [events],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -289,7 +321,7 @@ tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = {
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

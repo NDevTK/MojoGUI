@@ -50,7 +50,11 @@ blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ImageReleaseCallback_Release_ParamsSpec,
       null,
-      [token]);
+      null,
+      [token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

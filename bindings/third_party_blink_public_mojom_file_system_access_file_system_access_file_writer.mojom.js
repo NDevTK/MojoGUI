@@ -50,7 +50,11 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
-      [offset, stream]);
+      blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
+      [offset, stream],
+      undefined,
+      undefined
+    );
   }
 
   truncate(length) {
@@ -59,7 +63,11 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
-      [length]);
+      blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
+      [length],
+      undefined,
+      undefined
+    );
   }
 
   close() {
@@ -68,7 +76,11 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   abort() {
@@ -77,7 +89,11 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
-      []);
+      blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -102,7 +118,7 @@ blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -116,7 +132,7 @@ blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bytes_written', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -130,7 +146,7 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = {
       fields: [
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +159,7 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,7 +172,7 @@ blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -169,7 +185,7 @@ blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -182,7 +198,7 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -195,7 +211,7 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

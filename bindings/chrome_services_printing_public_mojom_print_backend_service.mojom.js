@@ -50,7 +50,11 @@ printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
-      [service]);
+      null,
+      [service],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
       fields: [
         { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ printing.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
-      [service]);
+      null,
+      [service],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -149,7 +157,7 @@ printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
       fields: [
         { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +208,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintBackendService_Init_ParamsSpec,
       null,
-      [locale, remote]);
+      null,
+      [locale, remote],
+      undefined,
+      undefined
+    );
   }
 
   poke() {
@@ -209,7 +221,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PrintBackendService_Poke_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   enumeratePrinters() {
@@ -218,7 +234,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getDefaultPrinterName() {
@@ -227,7 +247,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPrinterSemanticCapsAndDefaults(printer_name) {
@@ -236,7 +260,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       4,  // ordinal
       printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec,
       null,
-      [printer_name]);
+      null,
+      [printer_name],
+      undefined,
+      undefined
+    );
   }
 
   fetchCapabilities(printer_name) {
@@ -245,7 +273,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       5,  // ordinal
       printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec,
       null,
-      [printer_name]);
+      null,
+      [printer_name],
+      undefined,
+      undefined
+    );
   }
 
   getPaperPrintableArea(printer_name, media) {
@@ -254,7 +286,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       6,  // ordinal
       printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec,
       printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
-      [printer_name, media]);
+      printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
+      [printer_name, media],
+      undefined,
+      undefined
+    );
   }
 
   establishPrintingContext(context_id, parent_window_id) {
@@ -263,7 +299,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       7,  // ordinal
       printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
       null,
-      [context_id, parent_window_id]);
+      null,
+      [context_id, parent_window_id],
+      undefined,
+      undefined
+    );
   }
 
   useDefaultSettings(context_id) {
@@ -272,7 +312,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       8,  // ordinal
       printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec,
       null,
-      [context_id]);
+      null,
+      [context_id],
+      undefined,
+      undefined
+    );
   }
 
   askUserForSettings(context_id, max_pages, has_selection, is_scripted) {
@@ -281,7 +325,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       9,  // ordinal
       printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec,
       null,
-      [context_id, max_pages, has_selection, is_scripted]);
+      null,
+      [context_id, max_pages, has_selection, is_scripted],
+      undefined,
+      undefined
+    );
   }
 
   updatePrintSettings(context_id, job_settings) {
@@ -290,7 +338,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       10,  // ordinal
       printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec,
       null,
-      [context_id, job_settings]);
+      null,
+      [context_id, job_settings],
+      undefined,
+      undefined
+    );
   }
 
   startPrinting(context_id, document_cookie, document_name, settings) {
@@ -299,7 +351,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       11,  // ordinal
       printing.mojom.PrintBackendService_StartPrinting_ParamsSpec,
       printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
-      [context_id, document_cookie, document_name, settings]);
+      printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
+      [context_id, document_cookie, document_name, settings],
+      undefined,
+      undefined
+    );
   }
 
   renderPrintedPage(document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor) {
@@ -308,7 +364,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       12,  // ordinal
       printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec,
       printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
-      [document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor]);
+      printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
+      [document_cookie, page_index, page_data_type, serialized_page, page_size, page_content_rect, shrink_factor],
+      undefined,
+      undefined
+    );
   }
 
   renderPrintedDocument(document_cookie, page_count, data_type, serialized_doc) {
@@ -317,7 +377,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       13,  // ordinal
       printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec,
       printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
-      [document_cookie, page_count, data_type, serialized_doc]);
+      printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
+      [document_cookie, page_count, data_type, serialized_doc],
+      undefined,
+      undefined
+    );
   }
 
   documentDone(document_cookie) {
@@ -326,7 +390,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       14,  // ordinal
       printing.mojom.PrintBackendService_DocumentDone_ParamsSpec,
       printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
-      [document_cookie]);
+      printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
+      [document_cookie],
+      undefined,
+      undefined
+    );
   }
 
   cancel(document_cookie) {
@@ -335,7 +403,11 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
       15,  // ordinal
       printing.mojom.PrintBackendService_Cancel_ParamsSpec,
       null,
-      [document_cookie]);
+      null,
+      [document_cookie],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -360,7 +432,7 @@ printing.mojom.PrintBackendService_Init_ParamsSpec = {
         { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -373,7 +445,7 @@ printing.mojom.PrintBackendService_Poke_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -386,7 +458,7 @@ printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -399,7 +471,7 @@ printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -413,7 +485,7 @@ printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec 
       fields: [
         { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -427,7 +499,7 @@ printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = {
       fields: [
         { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -442,7 +514,7 @@ printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
         { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'media', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -455,7 +527,7 @@ printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = {
       fields: [
         { name: 'printable_area_um', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -470,7 +542,7 @@ printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = {
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'parent_window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -484,7 +556,7 @@ printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = {
       fields: [
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -501,7 +573,7 @@ printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = {
         { name: 'has_selection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_scripted', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -516,7 +588,7 @@ printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = {
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'job_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -533,7 +605,7 @@ printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
         { name: 'document_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -547,7 +619,7 @@ printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'job_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -567,7 +639,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
         { name: 'page_content_rect', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shrink_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -580,7 +652,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -597,7 +669,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
         { name: 'data_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'serialized_doc', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -610,7 +682,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -624,7 +696,7 @@ printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
       fields: [
         { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -637,7 +709,7 @@ printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -651,7 +723,7 @@ printing.mojom.PrintBackendService_Cancel_ParamsSpec = {
       fields: [
         { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -74,7 +74,11 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       0,  // ordinal
       mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
       null,
-      [notification]);
+      null,
+      [notification],
+      undefined,
+      undefined
+    );
   }
 
   getDisplayedNotifications(profile, origin) {
@@ -83,7 +87,11 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       1,  // ordinal
       mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
       mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
-      [profile, origin]);
+      mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
+      [profile, origin],
+      undefined,
+      undefined
+    );
   }
 
   closeNotification(identifier) {
@@ -92,7 +100,11 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       2,  // ordinal
       mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec,
       null,
-      [identifier]);
+      null,
+      [identifier],
+      undefined,
+      undefined
+    );
   }
 
   closeNotificationsForProfile(profile) {
@@ -101,7 +113,11 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       3,  // ordinal
       mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
       null,
-      [profile]);
+      null,
+      [profile],
+      undefined,
+      undefined
+    );
   }
 
   closeAllNotifications() {
@@ -110,7 +126,11 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       4,  // ordinal
       mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   okayToTerminateService() {
@@ -119,7 +139,11 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       5,  // ordinal
       mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
       mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
-      []);
+      mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -143,7 +167,7 @@ mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = 
       fields: [
         { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +182,7 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
         { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -171,7 +195,7 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_Respons
       fields: [
         { name: 'notifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +209,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
       fields: [
         { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +223,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Para
       fields: [
         { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,7 +236,7 @@ mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -225,7 +249,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -238,7 +262,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponsePa
       fields: [
         { name: 'can_terminate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -289,7 +313,11 @@ mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
       0,  // ordinal
       mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
       null,
-      [info]);
+      null,
+      [info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -313,7 +341,7 @@ mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -364,7 +392,11 @@ mac_notifications.mojom.MacNotificationProviderRemoteCallHandler = class {
       0,  // ordinal
       mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
       null,
-      [service, handler]);
+      null,
+      [service, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -389,7 +421,7 @@ mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSp
         { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

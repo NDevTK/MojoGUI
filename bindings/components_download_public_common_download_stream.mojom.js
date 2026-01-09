@@ -64,7 +64,11 @@ download.mojom.DownloadStreamClientRemoteCallHandler = class {
       0,  // ordinal
       download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -88,7 +92,7 @@ download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

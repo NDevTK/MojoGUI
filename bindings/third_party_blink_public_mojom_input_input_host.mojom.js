@@ -50,7 +50,11 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   showSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
@@ -59,7 +63,11 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec,
       null,
-      [caret_x, caret_y, marked_text, suggestions]);
+      null,
+      [caret_x, caret_y, marked_text, suggestions],
+      undefined,
+      undefined
+    );
   }
 
   showTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
@@ -68,7 +76,11 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec,
       null,
-      [caret_x, caret_y, marked_text, suggestions]);
+      null,
+      [caret_x, caret_y, marked_text, suggestions],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -108,7 +120,7 @@ blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = {
         { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -125,7 +137,7 @@ blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = {
         { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

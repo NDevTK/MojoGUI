@@ -50,7 +50,11 @@ history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, page_handler]);
+      null,
+      [page, page_handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
       history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
-      []);
+      history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   printKeywordBagStateToLogMessages() {
@@ -135,7 +143,11 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +170,7 @@ history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,7 +183,7 @@ history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponsePara
       fields: [
         { name: 'context_clusters_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +196,7 @@ history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -235,7 +247,11 @@ history_clusters_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -259,7 +275,7 @@ history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

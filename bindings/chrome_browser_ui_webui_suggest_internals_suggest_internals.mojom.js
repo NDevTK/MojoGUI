@@ -59,7 +59,11 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       suggest_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      null,
+      [page],
+      undefined,
+      undefined
+    );
   }
 
   hardcodeResponse(response, delay) {
@@ -68,7 +72,11 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec,
       suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
-      [response, delay]);
+      suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
+      [response, delay],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +100,7 @@ suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -107,7 +115,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -120,7 +128,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,7 +179,11 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec,
       null,
-      [request]);
+      null,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
   onRequestStarted(request) {
@@ -180,7 +192,11 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec,
       null,
-      [request]);
+      null,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
   onRequestCompleted(request) {
@@ -189,7 +205,11 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec,
       null,
-      [request]);
+      null,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -213,7 +233,7 @@ suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,7 +247,7 @@ suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -241,7 +261,7 @@ suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

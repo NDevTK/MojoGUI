@@ -50,7 +50,11 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
       null,
-      [page]);
+      null,
+      [page],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = 
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +129,11 @@ lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -148,7 +156,7 @@ lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

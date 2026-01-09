@@ -50,7 +50,11 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
       null,
-      [constant_handle, data_type, data]);
+      null,
+      [constant_handle, data_type, data],
+      undefined,
+      undefined
+    );
   }
 
   createGraph(graph_info) {
@@ -59,7 +63,11 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       1,  // ordinal
       webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
       null,
-      [graph_info]);
+      null,
+      [graph_info],
+      undefined,
+      undefined
+    );
   }
 
   isValidGraphForTesting(context_properties, graph_info) {
@@ -68,7 +76,11 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       2,  // ordinal
       webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
       webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
-      [context_properties, graph_info]);
+      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
+      [context_properties, graph_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -94,7 +106,7 @@ webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
         { name: 'data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -108,7 +120,7 @@ webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
       fields: [
         { name: 'graph_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +135,7 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
         { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'graph_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -136,7 +148,7 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
       fields: [
         { name: 'is_valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

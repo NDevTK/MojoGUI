@@ -56,7 +56,11 @@ ash.mojom.HidPreservingBluetoothStateControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec,
       null,
-      [enabled, source]);
+      null,
+      [enabled, source],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -81,7 +85,7 @@ ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Pa
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -56,7 +56,11 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec,
       null,
-      [details]);
+      null,
+      [details],
+      undefined,
+      undefined
+    );
   }
 
   clone(observer) {
@@ -65,7 +69,11 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -89,7 +97,7 @@ network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSp
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -103,7 +111,7 @@ network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

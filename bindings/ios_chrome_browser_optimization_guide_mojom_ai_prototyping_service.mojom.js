@@ -50,7 +50,11 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec,
       ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec,
-      [request]);
+      ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
   executeOnDeviceQuery(request) {
@@ -59,7 +63,11 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       1,  // ordinal
       ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec,
       ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec,
-      [request]);
+      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -97,7 +105,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'logging_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -111,7 +119,7 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -124,7 +132,7 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = {
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

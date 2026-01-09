@@ -64,7 +64,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
       discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
-      []);
+      discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setAutoDiscardable(tab_id, is_auto_discardable) {
@@ -73,7 +77,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       null,
-      [tab_id, is_auto_discardable]);
+      null,
+      [tab_id, is_auto_discardable],
+      undefined,
+      undefined
+    );
   }
 
   discardById(tab_id, reason) {
@@ -82,7 +90,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       2,  // ordinal
       discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       null,
-      [tab_id, reason]);
+      null,
+      [tab_id, reason],
+      undefined,
+      undefined
+    );
   }
 
   freezeById(tab_id) {
@@ -91,7 +103,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       3,  // ordinal
       discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
-      [tab_id]);
+      null,
+      [tab_id],
+      undefined,
+      undefined
+    );
   }
 
   loadById(tab_id) {
@@ -100,7 +116,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       4,  // ordinal
       discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
-      [tab_id]);
+      null,
+      [tab_id],
+      undefined,
+      undefined
+    );
   }
 
   discard() {
@@ -109,7 +129,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       5,  // ordinal
       discards.mojom.DetailsProvider_Discard_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   toggleBatterySaverMode() {
@@ -118,7 +142,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       6,  // ordinal
       discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   refreshPerformanceTabCpuMeasurements() {
@@ -127,7 +155,11 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       7,  // ordinal
       discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -150,7 +182,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -163,7 +195,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
       fields: [
         { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +210,7 @@ discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_auto_discardable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -193,7 +225,7 @@ discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -207,7 +239,7 @@ discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -221,7 +253,7 @@ discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,7 +266,7 @@ discards.mojom.DetailsProvider_Discard_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -247,7 +279,7 @@ discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -260,7 +292,7 @@ discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -311,7 +343,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
-      [frame]);
+      null,
+      [frame],
+      undefined,
+      undefined
+    );
   }
 
   pageCreated(pages) {
@@ -320,7 +356,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
-      [pages]);
+      null,
+      [pages],
+      undefined,
+      undefined
+    );
   }
 
   processCreated(process) {
@@ -329,7 +369,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       2,  // ordinal
       discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
-      [process]);
+      null,
+      [process],
+      undefined,
+      undefined
+    );
   }
 
   workerCreated(worker) {
@@ -338,7 +382,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       3,  // ordinal
       discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
-      [worker]);
+      null,
+      [worker],
+      undefined,
+      undefined
+    );
   }
 
   frameChanged(frame) {
@@ -347,7 +395,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       4,  // ordinal
       discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
-      [frame]);
+      null,
+      [frame],
+      undefined,
+      undefined
+    );
   }
 
   pageChanged(page) {
@@ -356,7 +408,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       5,  // ordinal
       discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
-      [page]);
+      null,
+      [page],
+      undefined,
+      undefined
+    );
   }
 
   processChanged(process) {
@@ -365,7 +421,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       6,  // ordinal
       discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
-      [process]);
+      null,
+      [process],
+      undefined,
+      undefined
+    );
   }
 
   workerChanged(worker) {
@@ -374,7 +434,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       7,  // ordinal
       discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
-      [worker]);
+      null,
+      [worker],
+      undefined,
+      undefined
+    );
   }
 
   favIconDataAvailable(favicon) {
@@ -383,7 +447,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       8,  // ordinal
       discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
-      [favicon]);
+      null,
+      [favicon],
+      undefined,
+      undefined
+    );
   }
 
   nodeDeleted(node_id) {
@@ -392,7 +460,11 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       9,  // ordinal
       discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
-      [node_id]);
+      null,
+      [node_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -416,7 +488,7 @@ discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
       fields: [
         { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -430,7 +502,7 @@ discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
       fields: [
         { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -444,7 +516,7 @@ discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
       fields: [
         { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -458,7 +530,7 @@ discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
       fields: [
         { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -472,7 +544,7 @@ discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
       fields: [
         { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -486,7 +558,7 @@ discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -500,7 +572,7 @@ discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
       fields: [
         { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -514,7 +586,7 @@ discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
       fields: [
         { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -528,7 +600,7 @@ discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
       fields: [
         { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -542,7 +614,7 @@ discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
       fields: [
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -593,7 +665,11 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
-      [change_subscriber]);
+      null,
+      [change_subscriber],
+      undefined,
+      undefined
+    );
   }
 
   requestNodeDescriptions(node_ids) {
@@ -602,7 +678,11 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
       discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
-      [node_ids]);
+      discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
+      [node_ids],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -626,7 +706,7 @@ discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
       fields: [
         { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -640,7 +720,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
       fields: [
         { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -653,7 +733,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
       fields: [
         { name: 'node_descriptions_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

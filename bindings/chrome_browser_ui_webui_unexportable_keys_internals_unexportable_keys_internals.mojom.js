@@ -50,7 +50,11 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInter
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
       unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
-      []);
+      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   deleteKey(key_id) {
@@ -135,7 +143,11 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
       unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
-      [key_id]);
+      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
+      [key_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +170,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,7 +183,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponsePa
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,7 +197,7 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
       fields: [
         { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -198,7 +210,7 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

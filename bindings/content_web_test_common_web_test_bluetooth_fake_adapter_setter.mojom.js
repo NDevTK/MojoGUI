@@ -50,7 +50,11 @@ content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
       null,
-      [adapter_name]);
+      null,
+      [adapter_name],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
       fields: [
         { name: 'adapter_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

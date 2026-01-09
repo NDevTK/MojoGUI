@@ -50,7 +50,11 @@ blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

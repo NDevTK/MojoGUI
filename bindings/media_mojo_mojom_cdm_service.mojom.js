@@ -50,7 +50,11 @@ media.mojom.CdmServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces]);
+      null,
+      [factory, frame_interfaces],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
       media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
-      []);
+      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -149,7 +157,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -162,7 +170,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
       fields: [
         { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -213,7 +221,11 @@ media.mojom.CdmServiceBrokerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
-      [cdm_path, token_provider, receiver]);
+      null,
+      [cdm_path, token_provider, receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -239,7 +251,7 @@ media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
         { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

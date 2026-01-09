@@ -50,7 +50,11 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
       viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
-      []);
+      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   setSameDocNavigationScreenshotSize(result_size) {
@@ -59,7 +63,11 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
       null,
-      [result_size]);
+      null,
+      [result_size],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   getForceEnableZoomState(frame_sink_id) {
@@ -68,7 +76,11 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
       viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
-      [frame_sink_id]);
+      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
+      [frame_sink_id],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitForSurfaceAnimationManager(frame_sink_id) {
@@ -77,7 +89,11 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
       null,
-      [frame_sink_id]);
+      null,
+      [frame_sink_id],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -100,7 +116,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -113,7 +129,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponsePa
       fields: [
         { name: 'has_resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,7 +143,7 @@ viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec 
       fields: [
         { name: 'result_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,7 +157,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,7 +170,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -168,7 +184,7 @@ viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

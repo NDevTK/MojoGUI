@@ -50,7 +50,11 @@ viz.mojom.VSyncParameterObserverRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
       null,
-      [timebase, interval]);
+      null,
+      [timebase, interval],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
         { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

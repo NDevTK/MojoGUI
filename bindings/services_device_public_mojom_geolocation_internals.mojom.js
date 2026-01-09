@@ -67,7 +67,11 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
       null,
-      [diagnostics]);
+      null,
+      [diagnostics],
+      undefined,
+      undefined
+    );
   }
 
   onNetworkLocationRequested(access_point_data) {
@@ -76,7 +80,11 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
       null,
-      [access_point_data]);
+      null,
+      [access_point_data],
+      undefined,
+      undefined
+    );
   }
 
   onNetworkLocationReceived(response) {
@@ -85,7 +93,11 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
       null,
-      [response]);
+      null,
+      [response],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -109,7 +121,7 @@ device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = {
       fields: [
         { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,7 +135,7 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec 
       fields: [
         { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -137,7 +149,7 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec =
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -188,7 +200,11 @@ device.mojom.GeolocationInternalsRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
       device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
-      [observer]);
+      device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -212,7 +228,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +241,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
       fields: [
         { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

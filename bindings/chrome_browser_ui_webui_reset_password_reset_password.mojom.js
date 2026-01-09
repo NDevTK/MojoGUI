@@ -49,7 +49,11 @@ mojom.ResetPasswordHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -72,7 +76,7 @@ mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

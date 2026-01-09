@@ -50,7 +50,11 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   terminateForTesting() {
@@ -59,7 +63,11 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +91,7 @@ blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +104,7 @@ blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -147,7 +155,11 @@ blink.mojom.ServiceWorkerObjectRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec,
       null,
-      [state]);
+      null,
+      [state],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -171,7 +183,7 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -50,7 +50,11 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec,
       null,
-      [browser_interface_broker, host, origin]);
+      null,
+      [browser_interface_broker, host, origin],
+      undefined,
+      undefined
+    );
   }
 
   onScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver) {
@@ -59,7 +63,11 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec,
       null,
-      [service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver]);
+      null,
+      [service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver],
+      undefined,
+      undefined
+    );
   }
 
   onScriptLoadStartFailed() {
@@ -68,7 +76,11 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -94,7 +106,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = {
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -115,7 +127,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = {
         { name: 'coep_reporting_observer_receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
         { name: 'dip_reporting_observer_receiver', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -128,7 +140,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -179,7 +191,11 @@ blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec,
       null,
-      [token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status]);
+      null,
+      [token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -209,7 +225,7 @@ blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params
         { name: 'client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'storage_access_api_status', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };

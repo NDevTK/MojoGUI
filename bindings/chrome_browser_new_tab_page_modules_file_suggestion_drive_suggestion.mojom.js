@@ -50,7 +50,11 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
       0,  // ordinal
       file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
       file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
-      []);
+      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   dismissModule() {
@@ -59,7 +63,11 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
       1,  // ordinal
       file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   restoreModule() {
@@ -68,7 +76,11 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
       2,  // ordinal
       file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -91,7 +103,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -104,7 +116,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
       fields: [
         { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,7 +129,7 @@ file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -130,7 +142,7 @@ file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

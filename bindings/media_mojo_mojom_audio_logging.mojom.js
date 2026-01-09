@@ -57,7 +57,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioLog_OnCreated_ParamsSpec,
       null,
-      [params, device_id]);
+      null,
+      [params, device_id],
+      undefined,
+      undefined
+    );
   }
 
   onStarted() {
@@ -66,7 +70,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioLog_OnStarted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onStopped() {
@@ -75,7 +83,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioLog_OnStopped_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onClosed() {
@@ -84,7 +96,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioLog_OnClosed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onError() {
@@ -93,7 +109,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.AudioLog_OnError_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onSetVolume(volume) {
@@ -102,7 +122,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.AudioLog_OnSetVolume_ParamsSpec,
       null,
-      [volume]);
+      null,
+      [volume],
+      undefined,
+      undefined
+    );
   }
 
   onProcessingStateChanged(message) {
@@ -111,7 +135,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
   onLogMessage(message) {
@@ -120,7 +148,11 @@ media.mojom.AudioLogRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.AudioLog_OnLogMessage_ParamsSpec,
       null,
-      [message]);
+      null,
+      [message],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -145,7 +177,7 @@ media.mojom.AudioLog_OnCreated_ParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -158,7 +190,7 @@ media.mojom.AudioLog_OnStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,7 +203,7 @@ media.mojom.AudioLog_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -184,7 +216,7 @@ media.mojom.AudioLog_OnClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -197,7 +229,7 @@ media.mojom.AudioLog_OnError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -211,7 +243,7 @@ media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +257,7 @@ media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -239,7 +271,7 @@ media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -290,7 +322,11 @@ media.mojom.AudioLogFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec,
       null,
-      [component, component_id, audio_log_receiver]);
+      null,
+      [component, component_id, audio_log_receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -316,7 +352,7 @@ media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
         { name: 'component_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'audio_log_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

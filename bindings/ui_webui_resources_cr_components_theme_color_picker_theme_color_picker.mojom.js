@@ -50,7 +50,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class
       0,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec,
       null,
-      [handler, client]);
+      null,
+      [handler, client],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHa
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +130,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       0,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec,
       theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
-      [is_dark_mode]);
+      theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
+      [is_dark_mode],
+      undefined,
+      undefined
+    );
   }
 
   updateTheme() {
@@ -135,7 +143,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       1,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setDefaultColor() {
@@ -144,7 +156,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       2,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setGreyDefaultColor() {
@@ -153,7 +169,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       3,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setSeedColor(seed_color, variant) {
@@ -162,7 +182,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       4,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec,
       null,
-      [seed_color, variant]);
+      null,
+      [seed_color, variant],
+      undefined,
+      undefined
+    );
   }
 
   setSeedColorFromHue(hue) {
@@ -171,7 +195,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       5,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec,
       null,
-      [hue]);
+      null,
+      [hue],
+      undefined,
+      undefined
+    );
   }
 
   removeBackgroundImage() {
@@ -180,7 +208,11 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       6,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -204,7 +236,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
       fields: [
         { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,7 +249,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsS
       fields: [
         { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +262,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -243,7 +275,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -256,7 +288,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -271,7 +303,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
         { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -285,7 +317,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec 
       fields: [
         { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -298,7 +330,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -349,7 +381,11 @@ theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler = class {
       0,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec,
       null,
-      [theme]);
+      null,
+      [theme],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -373,7 +409,7 @@ theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

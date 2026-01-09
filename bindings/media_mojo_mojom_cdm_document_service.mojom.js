@@ -50,7 +50,11 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
       media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
-      [service_id, challenge]);
+      media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
+      [service_id, challenge],
+      undefined,
+      undefined
+    );
   }
 
   getStorageId(version) {
@@ -59,7 +63,11 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
       media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
-      [version]);
+      media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
+      [version],
+      undefined,
+      undefined
+    );
   }
 
   isVerifiedAccessEnabled() {
@@ -68,7 +76,11 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
       media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
-      []);
+      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getMediaFoundationCdmData() {
@@ -77,7 +89,11 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
       media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
-      []);
+      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setCdmClientToken(client_token) {
@@ -86,7 +102,11 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
-      [client_token]);
+      null,
+      [client_token],
+      undefined,
+      undefined
+    );
   }
 
   onCdmEvent(event, hresult) {
@@ -95,7 +115,11 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
-      [event, hresult]);
+      null,
+      [event, hresult],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -120,7 +144,7 @@ media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -136,7 +160,7 @@ media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
         { name: 'signed_data_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'platform_key_certificate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -150,7 +174,7 @@ media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,7 +188,7 @@ media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'storage_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -177,7 +201,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,7 +214,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,7 +227,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -216,7 +240,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
       fields: [
         { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +254,7 @@ media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
       fields: [
         { name: 'client_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,7 +269,7 @@ media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'hresult', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

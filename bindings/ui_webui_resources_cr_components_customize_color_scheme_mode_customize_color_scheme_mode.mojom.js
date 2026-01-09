@@ -57,7 +57,11 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCa
       0,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec,
       null,
-      [pending_client, pending_handler]);
+      null,
+      [pending_client, pending_handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +86,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateC
         { name: 'pending_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'pending_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -133,7 +137,11 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
       0,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec,
       null,
-      [colorSchemeMode]);
+      null,
+      [colorSchemeMode],
+      undefined,
+      undefined
+    );
   }
 
   initializeColorSchemeMode() {
@@ -142,7 +150,11 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
       1,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -166,7 +178,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorScheme
       fields: [
         { name: 'colorSchemeMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +191,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -230,7 +242,11 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandle
       0,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec,
       null,
-      [colorSchemeMode]);
+      null,
+      [colorSchemeMode],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -254,7 +270,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeM
       fields: [
         { name: 'colorSchemeMode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

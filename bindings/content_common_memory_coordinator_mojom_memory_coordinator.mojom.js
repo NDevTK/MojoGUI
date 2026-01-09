@@ -50,7 +50,11 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   notifyUpdateMemoryLimit(percentage) {
@@ -59,7 +63,11 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
       null,
-      [percentage]);
+      null,
+      [percentage],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,7 +104,7 @@ content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = {
       fields: [
         { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -147,7 +155,11 @@ content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
       null,
-      [consumer_id, traits, child_consumer]);
+      null,
+      [consumer_id, traits, child_consumer],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -173,7 +185,7 @@ content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSp
         { name: 'traits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'child_consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

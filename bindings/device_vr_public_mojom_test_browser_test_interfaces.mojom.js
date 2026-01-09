@@ -74,7 +74,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       0,  // ordinal
       device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
       null,
-      [frame_data]);
+      null,
+      [frame_data],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetDeviceConfig() {
@@ -83,7 +87,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       1,  // ordinal
       device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
-      []);
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetPresentingPose() {
@@ -92,7 +100,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       2,  // ordinal
       device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
-      []);
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetMagicWindowPose() {
@@ -101,7 +113,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       3,  // ordinal
       device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
-      []);
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetControllerRoleForTrackedDeviceIndex(index) {
@@ -110,7 +126,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       4,  // ordinal
       device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
-      [index]);
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
+      [index],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetControllerData(index) {
@@ -119,7 +139,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       5,  // ordinal
       device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
-      [index]);
+      device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
+      [index],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetEventData() {
@@ -128,7 +152,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       6,  // ordinal
       device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
-      []);
+      device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetCanCreateSession() {
@@ -137,7 +165,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       7,  // ordinal
       device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
-      []);
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   waitGetVisibilityMask(view_index) {
@@ -146,7 +178,11 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       8,  // ordinal
       device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
-      [view_index]);
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
+      [view_index],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -170,7 +206,7 @@ device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
       fields: [
         { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,7 +219,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -196,7 +232,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,7 +245,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -222,7 +258,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -235,7 +271,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -248,7 +284,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -262,7 +298,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSp
       fields: [
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -275,7 +311,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Response
       fields: [
         { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -289,7 +325,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
       fields: [
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -302,7 +338,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -315,7 +351,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -328,7 +364,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -341,7 +377,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -354,7 +390,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
       fields: [
         { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -368,7 +404,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
       fields: [
         { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -381,7 +417,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
       fields: [
         { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -432,7 +468,11 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
       0,  // ordinal
       device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
       null,
-      [hook]);
+      null,
+      [hook],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   terminateDeviceServiceProcessForTesting() {
@@ -441,7 +481,11 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
       1,  // ordinal
       device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -465,7 +509,7 @@ device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
       fields: [
         { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -478,7 +522,7 @@ device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

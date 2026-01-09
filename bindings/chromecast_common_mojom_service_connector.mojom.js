@@ -50,7 +50,11 @@ chromecast.mojom.ServiceConnectorRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ServiceConnector_Connect_ParamsSpec,
       null,
-      [service_name, receiver]);
+      null,
+      [service_name, receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
         { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

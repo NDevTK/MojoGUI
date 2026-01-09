@@ -50,7 +50,11 @@ blink.mojom.CloseListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CloseListener_Signal_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ blink.mojom.CloseListener_Signal_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -68,7 +68,11 @@ continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
       0,  // ordinal
       continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
       continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
-      [result_types]);
+      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
+      [result_types],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +96,7 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
       fields: [
         { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,7 +110,7 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Respon
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

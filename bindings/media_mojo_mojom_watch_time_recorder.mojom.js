@@ -50,7 +50,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
       null,
-      [key, watch_time]);
+      null,
+      [key, watch_time],
+      undefined,
+      undefined
+    );
   }
 
   finalizeWatchTime(watch_time_keys) {
@@ -59,7 +63,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
       null,
-      [watch_time_keys]);
+      null,
+      [watch_time_keys],
+      undefined,
+      undefined
+    );
   }
 
   onError(status) {
@@ -68,7 +76,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.WatchTimeRecorder_OnError_ParamsSpec,
       null,
-      [status]);
+      null,
+      [status],
+      undefined,
+      undefined
+    );
   }
 
   updateSecondaryProperties(secondary_properties) {
@@ -77,7 +89,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
       null,
-      [secondary_properties]);
+      null,
+      [secondary_properties],
+      undefined,
+      undefined
+    );
   }
 
   setAutoplayInitiated(value) {
@@ -86,7 +102,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
       null,
-      [value]);
+      null,
+      [value],
+      undefined,
+      undefined
+    );
   }
 
   onDurationChanged(duration) {
@@ -95,7 +115,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
       null,
-      [duration]);
+      null,
+      [duration],
+      undefined,
+      undefined
+    );
   }
 
   updateVideoDecodeStats(frames_decoded, frames_dropped) {
@@ -104,7 +128,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
       null,
-      [frames_decoded, frames_dropped]);
+      null,
+      [frames_decoded, frames_dropped],
+      undefined,
+      undefined
+    );
   }
 
   updateUnderflowCount(total_count) {
@@ -113,7 +141,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
       null,
-      [total_count]);
+      null,
+      [total_count],
+      undefined,
+      undefined
+    );
   }
 
   updateUnderflowDuration(total_completed_count, total_duration) {
@@ -122,7 +154,11 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
       null,
-      [total_completed_count, total_duration]);
+      null,
+      [total_completed_count, total_duration],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -147,7 +183,7 @@ media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'watch_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -161,7 +197,7 @@ media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
       fields: [
         { name: 'watch_time_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -175,7 +211,7 @@ media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -189,7 +225,7 @@ media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
       fields: [
         { name: 'secondary_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,7 +239,7 @@ media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,7 +253,7 @@ media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
       fields: [
         { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -232,7 +268,7 @@ media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
         { name: 'frames_decoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'frames_dropped', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -246,7 +282,7 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
       fields: [
         { name: 'total_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -261,7 +297,7 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
         { name: 'total_completed_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'total_duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -80,7 +80,11 @@ traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -105,7 +109,7 @@ traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpe
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -156,7 +160,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec,
       traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
-      [config_pb, enable_privacy_filters]);
+      traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
+      [config_pb, enable_privacy_filters],
+      undefined,
+      undefined
+    );
   }
 
   cloneTraceSession() {
@@ -165,7 +173,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec,
       traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   stopTraceSession() {
@@ -174,7 +186,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec,
       traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getTrackEventCategories() {
@@ -183,7 +199,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec,
       traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getBufferUsage() {
@@ -192,7 +212,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec,
       traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getAllTraceReports() {
@@ -201,7 +225,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec,
       traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   deleteSingleTrace(uuid) {
@@ -210,7 +238,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec,
       traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
-      [uuid]);
+      traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
+      [uuid],
+      undefined,
+      undefined
+    );
   }
 
   deleteAllTraces() {
@@ -219,7 +251,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec,
       traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   userUploadSingleTrace(uuid) {
@@ -228,7 +264,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec,
       traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
-      [uuid]);
+      traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
+      [uuid],
+      undefined,
+      undefined
+    );
   }
 
   downloadTrace(uuid) {
@@ -237,7 +277,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec,
       traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
-      [uuid]);
+      traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
+      [uuid],
+      undefined,
+      undefined
+    );
   }
 
   getAllScenarios() {
@@ -246,7 +290,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec,
       traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setEnabledScenarios(new_config) {
@@ -255,7 +303,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec,
       traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
-      [new_config]);
+      traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
+      [new_config],
+      undefined,
+      undefined
+    );
   }
 
   setScenariosConfigFromString(config_string) {
@@ -264,7 +316,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec,
       traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
-      [config_string]);
+      traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
+      [config_string],
+      undefined,
+      undefined
+    );
   }
 
   setScenariosConfigFromBuffer(config_pb) {
@@ -273,7 +329,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec,
       traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
-      [config_pb]);
+      traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
+      [config_pb],
+      undefined,
+      undefined
+    );
   }
 
   getPrivacyFilterEnabled() {
@@ -282,7 +342,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec,
       traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setPrivacyFilterEnabled(enable) {
@@ -291,7 +355,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec,
       null,
-      [enable]);
+      null,
+      [enable],
+      undefined,
+      undefined
+    );
   }
 
   getSystemTracingState() {
@@ -300,7 +368,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec,
       traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getSecurityShieldIconUrl() {
@@ -309,7 +381,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec,
       traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   enableSystemTracing() {
@@ -318,7 +394,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec,
       traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   disableSystemTracing() {
@@ -327,7 +407,11 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec,
       traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
-      []);
+      traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -352,7 +436,7 @@ traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
         { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'enable_privacy_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -365,7 +449,7 @@ traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -378,7 +462,7 @@ traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -392,7 +476,7 @@ traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
         { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -405,7 +489,7 @@ traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -418,7 +502,7 @@ traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -431,7 +515,7 @@ traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -444,7 +528,7 @@ traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = 
       fields: [
         { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -457,7 +541,7 @@ traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -472,7 +556,7 @@ traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
         { name: 'percent_full', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'data_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -485,7 +569,7 @@ traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -498,7 +582,7 @@ traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
       fields: [
         { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -512,7 +596,7 @@ traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -525,7 +609,7 @@ traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -538,7 +622,7 @@ traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -551,7 +635,7 @@ traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -565,7 +649,7 @@ traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -578,7 +662,7 @@ traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -592,7 +676,7 @@ traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -605,7 +689,7 @@ traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
       fields: [
         { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -618,7 +702,7 @@ traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -631,7 +715,7 @@ traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -645,7 +729,7 @@ traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
       fields: [
         { name: 'new_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -658,7 +742,7 @@ traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -672,7 +756,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
       fields: [
         { name: 'config_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -685,7 +769,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -699,7 +783,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
       fields: [
         { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -712,7 +796,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -725,7 +809,7 @@ traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -738,7 +822,7 @@ traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -752,7 +836,7 @@ traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
       fields: [
         { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -765,7 +849,7 @@ traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -779,7 +863,7 @@ traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
         { name: 'service_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'service_registered', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -792,7 +876,7 @@ traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -805,7 +889,7 @@ traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec =
       fields: [
         { name: 'shield_icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -818,7 +902,7 @@ traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -831,7 +915,7 @@ traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -844,7 +928,7 @@ traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -857,7 +941,7 @@ traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -908,7 +992,11 @@ traces_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       traces_internals.mojom.Page_OnTraceComplete_ParamsSpec,
       null,
-      [trace, uuid]);
+      null,
+      [trace, uuid],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -933,7 +1021,7 @@ traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
         { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -50,7 +50,11 @@ printing.mojom.PrinterXmlParserRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
       null,
-      [capabilities_xml]);
+      null,
+      [capabilities_xml],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -74,7 +78,7 @@ printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
       fields: [
         { name: 'capabilities_xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

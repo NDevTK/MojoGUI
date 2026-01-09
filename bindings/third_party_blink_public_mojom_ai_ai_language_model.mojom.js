@@ -68,7 +68,11 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
       null,
-      [language_model_remote, info]);
+      null,
+      [language_model_remote, info],
+      undefined,
+      undefined
+    );
   }
 
   onError(error, quota_error_info) {
@@ -77,7 +81,11 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
       null,
-      [error, quota_error_info]);
+      null,
+      [error, quota_error_info],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -102,7 +110,7 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
         { name: 'language_model_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -117,7 +125,7 @@ blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -168,7 +176,11 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AILanguageModel_Prompt_ParamsSpec,
       null,
-      [prompts, constraint, pending_responder]);
+      null,
+      [prompts, constraint, pending_responder],
+      undefined,
+      undefined
+    );
   }
 
   append(prompts, client) {
@@ -177,7 +189,11 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AILanguageModel_Append_ParamsSpec,
       null,
-      [prompts, client]);
+      null,
+      [prompts, client],
+      undefined,
+      undefined
+    );
   }
 
   fork(client) {
@@ -186,7 +202,11 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AILanguageModel_Fork_ParamsSpec,
       null,
-      [client]);
+      null,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   destroy() {
@@ -195,7 +215,11 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AILanguageModel_Destroy_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   measureInputUsage(input) {
@@ -204,7 +228,11 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
       blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
-      [input]);
+      blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
+      [input],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -230,7 +258,7 @@ blink.mojom.AILanguageModel_Prompt_ParamsSpec = {
         { name: 'constraint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -245,7 +273,7 @@ blink.mojom.AILanguageModel_Append_ParamsSpec = {
         { name: 'prompts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -259,7 +287,7 @@ blink.mojom.AILanguageModel_Fork_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -272,7 +300,7 @@ blink.mojom.AILanguageModel_Destroy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -286,7 +314,7 @@ blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -299,7 +327,7 @@ blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = {
       fields: [
         { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

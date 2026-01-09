@@ -50,7 +50,11 @@ prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {
       0,  // ordinal
       prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
       null,
-      [histogram_prefix]);
+      null,
+      [histogram_prefix],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = {
       fields: [
         { name: 'histogram_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

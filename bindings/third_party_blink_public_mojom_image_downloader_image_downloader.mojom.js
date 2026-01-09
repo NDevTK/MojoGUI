@@ -50,7 +50,11 @@ blink.mojom.ImageDownloaderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ImageDownloader_DownloadImage_ParamsSpec,
       blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
-      [url, is_favicon, preferred_size, max_bitmap_size, bypass_cache]);
+      blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
+      [url, is_favicon, preferred_size, max_bitmap_size, bypass_cache],
+      undefined,
+      undefined
+    );
   }
 
   downloadImageFromAxNode(ax_node_id, preferred_size, max_bitmap_size, bypass_cache) {
@@ -59,7 +63,11 @@ blink.mojom.ImageDownloaderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec,
       blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
-      [ax_node_id, preferred_size, max_bitmap_size, bypass_cache]);
+      blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
+      [ax_node_id, preferred_size, max_bitmap_size, bypass_cache],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -87,7 +95,7 @@ blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
         { name: 'max_bitmap_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'bypass_cache', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -102,7 +110,7 @@ blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
         { name: 'images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'original_image_sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -119,7 +127,7 @@ blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
         { name: 'max_bitmap_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'bypass_cache', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -134,7 +142,7 @@ blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
         { name: 'images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'original_image_sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

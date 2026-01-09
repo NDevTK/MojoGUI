@@ -67,7 +67,11 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.BlobDataItemReader_Read_ParamsSpec,
       storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
-      [offset, length, pipe]);
+      storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
+      [offset, length, pipe],
+      undefined,
+      undefined
+    );
   }
 
   readSideData() {
@@ -76,7 +80,11 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
       storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
-      []);
+      storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -102,7 +110,7 @@ storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -115,7 +123,7 @@ storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -128,7 +136,7 @@ storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -142,7 +150,7 @@ storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -193,7 +201,11 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
       null,
-      [blob, uuid, item]);
+      null,
+      [blob, uuid, item],
+      undefined,
+      undefined
+    );
   }
 
   registerFromMemory(blob, uuid, data) {
@@ -202,7 +214,11 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
       null,
-      [blob, uuid, data]);
+      null,
+      [blob, uuid, data],
+      undefined,
+      undefined
+    );
   }
 
   writeBlobToFile(blob, path, flush_on_write, last_modified) {
@@ -211,7 +227,11 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
       storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
-      [blob, path, flush_on_write, last_modified]);
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
+      [blob, path, flush_on_write, last_modified],
+      undefined,
+      undefined
+    );
   }
 
   clone(receiver) {
@@ -220,7 +240,11 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.BlobStorageContext_Clone_ParamsSpec,
       null,
-      [receiver]);
+      null,
+      [receiver],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -246,7 +270,7 @@ storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
         { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'item', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -262,7 +286,7 @@ storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
         { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -279,7 +303,7 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
         { name: 'flush_on_write', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -292,7 +316,7 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -306,7 +330,7 @@ storage.mojom.BlobStorageContext_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

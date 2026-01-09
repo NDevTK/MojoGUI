@@ -50,7 +50,11 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
       blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
-      [token, is_recursive]);
+      blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
+      [token, is_recursive],
+      undefined,
+      undefined
+    );
   }
 
   unobserve(token) {
@@ -59,7 +63,11 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
       null,
-      [token]);
+      null,
+      [token],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -84,7 +92,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'is_recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -98,7 +106,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -112,7 +120,7 @@ blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

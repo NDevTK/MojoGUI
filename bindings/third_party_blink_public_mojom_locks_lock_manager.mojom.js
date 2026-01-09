@@ -115,7 +115,11 @@ blink.mojom.LockRequestRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LockRequest_Granted_ParamsSpec,
       null,
-      [lock_handle]);
+      null,
+      [lock_handle],
+      undefined,
+      undefined
+    );
   }
 
   failed() {
@@ -124,7 +128,11 @@ blink.mojom.LockRequestRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LockRequest_Failed_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -148,7 +156,7 @@ blink.mojom.LockRequest_Granted_ParamsSpec = {
       fields: [
         { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,7 +169,7 @@ blink.mojom.LockRequest_Failed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -212,7 +220,11 @@ blink.mojom.LockManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LockManager_RequestLock_ParamsSpec,
       null,
-      [name, mode, wait, request]);
+      null,
+      [name, mode, wait, request],
+      undefined,
+      undefined
+    );
   }
 
   queryState() {
@@ -221,7 +233,11 @@ blink.mojom.LockManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LockManager_QueryState_ParamsSpec,
       blink.mojom.LockManager_QueryState_ResponseParamsSpec,
-      []);
+      blink.mojom.LockManager_QueryState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -248,7 +264,7 @@ blink.mojom.LockManager_RequestLock_ParamsSpec = {
         { name: 'wait', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -261,7 +277,7 @@ blink.mojom.LockManager_QueryState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -275,7 +291,7 @@ blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
         { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'held', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

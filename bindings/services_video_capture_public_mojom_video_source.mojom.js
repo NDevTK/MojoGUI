@@ -56,7 +56,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   suspend() {
@@ -65,7 +69,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   resume() {
@@ -74,7 +82,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getPhotoState() {
@@ -83,7 +95,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
-      []);
+      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setPhotoOptions(settings) {
@@ -92,7 +108,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
-      [settings]);
+      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
+      [settings],
+      undefined,
+      undefined
+    );
   }
 
   takePhoto() {
@@ -101,7 +121,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
-      []);
+      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   close() {
@@ -110,7 +134,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       6,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   processFeedback(feedback) {
@@ -119,7 +147,11 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       7,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
       null,
-      [feedback]);
+      null,
+      [feedback],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -142,7 +174,7 @@ video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -155,7 +187,7 @@ video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -168,7 +200,7 @@ video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -181,7 +213,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -194,7 +226,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,7 +240,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -221,7 +253,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,7 +266,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -247,7 +279,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,7 +292,7 @@ video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -274,7 +306,7 @@ video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
       fields: [
         { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -325,7 +357,11 @@ video_capture.mojom.VideoSourceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
       video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
-      [subscriber, requested_settings, force_reopen_with_new_settings, subscription]);
+      video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
+      [subscriber, requested_settings, force_reopen_with_new_settings, subscription],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -352,7 +388,7 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
         { name: 'force_reopen_with_new_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'subscription', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -366,7 +402,7 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'settings_source_was_opened_with', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

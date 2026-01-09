@@ -50,7 +50,11 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onVideoActivityEnded() {
@@ -59,7 +63,11 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -82,7 +90,7 @@ viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +103,7 @@ viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

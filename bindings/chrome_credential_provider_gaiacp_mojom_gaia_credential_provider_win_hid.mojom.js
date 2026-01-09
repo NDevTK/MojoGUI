@@ -50,7 +50,11 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallHandler = class {
       0,  // ordinal
       gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec,
       gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec,
-      [device_path]);
+      gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec,
+      [device_path],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = {
       fields: [
         { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +91,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = {
       fields: [
         { name: 'out_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

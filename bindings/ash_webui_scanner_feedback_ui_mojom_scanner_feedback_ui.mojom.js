@@ -51,7 +51,11 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
       ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
-      []);
+      ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   closeDialog() {
@@ -60,7 +64,11 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   sendFeedback(user_description) {
@@ -69,7 +77,11 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
       null,
-      [user_description]);
+      null,
+      [user_description],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +104,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -105,7 +117,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
       fields: [
         { name: 'feedback_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +130,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -132,7 +144,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
       fields: [
         { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -103,7 +103,11 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
       0,  // ordinal
       ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onNoLongerNewUser() {
@@ -112,7 +116,11 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
       1,  // ordinal
       ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   onConnectedHostSwitchedForExistingUser(new_host_device_name) {
@@ -121,7 +129,11 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
       2,  // ordinal
       ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec,
       null,
-      [new_host_device_name]);
+      null,
+      [new_host_device_name],
+      undefined,
+      undefined
+    );
   }
 
   onNewChromebookAddedForExistingUser(new_host_device_name) {
@@ -130,7 +142,11 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
       3,  // ordinal
       ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec,
       null,
-      [new_host_device_name]);
+      null,
+      [new_host_device_name],
+      undefined,
+      undefined
+    );
   }
 
   onBecameEligibleForWifiSync() {
@@ -139,7 +155,11 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
       4,  // ordinal
       ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -162,7 +182,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsFor
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -175,7 +195,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -189,7 +209,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedF
       fields: [
         { name: 'new_host_device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,7 +223,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForE
       fields: [
         { name: 'new_host_device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,7 +236,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -267,7 +287,11 @@ ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec,
       null,
-      [host_status, host_device]);
+      null,
+      [host_status, host_device],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -292,7 +316,7 @@ ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = 
         { name: 'host_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'host_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -343,7 +367,11 @@ ash.multidevice_setup.mojom.FeatureStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec,
       null,
-      [feature_states_map]);
+      null,
+      [feature_states_map],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -367,7 +395,7 @@ ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSp
       fields: [
         { name: 'feature_states_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -418,7 +446,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       0,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec,
       null,
-      [delegate]);
+      null,
+      [delegate],
+      undefined,
+      undefined
+    );
   }
 
   addHostStatusObserver(observer) {
@@ -427,7 +459,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       1,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   addFeatureStateObserver(observer) {
@@ -436,7 +472,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       2,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec,
       null,
-      [observer]);
+      null,
+      [observer],
+      undefined,
+      undefined
+    );
   }
 
   getEligibleHostDevices() {
@@ -445,7 +485,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       3,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec,
-      []);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getEligibleActiveHostDevices() {
@@ -454,7 +498,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       4,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec,
-      []);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setHostDevice(instance_id_or_legacy_device_id, auth_token) {
@@ -463,7 +511,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       5,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec,
-      [instance_id_or_legacy_device_id, auth_token]);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec,
+      [instance_id_or_legacy_device_id, auth_token],
+      undefined,
+      undefined
+    );
   }
 
   removeHostDevice() {
@@ -472,7 +524,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       6,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   getHostStatus() {
@@ -481,7 +537,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       7,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec,
-      []);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   setFeatureEnabledState(feature, enabled, auth_token) {
@@ -490,7 +550,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       8,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec,
-      [feature, enabled, auth_token]);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec,
+      [feature, enabled, auth_token],
+      undefined,
+      undefined
+    );
   }
 
   getFeatureStates() {
@@ -499,7 +563,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       9,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec,
-      []);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   retrySetHostNow() {
@@ -508,7 +576,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       10,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec,
-      []);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   triggerEventForDebugging(type) {
@@ -517,7 +589,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       11,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec,
-      [type]);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec,
+      [type],
+      undefined,
+      undefined
+    );
   }
 
   setQuickStartPhoneInstanceID(qs_phone_instance_id) {
@@ -526,7 +602,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       12,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec,
       null,
-      [qs_phone_instance_id]);
+      null,
+      [qs_phone_instance_id],
+      undefined,
+      undefined
+    );
   }
 
   getQuickStartPhoneInstanceID() {
@@ -535,7 +615,11 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
       13,  // ordinal
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec,
       ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec,
-      []);
+      ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -559,7 +643,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_Para
       fields: [
         { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -573,7 +657,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -587,7 +671,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -600,7 +684,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -613,7 +697,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponsePara
       fields: [
         { name: 'eligible_host_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -626,7 +710,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -639,7 +723,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Respon
       fields: [
         { name: 'eligible_host_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -654,7 +738,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
         { name: 'instance_id_or_legacy_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -667,7 +751,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -680,7 +764,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -693,7 +777,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -707,7 +791,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = 
         { name: 'host_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'host_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -723,7 +807,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec =
         { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'auth_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -736,7 +820,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponsePara
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -749,7 +833,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -762,7 +846,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec
       fields: [
         { name: 'feature_states_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -775,7 +859,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -788,7 +872,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -802,7 +886,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -815,7 +899,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponsePa
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -829,7 +913,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_Params
       fields: [
         { name: 'qs_phone_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -842,7 +926,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -855,7 +939,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Respon
       fields: [
         { name: 'qs_phone_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -906,7 +990,11 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemoteCallHandler = class 
       0,  // ordinal
       ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec,
       ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec,
-      [instance_id_or_legacy_device_id]);
+      ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec,
+      [instance_id_or_legacy_device_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -930,7 +1018,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec 
       fields: [
         { name: 'instance_id_or_legacy_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -943,7 +1031,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponsePar
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

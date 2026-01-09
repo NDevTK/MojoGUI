@@ -50,7 +50,11 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec,
       media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec,
-      []);
+      media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   construct(client, media_log) {
@@ -59,7 +63,11 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioDecoder_Construct_ParamsSpec,
       null,
-      [client, media_log]);
+      null,
+      [client, media_log],
+      undefined,
+      undefined
+    );
   }
 
   initialize(config, cdm_id) {
@@ -68,7 +76,11 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioDecoder_Initialize_ParamsSpec,
       media.mojom.AudioDecoder_Initialize_ResponseParamsSpec,
-      [config, cdm_id]);
+      media.mojom.AudioDecoder_Initialize_ResponseParamsSpec,
+      [config, cdm_id],
+      undefined,
+      undefined
+    );
   }
 
   setDataSource(receive_pipe) {
@@ -77,7 +89,11 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioDecoder_SetDataSource_ParamsSpec,
       null,
-      [receive_pipe]);
+      null,
+      [receive_pipe],
+      undefined,
+      undefined
+    );
   }
 
   decode(buffer) {
@@ -86,7 +102,11 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.AudioDecoder_Decode_ParamsSpec,
       media.mojom.AudioDecoder_Decode_ResponseParamsSpec,
-      [buffer]);
+      media.mojom.AudioDecoder_Decode_ResponseParamsSpec,
+      [buffer],
+      undefined,
+      undefined
+    );
   }
 
   reset() {
@@ -95,7 +115,11 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.AudioDecoder_Reset_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -118,7 +142,7 @@ media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -131,7 +155,7 @@ media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
       fields: [
         { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,7 +170,7 @@ media.mojom.AudioDecoder_Construct_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'media_log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -161,7 +185,7 @@ media.mojom.AudioDecoder_Initialize_ParamsSpec = {
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cdm_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -176,7 +200,7 @@ media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
         { name: 'needs_bitstream_conversion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'decoder_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -190,7 +214,7 @@ media.mojom.AudioDecoder_SetDataSource_ParamsSpec = {
       fields: [
         { name: 'receive_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +228,7 @@ media.mojom.AudioDecoder_Decode_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,7 +241,7 @@ media.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,7 +254,7 @@ media.mojom.AudioDecoder_Reset_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -281,7 +305,11 @@ media.mojom.AudioDecoderClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec,
       null,
-      [buffer]);
+      null,
+      [buffer],
+      undefined,
+      undefined
+    );
   }
 
   onWaiting(reason) {
@@ -290,7 +318,11 @@ media.mojom.AudioDecoderClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec,
       null,
-      [reason]);
+      null,
+      [reason],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -314,7 +346,7 @@ media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,7 +360,7 @@ media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

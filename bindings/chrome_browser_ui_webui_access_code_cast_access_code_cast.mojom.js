@@ -75,7 +75,11 @@ access_code_cast.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      null,
+      [page, handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -100,7 +104,7 @@ access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,7 +155,11 @@ access_code_cast.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       access_code_cast.mojom.PageHandler_AddSink_ParamsSpec,
       access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec,
-      [access_code, discovery_method]);
+      access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec,
+      [access_code, discovery_method],
+      undefined,
+      undefined
+    );
   }
 
   castToSink() {
@@ -160,7 +168,11 @@ access_code_cast.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec,
       access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec,
-      []);
+      access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -185,7 +197,7 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
         { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -198,7 +210,7 @@ access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -211,7 +223,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -224,7 +236,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

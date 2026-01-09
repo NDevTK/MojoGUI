@@ -59,7 +59,11 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
       null,
-      [indices]);
+      null,
+      [indices],
+      undefined,
+      undefined
+    );
   }
 
   didCancel() {
@@ -68,7 +72,11 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PopupMenuClient_DidCancel_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -92,7 +100,7 @@ blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
       fields: [
         { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,7 +113,7 @@ blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

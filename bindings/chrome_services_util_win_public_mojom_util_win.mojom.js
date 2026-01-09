@@ -83,7 +83,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
       chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
-      []);
+      chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   unpinShortcuts(shortcut_paths) {
@@ -92,7 +96,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
       null,
-      [shortcut_paths]);
+      null,
+      [shortcut_paths],
+      undefined,
+      undefined
+    );
   }
 
   createOrUpdateShortcuts(shortcut_paths, properties, operation) {
@@ -101,7 +109,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
       chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
-      [shortcut_paths, properties, operation]);
+      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
+      [shortcut_paths, properties, operation],
+      undefined,
+      undefined
+    );
   }
 
   callExecuteSelectFile(type, owner, title, default_path, filter, file_type_index, default_extension) {
@@ -110,7 +122,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
       chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
-      [type, owner, title, default_path, filter, file_type_index, default_extension]);
+      chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
+      [type, owner, title, default_path, filter, file_type_index, default_extension],
+      undefined,
+      undefined
+    );
   }
 
   inspectModule(module_path) {
@@ -119,7 +135,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.UtilWin_InspectModule_ParamsSpec,
       chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
-      [module_path]);
+      chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
+      [module_path],
+      undefined,
+      undefined
+    );
   }
 
   getAntiVirusProducts(report_full_names) {
@@ -128,7 +148,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
       chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
-      [report_full_names]);
+      chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
+      [report_full_names],
+      undefined,
+      undefined
+    );
   }
 
   getTpmIdentifier() {
@@ -137,7 +161,11 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
       chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
-      []);
+      chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -160,7 +188,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -174,7 +202,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_pinned_to_taskbar', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -188,7 +216,7 @@ chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
       fields: [
         { name: 'shortcut_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +232,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
         { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -217,7 +245,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,7 +265,7 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
         { name: 'file_type_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'default_extension', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -251,7 +279,7 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
         { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'file_type_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -265,7 +293,7 @@ chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
       fields: [
         { name: 'module_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -278,7 +306,7 @@ chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
       fields: [
         { name: 'inspection_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,7 +320,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
       fields: [
         { name: 'report_full_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -305,7 +333,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
       fields: [
         { name: 'av_products', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -318,7 +346,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -331,7 +359,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
       fields: [
         { name: 'tpm_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -382,7 +410,11 @@ chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -405,7 +437,7 @@ chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

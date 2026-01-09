@@ -56,7 +56,11 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec,
       blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
-      [client]);
+      blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
+      [client],
+      undefined,
+      undefined
+    );
   }
 
   overrideDevicePostureForEmulation(posture) {
@@ -65,7 +69,11 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec,
       null,
-      [posture]);
+      null,
+      [posture],
+      undefined,
+      undefined
+    );
   }
 
   disableDevicePostureOverrideForEmulation() {
@@ -74,7 +82,11 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -98,7 +110,7 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -111,7 +123,7 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams
       fields: [
         { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +137,7 @@ blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec =
       fields: [
         { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -138,7 +150,7 @@ blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -189,7 +201,11 @@ blink.mojom.DevicePostureClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec,
       null,
-      [posture]);
+      null,
+      [posture],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -213,7 +229,7 @@ blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
       fields: [
         { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

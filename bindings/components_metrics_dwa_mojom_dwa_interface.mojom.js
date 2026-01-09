@@ -103,7 +103,11 @@ metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
       0,  // ordinal
       metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
       null,
-      [entry]);
+      null,
+      [entry],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -127,7 +131,7 @@ metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
       fields: [
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +182,11 @@ metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
       0,  // ordinal
       metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
       null,
-      [receiver, client_remote]);
+      null,
+      [receiver, client_remote],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -203,7 +211,7 @@ metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

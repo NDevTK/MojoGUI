@@ -50,7 +50,11 @@ network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
       null,
-      [params]);
+      null,
+      [params],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSp
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

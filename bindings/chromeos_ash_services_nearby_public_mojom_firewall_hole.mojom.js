@@ -102,7 +102,11 @@ sharing.mojom.FirewallHoleFactoryRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec,
       sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
-      [port]);
+      sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
+      [port],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -126,7 +130,7 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = {
       fields: [
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -139,7 +143,7 @@ sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
       fields: [
         { name: 'firewall_hole', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

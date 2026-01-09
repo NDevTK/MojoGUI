@@ -50,7 +50,11 @@ tracing.mojom.TracedProcessRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
       null,
-      [request]);
+      null,
+      [request],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -74,7 +78,7 @@ tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

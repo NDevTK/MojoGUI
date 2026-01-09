@@ -51,7 +51,11 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      null,
+      [handler],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -75,7 +79,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +130,11 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
       null,
-      []);
+      null,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   launchApp(app_id) {
@@ -135,7 +143,11 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
       null,
-      [app_id]);
+      null,
+      [app_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -158,7 +170,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -172,7 +184,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

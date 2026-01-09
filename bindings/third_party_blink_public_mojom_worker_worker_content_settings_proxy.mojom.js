@@ -50,7 +50,11 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
-      []);
+      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   allowCacheStorage() {
@@ -59,7 +63,11 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
-      []);
+      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   allowWebLocks() {
@@ -68,7 +76,11 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
-      []);
+      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
   requestFileSystemAccessSync() {
@@ -77,7 +89,11 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
-      []);
+      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
+      [],
+      undefined,
+      mojo.internal.kMessageFlagIsSync
+    );
   }
 
 };
@@ -100,7 +116,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -113,7 +129,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +142,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -139,7 +155,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -152,7 +168,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -165,7 +181,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +194,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -191,7 +207,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParam
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

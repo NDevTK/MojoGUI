@@ -57,7 +57,11 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebInstallService_Install_ParamsSpec,
       blink.mojom.WebInstallService_Install_ResponseParamsSpec,
-      [options]);
+      blink.mojom.WebInstallService_Install_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
   installFromElement(options) {
@@ -66,7 +70,11 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebInstallService_InstallFromElement_ParamsSpec,
       blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
-      [options]);
+      blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
+      [options],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -90,7 +98,7 @@ blink.mojom.WebInstallService_Install_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -104,7 +112,7 @@ blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -118,7 +126,7 @@ blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -132,7 +140,7 @@ blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

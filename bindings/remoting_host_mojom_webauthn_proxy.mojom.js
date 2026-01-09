@@ -50,7 +50,11 @@ remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
       remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
-      []);
+      remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -73,7 +77,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -86,7 +90,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
       fields: [
         { name: 'was_canceled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -137,7 +141,11 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      []);
+      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
   create(request_data, request_canceller) {
@@ -146,7 +154,11 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.WebAuthnProxy_Create_ParamsSpec,
       remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
-      [request_data, request_canceller]);
+      remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
+      [request_data, request_canceller],
+      undefined,
+      undefined
+    );
   }
 
   get(request_data, request_canceller) {
@@ -155,7 +167,11 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.WebAuthnProxy_Get_ParamsSpec,
       remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
-      [request_data, request_canceller]);
+      remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
+      [request_data, request_canceller],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -178,7 +194,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -191,7 +207,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Respo
       fields: [
         { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,7 +222,7 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
         { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -219,7 +235,7 @@ remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,7 +250,7 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
         { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -247,7 +263,7 @@ remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

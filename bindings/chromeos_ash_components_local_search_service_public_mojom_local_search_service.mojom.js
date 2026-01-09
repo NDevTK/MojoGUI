@@ -66,7 +66,11 @@ ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
       0,  // ordinal
       ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
       null,
-      [index_id]);
+      null,
+      [index_id],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -90,7 +94,7 @@ ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpe
       fields: [
         { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,7 +145,11 @@ ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec,
       ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
-      [index_id, backend, index_receiver, reporter_remote]);
+      ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
+      [index_id, backend, index_receiver, reporter_remote],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -168,7 +176,7 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
         { name: 'index_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'reporter_remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -181,7 +189,7 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec =
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

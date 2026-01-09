@@ -60,7 +60,11 @@ blink.mojom.FontAccessManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec,
       blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec,
-      []);
+      blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec,
+      [],
+      undefined,
+      undefined
+    );
   }
 
 };
@@ -83,7 +87,7 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -97,7 +101,7 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
         { name: 'enumeration_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'enumeration_table', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
