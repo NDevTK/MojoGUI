@@ -137,7 +137,7 @@ jobs:
               
               cmd = [
                   sys.executable,
-                  'chromium_src/mojo/public/tools/bindings/mojom_parser.py',
+                  'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
                   '--output-root', '.',
                   '--input-root', '.',
                   '--module-root', 'chromium_src', # For imports like 'mojo/...'
