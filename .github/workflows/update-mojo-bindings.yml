@@ -138,14 +138,16 @@ jobs:
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/bindings/mojom_parser.py',
-                  '--output-root', 'chromium_src',
+                  '--output-root', '.',
                   '--input-root', '.',
-                  '--input-root', 'chromium_src', # Include path for imports to resolve
+                  '--module-root', 'chromium_src', # For imports like 'mojo/...'
                   '--mojom-file-list', 'mojom_files_list.txt'
               ]
               
               try:
-                  subprocess.run(cmd, check=True) # Parser outputs to stdout/stderr freely
+                  subprocess.run(cmd, check=True)
+                  print("DEBUG: Listing generated module files:")
+                  subprocess.run("find . -name '*.mojom-module' | head -n 20", shell=True)
                   return True
               except subprocess.CalledProcessError as e:
                   print(f"Parser failed: {e}")
