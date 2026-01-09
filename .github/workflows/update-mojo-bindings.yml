@@ -551,38 +551,7 @@ jobs:
           })(typeof window !== 'undefined' ? window : this);
           EOF
 
-      - name: Build Mojo JS core bindings
-        run: |
-          echo "Building Mojo JS core bindings..."
-          # Concatenate files in order defined by BUILD.gn
-          cat chromium_src/mojo/public/js/base.js \
-              chromium_src/mojo/public/js/bindings.js \
-              chromium_src/mojo/public/js/interface_types.js \
-              chromium_src/mojo/public/js/lib/buffer.js \
-              chromium_src/mojo/public/js/lib/codec.js \
-              chromium_src/mojo/public/js/lib/connector.js \
-              chromium_src/mojo/public/js/lib/control_message_handler.js \
-              chromium_src/mojo/public/js/lib/control_message_proxy.js \
-              chromium_src/mojo/public/js/lib/interface_endpoint_client.js \
-              chromium_src/mojo/public/js/lib/interface_endpoint_handle.js \
-              chromium_src/mojo/public/js/lib/pipe_control_message_handler.js \
-              chromium_src/mojo/public/js/lib/pipe_control_message_proxy.js \
-              chromium_src/mojo/public/js/lib/router.js \
-              chromium_src/mojo/public/js/lib/unicode.js \
-              chromium_src/mojo/public/js/lib/validator.js \
-              > bindings/mojo_bindings.js
-          
-          # Append generated system mojoms if they exist (using wildcard to avoid failure if missing)
-          # These are usually in bindings/ folder after generation
-          if ls bindings/*interface_control_messages.mojom.js 1> /dev/null 2>&1; then
-             cat bindings/*interface_control_messages.mojom.js >> bindings/mojo_bindings.js
-          fi
-          if ls bindings/*pipe_control_messages.mojom.js 1> /dev/null 2>&1; then
-             cat bindings/*pipe_control_messages.mojom.js >> bindings/mojo_bindings.js
-          fi
 
-          echo "Core bindings built."
-          ls -la bindings/mojo_bindings.js
 
       - name: Cleanup temporary files
         run: |
@@ -596,13 +565,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Explicitly add ONLY the generated binding files
+          # Only add generated binding files - NOT core runtime files
+          # Core files (bindings_lite.js, interface_support.js, etc.) should not be modified
           git add bindings/*.mojom.js
           git add bindings/index.js
           git add bindings/index.json
-          # Add the copied core bindings
-          git add bindings/mojo_bindings.js
-          git add bindings/*.js
           
           # Show what will be committed
           echo "Files staged for commit:"
