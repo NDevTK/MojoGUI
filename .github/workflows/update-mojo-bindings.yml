@@ -304,6 +304,39 @@ jobs:
               
               module = parsed['module']
               module_parts = module.split('.')
+              
+              # Build set of valid types for this module
+              valid_types = set()
+              for s in parsed.get('structs', []): valid_types.add(s['name'])
+              for e in parsed.get('enums', []): valid_types.add(e['name'])
+              
+              # Map imports to their module namespaces (naive mapping)
+              # Standard Mojo mapping: "foo/bar/baz.mojom" -> "baz.mojom" -> "baz.mojom.Type"
+              # We need to be smarter. For now, assume if it looks like a Type, it might be one.
+              
+              def resolve_mojo_type(type_name):
+                  # Check basic types first
+                  if type_name in type_mapping or type_name.startswith('array') or type_name.startswith('map') or type_name.startswith('pending'):
+                       return mojo_type_map(type_name)
+
+                  # Check local types
+                  clean_name = type_name.replace('?', '').strip()
+                  if clean_name in valid_types:
+                      return f"{module}.{clean_name}Spec"
+                  
+                  # Check imports (if it contains dot that is not part of module path)
+                  # If looks like "some.module.Type", assume it matches "some.module.TypeSpec"
+                  if '.' in clean_name:
+                      return f"{clean_name}Spec"
+                  
+                  # Fallback to Pointer if unknown (could be interface pointer or other)
+                  # Better: if it starts with valid char and not lowercase primitive, assume it is a struct/enum reference in same package if not qualified?
+                  # But Mojo types in methods often are just "BatteryStatus".
+                  # If we found it in 'valid_types', we returned Spec.
+                  # If not, maybe it's from another module but passed without qualification? (Unlikely in Mojo, usually imported)
+                  
+                  # Fallback
+                  return 'mojo.internal.Pointer'
 
               def get_struct_layout(params):
                   """Calculate field offsets and size with boolean bit packing."""
@@ -315,8 +348,16 @@ jobs:
                   valid_params = [p for p in params if p and p.get('name')]
                   
                   def get_size_weight(param):
-                      p_type = mojo_type_map(param.get('type', 'string'))
+                      p_type = resolve_mojo_type(param.get('type', 'string'))
                       if p_type == 'mojo.internal.Bool': return 0
+                      # Need to handle actual type refs which are Pointers (weight 8) or Enums (Int32, weight 4)
+                      # If it's a Spec reference (contains dot or Spec), it's a pointer to struct -> 8 bytes?
+                      # Or if it ends in Spec?
+                      # Structs are passed by pointer in MojoJS -> 8 bytes.
+                      # Enums are Int32 -> 4 bytes.
+                      # We need to distinguish Enums from Structs in resolve_mojo_type or here.
+                      # For now, if it resolves to a Spec string, assume Struct (8 bytes).
+                      if 'Spec' in p_type and 'Enum' not in p_type: return 8
                       if p_type in ('mojo.internal.Int8', 'mojo.internal.Uint8'): return 1
                       if p_type in ('mojo.internal.Int16', 'mojo.internal.Uint16'): return 2
                       if p_type in ('mojo.internal.Int32', 'mojo.internal.Uint32', 'mojo.internal.Float', 'mojo.internal.InterfaceRequest', 'mojo.internal.InterfaceProxy', 'mojo.internal.AssociatedInterfaceRequest', 'mojo.internal.AssociatedInterfaceProxy', 'mojo.internal.Handle'): return 4
@@ -327,7 +368,7 @@ jobs:
                   valid_params.sort(key=get_size_weight, reverse=True)
                   
                   for param in valid_params:
-                      p_type = mojo_type_map(param.get('type', 'string'))
+                      p_type = resolve_mojo_type(param.get('type', 'string'))
                       is_bool = p_type == 'mojo.internal.Bool'
                       nullable = 'true' if param.get('optional') or '?' in param.get('type', '') else 'false'
                       
