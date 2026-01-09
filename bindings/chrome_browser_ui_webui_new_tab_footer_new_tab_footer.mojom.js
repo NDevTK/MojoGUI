@@ -57,11 +57,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec,
       null,
-      null,
-      [document, handler],
-      undefined,
-      undefined
-    );
+      [document, handler]);
   }
 
 };
@@ -86,7 +82,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_Params
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,11 +133,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateManagementNotice() {
@@ -150,11 +142,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       1,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateAttachedTabState() {
@@ -163,11 +151,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       2,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateBackgroundAttribution() {
@@ -176,11 +160,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       3,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openExtensionOptionsPageWithFallback() {
@@ -189,11 +169,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       4,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openManagementPage() {
@@ -202,11 +178,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       5,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openUrlInCurrentTab(url) {
@@ -215,11 +187,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       6,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   showContextMenu(point) {
@@ -228,11 +196,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       7,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec,
       null,
-      null,
-      [point],
-      undefined,
-      undefined
-    );
+      [point]);
   }
 
   notifyCustomizationButtonVisible() {
@@ -241,11 +205,7 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       8,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -268,7 +228,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -281,7 +241,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -294,7 +254,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -307,7 +267,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -320,7 +280,7 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -333,7 +293,7 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,7 +307,7 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -361,7 +321,7 @@ new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = {
       fields: [
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -374,7 +334,7 @@ new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -425,11 +385,7 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       0,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec,
       null,
-      null,
-      [name],
-      undefined,
-      undefined
-    );
+      [name]);
   }
 
   setManagementNotice(notice) {
@@ -438,11 +394,7 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       1,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec,
       null,
-      null,
-      [notice],
-      undefined,
-      undefined
-    );
+      [notice]);
   }
 
   attachedTabStateUpdated(ntp_type, can_customize_chrome) {
@@ -451,11 +403,7 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       2,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec,
       null,
-      null,
-      [ntp_type, can_customize_chrome],
-      undefined,
-      undefined
-    );
+      [ntp_type, can_customize_chrome]);
   }
 
   setBackgroundAttribution(background_image_attribution) {
@@ -464,11 +412,7 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       3,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec,
       null,
-      null,
-      [background_image_attribution],
-      undefined,
-      undefined
-    );
+      [background_image_attribution]);
   }
 
 };
@@ -492,7 +436,7 @@ new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -506,7 +450,7 @@ new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = {
       fields: [
         { name: 'notice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -521,7 +465,7 @@ new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = {
         { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'can_customize_chrome', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -535,7 +479,7 @@ new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = 
       fields: [
         { name: 'background_image_attribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

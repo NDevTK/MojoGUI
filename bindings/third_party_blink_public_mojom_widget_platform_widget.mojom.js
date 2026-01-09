@@ -50,11 +50,7 @@ blink.mojom.WidgetCompositorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -128,11 +124,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetHost_SetCursor_ParamsSpec,
       null,
-      null,
-      [cursor],
-      undefined,
-      undefined
-    );
+      [cursor]);
   }
 
   updateTooltipUnderCursor(tooltip_text, text_direction_hint) {
@@ -141,11 +133,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec,
       null,
-      null,
-      [tooltip_text, text_direction_hint],
-      undefined,
-      undefined
-    );
+      [tooltip_text, text_direction_hint]);
   }
 
   updateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds) {
@@ -154,11 +142,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec,
       null,
-      null,
-      [tooltip_text, text_direction_hint, bounds],
-      undefined,
-      undefined
-    );
+      [tooltip_text, text_direction_hint, bounds]);
   }
 
   clearKeyboardTriggeredTooltip() {
@@ -167,11 +151,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   textInputStateChanged(state) {
@@ -180,11 +160,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   selectionBoundsChanged(anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first) {
@@ -193,11 +169,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec,
       null,
-      null,
-      [anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first],
-      undefined,
-      undefined
-    );
+      [anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first]);
   }
 
   createFrameSink(compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client) {
@@ -206,11 +178,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec,
       null,
-      null,
-      [compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client],
-      undefined,
-      undefined
-    );
+      [compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client]);
   }
 
   registerRenderFrameMetadataObserver(render_frame_metadata_observer_client_receiver, render_frame_metadata_observer) {
@@ -219,11 +187,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec,
       null,
-      null,
-      [render_frame_metadata_observer_client_receiver, render_frame_metadata_observer],
-      undefined,
-      undefined
-    );
+      [render_frame_metadata_observer_client_receiver, render_frame_metadata_observer]);
   }
 
 };
@@ -247,7 +211,7 @@ blink.mojom.WidgetHost_SetCursor_ParamsSpec = {
       fields: [
         { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -262,7 +226,7 @@ blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
         { name: 'tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +242,7 @@ blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
         { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,7 +255,7 @@ blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -305,7 +269,7 @@ blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -324,7 +288,7 @@ blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
         { name: 'bounding_box_rect', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_anchor_first', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +304,7 @@ blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
         { name: 'compositor_frame_sink_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'render_input_router_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -355,7 +319,7 @@ blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
         { name: 'render_frame_metadata_observer_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'render_frame_metadata_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,11 +370,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Widget_ForceRedraw_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateVisualProperties(visual_properties) {
@@ -419,11 +379,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Widget_UpdateVisualProperties_ParamsSpec,
       null,
-      null,
-      [visual_properties],
-      undefined,
-      undefined
-    );
+      [visual_properties]);
   }
 
   updateScreenRects(widget_screen_rect, window_screen_rect) {
@@ -432,11 +388,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.Widget_UpdateScreenRects_ParamsSpec,
       null,
-      null,
-      [widget_screen_rect, window_screen_rect],
-      undefined,
-      undefined
-    );
+      [widget_screen_rect, window_screen_rect]);
   }
 
   wasHidden() {
@@ -445,11 +397,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.Widget_WasHidden_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   wasShown(was_evicted, record_tab_switch_time_request) {
@@ -458,11 +406,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.Widget_WasShown_ParamsSpec,
       null,
-      null,
-      [was_evicted, record_tab_switch_time_request],
-      undefined,
-      undefined
-    );
+      [was_evicted, record_tab_switch_time_request]);
   }
 
   requestSuccessfulPresentationTimeForNextFrame(visible_time_request) {
@@ -471,11 +415,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec,
       null,
-      null,
-      [visible_time_request],
-      undefined,
-      undefined
-    );
+      [visible_time_request]);
   }
 
   cancelSuccessfulPresentationTimeRequest() {
@@ -484,11 +424,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setupBrowserRenderInputRouterConnections(browser_client) {
@@ -497,11 +433,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec,
       null,
-      null,
-      [browser_client],
-      undefined,
-      undefined
-    );
+      [browser_client]);
   }
 
 };
@@ -524,7 +456,7 @@ blink.mojom.Widget_ForceRedraw_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -538,7 +470,7 @@ blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
       fields: [
         { name: 'visual_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -553,7 +485,7 @@ blink.mojom.Widget_UpdateScreenRects_ParamsSpec = {
         { name: 'widget_screen_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'window_screen_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -566,7 +498,7 @@ blink.mojom.Widget_WasHidden_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -581,7 +513,7 @@ blink.mojom.Widget_WasShown_ParamsSpec = {
         { name: 'was_evicted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'record_tab_switch_time_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -595,7 +527,7 @@ blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
       fields: [
         { name: 'visible_time_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -608,7 +540,7 @@ blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -622,7 +554,7 @@ blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
       fields: [
         { name: 'browser_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -673,11 +605,7 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec,
       null,
-      null,
-      [request, host, from_viz],
-      undefined,
-      undefined
-    );
+      [request, host, from_viz]);
   }
 
   showContextMenu(source_type, location) {
@@ -686,11 +614,7 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec,
       null,
-      null,
-      [source_type, location],
-      undefined,
-      undefined
-    );
+      [source_type, location]);
   }
 
   bindInputTargetClient(host) {
@@ -699,11 +623,7 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec,
       null,
-      null,
-      [host],
-      undefined,
-      undefined
-    );
+      [host]);
   }
 
 };
@@ -729,7 +649,7 @@ blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'from_viz', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -744,7 +664,7 @@ blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
         { name: 'source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -758,7 +678,7 @@ blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

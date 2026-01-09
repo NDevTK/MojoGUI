@@ -50,11 +50,7 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
       null,
-      null,
-      [filter],
-      undefined,
-      undefined
-    );
+      [filter]);
   }
 
 };
@@ -78,7 +74,7 @@ chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
       fields: [
         { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

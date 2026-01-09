@@ -56,11 +56,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
       null,
-      null,
-      [token, source, metadata],
-      undefined,
-      undefined
-    );
+      [token, source, metadata]);
   }
 
   removeVirtualPressureSource(token, source) {
@@ -69,11 +65,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
       null,
-      null,
-      [token, source],
-      undefined,
-      undefined
-    );
+      [token, source]);
   }
 
   updateVirtualPressureSourceData(token, source, state, own_contribution_estimate) {
@@ -82,11 +74,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
       null,
-      null,
-      [token, source, state, own_contribution_estimate],
-      undefined,
-      undefined
-    );
+      [token, source, state, own_contribution_estimate]);
   }
 
   addClient(source, token, client) {
@@ -95,11 +83,7 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.PressureManager_AddClient_ParamsSpec,
       device.mojom.PressureManager_AddClient_ResponseParamsSpec,
-      device.mojom.PressureManager_AddClient_ResponseParamsSpec,
-      [source, token, client],
-      undefined,
-      undefined
-    );
+      [source, token, client]);
   }
 
 };
@@ -125,7 +109,7 @@ device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = {
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -140,7 +124,7 @@ device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = {
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +141,7 @@ device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = {
         { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'own_contribution_estimate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -173,7 +157,7 @@ device.mojom.PressureManager_AddClient_ParamsSpec = {
         { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,7 +170,7 @@ device.mojom.PressureManager_AddClient_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -237,11 +221,7 @@ device.mojom.PressureClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      null,
-      [update],
-      undefined,
-      undefined
-    );
+      [update]);
   }
 
 };
@@ -265,7 +245,7 @@ device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = {
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

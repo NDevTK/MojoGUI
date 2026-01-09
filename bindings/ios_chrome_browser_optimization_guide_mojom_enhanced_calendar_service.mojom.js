@@ -50,11 +50,7 @@ ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
       ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
-      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
-      [request_params],
-      undefined,
-      undefined
-    );
+      [request_params]);
   }
 
 };
@@ -78,7 +74,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
       fields: [
         { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSp
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

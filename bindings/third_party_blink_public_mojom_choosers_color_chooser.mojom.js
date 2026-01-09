@@ -50,11 +50,7 @@ blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec,
       null,
-      null,
-      [chooser, client, color, suggestions],
-      undefined,
-      undefined
-    );
+      [chooser, client, color, suggestions]);
   }
 
 };
@@ -81,7 +77,7 @@ blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = {
         { name: 'color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,11 +128,7 @@ blink.mojom.ColorChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec,
       null,
-      null,
-      [color],
-      undefined,
-      undefined
-    );
+      [color]);
   }
 
 };
@@ -160,7 +152,7 @@ blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = {
       fields: [
         { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,11 +203,7 @@ blink.mojom.ColorChooserClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec,
       null,
-      null,
-      [color],
-      undefined,
-      undefined
-    );
+      [color]);
   }
 
 };
@@ -239,7 +227,7 @@ blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = {
       fields: [
         { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -290,11 +278,7 @@ blink.mojom.EyeDropperChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EyeDropperChooser_Choose_ParamsSpec,
       blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec,
-      blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -317,7 +301,7 @@ blink.mojom.EyeDropperChooser_Choose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -331,7 +315,7 @@ blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

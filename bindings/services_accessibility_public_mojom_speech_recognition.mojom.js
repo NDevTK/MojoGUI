@@ -56,11 +56,7 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onResult(event) {
@@ -69,11 +65,7 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
   onError(event) {
@@ -82,11 +74,7 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
 };
@@ -109,7 +97,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -123,7 +111,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,7 +125,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -188,11 +176,7 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.SpeechRecognition_Start_ParamsSpec,
       ax.mojom.SpeechRecognition_Start_ResponseParamsSpec,
-      ax.mojom.SpeechRecognition_Start_ResponseParamsSpec,
-      [options],
-      undefined,
-      undefined
-    );
+      [options]);
   }
 
   stop(options) {
@@ -201,11 +185,7 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.SpeechRecognition_Stop_ParamsSpec,
       ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec,
-      ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec,
-      [options],
-      undefined,
-      undefined
-    );
+      [options]);
   }
 
 };
@@ -229,7 +209,7 @@ ax.mojom.SpeechRecognition_Start_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -242,7 +222,7 @@ ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -256,7 +236,7 @@ ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,7 +249,7 @@ ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -51,11 +51,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = c
       0,  // ordinal
       chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
       null,
-      null,
-      [info],
-      undefined,
-      undefined
-    );
+      [info]);
   }
 
 };
@@ -79,7 +75,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstream
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
       0,  // ordinal
       chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -158,7 +150,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

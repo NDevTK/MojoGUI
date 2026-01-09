@@ -51,11 +51,7 @@ chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec,
       null,
-      null,
-      [interface_name, interface_pipe],
-      undefined,
-      undefined
-    );
+      [interface_name, interface_pipe]);
   }
 
 };
@@ -80,7 +76,7 @@ chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = {
         { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'interface_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       0,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
       null,
-      null,
-      [instances_info],
-      undefined,
-      undefined
-    );
+      [instances_info]);
   }
 
   bindInterface(service_name, interface_name, interface_pipe) {
@@ -144,11 +136,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       1,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec,
       null,
-      null,
-      [service_name, interface_name, interface_pipe],
-      undefined,
-      undefined
-    );
+      [service_name, interface_name, interface_pipe]);
   }
 
   clone(receiver) {
@@ -157,11 +145,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       2,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindChromiumConnector(interface_pipe) {
@@ -170,11 +154,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       3,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
       null,
-      null,
-      [interface_pipe],
-      undefined,
-      undefined
-    );
+      [interface_pipe]);
   }
 
   queryServiceList() {
@@ -183,11 +163,7 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       4,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
       chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
-      chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -211,7 +187,7 @@ chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params
       fields: [
         { name: 'instances_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -227,7 +203,7 @@ chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = {
         { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -241,7 +217,7 @@ chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -255,7 +231,7 @@ chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpe
       fields: [
         { name: 'interface_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -268,7 +244,7 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -281,7 +257,7 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams
       fields: [
         { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

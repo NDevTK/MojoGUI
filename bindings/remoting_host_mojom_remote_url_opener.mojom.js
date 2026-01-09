@@ -58,11 +58,7 @@ remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec,
       remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
-      remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
 };
@@ -86,7 +82,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -99,7 +95,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

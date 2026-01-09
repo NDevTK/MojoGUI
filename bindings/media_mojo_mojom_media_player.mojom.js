@@ -50,11 +50,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaPlayer_RequestPlay_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestPause(triggered_by_user) {
@@ -63,11 +59,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaPlayer_RequestPause_ParamsSpec,
       null,
-      null,
-      [triggered_by_user],
-      undefined,
-      undefined
-    );
+      [triggered_by_user]);
   }
 
   requestSeekForward(seek_time) {
@@ -76,11 +68,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec,
       null,
-      null,
-      [seek_time],
-      undefined,
-      undefined
-    );
+      [seek_time]);
   }
 
   requestSeekBackward(seek_time) {
@@ -89,11 +77,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec,
       null,
-      null,
-      [seek_time],
-      undefined,
-      undefined
-    );
+      [seek_time]);
   }
 
   requestSeekTo(seek_time) {
@@ -102,11 +86,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec,
       null,
-      null,
-      [seek_time],
-      undefined,
-      undefined
-    );
+      [seek_time]);
   }
 
   requestEnterPictureInPicture() {
@@ -115,11 +95,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestMute(mute) {
@@ -128,11 +104,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.MediaPlayer_RequestMute_ParamsSpec,
       null,
-      null,
-      [mute],
-      undefined,
-      undefined
-    );
+      [mute]);
   }
 
   setVolumeMultiplier(multiplier) {
@@ -141,11 +113,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec,
       null,
-      null,
-      [multiplier],
-      undefined,
-      undefined
-    );
+      [multiplier]);
   }
 
   setPersistentState(persistent) {
@@ -154,11 +122,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.MediaPlayer_SetPersistentState_ParamsSpec,
       null,
-      null,
-      [persistent],
-      undefined,
-      undefined
-    );
+      [persistent]);
   }
 
   setPowerExperimentState(enabled) {
@@ -167,11 +131,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       9,  // ordinal
       media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setAudioSinkId(sink_id) {
@@ -180,11 +140,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       10,  // ordinal
       media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec,
       null,
-      null,
-      [sink_id],
-      undefined,
-      undefined
-    );
+      [sink_id]);
   }
 
   suspendForFrameClosed() {
@@ -193,11 +149,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       11,  // ordinal
       media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestMediaRemoting() {
@@ -206,11 +158,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       12,  // ordinal
       media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestVisibility() {
@@ -219,11 +167,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       13,  // ordinal
       media.mojom.MediaPlayer_RequestVisibility_ParamsSpec,
       media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec,
-      media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordAutoPictureInPictureInfo(auto_picture_in_picture_info) {
@@ -232,11 +176,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
       14,  // ordinal
       media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec,
       null,
-      null,
-      [auto_picture_in_picture_info],
-      undefined,
-      undefined
-    );
+      [auto_picture_in_picture_info]);
   }
 
 };
@@ -259,7 +199,7 @@ media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -273,7 +213,7 @@ media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
       fields: [
         { name: 'triggered_by_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -287,7 +227,7 @@ media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
       fields: [
         { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,7 +241,7 @@ media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
       fields: [
         { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,7 +255,7 @@ media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
       fields: [
         { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +268,7 @@ media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -342,7 +282,7 @@ media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
       fields: [
         { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -356,7 +296,7 @@ media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
       fields: [
         { name: 'multiplier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -370,7 +310,7 @@ media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
       fields: [
         { name: 'persistent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -384,7 +324,7 @@ media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -398,7 +338,7 @@ media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
       fields: [
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -411,7 +351,7 @@ media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -424,7 +364,7 @@ media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -437,7 +377,7 @@ media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -450,7 +390,7 @@ media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
       fields: [
         { name: 'has_sufficiently_visible_video', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,7 +404,7 @@ media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
       fields: [
         { name: 'auto_picture_in_picture_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -515,11 +455,7 @@ media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec,
       media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec,
-      media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -542,7 +478,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -555,7 +491,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
       fields: [
         { name: 'has_played_before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -606,11 +542,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onMediaPaused(stream_ended) {
@@ -619,11 +551,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec,
       null,
-      null,
-      [stream_ended],
-      undefined,
-      undefined
-    );
+      [stream_ended]);
   }
 
   onMutedStatusChanged(muted) {
@@ -632,11 +560,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec,
       null,
-      null,
-      [muted],
-      undefined,
-      undefined
-    );
+      [muted]);
   }
 
   onMediaMetadataChanged(has_audio, has_video, content_type) {
@@ -645,11 +569,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec,
       null,
-      null,
-      [has_audio, has_video, content_type],
-      undefined,
-      undefined
-    );
+      [has_audio, has_video, content_type]);
   }
 
   onMediaPositionStateChanged(media_position) {
@@ -658,11 +578,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec,
       null,
-      null,
-      [media_position],
-      undefined,
-      undefined
-    );
+      [media_position]);
   }
 
   onMediaEffectivelyFullscreenChanged(status) {
@@ -671,11 +587,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
   onMediaSizeChanged(size) {
@@ -684,11 +596,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec,
       null,
-      null,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   onPictureInPictureAvailabilityChanged(available) {
@@ -697,11 +605,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec,
       null,
-      null,
-      [available],
-      undefined,
-      undefined
-    );
+      [available]);
   }
 
   onAudioOutputSinkChanged(hashed_device_id) {
@@ -710,11 +614,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec,
       null,
-      null,
-      [hashed_device_id],
-      undefined,
-      undefined
-    );
+      [hashed_device_id]);
   }
 
   onUseAudioServiceChanged(uses_audio_service) {
@@ -723,11 +623,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       9,  // ordinal
       media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec,
       null,
-      null,
-      [uses_audio_service],
-      undefined,
-      undefined
-    );
+      [uses_audio_service]);
   }
 
   onAudioOutputSinkChangingDisabled() {
@@ -736,11 +632,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       10,  // ordinal
       media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onRemotePlaybackMetadataChange(remote_playback_metadata) {
@@ -749,11 +641,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       11,  // ordinal
       media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec,
       null,
-      null,
-      [remote_playback_metadata],
-      undefined,
-      undefined
-    );
+      [remote_playback_metadata]);
   }
 
   onVideoVisibilityChanged(meets_visibility_threshold) {
@@ -762,11 +650,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
       12,  // ordinal
       media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec,
       null,
-      null,
-      [meets_visibility_threshold],
-      undefined,
-      undefined
-    );
+      [meets_visibility_threshold]);
   }
 
 };
@@ -789,7 +673,7 @@ media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -803,7 +687,7 @@ media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
       fields: [
         { name: 'stream_ended', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -817,7 +701,7 @@ media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
       fields: [
         { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -833,7 +717,7 @@ media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
         { name: 'has_video', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -847,7 +731,7 @@ media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
       fields: [
         { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -861,7 +745,7 @@ media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -875,7 +759,7 @@ media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -889,7 +773,7 @@ media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -903,7 +787,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
       fields: [
         { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -917,7 +801,7 @@ media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
       fields: [
         { name: 'uses_audio_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -930,7 +814,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -944,7 +828,7 @@ media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
       fields: [
         { name: 'remote_playback_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -958,7 +842,7 @@ media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
       fields: [
         { name: 'meets_visibility_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1009,11 +893,7 @@ media.mojom.MediaPlayerHostRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec,
       null,
-      null,
-      [player_remote, observer, player_id],
-      undefined,
-      undefined
-    );
+      [player_remote, observer, player_id]);
   }
 
 };
@@ -1039,7 +919,7 @@ media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
         { name: 'player_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

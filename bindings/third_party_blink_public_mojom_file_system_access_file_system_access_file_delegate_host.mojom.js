@@ -50,11 +50,7 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
-      blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
-      [offset, bytes_to_read],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [offset, bytes_to_read]);
   }
 
   write(offset, data) {
@@ -63,11 +59,7 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
-      blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
-      [offset, data],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [offset, data]);
   }
 
   getLength() {
@@ -76,11 +68,7 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
-      blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   setLength(length) {
@@ -89,11 +77,7 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
-      blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
-      [length],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [length]);
   }
 
 };
@@ -118,7 +102,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'bytes_to_read', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -133,7 +117,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bytes_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -148,7 +132,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -162,7 +146,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bytes_written', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -175,7 +159,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -189,7 +173,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -203,7 +187,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
       fields: [
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -216,7 +200,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

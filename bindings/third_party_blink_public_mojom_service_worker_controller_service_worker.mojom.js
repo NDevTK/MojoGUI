@@ -50,11 +50,7 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
       blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
-      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
-      [params, response_callback],
-      undefined,
-      undefined
-    );
+      [params, response_callback]);
   }
 
   clone(receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter) {
@@ -63,11 +59,7 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
-      null,
-      [receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter],
-      undefined,
-      undefined
-    );
+      [receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter]);
   }
 
 };
@@ -92,7 +84,7 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec 
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponsePar
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -123,7 +115,7 @@ blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
         { name: 'document_isolation_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'dip_reporter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -174,11 +166,7 @@ blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
       null,
-      null,
-      [controller],
-      undefined,
-      undefined
-    );
+      [controller]);
   }
 
 };
@@ -202,7 +190,7 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

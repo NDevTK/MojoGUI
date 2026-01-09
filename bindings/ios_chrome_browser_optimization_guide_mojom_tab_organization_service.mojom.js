@@ -50,11 +50,7 @@ ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
       ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
-      ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
 };
@@ -78,7 +74,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

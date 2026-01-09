@@ -50,11 +50,7 @@ chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.SingleFileExtractor_Extract_ParamsSpec,
       chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec,
-      chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec,
-      [src_file, dst_file, listener],
-      undefined,
-      undefined
-    );
+      [src_file, dst_file, listener]);
   }
 
 };
@@ -80,7 +76,7 @@ chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = {
         { name: 'dst_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -93,7 +89,7 @@ chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,11 +140,7 @@ chrome.mojom.SingleFileExtractorListenerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec,
       null,
-      null,
-      [total_bytes, progress_bytes],
-      undefined,
-      undefined
-    );
+      [total_bytes, progress_bytes]);
   }
 
 };
@@ -173,7 +165,7 @@ chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec = {
         { name: 'total_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'progress_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

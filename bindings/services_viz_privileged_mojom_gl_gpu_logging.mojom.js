@@ -50,11 +50,7 @@ viz.mojom.GpuLoggingRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec,
       null,
-      null,
-      [severity, header, message],
-      undefined,
-      undefined
-    );
+      [severity, header, message]);
   }
 
 };
@@ -80,7 +76,7 @@ viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = {
         { name: 'header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -59,11 +59,7 @@ ax.mojom.UserInputRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
       null,
-      null,
-      [key_event],
-      undefined,
-      undefined
-    );
+      [key_event]);
   }
 
   sendSyntheticMouseEvent(mouse_event) {
@@ -72,11 +68,7 @@ ax.mojom.UserInputRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
       null,
-      null,
-      [mouse_event],
-      undefined,
-      undefined
-    );
+      [mouse_event]);
   }
 
 };
@@ -100,7 +92,7 @@ ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
       fields: [
         { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -114,7 +106,7 @@ ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
       fields: [
         { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

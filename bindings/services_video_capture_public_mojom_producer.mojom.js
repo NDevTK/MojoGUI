@@ -50,11 +50,7 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.Producer_OnNewBuffer_ParamsSpec,
       null,
-      null,
-      [buffer_id, buffer_handle],
-      undefined,
-      undefined
-    );
+      [buffer_id, buffer_handle]);
   }
 
   onBufferRetired(buffer_id) {
@@ -63,11 +59,7 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.Producer_OnBufferRetired_ParamsSpec,
       null,
-      null,
-      [buffer_id],
-      undefined,
-      undefined
-    );
+      [buffer_id]);
   }
 
 };
@@ -92,7 +84,7 @@ video_capture.mojom.Producer_OnNewBuffer_ParamsSpec = {
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = {
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

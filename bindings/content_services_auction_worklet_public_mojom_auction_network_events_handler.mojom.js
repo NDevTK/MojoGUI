@@ -50,11 +50,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec,
       null,
-      null,
-      [request, timestamp],
-      undefined,
-      undefined
-    );
+      [request, timestamp]);
   }
 
   onNetworkResponseReceived(request_id, loader_id, request_url, headers) {
@@ -63,11 +59,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec,
       null,
-      null,
-      [request_id, loader_id, request_url, headers],
-      undefined,
-      undefined
-    );
+      [request_id, loader_id, request_url, headers]);
   }
 
   onNetworkRequestComplete(request_id, status) {
@@ -76,11 +68,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       2,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec,
       null,
-      null,
-      [request_id, status],
-      undefined,
-      undefined
-    );
+      [request_id, status]);
   }
 
   clone(receiver) {
@@ -89,11 +77,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       3,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -118,7 +102,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpe
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -135,7 +119,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_Para
         { name: 'request_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -150,7 +134,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_Param
         { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -164,7 +148,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

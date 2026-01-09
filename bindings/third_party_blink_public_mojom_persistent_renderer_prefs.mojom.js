@@ -50,11 +50,7 @@ blink.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
       null,
-      null,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec 
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

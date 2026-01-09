@@ -50,11 +50,7 @@ ax.mojom.AutoclickRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
       null,
-      null,
-      [point],
-      undefined,
-      undefined
-    );
+      [point]);
   }
 
 };
@@ -78,7 +74,7 @@ ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
       fields: [
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
       null,
-      null,
-      [bounds],
-      undefined,
-      undefined
-    );
+      [bounds]);
   }
 
   bindAutoclick() {
@@ -142,11 +134,7 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
       ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
-      ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -170,7 +158,7 @@ ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
       fields: [
         { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +171,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +184,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
       fields: [
         { name: 'autoclick_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

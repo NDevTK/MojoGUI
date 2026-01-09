@@ -50,11 +50,7 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hello() {
@@ -63,11 +59,7 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -90,7 +82,7 @@ updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -103,7 +95,7 @@ updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

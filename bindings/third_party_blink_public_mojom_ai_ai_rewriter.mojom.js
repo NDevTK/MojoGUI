@@ -71,11 +71,7 @@ blink.mojom.AIRewriterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIRewriter_Rewrite_ParamsSpec,
       null,
-      null,
-      [input, context, pending_responder],
-      undefined,
-      undefined
-    );
+      [input, context, pending_responder]);
   }
 
   measureUsage(input, context) {
@@ -84,11 +80,7 @@ blink.mojom.AIRewriterRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIRewriter_MeasureUsage_ParamsSpec,
       blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec,
-      blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec,
-      [input, context],
-      undefined,
-      undefined
-    );
+      [input, context]);
   }
 
 };
@@ -114,7 +106,7 @@ blink.mojom.AIRewriter_Rewrite_ParamsSpec = {
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +121,7 @@ blink.mojom.AIRewriter_MeasureUsage_ParamsSpec = {
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,7 +134,7 @@ blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec = {
       fields: [
         { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

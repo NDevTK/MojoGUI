@@ -51,11 +51,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       0,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   undo() {
@@ -64,11 +60,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       1,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   redo() {
@@ -77,11 +69,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       2,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setTool(tool) {
@@ -90,11 +78,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       3,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
       null,
-      null,
-      [tool],
-      undefined,
-      undefined
-    );
+      [tool]);
   }
 
 };
@@ -117,7 +101,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +114,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +127,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +141,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
       fields: [
         { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,11 +192,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
       null,
-      null,
-      [undo_available, redo_available],
-      undefined,
-      undefined
-    );
+      [undo_available, redo_available]);
   }
 
   onCanvasInitialized(success) {
@@ -221,11 +201,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
       null,
-      null,
-      [success],
-      undefined,
-      undefined
-    );
+      [success]);
   }
 
 };
@@ -250,7 +226,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_
         { name: 'undo_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'redo_available', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +240,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,11 +291,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = clas
       0,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
       null,
-      null,
-      [handler, annotator],
-      undefined,
-      undefined
-    );
+      [handler, annotator]);
   }
 
 };
@@ -344,7 +316,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = {
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'annotator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

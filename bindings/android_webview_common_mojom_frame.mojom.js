@@ -62,11 +62,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec,
       null,
-      null,
-      [page_scale_factor],
-      undefined,
-      undefined
-    );
+      [page_scale_factor]);
   }
 
   setTextZoomFactor(zoom_factor) {
@@ -75,11 +71,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       1,  // ordinal
       android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec,
       null,
-      null,
-      [zoom_factor],
-      undefined,
-      undefined
-    );
+      [zoom_factor]);
   }
 
   documentHasImage() {
@@ -88,11 +80,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       2,  // ordinal
       android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec,
       android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec,
-      android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resetScrollAndScaleState() {
@@ -101,11 +89,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       3,  // ordinal
       android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   smoothScroll(target_x, target_y, duration) {
@@ -114,11 +98,7 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       4,  // ordinal
       android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec,
       null,
-      null,
-      [target_x, target_y, duration],
-      undefined,
-      undefined
-    );
+      [target_x, target_y, duration]);
   }
 
 };
@@ -142,7 +122,7 @@ android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = {
       fields: [
         { name: 'page_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +136,7 @@ android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = {
       fields: [
         { name: 'zoom_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,7 +149,7 @@ android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +162,7 @@ android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = {
       fields: [
         { name: 'has_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -195,7 +175,7 @@ android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +191,7 @@ android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
         { name: 'target_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -262,11 +242,7 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
   contentsSizeChanged(contents_size) {
@@ -275,11 +251,7 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
       1,  // ordinal
       android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec,
       null,
-      null,
-      [contents_size],
-      undefined,
-      undefined
-    );
+      [contents_size]);
   }
 
   shouldOverrideUrlLoading(url, has_user_gesture, is_redirect, is_outermost_main_frame) {
@@ -288,11 +260,7 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
       2,  // ordinal
       android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec,
       android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec,
-      android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec,
-      [url, has_user_gesture, is_redirect, is_outermost_main_frame],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [url, has_user_gesture, is_redirect, is_outermost_main_frame]);
   }
 
 };
@@ -316,7 +284,7 @@ android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,7 +298,7 @@ android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = {
       fields: [
         { name: 'contents_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,7 +315,7 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
         { name: 'is_redirect', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'is_outermost_main_frame', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -360,7 +328,7 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

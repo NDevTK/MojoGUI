@@ -59,11 +59,7 @@ content.mojom.NavigationClientRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.NavigationClient_CommitNavigation_ParamsSpec,
       content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
-      content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
-      [common_params, request_params, response_head, response_body, url_loader_client_endpoints, subresource_loader_factories, subresource_overrides, controller_service_worker_info, container_info, subresource_proxying_loader_factory, keep_alive_loader_factory, fetch_later_loader_factory, document_token, devtools_navigation_token, base_auction_nonce, permissions_policy, policy_container, code_cache_host, code_cache_host_for_background, cookie_manager_info, storage_info],
-      undefined,
-      undefined
-    );
+      [common_params, request_params, response_head, response_body, url_loader_client_endpoints, subresource_loader_factories, subresource_overrides, controller_service_worker_info, container_info, subresource_proxying_loader_factory, keep_alive_loader_factory, fetch_later_loader_factory, document_token, devtools_navigation_token, base_auction_nonce, permissions_policy, policy_container, code_cache_host, code_cache_host_for_background, cookie_manager_info, storage_info]);
   }
 
   commitFailedNavigation(common_params, request_params, has_stale_copy_in_cache, error_code, extended_error_code, resolve_error_info, error_page_content, subresource_loader_factories, document_token, devtools_navigation_token, policy_container, alternative_error_page_info) {
@@ -72,11 +68,7 @@ content.mojom.NavigationClientRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec,
       content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
-      content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
-      [common_params, request_params, has_stale_copy_in_cache, error_code, extended_error_code, resolve_error_info, error_page_content, subresource_loader_factories, document_token, devtools_navigation_token, policy_container, alternative_error_page_info],
-      undefined,
-      undefined
-    );
+      [common_params, request_params, has_stale_copy_in_cache, error_code, extended_error_code, resolve_error_info, error_page_content, subresource_loader_factories, document_token, devtools_navigation_token, policy_container, alternative_error_page_info]);
   }
 
 };
@@ -120,7 +112,7 @@ content.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
         { name: 'cookie_manager_info', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'storage_info', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 176}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -134,7 +126,7 @@ content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,7 +151,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
         { name: 'policy_container', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'alternative_error_page_info', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 104}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -173,7 +165,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'interface_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ media.mojom.MediaFoundationPreferencesRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec,
       media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec,
-      media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Respons
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

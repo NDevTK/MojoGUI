@@ -58,11 +58,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       0,  // ordinal
       echo.mojom.EchoService_EchoString_ParamsSpec,
       echo.mojom.EchoService_EchoString_ResponseParamsSpec,
-      echo.mojom.EchoService_EchoString_ResponseParamsSpec,
-      [input],
-      undefined,
-      undefined
-    );
+      [input]);
   }
 
   echoStringToSharedMemory(input, region) {
@@ -71,11 +67,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       1,  // ordinal
       echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec,
       null,
-      null,
-      [input, region],
-      undefined,
-      undefined
-    );
+      [input, region]);
   }
 
   quit() {
@@ -84,11 +76,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       2,  // ordinal
       echo.mojom.EchoService_Quit_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   crash() {
@@ -97,11 +85,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       3,  // ordinal
       echo.mojom.EchoService_Crash_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   delayLoad() {
@@ -110,11 +94,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       4,  // ordinal
       echo.mojom.EchoService_DelayLoad_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   loadNativeLibrary(library, call_winmm_delayload) {
@@ -123,11 +103,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       5,  // ordinal
       echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec,
       echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
-      echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
-      [library, call_winmm_delayload],
-      undefined,
-      undefined
-    );
+      [library, call_winmm_delayload]);
   }
 
   decryptEncrypt(encryptor, input) {
@@ -136,11 +112,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       6,  // ordinal
       echo.mojom.EchoService_DecryptEncrypt_ParamsSpec,
       echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
-      echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
-      [encryptor, input],
-      undefined,
-      undefined
-    );
+      [encryptor, input]);
   }
 
 };
@@ -164,7 +136,7 @@ echo.mojom.EchoService_EchoString_ParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -177,7 +149,7 @@ echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
       fields: [
         { name: 'echoed_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -192,7 +164,7 @@ echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -205,7 +177,7 @@ echo.mojom.EchoService_Quit_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -218,7 +190,7 @@ echo.mojom.EchoService_Crash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -231,7 +203,7 @@ echo.mojom.EchoService_DelayLoad_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +218,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
         { name: 'library', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'call_winmm_delayload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -260,7 +232,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -275,7 +247,7 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
         { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -288,7 +260,7 @@ echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

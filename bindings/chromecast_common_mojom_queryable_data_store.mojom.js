@@ -51,11 +51,7 @@ chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {
       0,  // ordinal
       chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec,
       null,
-      null,
-      [key, value],
-      undefined,
-      undefined
-    );
+      [key, value]);
   }
 
 };
@@ -80,7 +76,7 @@ chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
       null,
-      null,
-      [page_url, osdd_url],
-      undefined,
-      undefined
-    );
+      [page_url, osdd_url]);
   }
 
 };
@@ -79,7 +75,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDo
         { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'osdd_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

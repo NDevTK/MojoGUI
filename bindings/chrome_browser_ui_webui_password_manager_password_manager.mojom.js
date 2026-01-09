@@ -50,11 +50,7 @@ password_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   deleteAllPasswordManagerData() {
@@ -143,11 +135,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec,
       password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   copyPlaintextBackupPassword(id) {
@@ -156,11 +144,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec,
       password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   removeBackupPassword(id) {
@@ -169,11 +153,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   getActorLoginPermissions() {
@@ -182,11 +162,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec,
       password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   revokeActorLoginPermission(site) {
@@ -195,11 +171,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec,
       null,
-      null,
-      [site],
-      undefined,
-      undefined
-    );
+      [site]);
   }
 
   changePasswordManagerPin() {
@@ -208,11 +180,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec,
       password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showAddShortcutDialog() {
@@ -221,11 +189,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isAccountStorageEnabled() {
@@ -234,11 +198,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec,
       password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setAccountStorageEnabled(enabled) {
@@ -247,11 +207,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   shouldShowAccountStorageSettingToggle() {
@@ -260,11 +216,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec,
       password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isPasswordManagerPinAvailable() {
@@ -273,11 +225,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec,
       password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   switchBiometricAuthBeforeFillingState() {
@@ -286,11 +234,7 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec,
       password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec,
-      password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -313,7 +257,7 @@ password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -326,7 +270,7 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +283,7 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -353,7 +297,7 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -366,7 +310,7 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpe
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -380,7 +324,7 @@ password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -393,7 +337,7 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +350,7 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec =
       fields: [
         { name: 'sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -420,7 +364,7 @@ password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = {
       fields: [
         { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -433,7 +377,7 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -446,7 +390,7 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec =
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -459,7 +403,7 @@ password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -472,7 +416,7 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -485,7 +429,7 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -499,7 +443,7 @@ password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -512,7 +456,7 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -525,7 +469,7 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_Respons
       fields: [
         { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -538,7 +482,7 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -551,7 +495,7 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsS
       fields: [
         { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,7 +508,7 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -577,7 +521,7 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_Respons
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

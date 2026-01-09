@@ -51,11 +51,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setSmbfsEnableVerboseLogging(enabled) {
@@ -64,11 +60,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   getOfficeFileHandlers() {
@@ -77,11 +69,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearOfficeFileHandlers() {
@@ -90,11 +78,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMoveConfirmationShownForDrive() {
@@ -103,11 +87,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMoveConfirmationShownForOneDrive() {
@@ -116,11 +96,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMoveConfirmationShownForLocalToDrive() {
@@ -129,11 +105,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMoveConfirmationShownForLocalToOneDrive() {
@@ -142,11 +114,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMoveConfirmationShownForCloudToDrive() {
@@ -155,11 +123,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMoveConfirmationShownForCloudToOneDrive() {
@@ -168,11 +132,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAlwaysMoveOfficeFilesToDrive() {
@@ -181,11 +141,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setAlwaysMoveOfficeFilesToDrive(always_move) {
@@ -194,11 +150,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
-      null,
-      [always_move],
-      undefined,
-      undefined
-    );
+      [always_move]);
   }
 
   getAlwaysMoveOfficeFilesToOneDrive() {
@@ -207,11 +159,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
-      ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setAlwaysMoveOfficeFilesToOneDrive(always_move) {
@@ -220,11 +168,7 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
-      null,
-      [always_move],
-      undefined,
-      undefined
-    );
+      [always_move]);
   }
 
 };
@@ -247,7 +191,7 @@ ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -260,7 +204,7 @@ ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParam
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -274,7 +218,7 @@ ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -287,7 +231,7 @@ ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -300,7 +244,7 @@ ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec =
       fields: [
         { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -313,7 +257,7 @@ ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -326,7 +270,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +283,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseP
       fields: [
         { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -352,7 +296,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -365,7 +309,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_Respon
       fields: [
         { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +322,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +335,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_Re
       fields: [
         { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -404,7 +348,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -417,7 +361,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive
       fields: [
         { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -430,7 +374,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -443,7 +387,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_Re
       fields: [
         { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -456,7 +400,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -469,7 +413,7 @@ ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive
       fields: [
         { name: 'confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -482,7 +426,7 @@ ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -495,7 +439,7 @@ ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponsePa
       fields: [
         { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -509,7 +453,7 @@ ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec
       fields: [
         { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -522,7 +466,7 @@ ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -535,7 +479,7 @@ ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Respons
       fields: [
         { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -549,7 +493,7 @@ ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsS
       fields: [
         { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

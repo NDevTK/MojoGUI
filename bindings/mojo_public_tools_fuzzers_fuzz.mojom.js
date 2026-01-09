@@ -57,11 +57,7 @@ fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
       0,  // ordinal
       fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -84,7 +80,7 @@ fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -135,11 +131,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       0,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fuzzBasicResp() {
@@ -148,11 +140,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       1,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fuzzBasicSyncResp() {
@@ -161,11 +149,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       2,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   fuzzArgs(a, b) {
@@ -174,11 +158,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       3,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
       null,
-      null,
-      [a, b],
-      undefined,
-      undefined
-    );
+      [a, b]);
   }
 
   fuzzArgsResp(a, b) {
@@ -187,11 +167,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       4,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
       null,
-      null,
-      [a, b],
-      undefined,
-      undefined
-    );
+      [a, b]);
   }
 
   fuzzArgsSyncResp(a, b) {
@@ -200,11 +176,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       5,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
       null,
-      null,
-      [a, b],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [a, b]);
   }
 
   fuzzAssociated(receiver) {
@@ -213,11 +185,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       6,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -240,7 +208,7 @@ fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,7 +221,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +234,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -281,7 +249,7 @@ fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
         { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -296,7 +264,7 @@ fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
         { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,7 +279,7 @@ fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
         { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,7 +293,7 @@ fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

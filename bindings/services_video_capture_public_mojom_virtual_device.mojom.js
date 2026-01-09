@@ -50,11 +50,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec,
       video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
-      video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
-      [dimension, pixel_format, strides],
-      undefined,
-      undefined
-    );
+      [dimension, pixel_format, strides]);
   }
 
   onFrameReadyInBuffer(buffer_id, frame_info) {
@@ -63,11 +59,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      null,
-      [buffer_id, frame_info],
-      undefined,
-      undefined
-    );
+      [buffer_id, frame_info]);
   }
 
 };
@@ -93,7 +85,7 @@ video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
         { name: 'pixel_format', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsS
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -121,7 +113,7 @@ video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = 
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,11 +164,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec,
       null,
-      null,
-      [buffer_id, shared_image_handle],
-      undefined,
-      undefined
-    );
+      [buffer_id, shared_image_handle]);
   }
 
   onFrameAccessHandlerReady(frame_access_handler) {
@@ -185,11 +173,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      null,
-      [frame_access_handler],
-      undefined,
-      undefined
-    );
+      [frame_access_handler]);
   }
 
   onFrameReadyInBuffer(buffer_id, frame_info) {
@@ -198,11 +182,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      null,
-      [buffer_id, frame_info],
-      undefined,
-      undefined
-    );
+      [buffer_id, frame_info]);
   }
 
   onBufferRetired(buffer_id) {
@@ -211,11 +191,7 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
-      null,
-      [buffer_id],
-      undefined,
-      undefined
-    );
+      [buffer_id]);
   }
 
 };
@@ -240,7 +216,7 @@ video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'shared_image_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -254,7 +230,7 @@ video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = 
       fields: [
         { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,7 +245,7 @@ video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -283,7 +259,7 @@ video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -334,11 +310,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec,
       null,
-      null,
-      [buffer_id, gmb_handle],
-      undefined,
-      undefined
-    );
+      [buffer_id, gmb_handle]);
   }
 
   onFrameAccessHandlerReady(frame_access_handler) {
@@ -347,11 +319,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      null,
-      [frame_access_handler],
-      undefined,
-      undefined
-    );
+      [frame_access_handler]);
   }
 
   onFrameReadyInBuffer(buffer_id, frame_info) {
@@ -360,11 +328,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      null,
-      [buffer_id, frame_info],
-      undefined,
-      undefined
-    );
+      [buffer_id, frame_info]);
   }
 
   onBufferRetired(buffer_id) {
@@ -373,11 +337,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
-      null,
-      [buffer_id],
-      undefined,
-      undefined
-    );
+      [buffer_id]);
   }
 
 };
@@ -402,7 +362,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_Para
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'gmb_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -416,7 +376,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_Param
       fields: [
         { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -431,7 +391,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -445,7 +405,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

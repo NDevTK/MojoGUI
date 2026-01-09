@@ -56,11 +56,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec,
       video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
-      video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getVideoSource(source_id, stream) {
@@ -69,11 +65,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec,
       null,
-      null,
-      [source_id, stream],
-      undefined,
-      undefined
-    );
+      [source_id, stream]);
   }
 
   addSharedMemoryVirtualDevice(device_info, producer, virtual_device_receiver) {
@@ -82,11 +74,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec,
       null,
-      null,
-      [device_info, producer, virtual_device_receiver],
-      undefined,
-      undefined
-    );
+      [device_info, producer, virtual_device_receiver]);
   }
 
   addTextureVirtualDevice(device_info, virtual_device_receiver) {
@@ -95,11 +83,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec,
       null,
-      null,
-      [device_info, virtual_device_receiver],
-      undefined,
-      undefined
-    );
+      [device_info, virtual_device_receiver]);
   }
 
   registerVirtualDevicesChangedObserver(observer, raise_event_if_virtual_devices_already_present) {
@@ -108,11 +92,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec,
       null,
-      null,
-      [observer, raise_event_if_virtual_devices_already_present],
-      undefined,
-      undefined
-    );
+      [observer, raise_event_if_virtual_devices_already_present]);
   }
 
   registerDevicesChangedObserver(observer) {
@@ -121,11 +101,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   close() {
@@ -134,11 +110,7 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
       6,  // ordinal
       video_capture.mojom.VideoSourceProvider_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -161,7 +133,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -175,7 +147,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -190,7 +162,7 @@ video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -206,7 +178,7 @@ video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec 
         { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -221,7 +193,7 @@ video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +208,7 @@ video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Pa
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +222,7 @@ video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpe
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,7 +235,7 @@ video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

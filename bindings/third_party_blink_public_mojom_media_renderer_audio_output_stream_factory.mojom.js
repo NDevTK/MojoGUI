@@ -50,11 +50,7 @@ blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
       blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
-      blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
-      [stream_provider_receiver, session_id, device_id],
-      undefined,
-      undefined
-    );
+      [stream_provider_receiver, session_id, device_id]);
   }
 
 };
@@ -80,7 +76,7 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSp
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -95,7 +91,7 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Response
         { name: 'output_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'matched_device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

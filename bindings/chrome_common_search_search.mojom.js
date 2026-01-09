@@ -50,11 +50,7 @@ search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
       0,  // ordinal
       search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec,
       null,
-      null,
-      [embedded_search, client],
-      undefined,
-      undefined
-    );
+      [embedded_search, client]);
   }
 
 };
@@ -79,7 +75,7 @@ search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
         { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       0,  // ordinal
       search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec,
       null,
-      null,
-      [page_seq_no, focus],
-      undefined,
-      undefined
-    );
+      [page_seq_no, focus]);
   }
 
   deleteMostVisitedItem(page_seq_no, url) {
@@ -143,11 +135,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       1,  // ordinal
       search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec,
       null,
-      null,
-      [page_seq_no, url],
-      undefined,
-      undefined
-    );
+      [page_seq_no, url]);
   }
 
   undoAllMostVisitedDeletions(page_seq_no) {
@@ -156,11 +144,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       2,  // ordinal
       search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec,
       null,
-      null,
-      [page_seq_no],
-      undefined,
-      undefined
-    );
+      [page_seq_no]);
   }
 
   undoMostVisitedDeletion(page_seq_no, url) {
@@ -169,11 +153,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       3,  // ordinal
       search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec,
       null,
-      null,
-      [page_seq_no, url],
-      undefined,
-      undefined
-    );
+      [page_seq_no, url]);
   }
 
 };
@@ -198,7 +178,7 @@ search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
         { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'focus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -213,7 +193,7 @@ search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
         { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -227,7 +207,7 @@ search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
       fields: [
         { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -242,7 +222,7 @@ search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
         { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -293,11 +273,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       0,  // ordinal
       search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec,
       null,
-      null,
-      [page_seq_no],
-      undefined,
-      undefined
-    );
+      [page_seq_no]);
   }
 
   focusChanged(new_focus_state, reason) {
@@ -306,11 +282,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       1,  // ordinal
       search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec,
       null,
-      null,
-      [new_focus_state, reason],
-      undefined,
-      undefined
-    );
+      [new_focus_state, reason]);
   }
 
   mostVisitedInfoChanged(most_visited_info) {
@@ -319,11 +291,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       2,  // ordinal
       search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec,
       null,
-      null,
-      [most_visited_info],
-      undefined,
-      undefined
-    );
+      [most_visited_info]);
   }
 
   setInputInProgress(input_in_progress) {
@@ -332,11 +300,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       3,  // ordinal
       search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec,
       null,
-      null,
-      [input_in_progress],
-      undefined,
-      undefined
-    );
+      [input_in_progress]);
   }
 
   themeChanged(theme) {
@@ -345,11 +309,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       4,  // ordinal
       search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec,
       null,
-      null,
-      [theme],
-      undefined,
-      undefined
-    );
+      [theme]);
   }
 
 };
@@ -373,7 +333,7 @@ search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
       fields: [
         { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -388,7 +348,7 @@ search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
         { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -402,7 +362,7 @@ search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
       fields: [
         { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -416,7 +376,7 @@ search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
       fields: [
         { name: 'input_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -430,7 +390,7 @@ search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

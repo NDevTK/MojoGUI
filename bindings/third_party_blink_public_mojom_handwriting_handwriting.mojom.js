@@ -69,11 +69,7 @@ handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
       0,  // ordinal
       handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      [strokes, hints],
-      undefined,
-      undefined
-    );
+      [strokes, hints]);
   }
 
 };
@@ -98,7 +94,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
         { name: 'strokes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -111,7 +107,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
       fields: [
         { name: 'prediction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -162,11 +158,7 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
       0,  // ordinal
       handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
       handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
-      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
-      [constraint],
-      undefined,
-      undefined
-    );
+      [constraint]);
   }
 
   queryHandwritingRecognizer(constraint) {
@@ -175,11 +167,7 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
       1,  // ordinal
       handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
       handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
-      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
-      [constraint],
-      undefined,
-      undefined
-    );
+      [constraint]);
   }
 
 };
@@ -203,7 +191,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Para
       fields: [
         { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -217,7 +205,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Resp
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'handwriting_recognizer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -231,7 +219,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Param
       fields: [
         { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -244,7 +232,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Respo
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

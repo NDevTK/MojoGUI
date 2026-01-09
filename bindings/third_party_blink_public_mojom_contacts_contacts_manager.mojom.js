@@ -50,11 +50,7 @@ blink.mojom.ContactsManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ContactsManager_Select_ParamsSpec,
       blink.mojom.ContactsManager_Select_ResponseParamsSpec,
-      blink.mojom.ContactsManager_Select_ResponseParamsSpec,
-      [multiple, include_names, include_emails, include_tel, include_addresses, include_icons],
-      undefined,
-      undefined
-    );
+      [multiple, include_names, include_emails, include_tel, include_addresses, include_icons]);
   }
 
 };
@@ -83,7 +79,7 @@ blink.mojom.ContactsManager_Select_ParamsSpec = {
         { name: 'include_addresses', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
         { name: 'include_icons', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -96,7 +92,7 @@ blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
       fields: [
         { name: 'contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

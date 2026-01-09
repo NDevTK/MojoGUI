@@ -50,11 +50,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
       0,  // ordinal
       on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec,
       null,
-      null,
-      [script],
-      undefined,
-      undefined
-    );
+      [script]);
   }
 
   clearOnLoadScripts() {
@@ -63,11 +59,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
       1,  // ordinal
       on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = 
       fields: [
         { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

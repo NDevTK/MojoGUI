@@ -71,11 +71,7 @@ ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -98,7 +94,7 @@ ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -149,11 +145,7 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.SearchHandler_Search_ParamsSpec,
       ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec,
-      ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec,
-      [query, max_num_results, parent_result_behavior],
-      undefined,
-      undefined
-    );
+      [query, max_num_results, parent_result_behavior]);
   }
 
   observe(observer) {
@@ -162,11 +154,7 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.SearchHandler_Observe_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -192,7 +180,7 @@ ash.settings.mojom.SearchHandler_Search_ParamsSpec = {
         { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'parent_result_behavior', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -205,7 +193,7 @@ ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec = {
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -219,7 +207,7 @@ ash.settings.mojom.SearchHandler_Observe_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

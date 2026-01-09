@@ -50,11 +50,7 @@ blink.mojom.DomStorageProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
       null,
-      null,
-      [receiver, client],
-      undefined,
-      undefined
-    );
+      [receiver, client]);
   }
 
 };
@@ -79,7 +75,7 @@ blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
       null,
-      null,
-      [storage_key, local_frame_token, area],
-      undefined,
-      undefined
-    );
+      [storage_key, local_frame_token, area]);
   }
 
   bindSessionStorageNamespace(namespace_id, receiver) {
@@ -143,11 +135,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
       null,
-      null,
-      [namespace_id, receiver],
-      undefined,
-      undefined
-    );
+      [namespace_id, receiver]);
   }
 
   bindSessionStorageArea(storage_key, local_frame_token, namespace_id, session_namespace) {
@@ -156,11 +144,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
       null,
-      null,
-      [storage_key, local_frame_token, namespace_id, session_namespace],
-      undefined,
-      undefined
-    );
+      [storage_key, local_frame_token, namespace_id, session_namespace]);
   }
 
 };
@@ -186,7 +170,7 @@ blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = {
         { name: 'local_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'area', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -201,7 +185,7 @@ blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = {
         { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -218,7 +202,7 @@ blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = {
         { name: 'namespace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'session_namespace', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,11 +253,7 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resetLocalStorageConnections() {
@@ -282,11 +262,7 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -309,7 +285,7 @@ blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -322,7 +298,7 @@ blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

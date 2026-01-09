@@ -50,11 +50,7 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.DigitalGoods_GetDetails_ParamsSpec,
       payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
-      payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
-      [item_ids],
-      undefined,
-      undefined
-    );
+      [item_ids]);
   }
 
   listPurchases() {
@@ -63,11 +59,7 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.DigitalGoods_ListPurchases_ParamsSpec,
       payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
-      payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   listPurchaseHistory() {
@@ -76,11 +68,7 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
       payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
-      payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   consume(purchase_token) {
@@ -89,11 +77,7 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       3,  // ordinal
       payments.mojom.DigitalGoods_Consume_ParamsSpec,
       payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
-      payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
-      [purchase_token],
-      undefined,
-      undefined
-    );
+      [purchase_token]);
   }
 
 };
@@ -117,7 +101,7 @@ payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
       fields: [
         { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +115,7 @@ payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'item_details_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +128,7 @@ payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +142,7 @@ payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +155,7 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +169,7 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +183,7 @@ payments.mojom.DigitalGoods_Consume_ParamsSpec = {
       fields: [
         { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +196,7 @@ payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,11 +247,7 @@ payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
       payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
-      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
-      [payment_method],
-      undefined,
-      undefined
-    );
+      [payment_method]);
   }
 
 };
@@ -291,7 +271,7 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
       fields: [
         { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -305,7 +285,7 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'digital_goods', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

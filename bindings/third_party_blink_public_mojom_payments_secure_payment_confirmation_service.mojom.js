@@ -65,11 +65,7 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
       payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
-      payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   storePaymentCredential(credential_id, rp_id, user_id) {
@@ -78,11 +74,7 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
       payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
-      payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
-      [credential_id, rp_id, user_id],
-      undefined,
-      undefined
-    );
+      [credential_id, rp_id, user_id]);
   }
 
   makePaymentCredential(options) {
@@ -91,11 +83,7 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
       payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
-      payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
-      [options],
-      undefined,
-      undefined
-    );
+      [options]);
   }
 
 };
@@ -118,7 +106,7 @@ payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailab
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +119,7 @@ payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailab
       fields: [
         { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,7 +135,7 @@ payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpe
         { name: 'rp_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'user_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,7 +148,7 @@ payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseP
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -174,7 +162,7 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -189,7 +177,7 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponsePa
         { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ device.mojom.TimeZoneMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.TimeZoneMonitor_AddClient_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
 };
@@ -78,7 +74,7 @@ device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec,
       null,
-      null,
-      [tz_info],
-      undefined,
-      undefined
-    );
+      [tz_info]);
   }
 
 };
@@ -157,7 +149,7 @@ device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
       fields: [
         { name: 'tz_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

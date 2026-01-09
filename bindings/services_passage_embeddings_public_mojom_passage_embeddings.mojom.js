@@ -58,11 +58,7 @@ passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
       0,  // ordinal
       passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec,
       passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec,
-      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec,
-      [passages, priority],
-      undefined,
-      undefined
-    );
+      [passages, priority]);
   }
 
 };
@@ -87,7 +83,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
         { name: 'passages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -100,7 +96,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec =
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -151,11 +147,7 @@ passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
       0,  // ordinal
       passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec,
       passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec,
-      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec,
-      [model_params, params, model],
-      undefined,
-      undefined
-    );
+      [model_params, params, model]);
   }
 
 };
@@ -181,7 +173,7 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
         { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -194,7 +186,7 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

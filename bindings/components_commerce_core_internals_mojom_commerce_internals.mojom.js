@@ -50,11 +50,7 @@ commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Pa
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
-      commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resetPriceTrackingEmailPref() {
@@ -143,11 +135,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getProductInfoForUrl(url) {
@@ -156,11 +144,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   getSubscriptionDetails() {
@@ -169,11 +153,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
-      commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getProductSpecificationsDetails() {
@@ -182,11 +162,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
-      commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resetProductSpecifications() {
@@ -195,11 +171,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getShoppingEligibilityDetails() {
@@ -208,11 +180,7 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
-      commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -235,7 +203,7 @@ commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -248,7 +216,7 @@ commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParams
       fields: [
         { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,7 +229,7 @@ commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -275,7 +243,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -288,7 +256,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec 
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,7 +269,7 @@ commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -314,7 +282,7 @@ commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpe
       fields: [
         { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -327,7 +295,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +308,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_Response
       fields: [
         { name: 'product_specifications_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -353,7 +321,7 @@ commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -366,7 +334,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -379,7 +347,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponsePa
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -430,11 +398,7 @@ commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
       0,  // ordinal
       commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
       null,
-      null,
-      [eligible],
-      undefined,
-      undefined
-    );
+      [eligible]);
   }
 
 };
@@ -458,7 +422,7 @@ commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec
       fields: [
         { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

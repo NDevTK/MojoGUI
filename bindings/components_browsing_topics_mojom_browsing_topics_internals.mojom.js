@@ -50,11 +50,7 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
-      browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getBrowsingTopicsState(calculate_now) {
@@ -63,11 +59,7 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
-      browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
-      [calculate_now],
-      undefined,
-      undefined
-    );
+      [calculate_now]);
   }
 
   getModelInfo() {
@@ -76,11 +68,7 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec,
       browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   classifyHosts(hosts) {
@@ -89,11 +77,7 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec,
       browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
-      browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
-      [hosts],
-      undefined,
-      undefined
-    );
+      [hosts]);
   }
 
 };
@@ -116,7 +100,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +113,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsS
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +127,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
       fields: [
         { name: 'calculate_now', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +140,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,7 +153,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +166,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +180,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
       fields: [
         { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -209,7 +193,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
       fields: [
         { name: 'topics_for_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.PluginRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
       blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
-      blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
       fields: [
         { name: 'plugins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

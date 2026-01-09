@@ -50,11 +50,7 @@ blink.mojom.LeakDetectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec,
       blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
-      blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

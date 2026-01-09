@@ -63,11 +63,7 @@ metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec,
       null,
-      null,
-      [shared_memory, child_histogram_fetcher],
-      undefined,
-      undefined
-    );
+      [shared_memory, child_histogram_fetcher]);
   }
 
 };
@@ -92,7 +88,7 @@ metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = {
         { name: 'shared_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'child_histogram_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,11 +139,7 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec,
       metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec,
-      metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   ping(call_source) {
@@ -156,11 +148,7 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
       1,  // ordinal
       metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec,
       null,
-      null,
-      [call_source],
-      undefined,
-      undefined
-    );
+      [call_source]);
   }
 
 };
@@ -183,7 +171,7 @@ metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +184,7 @@ metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseP
       fields: [
         { name: 'deltas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +198,7 @@ metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = {
       fields: [
         { name: 'call_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

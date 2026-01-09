@@ -50,11 +50,7 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec,
       null,
-      null,
-      [key, new_value, old_value, source],
-      undefined,
-      undefined
-    );
+      [key, new_value, old_value, source]);
   }
 
   keyChangeFailed(key, source) {
@@ -63,11 +59,7 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec,
       null,
-      null,
-      [key, source],
-      undefined,
-      undefined
-    );
+      [key, source]);
   }
 
   keyDeleted(key, old_value, source) {
@@ -76,11 +68,7 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec,
       null,
-      null,
-      [key, old_value, source],
-      undefined,
-      undefined
-    );
+      [key, old_value, source]);
   }
 
   allDeleted(was_nonempty, source) {
@@ -89,11 +77,7 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec,
       null,
-      null,
-      [was_nonempty, source],
-      undefined,
-      undefined
-    );
+      [was_nonempty, source]);
   }
 
   shouldSendOldValueOnMutations(value) {
@@ -102,11 +86,7 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec,
       null,
-      null,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
 };
@@ -133,7 +113,7 @@ blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
         { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -148,7 +128,7 @@ blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -164,7 +144,7 @@ blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
         { name: 'old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -179,7 +159,7 @@ blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
         { name: 'was_nonempty', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -193,7 +173,7 @@ blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -244,11 +224,7 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.StorageArea_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   put(key, value, client_old_value, source) {
@@ -257,11 +233,7 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.StorageArea_Put_ParamsSpec,
       blink.mojom.StorageArea_Put_ResponseParamsSpec,
-      blink.mojom.StorageArea_Put_ResponseParamsSpec,
-      [key, value, client_old_value, source],
-      undefined,
-      undefined
-    );
+      [key, value, client_old_value, source]);
   }
 
   delete(key, client_old_value, source) {
@@ -270,11 +242,7 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.StorageArea_Delete_ParamsSpec,
       blink.mojom.StorageArea_Delete_ResponseParamsSpec,
-      blink.mojom.StorageArea_Delete_ResponseParamsSpec,
-      [key, client_old_value, source],
-      undefined,
-      undefined
-    );
+      [key, client_old_value, source]);
   }
 
   deleteAll(source, new_observer) {
@@ -283,11 +251,7 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.StorageArea_DeleteAll_ParamsSpec,
       blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
-      blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
-      [source, new_observer],
-      undefined,
-      undefined
-    );
+      [source, new_observer]);
   }
 
   get(key) {
@@ -296,11 +260,7 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.StorageArea_Get_ParamsSpec,
       blink.mojom.StorageArea_Get_ResponseParamsSpec,
-      blink.mojom.StorageArea_Get_ResponseParamsSpec,
-      [key],
-      undefined,
-      undefined
-    );
+      [key]);
   }
 
   getAll(new_observer) {
@@ -309,11 +269,7 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.StorageArea_GetAll_ParamsSpec,
       blink.mojom.StorageArea_GetAll_ResponseParamsSpec,
-      blink.mojom.StorageArea_GetAll_ResponseParamsSpec,
-      [new_observer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [new_observer]);
   }
 
 };
@@ -337,7 +293,7 @@ blink.mojom.StorageArea_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +310,7 @@ blink.mojom.StorageArea_Put_ParamsSpec = {
         { name: 'client_old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -367,7 +323,7 @@ blink.mojom.StorageArea_Put_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -383,7 +339,7 @@ blink.mojom.StorageArea_Delete_ParamsSpec = {
         { name: 'client_old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -396,7 +352,7 @@ blink.mojom.StorageArea_Delete_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -411,7 +367,7 @@ blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -424,7 +380,7 @@ blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +394,7 @@ blink.mojom.StorageArea_Get_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -452,7 +408,7 @@ blink.mojom.StorageArea_Get_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -466,7 +422,7 @@ blink.mojom.StorageArea_GetAll_ParamsSpec = {
       fields: [
         { name: 'new_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -479,7 +435,7 @@ blink.mojom.StorageArea_GetAll_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

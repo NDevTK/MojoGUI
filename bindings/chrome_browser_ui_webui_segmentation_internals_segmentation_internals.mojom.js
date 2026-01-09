@@ -50,11 +50,7 @@ segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   executeModel(segment_id) {
@@ -143,11 +135,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec,
       null,
-      null,
-      [segment_id],
-      undefined,
-      undefined
-    );
+      [segment_id]);
   }
 
   overwriteResult(segment_id, result) {
@@ -156,11 +144,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec,
       null,
-      null,
-      [segment_id, result],
-      undefined,
-      undefined
-    );
+      [segment_id, result]);
   }
 
   setSelected(segmentation_key, optimization_target) {
@@ -169,11 +153,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec,
       null,
-      null,
-      [segmentation_key, optimization_target],
-      undefined,
-      undefined
-    );
+      [segmentation_key, optimization_target]);
   }
 
 };
@@ -196,7 +176,7 @@ segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +190,7 @@ segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
       fields: [
         { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +205,7 @@ segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
         { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +220,7 @@ segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
         { name: 'segmentation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'optimization_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,11 +271,7 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec,
       null,
-      null,
-      [is_initialized, status_flag],
-      undefined,
-      undefined
-    );
+      [is_initialized, status_flag]);
   }
 
   onClientInfoAvailable(client_info) {
@@ -304,11 +280,7 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec,
       null,
-      null,
-      [client_info],
-      undefined,
-      undefined
-    );
+      [client_info]);
   }
 
 };
@@ -333,7 +305,7 @@ segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
         { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'status_flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,7 +319,7 @@ segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
       fields: [
         { name: 'client_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

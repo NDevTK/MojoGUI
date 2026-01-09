@@ -51,11 +51,7 @@ ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec,
       null,
-      null,
-      [fast_pair_data_parser],
-      undefined,
-      undefined
-    );
+      [fast_pair_data_parser]);
   }
 
 };
@@ -79,7 +75,7 @@ ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = {
       fields: [
         { name: 'fast_pair_data_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

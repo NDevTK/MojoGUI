@@ -68,11 +68,7 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.OutputProtection_QueryStatus_ParamsSpec,
       media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enableProtection(desired_protection_mask) {
@@ -81,11 +77,7 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.OutputProtection_EnableProtection_ParamsSpec,
       media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      [desired_protection_mask],
-      undefined,
-      undefined
-    );
+      [desired_protection_mask]);
   }
 
 };
@@ -108,7 +100,7 @@ media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -123,7 +115,7 @@ media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
         { name: 'link_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'protection_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,7 +129,7 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
       fields: [
         { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -150,7 +142,7 @@ media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

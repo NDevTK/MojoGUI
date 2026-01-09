@@ -72,11 +72,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler
       0,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
       null,
-      null,
-      [client, handler],
-      undefined,
-      undefined
-    );
+      [client, handler]);
   }
 
 };
@@ -101,7 +97,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperS
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -152,11 +148,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       0,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getInspirations() {
@@ -165,11 +157,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       1,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getWallpaperSearchResults(result_descriptors) {
@@ -178,11 +166,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       2,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
-      [result_descriptors],
-      undefined,
-      undefined
-    );
+      [result_descriptors]);
   }
 
   setResultRenderTime(result_ids, time) {
@@ -191,11 +175,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       3,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
       null,
-      null,
-      [result_ids, time],
-      undefined,
-      undefined
-    );
+      [result_ids, time]);
   }
 
   setBackgroundToHistoryImage(result_id, descriptors) {
@@ -204,11 +184,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       4,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
       null,
-      null,
-      [result_id, descriptors],
-      undefined,
-      undefined
-    );
+      [result_id, descriptors]);
   }
 
   setBackgroundToInspirationImage(id, background_url) {
@@ -217,11 +193,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       5,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
       null,
-      null,
-      [id, background_url],
-      undefined,
-      undefined
-    );
+      [id, background_url]);
   }
 
   setBackgroundToWallpaperSearchResult(result_id, time, descriptors) {
@@ -230,11 +202,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       6,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
       null,
-      null,
-      [result_id, time, descriptors],
-      undefined,
-      undefined
-    );
+      [result_id, time, descriptors]);
   }
 
   updateHistory() {
@@ -243,11 +211,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       7,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setUserFeedback(selected_option) {
@@ -256,11 +220,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       8,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
       null,
-      null,
-      [selected_option],
-      undefined,
-      undefined
-    );
+      [selected_option]);
   }
 
   openHelpArticle() {
@@ -269,11 +229,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       9,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   launchHatsSurvey() {
@@ -282,11 +238,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       10,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -309,7 +261,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -322,7 +274,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Response
       fields: [
         { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -335,7 +287,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -348,7 +300,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_Respons
       fields: [
         { name: 'inspirationGroups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -362,7 +314,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
       fields: [
         { name: 'result_descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,7 +328,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +343,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_Par
         { name: 'result_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +358,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryI
         { name: 'result_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'descriptors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -421,7 +373,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirat
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'background_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -437,7 +389,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpape
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'descriptors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -450,7 +402,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,7 +416,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsS
       fields: [
         { name: 'selected_option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -477,7 +429,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -490,7 +442,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -541,11 +493,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class
       0,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
       null,
-      null,
-      [history],
-      undefined,
-      undefined
-    );
+      [history]);
   }
 
 };
@@ -569,7 +517,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = 
       fields: [
         { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

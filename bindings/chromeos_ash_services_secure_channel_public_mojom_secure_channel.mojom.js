@@ -127,11 +127,7 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   registerPayloadFile(payload_id, payload_files, listener) {
@@ -140,11 +136,7 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
       1,  // ordinal
       ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec,
       ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
-      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
-      [payload_id, payload_files, listener],
-      undefined,
-      undefined
-    );
+      [payload_id, payload_files, listener]);
   }
 
   getConnectionMetadata() {
@@ -153,11 +145,7 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
       2,  // ordinal
       ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec,
       ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
-      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -181,7 +169,7 @@ ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +185,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
         { name: 'payload_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +198,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +211,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +224,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -287,11 +275,7 @@ ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -315,7 +299,7 @@ ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -366,11 +350,7 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec,
       null,
-      null,
-      [reason],
-      undefined,
-      undefined
-    );
+      [reason]);
   }
 
   onConnection(channel, message_receiver_receiver, nearby_connection_state_listener_receiver) {
@@ -379,11 +359,7 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
       1,  // ordinal
       ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec,
       null,
-      null,
-      [channel, message_receiver_receiver, nearby_connection_state_listener_receiver],
-      undefined,
-      undefined
-    );
+      [channel, message_receiver_receiver, nearby_connection_state_listener_receiver]);
   }
 
 };
@@ -407,7 +383,7 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpe
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -423,7 +399,7 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
         { name: 'message_receiver_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'nearby_connection_state_listener_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -474,11 +450,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
       0,  // ordinal
       ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec,
       null,
-      null,
-      [result, error_code],
-      undefined,
-      undefined
-    );
+      [result, error_code]);
   }
 
   logNearbyConnectionState(step, status) {
@@ -487,11 +459,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
       1,  // ordinal
       ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec,
       null,
-      null,
-      [step, status],
-      undefined,
-      undefined
-    );
+      [step, status]);
   }
 
   logSecureChannelState(state) {
@@ -500,11 +468,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
       2,  // ordinal
       ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
 };
@@ -529,7 +493,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttemp
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -544,7 +508,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectio
         { name: 'step', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -558,7 +522,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelSt
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -609,11 +573,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec,
       null,
-      null,
-      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate],
-      undefined,
-      undefined
-    );
+      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate]);
   }
 
   initiateConnectionToDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger) {
@@ -622,11 +582,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       1,  // ordinal
       ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec,
       null,
-      null,
-      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger],
-      undefined,
-      undefined
-    );
+      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger]);
   }
 
   setNearbyConnector(nearby_connector) {
@@ -635,11 +591,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       2,  // ordinal
       ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec,
       null,
-      null,
-      [nearby_connector],
-      undefined,
-      undefined
-    );
+      [nearby_connector]);
   }
 
   getLastSeenTimestamp(remote_device_id) {
@@ -648,11 +600,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       3,  // ordinal
       ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec,
       ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
-      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
-      [remote_device_id],
-      undefined,
-      undefined
-    );
+      [remote_device_id]);
   }
 
 };
@@ -681,7 +629,7 @@ ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec 
         { name: 'connection_priority', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -701,7 +649,7 @@ ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
         { name: 'delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'secure_channel_structured_metrics_logger', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 64}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -715,7 +663,7 @@ ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
       fields: [
         { name: 'nearby_connector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -729,7 +677,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
       fields: [
         { name: 'remote_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -742,7 +690,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec =
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

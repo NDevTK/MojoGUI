@@ -51,11 +51,7 @@ chromecast.media.mojom.VideoGeometryChangeClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec,
       null,
-      null,
-      [rect_f, transform],
-      undefined,
-      undefined
-    );
+      [rect_f, transform]);
   }
 
 };
@@ -80,7 +76,7 @@ chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpe
         { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRemoteCallHandler = class {
       0,  // ordinal
       chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec,
       null,
-      null,
-      [overlay_plane_id, client_pending_remote],
-      undefined,
-      undefined
-    );
+      [overlay_plane_id, client_pending_remote]);
   }
 
 };
@@ -160,7 +152,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryCha
         { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client_pending_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,11 +203,7 @@ chromecast.media.mojom.VideoGeometrySetterRemoteCallHandler = class {
       0,  // ordinal
       chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec,
       null,
-      null,
-      [rect_f, transform, overlay_plane_id],
-      undefined,
-      undefined
-    );
+      [rect_f, transform, overlay_plane_id]);
   }
 
 };
@@ -241,7 +229,7 @@ chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = {
         { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'overlay_plane_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

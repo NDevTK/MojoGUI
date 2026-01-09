@@ -50,11 +50,7 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.MtpManagerClient_StorageAttached_ParamsSpec,
       null,
-      null,
-      [storage_info],
-      undefined,
-      undefined
-    );
+      [storage_info]);
   }
 
   storageDetached(storage_name) {
@@ -63,11 +59,7 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.MtpManagerClient_StorageDetached_ParamsSpec,
       null,
-      null,
-      [storage_name],
-      undefined,
-      undefined
-    );
+      [storage_name]);
   }
 
 };
@@ -91,7 +83,7 @@ device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
       fields: [
         { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = {
       fields: [
         { name: 'storage_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,11 +148,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec,
       device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
-      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
   getStorageInfo(storage_name) {
@@ -169,11 +157,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.MtpManager_GetStorageInfo_ParamsSpec,
       device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
-      device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
-      [storage_name],
-      undefined,
-      undefined
-    );
+      [storage_name]);
   }
 
   getStorageInfoFromDevice(storage_name) {
@@ -182,11 +166,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec,
       device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
-      device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
-      [storage_name],
-      undefined,
-      undefined
-    );
+      [storage_name]);
   }
 
   openStorage(storage_name, mode) {
@@ -195,11 +175,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.MtpManager_OpenStorage_ParamsSpec,
       device.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
-      device.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
-      [storage_name, mode],
-      undefined,
-      undefined
-    );
+      [storage_name, mode]);
   }
 
   closeStorage(storage_handle) {
@@ -208,11 +184,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.MtpManager_CloseStorage_ParamsSpec,
       device.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
-      device.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
-      [storage_handle],
-      undefined,
-      undefined
-    );
+      [storage_handle]);
   }
 
   createDirectory(storage_handle, parent_id, directory_name) {
@@ -221,11 +193,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.MtpManager_CreateDirectory_ParamsSpec,
       device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
-      device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
-      [storage_handle, parent_id, directory_name],
-      undefined,
-      undefined
-    );
+      [storage_handle, parent_id, directory_name]);
   }
 
   readDirectoryEntryIds(storage_handle, file_id) {
@@ -234,11 +202,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec,
       device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
-      device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
-      [storage_handle, file_id],
-      undefined,
-      undefined
-    );
+      [storage_handle, file_id]);
   }
 
   readFileChunk(storage_handle, file_id, offset, count) {
@@ -247,11 +211,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.MtpManager_ReadFileChunk_ParamsSpec,
       device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
-      device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
-      [storage_handle, file_id, offset, count],
-      undefined,
-      undefined
-    );
+      [storage_handle, file_id, offset, count]);
   }
 
   getFileInfo(storage_handle, file_ids) {
@@ -260,11 +220,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.MtpManager_GetFileInfo_ParamsSpec,
       device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
-      device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
-      [storage_handle, file_ids],
-      undefined,
-      undefined
-    );
+      [storage_handle, file_ids]);
   }
 
   renameObject(storage_handle, object_id, new_name) {
@@ -273,11 +229,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       9,  // ordinal
       device.mojom.MtpManager_RenameObject_ParamsSpec,
       device.mojom.MtpManager_RenameObject_ResponseParamsSpec,
-      device.mojom.MtpManager_RenameObject_ResponseParamsSpec,
-      [storage_handle, object_id, new_name],
-      undefined,
-      undefined
-    );
+      [storage_handle, object_id, new_name]);
   }
 
   copyFileFromLocal(storage_handle, source_file_descriptor, parent_id, file_name) {
@@ -286,11 +238,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       10,  // ordinal
       device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec,
       device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
-      device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
-      [storage_handle, source_file_descriptor, parent_id, file_name],
-      undefined,
-      undefined
-    );
+      [storage_handle, source_file_descriptor, parent_id, file_name]);
   }
 
   deleteObject(storage_handle, object_id) {
@@ -299,11 +247,7 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       11,  // ordinal
       device.mojom.MtpManager_DeleteObject_ParamsSpec,
       device.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
-      device.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
-      [storage_handle, object_id],
-      undefined,
-      undefined
-    );
+      [storage_handle, object_id]);
   }
 
 };
@@ -327,7 +271,7 @@ device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +284,7 @@ device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = {
       fields: [
         { name: 'storages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +298,7 @@ device.mojom.MtpManager_GetStorageInfo_ParamsSpec = {
       fields: [
         { name: 'storage_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -367,7 +311,7 @@ device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
       fields: [
         { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -381,7 +325,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = {
       fields: [
         { name: 'storage_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -395,7 +339,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
         { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -410,7 +354,7 @@ device.mojom.MtpManager_OpenStorage_ParamsSpec = {
         { name: 'storage_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -424,7 +368,7 @@ device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = {
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +382,7 @@ device.mojom.MtpManager_CloseStorage_ParamsSpec = {
       fields: [
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -451,7 +395,7 @@ device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -467,7 +411,7 @@ device.mojom.MtpManager_CreateDirectory_ParamsSpec = {
         { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'directory_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,7 +424,7 @@ device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -495,7 +439,7 @@ device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = {
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'file_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -509,7 +453,7 @@ device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = {
         { name: 'file_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -526,7 +470,7 @@ device.mojom.MtpManager_ReadFileChunk_ParamsSpec = {
         { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -540,7 +484,7 @@ device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -555,7 +499,7 @@ device.mojom.MtpManager_GetFileInfo_ParamsSpec = {
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'file_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -569,7 +513,7 @@ device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = {
         { name: 'file_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -585,7 +529,7 @@ device.mojom.MtpManager_RenameObject_ParamsSpec = {
         { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'new_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -598,7 +542,7 @@ device.mojom.MtpManager_RenameObject_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -615,7 +559,7 @@ device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = {
         { name: 'parent_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'file_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -628,7 +572,7 @@ device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -643,7 +587,7 @@ device.mojom.MtpManager_DeleteObject_ParamsSpec = {
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -656,7 +600,7 @@ device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

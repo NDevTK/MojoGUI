@@ -50,11 +50,7 @@ ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AccessibilityFileLoader_Load_ParamsSpec,
       ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
-      ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
-      [path],
-      undefined,
-      undefined
-    );
+      [path]);
   }
 
 };
@@ -78,7 +74,7 @@ ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

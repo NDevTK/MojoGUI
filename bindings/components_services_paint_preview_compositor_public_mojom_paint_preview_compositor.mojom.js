@@ -65,11 +65,7 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       0,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
   bitmapForSeparatedFrame(frame_guid, clip_rect, scale_factor) {
@@ -78,11 +74,7 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       1,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
-      [frame_guid, clip_rect, scale_factor],
-      undefined,
-      undefined
-    );
+      [frame_guid, clip_rect, scale_factor]);
   }
 
   beginMainFrameComposite(request) {
@@ -91,11 +83,7 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       2,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
   bitmapForMainFrame(clip_rect, scale_factor) {
@@ -104,11 +92,7 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       3,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
-      [clip_rect, scale_factor],
-      undefined,
-      undefined
-    );
+      [clip_rect, scale_factor]);
   }
 
   setRootFrameUrl(url) {
@@ -117,11 +101,7 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       4,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
 };
@@ -145,7 +125,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSp
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,7 +139,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Response
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -175,7 +155,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = 
         { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -189,7 +169,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParam
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -203,7 +183,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = 
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -217,7 +197,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParam
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -232,7 +212,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
         { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +226,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -260,7 +240,7 @@ paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,11 +291,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
       0,  // ordinal
       paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
       null,
-      null,
-      [manager],
-      undefined,
-      undefined
-    );
+      [manager]);
   }
 
   createCompositor(compositor) {
@@ -324,11 +300,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
       1,  // ordinal
       paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
-      [compositor],
-      undefined,
-      undefined
-    );
+      [compositor]);
   }
 
   listCompositors() {
@@ -337,11 +309,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
       2,  // ordinal
       paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -365,7 +333,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryM
       fields: [
         { name: 'manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -379,7 +347,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec
       fields: [
         { name: 'compositor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -392,7 +360,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponsePa
       fields: [
         { name: 'compositor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +373,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -418,7 +386,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponsePar
       fields: [
         { name: 'compositor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

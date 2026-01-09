@@ -50,11 +50,7 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
       network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
-      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
-      [origin, accept_ch_frame],
-      undefined,
-      undefined
-    );
+      [origin, accept_ch_frame]);
   }
 
   clone(listener) {
@@ -63,11 +59,7 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
 };
@@ -92,7 +84,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'accept_ch_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -119,7 +111,7 @@ network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

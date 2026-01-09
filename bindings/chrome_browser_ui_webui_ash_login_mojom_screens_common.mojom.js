@@ -65,11 +65,7 @@ ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -92,7 +88,7 @@ ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,11 +139,7 @@ ash.screens_common.mojom.AiIntroPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec,
       null,
-      null,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
 };
@@ -171,7 +163,7 @@ ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,11 +214,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -249,7 +237,7 @@ ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -300,11 +288,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec,
       null,
-      null,
-      [enable_drive_pinning],
-      undefined,
-      undefined
-    );
+      [enable_drive_pinning]);
   }
 
   onNextClicked(enable_drive_pinning) {
@@ -313,11 +297,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec,
       null,
-      null,
-      [enable_drive_pinning],
-      undefined,
-      undefined
-    );
+      [enable_drive_pinning]);
   }
 
 };
@@ -341,7 +321,7 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
       fields: [
         { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -355,7 +335,7 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
       fields: [
         { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,11 +386,7 @@ ash.screens_common.mojom.DrivePinningPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec,
       null,
-      null,
-      [required_space, free_space],
-      undefined,
-      undefined
-    );
+      [required_space, free_space]);
   }
 
 };
@@ -435,7 +411,7 @@ ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
         { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -486,11 +462,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -513,7 +485,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,11 +536,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onNextClicked(user_flow) {
@@ -577,11 +545,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec,
       null,
-      null,
-      [user_flow],
-      undefined,
-      undefined
-    );
+      [user_flow]);
   }
 
 };
@@ -604,7 +568,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -618,7 +582,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
       fields: [
         { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -669,11 +633,7 @@ ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -696,7 +656,7 @@ ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -747,11 +707,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec,
       null,
-      null,
-      [page],
-      undefined,
-      undefined
-    );
+      [page]);
   }
 
   onSkipClicked() {
@@ -760,11 +716,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onExitClicked() {
@@ -773,11 +725,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -801,7 +749,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = 
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -814,7 +762,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -827,7 +775,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -878,11 +826,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onNextClicked() {
@@ -891,11 +835,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -918,7 +858,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -931,7 +871,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

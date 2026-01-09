@@ -51,11 +51,7 @@ ash.ime.mojom.InputChannelRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec,
       ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
-      ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -79,7 +75,7 @@ ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

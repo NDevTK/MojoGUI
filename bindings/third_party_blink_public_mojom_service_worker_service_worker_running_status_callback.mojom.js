@@ -50,11 +50,7 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

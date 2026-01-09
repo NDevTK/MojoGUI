@@ -50,11 +50,7 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
       0,  // ordinal
       network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
       null,
-      null,
-      [url_list],
-      undefined,
-      undefined
-    );
+      [url_list]);
   }
 
   preconnect(url, allow_credentials) {
@@ -63,11 +59,7 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
       1,  // ordinal
       network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
       null,
-      null,
-      [url, allow_credentials],
-      undefined,
-      undefined
-    );
+      [url, allow_credentials]);
   }
 
 };
@@ -91,7 +83,7 @@ network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
       fields: [
         { name: 'url_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'allow_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

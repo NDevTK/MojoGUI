@@ -51,11 +51,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
       0,  // ordinal
       commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showFeedback() {
@@ -64,11 +60,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
       1,  // ordinal
       commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,11 +147,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemoteCallHandler = cla
       0,  // ordinal
       commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -183,7 +171,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHan
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

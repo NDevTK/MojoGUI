@@ -57,11 +57,7 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
       0,  // ordinal
       cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
       null,
-      null,
-      [frequency],
-      undefined,
-      undefined
-    );
+      [frequency]);
   }
 
   reportAllFrameSubmissionsForTesting(enabled) {
@@ -70,11 +66,7 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
       1,  // ordinal
       cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -98,7 +90,7 @@ cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Param
       fields: [
         { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -112,7 +104,7 @@ cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsS
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,11 +155,7 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
       0,  // ordinal
       cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
       null,
-      null,
-      [frame_token, metadata],
-      undefined,
-      undefined
-    );
+      [frame_token, metadata]);
   }
 
   onFrameSubmissionForTesting(frame_token) {
@@ -176,11 +164,7 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
       1,  // ordinal
       cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
       null,
-      null,
-      [frame_token],
-      undefined,
-      undefined
-    );
+      [frame_token]);
   }
 
   onRootScrollOffsetChanged(root_scroll_offset) {
@@ -189,11 +173,7 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
       2,  // ordinal
       cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
       null,
-      null,
-      [root_scroll_offset],
-      undefined,
-      undefined
-    );
+      [root_scroll_offset]);
   }
 
 };
@@ -218,7 +198,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSp
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -232,7 +212,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpe
       fields: [
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +226,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec 
       fields: [
         { name: 'root_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

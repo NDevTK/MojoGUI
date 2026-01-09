@@ -61,11 +61,7 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DigitalIdentityRequest_Get_ParamsSpec,
       blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec,
-      blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec,
-      [digital_credential_requests],
-      undefined,
-      undefined
-    );
+      [digital_credential_requests]);
   }
 
   create(digital_credential_requests) {
@@ -74,11 +70,7 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DigitalIdentityRequest_Create_ParamsSpec,
       blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec,
-      blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec,
-      [digital_credential_requests],
-      undefined,
-      undefined
-    );
+      [digital_credential_requests]);
   }
 
   abort() {
@@ -87,11 +79,7 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -115,7 +103,7 @@ blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
       fields: [
         { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +118,7 @@ blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
         { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +132,7 @@ blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
       fields: [
         { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,7 +147,7 @@ blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
         { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,7 +160,7 @@ blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

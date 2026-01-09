@@ -79,11 +79,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       0,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec,
-      parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onParentAccessCallbackReceived(encoded_parent_access_callback_proto) {
@@ -92,11 +88,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       1,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec,
-      parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec,
-      [encoded_parent_access_callback_proto],
-      undefined,
-      undefined
-    );
+      [encoded_parent_access_callback_proto]);
   }
 
   getParentAccessParams() {
@@ -105,11 +97,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       2,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec,
-      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getParentAccessUrl() {
@@ -118,11 +106,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       3,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec,
-      parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onParentAccessDone(result) {
@@ -131,11 +115,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       4,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec,
       null,
-      null,
-      [result],
-      undefined,
-      undefined
-    );
+      [result]);
   }
 
   onBeforeScreenDone() {
@@ -144,11 +124,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       5,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -171,7 +147,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +161,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = 
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +175,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Para
       fields: [
         { name: 'encoded_parent_access_callback_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +188,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Resp
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +201,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -238,7 +214,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParam
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -251,7 +227,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +240,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSp
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +254,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,7 +267,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

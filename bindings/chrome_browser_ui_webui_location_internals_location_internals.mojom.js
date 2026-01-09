@@ -49,11 +49,7 @@ mojom.LocationInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -77,7 +73,7 @@ mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

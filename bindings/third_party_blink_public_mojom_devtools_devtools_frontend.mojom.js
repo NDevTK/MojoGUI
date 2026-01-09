@@ -50,11 +50,7 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec,
       null,
-      null,
-      [api_script, host],
-      undefined,
-      undefined
-    );
+      [api_script, host]);
   }
 
   setupDevToolsExtensionAPI(extension_api) {
@@ -63,11 +59,7 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec,
       null,
-      null,
-      [extension_api],
-      undefined,
-      undefined
-    );
+      [extension_api]);
   }
 
 };
@@ -92,7 +84,7 @@ blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = {
         { name: 'api_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = {
       fields: [
         { name: 'extension_api', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,11 +149,7 @@ blink.mojom.DevToolsFrontendHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -185,7 +173,7 @@ blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

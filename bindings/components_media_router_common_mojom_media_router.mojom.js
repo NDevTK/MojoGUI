@@ -78,11 +78,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec,
       media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec,
-      media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec,
-      [media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout],
-      undefined,
-      undefined
-    );
+      [media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout]);
   }
 
   joinRoute(media_source, presentation_id, origin, frame_tree_node_id, timeout) {
@@ -91,11 +87,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec,
       media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec,
-      media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec,
-      [media_source, presentation_id, origin, frame_tree_node_id, timeout],
-      undefined,
-      undefined
-    );
+      [media_source, presentation_id, origin, frame_tree_node_id, timeout]);
   }
 
   terminateRoute(route_id) {
@@ -104,11 +96,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec,
       media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec,
-      media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec,
-      [route_id],
-      undefined,
-      undefined
-    );
+      [route_id]);
   }
 
   sendRouteMessage(media_route_id, message) {
@@ -117,11 +105,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec,
       null,
-      null,
-      [media_route_id, message],
-      undefined,
-      undefined
-    );
+      [media_route_id, message]);
   }
 
   sendRouteBinaryMessage(media_route_id, data) {
@@ -130,11 +114,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       4,  // ordinal
       media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec,
       null,
-      null,
-      [media_route_id, data],
-      undefined,
-      undefined
-    );
+      [media_route_id, data]);
   }
 
   startObservingMediaSinks(media_source) {
@@ -143,11 +123,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       5,  // ordinal
       media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec,
       null,
-      null,
-      [media_source],
-      undefined,
-      undefined
-    );
+      [media_source]);
   }
 
   stopObservingMediaSinks(media_source) {
@@ -156,11 +132,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       6,  // ordinal
       media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec,
       null,
-      null,
-      [media_source],
-      undefined,
-      undefined
-    );
+      [media_source]);
   }
 
   startObservingMediaRoutes() {
@@ -169,11 +141,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       7,  // ordinal
       media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   detachRoute(route_id) {
@@ -182,11 +150,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       8,  // ordinal
       media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec,
       null,
-      null,
-      [route_id],
-      undefined,
-      undefined
-    );
+      [route_id]);
   }
 
   discoverSinksNow() {
@@ -195,11 +159,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       9,  // ordinal
       media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   bindMediaController(route_id, media_controller, observer) {
@@ -208,11 +168,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       10,  // ordinal
       media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec,
       media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec,
-      media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec,
-      [route_id, media_controller, observer],
-      undefined,
-      undefined
-    );
+      [route_id, media_controller, observer]);
   }
 
   getState() {
@@ -221,11 +177,7 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       11,  // ordinal
       media_router.mojom.MediaRouteProvider_GetState_ParamsSpec,
       media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec,
-      media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -254,7 +206,7 @@ media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = {
         { name: 'frame_tree_node_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'timeout', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -270,7 +222,7 @@ media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = {
         { name: 'error_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -288,7 +240,7 @@ media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = {
         { name: 'frame_tree_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'timeout', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -304,7 +256,7 @@ media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = {
         { name: 'error_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -318,7 +270,7 @@ media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = {
       fields: [
         { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -332,7 +284,7 @@ media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = {
         { name: 'error_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,7 +299,7 @@ media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec = {
         { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -362,7 +314,7 @@ media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec = {
         { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,7 +328,7 @@ media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec = {
       fields: [
         { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -390,7 +342,7 @@ media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec = {
       fields: [
         { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -403,7 +355,7 @@ media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -417,7 +369,7 @@ media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec = {
       fields: [
         { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -430,7 +382,7 @@ media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -446,7 +398,7 @@ media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
         { name: 'media_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -459,7 +411,7 @@ media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -472,7 +424,7 @@ media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -485,7 +437,7 @@ media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -536,11 +488,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec,
       null,
-      null,
-      [provider_id, media_router_provider],
-      undefined,
-      undefined
-    );
+      [provider_id, media_router_provider]);
   }
 
   onSinksReceived(provider_id, media_source, sinks, origins) {
@@ -549,11 +497,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec,
       null,
-      null,
-      [provider_id, media_source, sinks, origins],
-      undefined,
-      undefined
-    );
+      [provider_id, media_source, sinks, origins]);
   }
 
   onIssue(issue) {
@@ -562,11 +506,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.MediaRouter_OnIssue_ParamsSpec,
       null,
-      null,
-      [issue],
-      undefined,
-      undefined
-    );
+      [issue]);
   }
 
   clearTopIssueForSink(sink_id) {
@@ -575,11 +515,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec,
       null,
-      null,
-      [sink_id],
-      undefined,
-      undefined
-    );
+      [sink_id]);
   }
 
   onRoutesUpdated(provider_id, routes) {
@@ -588,11 +524,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       4,  // ordinal
       media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec,
       null,
-      null,
-      [provider_id, routes],
-      undefined,
-      undefined
-    );
+      [provider_id, routes]);
   }
 
   onPresentationConnectionStateChanged(route_id, state) {
@@ -601,11 +533,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       5,  // ordinal
       media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec,
       null,
-      null,
-      [route_id, state],
-      undefined,
-      undefined
-    );
+      [route_id, state]);
   }
 
   onPresentationConnectionClosed(route_id, reason, message) {
@@ -614,11 +542,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       6,  // ordinal
       media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec,
       null,
-      null,
-      [route_id, reason, message],
-      undefined,
-      undefined
-    );
+      [route_id, reason, message]);
   }
 
   onRouteMessagesReceived(route_id, messages) {
@@ -627,11 +551,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       7,  // ordinal
       media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec,
       null,
-      null,
-      [route_id, messages],
-      undefined,
-      undefined
-    );
+      [route_id, messages]);
   }
 
   getMediaSinkServiceStatus() {
@@ -640,11 +560,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       8,  // ordinal
       media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec,
       media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec,
-      media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getLogger(receiver) {
@@ -653,11 +569,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       9,  // ordinal
       media_router.mojom.MediaRouter_GetLogger_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   getDebugger(receiver) {
@@ -666,11 +578,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       10,  // ordinal
       media_router.mojom.MediaRouter_GetDebugger_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   getLogsAsString() {
@@ -679,11 +587,7 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       11,  // ordinal
       media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec,
       media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec,
-      media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -708,7 +612,7 @@ media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
         { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'media_router_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -725,7 +629,7 @@ media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = {
         { name: 'sinks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -739,7 +643,7 @@ media_router.mojom.MediaRouter_OnIssue_ParamsSpec = {
       fields: [
         { name: 'issue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -753,7 +657,7 @@ media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec = {
       fields: [
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -768,7 +672,7 @@ media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = {
         { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'routes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -783,7 +687,7 @@ media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec =
         { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -799,7 +703,7 @@ media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec = {
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -814,7 +718,7 @@ media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec = {
         { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -827,7 +731,7 @@ media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -840,7 +744,7 @@ media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -854,7 +758,7 @@ media_router.mojom.MediaRouter_GetLogger_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -868,7 +772,7 @@ media_router.mojom.MediaRouter_GetDebugger_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -881,7 +785,7 @@ media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -894,7 +798,7 @@ media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec = {
       fields: [
         { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       color_change_listener.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      null,
-      [page],
-      undefined,
-      undefined
-    );
+      [page]);
   }
 
 };
@@ -78,7 +74,7 @@ color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ color_change_listener.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -156,7 +148,7 @@ color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

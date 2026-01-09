@@ -66,11 +66,7 @@ tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -95,7 +91,7 @@ tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -146,11 +142,7 @@ tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
       tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
-      tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -173,7 +165,7 @@ tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,7 +178,7 @@ tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -237,11 +229,7 @@ tab_strip_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
 };
@@ -265,7 +253,7 @@ tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -78,11 +78,7 @@ blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
       null,
-      null,
-      [result, source_lang, target_lang],
-      undefined,
-      undefined
-    );
+      [result, source_lang, target_lang]);
   }
 
 };
@@ -108,7 +104,7 @@ blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = {
         { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,11 +155,7 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TranslationManager_CreateTranslator_ParamsSpec,
       null,
-      null,
-      [client, options],
-      undefined,
-      undefined
-    );
+      [client, options]);
   }
 
   translationAvailable(source_lang, target_lang) {
@@ -172,11 +164,7 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
       blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
-      blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
-      [source_lang, target_lang],
-      undefined,
-      undefined
-    );
+      [source_lang, target_lang]);
   }
 
 };
@@ -201,7 +189,7 @@ blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -216,7 +204,7 @@ blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
         { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -229,7 +217,7 @@ blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

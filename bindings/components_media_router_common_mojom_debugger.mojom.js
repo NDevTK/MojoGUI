@@ -50,11 +50,7 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
       media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
-      media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onMirroringStats(json_stats) {
@@ -63,11 +59,7 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.Debugger_OnMirroringStats_ParamsSpec,
       null,
-      null,
-      [json_stats],
-      undefined,
-      undefined
-    );
+      [json_stats]);
   }
 
   bindReceiver(receiver) {
@@ -76,11 +68,7 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.Debugger_BindReceiver_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -103,7 +91,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +104,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
       fields: [
         { name: 'should_fetch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +118,7 @@ media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
       fields: [
         { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +132,7 @@ media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

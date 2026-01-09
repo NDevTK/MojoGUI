@@ -52,11 +52,7 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec,
       ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec,
-      ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   waitLastCall() {
@@ -65,11 +61,7 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fulfillLastCallCallback() {
@@ -78,11 +70,7 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -105,7 +93,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +106,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
       fields: [
         { name: 'has_next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +119,7 @@ ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +132,7 @@ ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -195,11 +183,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
       0,  // ordinal
       ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec,
       null,
-      null,
-      [remote, receiver],
-      undefined,
-      undefined
-    );
+      [remote, receiver]);
   }
 
   bindTestProvider(interface_name, receiver) {
@@ -208,11 +192,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
       1,  // ordinal
       ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec,
       null,
-      null,
-      [interface_name, receiver],
-      undefined,
-      undefined
-    );
+      [interface_name, receiver]);
   }
 
 };
@@ -237,7 +217,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsS
         { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +232,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Pa
         { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

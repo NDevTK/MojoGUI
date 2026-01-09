@@ -51,11 +51,7 @@ ash.crostini_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -80,7 +76,7 @@ ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
-      null,
-      [disk_size, username],
-      undefined,
-      undefined
-    );
+      [disk_size, username]);
   }
 
   cancel() {
@@ -144,11 +136,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancelBeforeStart() {
@@ -157,11 +145,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onPageClosed() {
@@ -170,11 +154,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestAmountOfFreeDiskSpace() {
@@ -183,11 +163,7 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec,
       ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec,
-      ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -212,7 +188,7 @@ ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = {
         { name: 'disk_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +201,7 @@ ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -238,7 +214,7 @@ ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -251,7 +227,7 @@ ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +240,7 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -279,7 +255,7 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponsePa
         { name: 'default_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
         { name: 'is_low_space_available', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,11 +306,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
-      null,
-      [install_state, progress_fraction],
-      undefined,
-      undefined
-    );
+      [install_state, progress_fraction]);
   }
 
   onInstallFinished(error) {
@@ -343,11 +315,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
-      null,
-      [error],
-      undefined,
-      undefined
-    );
+      [error]);
   }
 
   onCanceled() {
@@ -356,11 +324,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestClose() {
@@ -369,11 +333,7 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -398,7 +358,7 @@ ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
         { name: 'install_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'progress_fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -412,7 +372,7 @@ ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -425,7 +385,7 @@ ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +398,7 @@ ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

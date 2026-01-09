@@ -62,11 +62,7 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   retrieveHeapProfile() {
@@ -75,11 +71,7 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
       heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
-      heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -103,7 +95,7 @@ heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +108,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +121,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
       fields: [
         { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

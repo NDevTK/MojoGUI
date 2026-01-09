@@ -50,11 +50,7 @@ web_cache.mojom.WebCacheRemoteCallHandler = class {
       0,  // ordinal
       web_cache.mojom.WebCache_ClearCache_ParamsSpec,
       null,
-      null,
-      [on_navigation],
-      undefined,
-      undefined
-    );
+      [on_navigation]);
   }
 
 };
@@ -78,7 +74,7 @@ web_cache.mojom.WebCache_ClearCache_ParamsSpec = {
       fields: [
         { name: 'on_navigation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

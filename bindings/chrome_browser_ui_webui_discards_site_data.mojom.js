@@ -50,11 +50,7 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
       discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
-      discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
-      [explicitly_requested_origins],
-      undefined,
-      undefined
-    );
+      [explicitly_requested_origins]);
   }
 
   getSiteDataDatabaseSize() {
@@ -63,11 +59,7 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
       discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
-      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
       fields: [
         { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -117,7 +109,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +122,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
       fields: [
         { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

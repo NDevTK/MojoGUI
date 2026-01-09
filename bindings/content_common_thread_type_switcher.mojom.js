@@ -50,11 +50,7 @@ content.mojom.ThreadTypeSwitcherRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec,
       null,
-      null,
-      [platform_thread_id, thread_type],
-      undefined,
-      undefined
-    );
+      [platform_thread_id, thread_type]);
   }
 
 };
@@ -79,7 +75,7 @@ content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
         { name: 'platform_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'thread_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

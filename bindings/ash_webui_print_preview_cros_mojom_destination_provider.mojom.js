@@ -52,11 +52,7 @@ ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
       ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
-      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
-      [destination_id, printer_type],
-      undefined,
-      undefined
-    );
+      [destination_id, printer_type]);
   }
 
 };
@@ -81,7 +77,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpe
         { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'printer_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -94,7 +90,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseP
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

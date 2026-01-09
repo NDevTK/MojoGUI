@@ -50,11 +50,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
-      [outside_fetch_client_settings_object],
-      undefined,
-      undefined
-    );
+      [outside_fetch_client_settings_object]);
   }
 
   unregister() {
@@ -63,11 +59,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enableNavigationPreload(enable) {
@@ -76,11 +68,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
-      [enable],
-      undefined,
-      undefined
-    );
+      [enable]);
   }
 
   getNavigationPreloadState() {
@@ -89,11 +77,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setNavigationPreloadHeader(value) {
@@ -102,11 +86,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
 };
@@ -130,7 +110,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
       fields: [
         { name: 'outside_fetch_client_settings_object', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +124,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +137,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +151,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = 
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +165,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSp
       fields: [
         { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +179,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_Response
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +192,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -227,7 +207,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Respon
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -241,7 +221,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Param
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -255,7 +235,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Respo
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -306,11 +286,7 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec,
       null,
-      null,
-      [changed_mask, installing, waiting, active],
-      undefined,
-      undefined
-    );
+      [changed_mask, installing, waiting, active]);
   }
 
   setUpdateViaCache(update_via_cache) {
@@ -319,11 +295,7 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec,
       null,
-      null,
-      [update_via_cache],
-      undefined,
-      undefined
-    );
+      [update_via_cache]);
   }
 
   updateFound() {
@@ -332,11 +304,7 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -363,7 +331,7 @@ blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec =
         { name: 'waiting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +345,7 @@ blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
       fields: [
         { name: 'update_via_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -390,7 +358,7 @@ blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

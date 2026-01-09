@@ -50,11 +50,7 @@ on_device_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec,
       on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      [model_path, performance_hint, model],
-      undefined,
-      undefined
-    );
+      [model_path, performance_hint, model]);
   }
 
   loadPlatformModel(model_path, model) {
@@ -143,11 +135,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec,
       on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec,
-      on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec,
-      [model_path, model],
-      undefined,
-      undefined
-    );
+      [model_path, model]);
   }
 
   getDeviceAndPerformanceInfo() {
@@ -156,11 +144,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec,
       on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDefaultModelPath() {
@@ -169,11 +153,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec,
       on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec,
-      on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   uninstallDefaultModel() {
@@ -182,11 +162,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getPageData() {
@@ -195,11 +171,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec,
       on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec,
-      on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setFeatureRecentlyUsedState(feature_key, is_recently_used) {
@@ -208,11 +180,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec,
       null,
-      null,
-      [feature_key, is_recently_used],
-      undefined,
-      undefined
-    );
+      [feature_key, is_recently_used]);
   }
 
   decodeBitmap(image_buffer) {
@@ -221,11 +189,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec,
       on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec,
-      on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec,
-      [image_buffer],
-      undefined,
-      undefined
-    );
+      [image_buffer]);
   }
 
   resetModelCrashCount() {
@@ -234,11 +198,7 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -264,7 +224,7 @@ on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
         { name: 'performance_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +238,7 @@ on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -293,7 +253,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
         { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -306,7 +266,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -319,7 +279,7 @@ on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -333,7 +293,7 @@ on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParams
         { name: 'performance_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -346,7 +306,7 @@ on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -359,7 +319,7 @@ on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
       fields: [
         { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -372,7 +332,7 @@ on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -385,7 +345,7 @@ on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -398,7 +358,7 @@ on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
       fields: [
         { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -413,7 +373,7 @@ on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = {
         { name: 'feature_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_recently_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -427,7 +387,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
       fields: [
         { name: 'image_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -440,7 +400,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
       fields: [
         { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -453,7 +413,7 @@ on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -504,11 +464,7 @@ on_device_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      null,
-      [event_time, source_file, source_line, message],
-      undefined,
-      undefined
-    );
+      [event_time, source_file, source_line, message]);
   }
 
   onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
@@ -517,11 +473,7 @@ on_device_internals.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      null,
-      [downloaded_bytes, total_bytes],
-      undefined,
-      undefined
-    );
+      [downloaded_bytes, total_bytes]);
   }
 
 };
@@ -548,7 +500,7 @@ on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
         { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -563,7 +515,7 @@ on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = {
         { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

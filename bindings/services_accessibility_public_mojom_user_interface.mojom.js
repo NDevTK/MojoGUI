@@ -63,11 +63,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.UserInterface_DarkenScreen_ParamsSpec,
       null,
-      null,
-      [darken],
-      undefined,
-      undefined
-    );
+      [darken]);
   }
 
   openSettingsSubpage(subpage) {
@@ -76,11 +72,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
       null,
-      null,
-      [subpage],
-      undefined,
-      undefined
-    );
+      [subpage]);
   }
 
   showConfirmationDialog(title, description, cancelName) {
@@ -89,11 +81,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
       ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
-      ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
-      [title, description, cancelName],
-      undefined,
-      undefined
-    );
+      [title, description, cancelName]);
   }
 
   setFocusRings(focus_rings, at_type) {
@@ -102,11 +90,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.UserInterface_SetFocusRings_ParamsSpec,
       null,
-      null,
-      [focus_rings, at_type],
-      undefined,
-      undefined
-    );
+      [focus_rings, at_type]);
   }
 
   setHighlights(rects, color) {
@@ -115,11 +99,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.UserInterface_SetHighlights_ParamsSpec,
       null,
-      null,
-      [rects, color],
-      undefined,
-      undefined
-    );
+      [rects, color]);
   }
 
   setVirtualKeyboardVisible(is_visible) {
@@ -128,11 +108,7 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
       null,
-      null,
-      [is_visible],
-      undefined,
-      undefined
-    );
+      [is_visible]);
   }
 
 };
@@ -156,7 +132,7 @@ ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
       fields: [
         { name: 'darken', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +146,7 @@ ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
       fields: [
         { name: 'subpage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,7 +162,7 @@ ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
         { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'cancelName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +175,7 @@ ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
       fields: [
         { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -214,7 +190,7 @@ ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
         { name: 'focus_rings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'at_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -229,7 +205,7 @@ ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
         { name: 'rects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -243,7 +219,7 @@ ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
       fields: [
         { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

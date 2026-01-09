@@ -56,11 +56,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       0,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
       add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
-      add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getInstalledArcApps() {
@@ -69,11 +65,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       1,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
       add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
-      add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getOAuthToken() {
@@ -82,11 +74,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       2,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
       add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
-      add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   logOut() {
@@ -95,11 +83,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       3,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   notifySupervisionEnabled() {
@@ -108,11 +92,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       4,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setCloseOnEscape(enabled) {
@@ -121,11 +101,7 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       5,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -148,7 +124,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -161,7 +137,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
       fields: [
         { name: 'closed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -174,7 +150,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -187,7 +163,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSp
       fields: [
         { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -200,7 +176,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -214,7 +190,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -227,7 +203,7 @@ add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +216,7 @@ add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -254,7 +230,7 @@ add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

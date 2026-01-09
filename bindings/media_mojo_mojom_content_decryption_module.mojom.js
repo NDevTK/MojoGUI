@@ -62,11 +62,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ContentDecryptionModule_SetClient_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
   setServerCertificate(certificate_data) {
@@ -75,11 +71,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
       media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
-      [certificate_data],
-      undefined,
-      undefined
-    );
+      [certificate_data]);
   }
 
   getStatusForPolicy(min_hdcp_version) {
@@ -88,11 +80,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
       media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
-      [min_hdcp_version],
-      undefined,
-      undefined
-    );
+      [min_hdcp_version]);
   }
 
   createSessionAndGenerateRequest(session_type, init_data_type, init_data) {
@@ -101,11 +89,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
       media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
-      [session_type, init_data_type, init_data],
-      undefined,
-      undefined
-    );
+      [session_type, init_data_type, init_data]);
   }
 
   loadSession(session_type, session_id) {
@@ -114,11 +98,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
-      [session_type, session_id],
-      undefined,
-      undefined
-    );
+      [session_type, session_id]);
   }
 
   updateSession(session_id, response) {
@@ -127,11 +107,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
-      [session_id, response],
-      undefined,
-      undefined
-    );
+      [session_id, response]);
   }
 
   closeSession(session_id) {
@@ -140,11 +116,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
-      [session_id],
-      undefined,
-      undefined
-    );
+      [session_id]);
   }
 
   removeSession(session_id) {
@@ -153,11 +125,7 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
-      media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
-      [session_id],
-      undefined,
-      undefined
-    );
+      [session_id]);
   }
 
 };
@@ -181,7 +149,7 @@ media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -195,7 +163,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
       fields: [
         { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,7 +176,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +190,7 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
       fields: [
         { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +204,7 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +220,7 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec =
         { name: 'init_data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'init_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +234,7 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponsePara
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -281,7 +249,7 @@ media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
         { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -295,7 +263,7 @@ media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -310,7 +278,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -323,7 +291,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -337,7 +305,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
       fields: [
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -350,7 +318,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +332,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
       fields: [
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +345,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -428,11 +396,7 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
       null,
-      null,
-      [session_id, message_type, message],
-      undefined,
-      undefined
-    );
+      [session_id, message_type, message]);
   }
 
   onSessionClosed(session_id, reason) {
@@ -441,11 +405,7 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
       null,
-      null,
-      [session_id, reason],
-      undefined,
-      undefined
-    );
+      [session_id, reason]);
   }
 
   onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
@@ -454,11 +414,7 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
       null,
-      null,
-      [session_id, has_additional_usable_key, keys_info],
-      undefined,
-      undefined
-    );
+      [session_id, has_additional_usable_key, keys_info]);
   }
 
   onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
@@ -467,11 +423,7 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
       null,
-      null,
-      [session_id, new_expiry_time_sec],
-      undefined,
-      undefined
-    );
+      [session_id, new_expiry_time_sec]);
   }
 
 };
@@ -497,7 +449,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
         { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -512,7 +464,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -528,7 +480,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
         { name: 'has_additional_usable_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'keys_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -543,7 +495,7 @@ media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec =
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -594,11 +546,7 @@ media.mojom.CdmFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmFactory_CreateCdm_ParamsSpec,
       media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      [cdm_config],
-      undefined,
-      undefined
-    );
+      [cdm_config]);
   }
 
 };
@@ -622,7 +570,7 @@ media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
       fields: [
         { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -637,7 +585,7 @@ media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
         { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

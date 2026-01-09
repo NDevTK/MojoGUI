@@ -50,11 +50,7 @@ data_decoder.mojom.CborParserRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.CborParser_Parse_ParamsSpec,
       data_decoder.mojom.CborParser_Parse_ResponseParamsSpec,
-      data_decoder.mojom.CborParser_Parse_ResponseParamsSpec,
-      [cbor],
-      undefined,
-      undefined
-    );
+      [cbor]);
   }
 
 };
@@ -78,7 +74,7 @@ data_decoder.mojom.CborParser_Parse_ParamsSpec = {
       fields: [
         { name: 'cbor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

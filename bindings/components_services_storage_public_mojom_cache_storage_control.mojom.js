@@ -56,11 +56,7 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
       null,
-      null,
-      [bucket_locator],
-      undefined,
-      undefined
-    );
+      [bucket_locator]);
   }
 
   onCacheContentChanged(bucket_locator, cache_name) {
@@ -69,11 +65,7 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
       null,
-      null,
-      [bucket_locator, cache_name],
-      undefined,
-      undefined
-    );
+      [bucket_locator, cache_name]);
   }
 
 };
@@ -97,7 +89,7 @@ storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
       fields: [
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -112,7 +104,7 @@ storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,11 +155,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
       null,
-      null,
-      [cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver],
-      undefined,
-      undefined
-    );
+      [cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver]);
   }
 
   addObserver(observer) {
@@ -176,11 +164,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.CacheStorageControl_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -189,11 +173,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      null,
-      [policy_updates],
-      undefined,
-      undefined
-    );
+      [policy_updates]);
   }
 
 };
@@ -223,7 +203,7 @@ storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
         { name: 'owner', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 64}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -237,7 +217,7 @@ storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -251,7 +231,7 @@ storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       fields: [
         { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

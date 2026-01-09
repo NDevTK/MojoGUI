@@ -51,11 +51,7 @@ ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -79,7 +75,7 @@ ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   toggleBrowserFullscreenMode() {
@@ -143,11 +135,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   maybeTriggerPdfHats() {
@@ -156,11 +144,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isFileArcWritable(token) {
@@ -169,11 +153,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec,
-      ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec,
-      [token],
-      undefined,
-      undefined
-    );
+      [token]);
   }
 
   isFileBrowserWritable(token) {
@@ -182,11 +162,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec,
-      ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec,
-      [token],
-      undefined,
-      undefined
-    );
+      [token]);
   }
 
   editInPhotos(token, mime_type) {
@@ -195,11 +171,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec,
       null,
-      null,
-      [token, mime_type],
-      undefined,
-      undefined
-    );
+      [token, mime_type]);
   }
 
   submitForm(url, payload, header) {
@@ -208,11 +180,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec,
       null,
-      null,
-      [url, payload, header],
-      undefined,
-      undefined
-    );
+      [url, payload, header]);
   }
 
 };
@@ -235,7 +203,7 @@ ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -248,7 +216,7 @@ ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,7 +229,7 @@ ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -274,7 +242,7 @@ ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -288,7 +256,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,7 +269,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = {
       fields: [
         { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,7 +283,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +296,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = {
       fields: [
         { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -343,7 +311,7 @@ ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -359,7 +327,7 @@ ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
         { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'header', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -56,11 +56,7 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.OmniboxPageHandler_SetClientPage_ParamsSpec,
       null,
-      null,
-      [page],
-      undefined,
-      undefined
-    );
+      [page]);
   }
 
   startOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification) {
@@ -69,11 +65,7 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec,
       null,
-      null,
-      [input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification],
-      undefined,
-      undefined
-    );
+      [input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification]);
   }
 
   getMlModelVersion() {
@@ -82,11 +74,7 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec,
       mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec,
-      mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startMl(signals) {
@@ -95,11 +83,7 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.OmniboxPageHandler_StartMl_ParamsSpec,
       mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec,
-      mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec,
-      [signals],
-      undefined,
-      undefined
-    );
+      [signals]);
   }
 
 };
@@ -123,7 +107,7 @@ mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +128,7 @@ mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = {
         { name: 'current_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'page_classification', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +141,7 @@ mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +154,7 @@ mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = {
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +168,7 @@ mojom.OmniboxPageHandler_StartMl_ParamsSpec = {
       fields: [
         { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +181,7 @@ mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = {
       fields: [
         { name: 'score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -248,11 +232,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
       0,  // ordinal
       mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec,
       null,
-      null,
-      [autocomplete_controller_type, input_text],
-      undefined,
-      undefined
-    );
+      [autocomplete_controller_type, input_text]);
   }
 
   handleNewAutocompleteResponse(autocomplete_controller_type, response) {
@@ -261,11 +241,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
       1,  // ordinal
       mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec,
       null,
-      null,
-      [autocomplete_controller_type, response],
-      undefined,
-      undefined
-    );
+      [autocomplete_controller_type, response]);
   }
 
   handleNewMlResponse(autocomplete_controller_type, input_text, matches) {
@@ -274,11 +250,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
       2,  // ordinal
       mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec,
       null,
-      null,
-      [autocomplete_controller_type, input_text, matches],
-      undefined,
-      undefined
-    );
+      [autocomplete_controller_type, input_text, matches]);
   }
 
   handleAnswerIconImageData(autocomplete_controller_type, image_url, image_data) {
@@ -287,11 +259,7 @@ mojom.OmniboxPageRemoteCallHandler = class {
       3,  // ordinal
       mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec,
       null,
-      null,
-      [autocomplete_controller_type, image_url, image_data],
-      undefined,
-      undefined
-    );
+      [autocomplete_controller_type, image_url, image_data]);
   }
 
 };
@@ -316,7 +284,7 @@ mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = {
         { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -331,7 +299,7 @@ mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = {
         { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,7 +315,7 @@ mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = {
         { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'matches', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,7 +331,7 @@ mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = {
         { name: 'image_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'image_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

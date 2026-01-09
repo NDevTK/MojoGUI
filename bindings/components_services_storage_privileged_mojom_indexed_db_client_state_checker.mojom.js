@@ -58,11 +58,7 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
       storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
-      storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
-      [connection_id, reason, keep_active],
-      undefined,
-      undefined
-    );
+      [connection_id, reason, keep_active]);
   }
 
   makeClone(receiver) {
@@ -71,11 +67,7 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -101,7 +93,7 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec = {
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'keep_active', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -114,7 +106,7 @@ storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsS
       fields: [
         { name: 'was_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -128,7 +120,7 @@ storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

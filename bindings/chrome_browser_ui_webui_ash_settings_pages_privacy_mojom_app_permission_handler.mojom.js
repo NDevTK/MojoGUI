@@ -52,11 +52,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       0,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   getApps() {
@@ -65,11 +61,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       1,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec,
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec,
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getSystemAppsThatUseCamera() {
@@ -78,11 +70,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       2,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec,
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec,
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getSystemAppsThatUseMicrophone() {
@@ -91,11 +79,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       3,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec,
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec,
-      ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openBrowserPermissionSettings(permission_type) {
@@ -104,11 +88,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       4,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec,
       null,
-      null,
-      [permission_type],
-      undefined,
-      undefined
-    );
+      [permission_type]);
   }
 
   openNativeSettings(app_id) {
@@ -117,11 +97,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       5,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   setPermission(app_id, permission) {
@@ -130,11 +106,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       6,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec,
       null,
-      null,
-      [app_id, permission],
-      undefined,
-      undefined
-    );
+      [app_id, permission]);
   }
 
 };
@@ -158,7 +130,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec =
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +143,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +156,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSp
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +169,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCame
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +182,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCame
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +195,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicr
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +208,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicr
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +222,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSet
       fields: [
         { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +236,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_Param
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -279,7 +251,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,11 +302,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
       0,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   onAppUpdated(app) {
@@ -343,11 +311,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
       1,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec,
       null,
-      null,
-      [app],
-      undefined,
-      undefined
-    );
+      [app]);
   }
 
 };
@@ -371,7 +335,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -385,7 +349,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec
       fields: [
         { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -64,11 +64,7 @@ device.mojom.WakeLockRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WakeLock_RequestWakeLock_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancelWakeLock() {
@@ -77,11 +73,7 @@ device.mojom.WakeLockRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.WakeLock_CancelWakeLock_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   addClient(wake_lock) {
@@ -90,11 +82,7 @@ device.mojom.WakeLockRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.WakeLock_AddClient_ParamsSpec,
       null,
-      null,
-      [wake_lock],
-      undefined,
-      undefined
-    );
+      [wake_lock]);
   }
 
   changeType(type) {
@@ -103,11 +91,7 @@ device.mojom.WakeLockRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.WakeLock_ChangeType_ParamsSpec,
       device.mojom.WakeLock_ChangeType_ResponseParamsSpec,
-      device.mojom.WakeLock_ChangeType_ResponseParamsSpec,
-      [type],
-      undefined,
-      undefined
-    );
+      [type]);
   }
 
   hasWakeLockForTests() {
@@ -116,11 +100,7 @@ device.mojom.WakeLockRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec,
       device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec,
-      device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -143,7 +123,7 @@ device.mojom.WakeLock_RequestWakeLock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +136,7 @@ device.mojom.WakeLock_CancelWakeLock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +150,7 @@ device.mojom.WakeLock_AddClient_ParamsSpec = {
       fields: [
         { name: 'wake_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +164,7 @@ device.mojom.WakeLock_ChangeType_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +177,7 @@ device.mojom.WakeLock_ChangeType_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +190,7 @@ device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +203,7 @@ device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

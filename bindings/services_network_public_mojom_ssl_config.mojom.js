@@ -62,11 +62,7 @@ network.mojom.SSLConfigClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec,
       null,
-      null,
-      [ssl_config],
-      undefined,
-      undefined
-    );
+      [ssl_config]);
   }
 
 };
@@ -90,7 +86,7 @@ network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = {
       fields: [
         { name: 'ssl_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

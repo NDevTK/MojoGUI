@@ -50,11 +50,7 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
       null,
-      null,
-      [groups],
-      undefined,
-      undefined
-    );
+      [groups]);
   }
 
   removeSyntheticTrialGroups(groups) {
@@ -63,11 +59,7 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
       null,
-      null,
-      [groups],
-      undefined,
-      undefined
-    );
+      [groups]);
   }
 
 };
@@ -91,7 +83,7 @@ content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params
       fields: [
         { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec 
       fields: [
         { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

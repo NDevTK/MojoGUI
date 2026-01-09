@@ -50,11 +50,7 @@ blink.mojom.WebPressureManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPressureManager_AddClient_ParamsSpec,
       blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
-      blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
-      [source, client],
-      undefined,
-      undefined
-    );
+      [source, client]);
   }
 
 };
@@ -79,7 +75,7 @@ blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,11 +139,7 @@ blink.mojom.WebPressureClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      null,
-      [update],
-      undefined,
-      undefined
-    );
+      [update]);
   }
 
 };
@@ -171,7 +163,7 @@ blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

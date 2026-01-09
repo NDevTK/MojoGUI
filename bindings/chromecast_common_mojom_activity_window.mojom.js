@@ -50,11 +50,7 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ActivityWindow_Show_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hide() {
@@ -63,11 +59,7 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.ActivityWindow_Hide_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -90,7 +82,7 @@ chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -103,7 +95,7 @@ chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

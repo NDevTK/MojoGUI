@@ -58,11 +58,7 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec,
       null,
-      null,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
   notifyComplexSafeAreaConstraintChanged(value) {
@@ -71,11 +67,7 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec,
       null,
-      null,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
 };
@@ -99,7 +91,7 @@ blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -113,7 +105,7 @@ blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec 
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -164,11 +156,7 @@ blink.mojom.DisplayCutoutClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec,
       null,
-      null,
-      [safe_area],
-      undefined,
-      undefined
-    );
+      [safe_area]);
   }
 
 };
@@ -192,7 +180,7 @@ blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
       fields: [
         { name: 'safe_area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

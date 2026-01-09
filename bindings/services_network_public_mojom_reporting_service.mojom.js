@@ -58,11 +58,7 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
       null,
-      null,
-      [report],
-      undefined,
-      undefined
-    );
+      [report]);
   }
 
   onReportUpdated(report) {
@@ -71,11 +67,7 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
       null,
-      null,
-      [report],
-      undefined,
-      undefined
-    );
+      [report]);
   }
 
   onEndpointsUpdatedForOrigin(endpoints) {
@@ -84,11 +76,7 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
       null,
-      null,
-      [endpoints],
-      undefined,
-      undefined
-    );
+      [endpoints]);
   }
 
 };
@@ -112,7 +100,7 @@ network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -126,7 +114,7 @@ network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -140,7 +128,7 @@ network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
       fields: [
         { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

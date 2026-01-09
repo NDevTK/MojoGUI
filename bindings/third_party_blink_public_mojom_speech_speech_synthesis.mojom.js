@@ -58,11 +58,7 @@ blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec,
       null,
-      null,
-      [voice_list],
-      undefined,
-      undefined
-    );
+      [voice_list]);
   }
 
 };
@@ -86,7 +82,7 @@ blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
       fields: [
         { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,11 +133,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onFinishedSpeaking(error_code) {
@@ -150,11 +142,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec,
       null,
-      null,
-      [error_code],
-      undefined,
-      undefined
-    );
+      [error_code]);
   }
 
   onPausedSpeaking() {
@@ -163,11 +151,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onResumedSpeaking() {
@@ -176,11 +160,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onEncounteredWordBoundary(char_index, char_length) {
@@ -189,11 +169,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec,
       null,
-      null,
-      [char_index, char_length],
-      undefined,
-      undefined
-    );
+      [char_index, char_length]);
   }
 
   onEncounteredSentenceBoundary(char_index, char_length) {
@@ -202,11 +178,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec,
       null,
-      null,
-      [char_index, char_length],
-      undefined,
-      undefined
-    );
+      [char_index, char_length]);
   }
 
   onEncounteredSpeakingError() {
@@ -215,11 +187,7 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -242,7 +210,7 @@ blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -256,7 +224,7 @@ blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,7 +237,7 @@ blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +250,7 @@ blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -297,7 +265,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
         { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -312,7 +280,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
         { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,7 +293,7 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,11 +344,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   speak(utterance, client) {
@@ -389,11 +353,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SpeechSynthesis_Speak_ParamsSpec,
       null,
-      null,
-      [utterance, client],
-      undefined,
-      undefined
-    );
+      [utterance, client]);
   }
 
   pause() {
@@ -402,11 +362,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SpeechSynthesis_Pause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resume() {
@@ -415,11 +371,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SpeechSynthesis_Resume_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancel() {
@@ -428,11 +380,7 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SpeechSynthesis_Cancel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -456,7 +404,7 @@ blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -471,7 +419,7 @@ blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
         { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -484,7 +432,7 @@ blink.mojom.SpeechSynthesis_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -497,7 +445,7 @@ blink.mojom.SpeechSynthesis_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -510,7 +458,7 @@ blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

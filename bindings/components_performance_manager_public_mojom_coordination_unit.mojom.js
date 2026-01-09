@@ -58,11 +58,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       0,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setLifecycleState(state) {
@@ -71,11 +67,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       1,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   setHasNonEmptyBeforeUnload(has_nonempty_beforeunload) {
@@ -84,11 +76,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       2,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec,
       null,
-      null,
-      [has_nonempty_beforeunload],
-      undefined,
-      undefined
-    );
+      [has_nonempty_beforeunload]);
   }
 
   setHadFormInteraction() {
@@ -97,11 +85,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       3,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setHadUserEdits() {
@@ -110,11 +94,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       4,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStartedUsingWebRTC() {
@@ -123,11 +103,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       5,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStoppedUsingWebRTC() {
@@ -136,11 +112,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       6,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setIsAdFrame(is_ad_frame) {
@@ -149,11 +121,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       7,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec,
       null,
-      null,
-      [is_ad_frame],
-      undefined,
-      undefined
-    );
+      [is_ad_frame]);
   }
 
   onNonPersistentNotificationCreated() {
@@ -162,11 +130,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       8,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onFirstContentfulPaint(time_since_navigation_start) {
@@ -175,11 +139,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       9,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec,
       null,
-      null,
-      [time_since_navigation_start],
-      undefined,
-      undefined
-    );
+      [time_since_navigation_start]);
   }
 
   onWebMemoryMeasurementRequested(mode) {
@@ -188,11 +148,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       10,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec,
       performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec,
-      performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec,
-      [mode],
-      undefined,
-      undefined
-    );
+      [mode]);
   }
 
   onFreezingOriginTrialOptOut() {
@@ -201,11 +157,7 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
       11,  // ordinal
       performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -228,7 +180,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -242,7 +194,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec 
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -256,7 +208,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_Pa
       fields: [
         { name: 'has_nonempty_beforeunload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,7 +221,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +234,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -295,7 +247,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -308,7 +260,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -322,7 +274,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
       fields: [
         { name: 'is_ad_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -335,7 +287,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCr
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -349,7 +301,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params
       fields: [
         { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,7 +315,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,7 +328,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       fields: [
         { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -389,7 +341,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -440,11 +392,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
       0,  // ordinal
       performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec,
       null,
-      null,
-      [main_thread_task_load_is_low],
-      undefined,
-      undefined
-    );
+      [main_thread_task_load_is_low]);
   }
 
   onV8ContextCreated(description, iframe_attribution_data) {
@@ -453,11 +401,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
       1,  // ordinal
       performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec,
       null,
-      null,
-      [description, iframe_attribution_data],
-      undefined,
-      undefined
-    );
+      [description, iframe_attribution_data]);
   }
 
   onV8ContextDetached(v8_context_token) {
@@ -466,11 +410,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
       2,  // ordinal
       performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec,
       null,
-      null,
-      [v8_context_token],
-      undefined,
-      undefined
-    );
+      [v8_context_token]);
   }
 
   onV8ContextDestroyed(v8_context_token) {
@@ -479,11 +419,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
       3,  // ordinal
       performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec,
       null,
-      null,
-      [v8_context_token],
-      undefined,
-      undefined
-    );
+      [v8_context_token]);
   }
 
   onRemoteIframeAttached(parent_frame_token, remote_frame_token, iframe_attribution_data) {
@@ -492,11 +428,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
       4,  // ordinal
       performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec,
       null,
-      null,
-      [parent_frame_token, remote_frame_token, iframe_attribution_data],
-      undefined,
-      undefined
-    );
+      [parent_frame_token, remote_frame_token, iframe_attribution_data]);
   }
 
   onRemoteIframeDetached(parent_frame_token, remote_frame_token) {
@@ -505,11 +437,7 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
       5,  // ordinal
       performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec,
       null,
-      null,
-      [parent_frame_token, remote_frame_token],
-      undefined,
-      undefined
-    );
+      [parent_frame_token, remote_frame_token]);
   }
 
 };
@@ -533,7 +461,7 @@ performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_Par
       fields: [
         { name: 'main_thread_task_load_is_low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -548,7 +476,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec 
         { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -562,7 +490,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec
       fields: [
         { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -576,7 +504,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpe
       fields: [
         { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -592,7 +520,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsS
         { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -607,7 +535,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsS
         { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -658,11 +586,7 @@ performance_manager.mojom.ChildProcessCoordinationUnitRemoteCallHandler = class 
       0,  // ordinal
       performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec,
       performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec,
-      performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -685,7 +609,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -699,7 +623,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
         { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -51,11 +51,7 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
       ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
-      ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearAllEvents() {
@@ -64,11 +60,7 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
       fields: [
         { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -117,7 +109,7 @@ ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

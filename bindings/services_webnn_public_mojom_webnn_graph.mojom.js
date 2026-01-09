@@ -179,11 +179,7 @@ webnn.mojom.WebNNGraphRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
       null,
-      null,
-      [named_inputs, named_outputs],
-      undefined,
-      undefined
-    );
+      [named_inputs, named_outputs]);
   }
 
 };
@@ -208,7 +204,7 @@ webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
         { name: 'named_inputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'named_outputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

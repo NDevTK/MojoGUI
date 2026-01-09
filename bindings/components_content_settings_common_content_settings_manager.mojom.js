@@ -60,11 +60,7 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
       0,  // ordinal
       content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec,
       null,
-      null,
-      [clone],
-      undefined,
-      undefined
-    );
+      [clone]);
   }
 
   allowStorageAccess(frame_token, storage_type, origin, site_for_cookies, top_frame_origin) {
@@ -73,11 +69,7 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
       1,  // ordinal
       content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec,
       content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
-      content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
-      [frame_token, storage_type, origin, site_for_cookies, top_frame_origin],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [frame_token, storage_type, origin, site_for_cookies, top_frame_origin]);
   }
 
   onContentBlocked(frame_token, type) {
@@ -86,11 +78,7 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
       2,  // ordinal
       content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec,
       null,
-      null,
-      [frame_token, type],
-      undefined,
-      undefined
-    );
+      [frame_token, type]);
   }
 
 };
@@ -114,7 +102,7 @@ content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = {
       fields: [
         { name: 'clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,7 +120,7 @@ content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = {
         { name: 'site_for_cookies', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'top_frame_origin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -145,7 +133,7 @@ content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsS
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,7 +148,7 @@ content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = {
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

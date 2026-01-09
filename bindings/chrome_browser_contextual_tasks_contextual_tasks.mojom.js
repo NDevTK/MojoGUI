@@ -50,11 +50,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec,
       contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec,
-      contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getUrlForTask(uuid) {
@@ -63,11 +59,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec,
       contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec,
-      contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec,
-      [uuid],
-      undefined,
-      undefined
-    );
+      [uuid]);
   }
 
   setTaskId(uuid) {
@@ -76,11 +68,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec,
       null,
-      null,
-      [uuid],
-      undefined,
-      undefined
-    );
+      [uuid]);
   }
 
   isZeroState(url) {
@@ -89,11 +77,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec,
       contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec,
-      contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   setThreadTitle(title) {
@@ -102,11 +86,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec,
       null,
-      null,
-      [title],
-      undefined,
-      undefined
-    );
+      [title]);
   }
 
   closeSidePanel() {
@@ -115,11 +95,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showThreadHistory() {
@@ -128,11 +104,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isShownInTab() {
@@ -141,11 +113,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec,
       contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec,
-      contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openMyActivityUi() {
@@ -154,11 +122,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openHelpUi() {
@@ -167,11 +131,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openOnboardingHelpUi() {
@@ -180,11 +140,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   moveTaskUiToNewTab() {
@@ -193,11 +149,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onTabClickedFromSourcesMenu(tab_id, url) {
@@ -206,11 +158,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec,
       null,
-      null,
-      [tab_id, url],
-      undefined,
-      undefined
-    );
+      [tab_id, url]);
   }
 
   onWebviewMessage(message) {
@@ -219,11 +167,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   getCommonSearchParams(is_dark_mode, is_side_panel) {
@@ -232,11 +176,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec,
       contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec,
-      contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec,
-      [is_dark_mode, is_side_panel],
-      undefined,
-      undefined
-    );
+      [is_dark_mode, is_side_panel]);
   }
 
   onboardingTooltipDismissed() {
@@ -245,11 +185,7 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -272,7 +208,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,7 +221,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -299,7 +235,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -312,7 +248,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -326,7 +262,7 @@ contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec = {
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +276,7 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -353,7 +289,7 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec = {
       fields: [
         { name: 'is_zero_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -367,7 +303,7 @@ contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec = {
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -380,7 +316,7 @@ contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -393,7 +329,7 @@ contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +342,7 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -419,7 +355,7 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec = {
       fields: [
         { name: 'is_in_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +368,7 @@ contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -445,7 +381,7 @@ contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -458,7 +394,7 @@ contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -471,7 +407,7 @@ contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -486,7 +422,7 @@ contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -500,7 +436,7 @@ contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -515,7 +451,7 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec = {
         { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_side_panel', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -528,7 +464,7 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -541,7 +477,7 @@ contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -592,11 +528,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec,
       null,
-      null,
-      [title],
-      undefined,
-      undefined
-    );
+      [title]);
   }
 
   setTaskDetails(uuid, thread_id, turn_id) {
@@ -605,11 +537,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec,
       null,
-      null,
-      [uuid, thread_id, turn_id],
-      undefined,
-      undefined
-    );
+      [uuid, thread_id, turn_id]);
   }
 
   onSidePanelStateChanged() {
@@ -618,11 +546,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   postMessageToWebview(message) {
@@ -631,11 +555,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   onHandshakeComplete() {
@@ -644,11 +564,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setOAuthToken(oauth_token) {
@@ -657,11 +573,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec,
       null,
-      null,
-      [oauth_token],
-      undefined,
-      undefined
-    );
+      [oauth_token]);
   }
 
   onContextUpdated(context_tabs) {
@@ -670,11 +582,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec,
       null,
-      null,
-      [context_tabs],
-      undefined,
-      undefined
-    );
+      [context_tabs]);
   }
 
   hideInput() {
@@ -683,11 +591,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       contextual_tasks.mojom.Page_HideInput_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   restoreInput() {
@@ -696,11 +600,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       contextual_tasks.mojom.Page_RestoreInput_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onZeroStateChange(is_zero_state) {
@@ -709,11 +609,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec,
       null,
-      null,
-      [is_zero_state],
-      undefined,
-      undefined
-    );
+      [is_zero_state]);
   }
 
   onAiPageStatusChanged(is_ai_page) {
@@ -722,11 +618,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       10,  // ordinal
       contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec,
       null,
-      null,
-      [is_ai_page],
-      undefined,
-      undefined
-    );
+      [is_ai_page]);
   }
 
   onLensOverlayStateChanged(is_showing) {
@@ -735,11 +627,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       11,  // ordinal
       contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec,
       null,
-      null,
-      [is_showing],
-      undefined,
-      undefined
-    );
+      [is_showing]);
   }
 
   showErrorPage() {
@@ -748,11 +636,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       12,  // ordinal
       contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hideErrorPage() {
@@ -761,11 +645,7 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       13,  // ordinal
       contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -789,7 +669,7 @@ contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec = {
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -805,7 +685,7 @@ contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec = {
         { name: 'thread_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'turn_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -818,7 +698,7 @@ contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -832,7 +712,7 @@ contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -845,7 +725,7 @@ contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -859,7 +739,7 @@ contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec = {
       fields: [
         { name: 'oauth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -873,7 +753,7 @@ contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec = {
       fields: [
         { name: 'context_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -886,7 +766,7 @@ contextual_tasks.mojom.Page_HideInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -899,7 +779,7 @@ contextual_tasks.mojom.Page_RestoreInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -913,7 +793,7 @@ contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec = {
       fields: [
         { name: 'is_zero_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -927,7 +807,7 @@ contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec = {
       fields: [
         { name: 'is_ai_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -941,7 +821,7 @@ contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec = {
       fields: [
         { name: 'is_showing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -954,7 +834,7 @@ contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -967,7 +847,7 @@ contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1018,11 +898,7 @@ contextual_tasks.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, page_handler],
-      undefined,
-      undefined
-    );
+      [page, page_handler]);
   }
 
 };
@@ -1047,7 +923,7 @@ contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'page_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

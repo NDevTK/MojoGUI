@@ -50,11 +50,7 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManifestManager_RequestManifest_ParamsSpec,
       blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
-      blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestManifestAndErrors() {
@@ -63,11 +59,7 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestManifestDebugInfo() {
@@ -76,11 +68,7 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
       blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
-      blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   parseManifestFromString(document_url, manifest_url, manifest_content) {
@@ -89,11 +77,7 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
       blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
-      blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
-      [document_url, manifest_url, manifest_content],
-      undefined,
-      undefined
-    );
+      [document_url, manifest_url, manifest_content]);
   }
 
 };
@@ -116,7 +100,7 @@ blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +115,7 @@ blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'manifest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +128,7 @@ blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +141,7 @@ blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,7 +156,7 @@ blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
         { name: 'parsed_manifest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -188,7 +172,7 @@ blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
         { name: 'manifest_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'manifest_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -201,7 +185,7 @@ blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
       fields: [
         { name: 'parsed_manifest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

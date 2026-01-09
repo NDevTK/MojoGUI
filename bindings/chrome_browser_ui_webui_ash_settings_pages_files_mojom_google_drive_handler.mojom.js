@@ -52,11 +52,7 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -81,7 +77,7 @@ ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec 
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,11 +128,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getContentCacheSize() {
@@ -145,11 +137,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec,
       ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec,
-      ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearPinnedFiles() {
@@ -158,11 +146,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordBulkPinningEnabledMetric() {
@@ -171,11 +155,7 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -198,7 +178,7 @@ ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +191,7 @@ ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -224,7 +204,7 @@ ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSp
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -237,7 +217,7 @@ ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +230,7 @@ ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,11 +281,7 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onProgress(status) {
@@ -314,11 +290,7 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
 };
@@ -341,7 +313,7 @@ ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -355,7 +327,7 @@ ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

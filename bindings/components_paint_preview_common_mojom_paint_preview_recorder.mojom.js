@@ -61,11 +61,7 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
       0,  // ordinal
       paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   getGeometryMetadata(params) {
@@ -74,11 +70,7 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
       1,  // ordinal
       paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
       paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
-      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
 };
@@ -102,7 +94,7 @@ paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +108,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +121,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec 
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

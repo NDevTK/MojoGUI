@@ -50,11 +50,7 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   notifyContentWithCertificateErrorsDisplayed() {
@@ -63,11 +59,7 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   notifyInsecureContentRan(origin, insecure_url) {
@@ -76,11 +68,7 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec,
       null,
-      null,
-      [origin, insecure_url],
-      undefined,
-      undefined
-    );
+      [origin, insecure_url]);
   }
 
 };
@@ -103,7 +91,7 @@ blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +104,7 @@ blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +119,7 @@ blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec = {
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'insecure_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -62,11 +62,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec,
       chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec,
-      chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec,
-      [untrusted_request_url],
-      undefined,
-      undefined
-    );
+      [untrusted_request_url]);
   }
 
 };
@@ -90,7 +86,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Pa
       fields: [
         { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -103,7 +99,7 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Re
       fields: [
         { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -154,11 +150,7 @@ chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -181,7 +173,7 @@ chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -232,11 +224,7 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec,
       null,
-      null,
-      [is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler],
-      undefined,
-      undefined
-    );
+      [is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler]);
   }
 
   setConfiguration(params) {
@@ -245,11 +233,7 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   setConfigurationOnProcessLockUpdate(params) {
@@ -258,11 +242,7 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
 };
@@ -289,7 +269,7 @@ chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
         { name: 'content_settings_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'bound_session_request_throttled_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -303,7 +283,7 @@ chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,7 +297,7 @@ chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpe
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

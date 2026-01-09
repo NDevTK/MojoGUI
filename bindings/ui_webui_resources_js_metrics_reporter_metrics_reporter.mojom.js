@@ -50,11 +50,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       0,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
       null,
-      null,
-      [page],
-      undefined,
-      undefined
-    );
+      [page]);
   }
 
   onGetMark(name) {
@@ -63,11 +59,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       1,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
       metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
-      metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
-      [name],
-      undefined,
-      undefined
-    );
+      [name]);
   }
 
   onClearMark(name) {
@@ -76,11 +68,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       2,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
       null,
-      null,
-      [name],
-      undefined,
-      undefined
-    );
+      [name]);
   }
 
   onUmaReportTime(name, time) {
@@ -89,11 +77,7 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       3,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
       null,
-      null,
-      [name, time],
-      undefined,
-      undefined
-    );
+      [name, time]);
   }
 
 };
@@ -117,7 +101,7 @@ metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +115,7 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +128,7 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
       fields: [
         { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +142,7 @@ metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -173,7 +157,7 @@ metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -224,11 +208,7 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
       0,  // ordinal
       metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec,
       metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
-      metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
-      [name],
-      undefined,
-      undefined
-    );
+      [name]);
   }
 
   onClearMark(name) {
@@ -237,11 +217,7 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
       1,  // ordinal
       metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec,
       null,
-      null,
-      [name],
-      undefined,
-      undefined
-    );
+      [name]);
   }
 
 };
@@ -265,7 +241,7 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +254,7 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
       fields: [
         { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -292,7 +268,7 @@ metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

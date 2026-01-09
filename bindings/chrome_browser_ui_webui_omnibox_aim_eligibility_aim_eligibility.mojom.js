@@ -50,11 +50,7 @@ aim_eligibility.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
 };
@@ -78,7 +74,7 @@ aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec,
       aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec,
-      aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestServerEligibilityForDebugging() {
@@ -142,11 +134,7 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setEligibilityResponseForDebugging(base64_encoded_response) {
@@ -155,11 +143,7 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec,
       aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec,
-      aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec,
-      [base64_encoded_response],
-      undefined,
-      undefined
-    );
+      [base64_encoded_response]);
   }
 
 };
@@ -182,7 +166,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -195,7 +179,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,7 +192,7 @@ aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +206,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec 
       fields: [
         { name: 'base64_encoded_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -235,7 +219,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponsePar
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -286,11 +270,7 @@ aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -315,7 +295,7 @@ aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

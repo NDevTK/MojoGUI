@@ -50,11 +50,7 @@ remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
       remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
-      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
-      [request_data],
-      undefined,
-      undefined
-    );
+      [request_data]);
   }
 
 };
@@ -78,7 +74,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
       fields: [
         { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
       fields: [
         { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

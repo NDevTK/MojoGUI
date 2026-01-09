@@ -88,11 +88,7 @@ ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec,
       null,
-      null,
-      [firmware_updates],
-      undefined,
-      undefined
-    );
+      [firmware_updates]);
   }
 
 };
@@ -116,7 +112,7 @@ ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = {
       fields: [
         { name: 'firmware_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -167,11 +163,7 @@ ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec,
       null,
-      null,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
 };
@@ -195,7 +187,7 @@ ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,11 +238,7 @@ ash.firmware_update.mojom.UpdateProgressObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec,
       null,
-      null,
-      [update],
-      undefined,
-      undefined
-    );
+      [update]);
   }
 
 };
@@ -274,7 +262,7 @@ ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = {
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,11 +313,7 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   prepareForUpdate(device_id) {
@@ -338,11 +322,7 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec,
       ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec,
-      ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
   fetchInProgressUpdate() {
@@ -351,11 +331,7 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec,
       ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec,
-      ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -379,7 +355,7 @@ ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -393,7 +369,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +382,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = {
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -419,7 +395,7 @@ ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +408,7 @@ ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpe
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -483,11 +459,7 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec,
       null,
-      null,
-      [device_id, filepath],
-      undefined,
-      undefined
-    );
+      [device_id, filepath]);
   }
 
   addDeviceRequestObserver(observer) {
@@ -496,11 +468,7 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
       1,  // ordinal
       ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   addUpdateProgressObserver(observer) {
@@ -509,11 +477,7 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
       2,  // ordinal
       ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -538,7 +502,7 @@ ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'filepath', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -552,7 +516,7 @@ ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -566,7 +530,7 @@ ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -617,11 +581,7 @@ ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -644,7 +604,7 @@ ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

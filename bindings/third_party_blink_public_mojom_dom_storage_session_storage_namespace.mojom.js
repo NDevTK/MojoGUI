@@ -50,11 +50,7 @@ blink.mojom.SessionStorageNamespaceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SessionStorageNamespace_Clone_ParamsSpec,
       null,
-      null,
-      [clone_to_namespace],
-      undefined,
-      undefined
-    );
+      [clone_to_namespace]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
       fields: [
         { name: 'clone_to_namespace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

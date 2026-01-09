@@ -50,11 +50,7 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
       null,
-      null,
-      [loader, request_id, options, request, traffic_annotation],
-      undefined,
-      undefined
-    );
+      [loader, request_id, options, request, traffic_annotation]);
   }
 
   clone(factory) {
@@ -63,11 +59,7 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
       null,
-      null,
-      [factory],
-      undefined,
-      undefined
-    );
+      [factory]);
   }
 
 };
@@ -95,7 +87,7 @@ blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec = {
         { name: 'request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -109,7 +101,7 @@ blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec = {
       fields: [
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,11 +152,7 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FetchLaterLoader_SendNow_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancel() {
@@ -173,11 +161,7 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FetchLaterLoader_Cancel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -200,7 +184,7 @@ blink.mojom.FetchLaterLoader_SendNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -213,7 +197,7 @@ blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

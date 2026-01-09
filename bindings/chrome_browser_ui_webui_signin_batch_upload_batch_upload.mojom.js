@@ -50,11 +50,7 @@ batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      null,
-      [height],
-      undefined,
-      undefined
-    );
+      [height]);
   }
 
   saveToAccount(idsToMove) {
@@ -143,11 +135,7 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec,
       null,
-      null,
-      [idsToMove],
-      undefined,
-      undefined
-    );
+      [idsToMove]);
   }
 
   close() {
@@ -156,11 +144,7 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       batch_upload.mojom.PageHandler_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -184,7 +168,7 @@ batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       fields: [
         { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +182,7 @@ batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
       fields: [
         { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +195,7 @@ batch_upload.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -262,11 +246,7 @@ batch_upload.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
 };
@@ -290,7 +270,7 @@ batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaController_Play_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   pause() {
@@ -63,11 +59,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.MediaController_Pause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setMute(mute) {
@@ -76,11 +68,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.MediaController_SetMute_ParamsSpec,
       null,
-      null,
-      [mute],
-      undefined,
-      undefined
-    );
+      [mute]);
   }
 
   setVolume(volume) {
@@ -89,11 +77,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.MediaController_SetVolume_ParamsSpec,
       null,
-      null,
-      [volume],
-      undefined,
-      undefined
-    );
+      [volume]);
   }
 
   seek(time) {
@@ -102,11 +86,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       4,  // ordinal
       media_router.mojom.MediaController_Seek_ParamsSpec,
       null,
-      null,
-      [time],
-      undefined,
-      undefined
-    );
+      [time]);
   }
 
   nextTrack() {
@@ -115,11 +95,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       5,  // ordinal
       media_router.mojom.MediaController_NextTrack_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   previousTrack() {
@@ -128,11 +104,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       6,  // ordinal
       media_router.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -155,7 +127,7 @@ media_router.mojom.MediaController_Play_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -168,7 +140,7 @@ media_router.mojom.MediaController_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +154,7 @@ media_router.mojom.MediaController_SetMute_ParamsSpec = {
       fields: [
         { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +168,7 @@ media_router.mojom.MediaController_SetVolume_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +182,7 @@ media_router.mojom.MediaController_Seek_ParamsSpec = {
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +195,7 @@ media_router.mojom.MediaController_NextTrack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +208,7 @@ media_router.mojom.MediaController_PreviousTrack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

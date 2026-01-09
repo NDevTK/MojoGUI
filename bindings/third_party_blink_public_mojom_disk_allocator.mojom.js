@@ -50,11 +50,7 @@ blink.mojom.DiskAllocatorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
       null,
-      null,
-      [file],
-      undefined,
-      undefined
-    );
+      [file]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

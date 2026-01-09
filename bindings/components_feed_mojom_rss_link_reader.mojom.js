@@ -50,11 +50,7 @@ feed.mojom.RssLinkReaderRemoteCallHandler = class {
       0,  // ordinal
       feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
       feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
-      feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
       fields: [
         { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

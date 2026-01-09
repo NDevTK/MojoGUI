@@ -50,11 +50,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
       null,
-      null,
-      [extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher],
-      undefined,
-      undefined
-    );
+      [extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher]);
   }
 
   didStartServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
@@ -63,11 +59,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
       null,
-      null,
-      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id],
-      undefined,
-      undefined
-    );
+      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
   }
 
   didStopServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
@@ -76,11 +68,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
       null,
-      null,
-      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id],
-      undefined,
-      undefined
-    );
+      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
   }
 
   requestWorker(params) {
@@ -89,11 +77,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
       extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
-      extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   workerResponseAck(request_uuid) {
@@ -102,11 +86,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
       null,
-      null,
-      [request_uuid],
-      undefined,
-      undefined
-    );
+      [request_uuid]);
   }
 
   openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host) {
@@ -115,11 +95,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
       null,
-      null,
-      [info, channel_type, channel_name, port_id, port, port_host],
-      undefined,
-      undefined
-    );
+      [info, channel_type, channel_name, port_id, port, port_host]);
   }
 
   openChannelToNativeApp(native_app_name, port_id, port, port_host) {
@@ -128,11 +104,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      null,
-      [native_app_name, port_id, port, port_host],
-      undefined,
-      undefined
-    );
+      [native_app_name, port_id, port, port_host]);
   }
 
   openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host) {
@@ -141,11 +113,7 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
       null,
-      null,
-      [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host],
-      undefined,
-      undefined
-    );
+      [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
   }
 
 };
@@ -173,7 +141,7 @@ extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec 
         { name: 'service_worker_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_dispatcher', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -191,7 +159,7 @@ extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = {
         { name: 'service_worker_version_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'worker_thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -209,7 +177,7 @@ extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = {
         { name: 'service_worker_version_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'worker_thread_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +191,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -239,7 +207,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
         { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'extra_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,7 +221,7 @@ extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = {
       fields: [
         { name: 'request_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -272,7 +240,7 @@ extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = {
         { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -289,7 +257,7 @@ extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = {
         { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'port_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -310,7 +278,7 @@ extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = {
         { name: 'port', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'port_host', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 72}]
+      versions: [{version: 0}]
     }
   }
 };

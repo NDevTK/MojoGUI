@@ -50,11 +50,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.AudioService_BindSystemInfo_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindDebugRecording(receiver) {
@@ -63,11 +59,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.AudioService_BindDebugRecording_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindStreamFactory(receiver) {
@@ -76,11 +68,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       2,  // ordinal
       audio.mojom.AudioService_BindStreamFactory_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindDeviceNotifier(receiver) {
@@ -89,11 +77,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       3,  // ordinal
       audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindLogFactoryManager(receiver) {
@@ -102,11 +86,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       4,  // ordinal
       audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindTestingApi(receiver) {
@@ -115,11 +95,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       5,  // ordinal
       audio.mojom.AudioService_BindTestingApi_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindMlModelManager(receiver) {
@@ -128,11 +104,7 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       6,  // ordinal
       audio.mojom.AudioService_BindMlModelManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -156,7 +128,7 @@ audio.mojom.AudioService_BindSystemInfo_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +142,7 @@ audio.mojom.AudioService_BindDebugRecording_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +156,7 @@ audio.mojom.AudioService_BindStreamFactory_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +170,7 @@ audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +184,7 @@ audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -226,7 +198,7 @@ audio.mojom.AudioService_BindTestingApi_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +212,7 @@ audio.mojom.AudioService_BindMlModelManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

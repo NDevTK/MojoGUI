@@ -50,11 +50,7 @@ network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec,
       null,
-      null,
-      [type, http_rtt, transport_rtt, downlink_bandwidth_kbps],
-      undefined,
-      undefined
-    );
+      [type, http_rtt, transport_rtt, downlink_bandwidth_kbps]);
   }
 
 };
@@ -81,7 +77,7 @@ network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Param
         { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'downlink_bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,11 +128,7 @@ network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
 };
@@ -160,7 +152,7 @@ network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

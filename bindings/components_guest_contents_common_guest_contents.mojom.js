@@ -50,11 +50,7 @@ guest_contents.mojom.GuestContentsHostRemoteCallHandler = class {
       0,  // ordinal
       guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec,
       guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec,
-      guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec,
-      [frame_to_swap, guest_contents_id],
-      undefined,
-      undefined
-    );
+      [frame_to_swap, guest_contents_id]);
   }
 
 };
@@ -79,7 +75,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
         { name: 'frame_to_swap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

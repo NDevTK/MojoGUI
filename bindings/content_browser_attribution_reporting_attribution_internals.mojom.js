@@ -58,11 +58,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       0,  // ordinal
       attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec,
       null,
-      null,
-      [sources],
-      undefined,
-      undefined
-    );
+      [sources]);
   }
 
   onReportsChanged(reports) {
@@ -71,11 +67,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       1,  // ordinal
       attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec,
       null,
-      null,
-      [reports],
-      undefined,
-      undefined
-    );
+      [reports]);
   }
 
   onSourceHandled(source) {
@@ -84,11 +76,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       2,  // ordinal
       attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec,
       null,
-      null,
-      [source],
-      undefined,
-      undefined
-    );
+      [source]);
   }
 
   onReportHandled(report) {
@@ -97,11 +85,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       3,  // ordinal
       attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      null,
-      [report],
-      undefined,
-      undefined
-    );
+      [report]);
   }
 
   onDebugReportSent(report) {
@@ -110,11 +94,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       4,  // ordinal
       attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec,
       null,
-      null,
-      [report],
-      undefined,
-      undefined
-    );
+      [report]);
   }
 
   onAggregatableDebugReportSent(report) {
@@ -123,11 +103,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       5,  // ordinal
       attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
       null,
-      null,
-      [report],
-      undefined,
-      undefined
-    );
+      [report]);
   }
 
   onTriggerHandled(trigger) {
@@ -136,11 +112,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       6,  // ordinal
       attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec,
       null,
-      null,
-      [trigger],
-      undefined,
-      undefined
-    );
+      [trigger]);
   }
 
   onOsRegistration(registration) {
@@ -149,11 +121,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       7,  // ordinal
       attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec,
       null,
-      null,
-      [registration],
-      undefined,
-      undefined
-    );
+      [registration]);
   }
 
   onDebugModeChanged(debug_mode) {
@@ -162,11 +130,7 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       8,  // ordinal
       attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec,
       null,
-      null,
-      [debug_mode],
-      undefined,
-      undefined
-    );
+      [debug_mode]);
   }
 
 };
@@ -190,7 +154,7 @@ attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = {
       fields: [
         { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -204,7 +168,7 @@ attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = {
       fields: [
         { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -218,7 +182,7 @@ attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec = {
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -232,7 +196,7 @@ attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +210,7 @@ attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -260,7 +224,7 @@ attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = 
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -274,7 +238,7 @@ attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec = {
       fields: [
         { name: 'trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -288,7 +252,7 @@ attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = {
       fields: [
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -302,7 +266,7 @@ attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
       fields: [
         { name: 'debug_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -353,11 +317,7 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
       0,  // ordinal
       attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
       attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
-      attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sendReport(id) {
@@ -366,11 +326,7 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
       1,  // ordinal
       attribution_internals.mojom.Handler_SendReport_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   clearStorage() {
@@ -379,11 +335,7 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
       2,  // ordinal
       attribution_internals.mojom.Handler_ClearStorage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -406,7 +358,7 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -420,7 +372,7 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParams
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'attribution_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -434,7 +386,7 @@ attribution_internals.mojom.Handler_SendReport_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -447,7 +399,7 @@ attribution_internals.mojom.Handler_ClearStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -498,11 +450,7 @@ attribution_internals.mojom.FactoryRemoteCallHandler = class {
       0,  // ordinal
       attribution_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      null,
-      [observer, handler],
-      undefined,
-      undefined
-    );
+      [observer, handler]);
   }
 
 };
@@ -527,7 +475,7 @@ attribution_internals.mojom.Factory_Create_ParamsSpec = {
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec,
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec,
-      viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getGpuSupportedVulkanVersionInfo() {
@@ -63,11 +59,7 @@ viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec,
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec,
-      viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -90,7 +82,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInf
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInf
         { name: 'directml_feature_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'device_perf_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -119,7 +111,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,7 +124,7 @@ viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponsePara
       fields: [
         { name: 'vulkan_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

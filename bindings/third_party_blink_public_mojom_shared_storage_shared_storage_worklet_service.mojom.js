@@ -50,11 +50,7 @@ blink.mojom.SharedStorageEntriesListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec,
       null,
-      null,
-      [success, error_message, entries, has_more_entries, total_queued_to_send],
-      undefined,
-      undefined
-    );
+      [success, error_message, entries, has_more_entries, total_queued_to_send]);
   }
 
 };
@@ -82,7 +78,7 @@ blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec = {
         { name: 'has_more_entries', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'total_queued_to_send', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -133,11 +129,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec,
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec,
-      [method_with_options],
-      undefined,
-      undefined
-    );
+      [method_with_options]);
   }
 
   sharedStorageBatchUpdate(methods_with_options, with_lock) {
@@ -146,11 +138,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec,
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec,
-      [methods_with_options, with_lock],
-      undefined,
-      undefined
-    );
+      [methods_with_options, with_lock]);
   }
 
   sharedStorageGet(key) {
@@ -159,11 +147,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec,
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec,
-      [key],
-      undefined,
-      undefined
-    );
+      [key]);
   }
 
   sharedStorageKeys(listener) {
@@ -172,11 +156,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
   sharedStorageEntries(listener, values_only) {
@@ -185,11 +165,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec,
       null,
-      null,
-      [listener, values_only],
-      undefined,
-      undefined
-    );
+      [listener, values_only]);
   }
 
   sharedStorageLength() {
@@ -198,11 +174,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec,
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sharedStorageRemainingBudget() {
@@ -211,11 +183,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec,
       blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getInterestGroups() {
@@ -224,11 +192,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec,
       blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didAddMessageToConsole(log_level, message) {
@@ -237,11 +201,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec,
       null,
-      null,
-      [log_level, message],
-      undefined,
-      undefined
-    );
+      [log_level, message]);
   }
 
   recordUseCounters(features) {
@@ -250,11 +210,7 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec,
       null,
-      null,
-      [features],
-      undefined,
-      undefined
-    );
+      [features]);
   }
 
 };
@@ -278,7 +234,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec = {
       fields: [
         { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,7 +247,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParams
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -306,7 +262,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpe
         { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -319,7 +275,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseP
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -333,7 +289,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -348,7 +304,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpe
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -362,7 +318,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +333,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec = 
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'values_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -390,7 +346,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +361,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParams
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -418,7 +374,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -433,7 +389,7 @@ blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_Respo
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'bits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -446,7 +402,7 @@ blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -459,7 +415,7 @@ blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSp
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -474,7 +430,7 @@ blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec 
         { name: 'log_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -488,7 +444,7 @@ blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec = {
       fields: [
         { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -539,11 +495,7 @@ blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec,
       blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec,
-      [client, permissions_policy_state, embedder_context],
-      undefined,
-      undefined
-    );
+      [client, permissions_policy_state, embedder_context]);
   }
 
   addModule(url_loader_factory, script_source_url) {
@@ -552,11 +504,7 @@ blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec,
       blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec,
-      [url_loader_factory, script_source_url],
-      undefined,
-      undefined
-    );
+      [url_loader_factory, script_source_url]);
   }
 
   runURLSelectionOperation(name, urls, serialized_data, pa_operation_details) {
@@ -565,11 +513,7 @@ blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec,
       blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec,
-      [name, urls, serialized_data, pa_operation_details],
-      undefined,
-      undefined
-    );
+      [name, urls, serialized_data, pa_operation_details]);
   }
 
   runOperation(name, serialized_data, pa_operation_details) {
@@ -578,11 +522,7 @@ blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec,
       blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec,
-      blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec,
-      [name, serialized_data, pa_operation_details],
-      undefined,
-      undefined
-    );
+      [name, serialized_data, pa_operation_details]);
   }
 
 };
@@ -608,7 +548,7 @@ blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec = {
         { name: 'permissions_policy_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'embedder_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -621,7 +561,7 @@ blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -636,7 +576,7 @@ blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec = {
         { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'script_source_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -650,7 +590,7 @@ blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -667,7 +607,7 @@ blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec = {
         { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pa_operation_details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -682,7 +622,7 @@ blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsS
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -698,7 +638,7 @@ blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec = {
         { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pa_operation_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -712,7 +652,7 @@ blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

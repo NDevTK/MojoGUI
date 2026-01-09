@@ -50,11 +50,7 @@ media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec,
       media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
-      media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
-      [features],
-      undefined,
-      undefined
-    );
+      [features]);
   }
 
 };
@@ -78,7 +74,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
       fields: [
         { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
         { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

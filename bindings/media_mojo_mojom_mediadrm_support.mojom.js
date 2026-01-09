@@ -50,11 +50,7 @@ media.mojom.MediaDrmSupportRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
       media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
-      media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
-      [key_system, is_secure],
-      undefined,
-      undefined
-    );
+      [key_system, is_secure]);
   }
 
 };
@@ -79,7 +75,7 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
         { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_secure', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
       fields: [
         { name: 'key_system_supports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

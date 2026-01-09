@@ -57,11 +57,7 @@ media_router.mojom.MediaStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
 };
@@ -85,7 +81,7 @@ media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

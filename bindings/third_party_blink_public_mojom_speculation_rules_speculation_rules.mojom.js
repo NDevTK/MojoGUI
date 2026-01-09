@@ -80,11 +80,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec,
       null,
-      null,
-      [candidates, enable_cross_origin_prerender_iframes],
-      undefined,
-      undefined
-    );
+      [candidates, enable_cross_origin_prerender_iframes]);
   }
 
   onLCPPredicted() {
@@ -93,11 +89,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   initiatePreview(url) {
@@ -106,11 +98,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
 };
@@ -135,7 +123,7 @@ blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
         { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -148,7 +136,7 @@ blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -162,7 +150,7 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

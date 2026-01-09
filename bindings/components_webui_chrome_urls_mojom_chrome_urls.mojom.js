@@ -50,11 +50,7 @@ chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec,
       chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
-      chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setDebugPagesEnabled(enabled) {
@@ -143,11 +135,7 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -170,7 +158,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +171,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
       fields: [
         { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +185,7 @@ chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

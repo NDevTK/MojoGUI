@@ -50,11 +50,7 @@ blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
-      null,
-      [subresource_loader_factories],
-      undefined,
-      undefined
-    );
+      [subresource_loader_factories]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec
       fields: [
         { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -284,11 +280,7 @@ content.mojom.MojoContextProviderRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MojoContextProvider_GrantAll_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -311,7 +303,7 @@ content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

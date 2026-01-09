@@ -50,11 +50,7 @@ blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec,
       null,
-      null,
-      [mode],
-      undefined,
-      undefined
-    );
+      [mode]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -78,11 +78,7 @@ smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
       0,  // ordinal
       smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
       smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
-      smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
-      [options, delegate],
-      undefined,
-      undefined
-    );
+      [options, delegate]);
   }
 
 };
@@ -107,7 +103,7 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -121,7 +117,7 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'smbfs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,11 +168,7 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
       0,  // ordinal
       smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
       smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
-      smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   deleteRecursively(path) {
@@ -185,11 +177,7 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
       1,  // ordinal
       smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec,
       smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
-      smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
-      [path],
-      undefined,
-      undefined
-    );
+      [path]);
   }
 
 };
@@ -212,7 +200,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +213,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -239,7 +227,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +240,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -303,11 +291,7 @@ smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
       0,  // ordinal
       smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
       smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
-      smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -330,7 +314,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -343,7 +327,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -59,11 +59,7 @@ ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -87,7 +83,7 @@ ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -138,11 +134,7 @@ ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.office_fallback.mojom.PageHandler_Close_ParamsSpec,
       null,
-      null,
-      [choice],
-      undefined,
-      undefined
-    );
+      [choice]);
   }
 
 };
@@ -166,7 +158,7 @@ ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
       fields: [
         { name: 'choice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

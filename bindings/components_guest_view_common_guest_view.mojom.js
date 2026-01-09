@@ -102,11 +102,7 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       0,  // ordinal
       guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec,
       null,
-      null,
-      [element_instance_id, guest_instance_id, params],
-      undefined,
-      undefined
-    );
+      [element_instance_id, guest_instance_id, params]);
   }
 
   viewCreated(view_instance_id, view_type, keep_alive_handle_receiver) {
@@ -115,11 +111,7 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       1,  // ordinal
       guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec,
       null,
-      null,
-      [view_instance_id, view_type, keep_alive_handle_receiver],
-      undefined,
-      undefined
-    );
+      [view_instance_id, view_type, keep_alive_handle_receiver]);
   }
 
 };
@@ -145,7 +137,7 @@ guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
         { name: 'guest_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -161,7 +153,7 @@ guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
         { name: 'view_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'keep_alive_handle_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

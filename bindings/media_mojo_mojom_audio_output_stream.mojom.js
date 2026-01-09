@@ -59,11 +59,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStream_Play_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   pause() {
@@ -72,11 +68,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioOutputStream_Pause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   flush() {
@@ -85,11 +77,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioOutputStream_Flush_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setVolume(volume) {
@@ -98,11 +86,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioOutputStream_SetVolume_ParamsSpec,
       null,
-      null,
-      [volume],
-      undefined,
-      undefined
-    );
+      [volume]);
   }
 
 };
@@ -125,7 +109,7 @@ media.mojom.AudioOutputStream_Play_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -138,7 +122,7 @@ media.mojom.AudioOutputStream_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -151,7 +135,7 @@ media.mojom.AudioOutputStream_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -165,7 +149,7 @@ media.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -216,11 +200,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didStopPlaying() {
@@ -229,11 +209,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didChangeAudibleState(is_audible) {
@@ -242,11 +218,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
       null,
-      null,
-      [is_audible],
-      undefined,
-      undefined
-    );
+      [is_audible]);
   }
 
 };
@@ -269,7 +241,7 @@ media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +254,7 @@ media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -296,7 +268,7 @@ media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
       fields: [
         { name: 'is_audible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,11 +319,7 @@ media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
       null,
-      null,
-      [params, client],
-      undefined,
-      undefined
-    );
+      [params, client]);
   }
 
 };
@@ -376,7 +344,7 @@ media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -427,11 +395,7 @@ media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
       null,
-      null,
-      [stream, data_pipe],
-      undefined,
-      undefined
-    );
+      [stream, data_pipe]);
   }
 
 };
@@ -456,7 +420,7 @@ media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
         { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -507,11 +471,7 @@ media.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
       null,
-      null,
-      [output_device_id],
-      undefined,
-      undefined
-    );
+      [output_device_id]);
   }
 
 };
@@ -535,7 +495,7 @@ media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
       fields: [
         { name: 'output_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

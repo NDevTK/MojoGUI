@@ -106,11 +106,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec,
       blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec,
-      blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec,
-      [idp_get_params, requirement],
-      undefined,
-      undefined
-    );
+      [idp_get_params, requirement]);
   }
 
   requestUserInfo(provider) {
@@ -119,11 +115,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec,
       blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec,
-      blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec,
-      [provider],
-      undefined,
-      undefined
-    );
+      [provider]);
   }
 
   cancelTokenRequest() {
@@ -132,11 +124,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resolveTokenRequest(account_id, token) {
@@ -145,11 +133,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec,
       blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
-      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
-      [account_id, token],
-      undefined,
-      undefined
-    );
+      [account_id, token]);
   }
 
   setIdpSigninStatus(origin, status, options) {
@@ -158,11 +142,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec,
       null,
-      null,
-      [origin, status, options],
-      undefined,
-      undefined
-    );
+      [origin, status, options]);
   }
 
   registerIdP(url) {
@@ -171,11 +151,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec,
       blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec,
-      blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   unregisterIdP(url) {
@@ -184,11 +160,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec,
       blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec,
-      blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   closeModalDialogView() {
@@ -197,11 +169,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   preventSilentAccess() {
@@ -210,11 +178,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   disconnect(options) {
@@ -223,11 +187,7 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec,
       blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec,
-      blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec,
-      [options],
-      undefined,
-      undefined
-    );
+      [options]);
   }
 
 };
@@ -252,7 +212,7 @@ blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
         { name: 'idp_get_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'requirement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,7 +229,7 @@ blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
         { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'is_auto_selected', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -283,7 +243,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
       fields: [
         { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -297,7 +257,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -310,7 +270,7 @@ blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,7 +285,7 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
         { name: 'account_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -338,7 +298,7 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +314,7 @@ blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = {
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -368,7 +328,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -381,7 +341,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -395,7 +355,7 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -408,7 +368,7 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -421,7 +381,7 @@ blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -434,7 +394,7 @@ blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -448,7 +408,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -461,7 +421,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindSafeArchiveAnalyzer(receiver) {
@@ -63,11 +59,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindSingleFileTarFileExtractor(receiver) {
@@ -76,11 +68,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindSingleFileTarXzFileExtractor(receiver) {
@@ -89,11 +77,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -117,7 +101,7 @@ chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +115,7 @@ chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -145,7 +129,7 @@ chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,7 +143,7 @@ chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

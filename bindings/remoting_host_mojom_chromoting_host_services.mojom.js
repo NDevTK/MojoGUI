@@ -50,11 +50,7 @@ remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -78,7 +74,7 @@ remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindRemoteUrlOpener(receiver) {
@@ -142,11 +134,7 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindSecurityKeyForwarder(receiver) {
@@ -155,11 +143,7 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -183,7 +167,7 @@ remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +181,7 @@ remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +195,7 @@ remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

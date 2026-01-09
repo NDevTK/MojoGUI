@@ -51,11 +51,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, receiver],
-      undefined,
-      undefined
-    );
+      [page, receiver]);
   }
 
 };
@@ -80,7 +76,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
       null,
-      null,
-      [is_hovering],
-      undefined,
-      undefined
-    );
+      [is_hovering]);
   }
 
   getCurrentBorderGlowVisibility() {
@@ -144,11 +136,7 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
       actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -172,7 +160,7 @@ actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
       fields: [
         { name: 'is_hovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +173,7 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +186,7 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponsePa
       fields: [
         { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -249,11 +237,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       0,  // ordinal
       actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
       null,
-      null,
-      [is_visible],
-      undefined,
-      undefined
-    );
+      [is_visible]);
   }
 
   setBorderGlowVisibility(is_visible) {
@@ -262,11 +246,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       1,  // ordinal
       actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
       null,
-      null,
-      [is_visible],
-      undefined,
-      undefined
-    );
+      [is_visible]);
   }
 
   setTheme(theme) {
@@ -275,11 +255,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       2,  // ordinal
       actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
       null,
-      null,
-      [theme],
-      undefined,
-      undefined
-    );
+      [theme]);
   }
 
   moveCursorTo(point) {
@@ -288,11 +264,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       3,  // ordinal
       actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
       null,
-      null,
-      [point],
-      undefined,
-      undefined
-    );
+      [point]);
   }
 
   triggerClickAnimation() {
@@ -301,11 +273,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       4,  // ordinal
       actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -329,7 +297,7 @@ actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
       fields: [
         { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -343,7 +311,7 @@ actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
       fields: [
         { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -357,7 +325,7 @@ actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -371,7 +339,7 @@ actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
       fields: [
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -384,7 +352,7 @@ actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

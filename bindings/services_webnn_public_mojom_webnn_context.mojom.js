@@ -50,11 +50,7 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   createTensor(tensor_info, tensor_data) {
@@ -63,11 +59,7 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
       1,  // ordinal
       webnn.mojom.WebNNContext_CreateTensor_ParamsSpec,
       webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
-      webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
-      [tensor_info, tensor_data],
-      undefined,
-      undefined
-    );
+      [tensor_info, tensor_data]);
   }
 
   createTensorFromMailbox(tensor_info, mailbox, fence) {
@@ -76,11 +68,7 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
       2,  // ordinal
       webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
       webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
-      webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
-      [tensor_info, mailbox, fence],
-      undefined,
-      undefined
-    );
+      [tensor_info, mailbox, fence]);
   }
 
 };
@@ -104,7 +92,7 @@ webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -119,7 +107,7 @@ webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
         { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'tensor_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,7 +120,7 @@ webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -148,7 +136,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
         { name: 'mailbox', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'fence', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -161,7 +149,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

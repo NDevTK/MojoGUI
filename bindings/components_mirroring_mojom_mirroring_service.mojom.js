@@ -50,11 +50,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.MirroringService_Start_ParamsSpec,
       null,
-      null,
-      [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel],
-      undefined,
-      undefined
-    );
+      [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel]);
   }
 
   switchMirroringSourceTab() {
@@ -63,11 +59,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
       1,  // ordinal
       mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMirroringStats() {
@@ -76,11 +68,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
       2,  // ordinal
       mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
       mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
-      mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -109,7 +97,7 @@ mirroring.mojom.MirroringService_Start_ParamsSpec = {
         { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'inbound_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -122,7 +110,7 @@ mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -135,7 +123,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -148,7 +136,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
       fields: [
         { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

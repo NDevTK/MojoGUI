@@ -56,11 +56,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       0,  // ordinal
       attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec,
       null,
-      null,
-      [reporting_origin, data, was_fetched_via_service_worker],
-      undefined,
-      undefined
-    );
+      [reporting_origin, data, was_fetched_via_service_worker]);
   }
 
   triggerDataAvailable(reporting_origin, data, was_fetched_via_service_worker) {
@@ -69,11 +65,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       1,  // ordinal
       attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec,
       null,
-      null,
-      [reporting_origin, data, was_fetched_via_service_worker],
-      undefined,
-      undefined
-    );
+      [reporting_origin, data, was_fetched_via_service_worker]);
   }
 
   osSourceDataAvailable(registration, was_fetched_via_service_worker) {
@@ -82,11 +74,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       2,  // ordinal
       attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec,
       null,
-      null,
-      [registration, was_fetched_via_service_worker],
-      undefined,
-      undefined
-    );
+      [registration, was_fetched_via_service_worker]);
   }
 
   osTriggerDataAvailable(registration, was_fetched_via_service_worker) {
@@ -95,11 +83,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       3,  // ordinal
       attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec,
       null,
-      null,
-      [registration, was_fetched_via_service_worker],
-      undefined,
-      undefined
-    );
+      [registration, was_fetched_via_service_worker]);
   }
 
   reportRegistrationHeaderError(reporting_origin, error) {
@@ -108,11 +92,7 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       4,  // ordinal
       attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec,
       null,
-      null,
-      [reporting_origin, error],
-      undefined,
-      undefined
-    );
+      [reporting_origin, error]);
   }
 
 };
@@ -138,7 +118,7 @@ attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = {
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -154,7 +134,7 @@ attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = {
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,7 +149,7 @@ attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = {
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +164,7 @@ attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = {
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +179,7 @@ attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = 
         { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

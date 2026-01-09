@@ -50,11 +50,7 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
       0,  // ordinal
       emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec,
       emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
-      emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
-      [query, language_codes],
-      undefined,
-      undefined
-    );
+      [query, language_codes]);
   }
 
   loadEmojiLanguages(language_codes) {
@@ -63,11 +59,7 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
       1,  // ordinal
       emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec,
       null,
-      null,
-      [language_codes],
-      undefined,
-      undefined
-    );
+      [language_codes]);
   }
 
 };
@@ -92,7 +84,7 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'language_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -107,7 +99,7 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
         { name: 'symbol_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'emoticon_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -121,7 +113,7 @@ emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
       fields: [
         { name: 'language_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

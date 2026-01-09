@@ -72,11 +72,7 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
-      null,
-      [visibility_type],
-      undefined,
-      undefined
-    );
+      [visibility_type]);
   }
 
   onWindowDestroyed() {
@@ -85,11 +81,7 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -113,7 +105,7 @@ chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
       fields: [
         { name: 'visibility_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -126,7 +118,7 @@ chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -177,11 +169,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
-      null,
-      [z_order, priority],
-      undefined,
-      undefined
-    );
+      [z_order, priority]);
   }
 
   addObserver(observer) {
@@ -190,11 +178,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   grantScreenAccess() {
@@ -203,11 +187,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   revokeScreenAccess() {
@@ -216,11 +196,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestVisibility(priority) {
@@ -229,11 +205,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
-      null,
-      [priority],
-      undefined,
-      undefined
-    );
+      [priority]);
   }
 
   enableTouchInput(enabled) {
@@ -242,11 +214,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -271,7 +239,7 @@ chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
         { name: 'z_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,7 +253,7 @@ chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -298,7 +266,7 @@ chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,7 +279,7 @@ chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,7 +293,7 @@ chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
       fields: [
         { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +307,7 @@ chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

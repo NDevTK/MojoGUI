@@ -50,11 +50,7 @@ viz.mojom.GpuRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec,
       viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec,
-      viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   createJpegDecodeAccelerator(jda) {
@@ -63,11 +59,7 @@ viz.mojom.GpuRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
-      null,
-      [jda],
-      undefined,
-      undefined
-    );
+      [jda]);
   }
 
   createVideoEncodeAcceleratorProvider(vea_provider) {
@@ -76,11 +68,7 @@ viz.mojom.GpuRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      null,
-      [vea_provider],
-      undefined,
-      undefined
-    );
+      [vea_provider]);
   }
 
 };
@@ -103,7 +91,7 @@ viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -120,7 +108,7 @@ viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
         { name: 'gpu_feature_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shared_image_capabilities', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -134,7 +122,7 @@ viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = {
       fields: [
         { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -148,7 +136,7 @@ viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       fields: [
         { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

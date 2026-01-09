@@ -57,11 +57,7 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LockScreenService_GetKeys_ParamsSpec,
       blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec,
-      blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setData(key, data) {
@@ -70,11 +66,7 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LockScreenService_SetData_ParamsSpec,
       blink.mojom.LockScreenService_SetData_ResponseParamsSpec,
-      blink.mojom.LockScreenService_SetData_ResponseParamsSpec,
-      [key, data],
-      undefined,
-      undefined
-    );
+      [key, data]);
   }
 
 };
@@ -97,7 +89,7 @@ blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -110,7 +102,7 @@ blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -125,7 +117,7 @@ blink.mojom.LockScreenService_SetData_ParamsSpec = {
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -138,7 +130,7 @@ blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

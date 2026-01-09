@@ -50,11 +50,7 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation.mojom.Translator_Translate_ParamsSpec,
       on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
-      on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
-      [input],
-      undefined,
-      undefined
-    );
+      [input]);
   }
 
   splitSentences(input) {
@@ -63,11 +59,7 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
       1,  // ordinal
       on_device_translation.mojom.Translator_SplitSentences_ParamsSpec,
       on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
-      on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
-      [input],
-      undefined,
-      undefined
-    );
+      [input]);
   }
 
 };
@@ -91,7 +83,7 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +110,7 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +123,7 @@ on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
       fields: [
         { name: 'sentences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

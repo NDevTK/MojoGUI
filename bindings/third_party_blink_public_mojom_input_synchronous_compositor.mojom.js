@@ -50,11 +50,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
       null,
-      null,
-      [draw_params],
-      undefined,
-      undefined
-    );
+      [draw_params]);
   }
 
   demandDrawHw(draw_params) {
@@ -63,11 +59,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
       blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
-      [draw_params],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [draw_params]);
   }
 
   setSharedMemory(shm_region) {
@@ -76,11 +68,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
       blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
-      [shm_region],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [shm_region]);
   }
 
   demandDrawSw(draw_params) {
@@ -89,11 +77,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
       blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
-      [draw_params],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [draw_params]);
   }
 
   willSkipDraw() {
@@ -102,11 +86,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   zeroSharedMemory() {
@@ -115,11 +95,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   zoomBy(delta, anchor) {
@@ -128,11 +104,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
       blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
-      blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
-      [delta, anchor],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [delta, anchor]);
   }
 
   setMemoryPolicy(bytes_limit) {
@@ -141,11 +113,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
       null,
-      null,
-      [bytes_limit],
-      undefined,
-      undefined
-    );
+      [bytes_limit]);
   }
 
   reclaimResources(layer_tree_frame_sink_id, resources) {
@@ -154,11 +122,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
       null,
-      null,
-      [layer_tree_frame_sink_id, resources],
-      undefined,
-      undefined
-    );
+      [layer_tree_frame_sink_id, resources]);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id) {
@@ -167,11 +131,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      null,
-      [layer_tree_frame_sink_id, sequence_id],
-      undefined,
-      undefined
-    );
+      [layer_tree_frame_sink_id, sequence_id]);
   }
 
   setScroll(offset) {
@@ -180,11 +140,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
       null,
-      null,
-      [offset],
-      undefined,
-      undefined
-    );
+      [offset]);
   }
 
   beginFrame(args, timing_details) {
@@ -193,11 +149,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
       null,
-      null,
-      [args, timing_details],
-      undefined,
-      undefined
-    );
+      [args, timing_details]);
   }
 
   setBeginFrameSourcePaused(paused) {
@@ -206,11 +158,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
       null,
-      null,
-      [paused],
-      undefined,
-      undefined
-    );
+      [paused]);
   }
 
 };
@@ -234,7 +182,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
       fields: [
         { name: 'draw_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -248,7 +196,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
       fields: [
         { name: 'draw_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +214,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
         { name: 'frame', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'hit_test_region_list', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -280,7 +228,7 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
       fields: [
         { name: 'shm_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -294,7 +242,7 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -308,7 +256,7 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
       fields: [
         { name: 'draw_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -323,7 +271,7 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
         { name: 'metadata_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'meta_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -336,7 +284,7 @@ blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -349,7 +297,7 @@ blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +312,7 @@ blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
         { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +325,7 @@ blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +339,7 @@ blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
       fields: [
         { name: 'bytes_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +354,7 @@ blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
         { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -421,7 +369,7 @@ blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_
         { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'sequence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -435,7 +383,7 @@ blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
       fields: [
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -450,7 +398,7 @@ blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'timing_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,7 +412,7 @@ blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
       fields: [
         { name: 'paused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -515,11 +463,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateState(params) {
@@ -528,11 +472,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   setNeedsBeginFrames(needs_begin_frames) {
@@ -541,11 +481,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
       null,
-      null,
-      [needs_begin_frames],
-      undefined,
-      undefined
-    );
+      [needs_begin_frames]);
   }
 
   setThreads(threads) {
@@ -554,11 +490,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
       null,
-      null,
-      [threads],
-      undefined,
-      undefined
-    );
+      [threads]);
   }
 
 };
@@ -581,7 +513,7 @@ blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -595,7 +527,7 @@ blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -609,7 +541,7 @@ blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
       fields: [
         { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -623,7 +555,7 @@ blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
       fields: [
         { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -674,11 +606,7 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
       null,
-      null,
-      [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list],
-      undefined,
-      undefined
-    );
+      [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list]);
   }
 
   beginFrameResponse(params) {
@@ -687,11 +615,7 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
 };
@@ -719,7 +643,7 @@ blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
         { name: 'frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'hit_test_region_list', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -733,7 +657,7 @@ blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.GpuDataManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec,
       blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec,
-      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec,
-      [url],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [url]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec = {
       fields: [
         { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

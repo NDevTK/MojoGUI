@@ -50,11 +50,7 @@ audio.mojom.DeviceListenerRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -128,11 +124,7 @@ audio.mojom.DeviceNotifierRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
 };
@@ -156,7 +148,7 @@ audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

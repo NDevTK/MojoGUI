@@ -59,11 +59,7 @@ blink.mojom.FileChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileChooser_OpenFileChooser_ParamsSpec,
       blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec,
-      blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   enumerateChosenDirectory(directory_path) {
@@ -72,11 +68,7 @@ blink.mojom.FileChooserRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec,
       blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec,
-      blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec,
-      [directory_path],
-      undefined,
-      undefined
-    );
+      [directory_path]);
   }
 
 };
@@ -100,7 +92,7 @@ blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -113,7 +105,7 @@ blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -127,7 +119,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
       fields: [
         { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -140,7 +132,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

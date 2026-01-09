@@ -50,11 +50,7 @@ blink.mojom.WebSensorProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebSensorProvider_GetSensor_ParamsSpec,
       blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
-      blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
-      [type],
-      undefined,
-      undefined
-    );
+      [type]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

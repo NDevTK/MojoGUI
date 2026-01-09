@@ -50,11 +50,7 @@ extensions.mojom.EventDispatcherRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec,
       extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
-      extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
-      [params, event_args],
-      undefined,
-      undefined
-    );
+      [params, event_args]);
   }
 
 };
@@ -79,7 +75,7 @@ extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
       fields: [
         { name: 'event_will_run_in_lazy_background_page_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

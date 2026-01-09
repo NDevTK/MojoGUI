@@ -50,11 +50,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = clas
       0,  // ordinal
       private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec,
       private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
-      private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Re
       fields: [
         { name: 'private_state_tokens_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

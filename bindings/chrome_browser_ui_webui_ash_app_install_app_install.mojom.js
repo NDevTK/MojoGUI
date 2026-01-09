@@ -51,11 +51,7 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
       ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
-      ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   launchApp() {
@@ -64,11 +60,7 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
       1,  // ordinal
       ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
       fields: [
         { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -117,7 +109,7 @@ ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -168,11 +160,7 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -195,7 +183,7 @@ ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,11 +234,7 @@ ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -274,7 +258,7 @@ ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,11 +309,7 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
       ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
-      ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   closeDialog() {
@@ -338,11 +318,7 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -365,7 +341,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +354,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       fields: [
         { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +367,7 @@ ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -58,11 +58,7 @@ ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec,
       ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
-      ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
-      [stream_data],
-      undefined,
-      undefined
-    );
+      [stream_data]);
   }
 
 };
@@ -86,7 +82,7 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
       fields: [
         { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -101,7 +97,7 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
         { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'stream_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

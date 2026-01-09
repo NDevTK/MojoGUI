@@ -50,11 +50,7 @@ blink.mojom.QuotaManagerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec,
       blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
-      blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -93,7 +89,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
         { name: 'current_quota', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'usage_breakdown', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };

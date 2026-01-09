@@ -50,11 +50,7 @@ drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec,
       null,
-      null,
-      [datadir_path, mount_path, mojo_socket_handle],
-      undefined,
-      undefined
-    );
+      [datadir_path, mount_path, mojo_socket_handle]);
   }
 
 };
@@ -80,7 +76,7 @@ drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
         { name: 'mount_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mojo_socket_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

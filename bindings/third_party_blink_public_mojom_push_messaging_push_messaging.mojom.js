@@ -61,11 +61,7 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PushMessaging_Subscribe_ParamsSpec,
       blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
-      blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
-      [service_worker_registration_id, options, user_gesture],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id, options, user_gesture]);
   }
 
   unsubscribe(service_worker_registration_id) {
@@ -74,11 +70,7 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PushMessaging_Unsubscribe_ParamsSpec,
       blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
-      blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
-      [service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id]);
   }
 
   getSubscription(service_worker_registration_id) {
@@ -87,11 +79,7 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PushMessaging_GetSubscription_ParamsSpec,
       blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
-      blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
-      [service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id]);
   }
 
 };
@@ -117,7 +105,7 @@ blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +119,7 @@ blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -145,7 +133,7 @@ blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
       fields: [
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,7 +148,7 @@ blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
         { name: 'did_unsubscribe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -174,7 +162,7 @@ blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
       fields: [
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -188,7 +176,7 @@ blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

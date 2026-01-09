@@ -121,11 +121,7 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
       network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
-      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
-      [issuer],
-      undefined,
-      undefined
-    );
+      [issuer]);
   }
 
   hasRedemptionRecord(issuer) {
@@ -134,11 +130,7 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
       network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
-      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
-      [issuer],
-      undefined,
-      undefined
-    );
+      [issuer]);
   }
 
 };
@@ -162,7 +154,7 @@ network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = {
       fields: [
         { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -175,7 +167,7 @@ network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -189,7 +181,7 @@ network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = {
       fields: [
         { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -202,7 +194,7 @@ network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

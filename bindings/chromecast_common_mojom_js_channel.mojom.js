@@ -50,11 +50,7 @@ chromecast.mojom.JsChannelRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.JsChannel_PostMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -78,7 +74,7 @@ chromecast.mojom.JsChannel_PostMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec,
       null,
-      null,
-      [channel, pipe],
-      undefined,
-      undefined
-    );
+      [channel, pipe]);
   }
 
   removeChannel(channel) {
@@ -142,11 +134,7 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec,
       null,
-      null,
-      [channel],
-      undefined,
-      undefined
-    );
+      [channel]);
   }
 
 };
@@ -171,7 +159,7 @@ chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = {
         { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +173,7 @@ chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = {
       fields: [
         { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,11 +224,7 @@ chromecast.mojom.JsChannelBindingProviderRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec,
       null,
-      null,
-      [routing_id, client],
-      undefined,
-      undefined
-    );
+      [routing_id, client]);
   }
 
 };
@@ -265,7 +249,7 @@ chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = {
         { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -73,11 +73,7 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec,
       null,
-      null,
-      [session, params],
-      undefined,
-      undefined
-    );
+      [session, params]);
   }
 
   createTextSafetySession(session) {
@@ -86,11 +82,7 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec,
       null,
-      null,
-      [session],
-      undefined,
-      undefined
-    );
+      [session]);
   }
 
   reportHealthyCompletion() {
@@ -99,11 +91,7 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
       2,  // ordinal
       optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -128,7 +116,7 @@ optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = {
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,7 +130,7 @@ optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = {
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,7 +143,7 @@ optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -206,11 +194,7 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec,
       null,
-      null,
-      [reason],
-      undefined,
-      undefined
-    );
+      [reason]);
   }
 
   available(config, solution) {
@@ -219,11 +203,7 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec,
       null,
-      null,
-      [config, solution],
-      undefined,
-      undefined
-    );
+      [config, solution]);
   }
 
 };
@@ -247,7 +227,7 @@ optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -262,7 +242,7 @@ optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = {
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -313,11 +293,7 @@ optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec,
       null,
-      null,
-      [options, subcriber],
-      undefined,
-      undefined
-    );
+      [options, subcriber]);
   }
 
 };
@@ -342,7 +318,7 @@ optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = {
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

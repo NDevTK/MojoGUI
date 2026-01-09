@@ -50,11 +50,7 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
       null,
-      null,
-      [bucket_info],
-      undefined,
-      undefined
-    );
+      [bucket_info]);
   }
 
   onDeleteBucket(bucket_locator) {
@@ -63,11 +59,7 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
       null,
-      null,
-      [bucket_locator],
-      undefined,
-      undefined
-    );
+      [bucket_locator]);
   }
 
 };
@@ -91,7 +83,7 @@ storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
       fields: [
         { name: 'bucket_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
       fields: [
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

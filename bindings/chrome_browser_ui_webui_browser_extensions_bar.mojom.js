@@ -50,11 +50,7 @@ extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   showContextMenu(source, id) {
@@ -143,11 +135,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      null,
-      [source, id],
-      undefined,
-      undefined
-    );
+      [source, id]);
   }
 
   toggleExtensionsMenuFromWebUI() {
@@ -156,11 +144,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -184,7 +168,7 @@ extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +183,7 @@ extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +196,7 @@ extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,11 +247,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec,
       null,
-      null,
-      [actions],
-      undefined,
-      undefined
-    );
+      [actions]);
   }
 
   actionRemoved(id) {
@@ -276,11 +256,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       extensions_bar.mojom.Page_ActionRemoved_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   actionPoppedOut() {
@@ -289,11 +265,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -317,7 +289,7 @@ extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
       fields: [
         { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -331,7 +303,7 @@ extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -344,7 +316,7 @@ extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

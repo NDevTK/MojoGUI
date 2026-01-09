@@ -77,11 +77,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       0,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec,
       null,
-      null,
-      [acceptable_algorithms, priority],
-      undefined,
-      undefined
-    );
+      [acceptable_algorithms, priority]);
   }
 
   fromWrappedSigningKey(wrapped_key, priority) {
@@ -90,11 +86,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       1,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec,
       null,
-      null,
-      [wrapped_key, priority],
-      undefined,
-      undefined
-    );
+      [wrapped_key, priority]);
   }
 
   sign(key_id, data, priority) {
@@ -103,11 +95,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       2,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec,
       null,
-      null,
-      [key_id, data, priority],
-      undefined,
-      undefined
-    );
+      [key_id, data, priority]);
   }
 
   getAllSigningKeysForGarbageCollection(priority) {
@@ -116,11 +104,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       3,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec,
       null,
-      null,
-      [priority],
-      undefined,
-      undefined
-    );
+      [priority]);
   }
 
   deleteKey(key_id, priority) {
@@ -129,11 +113,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       4,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec,
       unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec,
-      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec,
-      [key_id, priority],
-      undefined,
-      undefined
-    );
+      [key_id, priority]);
   }
 
   deleteAllKeys(priority) {
@@ -142,11 +122,7 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       5,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec,
       null,
-      null,
-      [priority],
-      undefined,
-      undefined
-    );
+      [priority]);
   }
 
 };
@@ -171,7 +147,7 @@ unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = {
         { name: 'acceptable_algorithms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,7 +162,7 @@ unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec 
         { name: 'wrapped_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -202,7 +178,7 @@ unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = {
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -216,7 +192,7 @@ unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollec
       fields: [
         { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -231,7 +207,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
         { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -244,7 +220,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -258,7 +234,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = {
       fields: [
         { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -56,11 +56,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec,
       mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getIsolationMode() {
@@ -69,11 +65,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec,
       mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getProcessPerSiteMode() {
@@ -82,11 +74,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec,
       mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getUserTriggeredIsolatedOrigins() {
@@ -95,11 +83,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec,
       mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getWebTriggeredIsolatedOrigins() {
@@ -108,11 +92,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec,
       mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getGloballyIsolatedOrigins() {
@@ -121,11 +101,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec,
       mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAllWebContentsInfo() {
@@ -134,11 +110,7 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec,
       mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec,
-      mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -161,7 +133,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -174,7 +146,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -187,7 +159,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -200,7 +172,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -213,7 +185,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -226,7 +198,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -239,7 +211,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +224,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec
       fields: [
         { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -265,7 +237,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +250,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec 
       fields: [
         { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,7 +263,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -304,7 +276,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
       fields: [
         { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,7 +289,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,7 +302,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
       fields: [
         { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

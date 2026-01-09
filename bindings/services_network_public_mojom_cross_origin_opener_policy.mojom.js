@@ -69,11 +69,7 @@ network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
       null,
-      null,
-      [report_type, property, source_location, reported_window_url],
-      undefined,
-      undefined
-    );
+      [report_type, property, source_location, reported_window_url]);
   }
 
 };
@@ -100,7 +96,7 @@ network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
         { name: 'source_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reported_window_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };

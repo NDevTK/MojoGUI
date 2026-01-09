@@ -50,11 +50,7 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedWorker_Connect_ParamsSpec,
       null,
-      null,
-      [connection_id, message_port],
-      undefined,
-      undefined
-    );
+      [connection_id, message_port]);
   }
 
   terminate() {
@@ -63,11 +59,7 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SharedWorker_Terminate_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -92,7 +84,7 @@ blink.mojom.SharedWorker_Connect_ParamsSpec = {
         { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'message_port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ blink.mojom.SharedWorker_Terminate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

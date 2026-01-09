@@ -50,11 +50,7 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
       chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
-      chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
-      [mime_type, total_size, get_attached_images, media_data_source],
-      undefined,
-      undefined
-    );
+      [mime_type, total_size, get_attached_images, media_data_source]);
   }
 
   extractVideoFrame(mime_type, total_size, media_data_source) {
@@ -63,11 +59,7 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec,
       chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
-      chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
-      [mime_type, total_size, media_data_source],
-      undefined,
-      undefined
-    );
+      [mime_type, total_size, media_data_source]);
   }
 
   checkMediaFile(decode_time, file) {
@@ -76,11 +68,7 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
       chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
-      chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
-      [decode_time, file],
-      undefined,
-      undefined
-    );
+      [decode_time, file]);
   }
 
   getCpuInfo() {
@@ -89,11 +77,7 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
       chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
-      chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -120,7 +104,7 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
         { name: 'get_attached_images', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'media_data_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -135,7 +119,7 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
         { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'attached_images', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -151,7 +135,7 @@ chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
         { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'media_data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -164,7 +148,7 @@ chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -179,7 +163,7 @@ chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
         { name: 'decode_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -192,7 +176,7 @@ chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -205,7 +189,7 @@ chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -219,7 +203,7 @@ chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
         { name: 'libyuv_cpu_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'ffmpeg_cpu_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -270,11 +254,7 @@ chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
       chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
-      chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
-      [libyuv_cpu_flags, libavutil_cpu_flags],
-      undefined,
-      undefined
-    );
+      [libyuv_cpu_flags, libavutil_cpu_flags]);
   }
 
 };
@@ -299,7 +279,7 @@ chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
         { name: 'libyuv_cpu_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'libavutil_cpu_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -312,7 +292,7 @@ chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
       fields: [
         { name: 'media_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,11 +343,7 @@ chrome.mojom.MediaDataSourceRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.MediaDataSource_Read_ParamsSpec,
       chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
-      chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
-      [position, length],
-      undefined,
-      undefined
-    );
+      [position, length]);
   }
 
 };
@@ -392,7 +368,7 @@ chrome.mojom.MediaDataSource_Read_ParamsSpec = {
         { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +381,7 @@ chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

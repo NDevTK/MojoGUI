@@ -82,11 +82,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
       null,
-      null,
-      [upload_total, uploaded, download_total, downloaded, result, failure_reason],
-      undefined,
-      undefined
-    );
+      [upload_total, uploaded, download_total, downloaded, result, failure_reason]);
   }
 
   onRecordsUnavailable() {
@@ -95,11 +91,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onRequestCompleted(request, response) {
@@ -108,11 +100,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
       null,
-      null,
-      [request, response],
-      undefined,
-      undefined
-    );
+      [request, response]);
   }
 
 };
@@ -141,7 +129,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
         { name: 'result', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'failure_reason', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -154,7 +142,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,7 +157,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = 
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -220,11 +208,7 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackgroundFetchService_Fetch_ParamsSpec,
       blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
-      [service_worker_registration_id, developer_id, requests, options, icon, ukm_data],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id, developer_id, requests, options, icon, ukm_data]);
   }
 
   getRegistration(service_worker_registration_id, developer_id) {
@@ -233,11 +217,7 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
       blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
-      [service_worker_registration_id, developer_id],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id, developer_id]);
   }
 
   getDeveloperIds(service_worker_registration_id) {
@@ -246,11 +226,7 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
       blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
-      [service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id]);
   }
 
   getIconDisplaySize() {
@@ -259,11 +235,7 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
       blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -292,7 +264,7 @@ blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
         { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'ukm_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -306,7 +278,7 @@ blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -321,7 +293,7 @@ blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'developer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -335,7 +307,7 @@ blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -349,7 +321,7 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
       fields: [
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,7 +335,7 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'developer_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,7 +348,7 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -389,7 +361,7 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
       fields: [
         { name: 'icon_size_pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -440,11 +412,7 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
       blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
-      [title, icon],
-      undefined,
-      undefined
-    );
+      [title, icon]);
   }
 
   abort() {
@@ -453,11 +421,7 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
       blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   matchRequests(request_to_match, cache_query_options, match_all) {
@@ -466,11 +430,7 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
       blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
-      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
-      [request_to_match, cache_query_options, match_all],
-      undefined,
-      undefined
-    );
+      [request_to_match, cache_query_options, match_all]);
   }
 
   addRegistrationObserver(observer) {
@@ -479,11 +439,7 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -508,7 +464,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -521,7 +477,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -534,7 +490,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -547,7 +503,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -563,7 +519,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
         { name: 'cache_query_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'match_all', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -576,7 +532,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec 
       fields: [
         { name: 'fetches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -590,7 +546,7 @@ blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpe
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

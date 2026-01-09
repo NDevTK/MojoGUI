@@ -84,11 +84,7 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
-      null,
-      [info],
-      undefined,
-      undefined
-    );
+      [info]);
   }
 
 };
@@ -112,7 +108,7 @@ ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,11 +159,7 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
       ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   runRoutine(type, runner) {
@@ -176,11 +168,7 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
-      null,
-      [type, runner],
-      undefined,
-      undefined
-    );
+      [type, runner]);
   }
 
 };
@@ -203,7 +191,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -216,7 +204,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParam
       fields: [
         { name: 'routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -231,7 +219,7 @@ ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'runner', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

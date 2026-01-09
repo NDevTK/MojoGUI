@@ -60,11 +60,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
       0,  // ordinal
       ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
       ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
-      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
 };
@@ -88,7 +84,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -101,7 +97,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpe
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -152,11 +148,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
       null,
-      null,
-      [response],
-      undefined,
-      undefined
-    );
+      [response]);
   }
 
 };
@@ -180,7 +172,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec 
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

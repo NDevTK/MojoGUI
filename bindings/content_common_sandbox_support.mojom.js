@@ -66,11 +66,7 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.SandboxSupport_GetSystemColors_ParamsSpec,
       content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec,
-      content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   lcidAndFirstDayOfWeek(locale, default_language, defaults) {
@@ -79,11 +75,7 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
       content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
-      content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
-      [locale, default_language, defaults],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [locale, default_language, defaults]);
   }
 
   digitsAndSigns(lcid, defaults) {
@@ -92,11 +84,7 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
       content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
-      content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
-      [lcid, defaults],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [lcid, defaults]);
   }
 
   localeString(lcid, defaults, type) {
@@ -105,11 +93,7 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.SandboxSupport_LocaleString_ParamsSpec,
       content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
-      content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
-      [lcid, defaults, type],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [lcid, defaults, type]);
   }
 
   localeStrings(lcid, defaults, collection) {
@@ -118,11 +102,7 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
       content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
-      content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
-      [lcid, defaults, collection],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [lcid, defaults, collection]);
   }
 
 };
@@ -145,7 +125,7 @@ content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +138,7 @@ content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -174,7 +154,7 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
         { name: 'default_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'defaults', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -188,7 +168,7 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
         { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'first_day_of_week', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -203,7 +183,7 @@ content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
         { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -221,7 +201,7 @@ content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
         { name: 'negative_sign', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'negnumber', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -237,7 +217,7 @@ content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
         { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +230,7 @@ content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
       fields: [
         { name: 'str', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +246,7 @@ content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
         { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'collection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -279,7 +259,7 @@ content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
       fields: [
         { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ watermark.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -78,7 +74,7 @@ watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
       null,
-      null,
-      [style],
-      undefined,
-      undefined
-    );
+      [style]);
   }
 
   showNotificationToast() {
@@ -142,11 +134,7 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -170,7 +158,7 @@ watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = {
       fields: [
         { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +171,7 @@ watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -51,11 +51,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
       0,  // ordinal
       ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec,
       ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   rollbackConfigExport() {
@@ -64,11 +60,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
       1,  // ordinal
       ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec,
       ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -92,7 +84,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Par
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Res
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +110,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +123,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Res
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

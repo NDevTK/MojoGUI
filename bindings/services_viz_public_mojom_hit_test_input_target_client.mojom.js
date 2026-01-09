@@ -50,11 +50,7 @@ viz.mojom.InputTargetClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
       viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
-      viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
-      [point, trace_id],
-      undefined,
-      undefined
-    );
+      [point, trace_id]);
   }
 
 };
@@ -79,7 +75,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -93,7 +89,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

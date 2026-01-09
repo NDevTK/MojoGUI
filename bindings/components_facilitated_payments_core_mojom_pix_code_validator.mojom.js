@@ -58,11 +58,7 @@ payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {
       0,  // ordinal
       payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec,
       payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
-      payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
-      [input_text],
-      undefined,
-      undefined
-    );
+      [input_text]);
   }
 
 };
@@ -86,7 +82,7 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec = {
       fields: [
         { name: 'input_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -99,7 +95,7 @@ payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec =
       fields: [
         { name: 'pix_qr_code_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

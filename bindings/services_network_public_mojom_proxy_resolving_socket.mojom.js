@@ -50,11 +50,7 @@ network.mojom.ProxyResolvingSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec,
       network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec,
-      network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec,
-      [host_port_pair, traffic_annotation, receiver, observer],
-      undefined,
-      undefined
-    );
+      [host_port_pair, traffic_annotation, receiver, observer]);
   }
 
 };
@@ -81,7 +77,7 @@ network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec = {
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -96,7 +92,7 @@ network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec = {
         { name: 'receive_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,11 +143,7 @@ network.mojom.ProxyResolvingSocketFactoryRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec,
       network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec,
-      network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec,
-      [url, network_anonymization_key, options, traffic_annotation, socket, observer],
-      undefined,
-      undefined
-    );
+      [url, network_anonymization_key, options, traffic_annotation, socket, observer]);
   }
 
 };
@@ -180,7 +172,7 @@ network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec 
         { name: 'socket', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +189,7 @@ network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponsePar
         { name: 'receive_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'send_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };

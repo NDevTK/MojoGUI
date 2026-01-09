@@ -79,11 +79,7 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec,
       cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec,
-      [source_id],
-      undefined,
-      undefined
-    );
+      [source_id]);
   }
 
   isSupported() {
@@ -92,11 +88,7 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec,
       cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isDeviceInUse(source_id) {
@@ -105,11 +97,7 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec,
       cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec,
-      [source_id],
-      undefined,
-      undefined
-    );
+      [source_id]);
   }
 
 };
@@ -133,7 +121,7 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = {
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,7 +135,7 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,7 +148,7 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -173,7 +161,7 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec = {
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -187,7 +175,7 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = {
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -200,7 +188,7 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec = {
       fields: [
         { name: 'in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -251,11 +239,7 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
   isSupported() {
@@ -264,11 +248,7 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setVirtualDeviceEnabled(device_id, enabled) {
@@ -277,11 +257,7 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec,
-      [device_id, enabled],
-      undefined,
-      undefined
-    );
+      [device_id, enabled]);
   }
 
   isDeviceInUse(device_id) {
@@ -290,11 +266,7 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec,
-      cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
 };
@@ -318,7 +290,7 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -332,7 +304,7 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -345,7 +317,7 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -358,7 +330,7 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec = {
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -373,7 +345,7 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -386,7 +358,7 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -400,7 +372,7 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -413,7 +385,7 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec = {
       fields: [
         { name: 'in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,11 +436,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setFpsRange(fps_range) {
@@ -477,11 +445,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec,
       cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec,
-      cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec,
-      [fps_range],
-      undefined,
-      undefined
-    );
+      [fps_range]);
   }
 
   setStillCaptureResolution(resolution) {
@@ -490,11 +454,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec,
       null,
-      null,
-      [resolution],
-      undefined,
-      undefined
-    );
+      [resolution]);
   }
 
   setCaptureIntent(intent) {
@@ -503,11 +463,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec,
       null,
-      null,
-      [intent],
-      undefined,
-      undefined
-    );
+      [intent]);
   }
 
   addResultMetadataObserver(observer, stream_type) {
@@ -516,11 +472,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec,
       null,
-      null,
-      [observer, stream_type],
-      undefined,
-      undefined
-    );
+      [observer, stream_type]);
   }
 
   addCameraEventObserver(observer) {
@@ -529,11 +481,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       5,  // ordinal
       cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setCameraFrameRotationEnabledAtSource(is_enabled) {
@@ -542,11 +490,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       6,  // ordinal
       cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec,
       cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec,
-      cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec,
-      [is_enabled],
-      undefined,
-      undefined
-    );
+      [is_enabled]);
   }
 
   getCameraFrameRotation() {
@@ -555,11 +499,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       7,  // ordinal
       cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec,
       cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec,
-      cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   registerDocumentCornersObserver(observer) {
@@ -568,11 +508,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       8,  // ordinal
       cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setMultipleStreamsEnabled(enabled) {
@@ -581,11 +517,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       9,  // ordinal
       cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   registerCameraInfoObserver(observer) {
@@ -594,11 +526,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       10,  // ordinal
       cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setCropRegion(crop_region) {
@@ -607,11 +535,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       11,  // ordinal
       cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec,
       null,
-      null,
-      [crop_region],
-      undefined,
-      undefined
-    );
+      [crop_region]);
   }
 
   resetCropRegion() {
@@ -620,11 +544,7 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       12,  // ordinal
       cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -648,7 +568,7 @@ cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -662,7 +582,7 @@ cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
       fields: [
         { name: 'fps_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -675,7 +595,7 @@ cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec = {
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -689,7 +609,7 @@ cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec = {
       fields: [
         { name: 'resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -703,7 +623,7 @@ cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec = {
       fields: [
         { name: 'intent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -718,7 +638,7 @@ cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec = {
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -732,7 +652,7 @@ cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -746,7 +666,7 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec = {
       fields: [
         { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -759,7 +679,7 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsS
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -772,7 +692,7 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -785,7 +705,7 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec = {
       fields: [
         { name: 'rotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -799,7 +719,7 @@ cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -813,7 +733,7 @@ cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -827,7 +747,7 @@ cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -841,7 +761,7 @@ cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec = {
       fields: [
         { name: 'crop_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -854,7 +774,7 @@ cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -905,11 +825,7 @@ cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec,
       null,
-      null,
-      [camera_metadata],
-      undefined,
-      undefined
-    );
+      [camera_metadata]);
   }
 
 };
@@ -933,7 +849,7 @@ cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec = {
       fields: [
         { name: 'camera_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -984,11 +900,7 @@ cros.mojom.CameraEventObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -1011,7 +923,7 @@ cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1062,11 +974,7 @@ cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec,
       null,
-      null,
-      [corners],
-      undefined,
-      undefined
-    );
+      [corners]);
   }
 
 };
@@ -1090,7 +998,7 @@ cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec = {
       fields: [
         { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1141,11 +1049,7 @@ cros.mojom.CameraInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec,
       null,
-      null,
-      [camera_info],
-      undefined,
-      undefined
-    );
+      [camera_info]);
   }
 
 };
@@ -1169,7 +1073,7 @@ cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec = {
       fields: [
         { name: 'camera_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1220,11 +1124,7 @@ cros.mojom.StillCaptureResultObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec,
       null,
-      null,
-      [effect, status, blob],
-      undefined,
-      undefined
-    );
+      [effect, status, blob]);
   }
 
 };
@@ -1250,7 +1150,7 @@ cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec = {
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

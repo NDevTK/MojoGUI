@@ -101,11 +101,7 @@ blink.mojom.PermissionObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
 };
@@ -129,7 +125,7 @@ blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -180,11 +176,7 @@ blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
       null,
-      null,
-      [allow, statuses],
-      undefined,
-      undefined
-    );
+      [allow, statuses]);
   }
 
 };
@@ -209,7 +201,7 @@ blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistere
         { name: 'allow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'statuses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -260,11 +252,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PermissionService_HasPermission_ParamsSpec,
       blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
-      blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
-      [permission],
-      undefined,
-      undefined
-    );
+      [permission]);
   }
 
   registerPageEmbeddedPermissionControl(permissions, descriptor, client) {
@@ -273,11 +261,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
       null,
-      null,
-      [permissions, descriptor, client],
-      undefined,
-      undefined
-    );
+      [permissions, descriptor, client]);
   }
 
   requestPageEmbeddedPermission(permissions, descriptor) {
@@ -286,11 +270,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
       blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
-      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
-      [permissions, descriptor],
-      undefined,
-      undefined
-    );
+      [permissions, descriptor]);
   }
 
   requestPermission(permission, user_gesture) {
@@ -299,11 +279,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PermissionService_RequestPermission_ParamsSpec,
       blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
-      blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
-      [permission, user_gesture],
-      undefined,
-      undefined
-    );
+      [permission, user_gesture]);
   }
 
   requestPermissions(permission, user_gesture) {
@@ -312,11 +288,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PermissionService_RequestPermissions_ParamsSpec,
       blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
-      blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
-      [permission, user_gesture],
-      undefined,
-      undefined
-    );
+      [permission, user_gesture]);
   }
 
   revokePermission(permission) {
@@ -325,11 +297,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PermissionService_RevokePermission_ParamsSpec,
       blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
-      blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
-      [permission],
-      undefined,
-      undefined
-    );
+      [permission]);
   }
 
   addPermissionObserver(permission, last_known_status, observer) {
@@ -338,11 +306,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
       null,
-      null,
-      [permission, last_known_status, observer],
-      undefined,
-      undefined
-    );
+      [permission, last_known_status, observer]);
   }
 
   addPageEmbeddedPermissionObserver(permission, last_known_status, observer) {
@@ -351,11 +315,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
       null,
-      null,
-      [permission, last_known_status, observer],
-      undefined,
-      undefined
-    );
+      [permission, last_known_status, observer]);
   }
 
   notifyEventListener(permission, event_type, is_added) {
@@ -364,11 +324,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PermissionService_NotifyEventListener_ParamsSpec,
       null,
-      null,
-      [permission, event_type, is_added],
-      undefined,
-      undefined
-    );
+      [permission, event_type, is_added]);
   }
 
 };
@@ -392,7 +348,7 @@ blink.mojom.PermissionService_HasPermission_ParamsSpec = {
       fields: [
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +361,7 @@ blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -421,7 +377,7 @@ blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec =
         { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -436,7 +392,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
         { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -449,7 +405,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,7 +420,7 @@ blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -477,7 +433,7 @@ blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -492,7 +448,7 @@ blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -505,7 +461,7 @@ blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
       fields: [
         { name: 'statuses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -519,7 +475,7 @@ blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
       fields: [
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -532,7 +488,7 @@ blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -548,7 +504,7 @@ blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
         { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,7 +520,7 @@ blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
         { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -580,7 +536,7 @@ blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
         { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_added', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

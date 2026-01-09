@@ -73,11 +73,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CredentialManager_Store_ParamsSpec,
       null,
-      null,
-      [credential],
-      undefined,
-      undefined
-    );
+      [credential]);
   }
 
   preventSilentAccess() {
@@ -86,11 +82,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   get(mediation, include_passwords, federations) {
@@ -99,11 +91,7 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CredentialManager_Get_ParamsSpec,
       blink.mojom.CredentialManager_Get_ResponseParamsSpec,
-      blink.mojom.CredentialManager_Get_ResponseParamsSpec,
-      [mediation, include_passwords, federations],
-      undefined,
-      undefined
-    );
+      [mediation, include_passwords, federations]);
   }
 
 };
@@ -127,7 +115,7 @@ blink.mojom.CredentialManager_Store_ParamsSpec = {
       fields: [
         { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -140,7 +128,7 @@ blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +144,7 @@ blink.mojom.CredentialManager_Get_ParamsSpec = {
         { name: 'include_passwords', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'federations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +158,7 @@ blink.mojom.CredentialManager_Get_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

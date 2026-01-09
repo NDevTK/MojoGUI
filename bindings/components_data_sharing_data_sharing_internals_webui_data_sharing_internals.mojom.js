@@ -50,11 +50,7 @@ data_sharing_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ data_sharing_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec,
       data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec,
-      data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAllGroups() {
@@ -143,11 +135,7 @@ data_sharing_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec,
       data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec,
-      data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -170,7 +158,7 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +171,7 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = {
       fields: [
         { name: 'is_empty', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +184,7 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +198,7 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = {
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,11 +249,7 @@ data_sharing_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      null,
-      [event_time, log_source, source_file, source_line, message],
-      undefined,
-      undefined
-    );
+      [event_time, log_source, source_file, source_line, message]);
   }
 
 };
@@ -293,7 +277,7 @@ data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
         { name: 'source_line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };

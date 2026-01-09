@@ -205,11 +205,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec,
       ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getWindowsTabsList() {
@@ -218,11 +214,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec,
       ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   listCourses() {
@@ -231,11 +223,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.boca.mojom.PageHandler_ListCourses_ParamsSpec,
       ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   listStudents(course_id) {
@@ -244,11 +232,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.boca.mojom.PageHandler_ListStudents_ParamsSpec,
       ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec,
-      [course_id],
-      undefined,
-      undefined
-    );
+      [course_id]);
   }
 
   listAssignments(course_id) {
@@ -257,11 +241,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec,
       ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec,
-      [course_id],
-      undefined,
-      undefined
-    );
+      [course_id]);
   }
 
   createSession(config) {
@@ -270,11 +250,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.boca.mojom.PageHandler_CreateSession_ParamsSpec,
       ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   getSession() {
@@ -283,11 +259,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.boca.mojom.PageHandler_GetSession_ParamsSpec,
       ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   endSession() {
@@ -296,11 +268,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.boca.mojom.PageHandler_EndSession_ParamsSpec,
       ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   extendSessionDuration(extended_duration) {
@@ -309,11 +277,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec,
       ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec,
-      [extended_duration],
-      undefined,
-      undefined
-    );
+      [extended_duration]);
   }
 
   removeStudent(student_id) {
@@ -322,11 +286,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec,
       ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec,
-      [student_id],
-      undefined,
-      undefined
-    );
+      [student_id]);
   }
 
   renotifyStudent(student_id) {
@@ -335,11 +295,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec,
       ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec,
-      [student_id],
-      undefined,
-      undefined
-    );
+      [student_id]);
   }
 
   addStudents(students) {
@@ -348,11 +304,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.boca.mojom.PageHandler_AddStudents_ParamsSpec,
       ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec,
-      [students],
-      undefined,
-      undefined
-    );
+      [students]);
   }
 
   updateOnTaskConfig(on_task_config) {
@@ -361,11 +313,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec,
       ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec,
-      [on_task_config],
-      undefined,
-      undefined
-    );
+      [on_task_config]);
   }
 
   updateCaptionConfig(caption_config) {
@@ -374,11 +322,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec,
       ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec,
-      [caption_config],
-      undefined,
-      undefined
-    );
+      [caption_config]);
   }
 
   setFloatMode(is_float_mode) {
@@ -387,11 +331,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec,
       ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec,
-      [is_float_mode],
-      undefined,
-      undefined
-    );
+      [is_float_mode]);
   }
 
   submitAccessCode(access_code) {
@@ -400,11 +340,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec,
       ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec,
-      [access_code],
-      undefined,
-      undefined
-    );
+      [access_code]);
   }
 
   viewStudentScreen(id) {
@@ -413,11 +349,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   endViewScreenSession(id) {
@@ -426,11 +358,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec,
       ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   setViewScreenSessionActive(id) {
@@ -439,11 +367,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec,
       ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   getUserPref(pref) {
@@ -452,11 +376,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec,
       ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec,
-      [pref],
-      undefined,
-      undefined
-    );
+      [pref]);
   }
 
   setUserPref(pref, value) {
@@ -465,11 +385,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec,
       null,
-      null,
-      [pref, value],
-      undefined,
-      undefined
-    );
+      [pref, value]);
   }
 
   setSitePermission(url, permission, setting) {
@@ -478,11 +394,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec,
       ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec,
-      [url, permission, setting],
-      undefined,
-      undefined
-    );
+      [url, permission, setting]);
   }
 
   closeTab(tab_id) {
@@ -491,11 +403,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       22,  // ordinal
       ash.boca.mojom.PageHandler_CloseTab_ParamsSpec,
       ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec,
-      [tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id]);
   }
 
   openFeedbackDialog() {
@@ -504,11 +412,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       23,  // ordinal
       ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   refreshWorkbook() {
@@ -517,11 +421,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       24,  // ordinal
       ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getSpeechRecognitionInstallationStatus() {
@@ -530,11 +430,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       25,  // ordinal
       ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec,
       ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startSpotlight(crd_connection_code) {
@@ -543,11 +439,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       26,  // ordinal
       ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec,
       null,
-      null,
-      [crd_connection_code],
-      undefined,
-      undefined
-    );
+      [crd_connection_code]);
   }
 
   presentStudentScreen(student, receiver_id) {
@@ -556,11 +448,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       27,  // ordinal
       ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec,
-      [student, receiver_id],
-      undefined,
-      undefined
-    );
+      [student, receiver_id]);
   }
 
   stopPresentingStudentScreen() {
@@ -569,11 +457,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       28,  // ordinal
       ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   presentOwnScreen(receiver_id) {
@@ -582,11 +466,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       29,  // ordinal
       ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec,
-      [receiver_id],
-      undefined,
-      undefined
-    );
+      [receiver_id]);
   }
 
   stopPresentingOwnScreen() {
@@ -595,11 +475,7 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       30,  // ordinal
       ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec,
-      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -622,7 +498,7 @@ ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -635,7 +511,7 @@ ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -648,7 +524,7 @@ ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -661,7 +537,7 @@ ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec = {
       fields: [
         { name: 'window_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -674,7 +550,7 @@ ash.boca.mojom.PageHandler_ListCourses_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -687,7 +563,7 @@ ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec = {
       fields: [
         { name: 'courses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -701,7 +577,7 @@ ash.boca.mojom.PageHandler_ListStudents_ParamsSpec = {
       fields: [
         { name: 'course_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -714,7 +590,7 @@ ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec = {
       fields: [
         { name: 'students', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -728,7 +604,7 @@ ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec = {
       fields: [
         { name: 'course_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -741,7 +617,7 @@ ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec = {
       fields: [
         { name: 'assignments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -755,7 +631,7 @@ ash.boca.mojom.PageHandler_CreateSession_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -768,7 +644,7 @@ ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -781,7 +657,7 @@ ash.boca.mojom.PageHandler_GetSession_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -794,7 +670,7 @@ ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -807,7 +683,7 @@ ash.boca.mojom.PageHandler_EndSession_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -820,7 +696,7 @@ ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -834,7 +710,7 @@ ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec = {
       fields: [
         { name: 'extended_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -847,7 +723,7 @@ ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -861,7 +737,7 @@ ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec = {
       fields: [
         { name: 'student_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -874,7 +750,7 @@ ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -888,7 +764,7 @@ ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec = {
       fields: [
         { name: 'student_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -901,7 +777,7 @@ ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -915,7 +791,7 @@ ash.boca.mojom.PageHandler_AddStudents_ParamsSpec = {
       fields: [
         { name: 'students', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -928,7 +804,7 @@ ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -942,7 +818,7 @@ ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec = {
       fields: [
         { name: 'on_task_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -955,7 +831,7 @@ ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -969,7 +845,7 @@ ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec = {
       fields: [
         { name: 'caption_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -982,7 +858,7 @@ ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -996,7 +872,7 @@ ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec = {
       fields: [
         { name: 'is_float_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1009,7 +885,7 @@ ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1023,7 +899,7 @@ ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec = {
       fields: [
         { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1036,7 +912,7 @@ ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1050,7 +926,7 @@ ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1063,7 +939,7 @@ ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1077,7 +953,7 @@ ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1090,7 +966,7 @@ ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1104,7 +980,7 @@ ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1117,7 +993,7 @@ ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1131,7 +1007,7 @@ ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec = {
       fields: [
         { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1144,7 +1020,7 @@ ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1159,7 +1035,7 @@ ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec = {
         { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1175,7 +1051,7 @@ ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec = {
         { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1188,7 +1064,7 @@ ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1202,7 +1078,7 @@ ash.boca.mojom.PageHandler_CloseTab_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1215,7 +1091,7 @@ ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1228,7 +1104,7 @@ ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1241,7 +1117,7 @@ ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1254,7 +1130,7 @@ ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1267,7 +1143,7 @@ ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParams
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1281,7 +1157,7 @@ ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec = {
       fields: [
         { name: 'crd_connection_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1296,7 +1172,7 @@ ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec = {
         { name: 'student', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'receiver_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1309,7 +1185,7 @@ ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1322,7 +1198,7 @@ ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1335,7 +1211,7 @@ ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1349,7 +1225,7 @@ ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec = {
       fields: [
         { name: 'receiver_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1362,7 +1238,7 @@ ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1375,7 +1251,7 @@ ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1388,7 +1264,7 @@ ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1439,11 +1315,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec,
       null,
-      null,
-      [activities],
-      undefined,
-      undefined
-    );
+      [activities]);
   }
 
   onSessionConfigUpdated(config) {
@@ -1452,11 +1324,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec,
       null,
-      null,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   onActiveNetworkStateChanged(active_networks) {
@@ -1465,11 +1333,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec,
       null,
-      null,
-      [active_networks],
-      undefined,
-      undefined
-    );
+      [active_networks]);
   }
 
   onLocalCaptionDisabled() {
@@ -1478,11 +1342,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onSpeechRecognitionInstallStateUpdated(state) {
@@ -1491,11 +1351,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   onSessionCaptionDisabled(is_error) {
@@ -1504,11 +1360,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec,
       null,
-      null,
-      [is_error],
-      undefined,
-      undefined
-    );
+      [is_error]);
   }
 
   onFrameDataReceived(frame_data) {
@@ -1517,11 +1369,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec,
       null,
-      null,
-      [frame_data],
-      undefined,
-      undefined
-    );
+      [frame_data]);
   }
 
   onSpotlightCrdSessionStatusUpdated(state) {
@@ -1530,11 +1378,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   onPresentStudentScreenEnded() {
@@ -1543,11 +1387,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onPresentOwnScreenEnded() {
@@ -1556,11 +1396,7 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -1584,7 +1420,7 @@ ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec = {
       fields: [
         { name: 'activities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1598,7 +1434,7 @@ ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1612,7 +1448,7 @@ ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec = {
       fields: [
         { name: 'active_networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1625,7 +1461,7 @@ ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1639,7 +1475,7 @@ ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1653,7 +1489,7 @@ ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec = {
       fields: [
         { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1667,7 +1503,7 @@ ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec = {
       fields: [
         { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1681,7 +1517,7 @@ ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1694,7 +1530,7 @@ ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1707,7 +1543,7 @@ ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1758,11 +1594,7 @@ ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec,
       null,
-      null,
-      [handler, page],
-      undefined,
-      undefined
-    );
+      [handler, page]);
   }
 
 };
@@ -1787,7 +1619,7 @@ ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec = {
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

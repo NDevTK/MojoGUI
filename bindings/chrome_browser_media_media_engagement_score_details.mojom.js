@@ -50,11 +50,7 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
-      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMediaEngagementConfig() {
@@ -63,11 +59,7 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
-      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -90,7 +82,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -103,7 +95,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_R
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +108,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +121,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Respons
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -51,11 +51,7 @@ sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec,
       sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
-      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
-      [in],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [in]);
   }
 
 };
@@ -79,7 +75,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
       fields: [
         { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpe
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

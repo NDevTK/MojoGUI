@@ -50,11 +50,7 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec,
       null,
-      null,
-      [blob, uuid, content_type, file],
-      undefined,
-      undefined
-    );
+      [blob, uuid, content_type, file]);
   }
 
   registerBlobSync(blob, uuid, content_type, file) {
@@ -63,11 +59,7 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec,
       null,
-      null,
-      [blob, uuid, content_type, file],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [blob, uuid, content_type, file]);
   }
 
 };
@@ -94,7 +86,7 @@ blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
         { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -111,7 +103,7 @@ blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
         { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };

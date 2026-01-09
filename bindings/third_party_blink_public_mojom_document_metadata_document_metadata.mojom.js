@@ -50,11 +50,7 @@ blink.mojom.DocumentMetadataRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DocumentMetadata_GetEntities_ParamsSpec,
       blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
-      blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ device.mojom.BatteryMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec,
       device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
-      device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

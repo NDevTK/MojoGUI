@@ -57,11 +57,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onClick() {
@@ -70,11 +66,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onClose() {
@@ -83,11 +75,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -110,7 +98,7 @@ blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -123,7 +111,7 @@ blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -136,7 +124,7 @@ blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -187,11 +175,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
       blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
-      blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   displayNonPersistentNotification(token, notification_data, notification_resources, event_listener) {
@@ -200,11 +184,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
       null,
-      null,
-      [token, notification_data, notification_resources, event_listener],
-      undefined,
-      undefined
-    );
+      [token, notification_data, notification_resources, event_listener]);
   }
 
   closeNonPersistentNotification(token) {
@@ -213,11 +193,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
       null,
-      null,
-      [token],
-      undefined,
-      undefined
-    );
+      [token]);
   }
 
   displayPersistentNotification(service_worker_registration_id, notification_data, notification_resources) {
@@ -226,11 +202,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
       blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
-      blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
-      [service_worker_registration_id, notification_data, notification_resources],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id, notification_data, notification_resources]);
   }
 
   closePersistentNotification(notification_id) {
@@ -239,11 +211,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
       null,
-      null,
-      [notification_id],
-      undefined,
-      undefined
-    );
+      [notification_id]);
   }
 
   getNotifications(service_worker_registration_id, filter_tag, include_triggered) {
@@ -252,11 +220,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.NotificationService_GetNotifications_ParamsSpec,
       blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
-      blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
-      [service_worker_registration_id, filter_tag, include_triggered],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id, filter_tag, include_triggered]);
   }
 
 };
@@ -279,7 +243,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -292,7 +256,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -309,7 +273,7 @@ blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
         { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -323,7 +287,7 @@ blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +303,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
         { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -352,7 +316,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -366,7 +330,7 @@ blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
       fields: [
         { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -382,7 +346,7 @@ blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
         { name: 'filter_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'include_triggered', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -396,7 +360,7 @@ blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
         { name: 'notification_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'notification_datas', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

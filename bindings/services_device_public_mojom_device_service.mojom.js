@@ -50,11 +50,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.DeviceService_BindFingerprint_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindGeolocationContext(receiver) {
@@ -63,11 +59,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.DeviceService_BindGeolocationContext_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindGeolocationControl(receiver) {
@@ -76,11 +68,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.DeviceService_BindGeolocationControl_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindGeolocationInternals(receiver) {
@@ -89,11 +77,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindInputDeviceManager(receiver) {
@@ -102,11 +86,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindBatteryMonitor(receiver) {
@@ -115,11 +95,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindPressureManager(receiver) {
@@ -128,11 +104,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.DeviceService_BindPressureManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindNFCProvider(receiver) {
@@ -141,11 +113,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.DeviceService_BindNFCProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindVibrationManager(receiver, listener) {
@@ -154,11 +122,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.DeviceService_BindVibrationManager_ParamsSpec,
       null,
-      null,
-      [receiver, listener],
-      undefined,
-      undefined
-    );
+      [receiver, listener]);
   }
 
   bindHidManager(receiver) {
@@ -167,11 +131,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       9,  // ordinal
       device.mojom.DeviceService_BindHidManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindMtpManager(receiver) {
@@ -180,11 +140,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       10,  // ordinal
       device.mojom.DeviceService_BindMtpManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindPowerMonitor(receiver) {
@@ -193,11 +149,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       11,  // ordinal
       device.mojom.DeviceService_BindPowerMonitor_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindPublicIpAddressGeolocationProvider(receiver) {
@@ -206,11 +158,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       12,  // ordinal
       device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindScreenOrientationListener(receiver) {
@@ -219,11 +167,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       13,  // ordinal
       device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindSensorProvider(receiver) {
@@ -232,11 +176,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       14,  // ordinal
       device.mojom.DeviceService_BindSensorProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindSerialPortManager(receiver) {
@@ -245,11 +185,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       15,  // ordinal
       device.mojom.DeviceService_BindSerialPortManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindTimeZoneMonitor(receiver) {
@@ -258,11 +194,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       16,  // ordinal
       device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindWakeLockProvider(receiver) {
@@ -271,11 +203,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       17,  // ordinal
       device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindUsbDeviceManager(receiver) {
@@ -284,11 +212,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       18,  // ordinal
       device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindUsbDeviceManagerTest(receiver) {
@@ -297,11 +221,7 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       19,  // ordinal
       device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -325,7 +245,7 @@ device.mojom.DeviceService_BindFingerprint_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +259,7 @@ device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -353,7 +273,7 @@ device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -367,7 +287,7 @@ device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -381,7 +301,7 @@ device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -395,7 +315,7 @@ device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -409,7 +329,7 @@ device.mojom.DeviceService_BindPressureManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -423,7 +343,7 @@ device.mojom.DeviceService_BindNFCProvider_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +358,7 @@ device.mojom.DeviceService_BindVibrationManager_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -452,7 +372,7 @@ device.mojom.DeviceService_BindHidManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -466,7 +386,7 @@ device.mojom.DeviceService_BindMtpManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,7 +400,7 @@ device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -494,7 +414,7 @@ device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -508,7 +428,7 @@ device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -522,7 +442,7 @@ device.mojom.DeviceService_BindSensorProvider_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -536,7 +456,7 @@ device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -550,7 +470,7 @@ device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,7 +484,7 @@ device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -578,7 +498,7 @@ device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -592,7 +512,7 @@ device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ video_capture.mojom.AcceleratorFactoryRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
-      null,
-      [jda],
-      undefined,
-      undefined
-    );
+      [jda]);
   }
 
 };
@@ -78,7 +74,7 @@ video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = 
       fields: [
         { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec,
       null,
-      null,
-      [accelerator_factory],
-      undefined,
-      undefined
-    );
+      [accelerator_factory]);
   }
 
   connectToCameraAppDeviceBridge(receiver) {
@@ -142,11 +134,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindVideoCaptureDeviceFactory(receiver) {
@@ -155,11 +143,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   connectToVideoSourceProvider(receiver) {
@@ -168,11 +152,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindControlsForTesting(receiver) {
@@ -181,11 +161,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   onGpuInfoUpdate(luid) {
@@ -194,11 +170,7 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec,
       null,
-      null,
-      [luid],
-      undefined,
-      undefined
-    );
+      [luid]);
   }
 
 };
@@ -222,7 +194,7 @@ video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
       fields: [
         { name: 'accelerator_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +208,7 @@ video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpe
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +222,7 @@ video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +236,7 @@ video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec 
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +250,7 @@ video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -292,7 +264,7 @@ video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
       fields: [
         { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   audioContextAudiblePlaybackStopped(id) {
@@ -63,11 +59,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   audioContextCreated(id) {
@@ -76,11 +68,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   audioContextClosed(id) {
@@ -89,11 +77,7 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
 };
@@ -117,7 +101,7 @@ blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = 
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +115,7 @@ blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = 
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -145,7 +129,7 @@ blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,7 +143,7 @@ blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

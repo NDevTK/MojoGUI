@@ -96,11 +96,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
-      null,
-      [properties],
-      undefined,
-      undefined
-    );
+      [properties]);
   }
 
 };
@@ -124,7 +120,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsS
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -175,11 +171,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       0,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setOutputMuted(muted) {
@@ -188,11 +180,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       1,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec,
       null,
-      null,
-      [muted],
-      undefined,
-      undefined
-    );
+      [muted]);
   }
 
   setOutputVolumePercent(volume) {
@@ -201,11 +189,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       2,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec,
       null,
-      null,
-      [volume],
-      undefined,
-      undefined
-    );
+      [volume]);
   }
 
   setInputGainPercent(gain) {
@@ -214,11 +198,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       3,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec,
       null,
-      null,
-      [gain],
-      undefined,
-      undefined
-    );
+      [gain]);
   }
 
   setActiveDevice(device) {
@@ -227,11 +207,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       4,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec,
       null,
-      null,
-      [device],
-      undefined,
-      undefined
-    );
+      [device]);
   }
 
   setInputMuted(muted) {
@@ -240,11 +216,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       5,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec,
       null,
-      null,
-      [muted],
-      undefined,
-      undefined
-    );
+      [muted]);
   }
 
   recordVoiceIsolationEnabledChange() {
@@ -253,11 +225,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       6,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordVoiceIsolationPreferredEffectChange(preferred_effect) {
@@ -266,11 +234,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       7,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec,
       null,
-      null,
-      [preferred_effect],
-      undefined,
-      undefined
-    );
+      [preferred_effect]);
   }
 
   setNoiseCancellationEnabled(enabled) {
@@ -279,11 +243,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       8,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setStyleTransferEnabled(enabled) {
@@ -292,11 +252,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       9,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setForceRespectUiGainsEnabled(enabled) {
@@ -305,11 +261,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       10,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setHfpMicSrEnabled(enabled) {
@@ -318,11 +270,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       11,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setSpatialAudioEnabled(enabled) {
@@ -331,11 +279,7 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       12,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -359,7 +303,7 @@ ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec =
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -373,7 +317,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
       fields: [
         { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -387,7 +331,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -401,7 +345,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
       fields: [
         { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -415,7 +359,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -429,7 +373,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
       fields: [
         { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -442,7 +386,7 @@ ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -456,7 +400,7 @@ ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange
       fields: [
         { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -470,7 +414,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -484,7 +428,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -498,7 +442,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -512,7 +456,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -526,7 +470,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

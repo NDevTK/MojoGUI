@@ -50,11 +50,7 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
       blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   matchLocalFontByUniqueName(font_unique_name) {
@@ -63,11 +59,7 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
       blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
-      blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
-      [font_unique_name],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [font_unique_name]);
   }
 
   fetchAllFontFiles() {
@@ -76,11 +68,7 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
       blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
-      blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -103,7 +91,7 @@ blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +104,7 @@ blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
       fields: [
         { name: 'unique_font_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +118,7 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
       fields: [
         { name: 'font_unique_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +131,7 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
       fields: [
         { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +144,7 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,7 +157,7 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
       fields: [
         { name: 'font_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

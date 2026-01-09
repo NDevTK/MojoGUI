@@ -71,11 +71,7 @@ blink.mojom.ClipboardListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
       null,
-      null,
-      [types, change_id],
-      undefined,
-      undefined
-    );
+      [types, change_id]);
   }
 
 };
@@ -100,7 +96,7 @@ blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = {
         { name: 'types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'change_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -151,11 +147,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
       blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   isFormatAvailable(format, buffer) {
@@ -164,11 +156,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
       blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
-      [format, buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [format, buffer]);
   }
 
   readAvailableTypes(buffer) {
@@ -177,11 +165,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
       blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   readText(buffer) {
@@ -190,11 +174,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ClipboardHost_ReadText_ParamsSpec,
       blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   readHtml(buffer) {
@@ -203,11 +183,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ClipboardHost_ReadHtml_ParamsSpec,
       blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   readSvg(buffer) {
@@ -216,11 +192,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.ClipboardHost_ReadSvg_ParamsSpec,
       blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      undefined
-    );
+      [buffer]);
   }
 
   readRtf(buffer) {
@@ -229,11 +201,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.ClipboardHost_ReadRtf_ParamsSpec,
       blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   readPng(buffer) {
@@ -242,11 +210,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.ClipboardHost_ReadPng_ParamsSpec,
       blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   readFiles(buffer) {
@@ -255,11 +219,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.ClipboardHost_ReadFiles_ParamsSpec,
       blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
-      [buffer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer]);
   }
 
   readDataTransferCustomData(buffer, type) {
@@ -268,11 +228,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
       blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
-      [buffer, type],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [buffer, type]);
   }
 
   readAvailableCustomAndStandardFormats() {
@@ -281,11 +237,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
       blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   readUnsanitizedCustomFormat(format) {
@@ -294,11 +246,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
       blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
-      [format],
-      undefined,
-      undefined
-    );
+      [format]);
   }
 
   writeText(text) {
@@ -307,11 +255,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.ClipboardHost_WriteText_ParamsSpec,
       null,
-      null,
-      [text],
-      undefined,
-      undefined
-    );
+      [text]);
   }
 
   writeHtml(markup, url) {
@@ -320,11 +264,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.ClipboardHost_WriteHtml_ParamsSpec,
       null,
-      null,
-      [markup, url],
-      undefined,
-      undefined
-    );
+      [markup, url]);
   }
 
   writeSvg(markup) {
@@ -333,11 +273,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.ClipboardHost_WriteSvg_ParamsSpec,
       null,
-      null,
-      [markup],
-      undefined,
-      undefined
-    );
+      [markup]);
   }
 
   writeSmartPasteMarker() {
@@ -346,11 +282,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   writeDataTransferCustomData(data) {
@@ -359,11 +291,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
   writeBookmark(url, title) {
@@ -372,11 +300,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       17,  // ordinal
       blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
       null,
-      null,
-      [url, title],
-      undefined,
-      undefined
-    );
+      [url, title]);
   }
 
   writeImage(image) {
@@ -385,11 +309,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       18,  // ordinal
       blink.mojom.ClipboardHost_WriteImage_ParamsSpec,
       null,
-      null,
-      [image],
-      undefined,
-      undefined
-    );
+      [image]);
   }
 
   writeUnsanitizedCustomFormat(format, data) {
@@ -398,11 +318,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       19,  // ordinal
       blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
       null,
-      null,
-      [format, data],
-      undefined,
-      undefined
-    );
+      [format, data]);
   }
 
   commitWrite() {
@@ -411,11 +327,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       20,  // ordinal
       blink.mojom.ClipboardHost_CommitWrite_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   writeStringToFindPboard(text) {
@@ -424,11 +336,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       21,  // ordinal
       blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec,
       null,
-      null,
-      [text],
-      undefined,
-      undefined
-    );
+      [text]);
   }
 
   getPlatformPermissionState() {
@@ -437,11 +345,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       22,  // ordinal
       blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec,
       blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
-      blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   registerClipboardListener(listener) {
@@ -450,11 +354,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       23,  // ordinal
       blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
 };
@@ -478,7 +378,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -491,7 +391,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -506,7 +406,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
         { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -519,7 +419,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -533,7 +433,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -546,7 +446,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
       fields: [
         { name: 'types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -560,7 +460,7 @@ blink.mojom.ClipboardHost_ReadText_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -573,7 +473,7 @@ blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -587,7 +487,7 @@ blink.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -603,7 +503,7 @@ blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
         { name: 'fragment_start', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'fragment_end', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -617,7 +517,7 @@ blink.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -630,7 +530,7 @@ blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -644,7 +544,7 @@ blink.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -657,7 +557,7 @@ blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -671,7 +571,7 @@ blink.mojom.ClipboardHost_ReadPng_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -684,7 +584,7 @@ blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
       fields: [
         { name: 'png', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -698,7 +598,7 @@ blink.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -711,7 +611,7 @@ blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -726,7 +626,7 @@ blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec = {
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -739,7 +639,7 @@ blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -752,7 +652,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -765,7 +665,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSp
       fields: [
         { name: 'format_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -779,7 +679,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
       fields: [
         { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -792,7 +692,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -806,7 +706,7 @@ blink.mojom.ClipboardHost_WriteText_ParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -821,7 +721,7 @@ blink.mojom.ClipboardHost_WriteHtml_ParamsSpec = {
         { name: 'markup', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -835,7 +735,7 @@ blink.mojom.ClipboardHost_WriteSvg_ParamsSpec = {
       fields: [
         { name: 'markup', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -848,7 +748,7 @@ blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -862,7 +762,7 @@ blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -877,7 +777,7 @@ blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -891,7 +791,7 @@ blink.mojom.ClipboardHost_WriteImage_ParamsSpec = {
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -906,7 +806,7 @@ blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = {
         { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -919,7 +819,7 @@ blink.mojom.ClipboardHost_CommitWrite_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -933,7 +833,7 @@ blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -946,7 +846,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -959,7 +859,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -973,7 +873,7 @@ blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

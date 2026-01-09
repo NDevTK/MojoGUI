@@ -50,11 +50,7 @@ device.mojom.GeolocationControlRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

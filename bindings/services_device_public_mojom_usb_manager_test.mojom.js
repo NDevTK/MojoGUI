@@ -50,11 +50,7 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
       device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
-      device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
-      [name, serial_number, landing_page],
-      undefined,
-      undefined
-    );
+      [name, serial_number, landing_page]);
   }
 
   removeDeviceForTesting(guid) {
@@ -63,11 +59,7 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
       null,
-      null,
-      [guid],
-      undefined,
-      undefined
-    );
+      [guid]);
   }
 
   getTestDevices() {
@@ -76,11 +68,7 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
       device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
-      device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -106,7 +94,7 @@ device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
         { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'landing_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -120,7 +108,7 @@ device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -134,7 +122,7 @@ device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
       fields: [
         { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,7 +135,7 @@ device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,7 +148,7 @@ device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

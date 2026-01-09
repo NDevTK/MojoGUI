@@ -50,11 +50,7 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec,
       cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec,
-      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enableBitstreamConverter() {
@@ -63,11 +59,7 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
       1,  // ordinal
       cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec,
       cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -90,7 +82,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -103,7 +95,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
       fields: [
         { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +108,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +121,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParam
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -180,11 +172,7 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec,
       cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec,
-      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enableBitstreamConverter() {
@@ -193,11 +181,7 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
       1,  // ordinal
       cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec,
       cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -220,7 +204,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -233,7 +217,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
       fields: [
         { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +230,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -259,7 +243,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParam
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -310,11 +294,7 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStreamsInitialized(audio_buffer_requester, video_buffer_requester) {
@@ -323,11 +303,7 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
       1,  // ordinal
       cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec,
       null,
-      null,
-      [audio_buffer_requester, video_buffer_requester],
-      undefined,
-      undefined
-    );
+      [audio_buffer_requester, video_buffer_requester]);
   }
 
 };
@@ -350,7 +326,7 @@ cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -365,7 +341,7 @@ cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
         { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -49,11 +49,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec,
       mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   installIsolatedWebAppFromDevProxy(url) {
@@ -62,11 +58,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec,
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   selectFileAndInstallIsolatedWebAppFromDevBundle() {
@@ -75,11 +67,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec,
       mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   parseUpdateManifestFromUrl(update_manifest_url) {
@@ -88,11 +76,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec,
       mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec,
-      [update_manifest_url],
-      undefined,
-      undefined
-    );
+      [update_manifest_url]);
   }
 
   installIsolatedWebAppFromBundleUrl(params) {
@@ -101,11 +85,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec,
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   updateDevProxyIsolatedWebApp(app_id) {
@@ -114,11 +94,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   selectFileAndUpdateIsolatedWebAppFromDevBundle(app_id) {
@@ -127,11 +103,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec,
       mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   updateManifestInstalledIsolatedWebApp(app_id) {
@@ -140,11 +112,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       7,  // ordinal
       mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   deleteIsolatedWebApp(app_id) {
@@ -153,11 +121,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       8,  // ordinal
       mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   setUpdateChannelForIsolatedWebApp(app_id, update_channel) {
@@ -166,11 +130,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       9,  // ordinal
       mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec,
-      [app_id, update_channel],
-      undefined,
-      undefined
-    );
+      [app_id, update_channel]);
   }
 
   setPinnedVersionForIsolatedWebApp(app_id, pinned_version) {
@@ -179,11 +139,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       10,  // ordinal
       mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec,
-      [app_id, pinned_version],
-      undefined,
-      undefined
-    );
+      [app_id, pinned_version]);
   }
 
   resetPinnedVersionForIsolatedWebApp(app_id) {
@@ -192,11 +148,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       11,  // ordinal
       mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   setAllowDowngradesForIsolatedWebApp(allow_downgrades, app_id) {
@@ -205,11 +157,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       12,  // ordinal
       mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec,
       null,
-      null,
-      [allow_downgrades, app_id],
-      undefined,
-      undefined
-    );
+      [allow_downgrades, app_id]);
   }
 
   searchForIsolatedWebAppUpdates() {
@@ -218,11 +166,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       13,  // ordinal
       mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec,
       mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getIsolatedWebAppDevModeAppInfo() {
@@ -231,11 +175,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       14,  // ordinal
       mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec,
       mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec,
-      mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   rotateKey(web_bundle_id, rotated_key) {
@@ -244,11 +184,7 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       15,  // ordinal
       mojom.WebAppInternalsHandler_RotateKey_ParamsSpec,
       null,
-      null,
-      [web_bundle_id, rotated_key],
-      undefined,
-      undefined
-    );
+      [web_bundle_id, rotated_key]);
   }
 
 };
@@ -271,7 +207,7 @@ mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -284,7 +220,7 @@ mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -298,7 +234,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,7 +247,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpe
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -324,7 +260,7 @@ mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -337,7 +273,7 @@ mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Res
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -351,7 +287,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec = {
       fields: [
         { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +300,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +314,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +327,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSp
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +341,7 @@ mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -418,7 +354,7 @@ mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +368,7 @@ mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Para
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -445,7 +381,7 @@ mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Resp
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -459,7 +395,7 @@ mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec = 
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -472,7 +408,7 @@ mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParam
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -486,7 +422,7 @@ mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -499,7 +435,7 @@ mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -514,7 +450,7 @@ mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec = {
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'update_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -527,7 +463,7 @@ mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpe
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -542,7 +478,7 @@ mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec = {
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pinned_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -555,7 +491,7 @@ mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpe
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -569,7 +505,7 @@ mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -584,7 +520,7 @@ mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec = {
         { name: 'allow_downgrades', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -597,7 +533,7 @@ mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -610,7 +546,7 @@ mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec =
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -623,7 +559,7 @@ mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -636,7 +572,7 @@ mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec 
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -651,7 +587,7 @@ mojom.WebAppInternalsHandler_RotateKey_ParamsSpec = {
         { name: 'web_bundle_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'rotated_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

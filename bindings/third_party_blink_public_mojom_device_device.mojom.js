@@ -50,11 +50,7 @@ blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -128,11 +124,7 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
       blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
-      blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getHostname() {
@@ -141,11 +133,7 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DeviceAPIService_GetHostname_ParamsSpec,
       blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
-      blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getSerialNumber() {
@@ -154,11 +142,7 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
       blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
-      blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAnnotatedAssetId() {
@@ -167,11 +151,7 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
       blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
-      blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAnnotatedLocation() {
@@ -180,11 +160,7 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
       blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
-      blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -207,7 +183,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -220,7 +196,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -233,7 +209,7 @@ blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +222,7 @@ blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -259,7 +235,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -272,7 +248,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,7 +261,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -298,7 +274,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,7 +287,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -324,7 +300,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -375,11 +351,7 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
       blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
-      blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
-      [keys],
-      undefined,
-      undefined
-    );
+      [keys]);
   }
 
   subscribeToManagedConfiguration(observer) {
@@ -388,11 +360,7 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -416,7 +384,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -429,7 +397,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSp
       fields: [
         { name: 'configurations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -443,7 +411,7 @@ blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSp
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

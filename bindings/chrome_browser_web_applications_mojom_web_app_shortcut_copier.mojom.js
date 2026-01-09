@@ -50,11 +50,7 @@ web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {
       0,  // ordinal
       web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec,
       web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec,
-      web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec,
-      [source_path, destination_path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [source_path, destination_path]);
   }
 
 };
@@ -79,7 +75,7 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
         { name: 'source_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'destination_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

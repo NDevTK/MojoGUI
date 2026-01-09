@@ -51,11 +51,7 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
       ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
-      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
-      [ime_spec, to_engine_request, from_engine, extra],
-      undefined,
-      undefined
-    );
+      [ime_spec, to_engine_request, from_engine, extra]);
   }
 
   initializeConnectionFactory(connection_factory) {
@@ -64,11 +60,7 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
       ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
-      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
-      [connection_factory],
-      undefined,
-      undefined
-    );
+      [connection_factory]);
   }
 
 };
@@ -95,7 +87,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
         { name: 'from_engine', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -108,7 +100,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -122,7 +114,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
       fields: [
         { name: 'connection_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -135,7 +127,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec 
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,11 +178,7 @@ ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
       ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
-      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
-      [url, file_path],
-      undefined,
-      undefined
-    );
+      [url, file_path]);
   }
 
 };
@@ -215,7 +203,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -228,7 +216,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
       fields: [
         { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -279,11 +267,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
       null,
-      null,
-      [provider],
-      undefined,
-      undefined
-    );
+      [provider]);
   }
 
   bindInputEngineManager(receiver) {
@@ -292,11 +276,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindInputMethodUserDataService(receiver) {
@@ -305,11 +285,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -333,7 +309,7 @@ ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
       fields: [
         { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -347,7 +323,7 @@ ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -361,7 +337,7 @@ ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.TestService_DoSomething_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   doTerminateProcess() {
@@ -63,11 +59,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.TestService_DoTerminateProcess_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   doCrashImmediately() {
@@ -76,11 +68,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.TestService_DoCrashImmediately_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   createFolder() {
@@ -89,11 +77,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.TestService_CreateFolder_ParamsSpec,
       content.mojom.TestService_CreateFolder_ResponseParamsSpec,
-      content.mojom.TestService_CreateFolder_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getRequestorName() {
@@ -102,11 +86,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.TestService_GetRequestorName_ParamsSpec,
       content.mojom.TestService_GetRequestorName_ResponseParamsSpec,
-      content.mojom.TestService_GetRequestorName_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   createReadOnlySharedMemoryRegion(message) {
@@ -115,11 +95,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec,
       content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec,
-      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   createWritableSharedMemoryRegion(message) {
@@ -128,11 +104,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec,
       content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec,
-      content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   createUnsafeSharedMemoryRegion(message) {
@@ -141,11 +113,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec,
       content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec,
-      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   cloneSharedMemoryContents(region) {
@@ -154,11 +122,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec,
       content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec,
-      content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec,
-      [region],
-      undefined,
-      undefined
-    );
+      [region]);
   }
 
   isProcessSandboxed() {
@@ -167,11 +131,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.TestService_IsProcessSandboxed_ParamsSpec,
       content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec,
-      content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   pseudonymizeString(value) {
@@ -180,11 +140,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.TestService_PseudonymizeString_ParamsSpec,
       content.mojom.TestService_PseudonymizeString_ResponseParamsSpec,
-      content.mojom.TestService_PseudonymizeString_ResponseParamsSpec,
-      [value],
-      undefined,
-      undefined
-    );
+      [value]);
   }
 
   passWriteableFile(file) {
@@ -193,11 +149,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.TestService_PassWriteableFile_ParamsSpec,
       null,
-      null,
-      [file],
-      undefined,
-      undefined
-    );
+      [file]);
   }
 
   writeToPreloadedPipe() {
@@ -206,11 +158,7 @@ content.mojom.TestServiceRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -233,7 +181,7 @@ content.mojom.TestService_DoSomething_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +194,7 @@ content.mojom.TestService_DoTerminateProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -259,7 +207,7 @@ content.mojom.TestService_DoCrashImmediately_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -272,7 +220,7 @@ content.mojom.TestService_CreateFolder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,7 +233,7 @@ content.mojom.TestService_CreateFolder_ResponseParamsSpec = {
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -298,7 +246,7 @@ content.mojom.TestService_GetRequestorName_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,7 +259,7 @@ content.mojom.TestService_GetRequestorName_ResponseParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -325,7 +273,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -338,7 +286,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = 
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -352,7 +300,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -365,7 +313,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = 
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -379,7 +327,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -392,7 +340,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = {
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +354,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = {
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -419,7 +367,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = {
       fields: [
         { name: 'new_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +380,7 @@ content.mojom.TestService_IsProcessSandboxed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -445,7 +393,7 @@ content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = {
       fields: [
         { name: 'is_sandboxed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -459,7 +407,7 @@ content.mojom.TestService_PseudonymizeString_ParamsSpec = {
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -472,7 +420,7 @@ content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -486,7 +434,7 @@ content.mojom.TestService_PassWriteableFile_ParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -499,7 +447,7 @@ content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

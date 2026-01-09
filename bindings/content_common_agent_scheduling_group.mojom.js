@@ -50,11 +50,7 @@ content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec,
       null,
-      null,
-      [frame_token],
-      undefined,
-      undefined
-    );
+      [frame_token]);
   }
 
 };
@@ -78,7 +74,7 @@ content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
       fields: [
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec,
       null,
-      null,
-      [remote_host, route_provider_receiver],
-      undefined,
-      undefined
-    );
+      [remote_host, route_provider_receiver]);
   }
 
   createView(params) {
@@ -142,11 +134,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   createFrame(params) {
@@ -155,11 +143,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   createSharedStorageWorkletService(receiver, global_scope_creation_params) {
@@ -168,11 +152,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec,
       null,
-      null,
-      [receiver, global_scope_creation_params],
-      undefined,
-      undefined
-    );
+      [receiver, global_scope_creation_params]);
   }
 
 };
@@ -197,7 +177,7 @@ content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
         { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'route_provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +191,7 @@ content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +205,7 @@ content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +220,7 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

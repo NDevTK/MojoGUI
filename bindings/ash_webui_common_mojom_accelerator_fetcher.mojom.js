@@ -51,11 +51,7 @@ ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      null,
-      [actionId, accelerators],
-      undefined,
-      undefined
-    );
+      [actionId, accelerators]);
   }
 
 };
@@ -80,7 +76,7 @@ ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = {
         { name: 'actionId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'accelerators', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
       null,
-      null,
-      [actionIds, observer],
-      undefined,
-      undefined
-    );
+      [actionIds, observer]);
   }
 
   getMetaKeyToDisplay() {
@@ -144,11 +136,7 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
       1,  // ordinal
       ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
       ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
-      ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -173,7 +161,7 @@ ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = {
         { name: 'actionIds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,7 +174,7 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +187,7 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = {
       fields: [
         { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

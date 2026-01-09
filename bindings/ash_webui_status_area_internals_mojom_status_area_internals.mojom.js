@@ -60,11 +60,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   togglePaletteTray(visible) {
@@ -73,11 +69,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   toggleLogoutTray(visible) {
@@ -86,11 +78,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   toggleVirtualKeyboardTray(visible) {
@@ -99,11 +87,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   toggleDictationTray(visible) {
@@ -112,11 +96,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   toggleVideoConferenceTray(visible) {
@@ -125,11 +105,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   toggleAnnotationTray(visible) {
@@ -138,11 +114,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   setIsInUserChildSession(in_child_session) {
@@ -151,11 +123,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec,
       null,
-      null,
-      [in_child_session],
-      undefined,
-      undefined
-    );
+      [in_child_session]);
   }
 
   triggerPrivacyIndicators(app_id, app_name, is_camera_used, is_microphone_used) {
@@ -164,11 +132,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec,
       null,
-      null,
-      [app_id, app_name, is_camera_used, is_microphone_used],
-      undefined,
-      undefined
-    );
+      [app_id, app_name, is_camera_used, is_microphone_used]);
   }
 
   resetHmrConsentStatus() {
@@ -177,11 +141,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setBatteryIcon(icon) {
@@ -190,11 +150,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec,
       null,
-      null,
-      [icon],
-      undefined,
-      undefined
-    );
+      [icon]);
   }
 
   setBatteryPercent(percent) {
@@ -203,11 +159,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec,
       null,
-      null,
-      [percent],
-      undefined,
-      undefined
-    );
+      [percent]);
   }
 
 };
@@ -231,7 +183,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -245,7 +197,7 @@ ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -259,7 +211,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -273,7 +225,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -287,7 +239,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,7 +253,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,7 +267,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -329,7 +281,7 @@ ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec =
       fields: [
         { name: 'in_child_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -346,7 +298,7 @@ ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec 
         { name: 'is_camera_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_microphone_used', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -359,7 +311,7 @@ ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -373,7 +325,7 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -387,7 +339,7 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec,
       null,
-      null,
-      [changes],
-      undefined,
-      undefined
-    );
+      [changes]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
       fields: [
         { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

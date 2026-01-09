@@ -58,11 +58,7 @@ private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
       0,  // ordinal
       private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onReportHandled(report) {
@@ -71,11 +67,7 @@ private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
       1,  // ordinal
       private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      null,
-      [report],
-      undefined,
-      undefined
-    );
+      [report]);
   }
 
 };
@@ -98,7 +90,7 @@ private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -112,7 +104,7 @@ private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       fields: [
         { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,11 +155,7 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
       0,  // ordinal
       private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec,
       private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec,
-      private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sendReports(ids) {
@@ -176,11 +164,7 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
       1,  // ordinal
       private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec,
       null,
-      null,
-      [ids],
-      undefined,
-      undefined
-    );
+      [ids]);
   }
 
   clearStorage() {
@@ -189,11 +173,7 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
       2,  // ordinal
       private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -216,7 +196,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -229,7 +209,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
       fields: [
         { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -243,7 +223,7 @@ private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
       fields: [
         { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -256,7 +236,7 @@ private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -307,11 +287,7 @@ private_aggregation_internals.mojom.FactoryRemoteCallHandler = class {
       0,  // ordinal
       private_aggregation_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      null,
-      [observer, handler],
-      undefined,
-      undefined
-    );
+      [observer, handler]);
   }
 
 };
@@ -336,7 +312,7 @@ private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
       null,
-      null,
-      [suggestion],
-      undefined,
-      undefined
-    );
+      [suggestion]);
   }
 
   applyTextSuggestion(marker_tag, suggestion_index) {
@@ -63,11 +59,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
       null,
-      null,
-      [marker_tag, suggestion_index],
-      undefined,
-      undefined
-    );
+      [marker_tag, suggestion_index]);
   }
 
   deleteActiveSuggestionRange() {
@@ -76,11 +68,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onNewWordAddedToDictionary(suggestion) {
@@ -89,11 +77,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
       null,
-      null,
-      [suggestion],
-      undefined,
-      undefined
-    );
+      [suggestion]);
   }
 
   onSuggestionMenuClosed() {
@@ -102,11 +86,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   suggestionMenuTimeoutCallback(max_number_of_suggestions) {
@@ -115,11 +95,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
       null,
-      null,
-      [max_number_of_suggestions],
-      undefined,
-      undefined
-    );
+      [max_number_of_suggestions]);
   }
 
 };
@@ -143,7 +119,7 @@ blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
       fields: [
         { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +134,7 @@ blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
         { name: 'marker_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'suggestion_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +147,7 @@ blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +161,7 @@ blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
       fields: [
         { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +174,7 @@ blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +188,7 @@ blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
       fields: [
         { name: 'max_number_of_suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

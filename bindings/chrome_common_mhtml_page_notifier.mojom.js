@@ -50,11 +50,7 @@ offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {
       0,  // ordinal
       offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec,
       null,
-      null,
-      [load_result, url, date],
-      undefined,
-      undefined
-    );
+      [load_result, url, date]);
   }
 
 };
@@ -80,7 +76,7 @@ offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = 
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'date', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

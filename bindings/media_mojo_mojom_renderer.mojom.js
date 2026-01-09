@@ -50,11 +50,7 @@ media.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Renderer_Initialize_ParamsSpec,
       media.mojom.Renderer_Initialize_ResponseParamsSpec,
-      media.mojom.Renderer_Initialize_ResponseParamsSpec,
-      [client, streams],
-      undefined,
-      undefined
-    );
+      [client, streams]);
   }
 
   flush() {
@@ -63,11 +59,7 @@ media.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Renderer_Flush_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startPlayingFrom(time) {
@@ -76,11 +68,7 @@ media.mojom.RendererRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Renderer_StartPlayingFrom_ParamsSpec,
       null,
-      null,
-      [time],
-      undefined,
-      undefined
-    );
+      [time]);
   }
 
   setPlaybackRate(playback_rate) {
@@ -89,11 +77,7 @@ media.mojom.RendererRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Renderer_SetPlaybackRate_ParamsSpec,
       null,
-      null,
-      [playback_rate],
-      undefined,
-      undefined
-    );
+      [playback_rate]);
   }
 
   setVolume(volume) {
@@ -102,11 +86,7 @@ media.mojom.RendererRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Renderer_SetVolume_ParamsSpec,
       null,
-      null,
-      [volume],
-      undefined,
-      undefined
-    );
+      [volume]);
   }
 
   setCdm(cdm_id) {
@@ -115,11 +95,7 @@ media.mojom.RendererRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.Renderer_SetCdm_ParamsSpec,
       media.mojom.Renderer_SetCdm_ResponseParamsSpec,
-      media.mojom.Renderer_SetCdm_ResponseParamsSpec,
-      [cdm_id],
-      undefined,
-      undefined
-    );
+      [cdm_id]);
   }
 
   setLatencyHint(latency_hint) {
@@ -128,11 +104,7 @@ media.mojom.RendererRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.Renderer_SetLatencyHint_ParamsSpec,
       null,
-      null,
-      [latency_hint],
-      undefined,
-      undefined
-    );
+      [latency_hint]);
   }
 
 };
@@ -157,7 +129,7 @@ media.mojom.Renderer_Initialize_ParamsSpec = {
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'streams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +142,7 @@ media.mojom.Renderer_Initialize_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +155,7 @@ media.mojom.Renderer_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +169,7 @@ media.mojom.Renderer_StartPlayingFrom_ParamsSpec = {
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +183,7 @@ media.mojom.Renderer_SetPlaybackRate_ParamsSpec = {
       fields: [
         { name: 'playback_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +197,7 @@ media.mojom.Renderer_SetVolume_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -239,7 +211,7 @@ media.mojom.Renderer_SetCdm_ParamsSpec = {
       fields: [
         { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +224,7 @@ media.mojom.Renderer_SetCdm_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +238,7 @@ media.mojom.Renderer_SetLatencyHint_ParamsSpec = {
       fields: [
         { name: 'latency_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,11 +289,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RendererClient_OnTimeUpdate_ParamsSpec,
       null,
-      null,
-      [time, max_time, capture_time],
-      undefined,
-      undefined
-    );
+      [time, max_time, capture_time]);
   }
 
   onBufferingStateChange(state, reason) {
@@ -330,11 +298,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec,
       null,
-      null,
-      [state, reason],
-      undefined,
-      undefined
-    );
+      [state, reason]);
   }
 
   onEnded() {
@@ -343,11 +307,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.RendererClient_OnEnded_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onError(status) {
@@ -356,11 +316,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.RendererClient_OnError_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
   onAudioConfigChange(config) {
@@ -369,11 +325,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec,
       null,
-      null,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   onVideoConfigChange(config) {
@@ -382,11 +334,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec,
       null,
-      null,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   onVideoNaturalSizeChange(size) {
@@ -395,11 +343,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      null,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   onVideoOpacityChange(opaque) {
@@ -408,11 +352,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec,
       null,
-      null,
-      [opaque],
-      undefined,
-      undefined
-    );
+      [opaque]);
   }
 
   onStatisticsUpdate(stats) {
@@ -421,11 +361,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec,
       null,
-      null,
-      [stats],
-      undefined,
-      undefined
-    );
+      [stats]);
   }
 
   onWaiting(reason) {
@@ -434,11 +370,7 @@ media.mojom.RendererClientRemoteCallHandler = class {
       9,  // ordinal
       media.mojom.RendererClient_OnWaiting_ParamsSpec,
       null,
-      null,
-      [reason],
-      undefined,
-      undefined
-    );
+      [reason]);
   }
 
 };
@@ -464,7 +396,7 @@ media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = {
         { name: 'max_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'capture_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -479,7 +411,7 @@ media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = {
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -492,7 +424,7 @@ media.mojom.RendererClient_OnEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -506,7 +438,7 @@ media.mojom.RendererClient_OnError_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -520,7 +452,7 @@ media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -534,7 +466,7 @@ media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -548,7 +480,7 @@ media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -562,7 +494,7 @@ media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = {
       fields: [
         { name: 'opaque', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -576,7 +508,7 @@ media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = {
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -590,7 +522,7 @@ media.mojom.RendererClient_OnWaiting_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

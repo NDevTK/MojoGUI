@@ -50,11 +50,7 @@ web.mojom.WebUsageControllerRemoteCallHandler = class {
       0,  // ordinal
       web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -78,7 +74,7 @@ web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

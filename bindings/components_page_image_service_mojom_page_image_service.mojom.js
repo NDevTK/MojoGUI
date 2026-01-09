@@ -61,11 +61,7 @@ page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
       0,  // ordinal
       page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec,
       page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
-      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
-      [client_id, page_url, options],
-      undefined,
-      undefined
-    );
+      [client_id, page_url, options]);
   }
 
 };
@@ -91,7 +87,7 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
         { name: 'page_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +100,7 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsS
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

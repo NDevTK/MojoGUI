@@ -50,11 +50,7 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
       network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
-      network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startReading(pipe) {
@@ -63,11 +59,7 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
       null,
-      null,
-      [pipe],
-      undefined,
-      undefined
-    );
+      [pipe]);
   }
 
 };
@@ -90,7 +82,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +110,7 @@ network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
       fields: [
         { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

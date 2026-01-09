@@ -57,11 +57,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       0,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setIsPreviousEnabled(enabled) {
@@ -70,11 +66,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       1,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setIsPlayPauseEnabled(enabled) {
@@ -83,11 +75,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       2,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setIsStopEnabled(enabled) {
@@ -96,11 +84,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       3,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setIsSeekToEnabled(enabled) {
@@ -109,11 +93,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       4,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setPlaybackStatus(status) {
@@ -122,11 +102,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       5,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec,
       null,
-      null,
-      [status],
-      undefined,
-      undefined
-    );
+      [status]);
   }
 
   setTitle(title) {
@@ -135,11 +111,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       6,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec,
       null,
-      null,
-      [title],
-      undefined,
-      undefined
-    );
+      [title]);
   }
 
   setArtist(artist) {
@@ -148,11 +120,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       7,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec,
       null,
-      null,
-      [artist],
-      undefined,
-      undefined
-    );
+      [artist]);
   }
 
   setAlbum(album) {
@@ -161,11 +129,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       8,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec,
       null,
-      null,
-      [album],
-      undefined,
-      undefined
-    );
+      [album]);
   }
 
   setThumbnail(thumbnail) {
@@ -174,11 +138,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       9,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec,
       null,
-      null,
-      [thumbnail],
-      undefined,
-      undefined
-    );
+      [thumbnail]);
   }
 
   setPosition(position) {
@@ -187,11 +147,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       10,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec,
       null,
-      null,
-      [position],
-      undefined,
-      undefined
-    );
+      [position]);
   }
 
   clearMetadata() {
@@ -200,11 +156,7 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       11,  // ordinal
       system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -228,7 +180,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -242,7 +194,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -256,7 +208,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -270,7 +222,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -284,7 +236,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -298,7 +250,7 @@ system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -312,7 +264,7 @@ system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = {
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -326,7 +278,7 @@ system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = {
       fields: [
         { name: 'artist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +292,7 @@ system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = {
       fields: [
         { name: 'album', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +306,7 @@ system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = {
       fields: [
         { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -368,7 +320,7 @@ system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = {
       fields: [
         { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -381,7 +333,7 @@ system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,11 +384,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       0,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onPrevious() {
@@ -445,11 +393,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       1,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onPause() {
@@ -458,11 +402,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       2,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onPlayPause() {
@@ -471,11 +411,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       3,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStop() {
@@ -484,11 +420,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       4,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onPlay() {
@@ -497,11 +429,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       5,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onSeekTo(seek_time) {
@@ -510,11 +438,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       6,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec,
       null,
-      null,
-      [seek_time],
-      undefined,
-      undefined
-    );
+      [seek_time]);
   }
 
   onBridgeCreatedForTesting() {
@@ -523,11 +447,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       7,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onMetadataClearedForTesting() {
@@ -536,11 +456,7 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       8,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -563,7 +479,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -576,7 +492,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -589,7 +505,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -602,7 +518,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -615,7 +531,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -628,7 +544,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -642,7 +558,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = {
       fields: [
         { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -655,7 +571,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTestin
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -668,7 +584,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTest
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

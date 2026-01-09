@@ -78,11 +78,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = cla
       0,  // ordinal
       subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
       null,
-      null,
-      [ruleset_file],
-      undefined,
-      undefined
-    );
+      [ruleset_file]);
   }
 
 };
@@ -106,7 +102,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_P
       fields: [
         { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

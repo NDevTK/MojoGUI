@@ -58,11 +58,7 @@ network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
       network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
-      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
-      [info, headers, remote_endpoint],
-      undefined,
-      undefined
-    );
+      [info, headers, remote_endpoint]);
   }
 
 };
@@ -88,7 +84,7 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
         { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'remote_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -101,7 +97,7 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec =
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -152,11 +148,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
       null,
-      null,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
   onFailure(message, net_error, response_code) {
@@ -165,11 +157,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
       null,
-      null,
-      [message, net_error, response_code],
-      undefined,
-      undefined
-    );
+      [message, net_error, response_code]);
   }
 
   onConnectionEstablished(socket, client_receiver, response, readable, writable) {
@@ -178,11 +166,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
-      null,
-      [socket, client_receiver, response, readable, writable],
-      undefined,
-      undefined
-    );
+      [socket, client_receiver, response, readable, writable]);
   }
 
 };
@@ -206,7 +190,7 @@ network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +206,7 @@ network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
         { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +224,7 @@ network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
         { name: 'readable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'writable', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,11 +275,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
       null,
-      null,
-      [fin, type, data_length],
-      undefined,
-      undefined
-    );
+      [fin, type, data_length]);
   }
 
   onDropChannel(was_clean, code, reason) {
@@ -304,11 +284,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
       null,
-      null,
-      [was_clean, code, reason],
-      undefined,
-      undefined
-    );
+      [was_clean, code, reason]);
   }
 
   onClosingHandshake() {
@@ -317,11 +293,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -347,7 +319,7 @@ network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,7 +335,7 @@ network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
         { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
         { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,7 +348,7 @@ network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -427,11 +399,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocket_SendMessage_ParamsSpec,
       null,
-      null,
-      [type, data_length],
-      undefined,
-      undefined
-    );
+      [type, data_length]);
   }
 
   startReceiving() {
@@ -440,11 +408,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebSocket_StartReceiving_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startClosingHandshake(code, reason) {
@@ -453,11 +417,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
       null,
-      null,
-      [code, reason],
-      undefined,
-      undefined
-    );
+      [code, reason]);
   }
 
 };
@@ -482,7 +442,7 @@ network.mojom.WebSocket_SendMessage_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -495,7 +455,7 @@ network.mojom.WebSocket_StartReceiving_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -510,7 +470,7 @@ network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

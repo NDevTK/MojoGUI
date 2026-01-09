@@ -55,11 +55,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec,
       blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec,
-      [script_url, options, outside_fetch_client_settings_object],
-      undefined,
-      undefined
-    );
+      [script_url, options, outside_fetch_client_settings_object]);
   }
 
   getRegistration(client_url) {
@@ -68,11 +64,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec,
       blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec,
-      [client_url],
-      undefined,
-      undefined
-    );
+      [client_url]);
   }
 
   getRegistrations() {
@@ -81,11 +73,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec,
       blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getRegistrationForReady() {
@@ -94,11 +82,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec,
       blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec,
-      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   ensureControllerServiceWorker(receiver, purpose) {
@@ -107,11 +91,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec,
       null,
-      null,
-      [receiver, purpose],
-      undefined,
-      undefined
-    );
+      [receiver, purpose]);
   }
 
   cloneContainerHost(container_host) {
@@ -120,11 +100,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec,
       null,
-      null,
-      [container_host],
-      undefined,
-      undefined
-    );
+      [container_host]);
   }
 
   hintToUpdateServiceWorker() {
@@ -133,11 +109,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   ensureFileAccess(files) {
@@ -146,11 +118,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec,
       null,
-      null,
-      [files],
-      undefined,
-      undefined
-    );
+      [files]);
   }
 
   onExecutionReady() {
@@ -159,11 +127,7 @@ blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -189,7 +153,7 @@ blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'outside_fetch_client_settings_object', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -204,7 +168,7 @@ blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'registration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -218,7 +182,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
       fields: [
         { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -233,7 +197,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'registration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +210,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,7 +225,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'infos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -274,7 +238,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -287,7 +251,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpe
       fields: [
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -302,7 +266,7 @@ blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec 
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'purpose', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -316,7 +280,7 @@ blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
       fields: [
         { name: 'container_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -329,7 +293,7 @@ blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -343,7 +307,7 @@ blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
       fields: [
         { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -356,7 +320,7 @@ blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -407,11 +371,7 @@ blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec,
       null,
-      null,
-      [controller_info, should_notify_controllerchange],
-      undefined,
-      undefined
-    );
+      [controller_info, should_notify_controllerchange]);
   }
 
   postMessageToClient(source, message) {
@@ -420,11 +380,7 @@ blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec,
       null,
-      null,
-      [source, message],
-      undefined,
-      undefined
-    );
+      [source, message]);
   }
 
   countFeature(feature) {
@@ -433,11 +389,7 @@ blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec,
       null,
-      null,
-      [feature],
-      undefined,
-      undefined
-    );
+      [feature]);
   }
 
 };
@@ -462,7 +414,7 @@ blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
         { name: 'controller_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'should_notify_controllerchange', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -477,7 +429,7 @@ blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -491,7 +443,7 @@ blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

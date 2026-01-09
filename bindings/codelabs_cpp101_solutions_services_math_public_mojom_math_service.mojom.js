@@ -50,11 +50,7 @@ math.mojom.MathServiceRemoteCallHandler = class {
       0,  // ordinal
       math.mojom.MathService_Divide_ParamsSpec,
       math.mojom.MathService_Divide_ResponseParamsSpec,
-      math.mojom.MathService_Divide_ResponseParamsSpec,
-      [dividend, divisor],
-      undefined,
-      undefined
-    );
+      [dividend, divisor]);
   }
 
 };
@@ -79,7 +75,7 @@ math.mojom.MathService_Divide_ParamsSpec = {
         { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'divisor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -92,7 +88,7 @@ math.mojom.MathService_Divide_ResponseParamsSpec = {
       fields: [
         { name: 'quotient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

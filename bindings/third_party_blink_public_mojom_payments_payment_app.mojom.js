@@ -108,11 +108,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentManager_Init_ParamsSpec,
       null,
-      null,
-      [context_url, service_worker_scope],
-      undefined,
-      undefined
-    );
+      [context_url, service_worker_scope]);
   }
 
   deletePaymentInstrument(instrument_key) {
@@ -121,11 +117,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
-      payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
-      [instrument_key],
-      undefined,
-      undefined
-    );
+      [instrument_key]);
   }
 
   getPaymentInstrument(instrument_key) {
@@ -134,11 +126,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
-      payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
-      [instrument_key],
-      undefined,
-      undefined
-    );
+      [instrument_key]);
   }
 
   keysOfPaymentInstruments() {
@@ -147,11 +135,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       3,  // ordinal
       payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec,
       payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
-      payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hasPaymentInstrument(instrument_key) {
@@ -160,11 +144,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
-      payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
-      [instrument_key],
-      undefined,
-      undefined
-    );
+      [instrument_key]);
   }
 
   setPaymentInstrument(instrument_key, instrument) {
@@ -173,11 +153,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       5,  // ordinal
       payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
-      payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
-      [instrument_key, instrument],
-      undefined,
-      undefined
-    );
+      [instrument_key, instrument]);
   }
 
   clearPaymentInstruments() {
@@ -186,11 +162,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec,
       payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
-      payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setUserHint(user_hint) {
@@ -199,11 +171,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       7,  // ordinal
       payments.mojom.PaymentManager_SetUserHint_ParamsSpec,
       null,
-      null,
-      [user_hint],
-      undefined,
-      undefined
-    );
+      [user_hint]);
   }
 
   enableDelegations(delegations) {
@@ -212,11 +180,7 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentManager_EnableDelegations_ParamsSpec,
       payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
-      payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
-      [delegations],
-      undefined,
-      undefined
-    );
+      [delegations]);
   }
 
 };
@@ -241,7 +205,7 @@ payments.mojom.PaymentManager_Init_ParamsSpec = {
         { name: 'context_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'service_worker_scope', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -255,7 +219,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
       fields: [
         { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -268,7 +232,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +246,7 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
       fields: [
         { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -296,7 +260,7 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
         { name: 'instrument', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -309,7 +273,7 @@ payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -323,7 +287,7 @@ payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -337,7 +301,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
       fields: [
         { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -350,7 +314,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -365,7 +329,7 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
         { name: 'instrument_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'instrument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +342,7 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +355,7 @@ payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -404,7 +368,7 @@ payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -418,7 +382,7 @@ payments.mojom.PaymentManager_SetUserHint_ParamsSpec = {
       fields: [
         { name: 'user_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +396,7 @@ payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
       fields: [
         { name: 'delegations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -445,7 +409,7 @@ payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -496,11 +460,7 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec,
       null,
-      null,
-      [payment_aborted],
-      undefined,
-      undefined
-    );
+      [payment_aborted]);
   }
 
   onResponseForCanMakePayment(response) {
@@ -509,11 +469,7 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec,
       null,
-      null,
-      [response],
-      undefined,
-      undefined
-    );
+      [response]);
   }
 
   onResponseForPaymentRequest(response) {
@@ -522,11 +478,7 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec,
       null,
-      null,
-      [response],
-      undefined,
-      undefined
-    );
+      [response]);
   }
 
 };
@@ -550,7 +502,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSp
       fields: [
         { name: 'payment_aborted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,7 +516,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -578,7 +530,7 @@ payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -57,11 +57,7 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec,
       null,
-      null,
-      [bucket_locator],
-      undefined,
-      undefined
-    );
+      [bucket_locator]);
   }
 
   onIndexedDBContentChanged(bucket_locator, database_name, object_store_name) {
@@ -70,11 +66,7 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec,
       null,
-      null,
-      [bucket_locator, database_name, object_store_name],
-      undefined,
-      undefined
-    );
+      [bucket_locator, database_name, object_store_name]);
   }
 
 };
@@ -98,7 +90,7 @@ storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
       fields: [
         { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -114,7 +106,7 @@ storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
         { name: 'database_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'object_store_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -165,11 +157,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec,
       null,
-      null,
-      [bucket_locator, client_info, client_state_checker_remote, receiver],
-      undefined,
-      undefined
-    );
+      [bucket_locator, client_info, client_state_checker_remote, receiver]);
   }
 
   forceClose(bucket_id, reason) {
@@ -178,11 +166,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
       null,
-      null,
-      [bucket_id, reason],
-      undefined,
-      undefined
-    );
+      [bucket_id, reason]);
   }
 
   downloadBucketData(bucket_id) {
@@ -191,11 +175,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec,
       storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec,
-      storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec,
-      [bucket_id],
-      undefined,
-      undefined
-    );
+      [bucket_id]);
   }
 
   getAllBucketsDetails() {
@@ -204,11 +184,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec,
       storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec,
-      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startMetadataRecording(bucket_id) {
@@ -217,11 +193,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec,
       null,
-      null,
-      [bucket_id],
-      undefined,
-      undefined
-    );
+      [bucket_id]);
   }
 
   stopMetadataRecording(bucket_id) {
@@ -230,11 +202,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec,
       storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec,
-      storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec,
-      [bucket_id],
-      undefined,
-      undefined
-    );
+      [bucket_id]);
   }
 
   setForceKeepSessionState() {
@@ -243,11 +211,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   addObserver(observer) {
@@ -256,11 +220,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.IndexedDBControl_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -269,11 +229,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      null,
-      [policy_updates],
-      undefined,
-      undefined
-    );
+      [policy_updates]);
   }
 
   bindTestInterfaceForTesting(receiver) {
@@ -282,11 +238,7 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -313,7 +265,7 @@ storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
         { name: 'client_state_checker_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +280,7 @@ storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
         { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -342,7 +294,7 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
       fields: [
         { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -357,7 +309,7 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
         { name: 'temp_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'zip_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -370,7 +322,7 @@ storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -384,7 +336,7 @@ storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
         { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -398,7 +350,7 @@ storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
       fields: [
         { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -412,7 +364,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
       fields: [
         { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -425,7 +377,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +390,7 @@ storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -452,7 +404,7 @@ storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -466,7 +418,7 @@ storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
       fields: [
         { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,7 +432,7 @@ storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

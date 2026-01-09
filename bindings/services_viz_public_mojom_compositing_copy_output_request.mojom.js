@@ -50,11 +50,7 @@ viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
-      null,
-      [result],
-      undefined,
-      undefined
-    );
+      [result]);
   }
 
 };
@@ -78,7 +74,7 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ content.mojom.DomAutomationControllerHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
       null,
-      null,
-      [json_string],
-      undefined,
-      undefined
-    );
+      [json_string]);
   }
 
 };
@@ -78,7 +74,7 @@ content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
       fields: [
         { name: 'json_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

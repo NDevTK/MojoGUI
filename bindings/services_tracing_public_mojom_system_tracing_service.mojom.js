@@ -50,11 +50,7 @@ tracing.mojom.SystemTracingServiceRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec,
       tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec,
-      tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
       fields: [
         { name: 'traced_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -51,11 +51,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec,
       null,
-      null,
-      [endpoint_id, info],
-      undefined,
-      undefined
-    );
+      [endpoint_id, info]);
   }
 
   onEndpointLost(endpoint_id) {
@@ -64,11 +60,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec,
       null,
-      null,
-      [endpoint_id],
-      undefined,
-      undefined
-    );
+      [endpoint_id]);
   }
 
 };
@@ -93,7 +85,7 @@ nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = 
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -107,7 +99,7 @@ nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec = {
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,11 +150,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec,
       null,
-      null,
-      [endpoint_id, info],
-      undefined,
-      undefined
-    );
+      [endpoint_id, info]);
   }
 
   onConnectionAccepted(endpoint_id) {
@@ -171,11 +159,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec,
       null,
-      null,
-      [endpoint_id],
-      undefined,
-      undefined
-    );
+      [endpoint_id]);
   }
 
   onConnectionRejected(endpoint_id, status) {
@@ -184,11 +168,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       2,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec,
       null,
-      null,
-      [endpoint_id, status],
-      undefined,
-      undefined
-    );
+      [endpoint_id, status]);
   }
 
   onDisconnected(endpoint_id) {
@@ -197,11 +177,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       3,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec,
       null,
-      null,
-      [endpoint_id],
-      undefined,
-      undefined
-    );
+      [endpoint_id]);
   }
 
   onBandwidthChanged(endpoint_id, medium) {
@@ -210,11 +186,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       4,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec,
       null,
-      null,
-      [endpoint_id, medium],
-      undefined,
-      undefined
-    );
+      [endpoint_id, medium]);
   }
 
 };
@@ -239,7 +211,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_Param
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,7 +225,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_Params
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -268,7 +240,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_Params
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +254,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec =
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -297,7 +269,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSp
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'medium', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -348,11 +320,7 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec,
       null,
-      null,
-      [endpoint_id, payload],
-      undefined,
-      undefined
-    );
+      [endpoint_id, payload]);
   }
 
   onPayloadTransferUpdate(endpoint_id, update) {
@@ -361,11 +329,7 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec,
       null,
-      null,
-      [endpoint_id, update],
-      undefined,
-      undefined
-    );
+      [endpoint_id, update]);
   }
 
 };
@@ -390,7 +354,7 @@ nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = {
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +369,7 @@ nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = {
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'update', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -456,11 +420,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec,
       null,
-      null,
-      [endpoint_id, info],
-      undefined,
-      undefined
-    );
+      [endpoint_id, info]);
   }
 
   onConnectionResultV3(endpoint_id, resolution) {
@@ -469,11 +429,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec,
       null,
-      null,
-      [endpoint_id, resolution],
-      undefined,
-      undefined
-    );
+      [endpoint_id, resolution]);
   }
 
   onDisconnectedV3(endpoint_id) {
@@ -482,11 +438,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       2,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec,
       null,
-      null,
-      [endpoint_id],
-      undefined,
-      undefined
-    );
+      [endpoint_id]);
   }
 
   onBandwidthChangedV3(endpoint_id, bandwidth_info) {
@@ -495,11 +447,7 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       3,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec,
       null,
-      null,
-      [endpoint_id, bandwidth_info],
-      undefined,
-      undefined
-    );
+      [endpoint_id, bandwidth_info]);
   }
 
 };
@@ -524,7 +472,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -539,7 +487,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = 
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -553,7 +501,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec = {
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -568,7 +516,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = 
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'bandwidth_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -619,11 +567,7 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec,
       null,
-      null,
-      [endpoint_id, payload],
-      undefined,
-      undefined
-    );
+      [endpoint_id, payload]);
   }
 
   onPayloadTransferUpdateV3(endpoint_id, update) {
@@ -632,11 +576,7 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec,
       null,
-      null,
-      [endpoint_id, update],
-      undefined,
-      undefined
-    );
+      [endpoint_id, update]);
   }
 
 };
@@ -661,7 +601,7 @@ nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = {
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -676,7 +616,7 @@ nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec 
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'update', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -727,11 +667,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec,
-      [service_id, endpoint_info, options, listener],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_info, options, listener]);
   }
 
   stopAdvertising(service_id) {
@@ -740,11 +676,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec,
-      [service_id],
-      undefined,
-      undefined
-    );
+      [service_id]);
   }
 
   startDiscovery(service_id, options, listener) {
@@ -753,11 +685,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       2,  // ordinal
       nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec,
-      [service_id, options, listener],
-      undefined,
-      undefined
-    );
+      [service_id, options, listener]);
   }
 
   stopDiscovery(service_id) {
@@ -766,11 +694,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       3,  // ordinal
       nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec,
-      [service_id],
-      undefined,
-      undefined
-    );
+      [service_id]);
   }
 
   injectBluetoothEndpoint(service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address) {
@@ -779,11 +703,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       4,  // ordinal
       nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec,
-      [service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address]);
   }
 
   requestConnection(service_id, endpoint_info, endpoint_id, options, listener) {
@@ -792,11 +712,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       5,  // ordinal
       nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec,
-      [service_id, endpoint_info, endpoint_id, options, listener],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_info, endpoint_id, options, listener]);
   }
 
   acceptConnection(service_id, endpoint_id, listener) {
@@ -805,11 +721,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       6,  // ordinal
       nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec,
-      [service_id, endpoint_id, listener],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_id, listener]);
   }
 
   rejectConnection(service_id, endpoint_id) {
@@ -818,11 +730,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       7,  // ordinal
       nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec,
-      [service_id, endpoint_id],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_id]);
   }
 
   disconnectFromEndpoint(service_id, endpoint_id) {
@@ -831,11 +739,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       8,  // ordinal
       nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec,
-      [service_id, endpoint_id],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_id]);
   }
 
   sendPayload(service_id, endpoint_ids, payload) {
@@ -844,11 +748,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       9,  // ordinal
       nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec,
-      [service_id, endpoint_ids, payload],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_ids, payload]);
   }
 
   cancelPayload(service_id, payload_id) {
@@ -857,11 +757,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       10,  // ordinal
       nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec,
-      [service_id, payload_id],
-      undefined,
-      undefined
-    );
+      [service_id, payload_id]);
   }
 
   stopAllEndpoints(service_id) {
@@ -870,11 +766,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       11,  // ordinal
       nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec,
-      [service_id],
-      undefined,
-      undefined
-    );
+      [service_id]);
   }
 
   initiateBandwidthUpgrade(service_id, endpoint_id) {
@@ -883,11 +775,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       12,  // ordinal
       nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec,
-      [service_id, endpoint_id],
-      undefined,
-      undefined
-    );
+      [service_id, endpoint_id]);
   }
 
   registerPayloadFile(service_id, payload_id, input_file, output_file) {
@@ -896,11 +784,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       13,  // ordinal
       nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec,
-      [service_id, payload_id, input_file, output_file],
-      undefined,
-      undefined
-    );
+      [service_id, payload_id, input_file, output_file]);
   }
 
   requestConnectionV3(service_id, remote_device, connection_options, listener) {
@@ -909,11 +793,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       14,  // ordinal
       nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec,
-      [service_id, remote_device, connection_options, listener],
-      undefined,
-      undefined
-    );
+      [service_id, remote_device, connection_options, listener]);
   }
 
   acceptConnectionV3(service_id, remote_device, listener) {
@@ -922,11 +802,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       15,  // ordinal
       nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec,
-      [service_id, remote_device, listener],
-      undefined,
-      undefined
-    );
+      [service_id, remote_device, listener]);
   }
 
   rejectConnectionV3(service_id, remote_device) {
@@ -935,11 +811,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       16,  // ordinal
       nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec,
-      [service_id, remote_device],
-      undefined,
-      undefined
-    );
+      [service_id, remote_device]);
   }
 
   disconnectFromDeviceV3(service_id, remote_device) {
@@ -948,11 +820,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       17,  // ordinal
       nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec,
-      nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec,
-      [service_id, remote_device],
-      undefined,
-      undefined
-    );
+      [service_id, remote_device]);
   }
 
   registerServiceWithPresenceDeviceProvider(service_id) {
@@ -961,11 +829,7 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       18,  // ordinal
       nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec,
       null,
-      null,
-      [service_id],
-      undefined,
-      undefined
-    );
+      [service_id]);
   }
 
 };
@@ -992,7 +856,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
         { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1005,7 +869,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1019,7 +883,7 @@ nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1032,7 +896,7 @@ nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = 
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1048,7 +912,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1061,7 +925,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1075,7 +939,7 @@ nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1088,7 +952,7 @@ nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1105,7 +969,7 @@ nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = 
         { name: 'endpoint_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'remote_bluetooth_mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1118,7 +982,7 @@ nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParam
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1136,7 +1000,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
         { name: 'options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1149,7 +1013,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec 
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1165,7 +1029,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = {
         { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1178,7 +1042,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1193,7 +1057,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1206,7 +1070,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1221,7 +1085,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1234,7 +1098,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParams
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1250,7 +1114,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
         { name: 'endpoint_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'payload', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1263,7 +1127,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1278,7 +1142,7 @@ nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1291,7 +1155,7 @@ nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1305,7 +1169,7 @@ nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1318,7 +1182,7 @@ nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec =
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1333,7 +1197,7 @@ nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec =
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1346,7 +1210,7 @@ nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponsePara
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1363,7 +1227,7 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
         { name: 'input_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1376,7 +1240,7 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpe
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1393,7 +1257,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
         { name: 'connection_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1406,7 +1270,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpe
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1422,7 +1286,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
         { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1435,7 +1299,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1450,7 +1314,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1463,7 +1327,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1478,7 +1342,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1491,7 +1355,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParams
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1505,7 +1369,7 @@ nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProv
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

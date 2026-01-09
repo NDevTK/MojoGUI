@@ -50,11 +50,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
       audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
-      audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
   getOutputStreamParameters(device_id) {
@@ -63,11 +59,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
       audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
-      audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
   hasInputDevices() {
@@ -76,11 +68,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       2,  // ordinal
       audio.mojom.SystemInfo_HasInputDevices_ParamsSpec,
       audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
-      audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hasOutputDevices() {
@@ -89,11 +77,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       3,  // ordinal
       audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
       audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
-      audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getInputDeviceDescriptions() {
@@ -102,11 +86,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       4,  // ordinal
       audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
       audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
-      audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getOutputDeviceDescriptions() {
@@ -115,11 +95,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       5,  // ordinal
       audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
       audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
-      audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAssociatedOutputDeviceID(input_device_id) {
@@ -128,11 +104,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       6,  // ordinal
       audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
       audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
-      audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
-      [input_device_id],
-      undefined,
-      undefined
-    );
+      [input_device_id]);
   }
 
   getInputDeviceInfo(input_device_id) {
@@ -141,11 +113,7 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       7,  // ordinal
       audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
       audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
-      audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
-      [input_device_id],
-      undefined,
-      undefined
-    );
+      [input_device_id]);
   }
 
 };
@@ -169,7 +137,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +150,7 @@ audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +164,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -209,7 +177,7 @@ audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +190,7 @@ audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -235,7 +203,7 @@ audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = {
       fields: [
         { name: 'has_input_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -248,7 +216,7 @@ audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,7 +229,7 @@ audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = {
       fields: [
         { name: 'has_output_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -274,7 +242,7 @@ audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -287,7 +255,7 @@ audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = {
       fields: [
         { name: 'device_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -300,7 +268,7 @@ audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -313,7 +281,7 @@ audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = {
       fields: [
         { name: 'device_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -327,7 +295,7 @@ audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = {
       fields: [
         { name: 'input_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +308,7 @@ audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = {
       fields: [
         { name: 'associated_output_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +322,7 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = {
       fields: [
         { name: 'input_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -368,7 +336,7 @@ audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = {
         { name: 'input_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'associated_output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

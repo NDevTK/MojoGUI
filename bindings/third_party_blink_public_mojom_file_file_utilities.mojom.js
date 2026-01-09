@@ -50,11 +50,7 @@ blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec,
       blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
-      blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

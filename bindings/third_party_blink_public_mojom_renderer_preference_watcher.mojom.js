@@ -50,11 +50,7 @@ blink.mojom.RendererPreferenceWatcherRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec,
       null,
-      null,
-      [new_prefs],
-      undefined,
-      undefined
-    );
+      [new_prefs]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
       fields: [
         { name: 'new_prefs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

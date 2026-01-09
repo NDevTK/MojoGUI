@@ -73,11 +73,7 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
       null,
-      null,
-      [error],
-      undefined,
-      undefined
-    );
+      [error]);
   }
 
   deliverMessage(message) {
@@ -86,11 +82,7 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.MessagePort_DeliverMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -114,7 +106,7 @@ extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -128,7 +120,7 @@ extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -179,11 +171,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.MessagePortHost_ClosePort_ParamsSpec,
       null,
-      null,
-      [close_channel, error_message],
-      undefined,
-      undefined
-    );
+      [close_channel, error_message]);
   }
 
   postMessage(message) {
@@ -192,11 +180,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.MessagePortHost_PostMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   responsePending() {
@@ -205,11 +189,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -234,7 +214,7 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
         { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -248,7 +228,7 @@ extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,7 +241,7 @@ extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

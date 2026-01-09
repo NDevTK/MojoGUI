@@ -50,11 +50,7 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
-      gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
-      [s],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [s]);
   }
 
   echoTransform(t) {
@@ -63,11 +59,7 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
-      gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
-      [t],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [t]);
   }
 
   echoGpuMemoryBufferHandle(g) {
@@ -76,11 +68,7 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       2,  // ordinal
       gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
-      gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
-      [g],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [g]);
   }
 
   echoRRectF(t) {
@@ -89,11 +77,7 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       3,  // ordinal
       gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
-      gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
-      [t],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [t]);
   }
 
 };
@@ -117,7 +101,7 @@ gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +114,7 @@ gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +128,7 @@ gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = {
       fields: [
         { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +141,7 @@ gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +155,7 @@ gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = {
       fields: [
         { name: 'g', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +168,7 @@ gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +182,7 @@ gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = {
       fields: [
         { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +195,7 @@ gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

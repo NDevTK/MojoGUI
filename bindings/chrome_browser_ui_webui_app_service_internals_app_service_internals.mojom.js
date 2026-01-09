@@ -50,11 +50,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = cl
       0,  // ordinal
       mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
       mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
-      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Response
       fields: [
         { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

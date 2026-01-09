@@ -56,11 +56,7 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
       0,  // ordinal
       url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
       null,
-      null,
-      [rules],
-      undefined,
-      undefined
-    );
+      [rules]);
   }
 
 };
@@ -84,7 +80,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
       fields: [
         { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
       0,  // ordinal
       content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sendRendererContentSettingRules(renderer_settings) {
@@ -63,11 +59,7 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
       1,  // ordinal
       content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec,
       null,
-      null,
-      [renderer_settings],
-      undefined,
-      undefined
-    );
+      [renderer_settings]);
   }
 
 };
@@ -90,7 +82,7 @@ content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Para
       fields: [
         { name: 'renderer_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

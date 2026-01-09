@@ -63,11 +63,7 @@ web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
       0,  // ordinal
       web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec,
       null,
-      null,
-      [receiver, base_url, data_source],
-      undefined,
-      undefined
-    );
+      [receiver, base_url, data_source]);
   }
 
   bindFileDataSource(data_source, file) {
@@ -76,11 +72,7 @@ web_package.mojom.WebBundleParserFactoryRemoteCallHandler = class {
       1,  // ordinal
       web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec,
       null,
-      null,
-      [data_source, file],
-      undefined,
-      undefined
-    );
+      [data_source, file]);
   }
 
 };
@@ -106,7 +98,7 @@ web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec = {
         { name: 'base_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -121,7 +113,7 @@ web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
         { name: 'data_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,11 +164,7 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
       0,  // ordinal
       web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec,
       web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
-      web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   parseMetadata(offset) {
@@ -185,11 +173,7 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
       1,  // ordinal
       web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec,
       web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
-      web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
-      [offset],
-      undefined,
-      undefined
-    );
+      [offset]);
   }
 
   parseResponse(response_offset, response_length) {
@@ -198,11 +182,7 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
       2,  // ordinal
       web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec,
       web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
-      web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
-      [response_offset, response_length],
-      undefined,
-      undefined
-    );
+      [response_offset, response_length]);
   }
 
   close() {
@@ -211,11 +191,7 @@ web_package.mojom.WebBundleParserRemoteCallHandler = class {
       3,  // ordinal
       web_package.mojom.WebBundleParser_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -238,7 +214,7 @@ web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +228,7 @@ web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
         { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +242,7 @@ web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
       fields: [
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -280,7 +256,7 @@ web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
         { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -295,7 +271,7 @@ web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
         { name: 'response_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'response_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -309,7 +285,7 @@ web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
         { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -322,7 +298,7 @@ web_package.mojom.WebBundleParser_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -373,11 +349,7 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
       0,  // ordinal
       web_package.mojom.BundleDataSource_Read_ParamsSpec,
       web_package.mojom.BundleDataSource_Read_ResponseParamsSpec,
-      web_package.mojom.BundleDataSource_Read_ResponseParamsSpec,
-      [offset, length],
-      undefined,
-      undefined
-    );
+      [offset, length]);
   }
 
   length() {
@@ -386,11 +358,7 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
       1,  // ordinal
       web_package.mojom.BundleDataSource_Length_ParamsSpec,
       web_package.mojom.BundleDataSource_Length_ResponseParamsSpec,
-      web_package.mojom.BundleDataSource_Length_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isRandomAccessContext() {
@@ -399,11 +367,7 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
       2,  // ordinal
       web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec,
       web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
-      web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   close() {
@@ -412,11 +376,7 @@ web_package.mojom.BundleDataSourceRemoteCallHandler = class {
       3,  // ordinal
       web_package.mojom.BundleDataSource_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -441,7 +401,7 @@ web_package.mojom.BundleDataSource_Read_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -454,7 +414,7 @@ web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = {
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -467,7 +427,7 @@ web_package.mojom.BundleDataSource_Length_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,7 +440,7 @@ web_package.mojom.BundleDataSource_Length_ResponseParamsSpec = {
       fields: [
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -493,7 +453,7 @@ web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -506,7 +466,7 @@ web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
       fields: [
         { name: 'is_random_access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -519,7 +479,7 @@ web_package.mojom.BundleDataSource_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

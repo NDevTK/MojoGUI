@@ -50,11 +50,7 @@ dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {
       0,  // ordinal
       dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
       null,
-      null,
-      [page_is_distillable, is_last_update, is_long_article, is_mobile_friendly],
-      undefined,
-      undefined
-    );
+      [page_is_distillable, is_last_update, is_long_article, is_mobile_friendly]);
   }
 
 };
@@ -81,7 +77,7 @@ dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
         { name: 'is_long_article', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
         { name: 'is_mobile_friendly', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

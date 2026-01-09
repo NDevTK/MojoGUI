@@ -58,11 +58,7 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
       chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
-      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
-      [user_requested],
-      undefined,
-      undefined
-    );
+      [user_requested]);
   }
 
   cancelSchedule() {
@@ -71,11 +67,7 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -99,7 +91,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
       fields: [
         { name: 'user_requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -112,7 +104,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -125,7 +117,7 @@ chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

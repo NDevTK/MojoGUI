@@ -57,11 +57,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec,
       null,
-      null,
-      [running_services],
-      undefined,
-      undefined
-    );
+      [running_services]);
   }
 
   onServiceCreated(service) {
@@ -70,11 +66,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       1,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec,
       null,
-      null,
-      [service],
-      undefined,
-      undefined
-    );
+      [service]);
   }
 
   onServiceStarted(identity, pid_deprecated) {
@@ -83,11 +75,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       2,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec,
       null,
-      null,
-      [identity, pid_deprecated],
-      undefined,
-      undefined
-    );
+      [identity, pid_deprecated]);
   }
 
   onServicePIDReceived(identity, pid) {
@@ -96,11 +84,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       3,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec,
       null,
-      null,
-      [identity, pid],
-      undefined,
-      undefined
-    );
+      [identity, pid]);
   }
 
   onServiceFailedToStart(identity) {
@@ -109,11 +93,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       4,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec,
       null,
-      null,
-      [identity],
-      undefined,
-      undefined
-    );
+      [identity]);
   }
 
   onServiceStopped(identity) {
@@ -122,11 +102,7 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       5,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec,
       null,
-      null,
-      [identity],
-      undefined,
-      undefined
-    );
+      [identity]);
   }
 
 };
@@ -150,7 +126,7 @@ service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
       fields: [
         { name: 'running_services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -164,7 +140,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
       fields: [
         { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -179,7 +155,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pid_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -194,7 +170,7 @@ service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,7 +184,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec =
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +198,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -273,11 +249,7 @@ service_manager.mojom.ServiceManagerRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ServiceManager_AddListener_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
 };
@@ -301,7 +273,7 @@ service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

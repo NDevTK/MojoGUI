@@ -51,11 +51,7 @@ ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
       null,
-      null,
-      [colors],
-      undefined,
-      undefined
-    );
+      [colors]);
   }
 
 };
@@ -79,7 +75,7 @@ ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Param
       fields: [
         { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -158,7 +150,7 @@ ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Para
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

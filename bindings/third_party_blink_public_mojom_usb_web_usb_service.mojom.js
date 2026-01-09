@@ -50,11 +50,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebUsbService_GetDevices_ParamsSpec,
       blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
-      blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDevice(guid, device_receiver) {
@@ -63,11 +59,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebUsbService_GetDevice_ParamsSpec,
       null,
-      null,
-      [guid, device_receiver],
-      undefined,
-      undefined
-    );
+      [guid, device_receiver]);
   }
 
   getPermission(options) {
@@ -76,11 +68,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WebUsbService_GetPermission_ParamsSpec,
       blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
-      blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
-      [options],
-      undefined,
-      undefined
-    );
+      [options]);
   }
 
   forgetDevice(guid) {
@@ -89,11 +77,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
       null,
-      null,
-      [guid],
-      undefined,
-      undefined
-    );
+      [guid]);
   }
 
   setClient(client) {
@@ -102,11 +86,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WebUsbService_SetClient_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
 };
@@ -129,7 +109,7 @@ blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,7 +122,7 @@ blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +137,7 @@ blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
         { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +151,7 @@ blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +164,7 @@ blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +178,7 @@ blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
       fields: [
         { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +192,7 @@ blink.mojom.WebUsbService_SetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

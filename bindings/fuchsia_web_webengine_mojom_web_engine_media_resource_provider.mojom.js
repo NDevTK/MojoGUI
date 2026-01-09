@@ -49,11 +49,7 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
       0,  // ordinal
       mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec,
       mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec,
-      mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   createAudioConsumer(request) {
@@ -62,11 +58,7 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
       1,  // ordinal
       mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec,
       null,
-      null,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
 };
@@ -89,7 +81,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -102,7 +94,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec =
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +108,7 @@ mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec,
       null,
-      null,
-      [data_host, registration_eligibility, is_for_background_requests, reporting_origins],
-      undefined,
-      undefined
-    );
+      [data_host, registration_eligibility, is_for_background_requests, reporting_origins]);
   }
 
   registerNavigationDataHost(data_host, attribution_src_token) {
@@ -63,11 +59,7 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec,
       null,
-      null,
-      [data_host, attribution_src_token],
-      undefined,
-      undefined
-    );
+      [data_host, attribution_src_token]);
   }
 
   notifyNavigationWithBackgroundRegistrationsWillStart(attribution_src_token, expected_registrations) {
@@ -76,11 +68,7 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec,
       null,
-      null,
-      [attribution_src_token, expected_registrations],
-      undefined,
-      undefined
-    );
+      [attribution_src_token, expected_registrations]);
   }
 
 };
@@ -107,7 +95,7 @@ blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
         { name: 'is_for_background_requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'reporting_origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -122,7 +110,7 @@ blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
         { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,7 +125,7 @@ blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart
         { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

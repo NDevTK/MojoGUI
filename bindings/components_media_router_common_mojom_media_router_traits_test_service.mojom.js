@@ -50,11 +50,7 @@ media_router.mojom.MediaRouterTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec,
       media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec,
-      media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec,
-      [s],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [s]);
   }
 
 };
@@ -78,7 +74,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec
       fields: [
         { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

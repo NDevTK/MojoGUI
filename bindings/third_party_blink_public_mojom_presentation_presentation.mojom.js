@@ -83,11 +83,7 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationConnection_OnMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
   didChangeState(state) {
@@ -96,11 +92,7 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PresentationConnection_DidChangeState_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   didClose(reason) {
@@ -109,11 +101,7 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PresentationConnection_DidClose_ParamsSpec,
       null,
-      null,
-      [reason],
-      undefined,
-      undefined
-    );
+      [reason]);
   }
 
 };
@@ -137,7 +125,7 @@ blink.mojom.PresentationConnection_OnMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -151,7 +139,7 @@ blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -165,7 +153,7 @@ blink.mojom.PresentationConnection_DidClose_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -216,11 +204,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationService_SetController_ParamsSpec,
       null,
-      null,
-      [controller],
-      undefined,
-      undefined
-    );
+      [controller]);
   }
 
   setReceiver(receiver) {
@@ -229,11 +213,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PresentationService_SetReceiver_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   setDefaultPresentationUrls(presentation_urls) {
@@ -242,11 +222,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec,
       null,
-      null,
-      [presentation_urls],
-      undefined,
-      undefined
-    );
+      [presentation_urls]);
   }
 
   listenForScreenAvailability(availability_url) {
@@ -255,11 +231,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec,
       null,
-      null,
-      [availability_url],
-      undefined,
-      undefined
-    );
+      [availability_url]);
   }
 
   stopListeningForScreenAvailability(availability_url) {
@@ -268,11 +240,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec,
       null,
-      null,
-      [availability_url],
-      undefined,
-      undefined
-    );
+      [availability_url]);
   }
 
   startPresentation(presentation_urls) {
@@ -281,11 +249,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PresentationService_StartPresentation_ParamsSpec,
       blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
-      blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
-      [presentation_urls],
-      undefined,
-      undefined
-    );
+      [presentation_urls]);
   }
 
   reconnectPresentation(presentation_urls, presentation_id) {
@@ -294,11 +258,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec,
       blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
-      blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
-      [presentation_urls, presentation_id],
-      undefined,
-      undefined
-    );
+      [presentation_urls, presentation_id]);
   }
 
   closeConnection(presentation_url, presentation_id) {
@@ -307,11 +267,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PresentationService_CloseConnection_ParamsSpec,
       null,
-      null,
-      [presentation_url, presentation_id],
-      undefined,
-      undefined
-    );
+      [presentation_url, presentation_id]);
   }
 
   terminate(presentation_url, presentation_id) {
@@ -320,11 +276,7 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PresentationService_Terminate_ParamsSpec,
       null,
-      null,
-      [presentation_url, presentation_id],
-      undefined,
-      undefined
-    );
+      [presentation_url, presentation_id]);
   }
 
 };
@@ -348,7 +300,7 @@ blink.mojom.PresentationService_SetController_ParamsSpec = {
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -362,7 +314,7 @@ blink.mojom.PresentationService_SetReceiver_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -376,7 +328,7 @@ blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = {
       fields: [
         { name: 'presentation_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -390,7 +342,7 @@ blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = {
       fields: [
         { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -404,7 +356,7 @@ blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = 
       fields: [
         { name: 'availability_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -418,7 +370,7 @@ blink.mojom.PresentationService_StartPresentation_ParamsSpec = {
       fields: [
         { name: 'presentation_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +384,7 @@ blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -447,7 +399,7 @@ blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
         { name: 'presentation_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -461,7 +413,7 @@ blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -476,7 +428,7 @@ blink.mojom.PresentationService_CloseConnection_ParamsSpec = {
         { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -491,7 +443,7 @@ blink.mojom.PresentationService_Terminate_ParamsSpec = {
         { name: 'presentation_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -542,11 +494,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec,
       null,
-      null,
-      [url, availability],
-      undefined,
-      undefined
-    );
+      [url, availability]);
   }
 
   onDefaultPresentationStarted(result) {
@@ -555,11 +503,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec,
       null,
-      null,
-      [result],
-      undefined,
-      undefined
-    );
+      [result]);
   }
 
   onConnectionStateChanged(presentation_info, newState) {
@@ -568,11 +512,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec,
       null,
-      null,
-      [presentation_info, newState],
-      undefined,
-      undefined
-    );
+      [presentation_info, newState]);
   }
 
   onConnectionClosed(presentation_info, reason, message) {
@@ -581,11 +521,7 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec,
       null,
-      null,
-      [presentation_info, reason, message],
-      undefined,
-      undefined
-    );
+      [presentation_info, reason, message]);
   }
 
 };
@@ -610,7 +546,7 @@ blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'availability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -624,7 +560,7 @@ blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -639,7 +575,7 @@ blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = {
         { name: 'presentation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'newState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -655,7 +591,7 @@ blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = {
         { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -706,11 +642,7 @@ blink.mojom.PresentationReceiverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec,
       null,
-      null,
-      [result],
-      undefined,
-      undefined
-    );
+      [result]);
   }
 
 };
@@ -734,7 +666,7 @@ blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

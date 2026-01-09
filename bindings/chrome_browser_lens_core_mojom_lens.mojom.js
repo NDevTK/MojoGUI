@@ -79,11 +79,7 @@ lens.mojom.LensPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler, page],
-      undefined,
-      undefined
-    );
+      [handler, page]);
   }
 
 };
@@ -108,7 +104,7 @@ lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,11 +155,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec,
       null,
-      null,
-      [click_modifiers],
-      undefined,
-      undefined
-    );
+      [click_modifiers]);
   }
 
   closeRequestedByOverlayCloseButton() {
@@ -172,11 +164,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   closeRequestedByOverlayBackgroundClick() {
@@ -185,11 +173,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   notifyOverlayInitialized() {
@@ -198,11 +182,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   addBackgroundBlur() {
@@ -211,11 +191,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setLiveBlur(enabled) {
@@ -224,11 +200,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   feedbackRequestedByOverlay() {
@@ -237,11 +209,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getOverlayInvocationSource() {
@@ -250,11 +218,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec,
       lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec,
-      lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   infoRequestedByOverlay(click_modifiers) {
@@ -263,11 +227,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec,
       null,
-      null,
-      [click_modifiers],
-      undefined,
-      undefined
-    );
+      [click_modifiers]);
   }
 
   issueLensRegionRequest(region, is_click) {
@@ -276,11 +236,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec,
       null,
-      null,
-      [region, is_click],
-      undefined,
-      undefined
-    );
+      [region, is_click]);
   }
 
   issueLensObjectRequest(region, is_mask_click) {
@@ -289,11 +245,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec,
       null,
-      null,
-      [region, is_mask_click],
-      undefined,
-      undefined
-    );
+      [region, is_mask_click]);
   }
 
   issueTextSelectionRequest(query, selection_start_index, selection_end_index, is_translate) {
@@ -302,11 +254,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec,
       null,
-      null,
-      [query, selection_start_index, selection_end_index, is_translate],
-      undefined,
-      undefined
-    );
+      [query, selection_start_index, selection_end_index, is_translate]);
   }
 
   issueTranslateSelectionRequest(query, content_language, selection_start_index, selection_end_index) {
@@ -315,11 +263,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec,
       null,
-      null,
-      [query, content_language, selection_start_index, selection_end_index],
-      undefined,
-      undefined
-    );
+      [query, content_language, selection_start_index, selection_end_index]);
   }
 
   issueMathSelectionRequest(query, formula, selection_start_index, selection_end_index) {
@@ -328,11 +272,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec,
       null,
-      null,
-      [query, formula, selection_start_index, selection_end_index],
-      undefined,
-      undefined
-    );
+      [query, formula, selection_start_index, selection_end_index]);
   }
 
   issueTranslateFullPageRequest(source_language, target_language) {
@@ -341,11 +281,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec,
       null,
-      null,
-      [source_language, target_language],
-      undefined,
-      undefined
-    );
+      [source_language, target_language]);
   }
 
   issueEndTranslateModeRequest() {
@@ -354,11 +290,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   copyText(text) {
@@ -367,11 +299,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       lens.mojom.LensPageHandler_CopyText_ParamsSpec,
       null,
-      null,
-      [text],
-      undefined,
-      undefined
-    );
+      [text]);
   }
 
   copyImage(region) {
@@ -380,11 +308,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       17,  // ordinal
       lens.mojom.LensPageHandler_CopyImage_ParamsSpec,
       null,
-      null,
-      [region],
-      undefined,
-      undefined
-    );
+      [region]);
   }
 
   saveAsImage(region) {
@@ -393,11 +317,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       18,  // ordinal
       lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec,
       null,
-      null,
-      [region],
-      undefined,
-      undefined
-    );
+      [region]);
   }
 
   closePreselectionBubble() {
@@ -406,11 +326,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       19,  // ordinal
       lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordUkmAndTaskCompletionForLensOverlayInteraction(user_action) {
@@ -419,11 +335,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       20,  // ordinal
       lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec,
       null,
-      null,
-      [user_action],
-      undefined,
-      undefined
-    );
+      [user_action]);
   }
 
   recordLensOverlaySemanticEvent(event) {
@@ -432,11 +344,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       21,  // ordinal
       lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
   maybeShowTranslateFeaturePromo() {
@@ -445,11 +353,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       22,  // ordinal
       lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   maybeCloseTranslateFeaturePromo(feature_engaged) {
@@ -458,11 +362,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       23,  // ordinal
       lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec,
       null,
-      null,
-      [feature_engaged],
-      undefined,
-      undefined
-    );
+      [feature_engaged]);
   }
 
   fetchSupportedLanguages() {
@@ -471,11 +371,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       24,  // ordinal
       lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec,
       lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec,
-      lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   finishReshowOverlay() {
@@ -484,11 +380,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       25,  // ordinal
       lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   acceptPrivacyNotice() {
@@ -497,11 +389,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       26,  // ordinal
       lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   dismissPrivacyNotice() {
@@ -510,11 +398,7 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       27,  // ordinal
       lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -538,7 +422,7 @@ lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec = {
       fields: [
         { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -551,7 +435,7 @@ lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,7 +448,7 @@ lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -577,7 +461,7 @@ lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -590,7 +474,7 @@ lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -604,7 +488,7 @@ lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -617,7 +501,7 @@ lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -630,7 +514,7 @@ lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -643,7 +527,7 @@ lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = {
       fields: [
         { name: 'invocation_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -657,7 +541,7 @@ lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec = {
       fields: [
         { name: 'click_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -672,7 +556,7 @@ lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -687,7 +571,7 @@ lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_mask_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -704,7 +588,7 @@ lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec = {
         { name: 'selection_end_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_translate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -721,7 +605,7 @@ lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec = {
         { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -738,7 +622,7 @@ lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec = {
         { name: 'selection_start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'selection_end_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -753,7 +637,7 @@ lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec = {
         { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -766,7 +650,7 @@ lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -780,7 +664,7 @@ lens.mojom.LensPageHandler_CopyText_ParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -794,7 +678,7 @@ lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -808,7 +692,7 @@ lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -821,7 +705,7 @@ lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -835,7 +719,7 @@ lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_P
       fields: [
         { name: 'user_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -849,7 +733,7 @@ lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -862,7 +746,7 @@ lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -876,7 +760,7 @@ lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec = {
       fields: [
         { name: 'feature_engaged', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -889,7 +773,7 @@ lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -904,7 +788,7 @@ lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = {
         { name: 'source_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'target_languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -917,7 +801,7 @@ lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -930,7 +814,7 @@ lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -943,7 +827,7 @@ lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -994,11 +878,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec,
       null,
-      null,
-      [screenshot_data, is_side_panel_open],
-      undefined,
-      undefined
-    );
+      [screenshot_data, is_side_panel_open]);
   }
 
   notifyHandshakeComplete() {
@@ -1007,11 +887,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       1,  // ordinal
       lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   notifyResultsPanelOpened() {
@@ -1020,11 +896,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       2,  // ordinal
       lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   notifyOverlayClosing() {
@@ -1033,11 +905,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       3,  // ordinal
       lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   objectsReceived(objects) {
@@ -1046,11 +914,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       4,  // ordinal
       lens.mojom.LensPage_ObjectsReceived_ParamsSpec,
       null,
-      null,
-      [objects],
-      undefined,
-      undefined
-    );
+      [objects]);
   }
 
   textReceived(text) {
@@ -1059,11 +923,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       5,  // ordinal
       lens.mojom.LensPage_TextReceived_ParamsSpec,
       null,
-      null,
-      [text],
-      undefined,
-      undefined
-    );
+      [text]);
   }
 
   regionTextReceived(text, is_injected_image) {
@@ -1072,11 +932,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       6,  // ordinal
       lens.mojom.LensPage_RegionTextReceived_ParamsSpec,
       null,
-      null,
-      [text, is_injected_image],
-      undefined,
-      undefined
-    );
+      [text, is_injected_image]);
   }
 
   themeReceived(theme) {
@@ -1085,11 +941,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       7,  // ordinal
       lens.mojom.LensPage_ThemeReceived_ParamsSpec,
       null,
-      null,
-      [theme],
-      undefined,
-      undefined
-    );
+      [theme]);
   }
 
   shouldShowContextualSearchBox(should_show) {
@@ -1098,11 +950,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       8,  // ordinal
       lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec,
       null,
-      null,
-      [should_show],
-      undefined,
-      undefined
-    );
+      [should_show]);
   }
 
   pageContentTypeChanged(new_page_content_type) {
@@ -1111,11 +959,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       9,  // ordinal
       lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec,
       null,
-      null,
-      [new_page_content_type],
-      undefined,
-      undefined
-    );
+      [new_page_content_type]);
   }
 
   setPostRegionSelection(region) {
@@ -1124,11 +968,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       10,  // ordinal
       lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec,
       null,
-      null,
-      [region],
-      undefined,
-      undefined
-    );
+      [region]);
   }
 
   setTextSelection(selection_start_index, selection_end_index) {
@@ -1137,11 +977,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       11,  // ordinal
       lens.mojom.LensPage_SetTextSelection_ParamsSpec,
       null,
-      null,
-      [selection_start_index, selection_end_index],
-      undefined,
-      undefined
-    );
+      [selection_start_index, selection_end_index]);
   }
 
   setTranslateMode(source_language, target_language) {
@@ -1150,11 +986,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       12,  // ordinal
       lens.mojom.LensPage_SetTranslateMode_ParamsSpec,
       null,
-      null,
-      [source_language, target_language],
-      undefined,
-      undefined
-    );
+      [source_language, target_language]);
   }
 
   clearRegionSelection() {
@@ -1163,11 +995,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       13,  // ordinal
       lens.mojom.LensPage_ClearRegionSelection_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearTextSelection() {
@@ -1176,11 +1004,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       14,  // ordinal
       lens.mojom.LensPage_ClearTextSelection_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearAllSelections() {
@@ -1189,11 +1013,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       15,  // ordinal
       lens.mojom.LensPage_ClearAllSelections_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onCopyCommand() {
@@ -1202,11 +1022,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       16,  // ordinal
       lens.mojom.LensPage_OnCopyCommand_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   suppressGhostLoader() {
@@ -1215,11 +1031,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       17,  // ordinal
       lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onOverlayReshown(screenshot_data) {
@@ -1228,11 +1040,7 @@ lens.mojom.LensPageRemoteCallHandler = class {
       18,  // ordinal
       lens.mojom.LensPage_OnOverlayReshown_ParamsSpec,
       null,
-      null,
-      [screenshot_data],
-      undefined,
-      undefined
-    );
+      [screenshot_data]);
   }
 
 };
@@ -1257,7 +1065,7 @@ lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec = {
         { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_side_panel_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1270,7 +1078,7 @@ lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1283,7 +1091,7 @@ lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1296,7 +1104,7 @@ lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1310,7 +1118,7 @@ lens.mojom.LensPage_ObjectsReceived_ParamsSpec = {
       fields: [
         { name: 'objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1324,7 +1132,7 @@ lens.mojom.LensPage_TextReceived_ParamsSpec = {
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1339,7 +1147,7 @@ lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_injected_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1353,7 +1161,7 @@ lens.mojom.LensPage_ThemeReceived_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1367,7 +1175,7 @@ lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec = {
       fields: [
         { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1381,7 +1189,7 @@ lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
       fields: [
         { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1395,7 +1203,7 @@ lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1410,7 +1218,7 @@ lens.mojom.LensPage_SetTextSelection_ParamsSpec = {
         { name: 'selection_start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'selection_end_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1425,7 +1233,7 @@ lens.mojom.LensPage_SetTranslateMode_ParamsSpec = {
         { name: 'source_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'target_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1438,7 +1246,7 @@ lens.mojom.LensPage_ClearRegionSelection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1451,7 +1259,7 @@ lens.mojom.LensPage_ClearTextSelection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1464,7 +1272,7 @@ lens.mojom.LensPage_ClearAllSelections_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1477,7 +1285,7 @@ lens.mojom.LensPage_OnCopyCommand_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1490,7 +1298,7 @@ lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1504,7 +1312,7 @@ lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = {
       fields: [
         { name: 'screenshot_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

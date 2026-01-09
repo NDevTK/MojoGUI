@@ -50,11 +50,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
       0,  // ordinal
       tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec,
       null,
-      null,
-      [native_identifier, visible, rect],
-      undefined,
-      undefined
-    );
+      [native_identifier, visible, rect]);
   }
 
   trackedElementActivated(native_identifier) {
@@ -63,11 +59,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
       1,  // ordinal
       tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec,
       null,
-      null,
-      [native_identifier],
-      undefined,
-      undefined
-    );
+      [native_identifier]);
   }
 
   trackedElementCustomEvent(native_identifier, custom_event_name) {
@@ -76,11 +68,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
       2,  // ordinal
       tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec,
       null,
-      null,
-      [native_identifier, custom_event_name],
-      undefined,
-      undefined
-    );
+      [native_identifier, custom_event_name]);
   }
 
 };
@@ -106,7 +94,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Para
         { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -120,7 +108,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec =
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -135,7 +123,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'custom_event_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

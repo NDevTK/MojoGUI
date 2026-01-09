@@ -50,11 +50,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
       content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
-      content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
-      [name],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [name]);
   }
 
   suddenTerminationAllowedChanged(allowed) {
@@ -63,11 +59,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
-      null,
-      [allowed],
-      undefined,
-      undefined
-    );
+      [allowed]);
   }
 
   recordUserMetricsAction(action) {
@@ -76,11 +68,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
-      null,
-      [action],
-      undefined,
-      undefined
-    );
+      [action]);
   }
 
   setPrivateMemoryFootprint(private_memory_footprint_bytes) {
@@ -89,11 +77,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
       null,
-      null,
-      [private_memory_footprint_bytes],
-      undefined,
-      undefined
-    );
+      [private_memory_footprint_bytes]);
   }
 
   hasGpuProcess() {
@@ -102,11 +86,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
       content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
-      content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -130,7 +110,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +123,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
       fields: [
         { name: 'histogram_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +137,7 @@ content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +151,7 @@ content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +165,7 @@ content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
       fields: [
         { name: 'private_memory_footprint_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +178,7 @@ content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +191,7 @@ content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
       fields: [
         { name: 'has_gpu_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

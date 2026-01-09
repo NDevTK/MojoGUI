@@ -84,11 +84,7 @@ ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -112,7 +108,7 @@ ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,11 +159,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showOnDeviceAppControls() {
@@ -176,11 +168,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showParentalControls() {
@@ -189,11 +177,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   triggerWelcomeTipCallToAction(action_type_id) {
@@ -202,11 +186,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec,
       null,
-      null,
-      [action_type_id],
-      undefined,
-      undefined
-    );
+      [action_type_id]);
   }
 
   isLauncherSearchEnabled() {
@@ -215,11 +195,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec,
       ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec,
-      ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   launchMicrosoft365Setup() {
@@ -228,11 +204,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   maybeShowReleaseNotesNotification() {
@@ -241,11 +213,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDeviceInfo() {
@@ -254,11 +222,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec,
       ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec,
-      ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openUrlInBrowserAndTriggerInstallDialog(url) {
@@ -267,11 +231,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   openSettings(component) {
@@ -280,11 +240,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec,
       null,
-      null,
-      [component],
-      undefined,
-      undefined
-    );
+      [component]);
   }
 
   setHasCompletedNewDeviceChecklist() {
@@ -293,11 +249,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setHasVisitedHowToPage() {
@@ -306,11 +258,7 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -333,7 +281,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -346,7 +294,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -359,7 +307,7 @@ ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -372,7 +320,7 @@ ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -386,7 +334,7 @@ ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
       fields: [
         { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -399,7 +347,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -412,7 +360,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -425,7 +373,7 @@ ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +386,7 @@ ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -451,7 +399,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,7 +412,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -478,7 +426,7 @@ ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpe
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -492,7 +440,7 @@ ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
       fields: [
         { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -505,7 +453,7 @@ ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -518,7 +466,7 @@ ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

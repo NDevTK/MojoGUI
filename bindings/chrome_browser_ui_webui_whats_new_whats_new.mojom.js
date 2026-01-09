@@ -74,11 +74,7 @@ whats_new.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -103,7 +99,7 @@ whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -154,11 +150,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec,
       whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
-      whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
-      [is_staging],
-      undefined,
-      undefined
-    );
+      [is_staging]);
   }
 
   recordTimeToLoadContent(time) {
@@ -167,11 +159,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec,
       null,
-      null,
-      [time],
-      undefined,
-      undefined
-    );
+      [time]);
   }
 
   recordVersionPageLoaded(is_auto_open) {
@@ -180,11 +168,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec,
       null,
-      null,
-      [is_auto_open],
-      undefined,
-      undefined
-    );
+      [is_auto_open]);
   }
 
   recordEditionPageLoaded(page_uid, is_auto_open) {
@@ -193,11 +177,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec,
       null,
-      null,
-      [page_uid, is_auto_open],
-      undefined,
-      undefined
-    );
+      [page_uid, is_auto_open]);
   }
 
   recordModuleImpression(module_name, position) {
@@ -206,11 +186,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordExploreMoreToggled(expanded) {
@@ -219,11 +195,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec,
       null,
-      null,
-      [expanded],
-      undefined,
-      undefined
-    );
+      [expanded]);
   }
 
   recordScrollDepth(depth) {
@@ -232,11 +204,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec,
       null,
-      null,
-      [depth],
-      undefined,
-      undefined
-    );
+      [depth]);
   }
 
   recordTimeOnPage(time) {
@@ -245,11 +213,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec,
       null,
-      null,
-      [time],
-      undefined,
-      undefined
-    );
+      [time]);
   }
 
   recordModuleLinkClicked(module_name, position) {
@@ -258,11 +222,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordModuleVideoStarted(module_name, position) {
@@ -271,11 +231,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordModuleVideoEnded(module_name, position) {
@@ -284,11 +240,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordModulePlayClicked(module_name, position) {
@@ -297,11 +249,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordModulePauseClicked(module_name, position) {
@@ -310,11 +258,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordModuleRestartClicked(module_name, position) {
@@ -323,11 +267,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec,
       null,
-      null,
-      [module_name, position],
-      undefined,
-      undefined
-    );
+      [module_name, position]);
   }
 
   recordBrowserCommandExecuted() {
@@ -336,11 +276,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordQrCodeToggled(expanded) {
@@ -349,11 +285,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec,
       null,
-      null,
-      [expanded],
-      undefined,
-      undefined
-    );
+      [expanded]);
   }
 
   recordNavClick() {
@@ -362,11 +294,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordFeatureTileNavigation() {
@@ -375,11 +303,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordCarouselScrollButtonClick() {
@@ -388,11 +312,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordExpandMediaToggled(module_name, expanded) {
@@ -401,11 +321,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec,
       null,
-      null,
-      [module_name, expanded],
-      undefined,
-      undefined
-    );
+      [module_name, expanded]);
   }
 
   recordCtaClick() {
@@ -414,11 +330,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordNextButtonClick() {
@@ -427,11 +339,7 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -455,7 +363,7 @@ whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
       fields: [
         { name: 'is_staging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -468,7 +376,7 @@ whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -482,7 +390,7 @@ whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = {
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -496,7 +404,7 @@ whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = {
       fields: [
         { name: 'is_auto_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -511,7 +419,7 @@ whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = {
         { name: 'page_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'is_auto_open', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -526,7 +434,7 @@ whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -540,7 +448,7 @@ whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = {
       fields: [
         { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -554,7 +462,7 @@ whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = {
       fields: [
         { name: 'depth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -568,7 +476,7 @@ whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = {
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -583,7 +491,7 @@ whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -598,7 +506,7 @@ whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -613,7 +521,7 @@ whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -628,7 +536,7 @@ whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -643,7 +551,7 @@ whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -658,7 +566,7 @@ whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'position', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -671,7 +579,7 @@ whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -685,7 +593,7 @@ whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = {
       fields: [
         { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -698,7 +606,7 @@ whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -711,7 +619,7 @@ whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -724,7 +632,7 @@ whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -739,7 +647,7 @@ whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = {
         { name: 'module_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'expanded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -752,7 +660,7 @@ whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -765,7 +673,7 @@ whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

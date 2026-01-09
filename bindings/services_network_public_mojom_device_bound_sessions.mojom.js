@@ -180,11 +180,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
       network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
-      network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   deleteSession(reason, session) {
@@ -193,11 +189,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
       null,
-      null,
-      [reason, session],
-      undefined,
-      undefined
-    );
+      [reason, session]);
   }
 
   deleteAllSessions(reason, created_after_time, created_before_time, filter) {
@@ -206,11 +198,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
       null,
-      null,
-      [reason, created_after_time, created_before_time, filter],
-      undefined,
-      undefined
-    );
+      [reason, created_after_time, created_before_time, filter]);
   }
 
   addObserver(url, observer) {
@@ -219,11 +207,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
       null,
-      null,
-      [url, observer],
-      undefined,
-      undefined
-    );
+      [url, observer]);
   }
 
   addEventObserver(observer) {
@@ -232,11 +216,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   createBoundSessions(params, wrapped_key, cookies_to_set, cookie_options) {
@@ -245,11 +225,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
       network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
-      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
-      [params, wrapped_key, cookies_to_set, cookie_options],
-      undefined,
-      undefined
-    );
+      [params, wrapped_key, cookies_to_set, cookie_options]);
   }
 
 };
@@ -272,7 +248,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,7 +261,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
       fields: [
         { name: 'sessions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -300,7 +276,7 @@ network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,7 +293,7 @@ network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
         { name: 'created_before_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -332,7 +308,7 @@ network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -346,7 +322,7 @@ network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,7 +339,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
         { name: 'cookies_to_set', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'cookie_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +353,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec =
         { name: 'session_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'cookie_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -428,11 +404,7 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
       null,
-      null,
-      [access],
-      undefined,
-      undefined
-    );
+      [access]);
   }
 
   clone(observer) {
@@ -441,11 +413,7 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -469,7 +437,7 @@ network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Para
       fields: [
         { name: 'access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -483,7 +451,7 @@ network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -534,11 +502,7 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
   addDeviceBoundSessionDisplays(session_displays) {
@@ -547,11 +511,7 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
       null,
-      null,
-      [session_displays],
-      undefined,
-      undefined
-    );
+      [session_displays]);
   }
 
 };
@@ -575,7 +535,7 @@ network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -589,7 +549,7 @@ network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Para
       fields: [
         { name: 'session_displays', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

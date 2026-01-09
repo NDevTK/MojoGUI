@@ -63,11 +63,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
   onKeyEventsPaused() {
@@ -76,11 +72,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onKeyEventsResumed() {
@@ -89,11 +81,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -117,7 +105,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +118,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +131,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -194,11 +182,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class
       0,  // ordinal
       ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec,
       null,
-      null,
-      [is_display_on],
-      undefined,
-      undefined
-    );
+      [is_display_on]);
   }
 
 };
@@ -222,7 +206,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerSt
       fields: [
         { name: 'is_display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -273,11 +257,7 @@ ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      null,
-      [is_tablet_mode],
-      undefined,
-      undefined
-    );
+      [is_tablet_mode]);
   }
 
 };
@@ -301,7 +281,7 @@ ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -352,11 +332,7 @@ ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
-      null,
-      [is_lid_open],
-      undefined,
-      undefined
-    );
+      [is_lid_open]);
   }
 
 };
@@ -380,7 +356,7 @@ ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
       fields: [
         { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -431,11 +407,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec,
       null,
-      null,
-      [new_keyboard],
-      undefined,
-      undefined
-    );
+      [new_keyboard]);
   }
 
   onKeyboardDisconnected(id) {
@@ -444,11 +416,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   onTouchDeviceConnected(new_touch_device) {
@@ -457,11 +425,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec,
       null,
-      null,
-      [new_touch_device],
-      undefined,
-      undefined
-    );
+      [new_touch_device]);
   }
 
   onTouchDeviceDisconnected(id) {
@@ -470,11 +434,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
 };
@@ -498,7 +458,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = 
       fields: [
         { name: 'new_keyboard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -512,7 +472,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -526,7 +486,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec
       fields: [
         { name: 'new_touch_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -540,7 +500,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsS
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -591,11 +551,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec,
       ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
-      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   observeConnectedDevices(observer) {
@@ -604,11 +560,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeKeyEvents(id, observer) {
@@ -617,11 +569,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec,
       null,
-      null,
-      [id, observer],
-      undefined,
-      undefined
-    );
+      [id, observer]);
   }
 
   observeTabletMode(observer) {
@@ -630,11 +578,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec,
       ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
-      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeLidState(observer) {
@@ -643,11 +587,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec,
       ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
-      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeInternalDisplayPowerState(observer) {
@@ -656,11 +596,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   moveAppToTestingScreen(evdev_id) {
@@ -669,11 +605,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec,
       null,
-      null,
-      [evdev_id],
-      undefined,
-      undefined
-    );
+      [evdev_id]);
   }
 
   moveAppBackToPreviousScreen() {
@@ -682,11 +614,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setA11yTouchPassthrough(enabled) {
@@ -695,11 +623,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
 };
@@ -722,7 +646,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -735,7 +659,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec =
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -749,7 +673,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -764,7 +688,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -778,7 +702,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -791,7 +715,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -805,7 +729,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -818,7 +742,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
       fields: [
         { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -832,7 +756,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsS
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -846,7 +770,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
       fields: [
         { name: 'evdev_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -859,7 +783,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -873,7 +797,7 @@ ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

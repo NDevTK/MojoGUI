@@ -50,11 +50,7 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
       payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
-      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
-      [method_data],
-      undefined,
-      undefined
-    );
+      [method_data]);
   }
 
   changeShippingOption(shipping_option_id) {
@@ -63,11 +59,7 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
       payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
-      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
-      [shipping_option_id],
-      undefined,
-      undefined
-    );
+      [shipping_option_id]);
   }
 
   changeShippingAddress(shipping_address) {
@@ -76,11 +68,7 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
       payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
-      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
-      [shipping_address],
-      undefined,
-      undefined
-    );
+      [shipping_address]);
   }
 
 };
@@ -104,7 +92,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
       fields: [
         { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -117,7 +105,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
       fields: [
         { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +119,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
       fields: [
         { name: 'shipping_option_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +132,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
       fields: [
         { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +146,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
       fields: [
         { name: 'shipping_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +159,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
       fields: [
         { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

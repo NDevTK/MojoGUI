@@ -50,11 +50,7 @@ media.mojom.MuteStateObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
       null,
-      null,
-      [muted],
-      undefined,
-      undefined
-    );
+      [muted]);
   }
 
 };
@@ -78,7 +74,7 @@ media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
       fields: [
         { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
       null,
-      null,
-      [provision_fetcher],
-      undefined,
-      undefined
-    );
+      [provision_fetcher]);
   }
 
   createCdmStorage(cdm_storage) {
@@ -142,11 +134,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
       null,
-      null,
-      [cdm_storage],
-      undefined,
-      undefined
-    );
+      [cdm_storage]);
   }
 
   registerMuteStateObserver(site_mute_observer) {
@@ -155,11 +143,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
       null,
-      null,
-      [site_mute_observer],
-      undefined,
-      undefined
-    );
+      [site_mute_observer]);
   }
 
   createDCOMPSurfaceRegistry(registry) {
@@ -168,11 +152,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
       null,
-      null,
-      [registry],
-      undefined,
-      undefined
-    );
+      [registry]);
   }
 
   getCdmOrigin() {
@@ -181,11 +161,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
       media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
-      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   bindEmbedderReceiver(receiver) {
@@ -194,11 +170,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -222,7 +194,7 @@ media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
       fields: [
         { name: 'provision_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +208,7 @@ media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
       fields: [
         { name: 'cdm_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +222,7 @@ media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
       fields: [
         { name: 'site_mute_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +236,7 @@ media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
       fields: [
         { name: 'registry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -277,7 +249,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -290,7 +262,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
       fields: [
         { name: 'cdm_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -304,7 +276,7 @@ media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

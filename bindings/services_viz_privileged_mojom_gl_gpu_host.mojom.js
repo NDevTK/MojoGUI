@@ -50,11 +50,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.GpuHost_DidInitialize_ParamsSpec,
       null,
-      null,
-      [gpu_info, gpu_feature_info, gpu_info_for_hardware_gpu, gpu_feature_info_for_hardware_gpu, gpu_extra_info],
-      undefined,
-      undefined
-    );
+      [gpu_info, gpu_feature_info, gpu_info_for_hardware_gpu, gpu_feature_info_for_hardware_gpu, gpu_extra_info]);
   }
 
   didFailInitialize() {
@@ -63,11 +59,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.GpuHost_DidFailInitialize_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didCreateContextSuccessfully() {
@@ -76,11 +68,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didCreateOffscreenContext(url) {
@@ -89,11 +77,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   didDestroyOffscreenContext(url) {
@@ -102,11 +86,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   didDestroyChannel(client_id) {
@@ -115,11 +95,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec,
       null,
-      null,
-      [client_id],
-      undefined,
-      undefined
-    );
+      [client_id]);
   }
 
   didDestroyAllChannels() {
@@ -128,11 +104,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didLoseContext(reason, active_url) {
@@ -141,11 +113,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.GpuHost_DidLoseContext_ParamsSpec,
       null,
-      null,
-      [reason, active_url],
-      undefined,
-      undefined
-    );
+      [reason, active_url]);
   }
 
   didUpdateGPUInfo(gpu_info) {
@@ -154,11 +122,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec,
       null,
-      null,
-      [gpu_info],
-      undefined,
-      undefined
-    );
+      [gpu_info]);
   }
 
   didUpdateOverlayInfo(overlay_info) {
@@ -167,11 +131,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec,
       null,
-      null,
-      [overlay_info],
-      undefined,
-      undefined
-    );
+      [overlay_info]);
   }
 
   didUpdateDXGIInfo(dxgi_info) {
@@ -180,11 +140,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec,
       null,
-      null,
-      [dxgi_info],
-      undefined,
-      undefined
-    );
+      [dxgi_info]);
   }
 
   disableGpuCompositing() {
@@ -193,11 +149,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       11,  // ordinal
       viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getIsolationKey(client_id, wgpu_context_token) {
@@ -206,11 +158,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       12,  // ordinal
       viz.mojom.GpuHost_GetIsolationKey_ParamsSpec,
       viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec,
-      viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec,
-      [client_id, wgpu_context_token],
-      undefined,
-      undefined
-    );
+      [client_id, wgpu_context_token]);
   }
 
   storeBlobToDisk(cache_handle, key, blob) {
@@ -219,11 +167,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       13,  // ordinal
       viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec,
       null,
-      null,
-      [cache_handle, key, blob],
-      undefined,
-      undefined
-    );
+      [cache_handle, key, blob]);
   }
 
   clearGrShaderDiskCache() {
@@ -232,11 +176,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       14,  // ordinal
       viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   ensureWebNNExecutionProvidersReady() {
@@ -245,11 +185,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       15,  // ordinal
       viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec,
       viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec,
-      viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   createWebNNWeightsFile() {
@@ -258,11 +194,7 @@ viz.mojom.GpuHostRemoteCallHandler = class {
       16,  // ordinal
       viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec,
       viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec,
-      viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -290,7 +222,7 @@ viz.mojom.GpuHost_DidInitialize_ParamsSpec = {
         { name: 'gpu_feature_info_for_hardware_gpu', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'gpu_extra_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -303,7 +235,7 @@ viz.mojom.GpuHost_DidFailInitialize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -316,7 +248,7 @@ viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,7 +262,7 @@ viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -344,7 +276,7 @@ viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -358,7 +290,7 @@ viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec = {
       fields: [
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -371,7 +303,7 @@ viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -386,7 +318,7 @@ viz.mojom.GpuHost_DidLoseContext_ParamsSpec = {
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'active_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -400,7 +332,7 @@ viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec = {
       fields: [
         { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -414,7 +346,7 @@ viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec = {
       fields: [
         { name: 'overlay_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -428,7 +360,7 @@ viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec = {
       fields: [
         { name: 'dxgi_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -441,7 +373,7 @@ viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -456,7 +388,7 @@ viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = {
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'wgpu_context_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -469,7 +401,7 @@ viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = {
       fields: [
         { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -485,7 +417,7 @@ viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec = {
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -498,7 +430,7 @@ viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -511,7 +443,7 @@ viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -524,7 +456,7 @@ viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = {
       fields: [
         { name: 'ep_package_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -537,7 +469,7 @@ viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -550,7 +482,7 @@ viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

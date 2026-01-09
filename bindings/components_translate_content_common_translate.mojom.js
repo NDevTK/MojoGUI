@@ -66,11 +66,7 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
       0,  // ordinal
       translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec,
       translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec,
-      translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec,
-      [translate_script, source_lang, target_lang],
-      undefined,
-      undefined
-    );
+      [translate_script, source_lang, target_lang]);
   }
 
   revertTranslation() {
@@ -79,11 +75,7 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
       1,  // ordinal
       translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -109,7 +101,7 @@ translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
         { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -125,7 +117,7 @@ translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
         { name: 'translated_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -138,7 +130,7 @@ translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -189,11 +181,7 @@ translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
       0,  // ordinal
       translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec,
       null,
-      null,
-      [translate_agent, details, translation_critiera_met],
-      undefined,
-      undefined
-    );
+      [translate_agent, details, translation_critiera_met]);
   }
 
 };
@@ -219,7 +207,7 @@ translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'translation_critiera_met', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

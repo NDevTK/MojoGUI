@@ -50,11 +50,7 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
       null,
-      null,
-      [point],
-      undefined,
-      undefined
-    );
+      [point]);
   }
 
   resetPrediction() {
@@ -63,11 +59,7 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
       fields: [
         { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

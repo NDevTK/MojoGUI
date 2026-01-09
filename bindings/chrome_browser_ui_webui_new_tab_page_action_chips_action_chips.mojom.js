@@ -58,11 +58,7 @@ action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
       0,  // ordinal
       action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -85,7 +81,7 @@ action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -136,11 +132,7 @@ action_chips.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec,
       null,
-      null,
-      [action_chips],
-      undefined,
-      undefined
-    );
+      [action_chips]);
   }
 
 };
@@ -164,7 +156,7 @@ action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
       fields: [
         { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -215,11 +207,7 @@ action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
       null,
-      null,
-      [handler, page],
-      undefined,
-      undefined
-    );
+      [handler, page]);
   }
 
 };
@@ -244,7 +232,7 @@ action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

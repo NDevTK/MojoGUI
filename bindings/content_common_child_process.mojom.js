@@ -50,11 +50,7 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ChildProcessHost_Ping_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   bindHostReceiver(receiver) {
@@ -63,11 +59,7 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -90,7 +82,7 @@ content.mojom.ChildProcessHost_Ping_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,11 +147,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ChildProcess_ProcessShutdown_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getTaskPort() {
@@ -168,11 +156,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.ChildProcess_GetTaskPort_ParamsSpec,
       content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec,
-      content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setIPCLoggingEnabled(on) {
@@ -181,11 +165,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec,
       null,
-      null,
-      [on],
-      undefined,
-      undefined
-    );
+      [on]);
   }
 
   getBackgroundTracingAgentProvider(receiver) {
@@ -194,11 +174,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   enableSystemTracingService(remote) {
@@ -207,11 +183,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec,
       null,
-      null,
-      [remote],
-      undefined,
-      undefined
-    );
+      [remote]);
   }
 
   crashHungProcess() {
@@ -220,11 +192,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.ChildProcess_CrashHungProcess_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   bindServiceInterface(receiver) {
@@ -233,11 +201,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.ChildProcess_BindServiceInterface_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindReceiver(receiver) {
@@ -246,11 +210,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.ChildProcess_BindReceiver_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   setProfilingFile(file) {
@@ -259,11 +219,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.ChildProcess_SetProfilingFile_ParamsSpec,
       null,
-      null,
-      [file],
-      undefined,
-      undefined
-    );
+      [file]);
   }
 
   writeClangProfilingProfile() {
@@ -272,11 +228,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setPseudonymizationSalt(salt) {
@@ -285,11 +237,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec,
       null,
-      null,
-      [salt],
-      undefined,
-      undefined
-    );
+      [salt]);
   }
 
   reinitializeLogging(settings) {
@@ -298,11 +246,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec,
       null,
-      null,
-      [settings],
-      undefined,
-      undefined
-    );
+      [settings]);
   }
 
   onMemoryPressure(memory_pressure_level) {
@@ -311,11 +255,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec,
       null,
-      null,
-      [memory_pressure_level],
-      undefined,
-      undefined
-    );
+      [memory_pressure_level]);
   }
 
   setBatterySaverMode(battery_saver_mode_enabled) {
@@ -324,11 +264,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       13,  // ordinal
       content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec,
       null,
-      null,
-      [battery_saver_mode_enabled],
-      undefined,
-      undefined
-    );
+      [battery_saver_mode_enabled]);
   }
 
 };
@@ -351,7 +287,7 @@ content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +300,7 @@ content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +313,7 @@ content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
       fields: [
         { name: 'task_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +327,7 @@ content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
       fields: [
         { name: 'on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +341,7 @@ content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -419,7 +355,7 @@ content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
       fields: [
         { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -432,7 +368,7 @@ content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -446,7 +382,7 @@ content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -460,7 +396,7 @@ content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -474,7 +410,7 @@ content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -487,7 +423,7 @@ content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -501,7 +437,7 @@ content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
       fields: [
         { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -515,7 +451,7 @@ content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -529,7 +465,7 @@ content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
       fields: [
         { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -543,7 +479,7 @@ content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
       fields: [
         { name: 'battery_saver_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

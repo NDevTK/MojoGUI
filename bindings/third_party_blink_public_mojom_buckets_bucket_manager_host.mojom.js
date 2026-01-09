@@ -57,11 +57,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BucketHost_Persist_ParamsSpec,
       blink.mojom.BucketHost_Persist_ResponseParamsSpec,
-      blink.mojom.BucketHost_Persist_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   persisted() {
@@ -70,11 +66,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BucketHost_Persisted_ParamsSpec,
       blink.mojom.BucketHost_Persisted_ResponseParamsSpec,
-      blink.mojom.BucketHost_Persisted_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   estimate() {
@@ -83,11 +75,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BucketHost_Estimate_ParamsSpec,
       blink.mojom.BucketHost_Estimate_ResponseParamsSpec,
-      blink.mojom.BucketHost_Estimate_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   durability() {
@@ -96,11 +84,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BucketHost_Durability_ParamsSpec,
       blink.mojom.BucketHost_Durability_ResponseParamsSpec,
-      blink.mojom.BucketHost_Durability_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setExpires(expires) {
@@ -109,11 +93,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.BucketHost_SetExpires_ParamsSpec,
       blink.mojom.BucketHost_SetExpires_ResponseParamsSpec,
-      blink.mojom.BucketHost_SetExpires_ResponseParamsSpec,
-      [expires],
-      undefined,
-      undefined
-    );
+      [expires]);
   }
 
   expires() {
@@ -122,11 +102,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.BucketHost_Expires_ParamsSpec,
       blink.mojom.BucketHost_Expires_ResponseParamsSpec,
-      blink.mojom.BucketHost_Expires_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getIdbFactory(idb_factory) {
@@ -135,11 +111,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.BucketHost_GetIdbFactory_ParamsSpec,
       null,
-      null,
-      [idb_factory],
-      undefined,
-      undefined
-    );
+      [idb_factory]);
   }
 
   getLockManager(lock_manager) {
@@ -148,11 +120,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.BucketHost_GetLockManager_ParamsSpec,
       null,
-      null,
-      [lock_manager],
-      undefined,
-      undefined
-    );
+      [lock_manager]);
   }
 
   getCaches(cache_storage) {
@@ -161,11 +129,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.BucketHost_GetCaches_ParamsSpec,
       null,
-      null,
-      [cache_storage],
-      undefined,
-      undefined
-    );
+      [cache_storage]);
   }
 
   getDirectory() {
@@ -174,11 +138,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.BucketHost_GetDirectory_ParamsSpec,
       blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec,
-      blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDirectoryForDevtools(directory_path_components) {
@@ -187,11 +147,7 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec,
       blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec,
-      blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec,
-      [directory_path_components],
-      undefined,
-      undefined
-    );
+      [directory_path_components]);
   }
 
 };
@@ -214,7 +170,7 @@ blink.mojom.BucketHost_Persist_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -228,7 +184,7 @@ blink.mojom.BucketHost_Persist_ResponseParamsSpec = {
         { name: 'persisted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'success', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -241,7 +197,7 @@ blink.mojom.BucketHost_Persisted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -255,7 +211,7 @@ blink.mojom.BucketHost_Persisted_ResponseParamsSpec = {
         { name: 'persisted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'success', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -268,7 +224,7 @@ blink.mojom.BucketHost_Estimate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -283,7 +239,7 @@ blink.mojom.BucketHost_Estimate_ResponseParamsSpec = {
         { name: 'current_quota', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -296,7 +252,7 @@ blink.mojom.BucketHost_Durability_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -310,7 +266,7 @@ blink.mojom.BucketHost_Durability_ResponseParamsSpec = {
         { name: 'durability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -324,7 +280,7 @@ blink.mojom.BucketHost_SetExpires_ParamsSpec = {
       fields: [
         { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -337,7 +293,7 @@ blink.mojom.BucketHost_SetExpires_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -350,7 +306,7 @@ blink.mojom.BucketHost_Expires_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +320,7 @@ blink.mojom.BucketHost_Expires_ResponseParamsSpec = {
         { name: 'expires', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +334,7 @@ blink.mojom.BucketHost_GetIdbFactory_ParamsSpec = {
       fields: [
         { name: 'idb_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -392,7 +348,7 @@ blink.mojom.BucketHost_GetLockManager_ParamsSpec = {
       fields: [
         { name: 'lock_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -406,7 +362,7 @@ blink.mojom.BucketHost_GetCaches_ParamsSpec = {
       fields: [
         { name: 'cache_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -419,7 +375,7 @@ blink.mojom.BucketHost_GetDirectory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -433,7 +389,7 @@ blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -447,7 +403,7 @@ blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec = {
       fields: [
         { name: 'directory_path_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -461,7 +417,7 @@ blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -512,11 +468,7 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec,
       blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec,
-      blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec,
-      [name, policy],
-      undefined,
-      undefined
-    );
+      [name, policy]);
   }
 
   getBucketForDevtools(name, receiver) {
@@ -525,11 +477,7 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec,
       null,
-      null,
-      [name, receiver],
-      undefined,
-      undefined
-    );
+      [name, receiver]);
   }
 
   keys() {
@@ -538,11 +486,7 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BucketManagerHost_Keys_ParamsSpec,
       blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec,
-      blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   deleteBucket(name) {
@@ -551,11 +495,7 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec,
       blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec,
-      blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec,
-      [name],
-      undefined,
-      undefined
-    );
+      [name]);
   }
 
 };
@@ -580,7 +520,7 @@ blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -594,7 +534,7 @@ blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = {
         { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -609,7 +549,7 @@ blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -622,7 +562,7 @@ blink.mojom.BucketManagerHost_Keys_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -636,7 +576,7 @@ blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec = {
         { name: 'buckets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -650,7 +590,7 @@ blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -663,7 +603,7 @@ blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

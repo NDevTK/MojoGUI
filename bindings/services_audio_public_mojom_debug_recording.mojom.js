@@ -57,11 +57,7 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
       audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
-      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
-      [stream_type, id],
-      undefined,
-      undefined
-    );
+      [stream_type, id]);
   }
 
   createAecdumpFile(id) {
@@ -70,11 +66,7 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
       audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
-      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
 };
@@ -99,7 +91,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
         { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -112,7 +104,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -126,7 +118,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -139,7 +131,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -190,11 +182,7 @@ audio.mojom.DebugRecordingRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DebugRecording_Enable_ParamsSpec,
       null,
-      null,
-      [file_provider],
-      undefined,
-      undefined
-    );
+      [file_provider]);
   }
 
 };
@@ -218,7 +206,7 @@ audio.mojom.DebugRecording_Enable_ParamsSpec = {
       fields: [
         { name: 'file_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

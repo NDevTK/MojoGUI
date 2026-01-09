@@ -60,11 +60,7 @@ remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec,
       remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec,
-      remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec,
-      [type, title, file_path, file_types, file_type_index, default_extension],
-      undefined,
-      undefined
-    );
+      [type, title, file_path, file_types, file_type_index, default_extension]);
   }
 
 };
@@ -93,7 +89,7 @@ remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = {
         { name: 'file_type_index', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'default_extension', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -109,7 +105,7 @@ remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
         { name: 'index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'file_tags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };

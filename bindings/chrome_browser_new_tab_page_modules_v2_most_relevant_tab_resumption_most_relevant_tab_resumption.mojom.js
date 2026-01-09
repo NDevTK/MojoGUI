@@ -59,11 +59,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec,
       ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   dismissModule(url_visits) {
@@ -72,11 +68,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      null,
-      [url_visits],
-      undefined,
-      undefined
-    );
+      [url_visits]);
   }
 
   dismissURLVisit(url_visit) {
@@ -85,11 +77,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec,
       null,
-      null,
-      [url_visit],
-      undefined,
-      undefined
-    );
+      [url_visit]);
   }
 
   restoreModule(url_visits) {
@@ -98,11 +86,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      null,
-      [url_visits],
-      undefined,
-      undefined
-    );
+      [url_visits]);
   }
 
   restoreURLVisit(url_visit) {
@@ -111,11 +95,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
       null,
-      null,
-      [url_visit],
-      undefined,
-      undefined
-    );
+      [url_visit]);
   }
 
   recordAction(action, url_key, visit_request_id) {
@@ -124,11 +104,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec,
       null,
-      null,
-      [action, url_key, visit_request_id],
-      undefined,
-      undefined
-    );
+      [action, url_key, visit_request_id]);
   }
 
 };
@@ -151,7 +127,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -164,7 +140,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSp
       fields: [
         { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -178,7 +154,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
       fields: [
         { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -192,7 +168,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = 
       fields: [
         { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -206,7 +182,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
       fields: [
         { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -220,7 +196,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = 
       fields: [
         { name: 'url_visit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +212,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
         { name: 'url_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'visit_request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

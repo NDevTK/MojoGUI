@@ -102,11 +102,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec,
       null,
-      null,
-      [audio_decoder],
-      undefined,
-      undefined
-    );
+      [audio_decoder]);
   }
 
   createVideoDecoder(video_decoder, dst_video_decoder) {
@@ -115,11 +111,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec,
       null,
-      null,
-      [video_decoder, dst_video_decoder],
-      undefined,
-      undefined
-    );
+      [video_decoder, dst_video_decoder]);
   }
 
   createVideoDecoderWithTracker(receiver, tracker) {
@@ -128,11 +120,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec,
       null,
-      null,
-      [receiver, tracker],
-      undefined,
-      undefined
-    );
+      [receiver, tracker]);
   }
 
   createAudioEncoder(audio_encoder) {
@@ -141,11 +129,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec,
       null,
-      null,
-      [audio_encoder],
-      undefined,
-      undefined
-    );
+      [audio_encoder]);
   }
 
   createDefaultRenderer(audio_device_id, renderer) {
@@ -154,11 +138,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec,
       null,
-      null,
-      [audio_device_id, renderer],
-      undefined,
-      undefined
-    );
+      [audio_device_id, renderer]);
   }
 
   createCastRenderer(overlay_plane_id, renderer) {
@@ -167,11 +147,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec,
       null,
-      null,
-      [overlay_plane_id, renderer],
-      undefined,
-      undefined
-    );
+      [overlay_plane_id, renderer]);
   }
 
   createMediaFoundationRenderer(media_log, renderer, renderer_extension) {
@@ -180,11 +156,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec,
       null,
-      null,
-      [media_log, renderer, renderer_extension],
-      undefined,
-      undefined
-    );
+      [media_log, renderer, renderer_extension]);
   }
 
   createFlingingRenderer(presentation_id, client_extension, renderer) {
@@ -193,11 +165,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec,
       null,
-      null,
-      [presentation_id, client_extension, renderer],
-      undefined,
-      undefined
-    );
+      [presentation_id, client_extension, renderer]);
   }
 
   createCdm(cdm_config) {
@@ -206,11 +174,7 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.InterfaceFactory_CreateCdm_ParamsSpec,
       media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec,
-      media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec,
-      [cdm_config],
-      undefined,
-      undefined
-    );
+      [cdm_config]);
   }
 
 };
@@ -234,7 +198,7 @@ media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
       fields: [
         { name: 'audio_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -249,7 +213,7 @@ media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
         { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'dst_video_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +228,7 @@ media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +242,7 @@ media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
       fields: [
         { name: 'audio_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -293,7 +257,7 @@ media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
         { name: 'audio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -308,7 +272,7 @@ media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
         { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -324,7 +288,7 @@ media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
         { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'renderer_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +304,7 @@ media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
         { name: 'client_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +318,7 @@ media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
       fields: [
         { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -369,7 +333,7 @@ media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
         { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

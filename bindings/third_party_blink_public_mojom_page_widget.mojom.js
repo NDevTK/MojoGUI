@@ -56,11 +56,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec,
       blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec,
-      blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec,
-      [drag_data, point_in_viewport, screen_point, operations_allowed, key_modifiers],
-      undefined,
-      undefined
-    );
+      [drag_data, point_in_viewport, screen_point, operations_allowed, key_modifiers]);
   }
 
   dragTargetDragOver(point_in_viewport, screen_point, operations_allowed, key_modifiers) {
@@ -69,11 +65,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec,
       blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec,
-      blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec,
-      [point_in_viewport, screen_point, operations_allowed, key_modifiers],
-      undefined,
-      undefined
-    );
+      [point_in_viewport, screen_point, operations_allowed, key_modifiers]);
   }
 
   dragTargetDragLeave(point_in_viewport, screen_point) {
@@ -82,11 +74,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec,
       null,
-      null,
-      [point_in_viewport, screen_point],
-      undefined,
-      undefined
-    );
+      [point_in_viewport, screen_point]);
   }
 
   dragTargetDrop(drag_data, point_in_viewport, screen_point, key_modifiers) {
@@ -95,11 +83,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec,
       null,
-      null,
-      [drag_data, point_in_viewport, screen_point, key_modifiers],
-      undefined,
-      undefined
-    );
+      [drag_data, point_in_viewport, screen_point, key_modifiers]);
   }
 
   dragSourceEndedAt(point_in_viewport, screen_point, drag_operation) {
@@ -108,11 +92,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec,
       null,
-      null,
-      [point_in_viewport, screen_point, drag_operation],
-      undefined,
-      undefined
-    );
+      [point_in_viewport, screen_point, drag_operation]);
   }
 
   dragSourceSystemDragEnded() {
@@ -121,11 +101,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStartStylusWriting(focus_widget_rect_in_dips) {
@@ -134,11 +110,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec,
       blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec,
-      blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec,
-      [focus_widget_rect_in_dips],
-      undefined,
-      undefined
-    );
+      [focus_widget_rect_in_dips]);
   }
 
   passImeRenderWidgetHost(remote) {
@@ -147,11 +119,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec,
       null,
-      null,
-      [remote],
-      undefined,
-      undefined
-    );
+      [remote]);
   }
 
   setBackgroundOpaque(opaque) {
@@ -160,11 +128,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec,
       null,
-      null,
-      [opaque],
-      undefined,
-      undefined
-    );
+      [opaque]);
   }
 
   setTextDirection(direction) {
@@ -173,11 +137,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FrameWidget_SetTextDirection_ParamsSpec,
       null,
-      null,
-      [direction],
-      undefined,
-      undefined
-    );
+      [direction]);
   }
 
   setActive(active) {
@@ -186,11 +146,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FrameWidget_SetActive_ParamsSpec,
       null,
-      null,
-      [active],
-      undefined,
-      undefined
-    );
+      [active]);
   }
 
   setInheritedEffectiveTouchActionForSubFrame(touch_action) {
@@ -199,11 +155,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec,
       null,
-      null,
-      [touch_action],
-      undefined,
-      undefined
-    );
+      [touch_action]);
   }
 
   updateRenderThrottlingStatusForSubFrame(is_throttled, subtree_throttled, display_locked) {
@@ -212,11 +164,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec,
       null,
-      null,
-      [is_throttled, subtree_throttled, display_locked],
-      undefined,
-      undefined
-    );
+      [is_throttled, subtree_throttled, display_locked]);
   }
 
   setIsInertForSubFrame(inert) {
@@ -225,11 +173,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec,
       null,
-      null,
-      [inert],
-      undefined,
-      undefined
-    );
+      [inert]);
   }
 
   getStringAtPoint(point_in_local_root) {
@@ -238,11 +182,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec,
       blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec,
-      blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec,
-      [point_in_local_root],
-      undefined,
-      undefined
-    );
+      [point_in_local_root]);
   }
 
   enableDeviceEmulation(parameters, cache_behavior) {
@@ -251,11 +191,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec,
       null,
-      null,
-      [parameters, cache_behavior],
-      undefined,
-      undefined
-    );
+      [parameters, cache_behavior]);
   }
 
   disableDeviceEmulation() {
@@ -264,11 +200,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   bindWidgetCompositor(host) {
@@ -277,11 +209,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       17,  // ordinal
       blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec,
       null,
-      null,
-      [host],
-      undefined,
-      undefined
-    );
+      [host]);
   }
 
   setViewportIntersection(intersection_state, visual_properties) {
@@ -290,11 +218,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       18,  // ordinal
       blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec,
       null,
-      null,
-      [intersection_state, visual_properties],
-      undefined,
-      undefined
-    );
+      [intersection_state, visual_properties]);
   }
 
   notifyClearedDisplayedGraphics() {
@@ -303,11 +227,7 @@ blink.mojom.FrameWidgetRemoteCallHandler = class {
       19,  // ordinal
       blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -335,7 +255,7 @@ blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec = {
         { name: 'operations_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_modifiers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -349,7 +269,7 @@ blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec = {
         { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'document_is_handling_drag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -366,7 +286,7 @@ blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec = {
         { name: 'operations_allowed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -380,7 +300,7 @@ blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec = {
         { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'document_is_handling_drag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -395,7 +315,7 @@ blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec = {
         { name: 'point_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -412,7 +332,7 @@ blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec = {
         { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_modifiers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -428,7 +348,7 @@ blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec = {
         { name: 'screen_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'drag_operation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -441,7 +361,7 @@ blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -455,7 +375,7 @@ blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec = {
       fields: [
         { name: 'focus_widget_rect_in_dips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -468,7 +388,7 @@ blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec = {
       fields: [
         { name: 'focus_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -482,7 +402,7 @@ blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec = {
       fields: [
         { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -496,7 +416,7 @@ blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec = {
       fields: [
         { name: 'opaque', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -510,7 +430,7 @@ blink.mojom.FrameWidget_SetTextDirection_ParamsSpec = {
       fields: [
         { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -524,7 +444,7 @@ blink.mojom.FrameWidget_SetActive_ParamsSpec = {
       fields: [
         { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -538,7 +458,7 @@ blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec =
       fields: [
         { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -554,7 +474,7 @@ blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec = {
         { name: 'subtree_throttled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'display_locked', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -568,7 +488,7 @@ blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec = {
       fields: [
         { name: 'inert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -582,7 +502,7 @@ blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec = {
       fields: [
         { name: 'point_in_local_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -596,7 +516,7 @@ blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec = {
         { name: 'string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'baseline_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -611,7 +531,7 @@ blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec = {
         { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'cache_behavior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -624,7 +544,7 @@ blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -638,7 +558,7 @@ blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec = {
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -653,7 +573,7 @@ blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec = {
         { name: 'intersection_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'visual_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -666,7 +586,7 @@ blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -717,11 +637,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec,
       null,
-      null,
-      [tap_point, rect_to_zoom],
-      undefined,
-      undefined
-    );
+      [tap_point, rect_to_zoom]);
   }
 
   zoomToFindInPageRectInMainFrame(rect_to_zoom) {
@@ -730,11 +646,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec,
       null,
-      null,
-      [rect_to_zoom],
-      undefined,
-      undefined
-    );
+      [rect_to_zoom]);
   }
 
   setHasTouchEventConsumers(touch_event_consumers) {
@@ -743,11 +655,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec,
       null,
-      null,
-      [touch_event_consumers],
-      undefined,
-      undefined
-    );
+      [touch_event_consumers]);
   }
 
   intrinsicSizingInfoChanged(sizing_info) {
@@ -756,11 +664,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec,
       null,
-      null,
-      [sizing_info],
-      undefined,
-      undefined
-    );
+      [sizing_info]);
   }
 
   autoscrollStart(position) {
@@ -769,11 +673,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec,
       null,
-      null,
-      [position],
-      undefined,
-      undefined
-    );
+      [position]);
   }
 
   autoscrollFling(velocity) {
@@ -782,11 +682,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec,
       null,
-      null,
-      [velocity],
-      undefined,
-      undefined
-    );
+      [velocity]);
   }
 
   autoscrollEnd() {
@@ -795,11 +691,7 @@ blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -824,7 +716,7 @@ blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec = {
         { name: 'tap_point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'rect_to_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -838,7 +730,7 @@ blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec = {
       fields: [
         { name: 'rect_to_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -852,7 +744,7 @@ blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec = {
       fields: [
         { name: 'touch_event_consumers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -866,7 +758,7 @@ blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec = {
       fields: [
         { name: 'sizing_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -880,7 +772,7 @@ blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec = {
       fields: [
         { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -894,7 +786,7 @@ blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec = {
       fields: [
         { name: 'velocity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -907,7 +799,7 @@ blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -958,11 +850,7 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showPopup(initial_rect, anchor_rect) {
@@ -971,11 +859,7 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec,
       null,
-      null,
-      [initial_rect, anchor_rect],
-      undefined,
-      undefined
-    );
+      [initial_rect, anchor_rect]);
   }
 
   setPopupBounds(bounds) {
@@ -984,11 +868,7 @@ blink.mojom.PopupWidgetHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec,
       null,
-      null,
-      [bounds],
-      undefined,
-      undefined
-    );
+      [bounds]);
   }
 
 };
@@ -1011,7 +891,7 @@ blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1026,7 +906,7 @@ blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec = {
         { name: 'initial_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'anchor_rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1040,7 +920,7 @@ blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec = {
       fields: [
         { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

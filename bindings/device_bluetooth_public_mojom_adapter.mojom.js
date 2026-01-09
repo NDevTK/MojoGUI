@@ -77,11 +77,7 @@ bluetooth.mojom.AdvertisementRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Advertisement_Unregister_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -104,7 +100,7 @@ bluetooth.mojom.Advertisement_Unregister_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,11 +151,7 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec,
       bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
-      bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   stop() {
@@ -168,11 +160,7 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.DiscoverySession_Stop_ParamsSpec,
       bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec,
-      bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -195,7 +183,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,7 +196,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
       fields: [
         { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -221,7 +209,7 @@ bluetooth.mojom.DiscoverySession_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -234,7 +222,7 @@ bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,11 +273,7 @@ bluetooth.mojom.SocketRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Socket_Disconnect_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -312,7 +296,7 @@ bluetooth.mojom.Socket_Disconnect_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -363,11 +347,7 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.ServerSocket_Accept_ParamsSpec,
       bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec,
-      bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   disconnect() {
@@ -376,11 +356,7 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -403,7 +379,7 @@ bluetooth.mojom.ServerSocket_Accept_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -416,7 +392,7 @@ bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -429,7 +405,7 @@ bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,11 +456,7 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec,
       bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
-      bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
-      [characteristic_uuid, permissions, properties],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [characteristic_uuid, permissions, properties]);
   }
 
   register() {
@@ -493,11 +465,7 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.GattService_Register_ParamsSpec,
       bluetooth.mojom.GattService_Register_ResponseParamsSpec,
-      bluetooth.mojom.GattService_Register_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -523,7 +491,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec = {
         { name: 'permissions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -536,7 +504,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -549,7 +517,7 @@ bluetooth.mojom.GattService_Register_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -562,7 +530,7 @@ bluetooth.mojom.GattService_Register_ResponseParamsSpec = {
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -613,11 +581,7 @@ bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec,
       bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
-      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
-      [remote_device, characteristic_uuid, service_uuid, offset],
-      undefined,
-      undefined
-    );
+      [remote_device, characteristic_uuid, service_uuid, offset]);
   }
 
 };
@@ -644,7 +608,7 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
         { name: 'service_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -657,7 +621,7 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec
       fields: [
         { name: 'read_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -708,11 +672,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec,
       bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
-      [address],
-      undefined,
-      undefined
-    );
+      [address]);
   }
 
   getDevices() {
@@ -721,11 +681,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.Adapter_GetDevices_ParamsSpec,
       bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getInfo() {
@@ -734,11 +690,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.Adapter_GetInfo_ParamsSpec,
       bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   addObserver(observer) {
@@ -747,11 +699,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       3,  // ordinal
       bluetooth.mojom.Adapter_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [observer]);
   }
 
   registerAdvertisement(service_id, service_data, use_scan_response, connectable) {
@@ -760,11 +708,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       4,  // ordinal
       bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec,
       bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
-      [service_id, service_data, use_scan_response, connectable],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [service_id, service_data, use_scan_response, connectable]);
   }
 
   setDiscoverable(discoverable) {
@@ -773,11 +717,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       5,  // ordinal
       bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec,
       bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
-      [discoverable],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [discoverable]);
   }
 
   setName(name) {
@@ -786,11 +726,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       6,  // ordinal
       bluetooth.mojom.Adapter_SetName_ParamsSpec,
       bluetooth.mojom.Adapter_SetName_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_SetName_ResponseParamsSpec,
-      [name],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [name]);
   }
 
   startDiscoverySession(client_name) {
@@ -799,11 +735,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       7,  // ordinal
       bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec,
       bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
-      [client_name],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [client_name]);
   }
 
   connectToServiceInsecurely(address, service_uuid, should_unbond_on_error) {
@@ -812,11 +744,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       8,  // ordinal
       bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
       bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
-      [address, service_uuid, should_unbond_on_error],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [address, service_uuid, should_unbond_on_error]);
   }
 
   createRfcommServiceInsecurely(service_name, service_uuid) {
@@ -825,11 +753,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       9,  // ordinal
       bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec,
       bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
-      [service_name, service_uuid],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [service_name, service_uuid]);
   }
 
   createLocalGattService(service_id, observer) {
@@ -838,11 +762,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       10,  // ordinal
       bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec,
       bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
-      [service_id, observer],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [service_id, observer]);
   }
 
   isLeScatternetDualRoleSupported() {
@@ -851,11 +771,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       11,  // ordinal
       bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec,
       bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
-      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -879,7 +795,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec = {
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -893,7 +809,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -906,7 +822,7 @@ bluetooth.mojom.Adapter_GetDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -919,7 +835,7 @@ bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec = {
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -932,7 +848,7 @@ bluetooth.mojom.Adapter_GetInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -945,7 +861,7 @@ bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -959,7 +875,7 @@ bluetooth.mojom.Adapter_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -976,7 +892,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
         { name: 'use_scan_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'connectable', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -989,7 +905,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
       fields: [
         { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1003,7 +919,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec = {
       fields: [
         { name: 'discoverable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1016,7 +932,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1030,7 +946,7 @@ bluetooth.mojom.Adapter_SetName_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1043,7 +959,7 @@ bluetooth.mojom.Adapter_SetName_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1057,7 +973,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
       fields: [
         { name: 'client_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1070,7 +986,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1086,7 +1002,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
         { name: 'service_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'should_unbond_on_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1099,7 +1015,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1114,7 +1030,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
         { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'service_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1127,7 +1043,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
       fields: [
         { name: 'server_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1142,7 +1058,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1155,7 +1071,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
       fields: [
         { name: 'gatt_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1168,7 +1084,7 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1181,7 +1097,7 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1232,11 +1148,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec,
       null,
-      null,
-      [present],
-      undefined,
-      undefined
-    );
+      [present]);
   }
 
   poweredChanged(powered) {
@@ -1245,11 +1157,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec,
       null,
-      null,
-      [powered],
-      undefined,
-      undefined
-    );
+      [powered]);
   }
 
   discoverableChanged(discoverable) {
@@ -1258,11 +1166,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec,
       null,
-      null,
-      [discoverable],
-      undefined,
-      undefined
-    );
+      [discoverable]);
   }
 
   discoveringChanged(discovering) {
@@ -1271,11 +1175,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       3,  // ordinal
       bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec,
       null,
-      null,
-      [discovering],
-      undefined,
-      undefined
-    );
+      [discovering]);
   }
 
   deviceAdded(device) {
@@ -1284,11 +1184,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       4,  // ordinal
       bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec,
       null,
-      null,
-      [device],
-      undefined,
-      undefined
-    );
+      [device]);
   }
 
   deviceChanged(device) {
@@ -1297,11 +1193,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       5,  // ordinal
       bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec,
       null,
-      null,
-      [device],
-      undefined,
-      undefined
-    );
+      [device]);
   }
 
   deviceRemoved(device) {
@@ -1310,11 +1202,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       6,  // ordinal
       bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec,
       null,
-      null,
-      [device],
-      undefined,
-      undefined
-    );
+      [device]);
   }
 
 };
@@ -1338,7 +1226,7 @@ bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec = {
       fields: [
         { name: 'present', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1352,7 +1240,7 @@ bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec = {
       fields: [
         { name: 'powered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1366,7 +1254,7 @@ bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec = {
       fields: [
         { name: 'discoverable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1380,7 +1268,7 @@ bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec = {
       fields: [
         { name: 'discovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1394,7 +1282,7 @@ bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec = {
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1408,7 +1296,7 @@ bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec = {
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1422,7 +1310,7 @@ bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = {
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

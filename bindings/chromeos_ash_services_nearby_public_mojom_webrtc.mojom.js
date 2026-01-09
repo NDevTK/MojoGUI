@@ -50,11 +50,7 @@ sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
       sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
-      sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
       fields: [
         { name: 'ice_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -141,11 +137,7 @@ sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
       null,
-      null,
-      [responder_receiver],
-      undefined,
-      undefined
-    );
+      [responder_receiver]);
   }
 
 };
@@ -169,7 +161,7 @@ sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
       fields: [
         { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

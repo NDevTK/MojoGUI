@@ -50,11 +50,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       0,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startTutorial(tutorial_id) {
@@ -63,11 +59,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       1,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
-      [tutorial_id],
-      undefined,
-      undefined
-    );
+      [tutorial_id]);
   }
 
   getSessionData() {
@@ -76,11 +68,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       2,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getFeaturePromos() {
@@ -89,11 +77,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       3,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showFeaturePromo(feature_name) {
@@ -102,11 +86,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       4,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
-      [feature_name],
-      undefined,
-      undefined
-    );
+      [feature_name]);
   }
 
   clearFeaturePromoData(feature_name) {
@@ -115,11 +95,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       5,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
-      [feature_name],
-      undefined,
-      undefined
-    );
+      [feature_name]);
   }
 
   clearSessionData() {
@@ -128,11 +104,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       6,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   forceNewSession() {
@@ -141,11 +113,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       7,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   removeGracePeriods() {
@@ -154,11 +122,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       8,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getNewBadges() {
@@ -167,11 +131,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       9,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getWhatsNewModules() {
@@ -180,11 +140,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       10,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getWhatsNewEditions() {
@@ -193,11 +149,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       11,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getNtpPromos() {
@@ -206,11 +158,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       12,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getNtpPromoPreferences() {
@@ -219,11 +167,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       13,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearNewBadgeData(feature_name) {
@@ -232,11 +176,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       14,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
-      [feature_name],
-      undefined,
-      undefined
-    );
+      [feature_name]);
   }
 
   clearWhatsNewData() {
@@ -245,11 +185,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       15,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   clearNtpPromoData(id) {
@@ -258,11 +194,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       16,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   clearNtpPromoPreferences() {
@@ -271,11 +203,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       17,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   launchWhatsNewStaging() {
@@ -284,11 +212,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       18,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -311,7 +235,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -324,7 +248,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Re
       fields: [
         { name: 'tutorial_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -338,7 +262,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_P
       fields: [
         { name: 'tutorial_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -351,7 +275,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_R
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +288,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -377,7 +301,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
       fields: [
         { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -390,7 +314,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -403,7 +327,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
       fields: [
         { name: 'feature_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -417,7 +341,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
       fields: [
         { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -430,7 +354,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -444,7 +368,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
       fields: [
         { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -457,7 +381,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -470,7 +394,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -483,7 +407,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -496,7 +420,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -509,7 +433,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -522,7 +446,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -535,7 +459,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -548,7 +472,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -561,7 +485,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Re
       fields: [
         { name: 'new_badges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -574,7 +498,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -587,7 +511,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
       fields: [
         { name: 'whats_new_modules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -600,7 +524,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -613,7 +537,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
       fields: [
         { name: 'whats_new_editions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -626,7 +550,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -639,7 +563,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Re
       fields: [
         { name: 'ntp_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -652,7 +576,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -665,7 +589,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
       fields: [
         { name: 'ntp_promo_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -679,7 +603,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
       fields: [
         { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -692,7 +616,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -705,7 +629,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -718,7 +642,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -732,7 +656,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -745,7 +669,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -758,7 +682,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -771,7 +695,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -784,7 +708,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

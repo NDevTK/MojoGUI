@@ -50,11 +50,7 @@ content.mojom.WebUIHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.WebUIHost_Send_ParamsSpec,
       null,
-      null,
-      [message, args],
-      undefined,
-      undefined
-    );
+      [message, args]);
   }
 
 };
@@ -79,7 +75,7 @@ content.mojom.WebUIHost_Send_ParamsSpec = {
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ content.mojom.WebUIRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.WebUI_SetProperty_ParamsSpec,
       null,
-      null,
-      [property_name, property_value_json],
-      undefined,
-      undefined
-    );
+      [property_name, property_value_json]);
   }
 
 };
@@ -159,7 +151,7 @@ content.mojom.WebUI_SetProperty_ParamsSpec = {
         { name: 'property_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'property_value_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

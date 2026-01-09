@@ -65,11 +65,7 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetLogExporter_Start_ParamsSpec,
       network.mojom.NetLogExporter_Start_ResponseParamsSpec,
-      network.mojom.NetLogExporter_Start_ResponseParamsSpec,
-      [destination, extra_constants, capture_mode, max_file_size],
-      undefined,
-      undefined
-    );
+      [destination, extra_constants, capture_mode, max_file_size]);
   }
 
   stop(polled_values) {
@@ -78,11 +74,7 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetLogExporter_Stop_ParamsSpec,
       network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
-      network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
-      [polled_values],
-      undefined,
-      undefined
-    );
+      [polled_values]);
   }
 
 };
@@ -109,7 +101,7 @@ network.mojom.NetLogExporter_Start_ParamsSpec = {
         { name: 'capture_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'max_file_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -122,7 +114,7 @@ network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -136,7 +128,7 @@ network.mojom.NetLogExporter_Stop_ParamsSpec = {
       fields: [
         { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -149,7 +141,7 @@ network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -200,11 +192,7 @@ network.mojom.NetLogProxySourceRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
       null,
-      null,
-      [modes],
-      undefined,
-      undefined
-    );
+      [modes]);
   }
 
 };
@@ -228,7 +216,7 @@ network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
       fields: [
         { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -279,11 +267,7 @@ network.mojom.NetLogProxySinkRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetLogProxySink_AddEntry_ParamsSpec,
       null,
-      null,
-      [type, net_log_source, phase, time, params],
-      undefined,
-      undefined
-    );
+      [type, net_log_source, phase, time, params]);
   }
 
 };
@@ -311,7 +295,7 @@ network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
         { name: 'time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'params', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };

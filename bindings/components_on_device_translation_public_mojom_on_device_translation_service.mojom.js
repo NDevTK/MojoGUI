@@ -60,11 +60,7 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec,
       on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
-      on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
-      [package_index, relative_path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [package_index, relative_path]);
   }
 
   open(package_index, relative_path) {
@@ -73,11 +69,7 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
       1,  // ordinal
       on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec,
       on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
-      on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
-      [package_index, relative_path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [package_index, relative_path]);
   }
 
 };
@@ -102,7 +94,7 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
         { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +108,7 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
         { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_directory', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +123,7 @@ on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
         { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +136,7 @@ on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -195,11 +187,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
       0,  // ordinal
       on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
       null,
-      null,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   createTranslator(source_lang, target_lang, receiver) {
@@ -208,11 +196,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
       1,  // ordinal
       on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
       on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
-      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
-      [source_lang, target_lang, receiver],
-      undefined,
-      undefined
-    );
+      [source_lang, target_lang, receiver]);
   }
 
   canTranslate(source_lang, target_lang) {
@@ -221,11 +205,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
       2,  // ordinal
       on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
       on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
-      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
-      [source_lang, target_lang],
-      undefined,
-      undefined
-    );
+      [source_lang, target_lang]);
   }
 
 };
@@ -249,7 +229,7 @@ on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSp
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -265,7 +245,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSp
         { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +258,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_Response
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -293,7 +273,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec =
         { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -306,7 +286,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponsePara
       fields: [
         { name: 'can_stranslate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

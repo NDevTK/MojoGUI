@@ -50,11 +50,7 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec,
       null,
-      null,
-      [command_id, event_flags],
-      undefined,
-      undefined
-    );
+      [command_id, event_flags]);
   }
 
   menuClosed() {
@@ -63,11 +59,7 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -92,7 +84,7 @@ remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
         { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'event_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,11 +148,7 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.Menu_Cancel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateMenuItem(command_id, enabled, visible, label) {
@@ -169,11 +157,7 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec,
       null,
-      null,
-      [command_id, enabled, visible, label],
-      undefined,
-      undefined
-    );
+      [command_id, enabled, visible, label]);
   }
 
 };
@@ -196,7 +180,7 @@ remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -213,7 +197,7 @@ remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
         { name: 'visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

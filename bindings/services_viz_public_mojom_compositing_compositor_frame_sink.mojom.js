@@ -50,11 +50,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositorFrameSink_SetParams_ParamsSpec,
       null,
-      null,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
   setNeedsBeginFrame(needs_begin_frame) {
@@ -63,11 +59,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec,
       null,
-      null,
-      [needs_begin_frame],
-      undefined,
-      undefined
-    );
+      [needs_begin_frame]);
   }
 
   submitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time) {
@@ -76,11 +68,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec,
       null,
-      null,
-      [local_surface_id, frame, hit_test_region_list, submit_time],
-      undefined,
-      undefined
-    );
+      [local_surface_id, frame, hit_test_region_list, submit_time]);
   }
 
   didNotProduceFrame(ack) {
@@ -89,11 +77,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec,
       null,
-      null,
-      [ack],
-      undefined,
-      undefined
-    );
+      [ack]);
   }
 
   notifyNewLocalSurfaceIdExpectedWhilePaused() {
@@ -102,11 +86,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   bindLayerContext(context, settings) {
@@ -115,11 +95,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec,
       null,
-      null,
-      [context, settings],
-      undefined,
-      undefined
-    );
+      [context, settings]);
   }
 
   setThreads(threads) {
@@ -128,11 +104,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec,
       null,
-      null,
-      [threads],
-      undefined,
-      undefined
-    );
+      [threads]);
   }
 
 };
@@ -156,7 +128,7 @@ viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +142,7 @@ viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
       fields: [
         { name: 'needs_begin_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -187,7 +159,7 @@ viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
         { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'submit_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -201,7 +173,7 @@ viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
       fields: [
         { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -214,7 +186,7 @@ viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -229,7 +201,7 @@ viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
         { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -243,7 +215,7 @@ viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
       fields: [
         { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -294,11 +266,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec,
       null,
-      null,
-      [resources],
-      undefined,
-      undefined
-    );
+      [resources]);
   }
 
   onBeginFrame(args, details, resources) {
@@ -307,11 +275,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec,
       null,
-      null,
-      [args, details, resources],
-      undefined,
-      undefined
-    );
+      [args, details, resources]);
   }
 
   onBeginFramePausedChanged(paused) {
@@ -320,11 +284,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      null,
-      [paused],
-      undefined,
-      undefined
-    );
+      [paused]);
   }
 
   reclaimResources(resources) {
@@ -333,11 +293,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec,
       null,
-      null,
-      [resources],
-      undefined,
-      undefined
-    );
+      [resources]);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(sequence_id) {
@@ -346,11 +302,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      null,
-      [sequence_id],
-      undefined,
-      undefined
-    );
+      [sequence_id]);
   }
 
   onSurfaceEvicted(local_surface_id) {
@@ -359,11 +311,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec,
       null,
-      null,
-      [local_surface_id],
-      undefined,
-      undefined
-    );
+      [local_surface_id]);
   }
 
 };
@@ -387,7 +335,7 @@ viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
       fields: [
         { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -403,7 +351,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -417,7 +365,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
       fields: [
         { name: 'paused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -431,7 +379,7 @@ viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
       fields: [
         { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -445,7 +393,7 @@ viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcesse
       fields: [
         { name: 'sequence_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -459,7 +407,7 @@ viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
       fields: [
         { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

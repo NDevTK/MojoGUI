@@ -50,11 +50,7 @@ network.mojom.ProxyLookupClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
       null,
-      null,
-      [net_error, proxy_info],
-      undefined,
-      undefined
-    );
+      [net_error, proxy_info]);
   }
 
 };
@@ -79,7 +75,7 @@ network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'proxy_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

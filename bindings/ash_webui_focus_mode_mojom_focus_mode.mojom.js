@@ -60,11 +60,7 @@ ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
       0,  // ordinal
       ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec,
       null,
-      null,
-      [track],
-      undefined,
-      undefined
-    );
+      [track]);
   }
 
 };
@@ -88,7 +84,7 @@ ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
       fields: [
         { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -139,11 +135,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec,
       ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
-      ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setMediaClient(client) {
@@ -152,11 +144,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
   reportPlayback(data) {
@@ -165,11 +153,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
   reportPlayerError() {
@@ -178,11 +162,7 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -205,7 +185,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -218,7 +198,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
       fields: [
         { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -232,7 +212,7 @@ ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,7 +226,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -259,7 +239,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.UnhandledTapNotifierRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec,
       null,
-      null,
-      [unhandled_tap_info],
-      undefined,
-      undefined
-    );
+      [unhandled_tap_info]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = {
       fields: [
         { name: 'unhandled_tap_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

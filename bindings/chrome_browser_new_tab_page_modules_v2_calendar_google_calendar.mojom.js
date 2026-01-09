@@ -51,11 +51,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec,
       ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   dismissModule() {
@@ -64,11 +60,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   restoreModule() {
@@ -77,11 +69,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -104,7 +92,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -117,7 +105,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = {
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +118,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +131,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.ProgressClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ProgressClient_OnProgress_ParamsSpec,
       null,
-      null,
-      [delta],
-      undefined,
-      undefined
-    );
+      [delta]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.ProgressClient_OnProgress_ParamsSpec = {
       fields: [
         { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobRegistry_Register_ParamsSpec,
       null,
-      null,
-      [blob, uuid, content_type, content_disposition, elements],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [blob, uuid, content_type, content_disposition, elements]);
   }
 
   registerFromStream(content_type, content_disposition, length_hint, data, progress_client) {
@@ -142,11 +134,7 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec,
       blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec,
-      blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec,
-      [content_type, content_disposition, length_hint, data, progress_client],
-      undefined,
-      undefined
-    );
+      [content_type, content_disposition, length_hint, data, progress_client]);
   }
 
 };
@@ -174,7 +162,7 @@ blink.mojom.BlobRegistry_Register_ParamsSpec = {
         { name: 'content_disposition', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'elements', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -192,7 +180,7 @@ blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
         { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'progress_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -205,7 +193,7 @@ blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

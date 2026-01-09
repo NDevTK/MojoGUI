@@ -50,11 +50,7 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
       null,
-      null,
-      [pixel_size, region],
-      undefined,
-      undefined
-    );
+      [pixel_size, region]);
   }
 
   draw() {
@@ -63,11 +59,7 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -92,7 +84,7 @@ viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
         { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

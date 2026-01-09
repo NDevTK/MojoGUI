@@ -50,11 +50,7 @@ device.mojom.XRSessionControllerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec,
       null,
-      null,
-      [restricted],
-      undefined,
-      undefined
-    );
+      [restricted]);
   }
 
 };
@@ -78,7 +74,7 @@ device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec = {
       fields: [
         { name: 'restricted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec,
       null,
-      null,
-      [visibility_state],
-      undefined,
-      undefined
-    );
+      [visibility_state]);
   }
 
   onExitPresent() {
@@ -142,11 +134,7 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -170,7 +158,7 @@ device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec = {
       fields: [
         { name: 'visibility_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +171,7 @@ device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -234,11 +222,7 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRRuntime_RequestSession_ParamsSpec,
       device.mojom.XRRuntime_RequestSession_ResponseParamsSpec,
-      device.mojom.XRRuntime_RequestSession_ResponseParamsSpec,
-      [options],
-      undefined,
-      undefined
-    );
+      [options]);
   }
 
   shutdownSession() {
@@ -247,11 +231,7 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRRuntime_ShutdownSession_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   listenToDeviceChanges(listener) {
@@ -260,11 +240,7 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
 };
@@ -288,7 +264,7 @@ device.mojom.XRRuntime_RequestSession_ParamsSpec = {
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,7 +277,7 @@ device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -314,7 +290,7 @@ device.mojom.XRRuntime_ShutdownSession_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +304,7 @@ device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -379,11 +355,7 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec,
       device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec,
-      device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   submitOverlayTexture(frame_id, texture, sync_token, left_bounds, right_bounds) {
@@ -392,11 +364,7 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec,
       device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec,
-      device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec,
-      [frame_id, texture, sync_token, left_bounds, right_bounds],
-      undefined,
-      undefined
-    );
+      [frame_id, texture, sync_token, left_bounds, right_bounds]);
   }
 
   setOverlayAndWebXRVisibility(overlay_visible, webxr_visible) {
@@ -405,11 +373,7 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec,
       null,
-      null,
-      [overlay_visible, webxr_visible],
-      undefined,
-      undefined
-    );
+      [overlay_visible, webxr_visible]);
   }
 
   requestNotificationOnWebXrSubmitted() {
@@ -418,11 +382,7 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -445,7 +405,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -458,7 +418,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
       fields: [
         { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -476,7 +436,7 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
         { name: 'left_bounds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'right_bounds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -489,7 +449,7 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -504,7 +464,7 @@ device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec = {
         { name: 'overlay_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'webxr_visible', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -517,7 +477,7 @@ device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -568,11 +528,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec,
       null,
-      null,
-      [runtime, device_data, device_id],
-      undefined,
-      undefined
-    );
+      [runtime, device_data, device_id]);
   }
 
   onDeviceRemoved(device_index) {
@@ -581,11 +537,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec,
       null,
-      null,
-      [device_index],
-      undefined,
-      undefined
-    );
+      [device_index]);
   }
 
   onDevicesEnumerated() {
@@ -594,11 +546,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -624,7 +572,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec = {
         { name: 'device_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -638,7 +586,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec = {
       fields: [
         { name: 'device_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -651,7 +599,7 @@ device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -702,11 +650,7 @@ device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
 };
@@ -730,7 +674,7 @@ device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -781,11 +725,7 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec,
       null,
-      null,
-      [receiver, host],
-      undefined,
-      undefined
-    );
+      [receiver, host]);
   }
 
   bindTestHook(receiver) {
@@ -794,11 +734,7 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRDeviceService_BindTestHook_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -823,7 +759,7 @@ device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -837,7 +773,7 @@ device.mojom.XRDeviceService_BindTestHook_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -888,11 +824,7 @@ device.mojom.XRDeviceServiceHostRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -916,7 +848,7 @@ device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

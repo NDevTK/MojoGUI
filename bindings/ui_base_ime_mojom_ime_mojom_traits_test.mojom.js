@@ -50,11 +50,7 @@ ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
       0,  // ordinal
       ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec,
       ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
-      ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
-      [in],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [in]);
   }
 
 };
@@ -78,7 +74,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
       fields: [
         { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

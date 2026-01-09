@@ -57,11 +57,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec,
       null,
-      null,
-      [receiver, updater, client, creation_params],
-      undefined,
-      undefined
-    );
+      [receiver, updater, client, creation_params]);
   }
 
   updateCRLSet(crl_set) {
@@ -70,11 +66,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       1,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec,
       null,
-      null,
-      [crl_set],
-      undefined,
-      undefined
-    );
+      [crl_set]);
   }
 
   updateCtLogList(log_list, update_time) {
@@ -83,11 +75,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       2,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec,
       null,
-      null,
-      [log_list, update_time],
-      undefined,
-      undefined
-    );
+      [log_list, update_time]);
   }
 
   disableCtEnforcement() {
@@ -96,11 +84,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       3,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateChromeRootStore(new_root_store) {
@@ -109,11 +93,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       4,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec,
       null,
-      null,
-      [new_root_store],
-      undefined,
-      undefined
-    );
+      [new_root_store]);
   }
 
   updateMtcMetadata(new_mtc_metadata) {
@@ -122,11 +102,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       5,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec,
       null,
-      null,
-      [new_mtc_metadata],
-      undefined,
-      undefined
-    );
+      [new_mtc_metadata]);
   }
 
   setUseChromeRootStore(use_crs) {
@@ -135,11 +111,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       6,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec,
       null,
-      null,
-      [use_crs],
-      undefined,
-      undefined
-    );
+      [use_crs]);
   }
 
   getChromeRootStoreInfo() {
@@ -148,11 +120,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       7,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec,
       cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec,
-      cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getPlatformRootStoreInfo() {
@@ -161,11 +129,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       8,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec,
       cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec,
-      cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateNetworkTime(system_time, system_ticks, current_time) {
@@ -174,11 +138,7 @@ cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallHandler = class {
       9,  // ordinal
       cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
       null,
-      null,
-      [system_time, system_ticks, current_time],
-      undefined,
-      undefined
-    );
+      [system_time, system_ticks, current_time]);
   }
 
 };
@@ -205,7 +165,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = {
         { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'creation_params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -219,7 +179,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = {
       fields: [
         { name: 'crl_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -234,7 +194,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = {
         { name: 'log_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'update_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -247,7 +207,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -261,7 +221,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec 
       fields: [
         { name: 'new_root_store', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -275,7 +235,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = {
       fields: [
         { name: 'new_mtc_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -289,7 +249,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec 
       fields: [
         { name: 'use_crs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -302,7 +262,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,7 +275,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponsePa
       fields: [
         { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +288,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -341,7 +301,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Response
       fields: [
         { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -357,7 +317,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = {
         { name: 'system_ticks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'current_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

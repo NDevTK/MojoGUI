@@ -50,11 +50,7 @@ tab_strip.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -79,7 +75,7 @@ tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec,
       tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec,
-      tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getTabs() {
@@ -143,11 +135,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       tab_strip.mojom.PageHandler_GetTabs_ParamsSpec,
       tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec,
-      tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   closeTab(tab_id, tab_was_swiped) {
@@ -156,11 +144,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       tab_strip.mojom.PageHandler_CloseTab_ParamsSpec,
       null,
-      null,
-      [tab_id, tab_was_swiped],
-      undefined,
-      undefined
-    );
+      [tab_id, tab_was_swiped]);
   }
 
   groupTab(tab_id, group_id) {
@@ -169,11 +153,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       tab_strip.mojom.PageHandler_GroupTab_ParamsSpec,
       null,
-      null,
-      [tab_id, group_id],
-      undefined,
-      undefined
-    );
+      [tab_id, group_id]);
   }
 
   moveGroup(group_id, to_index) {
@@ -182,11 +162,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec,
       null,
-      null,
-      [group_id, to_index],
-      undefined,
-      undefined
-    );
+      [group_id, to_index]);
   }
 
   moveTab(tab_id, to_index) {
@@ -195,11 +171,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       tab_strip.mojom.PageHandler_MoveTab_ParamsSpec,
       null,
-      null,
-      [tab_id, to_index],
-      undefined,
-      undefined
-    );
+      [tab_id, to_index]);
   }
 
   setThumbnailTracked(tab_id, thumbnail_tracked) {
@@ -208,11 +180,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec,
       null,
-      null,
-      [tab_id, thumbnail_tracked],
-      undefined,
-      undefined
-    );
+      [tab_id, thumbnail_tracked]);
   }
 
   ungroupTab(tab_id) {
@@ -221,11 +189,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec,
       null,
-      null,
-      [tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id]);
   }
 
   getLayout() {
@@ -234,11 +198,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       tab_strip.mojom.PageHandler_GetLayout_ParamsSpec,
       tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec,
-      tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showEditDialogForGroup(group_id, location_x, location_y, width, height) {
@@ -247,11 +207,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec,
       null,
-      null,
-      [group_id, location_x, location_y, width, height],
-      undefined,
-      undefined
-    );
+      [group_id, location_x, location_y, width, height]);
   }
 
   showTabContextMenu(tab_id, location_x, location_y) {
@@ -260,11 +216,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec,
       null,
-      null,
-      [tab_id, location_x, location_y],
-      undefined,
-      undefined
-    );
+      [tab_id, location_x, location_y]);
   }
 
   showBackgroundContextMenu(location_x, location_y) {
@@ -273,11 +225,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec,
       null,
-      null,
-      [location_x, location_y],
-      undefined,
-      undefined
-    );
+      [location_x, location_y]);
   }
 
   closeContainer() {
@@ -286,11 +234,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   reportTabActivationDuration(duration_ms) {
@@ -299,11 +243,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec,
       null,
-      null,
-      [duration_ms],
-      undefined,
-      undefined
-    );
+      [duration_ms]);
   }
 
   reportTabDataReceivedDuration(tab_count, duration_ms) {
@@ -312,11 +252,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec,
       null,
-      null,
-      [tab_count, duration_ms],
-      undefined,
-      undefined
-    );
+      [tab_count, duration_ms]);
   }
 
   reportTabCreationDuration(tab_count, duration_ms) {
@@ -325,11 +261,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec,
       null,
-      null,
-      [tab_count, duration_ms],
-      undefined,
-      undefined
-    );
+      [tab_count, duration_ms]);
   }
 
   activateTab(tab_id) {
@@ -338,11 +270,7 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec,
       null,
-      null,
-      [tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id]);
   }
 
 };
@@ -365,7 +293,7 @@ tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +306,7 @@ tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -391,7 +319,7 @@ tab_strip.mojom.PageHandler_GetTabs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -404,7 +332,7 @@ tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec = {
       fields: [
         { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -419,7 +347,7 @@ tab_strip.mojom.PageHandler_CloseTab_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'tab_was_swiped', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -434,7 +362,7 @@ tab_strip.mojom.PageHandler_GroupTab_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -449,7 +377,7 @@ tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec = {
         { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,7 +392,7 @@ tab_strip.mojom.PageHandler_MoveTab_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -479,7 +407,7 @@ tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'thumbnail_tracked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -493,7 +421,7 @@ tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -506,7 +434,7 @@ tab_strip.mojom.PageHandler_GetLayout_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -519,7 +447,7 @@ tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec = {
       fields: [
         { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -537,7 +465,7 @@ tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec = {
         { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'height', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -553,7 +481,7 @@ tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec = {
         { name: 'location_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'location_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -568,7 +496,7 @@ tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec = {
         { name: 'location_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'location_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -581,7 +509,7 @@ tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -595,7 +523,7 @@ tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec = {
       fields: [
         { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -610,7 +538,7 @@ tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec = {
         { name: 'tab_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -625,7 +553,7 @@ tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec = {
         { name: 'tab_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -639,7 +567,7 @@ tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -690,11 +618,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       tab_strip.mojom.Page_LayoutChanged_ParamsSpec,
       null,
-      null,
-      [layout],
-      undefined,
-      undefined
-    );
+      [layout]);
   }
 
   receivedKeyboardFocus() {
@@ -703,11 +627,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   contextMenuClosed() {
@@ -716,11 +636,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   longPress() {
@@ -729,11 +645,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       tab_strip.mojom.Page_LongPress_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   tabGroupVisualsChanged(group_id, tab_group) {
@@ -742,11 +654,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec,
       null,
-      null,
-      [group_id, tab_group],
-      undefined,
-      undefined
-    );
+      [group_id, tab_group]);
   }
 
   tabGroupMoved(group_id, index) {
@@ -755,11 +663,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       tab_strip.mojom.Page_TabGroupMoved_ParamsSpec,
       null,
-      null,
-      [group_id, index],
-      undefined,
-      undefined
-    );
+      [group_id, index]);
   }
 
   tabGroupClosed(group_id) {
@@ -768,11 +672,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       tab_strip.mojom.Page_TabGroupClosed_ParamsSpec,
       null,
-      null,
-      [group_id],
-      undefined,
-      undefined
-    );
+      [group_id]);
   }
 
   tabGroupStateChanged(tab_id, index, group_id) {
@@ -781,11 +681,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec,
       null,
-      null,
-      [tab_id, index, group_id],
-      undefined,
-      undefined
-    );
+      [tab_id, index, group_id]);
   }
 
   tabCloseCancelled(tab_id) {
@@ -794,11 +690,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec,
       null,
-      null,
-      [tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id]);
   }
 
   tabCreated(tab) {
@@ -807,11 +699,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       tab_strip.mojom.Page_TabCreated_ParamsSpec,
       null,
-      null,
-      [tab],
-      undefined,
-      undefined
-    );
+      [tab]);
   }
 
   tabRemoved(tab_id) {
@@ -820,11 +708,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       10,  // ordinal
       tab_strip.mojom.Page_TabRemoved_ParamsSpec,
       null,
-      null,
-      [tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id]);
   }
 
   tabMoved(tab_id, to_index, in_pinned) {
@@ -833,11 +717,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       11,  // ordinal
       tab_strip.mojom.Page_TabMoved_ParamsSpec,
       null,
-      null,
-      [tab_id, to_index, in_pinned],
-      undefined,
-      undefined
-    );
+      [tab_id, to_index, in_pinned]);
   }
 
   tabReplaced(tab_id, new_tab_id) {
@@ -846,11 +726,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       12,  // ordinal
       tab_strip.mojom.Page_TabReplaced_ParamsSpec,
       null,
-      null,
-      [tab_id, new_tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id, new_tab_id]);
   }
 
   tabActiveChanged(tab_id) {
@@ -859,11 +735,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       13,  // ordinal
       tab_strip.mojom.Page_TabActiveChanged_ParamsSpec,
       null,
-      null,
-      [tab_id],
-      undefined,
-      undefined
-    );
+      [tab_id]);
   }
 
   tabUpdated(tab) {
@@ -872,11 +744,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       14,  // ordinal
       tab_strip.mojom.Page_TabUpdated_ParamsSpec,
       null,
-      null,
-      [tab],
-      undefined,
-      undefined
-    );
+      [tab]);
   }
 
   tabThumbnailUpdated(tab_id, data_uri) {
@@ -885,11 +753,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       15,  // ordinal
       tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec,
       null,
-      null,
-      [tab_id, data_uri],
-      undefined,
-      undefined
-    );
+      [tab_id, data_uri]);
   }
 
   showContextMenu() {
@@ -898,11 +762,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       16,  // ordinal
       tab_strip.mojom.Page_ShowContextMenu_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   themeChanged() {
@@ -911,11 +771,7 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       17,  // ordinal
       tab_strip.mojom.Page_ThemeChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -939,7 +795,7 @@ tab_strip.mojom.Page_LayoutChanged_ParamsSpec = {
       fields: [
         { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -952,7 +808,7 @@ tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -965,7 +821,7 @@ tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -978,7 +834,7 @@ tab_strip.mojom.Page_LongPress_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -993,7 +849,7 @@ tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec = {
         { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'tab_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1008,7 +864,7 @@ tab_strip.mojom.Page_TabGroupMoved_ParamsSpec = {
         { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1022,7 +878,7 @@ tab_strip.mojom.Page_TabGroupClosed_ParamsSpec = {
       fields: [
         { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1038,7 +894,7 @@ tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec = {
         { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1052,7 +908,7 @@ tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1066,7 +922,7 @@ tab_strip.mojom.Page_TabCreated_ParamsSpec = {
       fields: [
         { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1080,7 +936,7 @@ tab_strip.mojom.Page_TabRemoved_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1096,7 +952,7 @@ tab_strip.mojom.Page_TabMoved_ParamsSpec = {
         { name: 'to_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'in_pinned', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1111,7 +967,7 @@ tab_strip.mojom.Page_TabReplaced_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'new_tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1125,7 +981,7 @@ tab_strip.mojom.Page_TabActiveChanged_ParamsSpec = {
       fields: [
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1139,7 +995,7 @@ tab_strip.mojom.Page_TabUpdated_ParamsSpec = {
       fields: [
         { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1154,7 +1010,7 @@ tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec = {
         { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'data_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1167,7 +1023,7 @@ tab_strip.mojom.Page_ShowContextMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1180,7 +1036,7 @@ tab_strip.mojom.Page_ThemeChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

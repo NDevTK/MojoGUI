@@ -57,11 +57,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec,
       feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
-      feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getLastFetchProperties() {
@@ -70,11 +66,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec,
       feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
-      feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   refreshForYouFeed() {
@@ -83,11 +75,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   refreshFollowingFeed() {
@@ -96,11 +84,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   refreshWebFeedSuggestions() {
@@ -109,11 +93,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getFeedProcessScopeDump() {
@@ -122,11 +102,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec,
       feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
-      feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getFeedHistograms() {
@@ -135,11 +111,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec,
       feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
-      feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   overrideFeedHost(host) {
@@ -148,11 +120,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec,
       null,
-      null,
-      [host],
-      undefined,
-      undefined
-    );
+      [host]);
   }
 
   overrideDiscoverApiEndpoint(endpoint_url) {
@@ -161,11 +129,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec,
       null,
-      null,
-      [endpoint_url],
-      undefined,
-      undefined
-    );
+      [endpoint_url]);
   }
 
   overrideFeedStreamData(data) {
@@ -174,11 +138,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
   setWebFeedFollowIntroDebugEnabled(enabled) {
@@ -187,11 +147,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setUseFeedQueryRequests(use_legacy) {
@@ -200,11 +156,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec,
       null,
-      null,
-      [use_legacy],
-      undefined,
-      undefined
-    );
+      [use_legacy]);
   }
 
   setFollowingFeedOrder(order) {
@@ -213,11 +165,7 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec,
       null,
-      null,
-      [order],
-      undefined,
-      undefined
-    );
+      [order]);
   }
 
 };
@@ -240,7 +188,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,7 +201,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +214,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -279,7 +227,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -292,7 +240,7 @@ feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -305,7 +253,7 @@ feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -318,7 +266,7 @@ feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -331,7 +279,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -344,7 +292,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
       fields: [
         { name: 'dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -357,7 +305,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -370,7 +318,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
       fields: [
         { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -384,7 +332,7 @@ feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -398,7 +346,7 @@ feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
       fields: [
         { name: 'endpoint_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -412,7 +360,7 @@ feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -426,7 +374,7 @@ feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = 
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -440,7 +388,7 @@ feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
       fields: [
         { name: 'use_legacy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -454,7 +402,7 @@ feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
       fields: [
         { name: 'order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

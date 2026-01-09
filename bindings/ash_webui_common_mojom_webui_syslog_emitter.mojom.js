@@ -51,11 +51,7 @@ ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
       null,
-      null,
-      [prefix, message],
-      undefined,
-      undefined
-    );
+      [prefix, message]);
   }
 
 };
@@ -80,7 +76,7 @@ ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
         { name: 'prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

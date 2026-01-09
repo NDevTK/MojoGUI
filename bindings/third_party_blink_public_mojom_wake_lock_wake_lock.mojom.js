@@ -50,11 +50,7 @@ blink.mojom.WakeLockServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WakeLockService_GetWakeLock_ParamsSpec,
       null,
-      null,
-      [type, reason, description, wake_lock],
-      undefined,
-      undefined
-    );
+      [type, reason, description, wake_lock]);
   }
 
 };
@@ -81,7 +77,7 @@ blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = {
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'wake_lock', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -80,11 +80,7 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
       blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
-      blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
-      [options, service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [options, service_worker_registration_id]);
   }
 
   didResolveRegistration(registration_info) {
@@ -93,11 +89,7 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
       null,
-      null,
-      [registration_info],
-      undefined,
-      undefined
-    );
+      [registration_info]);
   }
 
   getRegistrations(service_worker_registration_id) {
@@ -106,11 +98,7 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
       blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      [service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id]);
   }
 
 };
@@ -135,7 +123,7 @@ blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -149,7 +137,7 @@ blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,7 +151,7 @@ blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = {
       fields: [
         { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -177,7 +165,7 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
       fields: [
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -191,7 +179,7 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -242,11 +230,7 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
       blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
-      blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
-      [options, service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [options, service_worker_registration_id]);
   }
 
   unregister(service_worker_registration_id, tag) {
@@ -255,11 +239,7 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
       blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
-      blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
-      [service_worker_registration_id, tag],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id, tag]);
   }
 
   getRegistrations(service_worker_registration_id) {
@@ -268,11 +248,7 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
       blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      [service_worker_registration_id],
-      undefined,
-      undefined
-    );
+      [service_worker_registration_id]);
   }
 
 };
@@ -297,7 +273,7 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -311,7 +287,7 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -326,7 +302,7 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +315,7 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
       fields: [
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -353,7 +329,7 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
       fields: [
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -367,7 +343,7 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = 
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
       null,
-      null,
-      [events_and_updates, location_and_scroll_updates, reset_token],
-      undefined,
-      undefined
-    );
+      [events_and_updates, location_and_scroll_updates, reset_token]);
   }
 
   handleAXLocationChanges(changes, reset_token) {
@@ -63,11 +59,7 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
       null,
-      null,
-      [changes, reset_token],
-      undefined,
-      undefined
-    );
+      [changes, reset_token]);
   }
 
 };
@@ -93,7 +85,7 @@ blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
         { name: 'location_and_scroll_updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reset_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -108,7 +100,7 @@ blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
         { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,11 +151,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RenderAccessibility_SetMode_ParamsSpec,
       null,
-      null,
-      [ax_mode, reset_token],
-      undefined,
-      undefined
-    );
+      [ax_mode, reset_token]);
   }
 
   fatalError() {
@@ -172,11 +160,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RenderAccessibility_FatalError_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hitTest(point, event_to_fire, request_id) {
@@ -185,11 +169,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RenderAccessibility_HitTest_ParamsSpec,
       blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
-      blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
-      [point, event_to_fire, request_id],
-      undefined,
-      undefined
-    );
+      [point, event_to_fire, request_id]);
   }
 
   performAction(action_data) {
@@ -198,11 +178,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.RenderAccessibility_PerformAction_ParamsSpec,
       null,
-      null,
-      [action_data],
-      undefined,
-      undefined
-    );
+      [action_data]);
   }
 
   reset(reset_token) {
@@ -211,11 +187,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.RenderAccessibility_Reset_ParamsSpec,
       null,
-      null,
-      [reset_token],
-      undefined,
-      undefined
-    );
+      [reset_token]);
   }
 
 };
@@ -240,7 +212,7 @@ blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
         { name: 'ax_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,7 +225,7 @@ blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -269,7 +241,7 @@ blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
         { name: 'event_to_fire', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +254,7 @@ blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
       fields: [
         { name: 'hit_test_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -296,7 +268,7 @@ blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
       fields: [
         { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -310,7 +282,7 @@ blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
       fields: [
         { name: 'reset_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

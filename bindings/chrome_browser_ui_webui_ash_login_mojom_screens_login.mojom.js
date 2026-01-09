@@ -70,11 +70,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onUpdateClicked() {
@@ -83,11 +79,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onFinishClicked() {
@@ -96,11 +88,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onSkipClicked() {
@@ -109,11 +97,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onReportClicked() {
@@ -122,11 +106,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -149,7 +129,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -162,7 +142,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -175,7 +155,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -188,7 +168,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -201,7 +181,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,11 +232,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   setRequiredFreeDiskSpace(required_space) {
@@ -265,11 +241,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec,
       null,
-      null,
-      [required_space],
-      undefined,
-      undefined
-    );
+      [required_space]);
   }
 
   setMinimumBatteryPercent(percent) {
@@ -278,11 +250,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec,
       null,
-      null,
-      [percent],
-      undefined,
-      undefined
-    );
+      [percent]);
   }
 
   setBatteryState(enough, connected) {
@@ -291,11 +259,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec,
       null,
-      null,
-      [enough, connected],
-      undefined,
-      undefined
-    );
+      [enough, connected]);
   }
 
   setMigrationProgress(progress) {
@@ -304,11 +268,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
-      null,
-      [progress],
-      undefined,
-      undefined
-    );
+      [progress]);
   }
 
   setEstimatedRemainingTime(remaining_time) {
@@ -317,11 +277,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       5,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec,
       null,
-      null,
-      [remaining_time],
-      undefined,
-      undefined
-    );
+      [remaining_time]);
   }
 
 };
@@ -345,7 +301,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -359,7 +315,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSp
       fields: [
         { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -373,7 +329,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSp
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -388,7 +344,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = {
         { name: 'enough', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'connected', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -402,7 +358,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec =
       fields: [
         { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -416,7 +372,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsS
       fields: [
         { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -467,11 +423,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       0,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onSkipMigration() {
@@ -480,11 +432,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       1,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onRequestRestartOnLowStorage() {
@@ -493,11 +441,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       2,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onRequestRestartOnFailure() {
@@ -506,11 +450,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       3,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onOpenFeedbackDialog() {
@@ -519,11 +459,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       4,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -546,7 +482,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -559,7 +495,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -572,7 +508,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStor
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -585,7 +521,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -598,7 +534,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -649,11 +585,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec,
       null,
-      null,
-      [state],
-      undefined,
-      undefined
-    );
+      [state]);
   }
 
   setMigrationProgress(progress) {
@@ -662,11 +594,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
-      null,
-      [progress],
-      undefined,
-      undefined
-    );
+      [progress]);
   }
 
   setIsResuming(is_resuming) {
@@ -675,11 +603,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec,
       null,
-      null,
-      [is_resuming],
-      undefined,
-      undefined
-    );
+      [is_resuming]);
   }
 
   setBatteryState(percent, is_enough, is_charging) {
@@ -688,11 +612,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec,
       null,
-      null,
-      [percent, is_enough, is_charging],
-      undefined,
-      undefined
-    );
+      [percent, is_enough, is_charging]);
   }
 
   setNecessaryBatteryPercent(percent) {
@@ -701,11 +621,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec,
       null,
-      null,
-      [percent],
-      undefined,
-      undefined
-    );
+      [percent]);
   }
 
   setSpaceInfoInString(available_space, required_space) {
@@ -714,11 +630,7 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       5,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec,
       null,
-      null,
-      [available_space, required_space],
-      undefined,
-      undefined
-    );
+      [available_space, required_space]);
   }
 
 };
@@ -742,7 +654,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -756,7 +668,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec 
       fields: [
         { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -770,7 +682,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = {
       fields: [
         { name: 'is_resuming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -786,7 +698,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = {
         { name: 'is_enough', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_charging', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -800,7 +712,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_Param
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -815,7 +727,7 @@ ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec 
         { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

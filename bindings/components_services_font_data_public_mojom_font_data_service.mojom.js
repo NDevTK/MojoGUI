@@ -57,11 +57,7 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       0,  // ordinal
       font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
       font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
-      font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
-      [family_name, style],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [family_name, style]);
   }
 
   matchFamilyNameCharacter(family_name, style, bcp47s, character) {
@@ -70,11 +66,7 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       1,  // ordinal
       font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
       font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
-      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
-      [family_name, style, bcp47s, character],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [family_name, style, bcp47s, character]);
   }
 
   getAllFamilyNames() {
@@ -83,11 +75,7 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       2,  // ordinal
       font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
       font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
-      font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   legacyMakeTypeface(family_name, style) {
@@ -96,11 +84,7 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       3,  // ordinal
       font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
       font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
-      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
-      [family_name, style],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [family_name, style]);
   }
 
 };
@@ -125,7 +109,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
         { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -138,7 +122,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,7 +139,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
         { name: 'bcp47s', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'character', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -168,7 +152,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsS
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -181,7 +165,7 @@ font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -194,7 +178,7 @@ font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -209,7 +193,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
         { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +206,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = 
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

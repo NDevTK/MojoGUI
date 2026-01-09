@@ -50,11 +50,7 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
       gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
-      gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
-      [g],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [g]);
   }
 
   echoGLImplementationParts(impl) {
@@ -63,11 +59,7 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
       gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
-      gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
-      [impl],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [impl]);
   }
 
 };
@@ -91,7 +83,7 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
       fields: [
         { name: 'g', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +110,7 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
       fields: [
         { name: 'impl', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +123,7 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

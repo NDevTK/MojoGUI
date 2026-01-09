@@ -50,11 +50,7 @@ blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec,
       null,
-      null,
-      [has_paid_content],
-      undefined,
-      undefined
-    );
+      [has_paid_content]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec 
       fields: [
         { name: 'has_paid_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ blink.mojom.MetaTagsObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec,
       null,
-      null,
-      [meta_tags],
-      undefined,
-      undefined
-    );
+      [meta_tags]);
   }
 
 };
@@ -157,7 +149,7 @@ blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = {
       fields: [
         { name: 'meta_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,11 +200,7 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   addMetaTagsObserver(names, observer) {
@@ -221,11 +209,7 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec,
       null,
-      null,
-      [names, observer],
-      undefined,
-      undefined
-    );
+      [names, observer]);
   }
 
 };
@@ -249,7 +233,7 @@ blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsS
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +248,7 @@ blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = {
         { name: 'names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

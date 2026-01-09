@@ -50,11 +50,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
 };
@@ -78,7 +74,7 @@ chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = 
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec,
       null,
-      null,
-      [address],
-      undefined,
-      undefined
-    );
+      [address]);
   }
 
   grantAccessToAllDevices() {
@@ -142,11 +134,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -170,7 +158,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = {
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +171,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page],
-      undefined,
-      undefined
-    );
+      [page]);
   }
 
   requestDownloadedModelsInfo() {
@@ -63,11 +59,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec,
       optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestLoggedModelQualityClientIds() {
@@ -76,11 +68,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       2,  // ordinal
       optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec,
       optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestMqlsLogs() {
@@ -89,11 +77,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       3,  // ordinal
       optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec,
       optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -117,7 +101,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSp
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +114,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +127,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
       fields: [
         { name: 'downloaded_models_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +140,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,7 +153,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
       fields: [
         { name: 'logged_client_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +166,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -195,7 +179,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponsePa
       fields: [
         { name: 'mqls_logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -246,11 +230,7 @@ optimization_guide_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      null,
-      [event_time, log_source, source_file, source_line, message],
-      undefined,
-      undefined
-    );
+      [event_time, log_source, source_file, source_line, message]);
   }
 
 };
@@ -278,7 +258,7 @@ optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
         { name: 'source_line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };

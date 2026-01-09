@@ -50,11 +50,7 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec,
       null,
-      null,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   onStopped() {
@@ -63,11 +59,7 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,11 +147,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PictureInPictureSession_Update_ParamsSpec,
       null,
-      null,
-      [player_id, player_remote, surface_id, natural_size, show_play_pause_button],
-      undefined,
-      undefined
-    );
+      [player_id, player_remote, surface_id, natural_size, show_play_pause_button]);
   }
 
   stop() {
@@ -168,11 +156,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PictureInPictureSession_Stop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateMediaPosition(media_position) {
@@ -181,11 +165,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec,
       null,
-      null,
-      [media_position],
-      undefined,
-      undefined
-    );
+      [media_position]);
   }
 
 };
@@ -213,7 +193,7 @@ blink.mojom.PictureInPictureSession_Update_ParamsSpec = {
         { name: 'natural_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'show_play_pause_button', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -226,7 +206,7 @@ blink.mojom.PictureInPictureSession_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +220,7 @@ blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = {
       fields: [
         { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,11 +271,7 @@ blink.mojom.PictureInPictureServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PictureInPictureService_StartSession_ParamsSpec,
       blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec,
-      blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec,
-      [player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds],
-      undefined,
-      undefined
-    );
+      [player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds]);
   }
 
 };
@@ -325,7 +301,7 @@ blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
         { name: 'observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'source_bounds', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 64}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -339,7 +315,7 @@ blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = {
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

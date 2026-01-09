@@ -50,11 +50,7 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   dumpPacket(packet_header, packet_length, incoming) {
@@ -63,11 +59,7 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
       null,
-      null,
-      [packet_header, packet_length, incoming],
-      undefined,
-      undefined
-    );
+      [packet_header, packet_length, incoming]);
   }
 
 };
@@ -90,7 +82,7 @@ network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
         { name: 'packet_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'incoming', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,11 +149,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
       null,
-      null,
-      [incoming, outgoing],
-      undefined,
-      undefined
-    );
+      [incoming, outgoing]);
   }
 
   stopRtpDump(incoming, outgoing) {
@@ -170,11 +158,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
       null,
-      null,
-      [incoming, outgoing],
-      undefined,
-      undefined
-    );
+      [incoming, outgoing]);
   }
 
   pauseNetworkChangeNotifications() {
@@ -183,11 +167,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resumeNetworkChangeNotifications() {
@@ -196,11 +176,7 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -225,7 +201,7 @@ network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
         { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +216,7 @@ network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
         { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'outgoing', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,7 +229,7 @@ network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +242,7 @@ network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

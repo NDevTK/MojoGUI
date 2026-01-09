@@ -51,11 +51,7 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec,
       null,
-      null,
-      [child_page, parent_page],
-      undefined,
-      undefined
-    );
+      [child_page, parent_page]);
   }
 
 };
@@ -80,7 +76,7 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec 
         { name: 'child_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'parent_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

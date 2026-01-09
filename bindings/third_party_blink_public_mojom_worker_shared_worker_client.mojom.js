@@ -50,11 +50,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec,
       null,
-      null,
-      [creation_context_type],
-      undefined,
-      undefined
-    );
+      [creation_context_type]);
   }
 
   onConnected(features_used) {
@@ -63,11 +59,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec,
       null,
-      null,
-      [features_used],
-      undefined,
-      undefined
-    );
+      [features_used]);
   }
 
   onScriptLoadFailed(error_message) {
@@ -76,11 +68,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec,
       null,
-      null,
-      [error_message],
-      undefined,
-      undefined
-    );
+      [error_message]);
   }
 
   onReportException(details) {
@@ -89,11 +77,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec,
       null,
-      null,
-      [details],
-      undefined,
-      undefined
-    );
+      [details]);
   }
 
   onFeatureUsed(feature) {
@@ -102,11 +86,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec,
       null,
-      null,
-      [feature],
-      undefined,
-      undefined
-    );
+      [feature]);
   }
 
 };
@@ -130,7 +110,7 @@ blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec = {
       fields: [
         { name: 'creation_context_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +124,7 @@ blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec = {
       fields: [
         { name: 'features_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +138,7 @@ blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec = {
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,7 +152,7 @@ blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec = {
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -186,7 +166,7 @@ blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = {
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

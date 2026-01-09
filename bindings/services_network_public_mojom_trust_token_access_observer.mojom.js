@@ -50,11 +50,7 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec,
       null,
-      null,
-      [details],
-      undefined,
-      undefined
-    );
+      [details]);
   }
 
   clone(listener) {
@@ -63,11 +59,7 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec,
       null,
-      null,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
 };
@@ -91,7 +83,7 @@ network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

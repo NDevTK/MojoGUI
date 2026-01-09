@@ -51,11 +51,7 @@ payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {
       0,  // ordinal
       payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
 };
@@ -79,7 +75,7 @@ payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

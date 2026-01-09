@@ -57,11 +57,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
       0,  // ordinal
       page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
-      null,
-      [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics],
-      undefined,
-      undefined
-    );
+      [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics]);
   }
 
   setUpSharedMemoryForDroppedFrames(dropped_frames_memory) {
@@ -70,11 +66,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
       1,  // ordinal
       page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
-      null,
-      [dropped_frames_memory],
-      undefined,
-      undefined
-    );
+      [dropped_frames_memory]);
   }
 
   addCustomUserTiming(custom_user_timing) {
@@ -83,11 +75,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
       2,  // ordinal
       page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
-      null,
-      [custom_user_timing],
-      undefined,
-      undefined
-    );
+      [custom_user_timing]);
   }
 
 };
@@ -119,7 +107,7 @@ page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
         { name: 'subresource_load_metrics', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'soft_navigation_metrics', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 80}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -133,7 +121,7 @@ page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params
       fields: [
         { name: 'dropped_frames_memory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,7 +135,7 @@ page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
       fields: [
         { name: 'custom_user_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

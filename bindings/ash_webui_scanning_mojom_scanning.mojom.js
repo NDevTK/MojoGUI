@@ -96,11 +96,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
-      null,
-      [page_number, progress_percent],
-      undefined,
-      undefined
-    );
+      [page_number, progress_percent]);
   }
 
   onPageComplete(page_data, new_page_index) {
@@ -109,11 +105,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
-      null,
-      [page_data, new_page_index],
-      undefined,
-      undefined
-    );
+      [page_data, new_page_index]);
   }
 
   onScanComplete(result, scanned_file_paths) {
@@ -122,11 +114,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
-      null,
-      [result, scanned_file_paths],
-      undefined,
-      undefined
-    );
+      [result, scanned_file_paths]);
   }
 
   onCancelComplete(success) {
@@ -135,11 +123,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
-      null,
-      [success],
-      undefined,
-      undefined
-    );
+      [success]);
   }
 
   onMultiPageScanFail(result) {
@@ -148,11 +132,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
-      null,
-      [result],
-      undefined,
-      undefined
-    );
+      [result]);
   }
 
 };
@@ -177,7 +157,7 @@ ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
         { name: 'page_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'progress_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -192,7 +172,7 @@ ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
         { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'new_page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -207,7 +187,7 @@ ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'scanned_file_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -221,7 +201,7 @@ ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -235,7 +215,7 @@ ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -286,11 +266,7 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
       ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
-      ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getScannerCapabilities(scanner_id) {
@@ -299,11 +275,7 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
       ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
-      [scanner_id],
-      undefined,
-      undefined
-    );
+      [scanner_id]);
   }
 
   startScan(scanner_id, settings, observer) {
@@ -312,11 +284,7 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
       ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
-      ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
-      [scanner_id, settings, observer],
-      undefined,
-      undefined
-    );
+      [scanner_id, settings, observer]);
   }
 
   startMultiPageScan(scanner_id, settings, observer) {
@@ -325,11 +293,7 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
       ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
-      [scanner_id, settings, observer],
-      undefined,
-      undefined
-    );
+      [scanner_id, settings, observer]);
   }
 
   cancelScan() {
@@ -338,11 +302,7 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -365,7 +325,7 @@ ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -378,7 +338,7 @@ ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
       fields: [
         { name: 'scanners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -392,7 +352,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
       fields: [
         { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -405,7 +365,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -421,7 +381,7 @@ ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -434,7 +394,7 @@ ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -450,7 +410,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -463,7 +423,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -476,7 +436,7 @@ ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -527,11 +487,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
       ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
-      [scanner_id, settings],
-      undefined,
-      undefined
-    );
+      [scanner_id, settings]);
   }
 
   removePage(page_index) {
@@ -540,11 +496,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       1,  // ordinal
       ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
-      null,
-      [page_index],
-      undefined,
-      undefined
-    );
+      [page_index]);
   }
 
   rescanPage(scanner_id, settings, page_index) {
@@ -553,11 +505,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       2,  // ordinal
       ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
       ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
-      [scanner_id, settings, page_index],
-      undefined,
-      undefined
-    );
+      [scanner_id, settings, page_index]);
   }
 
   completeMultiPageScan() {
@@ -566,11 +514,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       3,  // ordinal
       ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -595,7 +539,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
         { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -608,7 +552,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -622,7 +566,7 @@ ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
       fields: [
         { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -638,7 +582,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -651,7 +595,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -664,7 +608,7 @@ ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

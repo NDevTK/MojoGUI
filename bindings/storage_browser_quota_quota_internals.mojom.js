@@ -50,11 +50,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec,
       storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec,
-      storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getStatistics() {
@@ -63,11 +59,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec,
       storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec,
-      storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   simulateStoragePressure(origin_url) {
@@ -76,11 +68,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec,
       null,
-      null,
-      [origin_url],
-      undefined,
-      undefined
-    );
+      [origin_url]);
   }
 
   retrieveBucketsTable() {
@@ -89,11 +77,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec,
       storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec,
-      storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getGlobalUsageForInternals() {
@@ -102,11 +86,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec,
       storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec,
-      storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isSimulateStoragePressureAvailable() {
@@ -115,11 +95,7 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec,
       storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec,
-      storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -142,7 +118,7 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,7 +133,7 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseP
         { name: 'available_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'temp_pool_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +146,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +159,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
       fields: [
         { name: 'eviction_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +173,7 @@ storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
       fields: [
         { name: 'origin_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +186,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +199,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +212,7 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +226,7 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpe
         { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'unlimited_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,7 +239,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -276,7 +252,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseP
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

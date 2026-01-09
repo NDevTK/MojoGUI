@@ -117,11 +117,7 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
   shouldShowUI() {
@@ -130,11 +126,7 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       1,  // ordinal
       read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -159,7 +151,7 @@ read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Param
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,7 +164,7 @@ read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,11 +215,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec,
       read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec,
-      read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getPresentationState() {
@@ -236,11 +224,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getVoicePackInfo(language) {
@@ -249,11 +233,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec,
       null,
-      null,
-      [language],
-      undefined,
-      undefined
-    );
+      [language]);
   }
 
   installVoicePack(language) {
@@ -262,11 +242,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec,
       null,
-      null,
-      [language],
-      undefined,
-      undefined
-    );
+      [language]);
   }
 
   uninstallVoice(language) {
@@ -275,11 +251,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec,
       null,
-      null,
-      [language],
-      undefined,
-      undefined
-    );
+      [language]);
   }
 
   onCopy() {
@@ -288,11 +260,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onLineSpaceChange(line_spacing) {
@@ -301,11 +269,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec,
       null,
-      null,
-      [line_spacing],
-      undefined,
-      undefined
-    );
+      [line_spacing]);
   }
 
   onLetterSpaceChange(letter_spacing) {
@@ -314,11 +278,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec,
       null,
-      null,
-      [letter_spacing],
-      undefined,
-      undefined
-    );
+      [letter_spacing]);
   }
 
   onFontChange(font) {
@@ -327,11 +287,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec,
       null,
-      null,
-      [font],
-      undefined,
-      undefined
-    );
+      [font]);
   }
 
   onFontSizeChange(font_size) {
@@ -340,11 +296,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec,
       null,
-      null,
-      [font_size],
-      undefined,
-      undefined
-    );
+      [font_size]);
   }
 
   onLinksEnabledChanged(enabled) {
@@ -353,11 +305,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   onImagesEnabledChanged(enabled) {
@@ -366,11 +314,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   onColorChange(color) {
@@ -379,11 +323,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec,
       null,
-      null,
-      [color],
-      undefined,
-      undefined
-    );
+      [color]);
   }
 
   onSpeechRateChange(rate) {
@@ -392,11 +332,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec,
       null,
-      null,
-      [rate],
-      undefined,
-      undefined
-    );
+      [rate]);
   }
 
   onVoiceChange(voice, lang) {
@@ -405,11 +341,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec,
       null,
-      null,
-      [voice, lang],
-      undefined,
-      undefined
-    );
+      [voice, lang]);
   }
 
   onLanguagePrefChange(lang, enabled) {
@@ -418,11 +350,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec,
       null,
-      null,
-      [lang, enabled],
-      undefined,
-      undefined
-    );
+      [lang, enabled]);
   }
 
   logExtensionState() {
@@ -431,11 +359,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onHighlightGranularityChanged(granularity) {
@@ -444,11 +368,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       17,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec,
       null,
-      null,
-      [granularity],
-      undefined,
-      undefined
-    );
+      [granularity]);
   }
 
   onLineFocusChanged(granularity) {
@@ -457,11 +377,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       18,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec,
       null,
-      null,
-      [granularity],
-      undefined,
-      undefined
-    );
+      [granularity]);
   }
 
   onReadAloudAudioStateChange(playing) {
@@ -470,11 +386,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       19,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec,
       null,
-      null,
-      [playing],
-      undefined,
-      undefined
-    );
+      [playing]);
   }
 
   onLinkClicked(target_tree_id, target_node_id) {
@@ -483,11 +395,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       20,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec,
       null,
-      null,
-      [target_tree_id, target_node_id],
-      undefined,
-      undefined
-    );
+      [target_tree_id, target_node_id]);
   }
 
   onImageDataRequested(target_tree_id, target_node_id) {
@@ -496,11 +404,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       21,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec,
       null,
-      null,
-      [target_tree_id, target_node_id],
-      undefined,
-      undefined
-    );
+      [target_tree_id, target_node_id]);
   }
 
   onSelectionChange(target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset) {
@@ -509,11 +413,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       22,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec,
       null,
-      null,
-      [target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset],
-      undefined,
-      undefined
-    );
+      [target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset]);
   }
 
   onCollapseSelection() {
@@ -522,11 +422,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       23,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onScreenshotRequested() {
@@ -535,11 +431,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       24,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onDistillationStatus(status, word_count) {
@@ -548,11 +440,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       25,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec,
       null,
-      null,
-      [status, word_count],
-      undefined,
-      undefined
-    );
+      [status, word_count]);
   }
 
   scrollToTargetNode(target_tree_id, target_node_id) {
@@ -561,11 +449,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       26,  // ordinal
       read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec,
       null,
-      null,
-      [target_tree_id, target_node_id],
-      undefined,
-      undefined
-    );
+      [target_tree_id, target_node_id]);
   }
 
   closeUI() {
@@ -574,11 +458,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       27,  // ordinal
       read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   togglePinState() {
@@ -587,11 +467,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       28,  // ordinal
       read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sendPinStateRequest() {
@@ -600,11 +476,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       29,  // ordinal
       read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   togglePresentation() {
@@ -613,11 +485,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       30,  // ordinal
       read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   ackReadingModeHidden() {
@@ -626,11 +494,7 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       31,  // ordinal
       read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -653,7 +517,7 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -666,7 +530,7 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParams
       fields: [
         { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -679,7 +543,7 @@ read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -693,7 +557,7 @@ read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec = {
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -707,7 +571,7 @@ read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec = {
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -721,7 +585,7 @@ read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec = {
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -734,7 +598,7 @@ read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -748,7 +612,7 @@ read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec = {
       fields: [
         { name: 'line_spacing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -762,7 +626,7 @@ read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec = {
       fields: [
         { name: 'letter_spacing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -776,7 +640,7 @@ read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec = {
       fields: [
         { name: 'font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -790,7 +654,7 @@ read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec = {
       fields: [
         { name: 'font_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -804,7 +668,7 @@ read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -818,7 +682,7 @@ read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -832,7 +696,7 @@ read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec = {
       fields: [
         { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -846,7 +710,7 @@ read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec = {
       fields: [
         { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -861,7 +725,7 @@ read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec = {
         { name: 'voice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -876,7 +740,7 @@ read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec = {
         { name: 'lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -889,7 +753,7 @@ read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -903,7 +767,7 @@ read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpe
       fields: [
         { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -917,7 +781,7 @@ read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec = {
       fields: [
         { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -931,7 +795,7 @@ read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec 
       fields: [
         { name: 'playing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -946,7 +810,7 @@ read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec = {
         { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'target_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -961,7 +825,7 @@ read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec = {
         { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'target_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -979,7 +843,7 @@ read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec = {
         { name: 'focus_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'focus_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -992,7 +856,7 @@ read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1005,7 +869,7 @@ read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1020,7 +884,7 @@ read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'word_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1035,7 +899,7 @@ read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec = {
         { name: 'target_tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'target_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1048,7 +912,7 @@ read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1061,7 +925,7 @@ read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1074,7 +938,7 @@ read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1087,7 +951,7 @@ read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1100,7 +964,7 @@ read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1151,11 +1015,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec,
       null,
-      null,
-      [tree_id, updates, events],
-      undefined,
-      undefined
-    );
+      [tree_id, updates, events]);
   }
 
   onGetPresentationState(presentation_state) {
@@ -1164,11 +1024,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec,
       null,
-      null,
-      [presentation_state],
-      undefined,
-      undefined
-    );
+      [presentation_state]);
   }
 
   onGetVoicePackInfo(voice_pack_info) {
@@ -1177,11 +1033,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       2,  // ordinal
       read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec,
       null,
-      null,
-      [voice_pack_info],
-      undefined,
-      undefined
-    );
+      [voice_pack_info]);
   }
 
   accessibilityLocationChangesReceived(tree_id, details) {
@@ -1190,11 +1042,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       3,  // ordinal
       read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec,
       null,
-      null,
-      [tree_id, details],
-      undefined,
-      undefined
-    );
+      [tree_id, details]);
   }
 
   onActiveAXTreeIDChanged(tree_id, ukm_source_id, is_pdf) {
@@ -1203,11 +1051,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       4,  // ordinal
       read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec,
       null,
-      null,
-      [tree_id, ukm_source_id, is_pdf],
-      undefined,
-      undefined
-    );
+      [tree_id, ukm_source_id, is_pdf]);
   }
 
   onAXTreeDestroyed(tree_id) {
@@ -1216,11 +1060,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       5,  // ordinal
       read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec,
       null,
-      null,
-      [tree_id],
-      undefined,
-      undefined
-    );
+      [tree_id]);
   }
 
   setLanguageCode(code) {
@@ -1229,11 +1069,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       6,  // ordinal
       read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec,
       null,
-      null,
-      [code],
-      undefined,
-      undefined
-    );
+      [code]);
   }
 
   onDeviceLocked() {
@@ -1242,11 +1078,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       7,  // ordinal
       read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onTtsEngineInstalled() {
@@ -1255,11 +1087,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       8,  // ordinal
       read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setDefaultLanguageCode(code) {
@@ -1268,11 +1096,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       9,  // ordinal
       read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec,
       null,
-      null,
-      [code],
-      undefined,
-      undefined
-    );
+      [code]);
   }
 
   onSettingsRestoredFromPrefs(line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus) {
@@ -1281,11 +1105,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       10,  // ordinal
       read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec,
       null,
-      null,
-      [line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus],
-      undefined,
-      undefined
-    );
+      [line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus]);
   }
 
   screenAIServiceReady() {
@@ -1294,11 +1114,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       11,  // ordinal
       read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onReadingModeHidden(tab_active) {
@@ -1307,11 +1123,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       12,  // ordinal
       read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec,
       null,
-      null,
-      [tab_active],
-      undefined,
-      undefined
-    );
+      [tab_active]);
   }
 
   onTabWillDetach() {
@@ -1320,11 +1132,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       13,  // ordinal
       read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onTabMuteStateChange(muted) {
@@ -1333,11 +1141,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       14,  // ordinal
       read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec,
       null,
-      null,
-      [muted],
-      undefined,
-      undefined
-    );
+      [muted]);
   }
 
   onImageDataDownloaded(tree_id, node_id, image) {
@@ -1346,11 +1150,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       15,  // ordinal
       read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec,
       null,
-      null,
-      [tree_id, node_id, image],
-      undefined,
-      undefined
-    );
+      [tree_id, node_id, image]);
   }
 
   onPinStatusReceived(new_pin_state) {
@@ -1359,11 +1159,7 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       16,  // ordinal
       read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec,
       null,
-      null,
-      [new_pin_state],
-      undefined,
-      undefined
-    );
+      [new_pin_state]);
   }
 
 };
@@ -1389,7 +1185,7 @@ read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec = {
         { name: 'updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'events', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1403,7 +1199,7 @@ read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec = {
       fields: [
         { name: 'presentation_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1417,7 +1213,7 @@ read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec = {
       fields: [
         { name: 'voice_pack_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1432,7 +1228,7 @@ read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpe
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1448,7 +1244,7 @@ read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec = {
         { name: 'ukm_source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
         { name: 'is_pdf', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1462,7 +1258,7 @@ read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec = {
       fields: [
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1476,7 +1272,7 @@ read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec = {
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1489,7 +1285,7 @@ read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1502,7 +1298,7 @@ read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1516,7 +1312,7 @@ read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec = {
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1541,7 +1337,7 @@ read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec = {
         { name: 'granularity', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'line_focus', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 96}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1554,7 +1350,7 @@ read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1568,7 +1364,7 @@ read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec = {
       fields: [
         { name: 'tab_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1581,7 +1377,7 @@ read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1595,7 +1391,7 @@ read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec = {
       fields: [
         { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1611,7 +1407,7 @@ read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = {
         { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'image', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1625,7 +1421,7 @@ read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec = {
       fields: [
         { name: 'new_pin_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

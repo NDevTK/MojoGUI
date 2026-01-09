@@ -50,11 +50,7 @@ blink.mojom.SharedWorkerConnectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedWorkerConnector_Connect_ParamsSpec,
       null,
-      null,
-      [info, client, creation_context_type, message_port, blob_url_token],
-      undefined,
-      undefined
-    );
+      [info, client, creation_context_type, message_port, blob_url_token]);
   }
 
 };
@@ -82,7 +78,7 @@ blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = {
         { name: 'message_port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'blob_url_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };

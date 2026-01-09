@@ -50,11 +50,7 @@ composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler, searchbox_page, searchbox_handler],
-      undefined,
-      undefined
-    );
+      [page, handler, searchbox_page, searchbox_handler]);
   }
 
 };
@@ -81,7 +77,7 @@ composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'searchbox_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'searchbox_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,11 +128,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       composebox.mojom.PageHandler_FocusChanged_ParamsSpec,
       null,
-      null,
-      [focused],
-      undefined,
-      undefined
-    );
+      [focused]);
   }
 
   setDeepSearchMode(enabled) {
@@ -145,11 +137,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setCreateImageMode(enabled, image_present) {
@@ -158,11 +146,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
       null,
-      null,
-      [enabled, image_present],
-      undefined,
-      undefined
-    );
+      [enabled, image_present]);
   }
 
   handleLensButtonClick() {
@@ -171,11 +155,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   handleFileUpload(is_image) {
@@ -184,11 +164,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
-      null,
-      [is_image],
-      undefined,
-      undefined
-    );
+      [is_image]);
   }
 
   navigateUrl(url) {
@@ -197,11 +173,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
 };
@@ -225,7 +197,7 @@ composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
       fields: [
         { name: 'focused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -239,7 +211,7 @@ composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -254,7 +226,7 @@ composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'image_present', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -267,7 +239,7 @@ composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -281,7 +253,7 @@ composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
       fields: [
         { name: 'is_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -295,7 +267,7 @@ composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

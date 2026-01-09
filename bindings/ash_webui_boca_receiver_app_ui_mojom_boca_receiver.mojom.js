@@ -59,11 +59,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec,
       null,
-      null,
-      [receiver_info],
-      undefined,
-      undefined
-    );
+      [receiver_info]);
   }
 
   onInitReceiverError() {
@@ -72,11 +68,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onFrameReceived(frame_data) {
@@ -85,11 +77,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       2,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec,
       null,
-      null,
-      [frame_data],
-      undefined,
-      undefined
-    );
+      [frame_data]);
   }
 
   onAudioPacket(audio_packet) {
@@ -98,11 +86,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       3,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec,
       null,
-      null,
-      [audio_packet],
-      undefined,
-      undefined
-    );
+      [audio_packet]);
   }
 
   onConnecting(initiator, presenter) {
@@ -111,11 +95,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       4,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec,
       null,
-      null,
-      [initiator, presenter],
-      undefined,
-      undefined
-    );
+      [initiator, presenter]);
   }
 
   onConnectionClosed(reason) {
@@ -124,11 +104,7 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       5,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec,
       null,
-      null,
-      [reason],
-      undefined,
-      undefined
-    );
+      [reason]);
   }
 
 };
@@ -152,7 +128,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = {
       fields: [
         { name: 'receiver_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -165,7 +141,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -179,7 +155,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = {
       fields: [
         { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -193,7 +169,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = {
       fields: [
         { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -208,7 +184,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = {
         { name: 'initiator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'presenter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +198,7 @@ ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = {
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -273,11 +249,7 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
-      null,
-      [page],
-      undefined,
-      undefined
-    );
+      [page]);
   }
 
 };
@@ -301,7 +273,7 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_P
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -57,11 +57,7 @@ reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -86,7 +82,7 @@ reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,11 +133,7 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       reload_button.mojom.PageHandler_Reload_ParamsSpec,
       null,
-      null,
-      [ignore_cache, flags],
-      undefined,
-      undefined
-    );
+      [ignore_cache, flags]);
   }
 
   stopReload() {
@@ -150,11 +142,7 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       reload_button.mojom.PageHandler_StopReload_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showContextMenu(offset_x, offset_y) {
@@ -163,11 +151,7 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      null,
-      [offset_x, offset_y],
-      undefined,
-      undefined
-    );
+      [offset_x, offset_y]);
   }
 
 };
@@ -192,7 +176,7 @@ reload_button.mojom.PageHandler_Reload_ParamsSpec = {
         { name: 'ignore_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -205,7 +189,7 @@ reload_button.mojom.PageHandler_StopReload_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -220,7 +204,7 @@ reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
         { name: 'offset_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'offset_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -271,11 +255,7 @@ reload_button.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       reload_button.mojom.Page_SetReloadButtonState_ParamsSpec,
       null,
-      null,
-      [is_loading, is_menu_enabled],
-      undefined,
-      undefined
-    );
+      [is_loading, is_menu_enabled]);
   }
 
 };
@@ -300,7 +280,7 @@ reload_button.mojom.Page_SetReloadButtonState_ParamsSpec = {
         { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_menu_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

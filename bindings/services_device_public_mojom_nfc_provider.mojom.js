@@ -50,11 +50,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
       null,
-      null,
-      [host_id, receiver],
-      undefined,
-      undefined
-    );
+      [host_id, receiver]);
   }
 
   suspendNFCOperations() {
@@ -63,11 +59,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resumeNFCOperations() {
@@ -76,11 +68,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -105,7 +93,7 @@ device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
         { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +106,7 @@ device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,7 +119,7 @@ device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -58,11 +58,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.Logger_LogInfo_ParamsSpec,
       null,
-      null,
-      [category, component, message, sink_id, media_source, session_id],
-      undefined,
-      undefined
-    );
+      [category, component, message, sink_id, media_source, session_id]);
   }
 
   logWarning(category, component, message, sink_id, media_source, session_id) {
@@ -71,11 +67,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.Logger_LogWarning_ParamsSpec,
       null,
-      null,
-      [category, component, message, sink_id, media_source, session_id],
-      undefined,
-      undefined
-    );
+      [category, component, message, sink_id, media_source, session_id]);
   }
 
   logError(category, component, message, sink_id, media_source, session_id) {
@@ -84,11 +76,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.Logger_LogError_ParamsSpec,
       null,
-      null,
-      [category, component, message, sink_id, media_source, session_id],
-      undefined,
-      undefined
-    );
+      [category, component, message, sink_id, media_source, session_id]);
   }
 
   bindReceiver(receiver) {
@@ -97,11 +85,7 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.Logger_BindReceiver_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -130,7 +114,7 @@ media_router.mojom.Logger_LogInfo_ParamsSpec = {
         { name: 'media_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -149,7 +133,7 @@ media_router.mojom.Logger_LogWarning_ParamsSpec = {
         { name: 'media_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -168,7 +152,7 @@ media_router.mojom.Logger_LogError_ParamsSpec = {
         { name: 'media_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'session_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +166,7 @@ media_router.mojom.Logger_BindReceiver_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

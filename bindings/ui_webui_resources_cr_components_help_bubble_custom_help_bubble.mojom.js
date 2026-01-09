@@ -58,11 +58,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class
       0,  // ordinal
       custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -86,7 +82,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHa
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,11 +133,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCallHandler = class {
       0,  // ordinal
       custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec,
       null,
-      null,
-      [action],
-      undefined,
-      undefined
-    );
+      [action]);
   }
 
 };
@@ -165,7 +157,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

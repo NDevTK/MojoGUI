@@ -55,11 +55,7 @@ blink.mojom.InnerTextAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
       blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
-      blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
-      [params],
-      undefined,
-      undefined
-    );
+      [params]);
   }
 
 };
@@ -83,7 +79,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -96,7 +92,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
       fields: [
         { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ unzip.mojom.UnzipFilterRemoteCallHandler = class {
       0,  // ordinal
       unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
       unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
-      unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
 };
@@ -78,7 +74,7 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,11 +138,7 @@ unzip.mojom.UnzipListenerRemoteCallHandler = class {
       0,  // ordinal
       unzip.mojom.UnzipListener_OnProgress_ParamsSpec,
       null,
-      null,
-      [bytes],
-      undefined,
-      undefined
-    );
+      [bytes]);
   }
 
 };
@@ -170,7 +162,7 @@ unzip.mojom.UnzipListener_OnProgress_ParamsSpec = {
       fields: [
         { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -221,11 +213,7 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       0,  // ordinal
       unzip.mojom.Unzipper_Unzip_ParamsSpec,
       unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
-      unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
-      [zip_file, output_dir, options, filter, listener],
-      undefined,
-      undefined
-    );
+      [zip_file, output_dir, options, filter, listener]);
   }
 
   detectEncoding(zip_file) {
@@ -234,11 +222,7 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       1,  // ordinal
       unzip.mojom.Unzipper_DetectEncoding_ParamsSpec,
       unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
-      unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
-      [zip_file],
-      undefined,
-      undefined
-    );
+      [zip_file]);
   }
 
   getExtractedInfo(zip_file) {
@@ -247,11 +231,7 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       2,  // ordinal
       unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
       unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
-      unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
-      [zip_file],
-      undefined,
-      undefined
-    );
+      [zip_file]);
   }
 
   decodeXz(in_file, out_file) {
@@ -260,11 +240,7 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       3,  // ordinal
       unzip.mojom.Unzipper_DecodeXz_ParamsSpec,
       unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
-      unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
-      [in_file, out_file],
-      undefined,
-      undefined
-    );
+      [in_file, out_file]);
   }
 
 };
@@ -292,7 +268,7 @@ unzip.mojom.Unzipper_Unzip_ParamsSpec = {
         { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -305,7 +281,7 @@ unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -319,7 +295,7 @@ unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
       fields: [
         { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -332,7 +308,7 @@ unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
       fields: [
         { name: 'encoding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -346,7 +322,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
       fields: [
         { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -359,7 +335,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -374,7 +350,7 @@ unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
         { name: 'in_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'out_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -387,7 +363,7 @@ unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

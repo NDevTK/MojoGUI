@@ -50,11 +50,7 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
       0,  // ordinal
       extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec,
       extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
-      extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setPdfPluginAttributes(pdf_plugin_attributes) {
@@ -63,11 +59,7 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
       1,  // ordinal
       extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec,
       null,
-      null,
-      [pdf_plugin_attributes],
-      undefined,
-      undefined
-    );
+      [pdf_plugin_attributes]);
   }
 
 };
@@ -90,7 +82,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -103,7 +95,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
       fields: [
         { name: 'stream_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -117,7 +109,7 @@ extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
       fields: [
         { name: 'pdf_plugin_attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -168,11 +160,7 @@ extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
       0,  // ordinal
       extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
       null,
-      null,
-      [show_dialog],
-      undefined,
-      undefined
-    );
+      [show_dialog]);
   }
 
 };
@@ -196,7 +184,7 @@ extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec
       fields: [
         { name: 'show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

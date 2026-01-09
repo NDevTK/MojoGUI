@@ -50,11 +50,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       0,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestUrlAccessRemote() {
@@ -63,11 +59,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       1,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec,
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec,
-      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestUrlAccessLocal() {
@@ -76,11 +68,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       2,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec,
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec,
-      supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   learnMore() {
@@ -89,11 +77,7 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       3,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -116,7 +100,7 @@ supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +113,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,7 +126,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponsePara
       fields: [
         { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,7 +139,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -168,7 +152,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParam
       fields: [
         { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -181,7 +165,7 @@ supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

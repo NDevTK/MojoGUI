@@ -65,11 +65,7 @@ recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
       0,  // ordinal
       recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
       recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
-      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -92,7 +88,7 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +101,7 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec
       fields: [
         { name: 'free_remaining_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,11 +152,7 @@ recording.mojom.RecordingServiceClientRemoteCallHandler = class {
       0,  // ordinal
       recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
       null,
-      null,
-      [status, thumbnail],
-      undefined,
-      undefined
-    );
+      [status, thumbnail]);
   }
 
 };
@@ -185,7 +177,7 @@ recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'thumbnail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,11 +228,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       0,  // ordinal
       recording.mojom.RecordingService_RecordFullscreen_ParamsSpec,
       null,
-      null,
-      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor],
-      undefined,
-      undefined
-    );
+      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor]);
   }
 
   recordWindow(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip) {
@@ -249,11 +237,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       1,  // ordinal
       recording.mojom.RecordingService_RecordWindow_ParamsSpec,
       null,
-      null,
-      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip],
-      undefined,
-      undefined
-    );
+      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip]);
   }
 
   recordRegion(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip) {
@@ -262,11 +246,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       2,  // ordinal
       recording.mojom.RecordingService_RecordRegion_ParamsSpec,
       null,
-      null,
-      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip],
-      undefined,
-      undefined
-    );
+      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip]);
   }
 
   stopRecording() {
@@ -275,11 +255,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       3,  // ordinal
       recording.mojom.RecordingService_StopRecording_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onRecordedWindowChangingRoot(new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor) {
@@ -288,11 +264,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       4,  // ordinal
       recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
       null,
-      null,
-      [new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor],
-      undefined,
-      undefined
-    );
+      [new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor]);
   }
 
   onRecordedWindowSizeChanged(new_window_size_dip) {
@@ -301,11 +273,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       5,  // ordinal
       recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
       null,
-      null,
-      [new_window_size_dip],
-      undefined,
-      undefined
-    );
+      [new_window_size_dip]);
   }
 
   onFrameSinkSizeChanged(new_frame_sink_size_dip, new_device_scale_factor) {
@@ -314,11 +282,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       6,  // ordinal
       recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
       null,
-      null,
-      [new_frame_sink_size_dip, new_device_scale_factor],
-      undefined,
-      undefined
-    );
+      [new_frame_sink_size_dip, new_device_scale_factor]);
   }
 
 };
@@ -350,7 +314,7 @@ recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
         { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 80}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -374,7 +338,7 @@ recording.mojom.RecordingService_RecordWindow_ParamsSpec = {
         { name: 'subtree_capture_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'window_size_dip', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 96}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -397,7 +361,7 @@ recording.mojom.RecordingService_RecordRegion_ParamsSpec = {
         { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'crop_region_dip', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 88}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -410,7 +374,7 @@ recording.mojom.RecordingService_StopRecording_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -426,7 +390,7 @@ recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
         { name: 'new_frame_sink_size_dip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -440,7 +404,7 @@ recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
       fields: [
         { name: 'new_window_size_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -455,7 +419,7 @@ recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
         { name: 'new_frame_sink_size_dip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_device_scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

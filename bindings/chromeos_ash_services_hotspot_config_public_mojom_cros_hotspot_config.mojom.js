@@ -131,11 +131,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
       0,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeEnabledStateChanges(observer) {
@@ -144,11 +140,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
       1,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   getHotspotInfo() {
@@ -157,11 +149,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
       2,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec,
       ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec,
-      ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setHotspotConfig(config) {
@@ -170,11 +158,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
       3,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec,
       ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec,
-      ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec,
-      [config],
-      undefined,
-      undefined
-    );
+      [config]);
   }
 
   enableHotspot() {
@@ -183,11 +167,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
       4,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec,
       ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec,
-      ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   disableHotspot() {
@@ -196,11 +176,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
       5,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec,
       ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec,
-      ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -224,7 +200,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -238,7 +214,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -251,7 +227,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +240,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = {
       fields: [
         { name: 'hotspot_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +254,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,7 +267,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec =
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -304,7 +280,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,7 +293,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,7 +306,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -343,7 +319,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -394,11 +370,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -421,7 +393,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -472,11 +444,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onHotspotTurnedOff(reason) {
@@ -485,11 +453,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec,
       null,
-      null,
-      [reason],
-      undefined,
-      undefined
-    );
+      [reason]);
   }
 
 };
@@ -512,7 +476,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -526,7 +490,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSp
       fields: [
         { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

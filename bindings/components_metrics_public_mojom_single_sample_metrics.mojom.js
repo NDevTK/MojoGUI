@@ -50,11 +50,7 @@ metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
       null,
-      null,
-      [histogram_name, min, max, bucket_count, flags, receiver],
-      undefined,
-      undefined
-    );
+      [histogram_name, min, max, bucket_count, flags, receiver]);
   }
 
 };
@@ -83,7 +79,7 @@ metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec =
         { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -134,11 +130,7 @@ metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec,
       null,
-      null,
-      [sample],
-      undefined,
-      undefined
-    );
+      [sample]);
   }
 
 };
@@ -162,7 +154,7 @@ metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
       fields: [
         { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

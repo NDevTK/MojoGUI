@@ -50,11 +50,7 @@ media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec,
       null,
-      null,
-      [features, video_stats],
-      undefined,
-      undefined
-    );
+      [features, video_stats]);
   }
 
 };
@@ -79,7 +75,7 @@ media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
         { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,11 +126,7 @@ media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec,
       media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec,
-      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec,
-      [features, frames_per_second],
-      undefined,
-      undefined
-    );
+      [features, frames_per_second]);
   }
 
 };
@@ -159,7 +151,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
         { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'frames_per_second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -172,7 +164,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = {
       fields: [
         { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

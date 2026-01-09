@@ -50,11 +50,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   clearCache() {
@@ -63,11 +59,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   clearHostResolverCache() {
@@ -76,11 +68,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   clearPredictorCache() {
@@ -89,11 +77,7 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -116,7 +100,7 @@ chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +113,7 @@ chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,7 +126,7 @@ chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,7 +139,7 @@ chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

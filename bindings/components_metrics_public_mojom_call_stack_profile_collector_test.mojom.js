@@ -50,11 +50,7 @@ metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec,
       metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
-      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
-      [in],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [in]);
   }
 
 };
@@ -78,7 +74,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
       fields: [
         { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsS
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

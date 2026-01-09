@@ -71,59 +71,60 @@ actor.mojom.ActionResultCode = {
   kNotImplemented: 30,
   kInvokeCanceled: 31,
   kInvalidTaskStateForAct: 32,
-  kNavigateInvalidUrl: 33,
-  kNavigateFailedToStart: 34,
-  kNavigateCommittedErrorPage: 35,
-  kClickSuppressed: 36,
-  kDragAndReleaseFromOffscreen: 37,
-  kDragAndReleaseToOffscreen: 38,
-  kDragAndReleaseFromMoveSuppressed: 39,
-  kDragAndReleaseDownSuppressed: 40,
-  kDragAndReleaseToMoveSuppressed: 41,
-  kDragAndReleaseUpSuppressed: 42,
-  kMouseMoveEventSuppressed: 43,
-  kScrollNoScrollingElement: 44,
-  kScrollTargetNotUserScrollable: 45,
-  kScrollOffsetDidNotChange: 46,
-  kSelectInvalidElement: 47,
-  kSelectNoSuchOption: 48,
-  kSelectOptionDisabled: 49,
-  kTypeTargetNotElement: 50,
-  kTypeTargetNotFocusable: 51,
-  kTypeUnsupportedCharacters: 52,
-  kTypeFailedMappingCharToKey: 53,
-  kTypeKeyDownSuppressed: 54,
-  kTypeInvalidTextEncoding: 55,
-  kHistoryNoNavigationsCreated: 56,
-  kHistoryCancelledBeforeStart: 57,
-  kHistoryNoBackEntries: 58,
-  kHistoryNoForwardEntries: 59,
-  kHistoryFailedBeforeCommit: 60,
-  kHistoryErrorPage: 61,
-  kHistoryNavigationEntryChanged: 62,
-  kLoginNoCredentialsAvailable: 63,
-  kLoginNotLoginPage: 64,
-  kLoginCredentialsEnteredButAnotherActionNeeded: 65,
-  kLoginNoFillableFields: 66,
-  kLoginFillingNotAllowed: 67,
-  kLoginPageChangedDuringSelection: 68,
-  kLoginDeviceReauthRequired: 69,
-  kLoginDeviceReauthFailed: 70,
-  kLoginFeatureDisabled: 71,
-  kLoginTooManyRequests: 72,
-  kMediaControlNoMedia: 73,
-  kFormFillingAutofillUnavailable: 74,
-  kFormFillingNoSuggestionsAvailable: 75,
-  kFormFillingDialogError: 76,
-  kFormFillingFieldNotFound: 77,
-  kFormFillingUnknownAutofillError: 78,
-  kFormFillingNoLastTabObservation: 79,
-  kFormFillingInvalidSuggestionId: 80,
-  kScriptToolNoResponse: 81,
-  kScriptToolInvalidName: 82,
-  kScriptToolInvalidInputArguments: 83,
-  kScriptToolInvocationFailed: 84,
-  kActorUiError: 85,
+  kActionsCancelled: 33,
+  kNavigateInvalidUrl: 34,
+  kNavigateFailedToStart: 35,
+  kNavigateCommittedErrorPage: 36,
+  kClickSuppressed: 37,
+  kDragAndReleaseFromOffscreen: 38,
+  kDragAndReleaseToOffscreen: 39,
+  kDragAndReleaseFromMoveSuppressed: 40,
+  kDragAndReleaseDownSuppressed: 41,
+  kDragAndReleaseToMoveSuppressed: 42,
+  kDragAndReleaseUpSuppressed: 43,
+  kMouseMoveEventSuppressed: 44,
+  kScrollNoScrollingElement: 45,
+  kScrollTargetNotUserScrollable: 46,
+  kScrollOffsetDidNotChange: 47,
+  kSelectInvalidElement: 48,
+  kSelectNoSuchOption: 49,
+  kSelectOptionDisabled: 50,
+  kTypeTargetNotElement: 51,
+  kTypeTargetNotFocusable: 52,
+  kTypeUnsupportedCharacters: 53,
+  kTypeFailedMappingCharToKey: 54,
+  kTypeKeyDownSuppressed: 55,
+  kTypeInvalidTextEncoding: 56,
+  kHistoryNoNavigationsCreated: 57,
+  kHistoryCancelledBeforeStart: 58,
+  kHistoryNoBackEntries: 59,
+  kHistoryNoForwardEntries: 60,
+  kHistoryFailedBeforeCommit: 61,
+  kHistoryErrorPage: 62,
+  kHistoryNavigationEntryChanged: 63,
+  kLoginNoCredentialsAvailable: 64,
+  kLoginNotLoginPage: 65,
+  kLoginCredentialsEnteredButAnotherActionNeeded: 66,
+  kLoginNoFillableFields: 67,
+  kLoginFillingNotAllowed: 68,
+  kLoginPageChangedDuringSelection: 69,
+  kLoginDeviceReauthRequired: 70,
+  kLoginDeviceReauthFailed: 71,
+  kLoginFeatureDisabled: 72,
+  kLoginTooManyRequests: 73,
+  kMediaControlNoMedia: 74,
+  kFormFillingAutofillUnavailable: 75,
+  kFormFillingNoSuggestionsAvailable: 76,
+  kFormFillingDialogError: 77,
+  kFormFillingFieldNotFound: 78,
+  kFormFillingUnknownAutofillError: 79,
+  kFormFillingNoLastTabObservation: 80,
+  kFormFillingInvalidSuggestionId: 81,
+  kScriptToolNoResponse: 82,
+  kScriptToolInvalidName: 83,
+  kScriptToolInvalidInputArguments: 84,
+  kScriptToolInvocationFailed: 85,
+  kActorUiError: 86,
 };
 
 // Enum: JournalEntryType
@@ -174,11 +175,7 @@ actor.mojom.JournalClientRemoteCallHandler = class {
       0,  // ordinal
       actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
-      null,
-      [entries],
-      undefined,
-      undefined
-    );
+      [entries]);
   }
 
 };
@@ -202,7 +199,7 @@ actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -253,11 +250,7 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
       0,  // ordinal
       actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       null,
-      null,
-      [observation_delay],
-      undefined,
-      undefined
-    );
+      [observation_delay]);
   }
 
 };
@@ -281,7 +274,7 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
       fields: [
         { name: 'observation_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -143,11 +143,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onAttributionChanged(attribution) {
@@ -156,11 +152,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
       null,
-      null,
-      [attribution],
-      undefined,
-      undefined
-    );
+      [attribution]);
   }
 
   onWallpaperChanged(image) {
@@ -169,11 +161,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
       null,
-      null,
-      [image],
-      undefined,
-      undefined
-    );
+      [image]);
   }
 
 };
@@ -196,7 +184,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +198,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec 
       fields: [
         { name: 'attribution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -224,7 +212,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = 
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -275,11 +263,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   makeOpaque() {
@@ -288,11 +272,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fetchCollections() {
@@ -301,11 +281,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fetchImagesForCollection(collection_id) {
@@ -314,11 +290,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
-      [collection_id],
-      undefined,
-      undefined
-    );
+      [collection_id]);
   }
 
   fetchGooglePhotosAlbums(resume_token) {
@@ -327,11 +299,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
-      [resume_token],
-      undefined,
-      undefined
-    );
+      [resume_token]);
   }
 
   fetchGooglePhotosSharedAlbums(resume_token) {
@@ -340,11 +308,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
-      [resume_token],
-      undefined,
-      undefined
-    );
+      [resume_token]);
   }
 
   fetchGooglePhotosEnabled() {
@@ -353,11 +317,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fetchGooglePhotosPhotos(item_id, album_id, resume_token) {
@@ -366,11 +326,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
-      [item_id, album_id, resume_token],
-      undefined,
-      undefined
-    );
+      [item_id, album_id, resume_token]);
   }
 
   getLocalImages() {
@@ -379,11 +335,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDefaultImageThumbnail() {
@@ -392,11 +344,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getLocalImageThumbnail(file_path) {
@@ -405,11 +353,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
-      [file_path],
-      undefined,
-      undefined
-    );
+      [file_path]);
   }
 
   setWallpaperObserver(observer) {
@@ -418,11 +362,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   selectWallpaper(unit_id, preview_mode) {
@@ -431,11 +371,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
-      [unit_id, preview_mode],
-      undefined,
-      undefined
-    );
+      [unit_id, preview_mode]);
   }
 
   selectDefaultImage() {
@@ -444,11 +380,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   selectLocalImage(path, layout, preview_mode) {
@@ -457,11 +389,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       14,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
-      [path, layout, preview_mode],
-      undefined,
-      undefined
-    );
+      [path, layout, preview_mode]);
   }
 
   selectGooglePhotosPhoto(id, layout, preview_mode) {
@@ -470,11 +398,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       15,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
-      [id, layout, preview_mode],
-      undefined,
-      undefined
-    );
+      [id, layout, preview_mode]);
   }
 
   selectGooglePhotosAlbum(id) {
@@ -483,11 +407,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       16,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   getGooglePhotosDailyRefreshAlbumId() {
@@ -496,11 +416,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       17,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setCurrentWallpaperLayout(layout) {
@@ -509,11 +425,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       18,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
       null,
-      null,
-      [layout],
-      undefined,
-      undefined
-    );
+      [layout]);
   }
 
   setDailyRefreshCollectionId(collection_id) {
@@ -522,11 +434,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       19,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
-      [collection_id],
-      undefined,
-      undefined
-    );
+      [collection_id]);
   }
 
   getDailyRefreshCollectionId() {
@@ -535,11 +443,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       20,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateDailyRefreshWallpaper() {
@@ -548,11 +452,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       21,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isInTabletMode() {
@@ -561,11 +461,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       22,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   confirmPreviewWallpaper() {
@@ -574,11 +470,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       23,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancelPreviewWallpaper() {
@@ -587,11 +479,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       24,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   shouldShowTimeOfDayWallpaperDialog() {
@@ -600,11 +488,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       25,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -627,7 +511,7 @@ ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -640,7 +524,7 @@ ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -653,7 +537,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -666,7 +550,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsS
       fields: [
         { name: 'collections', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -680,7 +564,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsS
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -693,7 +577,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_Respons
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -707,7 +591,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSp
       fields: [
         { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -720,7 +604,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_Response
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -734,7 +618,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Pa
       fields: [
         { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -747,7 +631,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Re
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -760,7 +644,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -773,7 +657,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_Respons
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -789,7 +673,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSp
         { name: 'album_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'resume_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -802,7 +686,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_Response
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -815,7 +699,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -828,7 +712,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpe
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -841,7 +725,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -854,7 +738,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_Respons
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -868,7 +752,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpe
       fields: [
         { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -881,7 +765,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseP
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -895,7 +779,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -910,7 +794,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
         { name: 'unit_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'preview_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -923,7 +807,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -936,7 +820,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -949,7 +833,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParam
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -965,7 +849,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
         { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'preview_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -978,7 +862,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsS
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -994,7 +878,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSp
         { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'preview_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1007,7 +891,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_Response
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1021,7 +905,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSp
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1034,7 +918,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_Response
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1047,7 +931,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1060,7 +944,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
       fields: [
         { name: 'album_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1074,7 +958,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_Params
       fields: [
         { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1088,7 +972,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Para
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1101,7 +985,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Resp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1114,7 +998,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1127,7 +1011,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Resp
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1140,7 +1024,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1153,7 +1037,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Resp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1166,7 +1050,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1179,7 +1063,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpe
       fields: [
         { name: 'tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1192,7 +1076,7 @@ ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1205,7 +1089,7 @@ ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1218,7 +1102,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1231,7 +1115,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
       fields: [
         { name: 'should_show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1282,11 +1166,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
       null,
-      null,
-      [dark_mode_enabled],
-      undefined,
-      undefined
-    );
+      [dark_mode_enabled]);
   }
 
   onColorModeAutoScheduleChanged(enabled) {
@@ -1295,11 +1175,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   onColorSchemeChanged(color_scheme) {
@@ -1308,11 +1184,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
       null,
-      null,
-      [color_scheme],
-      undefined,
-      undefined
-    );
+      [color_scheme]);
   }
 
   onSampleColorSchemesChanged(sample_color_schemes) {
@@ -1321,11 +1193,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
       null,
-      null,
-      [sample_color_schemes],
-      undefined,
-      undefined
-    );
+      [sample_color_schemes]);
   }
 
   onStaticColorChanged(color) {
@@ -1334,11 +1202,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
       null,
-      null,
-      [color],
-      undefined,
-      undefined
-    );
+      [color]);
   }
 
   onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
@@ -1347,11 +1211,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      null,
-      [enabled, is_user_modifiable],
-      undefined,
-      undefined
-    );
+      [enabled, is_user_modifiable]);
   }
 
   onDaylightTimeChanged(sunrise_time, sunset_time) {
@@ -1360,11 +1220,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
       null,
-      null,
-      [sunrise_time, sunset_time],
-      undefined,
-      undefined
-    );
+      [sunrise_time, sunset_time]);
   }
 
 };
@@ -1388,7 +1244,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
       fields: [
         { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1402,7 +1258,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_Param
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1416,7 +1272,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
       fields: [
         { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1430,7 +1286,7 @@ ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSp
       fields: [
         { name: 'sample_color_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1444,7 +1300,7 @@ ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
       fields: [
         { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1459,7 +1315,7 @@ ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServ
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_user_modifiable', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1474,7 +1330,7 @@ ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
         { name: 'sunrise_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'sunset_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1525,11 +1381,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setColorModePref(dark_mode_enabled) {
@@ -1538,11 +1390,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
       null,
-      null,
-      [dark_mode_enabled],
-      undefined,
-      undefined
-    );
+      [dark_mode_enabled]);
   }
 
   setColorModeAutoScheduleEnabled(enabled) {
@@ -1551,11 +1399,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setColorScheme(colorScheme) {
@@ -1564,11 +1408,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
       null,
-      null,
-      [colorScheme],
-      undefined,
-      undefined
-    );
+      [colorScheme]);
   }
 
   setStaticColor(static_color) {
@@ -1577,11 +1417,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
       null,
-      null,
-      [static_color],
-      undefined,
-      undefined
-    );
+      [static_color]);
   }
 
   enableGeolocationForSystemServices() {
@@ -1590,11 +1426,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getColorScheme() {
@@ -1603,11 +1435,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getStaticColor() {
@@ -1616,11 +1444,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   generateSampleColorSchemes() {
@@ -1629,11 +1453,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isColorModeAutoScheduleEnabled() {
@@ -1642,11 +1462,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isDarkModeEnabled() {
@@ -1655,11 +1471,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isGeolocationEnabledForSystemServices() {
@@ -1668,11 +1480,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isGeolocationUserModifiable() {
@@ -1681,11 +1489,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -1709,7 +1513,7 @@ ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1723,7 +1527,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
       fields: [
         { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1737,7 +1541,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_Para
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1751,7 +1555,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
       fields: [
         { name: 'colorScheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1765,7 +1569,7 @@ ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
       fields: [
         { name: 'static_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1778,7 +1582,7 @@ ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1791,7 +1595,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1804,7 +1608,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = 
       fields: [
         { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1817,7 +1621,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1830,7 +1634,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = 
       fields: [
         { name: 'static_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1843,7 +1647,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1856,7 +1660,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseP
       fields: [
         { name: 'sample_color_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1869,7 +1673,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1882,7 +1686,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Respo
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1895,7 +1699,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1908,7 +1712,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec
       fields: [
         { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1921,7 +1725,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1934,7 +1738,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
       fields: [
         { name: 'geolocation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1947,7 +1751,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1960,7 +1764,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_Response
       fields: [
         { name: 'geolocation_is_user_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2011,11 +1815,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
       null,
-      null,
-      [user_image],
-      undefined,
-      undefined
-    );
+      [user_image]);
   }
 
   onUserProfileImageUpdated(profile_image) {
@@ -2024,11 +1824,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
       null,
-      null,
-      [profile_image],
-      undefined,
-      undefined
-    );
+      [profile_image]);
   }
 
   onCameraPresenceCheckDone(is_camera_present) {
@@ -2037,11 +1833,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
       null,
-      null,
-      [is_camera_present],
-      undefined,
-      undefined
-    );
+      [is_camera_present]);
   }
 
   onIsEnterpriseManagedChanged(is_enterprise_managed) {
@@ -2050,11 +1842,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
       null,
-      null,
-      [is_enterprise_managed],
-      undefined,
-      undefined
-    );
+      [is_enterprise_managed]);
   }
 
 };
@@ -2078,7 +1866,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = 
       fields: [
         { name: 'user_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2092,7 +1880,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_Params
       fields: [
         { name: 'profile_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2106,7 +1894,7 @@ ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_Params
       fields: [
         { name: 'is_camera_present', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2120,7 +1908,7 @@ ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_Par
       fields: [
         { name: 'is_enterprise_managed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2171,11 +1959,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   getUserInfo() {
@@ -2184,11 +1968,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec,
       ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
-      ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDefaultUserImages() {
@@ -2197,11 +1977,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
       ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
-      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   selectDefaultImage(index) {
@@ -2210,11 +1986,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
       null,
-      null,
-      [index],
-      undefined,
-      undefined
-    );
+      [index]);
   }
 
   selectProfileImage() {
@@ -2223,11 +1995,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   selectCameraImage(data) {
@@ -2236,11 +2004,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec,
       null,
-      null,
-      [data],
-      undefined,
-      undefined
-    );
+      [data]);
   }
 
   selectImageFromDisk() {
@@ -2249,11 +2013,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   selectLastExternalUserImage() {
@@ -2262,11 +2022,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -2290,7 +2046,7 @@ ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2303,7 +2059,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2316,7 +2072,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
       fields: [
         { name: 'user_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2329,7 +2085,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2342,7 +2098,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSp
       fields: [
         { name: 'default_user_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2356,7 +2112,7 @@ ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
       fields: [
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2369,7 +2125,7 @@ ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2383,7 +2139,7 @@ ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2396,7 +2152,7 @@ ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2409,7 +2165,7 @@ ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2460,11 +2216,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
       null,
-      null,
-      [ambient_mode_enabled],
-      undefined,
-      undefined
-    );
+      [ambient_mode_enabled]);
   }
 
   onAmbientThemeChanged(ambient_theme) {
@@ -2473,11 +2225,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
       null,
-      null,
-      [ambient_theme],
-      undefined,
-      undefined
-    );
+      [ambient_theme]);
   }
 
   onTopicSourceChanged(topic_source) {
@@ -2486,11 +2234,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
       null,
-      null,
-      [topic_source],
-      undefined,
-      undefined
-    );
+      [topic_source]);
   }
 
   onScreenSaverDurationChanged(minutes) {
@@ -2499,11 +2243,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
       null,
-      null,
-      [minutes],
-      undefined,
-      undefined
-    );
+      [minutes]);
   }
 
   onTemperatureUnitChanged(temperature_unit) {
@@ -2512,11 +2252,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
       null,
-      null,
-      [temperature_unit],
-      undefined,
-      undefined
-    );
+      [temperature_unit]);
   }
 
   onAlbumsChanged(albums) {
@@ -2525,11 +2261,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
       null,
-      null,
-      [albums],
-      undefined,
-      undefined
-    );
+      [albums]);
   }
 
   onPreviewsFetched(previews) {
@@ -2538,11 +2270,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
       null,
-      null,
-      [previews],
-      undefined,
-      undefined
-    );
+      [previews]);
   }
 
   onAmbientUiVisibilityChanged(visibility) {
@@ -2551,11 +2279,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
       null,
-      null,
-      [visibility],
-      undefined,
-      undefined
-    );
+      [visibility]);
   }
 
   onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
@@ -2564,11 +2288,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      null,
-      [enabled, is_user_modifiable],
-      undefined,
-      undefined
-    );
+      [enabled, is_user_modifiable]);
   }
 
   onAmbientThemePreviewImagesChanged(previews) {
@@ -2577,11 +2297,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
       null,
-      null,
-      [previews],
-      undefined,
-      undefined
-    );
+      [previews]);
   }
 
 };
@@ -2605,7 +2321,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_Params
       fields: [
         { name: 'ambient_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2619,7 +2335,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec =
       fields: [
         { name: 'ambient_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2633,7 +2349,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = 
       fields: [
         { name: 'topic_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2647,7 +2363,7 @@ ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_Param
       fields: [
         { name: 'minutes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2661,7 +2377,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpe
       fields: [
         { name: 'temperature_unit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2675,7 +2391,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
       fields: [
         { name: 'albums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2689,7 +2405,7 @@ ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
       fields: [
         { name: 'previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2703,7 +2419,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_Param
       fields: [
         { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2718,7 +2434,7 @@ ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemSe
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_user_modifiable', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2732,7 +2448,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged
       fields: [
         { name: 'previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -2783,11 +2499,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setAmbientModeEnabled(enabled) {
@@ -2796,11 +2508,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setAmbientObserver(observer) {
@@ -2809,11 +2517,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setAmbientTheme(ambient_theme) {
@@ -2822,11 +2526,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
       null,
-      null,
-      [ambient_theme],
-      undefined,
-      undefined
-    );
+      [ambient_theme]);
   }
 
   setScreenSaverDuration(minutes) {
@@ -2835,11 +2535,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
       null,
-      null,
-      [minutes],
-      undefined,
-      undefined
-    );
+      [minutes]);
   }
 
   setTopicSource(topic_source) {
@@ -2848,11 +2544,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
       null,
-      null,
-      [topic_source],
-      undefined,
-      undefined
-    );
+      [topic_source]);
   }
 
   setTemperatureUnit(temperature_unit) {
@@ -2861,11 +2553,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
       null,
-      null,
-      [temperature_unit],
-      undefined,
-      undefined
-    );
+      [temperature_unit]);
   }
 
   setAlbumSelected(id, topic_source, selected) {
@@ -2874,11 +2562,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
       null,
-      null,
-      [id, topic_source, selected],
-      undefined,
-      undefined
-    );
+      [id, topic_source, selected]);
   }
 
   setPageViewed() {
@@ -2887,11 +2571,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   fetchSettingsAndAlbums() {
@@ -2900,11 +2580,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   startScreenSaverPreview() {
@@ -2913,11 +2589,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   shouldShowTimeOfDayBanner() {
@@ -2926,11 +2598,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   handleTimeOfDayBannerDismissed() {
@@ -2939,11 +2607,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isGeolocationEnabledForSystemServices() {
@@ -2952,11 +2616,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isGeolocationUserModifiable() {
@@ -2965,11 +2625,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       14,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enableGeolocationForSystemServices() {
@@ -2978,11 +2634,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       15,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -3005,7 +2657,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3018,7 +2670,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParam
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3032,7 +2684,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec =
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3046,7 +2698,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3060,7 +2712,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
       fields: [
         { name: 'ambient_theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3074,7 +2726,7 @@ ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec 
       fields: [
         { name: 'minutes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3088,7 +2740,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
       fields: [
         { name: 'topic_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3102,7 +2754,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
       fields: [
         { name: 'temperature_unit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3118,7 +2770,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
         { name: 'topic_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'selected', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3131,7 +2783,7 @@ ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3144,7 +2796,7 @@ ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3157,7 +2809,7 @@ ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3170,7 +2822,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3183,7 +2835,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_Response
       fields: [
         { name: 'should_show_banner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3196,7 +2848,7 @@ ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3209,7 +2861,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3222,7 +2874,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
       fields: [
         { name: 'geolocation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3235,7 +2887,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3248,7 +2900,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Respon
       fields: [
         { name: 'geolocation_is_user_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3261,7 +2913,7 @@ ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3312,11 +2964,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
       0,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
       null,
-      null,
-      [currentBacklightState],
-      undefined,
-      undefined
-    );
+      [currentBacklightState]);
   }
 
   onWallpaperColorChanged(wallpaper_color) {
@@ -3325,11 +2973,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
       1,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
       null,
-      null,
-      [wallpaper_color],
-      undefined,
-      undefined
-    );
+      [wallpaper_color]);
   }
 
 };
@@ -3353,7 +2997,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_
       fields: [
         { name: 'currentBacklightState', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3367,7 +3011,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_
       fields: [
         { name: 'wallpaper_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3418,11 +3062,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       0,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setBacklightColor(backlight_color) {
@@ -3431,11 +3071,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       1,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
       null,
-      null,
-      [backlight_color],
-      undefined,
-      undefined
-    );
+      [backlight_color]);
   }
 
   setBacklightZoneColor(zone, backlight_color) {
@@ -3444,11 +3080,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       2,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
       null,
-      null,
-      [zone, backlight_color],
-      undefined,
-      undefined
-    );
+      [zone, backlight_color]);
   }
 
   shouldShowNudge() {
@@ -3457,11 +3089,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       3,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
       ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
-      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   handleNudgeShown() {
@@ -3470,11 +3098,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       4,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -3498,7 +3122,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObse
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3512,7 +3136,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_Params
       fields: [
         { name: 'backlight_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3527,7 +3151,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Pa
         { name: 'zone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'backlight_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3540,7 +3164,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3553,7 +3177,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_Response
       fields: [
         { name: 'should_show_nudge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -3566,7 +3190,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

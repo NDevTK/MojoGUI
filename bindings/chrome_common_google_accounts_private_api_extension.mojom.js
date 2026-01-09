@@ -50,11 +50,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec,
       null,
-      null,
-      [consent_result],
-      undefined,
-      undefined
-    );
+      [consent_result]);
   }
 
 };
@@ -78,7 +74,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
       fields: [
         { name: 'consent_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

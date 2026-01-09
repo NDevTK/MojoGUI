@@ -50,11 +50,7 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BytesProvider_RequestAsReply_ParamsSpec,
       blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
-      blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestAsStream(pipe) {
@@ -63,11 +59,7 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BytesProvider_RequestAsStream_ParamsSpec,
       null,
-      null,
-      [pipe],
-      undefined,
-      undefined
-    );
+      [pipe]);
   }
 
   requestAsFile(source_offset, source_size, file, file_offset) {
@@ -76,11 +68,7 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BytesProvider_RequestAsFile_ParamsSpec,
       blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
-      blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
-      [source_offset, source_size, file, file_offset],
-      undefined,
-      undefined
-    );
+      [source_offset, source_size, file, file_offset]);
   }
 
 };
@@ -103,7 +91,7 @@ blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -116,7 +104,7 @@ blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +118,7 @@ blink.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
       fields: [
         { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,7 +135,7 @@ blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
         { name: 'file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'file_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -160,7 +148,7 @@ blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
       fields: [
         { name: 'time_file_modified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

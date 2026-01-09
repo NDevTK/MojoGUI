@@ -63,11 +63,7 @@ media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
 };
@@ -91,7 +87,7 @@ media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,11 +138,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec,
       media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec,
-      media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec,
-      [decrypt_config, hw_identifier],
-      undefined,
-      undefined
-    );
+      [decrypt_config, hw_identifier]);
   }
 
   registerEventCallback(callback) {
@@ -155,11 +147,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec,
       null,
-      null,
-      [callback],
-      undefined,
-      undefined
-    );
+      [callback]);
   }
 
   getHwConfigData() {
@@ -168,11 +156,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec,
       media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec,
-      media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getScreenResolutions() {
@@ -181,11 +165,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec,
       media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec,
-      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   allocateSecureBuffer(size) {
@@ -194,11 +174,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec,
       media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec,
-      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
@@ -207,11 +183,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec,
       media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [secure_handle, offset, stream_data],
-      undefined,
-      undefined
-    );
+      [secure_handle, offset, stream_data]);
   }
 
   decryptVideoBuffer(buffer, bytes) {
@@ -220,11 +192,7 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec,
       media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec,
-      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec,
-      [buffer, bytes],
-      undefined,
-      undefined
-    );
+      [buffer, bytes]);
   }
 
 };
@@ -249,7 +217,7 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = {
         { name: 'decrypt_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,7 +231,7 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -277,7 +245,7 @@ media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = {
       fields: [
         { name: 'callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -290,7 +258,7 @@ media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -304,7 +272,7 @@ media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'config_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,7 +285,7 @@ media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -330,7 +298,7 @@ media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = {
       fields: [
         { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -344,7 +312,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -357,7 +325,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = {
       fields: [
         { name: 'secure_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -373,7 +341,7 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = {
         { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'stream_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -387,7 +355,7 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = {
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'slice_header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -402,7 +370,7 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = {
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -417,7 +385,7 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = {
         { name: 'decoder_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

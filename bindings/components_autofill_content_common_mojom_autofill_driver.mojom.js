@@ -50,11 +50,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec,
       null,
-      null,
-      [updated_forms, removed_forms],
-      undefined,
-      undefined
-    );
+      [updated_forms, removed_forms]);
   }
 
   formSubmitted(form, source) {
@@ -63,11 +59,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec,
       null,
-      null,
-      [form, source],
-      undefined,
-      undefined
-    );
+      [form, source]);
   }
 
   caretMovedInFormField(form, field_id, caret_bounds) {
@@ -76,11 +68,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec,
       null,
-      null,
-      [form, field_id, caret_bounds],
-      undefined,
-      undefined
-    );
+      [form, field_id, caret_bounds]);
   }
 
   textFieldValueChanged(form, field_id, timestamp) {
@@ -89,11 +77,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec,
       null,
-      null,
-      [form, field_id, timestamp],
-      undefined,
-      undefined
-    );
+      [form, field_id, timestamp]);
   }
 
   didEndTextFieldEditing() {
@@ -102,11 +86,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   textFieldDidScroll(form, field_id) {
@@ -115,11 +95,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec,
       null,
-      null,
-      [form, field_id],
-      undefined,
-      undefined
-    );
+      [form, field_id]);
   }
 
   selectControlSelectionChanged(form, field_id) {
@@ -128,11 +104,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec,
       null,
-      null,
-      [form, field_id],
-      undefined,
-      undefined
-    );
+      [form, field_id]);
   }
 
   selectFieldOptionsDidChange(form, field_id) {
@@ -141,11 +113,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec,
       null,
-      null,
-      [form, field_id],
-      undefined,
-      undefined
-    );
+      [form, field_id]);
   }
 
   focusOnFormField(form, field_id) {
@@ -154,11 +122,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       8,  // ordinal
       autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec,
       null,
-      null,
-      [form, field_id],
-      undefined,
-      undefined
-    );
+      [form, field_id]);
   }
 
   focusOnNonFormField() {
@@ -167,11 +131,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       9,  // ordinal
       autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   askForValuesToFill(form, field_id, caret_bounds, trigger_source, password_request) {
@@ -180,11 +140,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       10,  // ordinal
       autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec,
       null,
-      null,
-      [form, field_id, caret_bounds, trigger_source, password_request],
-      undefined,
-      undefined
-    );
+      [form, field_id, caret_bounds, trigger_source, password_request]);
   }
 
   hidePopup() {
@@ -193,11 +149,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       11,  // ordinal
       autofill.mojom.AutofillDriver_HidePopup_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   didAutofillForm(form) {
@@ -206,11 +158,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       12,  // ordinal
       autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec,
       null,
-      null,
-      [form],
-      undefined,
-      undefined
-    );
+      [form]);
   }
 
   suppressAutomaticRefills(fill_id) {
@@ -219,11 +167,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       13,  // ordinal
       autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec,
       null,
-      null,
-      [fill_id],
-      undefined,
-      undefined
-    );
+      [fill_id]);
   }
 
   requestRefill(fill_id) {
@@ -232,11 +176,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       14,  // ordinal
       autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec,
       null,
-      null,
-      [fill_id],
-      undefined,
-      undefined
-    );
+      [fill_id]);
   }
 
   javaScriptChangedAutofilledValue(form, field_id, old_value) {
@@ -245,11 +185,7 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       15,  // ordinal
       autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec,
       null,
-      null,
-      [form, field_id, old_value],
-      undefined,
-      undefined
-    );
+      [form, field_id, old_value]);
   }
 
 };
@@ -274,7 +210,7 @@ autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec = {
         { name: 'updated_forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'removed_forms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -289,7 +225,7 @@ autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec = {
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -305,7 +241,7 @@ autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec = {
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'caret_bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -321,7 +257,7 @@ autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec = {
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -334,7 +270,7 @@ autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -349,7 +285,7 @@ autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec = {
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -364,7 +300,7 @@ autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec = {
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -379,7 +315,7 @@ autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec = {
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -394,7 +330,7 @@ autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec = {
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -407,7 +343,7 @@ autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -425,7 +361,7 @@ autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec = {
         { name: 'trigger_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password_request', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -438,7 +374,7 @@ autofill.mojom.AutofillDriver_HidePopup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -452,7 +388,7 @@ autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec = {
       fields: [
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -466,7 +402,7 @@ autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec = {
       fields: [
         { name: 'fill_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,7 +416,7 @@ autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = {
       fields: [
         { name: 'fill_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -496,7 +432,7 @@ autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = {
         { name: 'field_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -547,11 +483,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec,
       null,
-      null,
-      [forms_data],
-      undefined,
-      undefined
-    );
+      [forms_data]);
   }
 
   passwordFormsRendered(visible_forms_data) {
@@ -560,11 +492,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec,
       null,
-      null,
-      [visible_forms_data],
-      undefined,
-      undefined
-    );
+      [visible_forms_data]);
   }
 
   passwordFormSubmitted(form_data) {
@@ -573,11 +501,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec,
       null,
-      null,
-      [form_data],
-      undefined,
-      undefined
-    );
+      [form_data]);
   }
 
   informAboutUserInput(form_data) {
@@ -586,11 +510,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec,
       null,
-      null,
-      [form_data],
-      undefined,
-      undefined
-    );
+      [form_data]);
   }
 
   dynamicFormSubmission(submission_indication_event) {
@@ -599,11 +519,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec,
       null,
-      null,
-      [submission_indication_event],
-      undefined,
-      undefined
-    );
+      [submission_indication_event]);
   }
 
   passwordFormCleared(form_data) {
@@ -612,11 +528,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec,
       null,
-      null,
-      [form_data],
-      undefined,
-      undefined
-    );
+      [form_data]);
   }
 
   recordSavePasswordProgress(log) {
@@ -625,11 +537,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec,
       null,
-      null,
-      [log],
-      undefined,
-      undefined
-    );
+      [log]);
   }
 
   userModifiedPasswordField() {
@@ -638,11 +546,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   userModifiedNonPasswordField(renderer_id, value, autocomplete_attribute_has_username, is_likely_otp) {
@@ -651,11 +555,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       8,  // ordinal
       autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec,
       null,
-      null,
-      [renderer_id, value, autocomplete_attribute_has_username, is_likely_otp],
-      undefined,
-      undefined
-    );
+      [renderer_id, value, autocomplete_attribute_has_username, is_likely_otp]);
   }
 
   showPasswordSuggestions(request) {
@@ -664,11 +564,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       9,  // ordinal
       autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec,
       null,
-      null,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
   checkSafeBrowsingReputation(form_action, frame_url) {
@@ -677,11 +573,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       10,  // ordinal
       autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec,
       null,
-      null,
-      [form_action, frame_url],
-      undefined,
-      undefined
-    );
+      [form_action, frame_url]);
   }
 
   focusedInputChanged(focused_field_id, focused_field_type) {
@@ -690,11 +582,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       11,  // ordinal
       autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec,
       null,
-      null,
-      [focused_field_id, focused_field_type],
-      undefined,
-      undefined
-    );
+      [focused_field_id, focused_field_type]);
   }
 
   logFirstFillingResult(form_renderer_id, result) {
@@ -703,11 +591,7 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       12,  // ordinal
       autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec,
       null,
-      null,
-      [form_renderer_id, result],
-      undefined,
-      undefined
-    );
+      [form_renderer_id, result]);
   }
 
 };
@@ -731,7 +615,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec = {
       fields: [
         { name: 'forms_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -745,7 +629,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec = {
       fields: [
         { name: 'visible_forms_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -759,7 +643,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec = {
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -773,7 +657,7 @@ autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec = {
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -787,7 +671,7 @@ autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec = {
       fields: [
         { name: 'submission_indication_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -801,7 +685,7 @@ autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec = {
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -815,7 +699,7 @@ autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec = {
       fields: [
         { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -828,7 +712,7 @@ autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -845,7 +729,7 @@ autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = {
         { name: 'autocomplete_attribute_has_username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_likely_otp', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -859,7 +743,7 @@ autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -874,7 +758,7 @@ autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = {
         { name: 'form_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'frame_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -889,7 +773,7 @@ autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = {
         { name: 'focused_field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'focused_field_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -904,7 +788,7 @@ autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec = {
         { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -955,11 +839,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec,
       null,
-      null,
-      [password_generation_ui_data],
-      undefined,
-      undefined
-    );
+      [password_generation_ui_data]);
   }
 
   presaveGeneratedPassword(form_data, password_value) {
@@ -968,11 +848,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec,
       null,
-      null,
-      [form_data, password_value],
-      undefined,
-      undefined
-    );
+      [form_data, password_value]);
   }
 
   passwordNoLongerGenerated(form_data) {
@@ -981,11 +857,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec,
       null,
-      null,
-      [form_data],
-      undefined,
-      undefined
-    );
+      [form_data]);
   }
 
   showPasswordEditingPopup(bounds, form_data, field_renderer_id, password_value) {
@@ -994,11 +866,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec,
       null,
-      null,
-      [bounds, form_data, field_renderer_id, password_value],
-      undefined,
-      undefined
-    );
+      [bounds, form_data, field_renderer_id, password_value]);
   }
 
   passwordGenerationRejectedByTyping() {
@@ -1007,11 +875,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   frameWasScrolled() {
@@ -1020,11 +884,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   generationElementLostFocus() {
@@ -1033,11 +893,7 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -1061,7 +917,7 @@ autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec 
       fields: [
         { name: 'password_generation_ui_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1076,7 +932,7 @@ autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec = {
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1090,7 +946,7 @@ autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec = {
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1107,7 +963,7 @@ autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec = {
         { name: 'field_renderer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'password_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1120,7 +976,7 @@ autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1133,7 +989,7 @@ autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1146,7 +1002,7 @@ autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

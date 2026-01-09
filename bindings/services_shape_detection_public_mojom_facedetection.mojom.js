@@ -57,11 +57,7 @@ shape_detection.mojom.FaceDetectionRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.FaceDetection_Detect_ParamsSpec,
       shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec,
-      shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec,
-      [bitmap_data],
-      undefined,
-      undefined
-    );
+      [bitmap_data]);
   }
 
 };
@@ -85,7 +81,7 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
       fields: [
         { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -98,7 +94,7 @@ shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

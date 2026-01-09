@@ -51,11 +51,7 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec,
       null,
-      null,
-      [keyboards],
-      undefined,
-      undefined
-    );
+      [keyboards]);
   }
 
   onKeyboardPoliciesUpdated(policies) {
@@ -64,11 +60,7 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec,
       null,
-      null,
-      [policies],
-      undefined,
-      undefined
-    );
+      [policies]);
   }
 
 };
@@ -92,7 +84,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec = {
       fields: [
         { name: 'keyboards', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec
       fields: [
         { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,11 +149,7 @@ ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec,
       null,
-      null,
-      [touchpads],
-      undefined,
-      undefined
-    );
+      [touchpads]);
   }
 
 };
@@ -185,7 +173,7 @@ ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec = {
       fields: [
         { name: 'touchpads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,11 +224,7 @@ ash.settings.mojom.PointingStickSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec,
       null,
-      null,
-      [pointSticks],
-      undefined,
-      undefined
-    );
+      [pointSticks]);
   }
 
 };
@@ -264,7 +248,7 @@ ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Para
       fields: [
         { name: 'pointSticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,11 +299,7 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec,
       null,
-      null,
-      [mice],
-      undefined,
-      undefined
-    );
+      [mice]);
   }
 
   onMousePoliciesUpdated(policies) {
@@ -328,11 +308,7 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec,
       null,
-      null,
-      [policies],
-      undefined,
-      undefined
-    );
+      [policies]);
   }
 
 };
@@ -356,7 +332,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec = {
       fields: [
         { name: 'mice', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -370,7 +346,7 @@ ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec = {
       fields: [
         { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -421,11 +397,7 @@ ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec,
       null,
-      null,
-      [button],
-      undefined,
-      undefined
-    );
+      [button]);
   }
 
 };
@@ -449,7 +421,7 @@ ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec = {
       fields: [
         { name: 'button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -500,11 +472,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec,
       null,
-      null,
-      [graphics_tablets],
-      undefined,
-      undefined
-    );
+      [graphics_tablets]);
   }
 
 };
@@ -528,7 +496,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Pa
       fields: [
         { name: 'graphics_tablets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -579,11 +547,7 @@ ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec,
       null,
-      null,
-      [brightness_percent],
-      undefined,
-      undefined
-    );
+      [brightness_percent]);
   }
 
 };
@@ -607,7 +571,7 @@ ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_Params
       fields: [
         { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -658,11 +622,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      null,
-      [keyboard_ambient_light_sensor_enabled],
-      undefined,
-      undefined
-    );
+      [keyboard_ambient_light_sensor_enabled]);
   }
 
 };
@@ -686,7 +646,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSens
       fields: [
         { name: 'keyboard_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -737,11 +697,7 @@ ash.settings.mojom.LidStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
-      null,
-      [is_lid_open],
-      undefined,
-      undefined
-    );
+      [is_lid_open]);
   }
 
 };
@@ -765,7 +721,7 @@ ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
       fields: [
         { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -816,11 +772,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeTouchpadSettings(observer) {
@@ -829,11 +781,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observePointingStickSettings(observer) {
@@ -842,11 +790,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeMouseSettings(observer) {
@@ -855,11 +799,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeGraphicsTabletSettings(observer) {
@@ -868,11 +808,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeButtonPresses(observer) {
@@ -881,11 +817,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeKeyboardBrightness(observer) {
@@ -894,11 +826,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeKeyboardAmbientLightSensor(observer) {
@@ -907,11 +835,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeLidState(observer) {
@@ -920,11 +844,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   restoreDefaultKeyboardRemappings(device_id) {
@@ -933,11 +853,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec,
       null,
-      null,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
   setKeyboardSettings(device_id, settings) {
@@ -946,11 +862,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec,
       null,
-      null,
-      [device_id, settings],
-      undefined,
-      undefined
-    );
+      [device_id, settings]);
   }
 
   setPointingStickSettings(device_id, settings) {
@@ -959,11 +871,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec,
       null,
-      null,
-      [device_id, settings],
-      undefined,
-      undefined
-    );
+      [device_id, settings]);
   }
 
   setMouseSettings(device_id, settings) {
@@ -972,11 +880,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec,
       null,
-      null,
-      [device_id, settings],
-      undefined,
-      undefined
-    );
+      [device_id, settings]);
   }
 
   setTouchpadSettings(device_id, settings) {
@@ -985,11 +889,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec,
       null,
-      null,
-      [device_id, settings],
-      undefined,
-      undefined
-    );
+      [device_id, settings]);
   }
 
   setGraphicsTabletSettings(device_id, settings) {
@@ -998,11 +898,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       14,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec,
       null,
-      null,
-      [device_id, settings],
-      undefined,
-      undefined
-    );
+      [device_id, settings]);
   }
 
   setKeyboardBrightness(percent) {
@@ -1011,11 +907,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       15,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec,
       null,
-      null,
-      [percent],
-      undefined,
-      undefined
-    );
+      [percent]);
   }
 
   setKeyboardAmbientLightSensorEnabled(enabled) {
@@ -1024,11 +916,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       16,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   startObserving(device_id) {
@@ -1037,11 +925,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       17,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec,
       null,
-      null,
-      [device_id],
-      undefined,
-      undefined
-    );
+      [device_id]);
   }
 
   stopObserving() {
@@ -1050,11 +934,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       18,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getActionsForMouseButtonCustomization() {
@@ -1063,11 +943,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       19,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getActionsForGraphicsTabletButtonCustomization() {
@@ -1076,11 +952,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       20,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getMetaKeyToDisplay() {
@@ -1089,11 +961,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       21,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hasKeyboardBacklight() {
@@ -1102,11 +970,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       22,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   hasAmbientLightSensor() {
@@ -1115,11 +979,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       23,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isRgbKeyboardSupported() {
@@ -1128,11 +988,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       24,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordKeyboardColorLinkClicked() {
@@ -1141,11 +997,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       25,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordKeyboardBrightnessChangeFromSlider(percent) {
@@ -1154,11 +1006,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       26,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec,
       null,
-      null,
-      [percent],
-      undefined,
-      undefined
-    );
+      [percent]);
   }
 
   getDeviceIconImage(device_key) {
@@ -1167,11 +1015,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       27,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec,
-      ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec,
-      [device_key],
-      undefined,
-      undefined
-    );
+      [device_key]);
   }
 
   launchCompanionApp(package_id) {
@@ -1180,11 +1024,7 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       28,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec,
       null,
-      null,
-      [package_id],
-      undefined,
-      undefined
-    );
+      [package_id]);
   }
 
 };
@@ -1208,7 +1048,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpe
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1222,7 +1062,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpe
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1236,7 +1076,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_Para
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1250,7 +1090,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec =
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1264,7 +1104,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_Par
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1278,7 +1118,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec =
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1292,7 +1132,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsS
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1306,7 +1146,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1320,7 +1160,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1333,7 +1173,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpe
       fields: [
         { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1347,7 +1187,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1362,7 +1202,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec = 
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1377,7 +1217,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSp
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1392,7 +1232,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec = {
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1407,7 +1247,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec = 
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1422,7 +1262,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsS
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1436,7 +1276,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec 
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1450,7 +1290,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnab
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1464,7 +1304,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec = {
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1477,7 +1317,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1490,7 +1330,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomiza
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1503,7 +1343,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomiza
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1516,7 +1356,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButton
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1529,7 +1369,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButton
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1542,7 +1382,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1555,7 +1395,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParam
       fields: [
         { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1568,7 +1408,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1581,7 +1421,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponsePara
       fields: [
         { name: 'has_keyboard_backlight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1594,7 +1434,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1607,7 +1447,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponsePar
       fields: [
         { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1620,7 +1460,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1633,7 +1473,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponsePa
       fields: [
         { name: 'is_rgb_keyboard_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1646,7 +1486,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1660,7 +1500,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFro
       fields: [
         { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1674,7 +1514,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
       fields: [
         { name: 'device_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1687,7 +1527,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParams
       fields: [
         { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1701,7 +1541,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec = {
       fields: [
         { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

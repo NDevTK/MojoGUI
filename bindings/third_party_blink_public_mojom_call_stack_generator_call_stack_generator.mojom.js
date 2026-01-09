@@ -50,11 +50,7 @@ blink.mojom.CallStackGeneratorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
       blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
-      blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
         { name: 'javascript_call_stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -103,11 +103,7 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
       null,
-      null,
-      [share_target],
-      undefined,
-      undefined
-    );
+      [share_target]);
   }
 
   onShareTargetLost(share_target) {
@@ -116,11 +112,7 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
       null,
-      null,
-      [share_target],
-      undefined,
-      undefined
-    );
+      [share_target]);
   }
 
 };
@@ -144,7 +136,7 @@ nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
       fields: [
         { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +150,7 @@ nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
       fields: [
         { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -209,11 +201,7 @@ nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
       null,
-      null,
-      [status, token],
-      undefined,
-      undefined
-    );
+      [status, token]);
   }
 
 };
@@ -238,7 +226,7 @@ nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -289,11 +277,7 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStartDiscoveryResult(success) {
@@ -302,11 +286,7 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
       null,
-      null,
-      [success],
-      undefined,
-      undefined
-    );
+      [success]);
   }
 
 };
@@ -329,7 +309,7 @@ nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -343,7 +323,7 @@ nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -394,11 +374,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   startDiscovery(listener) {
@@ -407,11 +383,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
-      nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
-      [listener],
-      undefined,
-      undefined
-    );
+      [listener]);
   }
 
   stopDiscovery() {
@@ -420,11 +392,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   selectShareTarget(share_target_id) {
@@ -433,11 +401,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
-      nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
-      [share_target_id],
-      undefined,
-      undefined
-    );
+      [share_target_id]);
   }
 
   getPayloadPreview() {
@@ -446,11 +410,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       4,  // ordinal
       nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
-      nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -474,7 +434,7 @@ nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -488,7 +448,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
       fields: [
         { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -501,7 +461,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -514,7 +474,7 @@ nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -528,7 +488,7 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
       fields: [
         { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -543,7 +503,7 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
         { name: 'transfer_update_listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
         { name: 'confirmation_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -556,7 +516,7 @@ nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -569,7 +529,7 @@ nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
       fields: [
         { name: 'payload_preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -620,11 +580,7 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec,
       nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
-      nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   reject() {
@@ -633,11 +589,7 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec,
       nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
-      nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancel() {
@@ -646,11 +598,7 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec,
       nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
-      nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -673,7 +621,7 @@ nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -686,7 +634,7 @@ nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -699,7 +647,7 @@ nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -712,7 +660,7 @@ nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -725,7 +673,7 @@ nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -738,7 +686,7 @@ nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -789,11 +737,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
       null,
-      null,
-      [in_high_visibility],
-      undefined,
-      undefined
-    );
+      [in_high_visibility]);
   }
 
   onTransferUpdate(share_target, metadata) {
@@ -802,11 +746,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
       null,
-      null,
-      [share_target, metadata],
-      undefined,
-      undefined
-    );
+      [share_target, metadata]);
   }
 
   onNearbyProcessStopped() {
@@ -815,11 +755,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStartAdvertisingFailure() {
@@ -828,11 +764,7 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -856,7 +788,7 @@ nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
       fields: [
         { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -871,7 +803,7 @@ nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
         { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -884,7 +816,7 @@ nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -897,7 +829,7 @@ nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -948,11 +880,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   isInHighVisibility() {
@@ -961,11 +889,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
       nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
-      nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   registerForegroundReceiveSurface() {
@@ -974,11 +898,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
       nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
-      nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   unregisterForegroundReceiveSurface() {
@@ -987,11 +907,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
       nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
-      nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   accept(share_target_id) {
@@ -1000,11 +916,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       4,  // ordinal
       nearby_share.mojom.ReceiveManager_Accept_ParamsSpec,
       nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
-      nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
-      [share_target_id],
-      undefined,
-      undefined
-    );
+      [share_target_id]);
   }
 
   reject(share_target_id) {
@@ -1013,11 +925,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       5,  // ordinal
       nearby_share.mojom.ReceiveManager_Reject_ParamsSpec,
       nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
-      nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
-      [share_target_id],
-      undefined,
-      undefined
-    );
+      [share_target_id]);
   }
 
   recordFastInitiationNotificationUsage(success) {
@@ -1026,11 +934,7 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       6,  // ordinal
       nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
       null,
-      null,
-      [success],
-      undefined,
-      undefined
-    );
+      [success]);
   }
 
 };
@@ -1054,7 +958,7 @@ nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1067,7 +971,7 @@ nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1080,7 +984,7 @@ nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
       fields: [
         { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1093,7 +997,7 @@ nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1106,7 +1010,7 @@ nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParam
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1119,7 +1023,7 @@ nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1132,7 +1036,7 @@ nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponsePar
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1146,7 +1050,7 @@ nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
       fields: [
         { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1159,7 +1063,7 @@ nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1173,7 +1077,7 @@ nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
       fields: [
         { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1186,7 +1090,7 @@ nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1200,7 +1104,7 @@ nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSp
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

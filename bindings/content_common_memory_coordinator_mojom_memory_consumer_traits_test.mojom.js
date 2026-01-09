@@ -50,11 +50,7 @@ content.mojom.MemoryConsumerTraitsTestRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec,
       content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec,
-      content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec,
-      [in],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [in]);
   }
 
 };
@@ -78,7 +74,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
       fields: [
         { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSp
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

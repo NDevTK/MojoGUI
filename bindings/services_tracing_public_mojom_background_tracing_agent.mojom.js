@@ -50,11 +50,7 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onTriggerBackgroundTrace(rule, histogram_value, flow_id) {
@@ -63,11 +59,7 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
-      null,
-      [rule, histogram_value, flow_id],
-      undefined,
-      undefined
-    );
+      [rule, histogram_value, flow_id]);
   }
 
 };
@@ -90,7 +82,7 @@ tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec =
         { name: 'histogram_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
         { name: 'flow_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -157,11 +149,7 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
-      null,
-      [rule, histogram_name, histogram_lower_value, histogram_upper_value],
-      undefined,
-      undefined
-    );
+      [rule, histogram_name, histogram_lower_value, histogram_upper_value]);
   }
 
   clearUMACallback(rule) {
@@ -170,11 +158,7 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
-      null,
-      [rule],
-      undefined,
-      undefined
-    );
+      [rule]);
   }
 
 };
@@ -201,7 +185,7 @@ tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
         { name: 'histogram_lower_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'histogram_upper_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -215,7 +199,7 @@ tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
       fields: [
         { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,11 +250,7 @@ tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
-      null,
-      [tracing_process_id, client, agent],
-      undefined,
-      undefined
-    );
+      [tracing_process_id, client, agent]);
   }
 
 };
@@ -296,7 +276,7 @@ tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'agent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

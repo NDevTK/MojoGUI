@@ -63,11 +63,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       0,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
       null,
-      null,
-      [version],
-      undefined,
-      undefined
-    );
+      [version]);
   }
 
   maybeShowDisclosure(urls, name, set_id) {
@@ -76,11 +72,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       1,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
       commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
-      [urls, name, set_id],
-      undefined,
-      undefined
-    );
+      [urls, name, set_id]);
   }
 
   declineDisclosure() {
@@ -89,11 +81,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       2,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   showSyncSetupFlow() {
@@ -102,11 +90,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       3,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getPageTitleFromHistory(url) {
@@ -115,11 +99,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       4,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   showProductSpecificationsSetForUuid(uuid, in_new_tab) {
@@ -128,11 +108,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       5,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
       null,
-      null,
-      [uuid, in_new_tab],
-      undefined,
-      undefined
-    );
+      [uuid, in_new_tab]);
   }
 
   showProductSpecificationsSetsForUuids(uuids, disposition) {
@@ -141,11 +117,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       6,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
       null,
-      null,
-      [uuids, disposition],
-      undefined,
-      undefined
-    );
+      [uuids, disposition]);
   }
 
   showComparePage(in_new_tab) {
@@ -154,11 +126,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       7,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
       null,
-      null,
-      [in_new_tab],
-      undefined,
-      undefined
-    );
+      [in_new_tab]);
   }
 
   getComparisonTableUrlForUuid(uuid) {
@@ -167,11 +135,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       8,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
-      [uuid],
-      undefined,
-      undefined
-    );
+      [uuid]);
   }
 
 };
@@ -195,7 +159,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDi
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +175,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'set_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -224,7 +188,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
       fields: [
         { name: 'disclosure_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -237,7 +201,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +214,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetup
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +228,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -277,7 +241,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -292,7 +256,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'in_new_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -307,7 +271,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
         { name: 'uuids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -321,7 +285,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePa
       fields: [
         { name: 'in_new_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -335,7 +299,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -348,7 +312,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -399,11 +363,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
       null,
-      null,
-      [set],
-      undefined,
-      undefined
-    );
+      [set]);
   }
 
   onProductSpecificationsSetUpdated(set) {
@@ -412,11 +372,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
       null,
-      null,
-      [set],
-      undefined,
-      undefined
-    );
+      [set]);
   }
 
   onProductSpecificationsSetRemoved(uuid) {
@@ -425,11 +381,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
       null,
-      null,
-      [uuid],
-      undefined,
-      undefined
-    );
+      [uuid]);
   }
 
   onSyncStateChanged() {
@@ -438,11 +390,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -466,7 +414,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Param
       fields: [
         { name: 'set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -480,7 +428,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Par
       fields: [
         { name: 'set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -494,7 +442,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Par
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -507,7 +455,7 @@ commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -558,11 +506,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteC
       0,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -587,7 +531,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_Create
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

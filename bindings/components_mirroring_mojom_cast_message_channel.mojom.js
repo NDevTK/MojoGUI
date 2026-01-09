@@ -50,11 +50,7 @@ mirroring.mojom.CastMessageChannelRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -78,7 +74,7 @@ mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ ui.mojom.ScenicGpuHostRemoteCallHandler = class {
       0,  // ordinal
       ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec,
       null,
-      null,
-      [window_id, view_holder_token],
-      undefined,
-      undefined
-    );
+      [window_id, view_holder_token]);
   }
 
 };
@@ -79,7 +75,7 @@ ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
         { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'view_holder_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

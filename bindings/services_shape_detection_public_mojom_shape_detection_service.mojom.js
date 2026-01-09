@@ -50,11 +50,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindFaceDetectionProvider(receiver) {
@@ -63,11 +59,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
       1,  // ordinal
       shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindTextDetection(receiver) {
@@ -76,11 +68,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
       2,  // ordinal
       shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -104,7 +92,7 @@ shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsS
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +106,7 @@ shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,7 +120,7 @@ shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

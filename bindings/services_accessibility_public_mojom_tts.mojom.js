@@ -77,11 +77,7 @@ ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
       null,
-      null,
-      [event],
-      undefined,
-      undefined
-    );
+      [event]);
   }
 
 };
@@ -105,7 +101,7 @@ ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
       fields: [
         { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,11 +152,7 @@ ax.mojom.TtsRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.Tts_Speak_ParamsSpec,
       ax.mojom.Tts_Speak_ResponseParamsSpec,
-      ax.mojom.Tts_Speak_ResponseParamsSpec,
-      [utterance, options],
-      undefined,
-      undefined
-    );
+      [utterance, options]);
   }
 
   stop() {
@@ -169,11 +161,7 @@ ax.mojom.TtsRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.Tts_Stop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   pause() {
@@ -182,11 +170,7 @@ ax.mojom.TtsRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.Tts_Pause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resume() {
@@ -195,11 +179,7 @@ ax.mojom.TtsRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.Tts_Resume_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isSpeaking() {
@@ -208,11 +188,7 @@ ax.mojom.TtsRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.Tts_IsSpeaking_ParamsSpec,
       ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
-      ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getVoices() {
@@ -221,11 +197,7 @@ ax.mojom.TtsRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.Tts_GetVoices_ParamsSpec,
       ax.mojom.Tts_GetVoices_ResponseParamsSpec,
-      ax.mojom.Tts_GetVoices_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -250,7 +222,7 @@ ax.mojom.Tts_Speak_ParamsSpec = {
         { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,7 +235,7 @@ ax.mojom.Tts_Speak_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -276,7 +248,7 @@ ax.mojom.Tts_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -289,7 +261,7 @@ ax.mojom.Tts_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -302,7 +274,7 @@ ax.mojom.Tts_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -315,7 +287,7 @@ ax.mojom.Tts_IsSpeaking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +300,7 @@ ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
       fields: [
         { name: 'speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -341,7 +313,7 @@ ax.mojom.Tts_GetVoices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +326,7 @@ ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
       fields: [
         { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

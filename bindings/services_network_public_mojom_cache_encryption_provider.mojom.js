@@ -50,11 +50,7 @@ network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec,
       network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
       fields: [
         { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -157,11 +157,7 @@ blink.mojom.AIPageContentAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
       blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
-      blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
-      [request],
-      undefined,
-      undefined
-    );
+      [request]);
   }
 
 };
@@ -185,7 +181,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +194,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
       fields: [
         { name: 'page_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

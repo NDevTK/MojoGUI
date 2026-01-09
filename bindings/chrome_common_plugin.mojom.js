@@ -60,11 +60,7 @@ chrome.mojom.PluginHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.PluginHost_OpenPDF_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
 };
@@ -88,7 +84,7 @@ chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -139,11 +135,7 @@ chrome.mojom.PluginAuthHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
       null,
-      null,
-      [name, group_id],
-      undefined,
-      undefined
-    );
+      [name, group_id]);
   }
 
 };
@@ -168,7 +160,7 @@ chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -219,11 +211,7 @@ chrome.mojom.PluginInfoHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
       chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
-      chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
-      [url, origin, mime_type],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [url, origin, mime_type]);
   }
 
 };
@@ -249,7 +237,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
         { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -262,7 +250,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
       fields: [
         { name: 'plugin_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

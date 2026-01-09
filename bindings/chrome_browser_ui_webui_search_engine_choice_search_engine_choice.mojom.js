@@ -57,11 +57,7 @@ search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -85,7 +81,7 @@ search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -136,11 +132,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   handleSearchEngineChoiceSelected(prepopulate_id, save_guest_mode_selection) {
@@ -149,11 +141,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec,
       null,
-      null,
-      [prepopulate_id, save_guest_mode_selection],
-      undefined,
-      undefined
-    );
+      [prepopulate_id, save_guest_mode_selection]);
   }
 
   handleLearnMoreLinkClicked() {
@@ -162,11 +150,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   handleMoreButtonClicked() {
@@ -175,11 +159,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordScrollState(scroll_state) {
@@ -188,11 +168,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec,
       null,
-      null,
-      [scroll_state],
-      undefined,
-      undefined
-    );
+      [scroll_state]);
   }
 
 };
@@ -215,7 +191,7 @@ search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -230,7 +206,7 @@ search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSp
         { name: 'prepopulate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'save_guest_mode_selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -243,7 +219,7 @@ search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -256,7 +232,7 @@ search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -270,7 +246,7 @@ search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
       fields: [
         { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

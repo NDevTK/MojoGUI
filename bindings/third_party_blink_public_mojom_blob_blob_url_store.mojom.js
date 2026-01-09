@@ -50,11 +50,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobURLStore_Register_ParamsSpec,
       null,
-      null,
-      [blob, url],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [blob, url]);
   }
 
   revoke(url) {
@@ -63,11 +59,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobURLStore_Revoke_ParamsSpec,
       null,
-      null,
-      [url],
-      undefined,
-      undefined
-    );
+      [url]);
   }
 
   resolveAsURLLoaderFactory(url, factory) {
@@ -76,11 +68,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
       null,
-      null,
-      [url, factory],
-      undefined,
-      undefined
-    );
+      [url, factory]);
   }
 
   resolveAsBlobURLToken(url, token, is_top_level_navigation) {
@@ -89,11 +77,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
       null,
-      null,
-      [url, token, is_top_level_navigation],
-      undefined,
-      undefined
-    );
+      [url, token, is_top_level_navigation]);
   }
 
 };
@@ -118,7 +102,7 @@ blink.mojom.BlobURLStore_Register_ParamsSpec = {
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -132,7 +116,7 @@ blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -147,7 +131,7 @@ blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -163,7 +147,7 @@ blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
         { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'is_top_level_navigation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -214,11 +198,7 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobURLToken_Clone_ParamsSpec,
       null,
-      null,
-      [token],
-      undefined,
-      undefined
-    );
+      [token]);
   }
 
   getToken() {
@@ -227,11 +207,7 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobURLToken_GetToken_ParamsSpec,
       blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
-      blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -255,7 +231,7 @@ blink.mojom.BlobURLToken_Clone_ParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -268,7 +244,7 @@ blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -281,7 +257,7 @@ blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -101,11 +101,7 @@ downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -130,7 +126,7 @@ downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -181,11 +177,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       downloads.mojom.PageHandler_GetDownloads_ParamsSpec,
       null,
-      null,
-      [search_terms],
-      undefined,
-      undefined
-    );
+      [search_terms]);
   }
 
   openFileRequiringGesture(id) {
@@ -194,11 +186,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   drag(id) {
@@ -207,11 +195,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       downloads.mojom.PageHandler_Drag_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   saveSuspiciousRequiringGesture(id) {
@@ -220,11 +204,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   recordOpenBypassWarningDialog(id) {
@@ -233,11 +213,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   saveDangerousFromDialogRequiringGesture(id) {
@@ -246,11 +222,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   recordCancelBypassWarningDialog(id) {
@@ -259,11 +231,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   discardDangerous(id) {
@@ -272,11 +240,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   retryDownload(id) {
@@ -285,11 +249,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       downloads.mojom.PageHandler_RetryDownload_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   show(id) {
@@ -298,11 +258,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       downloads.mojom.PageHandler_Show_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   pause(id) {
@@ -311,11 +267,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       downloads.mojom.PageHandler_Pause_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   resume(id) {
@@ -324,11 +276,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       downloads.mojom.PageHandler_Resume_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   remove(id) {
@@ -337,11 +285,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       downloads.mojom.PageHandler_Remove_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   undo() {
@@ -350,11 +294,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       downloads.mojom.PageHandler_Undo_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancel(id) {
@@ -363,11 +303,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       downloads.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   clearAll() {
@@ -376,11 +312,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       downloads.mojom.PageHandler_ClearAll_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openDownloadsFolderRequiringGesture() {
@@ -389,11 +321,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openEsbSettings() {
@@ -402,11 +330,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   logEsbPromotionRowViewed() {
@@ -415,11 +339,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   openDuringScanningRequiringGesture(id) {
@@ -428,11 +348,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   reviewDangerousRequiringGesture(id) {
@@ -441,11 +357,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   deepScan(id) {
@@ -454,11 +366,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       downloads.mojom.PageHandler_DeepScan_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   bypassDeepScanRequiringGesture(id) {
@@ -467,11 +375,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       22,  // ordinal
       downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   isEligibleForEsbPromo() {
@@ -480,11 +384,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       23,  // ordinal
       downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
       downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
-      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -508,7 +408,7 @@ downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
       fields: [
         { name: 'search_terms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -522,7 +422,7 @@ downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -536,7 +436,7 @@ downloads.mojom.PageHandler_Drag_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -550,7 +450,7 @@ downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -564,7 +464,7 @@ downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -578,7 +478,7 @@ downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec =
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -592,7 +492,7 @@ downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -606,7 +506,7 @@ downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -620,7 +520,7 @@ downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -634,7 +534,7 @@ downloads.mojom.PageHandler_Show_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -648,7 +548,7 @@ downloads.mojom.PageHandler_Pause_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -662,7 +562,7 @@ downloads.mojom.PageHandler_Resume_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -676,7 +576,7 @@ downloads.mojom.PageHandler_Remove_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -689,7 +589,7 @@ downloads.mojom.PageHandler_Undo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -703,7 +603,7 @@ downloads.mojom.PageHandler_Cancel_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -716,7 +616,7 @@ downloads.mojom.PageHandler_ClearAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -729,7 +629,7 @@ downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -742,7 +642,7 @@ downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -755,7 +655,7 @@ downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -769,7 +669,7 @@ downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -783,7 +683,7 @@ downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -797,7 +697,7 @@ downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -811,7 +711,7 @@ downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -824,7 +724,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -837,7 +737,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -888,11 +788,7 @@ downloads.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       downloads.mojom.Page_RemoveItem_ParamsSpec,
       null,
-      null,
-      [index],
-      undefined,
-      undefined
-    );
+      [index]);
   }
 
   updateItem(index, data) {
@@ -901,11 +797,7 @@ downloads.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       downloads.mojom.Page_UpdateItem_ParamsSpec,
       null,
-      null,
-      [index, data],
-      undefined,
-      undefined
-    );
+      [index, data]);
   }
 
   insertItems(index, items) {
@@ -914,11 +806,7 @@ downloads.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       downloads.mojom.Page_InsertItems_ParamsSpec,
       null,
-      null,
-      [index, items],
-      undefined,
-      undefined
-    );
+      [index, items]);
   }
 
   clearAll() {
@@ -927,11 +815,7 @@ downloads.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       downloads.mojom.Page_ClearAll_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -955,7 +839,7 @@ downloads.mojom.Page_RemoveItem_ParamsSpec = {
       fields: [
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -970,7 +854,7 @@ downloads.mojom.Page_UpdateItem_ParamsSpec = {
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -985,7 +869,7 @@ downloads.mojom.Page_InsertItems_ParamsSpec = {
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -998,7 +882,7 @@ downloads.mojom.Page_ClearAll_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

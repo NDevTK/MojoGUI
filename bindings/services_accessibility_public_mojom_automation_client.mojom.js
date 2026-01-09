@@ -50,11 +50,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AutomationClient_Enable_ParamsSpec,
       ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
-      ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   disable() {
@@ -63,11 +59,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AutomationClient_Disable_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enableChildTree(tree_id) {
@@ -76,11 +68,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.AutomationClient_EnableChildTree_ParamsSpec,
       null,
-      null,
-      [tree_id],
-      undefined,
-      undefined
-    );
+      [tree_id]);
   }
 
   performAction(action_data) {
@@ -89,11 +77,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.AutomationClient_PerformAction_ParamsSpec,
       null,
-      null,
-      [action_data],
-      undefined,
-      undefined
-    );
+      [action_data]);
   }
 
 };
@@ -116,7 +100,7 @@ ax.mojom.AutomationClient_Enable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +113,7 @@ ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
       fields: [
         { name: 'desktop_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -142,7 +126,7 @@ ax.mojom.AutomationClient_Disable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +140,7 @@ ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
       fields: [
         { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +154,7 @@ ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
       fields: [
         { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

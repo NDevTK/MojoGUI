@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-09T19:07:59.389834Z",
+  "generated_at": "2026-01-09T19:33:17.367868Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1881,6 +1881,7 @@
         "SubscribeToPinCandidates",
         "CreateTask",
         "PerformActions",
+        "CancelActions",
         "StopActorTask",
         "PauseActorTask",
         "ResumeActorTask",

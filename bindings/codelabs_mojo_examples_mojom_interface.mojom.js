@@ -50,11 +50,7 @@ codelabs.mojom.ObjectARemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.ObjectA_DoA_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ codelabs.mojom.ObjectA_DoA_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -128,11 +124,7 @@ codelabs.mojom.ObjectBRemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.ObjectB_DoB_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -155,7 +147,7 @@ codelabs.mojom.ObjectB_DoB_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -206,11 +198,7 @@ codelabs.mojom.AssociatedProcessRemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec,
       null,
-      null,
-      [process],
-      undefined,
-      undefined
-    );
+      [process]);
   }
 
 };
@@ -234,7 +222,7 @@ codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = {
       fields: [
         { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -337,11 +325,7 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.Process_SayHello_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getAssociatedInterface(name, receiver) {
@@ -350,11 +334,7 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
       1,  // ordinal
       codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec,
       null,
-      null,
-      [name, receiver],
-      undefined,
-      undefined
-    );
+      [name, receiver]);
   }
 
 };
@@ -377,7 +357,7 @@ codelabs.mojom.Process_SayHello_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -392,7 +372,7 @@ codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

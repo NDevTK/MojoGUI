@@ -51,11 +51,7 @@ ash.trash_service.mojom.TrashServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
       ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
-      ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
-      [trash_info_file],
-      undefined,
-      undefined
-    );
+      [trash_info_file]);
   }
 
 };
@@ -79,7 +75,7 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
       fields: [
         { name: 'trash_info_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -94,7 +90,7 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
         { name: 'restore_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'deletion_date', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

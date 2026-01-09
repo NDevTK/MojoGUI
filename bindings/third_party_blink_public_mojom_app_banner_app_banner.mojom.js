@@ -56,11 +56,7 @@ blink.mojom.AppBannerControllerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
       blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
-      blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
-      [service, event_receiver, platform],
-      undefined,
-      undefined
-    );
+      [service, event_receiver, platform]);
   }
 
 };
@@ -86,7 +82,7 @@ blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
         { name: 'event_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'platform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -99,7 +95,7 @@ blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
       fields: [
         { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -150,11 +146,7 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
       null,
-      null,
-      [platform],
-      undefined,
-      undefined
-    );
+      [platform]);
   }
 
   bannerDismissed() {
@@ -163,11 +155,7 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -191,7 +179,7 @@ blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = {
       fields: [
         { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -204,7 +192,7 @@ blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -255,11 +243,7 @@ blink.mojom.AppBannerServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -282,7 +266,7 @@ blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

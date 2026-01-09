@@ -50,11 +50,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
       null,
-      null,
-      [extension_id, call_name, args, extra],
-      undefined,
-      undefined
-    );
+      [extension_id, call_name, args, extra]);
   }
 
   addEventToActivityLog(extension_id, call_name, args, extra) {
@@ -63,11 +59,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
       null,
-      null,
-      [extension_id, call_name, args, extra],
-      undefined,
-      undefined
-    );
+      [extension_id, call_name, args, extra]);
   }
 
   addDOMActionToActivityLog(extension_id, call_name, args, url, url_title, call_type) {
@@ -76,11 +68,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
       null,
-      null,
-      [extension_id, call_name, args, url, url_title, call_type],
-      undefined,
-      undefined
-    );
+      [extension_id, call_name, args, url, url_title, call_type]);
   }
 
   getMessageBundle(extension_id) {
@@ -89,11 +77,7 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec,
       extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
-      extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
-      [extension_id],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [extension_id]);
   }
 
 };
@@ -120,7 +104,7 @@ extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
         { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -137,7 +121,7 @@ extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
         { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +140,7 @@ extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
         { name: 'url_title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'call_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +154,7 @@ extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
       fields: [
         { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +167,7 @@ extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
       fields: [
         { name: 'message_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

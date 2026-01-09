@@ -50,11 +50,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec,
       webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
-      webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   writeTensor(src_buffer) {
@@ -63,11 +59,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       1,  // ordinal
       webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec,
       null,
-      null,
-      [src_buffer],
-      undefined,
-      undefined
-    );
+      [src_buffer]);
   }
 
   exportTensor() {
@@ -76,11 +68,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       2,  // ordinal
       webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   importTensor(fence) {
@@ -89,11 +77,7 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       3,  // ordinal
       webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec,
       null,
-      null,
-      [fence],
-      undefined,
-      undefined
-    );
+      [fence]);
   }
 
 };
@@ -116,7 +100,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,7 +113,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +127,7 @@ webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
       fields: [
         { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +140,7 @@ webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +154,7 @@ webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
       fields: [
         { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

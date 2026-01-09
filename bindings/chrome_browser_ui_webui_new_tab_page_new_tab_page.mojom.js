@@ -99,11 +99,7 @@ new_tab_page.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -128,7 +124,7 @@ new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -179,11 +175,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
-      null,
-      [shortcuts_type, shortcuts_visible],
-      undefined,
-      undefined
-    );
+      [shortcuts_type, shortcuts_visible]);
   }
 
   getMostVisitedSettings() {
@@ -192,11 +184,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec,
       new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec,
-      new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDoodle() {
@@ -205,11 +193,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec,
       new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec,
-      new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updatePromoData() {
@@ -218,11 +202,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   blocklistPromo(promo_id) {
@@ -231,11 +211,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec,
       null,
-      null,
-      [promo_id],
-      undefined,
-      undefined
-    );
+      [promo_id]);
   }
 
   undoBlocklistPromo(promo_id) {
@@ -244,11 +220,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec,
       null,
-      null,
-      [promo_id],
-      undefined,
-      undefined
-    );
+      [promo_id]);
   }
 
   onDismissModule(module_id) {
@@ -257,11 +229,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec,
       null,
-      null,
-      [module_id],
-      undefined,
-      undefined
-    );
+      [module_id]);
   }
 
   onRestoreModule(module_id) {
@@ -270,11 +238,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec,
       null,
-      null,
-      [module_id],
-      undefined,
-      undefined
-    );
+      [module_id]);
   }
 
   setModulesVisible(visible) {
@@ -283,11 +247,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   updateDisabledModules() {
@@ -296,11 +256,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onModulesLoadedWithData(module_ids) {
@@ -309,11 +265,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec,
       null,
-      null,
-      [module_ids],
-      undefined,
-      undefined
-    );
+      [module_ids]);
   }
 
   onModuleUsed(module_id) {
@@ -322,11 +274,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec,
       null,
-      null,
-      [module_id],
-      undefined,
-      undefined
-    );
+      [module_id]);
   }
 
   getModulesIdNames() {
@@ -335,11 +283,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec,
       new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec,
-      new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getModulesEligibleForRemoval() {
@@ -348,11 +292,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec,
       new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec,
-      new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setModulesOrder(module_ids) {
@@ -361,11 +301,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec,
       null,
-      null,
-      [module_ids],
-      undefined,
-      undefined
-    );
+      [module_ids]);
   }
 
   getModulesOrder() {
@@ -374,11 +310,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec,
       new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec,
-      new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateModulesLoadable() {
@@ -387,11 +319,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setModulesDisabled(module_ids, disabled, is_user_action) {
@@ -400,11 +328,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec,
       null,
-      null,
-      [module_ids, disabled, is_user_action],
-      undefined,
-      undefined
-    );
+      [module_ids, disabled, is_user_action]);
   }
 
   updateActionChipsVisibility() {
@@ -413,11 +337,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateFooterVisibility() {
@@ -426,11 +346,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   incrementComposeButtonShownCount() {
@@ -439,11 +355,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   maybeTriggerAutomaticCustomizeChromePromo() {
@@ -452,11 +364,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   recordContextMenuClick() {
@@ -465,11 +373,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       22,  // ordinal
       new_tab_page.mojom.PageHandler_RecordContextMenuClick_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onOneGoogleBarRendered(time) {
@@ -478,11 +382,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       23,  // ordinal
       new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec,
       null,
-      null,
-      [time],
-      undefined,
-      undefined
-    );
+      [time]);
   }
 
   onPromoRendered(time, log_url) {
@@ -491,11 +391,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       24,  // ordinal
       new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec,
       null,
-      null,
-      [time, log_url],
-      undefined,
-      undefined
-    );
+      [time, log_url]);
   }
 
   onCustomizeDialogAction(action) {
@@ -504,11 +400,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       25,  // ordinal
       new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec,
       null,
-      null,
-      [action],
-      undefined,
-      undefined
-    );
+      [action]);
   }
 
   onDoodleImageClicked(type, log_url) {
@@ -517,11 +409,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       26,  // ordinal
       new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec,
       null,
-      null,
-      [type, log_url],
-      undefined,
-      undefined
-    );
+      [type, log_url]);
   }
 
   onDoodleImageRendered(type, time, log_url) {
@@ -530,11 +418,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       27,  // ordinal
       new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec,
       new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec,
-      new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec,
-      [type, time, log_url],
-      undefined,
-      undefined
-    );
+      [type, time, log_url]);
   }
 
   onDoodleShared(channel, doodle_id, share_id) {
@@ -543,11 +427,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       28,  // ordinal
       new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec,
       null,
-      null,
-      [channel, doodle_id, share_id],
-      undefined,
-      undefined
-    );
+      [channel, doodle_id, share_id]);
   }
 
   onPromoLinkClicked() {
@@ -556,11 +436,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       29,  // ordinal
       new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onAppRendered(time) {
@@ -569,11 +445,7 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       30,  // ordinal
       new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec,
       null,
-      null,
-      [time],
-      undefined,
-      undefined
-    );
+      [time]);
   }
 
 };
@@ -598,7 +470,7 @@ new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec = {
         { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -611,7 +483,7 @@ new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -625,7 +497,7 @@ new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec = {
         { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -638,7 +510,7 @@ new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -651,7 +523,7 @@ new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec = {
       fields: [
         { name: 'doodle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -664,7 +536,7 @@ new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -678,7 +550,7 @@ new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec = {
       fields: [
         { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -692,7 +564,7 @@ new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec = {
       fields: [
         { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -706,7 +578,7 @@ new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec = {
       fields: [
         { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -720,7 +592,7 @@ new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec = {
       fields: [
         { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -734,7 +606,7 @@ new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -747,7 +619,7 @@ new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -761,7 +633,7 @@ new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec = {
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -775,7 +647,7 @@ new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec = {
       fields: [
         { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -788,7 +660,7 @@ new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -801,7 +673,7 @@ new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec = {
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -814,7 +686,7 @@ new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -827,7 +699,7 @@ new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec =
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -841,7 +713,7 @@ new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec = {
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -854,7 +726,7 @@ new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -867,7 +739,7 @@ new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec = {
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -880,7 +752,7 @@ new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -896,7 +768,7 @@ new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec = {
         { name: 'disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'is_user_action', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -909,7 +781,7 @@ new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -922,7 +794,7 @@ new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -935,7 +807,7 @@ new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -948,7 +820,7 @@ new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -961,7 +833,7 @@ new_tab_page.mojom.PageHandler_RecordContextMenuClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -975,7 +847,7 @@ new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec = {
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -990,7 +862,7 @@ new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec = {
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1004,7 +876,7 @@ new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec = {
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1019,7 +891,7 @@ new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec = {
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1035,7 +907,7 @@ new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec = {
         { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'log_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1050,7 +922,7 @@ new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec = {
         { name: 'interaction_log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'share_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1066,7 +938,7 @@ new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec = {
         { name: 'doodle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'share_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1079,7 +951,7 @@ new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1093,7 +965,7 @@ new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec = {
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1144,11 +1016,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page.mojom.Page_SetTheme_ParamsSpec,
       null,
-      null,
-      [theme],
-      undefined,
-      undefined
-    );
+      [theme]);
   }
 
   setDisabledModules(all, ids) {
@@ -1157,11 +1025,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec,
       null,
-      null,
-      [all, ids],
-      undefined,
-      undefined
-    );
+      [all, ids]);
   }
 
   setModulesLoadable() {
@@ -1170,11 +1034,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setActionChipsVisibility(visible) {
@@ -1183,11 +1043,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   setPromo(promo) {
@@ -1196,11 +1052,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       new_tab_page.mojom.Page_SetPromo_ParamsSpec,
       null,
-      null,
-      [promo],
-      undefined,
-      undefined
-    );
+      [promo]);
   }
 
   showWebstoreToast() {
@@ -1209,11 +1061,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setWallpaperSearchButtonVisibility(visible) {
@@ -1222,11 +1070,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   footerVisibilityUpdated(visible) {
@@ -1235,11 +1079,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   connectToParentDocument(child_untrusted_document_remote) {
@@ -1248,11 +1088,7 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec,
       null,
-      null,
-      [child_untrusted_document_remote],
-      undefined,
-      undefined
-    );
+      [child_untrusted_document_remote]);
   }
 
 };
@@ -1276,7 +1112,7 @@ new_tab_page.mojom.Page_SetTheme_ParamsSpec = {
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1291,7 +1127,7 @@ new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec = {
         { name: 'all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1304,7 +1140,7 @@ new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1318,7 +1154,7 @@ new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1332,7 +1168,7 @@ new_tab_page.mojom.Page_SetPromo_ParamsSpec = {
       fields: [
         { name: 'promo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1345,7 +1181,7 @@ new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1359,7 +1195,7 @@ new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1373,7 +1209,7 @@ new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1387,7 +1223,7 @@ new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec = {
       fields: [
         { name: 'child_untrusted_document_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

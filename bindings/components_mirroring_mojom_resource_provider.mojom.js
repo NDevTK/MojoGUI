@@ -50,11 +50,7 @@ mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
       null,
-      null,
-      [stream, client_receiver, data_pipe],
-      undefined,
-      undefined
-    );
+      [stream, client_receiver, data_pipe]);
   }
 
 };
@@ -80,7 +76,7 @@ mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
         { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   getVideoCaptureHost(receiver) {
@@ -144,11 +136,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       1,  // ordinal
       mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   getVideoEncoderMetricsProvider(receiver) {
@@ -157,11 +145,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       2,  // ordinal
       mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   getNetworkContext(receiver) {
@@ -170,11 +154,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       3,  // ordinal
       mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   createAudioStream(client, param, shared_memory_count) {
@@ -183,11 +163,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       4,  // ordinal
       mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
       null,
-      null,
-      [client, param, shared_memory_count],
-      undefined,
-      undefined
-    );
+      [client, param, shared_memory_count]);
   }
 
   connectToRemotingSource(remoter, receiver) {
@@ -196,11 +172,7 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       5,  // ordinal
       mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
       null,
-      null,
-      [remoter, receiver],
-      undefined,
-      undefined
-    );
+      [remoter, receiver]);
   }
 
 };
@@ -224,7 +196,7 @@ mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -238,7 +210,7 @@ mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -252,7 +224,7 @@ mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -266,7 +238,7 @@ mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -282,7 +254,7 @@ mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
         { name: 'param', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'shared_memory_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -297,7 +269,7 @@ mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = {
         { name: 'remoter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -59,11 +59,7 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SimpleCacheEntry_WriteData_ParamsSpec,
       network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec,
-      network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec,
-      [index, offset, data, truncate],
-      undefined,
-      undefined
-    );
+      [index, offset, data, truncate]);
   }
 
   readData(index, offset, length) {
@@ -72,11 +68,7 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SimpleCacheEntry_ReadData_ParamsSpec,
       network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec,
-      network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec,
-      [index, offset, length],
-      undefined,
-      undefined
-    );
+      [index, offset, length]);
   }
 
   writeSparseData(offset, data) {
@@ -85,11 +77,7 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec,
       network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec,
-      network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec,
-      [offset, data],
-      undefined,
-      undefined
-    );
+      [offset, data]);
   }
 
   readSparseData(offset, length) {
@@ -98,11 +86,7 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec,
       network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec,
-      network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec,
-      [offset, length],
-      undefined,
-      undefined
-    );
+      [offset, length]);
   }
 
   close() {
@@ -111,11 +95,7 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.SimpleCacheEntry_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -142,7 +122,7 @@ network.mojom.SimpleCacheEntry_WriteData_ParamsSpec = {
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'truncate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,7 +135,7 @@ network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -171,7 +151,7 @@ network.mojom.SimpleCacheEntry_ReadData_ParamsSpec = {
         { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -185,7 +165,7 @@ network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -200,7 +180,7 @@ network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -213,7 +193,7 @@ network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -228,7 +208,7 @@ network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec = {
         { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -242,7 +222,7 @@ network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -255,7 +235,7 @@ network.mojom.SimpleCacheEntry_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -306,11 +286,7 @@ network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec,
       network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec,
-      network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -333,7 +309,7 @@ network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -346,7 +322,7 @@ network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -397,11 +373,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SimpleCache_CreateEntry_ParamsSpec,
       network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec,
-      network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec,
-      [key],
-      undefined,
-      undefined
-    );
+      [key]);
   }
 
   openEntry(key) {
@@ -410,11 +382,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SimpleCache_OpenEntry_ParamsSpec,
       network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec,
-      network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec,
-      [key],
-      undefined,
-      undefined
-    );
+      [key]);
   }
 
   doomEntry(key) {
@@ -423,11 +391,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.SimpleCache_DoomEntry_ParamsSpec,
       network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec,
-      network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec,
-      [key],
-      undefined,
-      undefined
-    );
+      [key]);
   }
 
   doomAllEntries() {
@@ -436,11 +400,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.SimpleCache_DoomAllEntries_ParamsSpec,
       network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec,
-      network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   enumerateEntries(receiver) {
@@ -449,11 +409,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.SimpleCache_EnumerateEntries_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   detach() {
@@ -462,11 +418,7 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.SimpleCache_Detach_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -490,7 +442,7 @@ network.mojom.SimpleCache_CreateEntry_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -504,7 +456,7 @@ network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec = {
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -518,7 +470,7 @@ network.mojom.SimpleCache_OpenEntry_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -532,7 +484,7 @@ network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec = {
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -546,7 +498,7 @@ network.mojom.SimpleCache_DoomEntry_ParamsSpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -559,7 +511,7 @@ network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -572,7 +524,7 @@ network.mojom.SimpleCache_DoomAllEntries_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -585,7 +537,7 @@ network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -599,7 +551,7 @@ network.mojom.SimpleCache_EnumerateEntries_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -612,7 +564,7 @@ network.mojom.SimpleCache_Detach_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -663,11 +615,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkServiceTest_AddRules_ParamsSpec,
       null,
-      null,
-      [rules],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [rules]);
   }
 
   simulateNetworkChange(type) {
@@ -676,11 +624,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec,
       null,
-      null,
-      [type],
-      undefined,
-      undefined
-    );
+      [type]);
   }
 
   simulateNetworkQualityChange(type) {
@@ -689,11 +633,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec,
       null,
-      null,
-      [type],
-      undefined,
-      undefined
-    );
+      [type]);
   }
 
   forceNetworkQualityEstimatorReportWifiAsSlow2G() {
@@ -702,11 +642,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   simulateCrash() {
@@ -715,11 +651,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   mockCertVerifierSetDefaultResult(default_result) {
@@ -728,11 +660,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec,
       null,
-      null,
-      [default_result],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [default_result]);
   }
 
   mockCertVerifierAddResultForCertAndHost(cert, host_pattern, verify_result, rv) {
@@ -741,11 +669,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec,
       null,
-      null,
-      [cert, host_pattern, verify_result, rv],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [cert, host_pattern, verify_result, rv]);
   }
 
   setTransportSecurityStateTestSource(enable_unittest_source) {
@@ -754,11 +678,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec,
       null,
-      null,
-      [enable_unittest_source],
-      undefined,
-      undefined
-    );
+      [enable_unittest_source]);
   }
 
   setAllowNetworkAccessToHostResolutions() {
@@ -767,11 +687,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   replaceSystemDnsConfig() {
@@ -780,11 +696,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   setTestDohConfig(secure_dns_mode, doh_config) {
@@ -793,11 +705,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec,
       null,
-      null,
-      [secure_dns_mode, doh_config],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [secure_dns_mode, doh_config]);
   }
 
   crashOnResolveHost(host) {
@@ -806,11 +714,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec,
       null,
-      null,
-      [host],
-      undefined,
-      undefined
-    );
+      [host]);
   }
 
   crashOnGetCookieList() {
@@ -819,11 +723,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       12,  // ordinal
       network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getLatestMemoryPressureLevel() {
@@ -832,11 +732,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       13,  // ordinal
       network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec,
       network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   getPeerToPeerConnectionsCountChange() {
@@ -845,11 +741,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       14,  // ordinal
       network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec,
       network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   getEnvironmentVariableValue(name) {
@@ -858,11 +750,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       15,  // ordinal
       network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec,
       network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec,
-      [name],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [name]);
   }
 
   log(message) {
@@ -871,11 +759,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       16,  // ordinal
       network.mojom.NetworkServiceTest_Log_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [message]);
   }
 
   activateFieldTrial(field_trial_name) {
@@ -884,11 +768,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       17,  // ordinal
       network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec,
       null,
-      null,
-      [field_trial_name],
-      undefined,
-      undefined
-    );
+      [field_trial_name]);
   }
 
   setSCTAuditingRetryDelay(delay) {
@@ -897,11 +777,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       18,  // ordinal
       network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec,
       null,
-      null,
-      [delay],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [delay]);
   }
 
   openFile(path) {
@@ -910,11 +786,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       19,  // ordinal
       network.mojom.NetworkServiceTest_OpenFile_ParamsSpec,
       network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec,
-      [path],
-      undefined,
-      undefined
-    );
+      [path]);
   }
 
   enumerateFiles(path, factory) {
@@ -923,11 +795,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       20,  // ordinal
       network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec,
       network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec,
-      [path, factory],
-      undefined,
-      undefined
-    );
+      [path, factory]);
   }
 
   createSimpleCache(factory, path, reset) {
@@ -936,11 +804,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       21,  // ordinal
       network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec,
       network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec,
-      [factory, path, reset],
-      undefined,
-      undefined
-    );
+      [factory, path, reset]);
   }
 
   makeRequestToServer(s, endpoint) {
@@ -949,11 +813,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       22,  // ordinal
       network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec,
       network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec,
-      [s, endpoint],
-      undefined,
-      undefined
-    );
+      [s, endpoint]);
   }
 
   resolveOwnHostnameWithSystemDns() {
@@ -962,11 +822,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       23,  // ordinal
       network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec,
       network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setIPv6ProbeResult(success) {
@@ -975,11 +831,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       24,  // ordinal
       network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec,
       null,
-      null,
-      [success],
-      undefined,
-      undefined
-    );
+      [success]);
   }
 
   getAddressMapCacheLinux() {
@@ -988,11 +840,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       25,  // ordinal
       network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec,
       network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   allowsGSSAPILibraryLoad() {
@@ -1001,11 +849,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       26,  // ordinal
       network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec,
       network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   disableExclusiveCookieDatabaseLockingForTesting() {
@@ -1014,11 +858,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       27,  // ordinal
       network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   isHappyEyeballsV3Enabled() {
@@ -1027,11 +867,7 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       28,  // ordinal
       network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec,
       network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec,
-      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -1055,7 +891,7 @@ network.mojom.NetworkServiceTest_AddRules_ParamsSpec = {
       fields: [
         { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1069,7 +905,7 @@ network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1083,7 +919,7 @@ network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec = {
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1096,7 +932,7 @@ network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1109,7 +945,7 @@ network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1123,7 +959,7 @@ network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec = {
       fields: [
         { name: 'default_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1140,7 +976,7 @@ network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsS
         { name: 'verify_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'rv', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1154,7 +990,7 @@ network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec 
       fields: [
         { name: 'enable_unittest_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1167,7 +1003,7 @@ network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1180,7 +1016,7 @@ network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1195,7 +1031,7 @@ network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec = {
         { name: 'secure_dns_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'doh_config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1209,7 +1045,7 @@ network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec = {
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1222,7 +1058,7 @@ network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1235,7 +1071,7 @@ network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1248,7 +1084,7 @@ network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec
       fields: [
         { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1261,7 +1097,7 @@ network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1274,7 +1110,7 @@ network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponsePar
       fields: [
         { name: 'connection_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1288,7 +1124,7 @@ network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1301,7 +1137,7 @@ network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec 
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1315,7 +1151,7 @@ network.mojom.NetworkServiceTest_Log_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1329,7 +1165,7 @@ network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec = {
       fields: [
         { name: 'field_trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1343,7 +1179,7 @@ network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec = {
       fields: [
         { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1357,7 +1193,7 @@ network.mojom.NetworkServiceTest_OpenFile_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1370,7 +1206,7 @@ network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1385,7 +1221,7 @@ network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec = {
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1399,7 +1235,7 @@ network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec = {
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1415,7 +1251,7 @@ network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec = {
         { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'reset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1428,7 +1264,7 @@ network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec = {
       fields: [
         { name: 'backend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1443,7 +1279,7 @@ network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec = {
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1456,7 +1292,7 @@ network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1469,7 +1305,7 @@ network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1484,7 +1320,7 @@ network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsS
         { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1498,7 +1334,7 @@ network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1511,7 +1347,7 @@ network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1525,7 +1361,7 @@ network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec = {
         { name: 'addr_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1538,7 +1374,7 @@ network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1551,7 +1387,7 @@ network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec = {
       fields: [
         { name: 'allow_gssapi_library_load', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1564,7 +1400,7 @@ network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1577,7 +1413,7 @@ network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -1590,7 +1426,7 @@ network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec = {
       fields: [
         { name: 'is_happy_eyeballs_v3_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

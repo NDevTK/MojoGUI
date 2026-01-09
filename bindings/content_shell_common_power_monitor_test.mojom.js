@@ -50,11 +50,7 @@ content.mojom.PowerMonitorTestRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
       content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
-      content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
       fields: [
         { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

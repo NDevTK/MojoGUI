@@ -50,11 +50,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.Service_OnStart_ParamsSpec,
       service_manager.mojom.Service_OnStart_ResponseParamsSpec,
-      service_manager.mojom.Service_OnStart_ResponseParamsSpec,
-      [identity],
-      undefined,
-      undefined
-    );
+      [identity]);
   }
 
   onBindInterface(source, interface_name, interface_pipe) {
@@ -63,11 +59,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
       1,  // ordinal
       service_manager.mojom.Service_OnBindInterface_ParamsSpec,
       null,
-      null,
-      [source, interface_name, interface_pipe],
-      undefined,
-      undefined
-    );
+      [source, interface_name, interface_pipe]);
   }
 
   createPackagedServiceInstance(identity, receiver, metadata) {
@@ -76,11 +68,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
       2,  // ordinal
       service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
       null,
-      null,
-      [identity, receiver, metadata],
-      undefined,
-      undefined
-    );
+      [identity, receiver, metadata]);
   }
 
 };
@@ -104,7 +92,7 @@ service_manager.mojom.Service_OnStart_ParamsSpec = {
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +106,7 @@ service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
         { name: 'connector_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'control_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -134,7 +122,7 @@ service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
         { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -150,7 +138,7 @@ service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

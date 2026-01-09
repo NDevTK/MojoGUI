@@ -50,11 +50,7 @@ network.mojom.ObliviousHttpClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
       null,
-      null,
-      [response],
-      undefined,
-      undefined
-    );
+      [response]);
   }
 
 };
@@ -78,7 +74,7 @@ network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

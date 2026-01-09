@@ -85,11 +85,7 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ImageCapture_GetPhotoState_ParamsSpec,
       media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
-      media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
-      [source_id],
-      undefined,
-      undefined
-    );
+      [source_id]);
   }
 
   setPhotoOptions(source_id, settings) {
@@ -98,11 +94,7 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
       media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
-      media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
-      [source_id, settings],
-      undefined,
-      undefined
-    );
+      [source_id, settings]);
   }
 
   takePhoto(source_id) {
@@ -111,11 +103,7 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.ImageCapture_TakePhoto_ParamsSpec,
       media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
-      media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
-      [source_id],
-      undefined,
-      undefined
-    );
+      [source_id]);
   }
 
 };
@@ -139,7 +127,7 @@ media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -152,7 +140,7 @@ media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -167,7 +155,7 @@ media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -180,7 +168,7 @@ media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -194,7 +182,7 @@ media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -207,7 +195,7 @@ media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

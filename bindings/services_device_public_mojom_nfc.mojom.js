@@ -78,11 +78,7 @@ device.mojom.NFCRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.NFC_SetClient_ParamsSpec,
       null,
-      null,
-      [client],
-      undefined,
-      undefined
-    );
+      [client]);
   }
 
   push(message, options) {
@@ -91,11 +87,7 @@ device.mojom.NFCRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.NFC_Push_ParamsSpec,
       device.mojom.NFC_Push_ResponseParamsSpec,
-      device.mojom.NFC_Push_ResponseParamsSpec,
-      [message, options],
-      undefined,
-      undefined
-    );
+      [message, options]);
   }
 
   cancelPush() {
@@ -104,11 +96,7 @@ device.mojom.NFCRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.NFC_CancelPush_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   makeReadOnly() {
@@ -117,11 +105,7 @@ device.mojom.NFCRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.NFC_MakeReadOnly_ParamsSpec,
       device.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
-      device.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   cancelMakeReadOnly() {
@@ -130,11 +114,7 @@ device.mojom.NFCRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.NFC_CancelMakeReadOnly_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   watch(id) {
@@ -143,11 +123,7 @@ device.mojom.NFCRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.NFC_Watch_ParamsSpec,
       device.mojom.NFC_Watch_ResponseParamsSpec,
-      device.mojom.NFC_Watch_ResponseParamsSpec,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
   cancelWatch(id) {
@@ -156,11 +132,7 @@ device.mojom.NFCRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.NFC_CancelWatch_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
 };
@@ -184,7 +156,7 @@ device.mojom.NFC_SetClient_ParamsSpec = {
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -199,7 +171,7 @@ device.mojom.NFC_Push_ParamsSpec = {
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +184,7 @@ device.mojom.NFC_Push_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +197,7 @@ device.mojom.NFC_CancelPush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -238,7 +210,7 @@ device.mojom.NFC_MakeReadOnly_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -251,7 +223,7 @@ device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -264,7 +236,7 @@ device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -278,7 +250,7 @@ device.mojom.NFC_Watch_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -291,7 +263,7 @@ device.mojom.NFC_Watch_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -305,7 +277,7 @@ device.mojom.NFC_CancelWatch_ParamsSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -356,11 +328,7 @@ device.mojom.NFCClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.NFCClient_OnWatch_ParamsSpec,
       null,
-      null,
-      [watch_ids, serial_number, message],
-      undefined,
-      undefined
-    );
+      [watch_ids, serial_number, message]);
   }
 
   onError(error) {
@@ -369,11 +337,7 @@ device.mojom.NFCClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.NFCClient_OnError_ParamsSpec,
       null,
-      null,
-      [error],
-      undefined,
-      undefined
-    );
+      [error]);
   }
 
 };
@@ -399,7 +363,7 @@ device.mojom.NFCClient_OnWatch_ParamsSpec = {
         { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -413,7 +377,7 @@ device.mojom.NFCClient_OnError_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -464,11 +428,7 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.RawNFCClient_OnWatch_ParamsSpec,
       null,
-      null,
-      [watch_ids, message],
-      undefined,
-      undefined
-    );
+      [watch_ids, message]);
   }
 
   onError(error) {
@@ -477,11 +437,7 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.RawNFCClient_OnError_ParamsSpec,
       null,
-      null,
-      [error],
-      undefined,
-      undefined
-    );
+      [error]);
   }
 
 };
@@ -506,7 +462,7 @@ device.mojom.RawNFCClient_OnWatch_ParamsSpec = {
         { name: 'watch_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -520,7 +476,7 @@ device.mojom.RawNFCClient_OnError_ParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

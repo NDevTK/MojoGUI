@@ -56,11 +56,7 @@ blink.mojom.IdleMonitorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IdleMonitor_Update_ParamsSpec,
       null,
-      null,
-      [state, is_overridden_by_devtools],
-      undefined,
-      undefined
-    );
+      [state, is_overridden_by_devtools]);
   }
 
 };
@@ -85,7 +81,7 @@ blink.mojom.IdleMonitor_Update_ParamsSpec = {
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'is_overridden_by_devtools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -136,11 +132,7 @@ blink.mojom.IdleManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IdleManager_AddMonitor_ParamsSpec,
       blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
-      blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
-      [monitor],
-      undefined,
-      undefined
-    );
+      [monitor]);
   }
 
 };
@@ -164,7 +156,7 @@ blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
       fields: [
         { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -178,7 +170,7 @@ blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

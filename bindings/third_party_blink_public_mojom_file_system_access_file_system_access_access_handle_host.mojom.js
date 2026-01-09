@@ -50,11 +50,7 @@ blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

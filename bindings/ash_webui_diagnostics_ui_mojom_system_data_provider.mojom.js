@@ -65,11 +65,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
       null,
-      null,
-      [battery_charge_status],
-      undefined,
-      undefined
-    );
+      [battery_charge_status]);
   }
 
 };
@@ -93,7 +89,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_P
       fields: [
         { name: 'battery_charge_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,11 +140,7 @@ ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
       null,
-      null,
-      [battery_health],
-      undefined,
-      undefined
-    );
+      [battery_health]);
   }
 
 };
@@ -172,7 +164,7 @@ ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = 
       fields: [
         { name: 'battery_health', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,11 +215,7 @@ ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
       null,
-      null,
-      [memory_usage],
-      undefined,
-      undefined
-    );
+      [memory_usage]);
   }
 
 };
@@ -251,7 +239,7 @@ ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
       fields: [
         { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -302,11 +290,7 @@ ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
       null,
-      null,
-      [cpu_usage],
-      undefined,
-      undefined
-    );
+      [cpu_usage]);
   }
 
 };
@@ -330,7 +314,7 @@ ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
       fields: [
         { name: 'cpu_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -381,11 +365,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
       ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
-      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getBatteryInfo() {
@@ -394,11 +374,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
       ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
-      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   observeBatteryChargeStatus(observer) {
@@ -407,11 +383,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeBatteryHealth(observer) {
@@ -420,11 +392,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeMemoryUsage(observer) {
@@ -433,11 +401,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   observeCpuUsage(observer) {
@@ -446,11 +410,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
 };
@@ -473,7 +433,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -486,7 +446,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
       fields: [
         { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -499,7 +459,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -512,7 +472,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
       fields: [
         { name: 'battery_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -526,7 +486,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec =
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -540,7 +500,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -554,7 +514,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -568,7 +528,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

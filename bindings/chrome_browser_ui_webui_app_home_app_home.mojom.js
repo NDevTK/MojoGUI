@@ -64,11 +64,7 @@ app_home.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -93,7 +89,7 @@ app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,11 +140,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       app_home.mojom.PageHandler_GetApps_ParamsSpec,
       app_home.mojom.PageHandler_GetApps_ResponseParamsSpec,
-      app_home.mojom.PageHandler_GetApps_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getDeprecationLinkString() {
@@ -157,11 +149,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec,
       app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec,
-      app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   uninstallApp(app_id) {
@@ -170,11 +158,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       app_home.mojom.PageHandler_UninstallApp_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   showAppSettings(app_id) {
@@ -183,11 +167,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   createAppShortcut(app_id) {
@@ -196,11 +176,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   launchApp(app_id, click_event) {
@@ -209,11 +185,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       app_home.mojom.PageHandler_LaunchApp_ParamsSpec,
       null,
-      null,
-      [app_id, click_event],
-      undefined,
-      undefined
-    );
+      [app_id, click_event]);
   }
 
   setRunOnOsLoginMode(app_id, run_on_os_login_mode) {
@@ -222,11 +194,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
-      null,
-      [app_id, run_on_os_login_mode],
-      undefined,
-      undefined
-    );
+      [app_id, run_on_os_login_mode]);
   }
 
   launchDeprecatedAppDialog() {
@@ -235,11 +203,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   installAppLocally(app_id) {
@@ -248,11 +212,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec,
       null,
-      null,
-      [app_id],
-      undefined,
-      undefined
-    );
+      [app_id]);
   }
 
   setUserDisplayMode(app_id, display_mode) {
@@ -261,11 +221,7 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec,
       null,
-      null,
-      [app_id, display_mode],
-      undefined,
-      undefined
-    );
+      [app_id, display_mode]);
   }
 
 };
@@ -288,7 +244,7 @@ app_home.mojom.PageHandler_GetApps_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -301,7 +257,7 @@ app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = {
       fields: [
         { name: 'app_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -314,7 +270,7 @@ app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -327,7 +283,7 @@ app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
       fields: [
         { name: 'link_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -341,7 +297,7 @@ app_home.mojom.PageHandler_UninstallApp_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -355,7 +311,7 @@ app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -369,7 +325,7 @@ app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -384,7 +340,7 @@ app_home.mojom.PageHandler_LaunchApp_ParamsSpec = {
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'click_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -399,7 +355,7 @@ app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -412,7 +368,7 @@ app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -426,7 +382,7 @@ app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -441,7 +397,7 @@ app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = {
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'display_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -492,11 +448,7 @@ app_home.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       app_home.mojom.Page_AddApp_ParamsSpec,
       null,
-      null,
-      [app_info],
-      undefined,
-      undefined
-    );
+      [app_info]);
   }
 
   removeApp(app_info) {
@@ -505,11 +457,7 @@ app_home.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       app_home.mojom.Page_RemoveApp_ParamsSpec,
       null,
-      null,
-      [app_info],
-      undefined,
-      undefined
-    );
+      [app_info]);
   }
 
   updateApp(app_info) {
@@ -518,11 +466,7 @@ app_home.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       app_home.mojom.Page_UpdateApp_ParamsSpec,
       null,
-      null,
-      [app_info],
-      undefined,
-      undefined
-    );
+      [app_info]);
   }
 
 };
@@ -546,7 +490,7 @@ app_home.mojom.Page_AddApp_ParamsSpec = {
       fields: [
         { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -560,7 +504,7 @@ app_home.mojom.Page_RemoveApp_ParamsSpec = {
       fields: [
         { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -574,7 +518,7 @@ app_home.mojom.Page_UpdateApp_ParamsSpec = {
       fields: [
         { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

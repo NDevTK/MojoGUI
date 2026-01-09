@@ -50,11 +50,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passFormFieldData(s) {
@@ -63,11 +59,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passFormDataPredictions(s) {
@@ -76,11 +68,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passFormFieldDataPredictions(s) {
@@ -89,11 +77,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passPasswordFormFillData(s) {
@@ -102,11 +86,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passPasswordFormGenerationData(s) {
@@ -115,11 +95,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passPasswordGenerationUIData(s) {
@@ -128,11 +104,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
   passPasswordSuggestionRequest(s) {
@@ -141,11 +113,7 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec,
-      autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec,
-      [s],
-      undefined,
-      undefined
-    );
+      [s]);
   }
 
 };
@@ -169,7 +137,7 @@ autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -182,7 +150,7 @@ autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = {
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +164,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -209,7 +177,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec = {
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +191,7 @@ autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +204,7 @@ autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec = {
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -250,7 +218,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -263,7 +231,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec = 
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -277,7 +245,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -290,7 +258,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec = {
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -304,7 +272,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -317,7 +285,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec 
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -331,7 +299,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -344,7 +312,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec = 
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -358,7 +326,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = {
       fields: [
         { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -371,7 +339,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec =
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

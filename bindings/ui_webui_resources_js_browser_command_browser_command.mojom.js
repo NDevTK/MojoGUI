@@ -74,11 +74,7 @@ browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
       null,
-      null,
-      [handler],
-      undefined,
-      undefined
-    );
+      [handler]);
   }
 
 };
@@ -102,7 +98,7 @@ browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSp
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -153,11 +149,7 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
       0,  // ordinal
       browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
       browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
-      browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
-      [command_id],
-      undefined,
-      undefined
-    );
+      [command_id]);
   }
 
   executeCommand(command_id, click_info) {
@@ -166,11 +158,7 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
       1,  // ordinal
       browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
       browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
-      browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
-      [command_id, click_info],
-      undefined,
-      undefined
-    );
+      [command_id, click_info]);
   }
 
 };
@@ -194,7 +182,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
       fields: [
         { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -207,7 +195,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
       fields: [
         { name: 'can_execute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -222,7 +210,7 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
         { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'click_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -235,7 +223,7 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
       fields: [
         { name: 'command_executed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -50,11 +50,7 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DataPipeGetter_Read_ParamsSpec,
       network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
-      network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
-      [pipe],
-      undefined,
-      undefined
-    );
+      [pipe]);
   }
 
   clone(receiver) {
@@ -63,11 +59,7 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DataPipeGetter_Clone_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -91,7 +83,7 @@ network.mojom.DataPipeGetter_Read_ParamsSpec = {
       fields: [
         { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ network.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -119,7 +111,7 @@ network.mojom.DataPipeGetter_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

@@ -57,11 +57,7 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
       0,  // ordinal
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec,
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
-      language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getLanguageDetectionModelStatus() {
@@ -70,11 +66,7 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
       1,  // ordinal
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec,
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
-      language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -97,7 +89,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -110,7 +102,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       fields: [
         { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -123,7 +115,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -136,7 +128,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

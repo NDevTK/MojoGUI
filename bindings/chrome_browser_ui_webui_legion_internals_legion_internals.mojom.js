@@ -50,11 +50,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
       null,
-      null,
-      [url, api_key],
-      undefined,
-      undefined
-    );
+      [url, api_key]);
   }
 
   close() {
@@ -63,11 +59,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sendRequest(feature_name, request) {
@@ -76,11 +68,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
       legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
-      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
-      [feature_name, request],
-      undefined,
-      undefined
-    );
+      [feature_name, request]);
   }
 
 };
@@ -105,7 +93,7 @@ legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'api_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +106,7 @@ legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -133,7 +121,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
         { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -146,7 +134,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

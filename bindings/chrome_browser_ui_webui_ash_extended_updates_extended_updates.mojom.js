@@ -51,11 +51,7 @@ ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      null,
-      [page, handler],
-      undefined,
-      undefined
-    );
+      [page, handler]);
   }
 
 };
@@ -80,7 +76,7 @@ ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -131,11 +127,7 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec,
       ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec,
-      ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   closeDialog() {
@@ -144,11 +136,7 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   getInstalledAndroidApps() {
@@ -157,11 +145,7 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec,
       ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec,
-      ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -184,7 +168,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +181,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -210,7 +194,7 @@ ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -223,7 +207,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -236,7 +220,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpe
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

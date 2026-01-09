@@ -51,11 +51,7 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
       null,
-      null,
-      [prerewritten_key_event, key_event],
-      undefined,
-      undefined
-    );
+      [prerewritten_key_event, key_event]);
   }
 
   onShortcutInputEventReleased(prerewritten_key_event, key_event) {
@@ -64,11 +60,7 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
       null,
-      null,
-      [prerewritten_key_event, key_event],
-      undefined,
-      undefined
-    );
+      [prerewritten_key_event, key_event]);
   }
 
 };
@@ -93,7 +85,7 @@ ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = 
         { name: 'prerewritten_key_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -108,7 +100,7 @@ ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec =
         { name: 'prerewritten_key_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'key_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -159,11 +151,7 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   stopObservingShortcutInput() {
@@ -172,11 +160,7 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -200,7 +184,7 @@ ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = 
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -213,7 +197,7 @@ ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

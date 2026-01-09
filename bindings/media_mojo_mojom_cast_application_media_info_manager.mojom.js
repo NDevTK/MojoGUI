@@ -50,11 +50,7 @@ media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec,
       media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
-      media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -77,7 +73,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -90,7 +86,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Response
       fields: [
         { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

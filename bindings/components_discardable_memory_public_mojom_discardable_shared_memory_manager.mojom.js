@@ -50,11 +50,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
       0,  // ordinal
       discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
       discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
-      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
-      [size, id],
-      undefined,
-      undefined
-    );
+      [size, id]);
   }
 
   deletedDiscardableSharedMemory(id) {
@@ -63,11 +59,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
       1,  // ordinal
       discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
       null,
-      null,
-      [id],
-      undefined,
-      undefined
-    );
+      [id]);
   }
 
 };
@@ -92,7 +84,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -119,7 +111,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableShared
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

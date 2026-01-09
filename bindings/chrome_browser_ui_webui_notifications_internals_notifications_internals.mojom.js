@@ -50,11 +50,7 @@ notifications_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec,
       null,
-      null,
-      [feature],
-      undefined,
-      undefined
-    );
+      [feature]);
   }
 
 };
@@ -78,7 +74,7 @@ notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

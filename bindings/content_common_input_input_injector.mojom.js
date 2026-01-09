@@ -89,11 +89,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
       null,
-      null,
-      [drag],
-      undefined,
-      undefined
-    );
+      [drag]);
   }
 
   queueSyntheticSmoothScroll(scroll) {
@@ -102,11 +98,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
       null,
-      null,
-      [scroll],
-      undefined,
-      undefined
-    );
+      [scroll]);
   }
 
   queueSyntheticPinch(pinch) {
@@ -115,11 +107,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
       null,
-      null,
-      [pinch],
-      undefined,
-      undefined
-    );
+      [pinch]);
   }
 
   queueSyntheticTap(tap) {
@@ -128,11 +116,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
       null,
-      null,
-      [tap],
-      undefined,
-      undefined
-    );
+      [tap]);
   }
 
   queueSyntheticPointerAction(pointer_action) {
@@ -141,11 +125,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
       null,
-      null,
-      [pointer_action],
-      undefined,
-      undefined
-    );
+      [pointer_action]);
   }
 
 };
@@ -169,7 +149,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
       fields: [
         { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +163,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
       fields: [
         { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -197,7 +177,7 @@ content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
       fields: [
         { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -211,7 +191,7 @@ content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
       fields: [
         { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -225,7 +205,7 @@ content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
       fields: [
         { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

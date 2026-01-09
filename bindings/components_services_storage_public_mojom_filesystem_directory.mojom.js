@@ -78,11 +78,7 @@ storage.mojom.FileLockRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.FileLock_Release_ParamsSpec,
       storage.mojom.FileLock_Release_ResponseParamsSpec,
-      storage.mojom.FileLock_Release_ResponseParamsSpec,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
 };
@@ -105,7 +101,7 @@ storage.mojom.FileLock_Release_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -118,7 +114,7 @@ storage.mojom.FileLock_Release_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -169,11 +165,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.Directory_Clone_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   pathExists(path) {
@@ -182,11 +174,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.Directory_PathExists_ParamsSpec,
       storage.mojom.Directory_PathExists_ResponseParamsSpec,
-      storage.mojom.Directory_PathExists_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
   getEntries(path, mode) {
@@ -195,11 +183,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.Directory_GetEntries_ParamsSpec,
       storage.mojom.Directory_GetEntries_ResponseParamsSpec,
-      storage.mojom.Directory_GetEntries_ResponseParamsSpec,
-      [path, mode],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path, mode]);
   }
 
   openFile(path, mode, read_access, write_access) {
@@ -208,11 +192,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.Directory_OpenFile_ParamsSpec,
       storage.mojom.Directory_OpenFile_ResponseParamsSpec,
-      storage.mojom.Directory_OpenFile_ResponseParamsSpec,
-      [path, mode, read_access, write_access],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path, mode, read_access, write_access]);
   }
 
   createDirectory(path) {
@@ -221,11 +201,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.Directory_CreateDirectory_ParamsSpec,
       storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
-      storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
   deleteFile(path) {
@@ -234,11 +210,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.Directory_DeleteFile_ParamsSpec,
       storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
-      storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
   getFileInfo(path) {
@@ -247,11 +219,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.Directory_GetFileInfo_ParamsSpec,
       storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
-      storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
   getPathAccess(path) {
@@ -260,11 +228,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.Directory_GetPathAccess_ParamsSpec,
       storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
-      storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
   renameFile(old_path, new_path) {
@@ -273,11 +237,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.Directory_RenameFile_ParamsSpec,
       storage.mojom.Directory_RenameFile_ResponseParamsSpec,
-      storage.mojom.Directory_RenameFile_ResponseParamsSpec,
-      [old_path, new_path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [old_path, new_path]);
   }
 
   lockFile(path) {
@@ -286,11 +246,7 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.Directory_LockFile_ParamsSpec,
       storage.mojom.Directory_LockFile_ResponseParamsSpec,
-      storage.mojom.Directory_LockFile_ResponseParamsSpec,
-      [path],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [path]);
   }
 
 };
@@ -314,7 +270,7 @@ storage.mojom.Directory_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -328,7 +284,7 @@ storage.mojom.Directory_PathExists_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -341,7 +297,7 @@ storage.mojom.Directory_PathExists_ResponseParamsSpec = {
       fields: [
         { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -356,7 +312,7 @@ storage.mojom.Directory_GetEntries_ParamsSpec = {
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -370,7 +326,7 @@ storage.mojom.Directory_GetEntries_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -387,7 +343,7 @@ storage.mojom.Directory_OpenFile_ParamsSpec = {
         { name: 'read_access', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'write_access', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -401,7 +357,7 @@ storage.mojom.Directory_OpenFile_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -415,7 +371,7 @@ storage.mojom.Directory_CreateDirectory_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -428,7 +384,7 @@ storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -442,7 +398,7 @@ storage.mojom.Directory_DeleteFile_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -455,7 +411,7 @@ storage.mojom.Directory_DeleteFile_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -469,7 +425,7 @@ storage.mojom.Directory_GetFileInfo_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -482,7 +438,7 @@ storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -496,7 +452,7 @@ storage.mojom.Directory_GetPathAccess_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -509,7 +465,7 @@ storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -524,7 +480,7 @@ storage.mojom.Directory_RenameFile_ParamsSpec = {
         { name: 'old_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -537,7 +493,7 @@ storage.mojom.Directory_RenameFile_ResponseParamsSpec = {
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -551,7 +507,7 @@ storage.mojom.Directory_LockFile_ParamsSpec = {
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -565,7 +521,7 @@ storage.mojom.Directory_LockFile_ResponseParamsSpec = {
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

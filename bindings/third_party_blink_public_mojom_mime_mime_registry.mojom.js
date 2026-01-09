@@ -55,7 +55,7 @@ blink.mojom.MimeRegistryRemoteCallHandler = class {
 
 };
 
-blink.mojom.MimeRegistry.getRemote = function () {
+blink.mojom.MimeRegistry.getRemote = function() {
   let remote = new blink.mojom.MimeRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
@@ -74,7 +74,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec = {
       fields: [
         { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{ version: 0 }]
+      versions: [{version: 0}]
     }
   }
 };
@@ -87,7 +87,7 @@ blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec = {
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{ version: 0 }]
+      versions: [{version: 0}]
     }
   }
 };

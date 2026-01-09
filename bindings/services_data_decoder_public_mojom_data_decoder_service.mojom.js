@@ -50,11 +50,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindXmlParser(reciever) {
@@ -63,11 +59,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec,
       null,
-      null,
-      [reciever],
-      undefined,
-      undefined
-    );
+      [reciever]);
   }
 
   bindWebBundleParserFactory(receiver) {
@@ -76,11 +68,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       2,  // ordinal
       data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindGzipper(receiver) {
@@ -89,11 +77,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       3,  // ordinal
       data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindStructuredHeadersParser(receiver) {
@@ -102,11 +86,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       4,  // ordinal
       data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindCborParser(receiver) {
@@ -115,11 +95,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       5,  // ordinal
       data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   bindPixCodeValidator(receiver) {
@@ -128,11 +104,7 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       6,  // ordinal
       data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -156,7 +128,7 @@ data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +142,7 @@ data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
       fields: [
         { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -184,7 +156,7 @@ data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -198,7 +170,7 @@ data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -212,7 +184,7 @@ data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -226,7 +198,7 @@ data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -240,7 +212,7 @@ data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

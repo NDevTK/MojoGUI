@@ -50,11 +50,7 @@ audio.mojom.LogFactoryManagerRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec,
       null,
-      null,
-      [factory],
-      undefined,
-      undefined
-    );
+      [factory]);
   }
 
 };
@@ -78,7 +74,7 @@ audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
       fields: [
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

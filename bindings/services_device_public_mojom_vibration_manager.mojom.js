@@ -50,11 +50,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.VibrationManager_Vibrate_ParamsSpec,
       null,
-      null,
-      [milliseconds],
-      undefined,
-      undefined
-    );
+      [milliseconds]);
   }
 
   cancel() {
@@ -63,11 +59,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.VibrationManager_Cancel_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -91,7 +83,7 @@ device.mojom.VibrationManager_Vibrate_ParamsSpec = {
       fields: [
         { name: 'milliseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -104,7 +96,7 @@ device.mojom.VibrationManager_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -155,11 +147,7 @@ device.mojom.VibrationManagerListenerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -182,7 +170,7 @@ device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

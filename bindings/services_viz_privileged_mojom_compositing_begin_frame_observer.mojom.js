@@ -50,11 +50,7 @@ viz.mojom.BeginFrameObserverRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
       null,
-      null,
-      [args],
-      undefined,
-      undefined
-    );
+      [args]);
   }
 
 };
@@ -78,7 +74,7 @@ viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
       fields: [
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

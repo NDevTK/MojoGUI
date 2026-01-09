@@ -50,11 +50,7 @@ blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      null,
-      [downloaded_bytes, total_bytes],
-      undefined,
-      undefined
-    );
+      [downloaded_bytes, total_bytes]);
   }
 
 };
@@ -79,7 +75,7 @@ blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = 
         { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

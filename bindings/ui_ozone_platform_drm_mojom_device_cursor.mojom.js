@@ -51,11 +51,7 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
       null,
-      null,
-      [window, bitmaps, point, frame_delay],
-      undefined,
-      undefined
-    );
+      [window, bitmaps, point, frame_delay]);
   }
 
   moveCursor(window, point) {
@@ -64,11 +60,7 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
       null,
-      null,
-      [window, point],
-      undefined,
-      undefined
-    );
+      [window, point]);
   }
 
 };
@@ -95,7 +87,7 @@ ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = {
         { name: 'point', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'frame_delay', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -110,7 +102,7 @@ ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = {
         { name: 'window', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

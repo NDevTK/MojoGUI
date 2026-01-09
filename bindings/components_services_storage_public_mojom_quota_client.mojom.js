@@ -50,11 +50,7 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
       storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
-      storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
-      [bucket],
-      undefined,
-      undefined
-    );
+      [bucket]);
   }
 
   getDefaultStorageKeys() {
@@ -63,11 +59,7 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
       storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
-      storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   deleteBucketData(bucket) {
@@ -76,11 +68,7 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
       storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
-      storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
-      [bucket],
-      undefined,
-      undefined
-    );
+      [bucket]);
   }
 
   performStorageCleanup() {
@@ -89,11 +77,7 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -117,7 +101,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
       fields: [
         { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +114,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
       fields: [
         { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -143,7 +127,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -156,7 +140,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
       fields: [
         { name: 'storage_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -170,7 +154,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
       fields: [
         { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -183,7 +167,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -196,7 +180,7 @@ storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

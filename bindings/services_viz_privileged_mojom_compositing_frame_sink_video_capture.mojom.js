@@ -57,11 +57,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   provideFeedback(feedback) {
@@ -70,11 +66,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec,
       null,
-      null,
-      [feedback],
-      undefined,
-      undefined
-    );
+      [feedback]);
   }
 
 };
@@ -97,7 +89,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -111,7 +103,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = {
       fields: [
         { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -162,11 +154,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec,
       null,
-      null,
-      [data, info, content_rect, callbacks],
-      undefined,
-      undefined
-    );
+      [data, info, content_rect, callbacks]);
   }
 
   onNewCaptureVersion(capture_version) {
@@ -175,11 +163,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec,
       null,
-      null,
-      [capture_version],
-      undefined,
-      undefined
-    );
+      [capture_version]);
   }
 
   onFrameWithEmptyRegionCapture() {
@@ -188,11 +172,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onStopped() {
@@ -201,11 +181,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onLog(message) {
@@ -214,11 +190,7 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -245,7 +217,7 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
         { name: 'content_rect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'callbacks', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -259,7 +231,7 @@ viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = {
       fields: [
         { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -272,7 +244,7 @@ viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -285,7 +257,7 @@ viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -299,7 +271,7 @@ viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -350,11 +322,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec,
       null,
-      null,
-      [format],
-      undefined,
-      undefined
-    );
+      [format]);
   }
 
   setMinCapturePeriod(min_period) {
@@ -363,11 +331,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec,
       null,
-      null,
-      [min_period],
-      undefined,
-      undefined
-    );
+      [min_period]);
   }
 
   setMinSizeChangePeriod(min_period) {
@@ -376,11 +340,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec,
       null,
-      null,
-      [min_period],
-      undefined,
-      undefined
-    );
+      [min_period]);
   }
 
   setResolutionConstraints(min_size, max_size, use_fixed_aspect_ratio) {
@@ -389,11 +349,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec,
       null,
-      null,
-      [min_size, max_size, use_fixed_aspect_ratio],
-      undefined,
-      undefined
-    );
+      [min_size, max_size, use_fixed_aspect_ratio]);
   }
 
   setAutoThrottlingEnabled(enabled) {
@@ -402,11 +358,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setAnimationFpsLockIn(enabled, majority_damaged_pixel_min_ratio) {
@@ -415,11 +367,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec,
       null,
-      null,
-      [enabled, majority_damaged_pixel_min_ratio],
-      undefined,
-      undefined
-    );
+      [enabled, majority_damaged_pixel_min_ratio]);
   }
 
   changeTarget(target, sub_capture_version) {
@@ -428,11 +376,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec,
       null,
-      null,
-      [target, sub_capture_version],
-      undefined,
-      undefined
-    );
+      [target, sub_capture_version]);
   }
 
   start(consumer, buffer_format_preference) {
@@ -441,11 +385,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec,
       null,
-      null,
-      [consumer, buffer_format_preference],
-      undefined,
-      undefined
-    );
+      [consumer, buffer_format_preference]);
   }
 
   stop() {
@@ -454,11 +394,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   requestRefreshFrame() {
@@ -467,11 +403,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   createOverlay(stacking_index, receiver) {
@@ -480,11 +412,7 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec,
       null,
-      null,
-      [stacking_index, receiver],
-      undefined,
-      undefined
-    );
+      [stacking_index, receiver]);
   }
 
 };
@@ -508,7 +436,7 @@ viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = {
       fields: [
         { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -522,7 +450,7 @@ viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = {
       fields: [
         { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -536,7 +464,7 @@ viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = {
       fields: [
         { name: 'min_period', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -552,7 +480,7 @@ viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = {
         { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'use_fixed_aspect_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -566,7 +494,7 @@ viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -581,7 +509,7 @@ viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = {
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'majority_damaged_pixel_min_ratio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -596,7 +524,7 @@ viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = {
         { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'sub_capture_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -611,7 +539,7 @@ viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
         { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'buffer_format_preference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -624,7 +552,7 @@ viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -637,7 +565,7 @@ viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -652,7 +580,7 @@ viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
         { name: 'stacking_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -703,11 +631,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec,
       null,
-      null,
-      [image, bounds],
-      undefined,
-      undefined
-    );
+      [image, bounds]);
   }
 
   setBounds(bounds) {
@@ -716,11 +640,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec,
       null,
-      null,
-      [bounds],
-      undefined,
-      undefined
-    );
+      [bounds]);
   }
 
   onCapturedMouseEvent(coordinates) {
@@ -729,11 +649,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec,
       null,
-      null,
-      [coordinates],
-      undefined,
-      undefined
-    );
+      [coordinates]);
   }
 
 };
@@ -758,7 +674,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = {
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -772,7 +688,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = {
       fields: [
         { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -786,7 +702,7 @@ viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = {
       fields: [
         { name: 'coordinates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

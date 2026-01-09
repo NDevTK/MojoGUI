@@ -50,11 +50,7 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
-      null,
-      [variations_headers],
-      undefined,
-      undefined
-    );
+      [variations_headers]);
   }
 
   setFieldTrialGroup(trial_name, group_name) {
@@ -63,11 +59,7 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
-      null,
-      [trial_name, group_name],
-      undefined,
-      undefined
-    );
+      [trial_name, group_name]);
   }
 
 };
@@ -91,7 +83,7 @@ content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = 
       fields: [
         { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -106,7 +98,7 @@ content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
         { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

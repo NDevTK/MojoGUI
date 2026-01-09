@@ -51,11 +51,7 @@ chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec,
       null,
-      null,
-      [receiver, stream_factory],
-      undefined,
-      undefined
-    );
+      [receiver, stream_factory]);
   }
 
   bindPlaybackTtsStream(receiver, stream_factory, desired_audio_parameters) {
@@ -64,11 +60,7 @@ chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec,
       chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
-      chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
-      [receiver, stream_factory, desired_audio_parameters],
-      undefined,
-      undefined
-    );
+      [receiver, stream_factory, desired_audio_parameters]);
   }
 
 };
@@ -93,7 +85,7 @@ chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -109,7 +101,7 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
         { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -122,7 +114,7 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
       fields: [
         { name: 'audio_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -173,11 +165,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       0,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec,
       chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
-      chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
-      [voice_name, voice_bytes],
-      undefined,
-      undefined
-    );
+      [voice_name, voice_bytes]);
   }
 
   selectVoice(voice_name) {
@@ -186,11 +174,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       1,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec,
       chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
-      chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
-      [voice_name],
-      undefined,
-      undefined
-    );
+      [voice_name]);
   }
 
   speak(text_jspb, speaker_params_jspb) {
@@ -199,11 +183,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       2,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec,
       chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
-      chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
-      [text_jspb, speaker_params_jspb],
-      undefined,
-      undefined
-    );
+      [text_jspb, speaker_params_jspb]);
   }
 
   stop() {
@@ -212,11 +192,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       3,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setVolume(volume) {
@@ -225,11 +201,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       4,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec,
       null,
-      null,
-      [volume],
-      undefined,
-      undefined
-    );
+      [volume]);
   }
 
   pause() {
@@ -238,11 +210,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       5,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resume() {
@@ -251,11 +219,7 @@ chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = class {
       6,  // ordinal
       chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -280,7 +244,7 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
         { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'voice_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -293,7 +257,7 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -307,7 +271,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
       fields: [
         { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -320,7 +284,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -335,7 +299,7 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
         { name: 'text_jspb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'speaker_params_jspb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -348,7 +312,7 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
       fields: [
         { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -361,7 +325,7 @@ chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -375,7 +339,7 @@ chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -388,7 +352,7 @@ chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -401,7 +365,7 @@ chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -452,11 +416,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
       0,  // ordinal
       chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec,
       chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
-      chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   sendAudioBuffer(frames_buffer, char_index, last_buffer) {
@@ -465,11 +425,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
       1,  // ordinal
       chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec,
       null,
-      null,
-      [frames_buffer, char_index, last_buffer],
-      undefined,
-      undefined
-    );
+      [frames_buffer, char_index, last_buffer]);
   }
 
   stop() {
@@ -478,11 +434,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
       2,  // ordinal
       chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setVolume(volume) {
@@ -491,11 +443,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
       3,  // ordinal
       chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec,
       null,
-      null,
-      [volume],
-      undefined,
-      undefined
-    );
+      [volume]);
   }
 
   pause() {
@@ -504,11 +452,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
       4,  // ordinal
       chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   resume() {
@@ -517,11 +461,7 @@ chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = class {
       5,  // ordinal
       chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -544,7 +484,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -557,7 +497,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
       fields: [
         { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -573,7 +513,7 @@ chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
         { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'last_buffer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -586,7 +526,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -600,7 +540,7 @@ chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
       fields: [
         { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -613,7 +553,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -626,7 +566,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -677,11 +617,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onTimepoint(char_index) {
@@ -690,11 +626,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
       1,  // ordinal
       chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec,
       null,
-      null,
-      [char_index],
-      undefined,
-      undefined
-    );
+      [char_index]);
   }
 
   onEnd() {
@@ -703,11 +635,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
       2,  // ordinal
       chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   onError() {
@@ -716,11 +644,7 @@ chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = class {
       3,  // ordinal
       chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
 };
@@ -743,7 +667,7 @@ chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -757,7 +681,7 @@ chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
       fields: [
         { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -770,7 +694,7 @@ chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -783,7 +707,7 @@ chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };

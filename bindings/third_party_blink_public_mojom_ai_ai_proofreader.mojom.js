@@ -50,11 +50,7 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIProofreader_Proofread_ParamsSpec,
       null,
-      null,
-      [input, pending_responder],
-      undefined,
-      undefined
-    );
+      [input, pending_responder]);
   }
 
   getCorrectionType(input, corrected_input, correction_instruction, pending_responder) {
@@ -63,11 +59,7 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
       null,
-      null,
-      [input, corrected_input, correction_instruction, pending_responder],
-      undefined,
-      undefined
-    );
+      [input, corrected_input, correction_instruction, pending_responder]);
   }
 
 };
@@ -92,7 +84,7 @@ blink.mojom.AIProofreader_Proofread_ParamsSpec = {
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -109,7 +101,7 @@ blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
         { name: 'correction_instruction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0}]
     }
   }
 };

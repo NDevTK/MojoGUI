@@ -50,11 +50,7 @@ network.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec,
       network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec,
-      network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec,
-      [headers],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      [headers]);
   }
 
 };
@@ -78,7 +74,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
       fields: [
         { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -91,7 +87,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = {
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

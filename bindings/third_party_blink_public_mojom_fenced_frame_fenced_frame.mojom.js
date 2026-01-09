@@ -50,11 +50,7 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
-      null,
-      [url, navigation_start_time, embedder_shared_storage_context],
-      undefined,
-      undefined
-    );
+      [url, navigation_start_time, embedder_shared_storage_context]);
   }
 
   didChangeFramePolicy(frame_policy) {
@@ -63,11 +59,7 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
       null,
-      null,
-      [frame_policy],
-      undefined,
-      undefined
-    );
+      [frame_policy]);
   }
 
 };
@@ -93,7 +85,7 @@ blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
         { name: 'navigation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'embedder_shared_storage_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -107,7 +99,7 @@ blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
       fields: [
         { name: 'frame_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

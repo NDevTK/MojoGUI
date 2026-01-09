@@ -50,11 +50,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       0,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   handleStoreThemePref(theme) {
@@ -63,11 +59,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       1,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec,
       null,
-      null,
-      [theme],
-      undefined,
-      undefined
-    );
+      [theme]);
   }
 
   handleStoreFontFamilyPref(font_family) {
@@ -76,11 +68,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       2,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec,
       null,
-      null,
-      [font_family],
-      undefined,
-      undefined
-    );
+      [font_family]);
   }
 
   handleStoreFontScalingPref(font_scale) {
@@ -89,11 +77,7 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       3,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec,
       null,
-      null,
-      [font_scale],
-      undefined,
-      undefined
-    );
+      [font_scale]);
   }
 
 };
@@ -116,7 +100,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -130,7 +114,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec =
       fields: [
         { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -144,7 +128,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsS
       fields: [
         { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -158,7 +142,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params
       fields: [
         { name: 'font_scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

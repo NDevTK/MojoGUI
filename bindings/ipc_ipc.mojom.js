@@ -50,11 +50,7 @@ IPC.mojom.ChannelRemoteCallHandler = class {
       0,  // ordinal
       IPC.mojom.Channel_SetPeerPid_ParamsSpec,
       null,
-      null,
-      [pid],
-      undefined,
-      undefined
-    );
+      [pid]);
   }
 
   getAssociatedInterface(receiver) {
@@ -63,11 +59,7 @@ IPC.mojom.ChannelRemoteCallHandler = class {
       1,  // ordinal
       IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -91,7 +83,7 @@ IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

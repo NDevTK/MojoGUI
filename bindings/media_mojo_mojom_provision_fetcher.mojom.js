@@ -50,11 +50,7 @@ media.mojom.ProvisionFetcherRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
       media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
-      media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
-      [default_url, request_data],
-      undefined,
-      undefined
-    );
+      [default_url, request_data]);
   }
 
 };
@@ -79,7 +75,7 @@ media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
         { name: 'default_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'request_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -93,7 +89,7 @@ media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };

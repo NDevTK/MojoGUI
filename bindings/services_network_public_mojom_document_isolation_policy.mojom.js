@@ -57,11 +57,7 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
-      null,
-      [blocked_url, destination, report_only],
-      undefined,
-      undefined
-    );
+      [blocked_url, destination, report_only]);
   }
 
   clone(receiver) {
@@ -70,11 +66,7 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
 };
@@ -100,7 +92,7 @@ network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpe
         { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'report_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -114,7 +106,7 @@ network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

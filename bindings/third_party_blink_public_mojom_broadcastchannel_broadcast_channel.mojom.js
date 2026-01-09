@@ -50,11 +50,7 @@ blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec,
       null,
-      null,
-      [message],
-      undefined,
-      undefined
-    );
+      [message]);
   }
 
 };
@@ -78,7 +74,7 @@ blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -129,11 +125,7 @@ blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec,
       null,
-      null,
-      [name, client, connection],
-      undefined,
-      undefined
-    );
+      [name, client, connection]);
   }
 
 };
@@ -159,7 +151,7 @@ blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = {
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'connection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };

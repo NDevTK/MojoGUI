@@ -50,11 +50,7 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec,
       null,
-      null,
-      [client, session_id, params, automatic_gain_control, shared_memory_count, processing_config],
-      undefined,
-      undefined
-    );
+      [client, session_id, params, automatic_gain_control, shared_memory_count, processing_config]);
   }
 
   associateInputAndOutputForAec(input_stream_id, output_device_id) {
@@ -63,11 +59,7 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
-      null,
-      [input_stream_id, output_device_id],
-      undefined,
-      undefined
-    );
+      [input_stream_id, output_device_id]);
   }
 
 };
@@ -96,7 +88,7 @@ blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
         { name: 'shared_memory_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'processing_config', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -111,7 +103,7 @@ blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params
         { name: 'input_stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -162,11 +154,7 @@ blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec,
       null,
-      null,
-      [stream, client_request, data_pipe, initially_muted, stream_id],
-      undefined,
-      undefined
-    );
+      [stream, client_request, data_pipe, initially_muted, stream_id]);
   }
 
 };
@@ -194,7 +182,7 @@ blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
         { name: 'initially_muted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'stream_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0}]
     }
   }
 };

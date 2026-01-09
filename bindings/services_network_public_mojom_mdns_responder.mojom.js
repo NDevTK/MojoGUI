@@ -50,11 +50,7 @@ network.mojom.MdnsResponderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec,
       network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
-      network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
-      [address],
-      undefined,
-      undefined
-    );
+      [address]);
   }
 
   removeNameForAddress(address) {
@@ -63,11 +59,7 @@ network.mojom.MdnsResponderRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec,
       network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
-      network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
-      [address],
-      undefined,
-      undefined
-    );
+      [address]);
   }
 
 };
@@ -91,7 +83,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -105,7 +97,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'announcement_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -119,7 +111,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -133,7 +125,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
         { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'goodbye_scheduled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };

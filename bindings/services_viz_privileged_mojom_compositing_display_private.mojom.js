@@ -50,11 +50,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
       null,
-      null,
-      [visible],
-      undefined,
-      undefined
-    );
+      [visible]);
   }
 
   disableSwapUntilResize() {
@@ -63,11 +59,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      mojo.internal.kMessageFlagIsSync
-    );
+      []);
   }
 
   resize(size) {
@@ -76,11 +68,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.DisplayPrivate_Resize_ParamsSpec,
       null,
-      null,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   setDisplayColorMatrix(color_matrix) {
@@ -89,11 +77,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
       null,
-      null,
-      [color_matrix],
-      undefined,
-      undefined
-    );
+      [color_matrix]);
   }
 
   setDisplayColorSpaces(display_color_spaces) {
@@ -102,11 +86,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
       null,
-      null,
-      [display_color_spaces],
-      undefined,
-      undefined
-    );
+      [display_color_spaces]);
   }
 
   setOutputIsSecure(secure) {
@@ -115,11 +95,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
       null,
-      null,
-      [secure],
-      undefined,
-      undefined
-    );
+      [secure]);
   }
 
   setVSyncDisplayID(display_id) {
@@ -128,11 +104,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec,
       null,
-      null,
-      [display_id],
-      undefined,
-      undefined
-    );
+      [display_id]);
   }
 
   setDisplayVSyncParameters(timebase, interval) {
@@ -141,11 +113,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
       null,
-      null,
-      [timebase, interval],
-      undefined,
-      undefined
-    );
+      [timebase, interval]);
   }
 
   forceImmediateDrawAndSwapIfPossible() {
@@ -154,11 +122,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   updateRefreshRate(refresh_rate) {
@@ -167,11 +131,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec,
       null,
-      null,
-      [refresh_rate],
-      undefined,
-      undefined
-    );
+      [refresh_rate]);
   }
 
   setAdaptiveRefreshRateInfo(has_support, suggested_high, device_scale_factor) {
@@ -180,11 +140,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec,
       null,
-      null,
-      [has_support, suggested_high, device_scale_factor],
-      undefined,
-      undefined
-    );
+      [has_support, suggested_high, device_scale_factor]);
   }
 
   setSupportedRefreshRates(refresh_rates) {
@@ -193,11 +149,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       11,  // ordinal
       viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
       null,
-      null,
-      [refresh_rates],
-      undefined,
-      undefined
-    );
+      [refresh_rates]);
   }
 
   preserveChildSurfaceControls() {
@@ -206,11 +158,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       12,  // ordinal
       viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec,
       null,
-      null,
-      [],
-      undefined,
-      undefined
-    );
+      []);
   }
 
   setSwapCompletionCallbackEnabled(enable) {
@@ -219,11 +167,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       13,  // ordinal
       viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec,
       null,
-      null,
-      [enable],
-      undefined,
-      undefined
-    );
+      [enable]);
   }
 
   addVSyncParameterObserver(observer) {
@@ -232,11 +176,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       14,  // ordinal
       viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setDelegatedInkPointRenderer(receiver) {
@@ -245,11 +185,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       15,  // ordinal
       viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   setStandaloneBeginFrameObserver(observer) {
@@ -258,11 +194,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       16,  // ordinal
       viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
       null,
-      null,
-      [observer],
-      undefined,
-      undefined
-    );
+      [observer]);
   }
 
   setMaxVSyncAndVrr(max_vsync_interval, vrr_state) {
@@ -271,11 +203,7 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       17,  // ordinal
       viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
       null,
-      null,
-      [max_vsync_interval, vrr_state],
-      undefined,
-      undefined
-    );
+      [max_vsync_interval, vrr_state]);
   }
 
 };
@@ -299,7 +227,7 @@ viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = {
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -312,7 +240,7 @@ viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -326,7 +254,7 @@ viz.mojom.DisplayPrivate_Resize_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -340,7 +268,7 @@ viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = {
       fields: [
         { name: 'color_matrix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -354,7 +282,7 @@ viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = {
       fields: [
         { name: 'display_color_spaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -368,7 +296,7 @@ viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = {
       fields: [
         { name: 'secure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -382,7 +310,7 @@ viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec = {
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -397,7 +325,7 @@ viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = {
         { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -410,7 +338,7 @@ viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -424,7 +352,7 @@ viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec = {
       fields: [
         { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -440,7 +368,7 @@ viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec = {
         { name: 'suggested_high', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'device_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -454,7 +382,7 @@ viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = {
       fields: [
         { name: 'refresh_rates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -467,7 +395,7 @@ viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0, packedSize: 8}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -481,7 +409,7 @@ viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec = {
       fields: [
         { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -495,7 +423,7 @@ viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -509,7 +437,7 @@ viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -523,7 +451,7 @@ viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -538,7 +466,7 @@ viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = {
         { name: 'max_vsync_interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'vrr_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -589,11 +517,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec,
       null,
-      null,
-      [ca_layer_params],
-      undefined,
-      undefined
-    );
+      [ca_layer_params]);
   }
 
   createLayeredWindowUpdater(receiver) {
@@ -602,11 +526,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
       null,
-      null,
-      [receiver],
-      undefined,
-      undefined
-    );
+      [receiver]);
   }
 
   addChildWindowToBrowser(child_window) {
@@ -615,11 +535,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
       null,
-      null,
-      [child_window],
-      undefined,
-      undefined
-    );
+      [child_window]);
   }
 
   didCompleteSwapWithSize(size) {
@@ -628,11 +544,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec,
       null,
-      null,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   didCompleteSwapWithNewSize(size) {
@@ -641,11 +553,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
       null,
-      null,
-      [size],
-      undefined,
-      undefined
-    );
+      [size]);
   }
 
   onContextCreationResult(result) {
@@ -654,11 +562,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec,
       null,
-      null,
-      [result],
-      undefined,
-      undefined
-    );
+      [result]);
   }
 
   setWideColorEnabled(enabled) {
@@ -667,11 +571,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec,
       null,
-      null,
-      [enabled],
-      undefined,
-      undefined
-    );
+      [enabled]);
   }
 
   setPreferredRefreshRate(refresh_rate) {
@@ -680,11 +580,7 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
       null,
-      null,
-      [refresh_rate],
-      undefined,
-      undefined
-    );
+      [refresh_rate]);
   }
 
 };
@@ -708,7 +604,7 @@ viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec = {
       fields: [
         { name: 'ca_layer_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -722,7 +618,7 @@ viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -736,7 +632,7 @@ viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = {
       fields: [
         { name: 'child_window', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -750,7 +646,7 @@ viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -764,7 +660,7 @@ viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = {
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -778,7 +674,7 @@ viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec = {
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -792,7 +688,7 @@ viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec = {
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
@@ -806,7 +702,7 @@ viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = {
       fields: [
         { name: 'refresh_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0}]
     }
   }
 };
