@@ -250,6 +250,52 @@ jobs:
               components = name.split('_')
               return components[0] + ''.join(x.title() for x in components[1:])
 
+          def mojo_type_map(mojom_type):
+              """Map mojom types to mojo.internal types."""
+              type_clean = mojom_type.replace('?', '').strip()
+              
+              type_mapping = {
+                  'bool': 'mojo.internal.Bool',
+                  'int8': 'mojo.internal.Int8',
+                  'int16': 'mojo.internal.Int16',
+                  'int32': 'mojo.internal.Int32',
+                  'int64': 'mojo.internal.Int64',
+                  'uint8': 'mojo.internal.Uint8',
+                  'uint16': 'mojo.internal.Uint16',
+                  'uint32': 'mojo.internal.Uint32',
+                  'uint64': 'mojo.internal.Uint64',
+                  'float': 'mojo.internal.Float',
+                  'double': 'mojo.internal.Double',
+                  'string': 'mojo.internal.String',
+                  'handle': 'mojo.internal.Handle',
+              }
+              
+              # Check for arrays
+              if type_clean.startswith('array<'):
+                  return 'mojo.internal.Array'
+              
+              # Check for maps
+              if type_clean.startswith('map<'):
+                  return 'mojo.internal.Map'
+              
+              # Check for pending_receiver/pending_remote
+              if type_clean.startswith('pending_receiver<'):
+                  return 'mojo.internal.InterfaceRequest'
+              if type_clean.startswith('pending_remote<'):
+                  return 'mojo.internal.InterfaceProxy'
+              if type_clean.startswith('pending_associated_receiver<'):
+                  return 'mojo.internal.AssociatedInterfaceRequest'
+              if type_clean.startswith('pending_associated_remote<'):
+                  return 'mojo.internal.AssociatedInterfaceProxy'
+              
+              # Look up in type map
+              if type_clean in type_mapping:
+                  return type_mapping[type_clean]
+              
+              # For unknown types (likely structs/enums), default to pointer
+              return 'mojo.internal.Pointer'
+
+
           def generate_js_binding(parsed):
               """Generate JavaScript binding code that works with the Mojo runtime."""
               if not parsed or not parsed.get('module'):
@@ -370,7 +416,9 @@ jobs:
                       js_code += "      fields: [\n"
                       for pid, param in enumerate(method.get('params', [])):
                           if param and param.get('name'):
-                              js_code += f"        {{ name: '{param['name']}', packedOffset: {pid * 8}, packedBitOffset: 0, type: mojo.internal.String, nullable: true }},\n"
+                              param_mojo_type = mojo_type_map(param.get('type', 'string'))
+                              nullable = 'true' if param.get('optional') or '?' in param.get('type', '') else 'false'
+                              js_code += f"        {{ name: '{param['name']}', packedOffset: {pid * 8}, packedBitOffset: 0, type: {param_mojo_type}, nullable: {nullable} }},\n"
                       js_code += "      ],\n"
                       js_code += "      versions: [{version: 0}]\n"
                       js_code += "    }\n"
@@ -386,7 +434,9 @@ jobs:
                           js_code += "      fields: [\n"
                           for rid, ret in enumerate(method.get('returns', [])):
                               if ret and ret.get('name'):
-                                  js_code += f"        {{ name: '{ret['name']}', packedOffset: {rid * 8}, packedBitOffset: 0, type: mojo.internal.String, nullable: true }},\n"
+                                  ret_mojo_type = mojo_type_map(ret.get('type', 'string'))
+                                  nullable = 'true' if ret.get('optional') or '?' in ret.get('type', '') else 'false'
+                                  js_code += f"        {{ name: '{ret['name']}', packedOffset: {rid * 8}, packedBitOffset: 0, type: {ret_mojo_type}, nullable: {nullable} }},\n"
                           js_code += "      ],\n"
                           js_code += "      versions: [{version: 0}]\n"
                           js_code += "    }\n"
