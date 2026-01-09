@@ -652,24 +652,34 @@
         }
 
         const code = generateCode();
+        const interfaceName = state.selectedInterface?.name || 'Unknown';
+        const methodName = state.selectedMethod || 'Unknown';
+
         elements.resultsSection.style.display = 'flex';
-        elements.executionResults.textContent = 'Executing...';
+        elements.executionResults.innerHTML = safeHTML(`
+        <div class="result-header">
+            <span class="result-icon">⏳</span>
+            <span>Executing <strong>${escapeHtml(interfaceName)}.${escapeHtml(methodName)}</strong>...</span>
+        </div>
+    `);
         elements.executionResults.className = 'results-block';
+
+        const startTime = performance.now();
 
         try {
             // Use script injection approach that works with Trusted Types
             // Wrap code in an async IIFE that stores result in window
             const wrappedCode = `
-                (async () => {
-                    try {
-                        ${code}
-                        window.__mojoExecuteResult = { success: true, result: typeof result !== 'undefined' ? result : 'completed' };
-                    } catch (error) {
-                        window.__mojoExecuteResult = { success: false, error: error.message, stack: error.stack };
-                    }
-                    window.dispatchEvent(new Event('mojoExecuteComplete'));
-                })();
-            `;
+            (async () => {
+                try {
+                    ${code}
+                    window.__mojoExecuteResult = { success: true, result: typeof result !== 'undefined' ? result : null };
+                } catch (error) {
+                    window.__mojoExecuteResult = { success: false, error: error.message, stack: error.stack };
+                }
+                window.dispatchEvent(new Event('mojoExecuteComplete'));
+            })();
+        `;
 
             // Create promise to wait for execution
             const resultPromise = new Promise((resolve) => {
@@ -692,20 +702,99 @@
 
             // Wait for result
             const result = await resultPromise;
+            const duration = (performance.now() - startTime).toFixed(2);
+            const timestamp = new Date().toLocaleTimeString();
 
             if (result.success) {
-                elements.executionResults.textContent = 'Success:\n' + JSON.stringify(result.result, null, 2);
+                const hasResponseData = result.result !== null && result.result !== undefined;
+                const responseDisplay = hasResponseData
+                    ? JSON.stringify(result.result, null, 2)
+                    : '(No response data - method is fire-and-forget)';
+
+                elements.executionResults.innerHTML = safeHTML(`
+                <div class="result-header success-header">
+                    <span class="result-icon">✅</span>
+                    <span><strong>Mojo Call Successful</strong></span>
+                </div>
+                <div class="result-details">
+                    <div class="result-row">
+                        <span class="result-label">Interface:</span>
+                        <span class="result-value">${escapeHtml(interfaceName)}</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Method:</span>
+                        <span class="result-value">${escapeHtml(methodName)}()</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Status:</span>
+                        <span class="result-value status-success">Message sent to browser process</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Duration:</span>
+                        <span class="result-value">${duration}ms</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Time:</span>
+                        <span class="result-value">${timestamp}</span>
+                    </div>
+                </div>
+                <div class="result-section">
+                    <div class="result-section-title">Response Data:</div>
+                    <pre class="result-code">${escapeHtml(responseDisplay)}</pre>
+                </div>
+            `);
                 elements.executionResults.classList.add('success');
+                showToast(`${methodName}() executed successfully`, 'success');
             } else {
-                elements.executionResults.textContent = 'Error:\n' + result.error + '\n\nStack:\n' + result.stack;
+                elements.executionResults.innerHTML = safeHTML(`
+                <div class="result-header error-header">
+                    <span class="result-icon">❌</span>
+                    <span><strong>Execution Failed</strong></span>
+                </div>
+                <div class="result-details">
+                    <div class="result-row">
+                        <span class="result-label">Interface:</span>
+                        <span class="result-value">${escapeHtml(interfaceName)}</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Method:</span>
+                        <span class="result-value">${escapeHtml(methodName)}()</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Duration:</span>
+                        <span class="result-value">${duration}ms</span>
+                    </div>
+                </div>
+                <div class="result-section">
+                    <div class="result-section-title">Error:</div>
+                    <pre class="result-code error-text">${escapeHtml(result.error)}</pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-section-title">Stack Trace:</div>
+                    <pre class="result-code">${escapeHtml(result.stack)}</pre>
+                </div>
+            `);
                 elements.executionResults.classList.add('error');
             }
         } catch (error) {
-            elements.executionResults.textContent = 'Error:\n' + error.message + '\n\nStack:\n' + error.stack;
+            const duration = (performance.now() - startTime).toFixed(2);
+            elements.executionResults.innerHTML = safeHTML(`
+            <div class="result-header error-header">
+                <span class="result-icon">💥</span>
+                <span><strong>Unexpected Error</strong></span>
+            </div>
+            <div class="result-section">
+                <div class="result-section-title">Error:</div>
+                <pre class="result-code error-text">${escapeHtml(error.message)}</pre>
+            </div>
+            <div class="result-section">
+                <div class="result-section-title">Stack Trace:</div>
+                <pre class="result-code">${escapeHtml(error.stack)}</pre>
+            </div>
+        `);
             elements.executionResults.classList.add('error');
         }
     }
-
     function resetParams() {
         state.paramValues = {};
         if (state.selectedMethod) {

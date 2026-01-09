@@ -10,35 +10,35 @@
     --bg-secondary: #12121a;
     --bg-tertiary: #1a1a24;
     --bg-elevated: #22222e;
-    
+
     /* Accent Colors */
     --accent-primary: #6366f1;
     --accent-secondary: #8b5cf6;
     --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
     --accent-glow: rgba(99, 102, 241, 0.4);
-    
+
     /* Status Colors */
     --success: #10b981;
     --warning: #f59e0b;
     --error: #ef4444;
     --info: #3b82f6;
-    
+
     /* Text Colors */
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-tertiary: #64748b;
     --text-muted: #475569;
-    
+
     /* Border Colors */
     --border-subtle: rgba(255, 255, 255, 0.06);
     --border-default: rgba(255, 255, 255, 0.1);
     --border-focus: rgba(99, 102, 241, 0.5);
-    
+
     /* Glassmorphism */
     --glass-bg: rgba(18, 18, 26, 0.8);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-blur: blur(20px);
-    
+
     /* Spacing */
     --space-xs: 4px;
     --space-sm: 8px;
@@ -46,28 +46,28 @@
     --space-lg: 24px;
     --space-xl: 32px;
     --space-2xl: 48px;
-    
+
     /* Border Radius */
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
     --radius-xl: 24px;
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
     --shadow-glow: 0 0 40px var(--accent-glow);
-    
+
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-    
+
     /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
     --transition-slow: 400ms ease;
-    
+
     /* Layout */
     --header-height: 64px;
     --sidebar-width: 320px;
@@ -75,7 +75,9 @@
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -104,7 +106,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 70%);
@@ -233,8 +235,15 @@ body::before {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
 }
 
 /* ========================================
@@ -591,13 +600,34 @@ body::before {
 }
 
 /* Syntax Highlighting */
-.code-block .keyword { color: #c792ea; }
-.code-block .string { color: #c3e88d; }
-.code-block .number { color: #f78c6c; }
-.code-block .function { color: #82aaff; }
-.code-block .comment { color: #546e7a; font-style: italic; }
-.code-block .const { color: #89ddff; }
-.code-block .property { color: #ffcb6b; }
+.code-block .keyword {
+    color: #c792ea;
+}
+
+.code-block .string {
+    color: #c3e88d;
+}
+
+.code-block .number {
+    color: #f78c6c;
+}
+
+.code-block .function {
+    color: #82aaff;
+}
+
+.code-block .comment {
+    color: #546e7a;
+    font-style: italic;
+}
+
+.code-block .const {
+    color: #89ddff;
+}
+
+.code-block .property {
+    color: #ffcb6b;
+}
 
 /* Results Section */
 .results-section {
@@ -753,7 +783,9 @@ body::before {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ========================================
@@ -800,6 +832,7 @@ body::before {
         opacity: 0;
         transform: translateX(100%);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -811,6 +844,7 @@ body::before {
         opacity: 1;
         transform: translateX(0);
     }
+
     to {
         opacity: 0;
         transform: translateX(100%);
@@ -838,14 +872,106 @@ body::before {
     .main-content {
         flex-direction: column;
     }
-    
+
     .sidebar {
         width: 100%;
         max-height: 200px;
     }
-    
+
     .code-panel {
         width: 100%;
         max-height: 300px;
     }
+}
+
+/* ========================================
+   Execution Results
+   ======================================== */
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.95rem;
+}
+
+.success-header {
+    color: var(--success);
+}
+
+.error-header {
+    color: var(--error);
+}
+
+.result-icon {
+    font-size: 1.2rem;
+}
+
+.result-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.result-label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    min-width: 70px;
+}
+
+.result-value {
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.status-success {
+    color: var(--success);
+    font-weight: 500;
+}
+
+.result-section {
+    margin-top: var(--space-md);
+}
+
+.result-section-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+}
+
+.result-code {
+    background: var(--bg-tertiary);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.error-text {
+    color: var(--error);
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
 }
