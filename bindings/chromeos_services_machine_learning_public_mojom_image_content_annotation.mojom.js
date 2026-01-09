@@ -15,6 +15,45 @@ chromeos.machine_learning.mojom.Status = {
   ERROR: 0,
 };
 
+// Struct: ImageAnnotatorConfig
+chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.ImageAnnotatorConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageAnnotationScore
+chromeos.machine_learning.mojom.ImageAnnotationScoreSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.ImageAnnotationScore',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageAnnotationResult
+chromeos.machine_learning.mojom.ImageAnnotationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.ImageAnnotationResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImageContentAnnotator
 chromeos.machine_learning.mojom.ImageContentAnnotator = {};
 

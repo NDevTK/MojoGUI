@@ -28,6 +28,187 @@ network.mojom.DomainReliabilityClearMode = {
   CLEAR_BEACONS: 1,
 };
 
+// Struct: CustomProxyConfig
+network.mojom.CustomProxyConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CustomProxyConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'connect_tunnel_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertVerifierServiceRemoteParams
+network.mojom.CertVerifierServiceRemoteParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CertVerifierServiceRemoteParams',
+      packedSize: 16,
+      fields: [
+        { name: 'cert_verifier_service_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpAuthStaticNetworkContextParams
+network.mojom.HttpAuthStaticNetworkContextParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpAuthStaticNetworkContextParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkContextFilePaths
+network.mojom.NetworkContextFilePathsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextFilePaths',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SocketBrokerRemotes
+network.mojom.SocketBrokerRemotesSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SocketBrokerRemotes',
+      packedSize: 16,
+      fields: [
+        { name: 'server', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkContextParams
+network.mojom.NetworkContextParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkContextParams',
+      packedSize: 16,
+      fields: [
+        { name: 'bound_sessions_unexportable_key_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkConditions
+network.mojom.NetworkConditionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkConditions',
+      packedSize: 16,
+      fields: [
+        { name: 'rule_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MatchedNetworkConditions
+network.mojom.MatchedNetworkConditionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.MatchedNetworkConditions',
+      packedSize: 16,
+      fields: [
+        { name: 'conditions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SharedDictionaryInfo
+network.mojom.SharedDictionaryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SharedDictionaryInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SignedExchangeReport
+network.mojom.SignedExchangeReportSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SignedExchangeReport',
+      packedSize: 16,
+      fields: [
+        { name: 'elapsed_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: URLLoaderFactoryOverride
+network.mojom.URLLoaderFactoryOverrideSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderFactoryOverride',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: URLLoaderFactoryParams
+network.mojom.URLLoaderFactoryParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderFactoryParams',
+      packedSize: 16,
+      fields: [
+        { name: 'network_restrictions_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NonceAndAllowlistedPatterns
+network.mojom.NonceAndAllowlistedPatternsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NonceAndAllowlistedPatterns',
+      packedSize: 16,
+      fields: [
+        { name: 'allowlisted_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CustomProxyConnectionObserver
 network.mojom.CustomProxyConnectionObserver = {};
 

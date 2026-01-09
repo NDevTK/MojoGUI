@@ -35,3 +35,129 @@ arc.mojom.PrinterStatus = {
   BUSY: 1,
   UNAVAILABLE: 2,
 };
+
+// Struct: PrintPageRange
+arc.mojom.PrintPageRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintPageRange',
+      packedSize: 16,
+      fields: [
+        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintMediaSize
+arc.mojom.PrintMediaSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintMediaSize',
+      packedSize: 16,
+      fields: [
+        { name: 'height_mils', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintResolution
+arc.mojom.PrintResolutionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintResolution',
+      packedSize: 16,
+      fields: [
+        { name: 'vertical_dpi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintMargins
+arc.mojom.PrintMarginsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintMargins',
+      packedSize: 16,
+      fields: [
+        { name: 'bottom_mils', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintAttributes
+arc.mojom.PrintAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'duplex_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintDocumentRequest
+arc.mojom.PrintDocumentRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintDocumentRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'attributes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintJobRequest
+arc.mojom.PrintJobRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintJobRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrinterCapabilities
+arc.mojom.PrinterCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrinterCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'defaults', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrinterInfo
+arc.mojom.PrinterInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrinterInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -8,3 +8,16 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: SourceLocation
+network.mojom.SourceLocationSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SourceLocation',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

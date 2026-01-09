@@ -9,6 +9,76 @@ var mojom = mojom || {};
 mojom.app_service_internals = mojom.app_service_internals || {};
 
 
+// Struct: AppInfo
+mojom.app_service_internals.AppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.AppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PreferredAppInfo
+mojom.app_service_internals.PreferredAppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.PreferredAppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'preferred_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PromiseAppInfo
+mojom.app_service_internals.PromiseAppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.PromiseAppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppCapabilityInfo
+mojom.app_service_internals.AppCapabilityInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.AppCapabilityInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DebugInfo
+mojom.app_service_internals.DebugInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.DebugInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'app_capability_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppServiceInternalsPageHandler
 mojom.app_service_internals.AppServiceInternalsPageHandler = {};
 

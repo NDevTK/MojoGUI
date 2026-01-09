@@ -18,3 +18,17 @@ network.mojom.Destination = {
 network.mojom.Source = {
   kInline: 0,
 };
+
+// Struct: IntegrityPolicy
+network.mojom.IntegrityPolicySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.IntegrityPolicy',
+      packedSize: 16,
+      fields: [
+        { name: 'kScript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

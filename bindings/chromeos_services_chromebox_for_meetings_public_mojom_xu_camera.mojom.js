@@ -21,6 +21,62 @@ ash.cfm.mojom.GetFn = {
   kInfo: 6,
 };
 
+// Struct: MenuInfo
+ash.cfm.mojom.MenuInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.MenuInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MenuEntries
+ash.cfm.mojom.MenuEntriesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.MenuEntries',
+      packedSize: 16,
+      fields: [
+        { name: 'menu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ControlMapping
+ash.cfm.mojom.ControlMappingSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.ControlMapping',
+      packedSize: 16,
+      fields: [
+        { name: 'menu_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ControlQuery
+ash.cfm.mojom.ControlQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.ControlQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: XuCamera
 ash.cfm.mojom.XuCamera = {};
 

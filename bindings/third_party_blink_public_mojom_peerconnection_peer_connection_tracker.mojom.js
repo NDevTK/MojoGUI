@@ -18,6 +18,20 @@ blink.mojom.DeviceThermalState = {
   kCritical: 4,
 };
 
+// Struct: PeerConnectionInfo
+blink.mojom.PeerConnectionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PeerConnectionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PeerConnectionManager
 blink.mojom.PeerConnectionManager = {};
 

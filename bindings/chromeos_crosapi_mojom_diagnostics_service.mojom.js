@@ -84,6 +84,58 @@ crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnum = {
   kRandomRead: 1,
 };
 
+// Struct: DiagnosticsInteractiveRoutineUpdate
+crosapi.mojom.DiagnosticsInteractiveRoutineUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsInteractiveRoutineUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiagnosticsNonInteractiveRoutineUpdate
+crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiagnosticsRoutineUpdate
+crosapi.mojom.DiagnosticsRoutineUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsRoutineUpdate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiagnosticsRunRoutineResponse
+crosapi.mojom.DiagnosticsRunRoutineResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DiagnosticsRunRoutineResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DiagnosticsService
 crosapi.mojom.DiagnosticsService = {};
 

@@ -9,6 +9,76 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: RemoteMainFrameInterfaces
+blink.mojom.RemoteMainFrameInterfacesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RemoteMainFrameInterfaces',
+      packedSize: 16,
+      fields: [
+        { name: 'main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemoteFrameInterfacesFromRenderer
+blink.mojom.RemoteFrameInterfacesFromRendererSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RemoteFrameInterfacesFromRenderer',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemoteFrameInterfacesFromBrowser
+blink.mojom.RemoteFrameInterfacesFromBrowserSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RemoteFrameInterfacesFromBrowser',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateRemoteChildParams
+blink.mojom.CreateRemoteChildParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CreateRemoteChildParams',
+      packedSize: 16,
+      fields: [
+        { name: 'child_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenURLParams
+blink.mojom.OpenURLParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OpenURLParams',
+      packedSize: 16,
+      fields: [
+        { name: 'kNone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NavigationStateKeepAliveHandle
 blink.mojom.NavigationStateKeepAliveHandle = {};
 

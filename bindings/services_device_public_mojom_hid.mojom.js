@@ -15,6 +15,71 @@ device.mojom.HidBusType = {
   kHIDBusTypeBluetooth: 1,
 };
 
+// Struct: HidUsageAndPage
+device.mojom.HidUsageAndPageSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.HidUsageAndPage',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HidReportItem
+device.mojom.HidReportItemSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.HidReportItem',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HidReportDescription
+device.mojom.HidReportDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.HidReportDescription',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HidCollectionInfo
+device.mojom.HidCollectionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.HidCollectionInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HidDeviceInfo
+device.mojom.HidDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.HidDeviceInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HidManagerClient
 device.mojom.HidManagerClient = {};
 

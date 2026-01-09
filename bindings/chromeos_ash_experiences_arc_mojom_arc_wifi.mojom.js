@@ -9,6 +9,19 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: WifiScanResult
+arc.mojom.WifiScanResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WifiScanResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ArcWifiHost
 arc.mojom.ArcWifiHost = {};
 

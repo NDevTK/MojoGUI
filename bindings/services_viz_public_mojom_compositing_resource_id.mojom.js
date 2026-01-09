@@ -8,3 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: ResourceId
+viz.mojom.ResourceIdSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ResourceId',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

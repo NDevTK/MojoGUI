@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: LeakDetectionResult
+blink.mojom.LeakDetectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LeakDetectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'number_of_live_resource_fetchers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LeakDetector
 blink.mojom.LeakDetector = {};
 

@@ -16,6 +16,187 @@ printing.mojom.PrintFailureReason = {
   kPrintingInProgress: 2,
 };
 
+// Struct: PreviewIds
+printing.mojom.PreviewIdsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PreviewIds',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RequestPrintPreviewParams
+printing.mojom.RequestPrintPreviewParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.RequestPrintPreviewParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintFrameContentParams
+printing.mojom.PrintFrameContentParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintFrameContentParams',
+      packedSize: 16,
+      fields: [
+        { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OptionsFromDocumentParams
+printing.mojom.OptionsFromDocumentParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.OptionsFromDocumentParams',
+      packedSize: 16,
+      fields: [
+        { name: 'duplex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidPrintContentParams
+printing.mojom.DidPrintContentParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.DidPrintContentParams',
+      packedSize: 16,
+      fields: [
+        { name: 'subframe_content_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidStartPreviewParams
+printing.mojom.DidStartPreviewParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.DidStartPreviewParams',
+      packedSize: 16,
+      fields: [
+        { name: 'fit_to_page_scaling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidPreviewPageParams
+printing.mojom.DidPreviewPageParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.DidPreviewPageParams',
+      packedSize: 16,
+      fields: [
+        { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidPreviewDocumentParams
+printing.mojom.DidPreviewDocumentParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.DidPreviewDocumentParams',
+      packedSize: 16,
+      fields: [
+        { name: 'expected_pages_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintParams
+printing.mojom.PrintParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintParams',
+      packedSize: 16,
+      fields: [
+        { name: 'kNone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintPagesParams
+printing.mojom.PrintPagesParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintPagesParams',
+      packedSize: 16,
+      fields: [
+        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidPrintDocumentParams
+printing.mojom.DidPrintDocumentParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.DidPrintDocumentParams',
+      packedSize: 16,
+      fields: [
+        { name: 'physical_offsets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScriptedPrintParams
+printing.mojom.ScriptedPrintParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.ScriptedPrintParams',
+      packedSize: 16,
+      fields: [
+        { name: 'margin_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintWithParamsResultData
+printing.mojom.PrintWithParamsResultDataSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrintWithParamsResultData',
+      packedSize: 16,
+      fields: [
+        { name: 'kNone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrintRenderer
 printing.mojom.PrintRenderer = {};
 

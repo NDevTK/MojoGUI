@@ -17,6 +17,48 @@ private_aggregation_internals.mojom.ReportStatus = {
   kFailedToSend: 3,
 };
 
+// Struct: AggregatableReportRequestID
+private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.AggregatableReportRequestID',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AggregatableHistogramContribution
+private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.AggregatableHistogramContribution',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIAggregatableReport
+private_aggregation_internals.mojom.WebUIAggregatableReportSpec = {
+  $: {
+    structSpec: {
+      name: 'private_aggregation_internals.mojom.WebUIAggregatableReport',
+      packedSize: 16,
+      fields: [
+        { name: 'report_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Observer
 private_aggregation_internals.mojom.Observer = {};
 

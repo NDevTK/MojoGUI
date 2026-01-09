@@ -9,6 +9,48 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: EditorBoundsInfo
+blink.mojom.EditorBoundsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EditorBoundsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'handwriting_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextAppearanceInfo
+blink.mojom.TextAppearanceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextAppearanceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InputCursorAnchorInfo
+blink.mojom.InputCursorAnchorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InputCursorAnchorInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImeRenderWidgetHost
 blink.mojom.ImeRenderWidgetHost = {};
 

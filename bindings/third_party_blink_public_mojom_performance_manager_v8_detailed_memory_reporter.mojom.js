@@ -16,6 +16,62 @@ blink.mojom.Mode = {
   LAZY: 2,
 };
 
+// Struct: PerContextV8MemoryUsage
+blink.mojom.PerContextV8MemoryUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PerContextV8MemoryUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PerContextCanvasMemoryUsage
+blink.mojom.PerContextCanvasMemoryUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PerContextCanvasMemoryUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'memory_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PerIsolateV8MemoryUsage
+blink.mojom.PerIsolateV8MemoryUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PerIsolateV8MemoryUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'canvas_contexts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PerProcessV8MemoryUsage
+blink.mojom.PerProcessV8MemoryUsageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PerProcessV8MemoryUsage',
+      packedSize: 16,
+      fields: [
+        { name: 'isolates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: V8DetailedMemoryReporter
 blink.mojom.V8DetailedMemoryReporter = {};
 

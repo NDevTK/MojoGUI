@@ -9,6 +9,20 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
+// Struct: TrustedVaultKey
+chrome.mojom.TrustedVaultKeySpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.TrustedVaultKey',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TrustedVaultEncryptionKeysExtension
 chrome.mojom.TrustedVaultEncryptionKeysExtension = {};
 

@@ -15,3 +15,17 @@ metrics.private_metrics.mojom.Type = {
   kDwa: 0,
   kDkm: 1,
 };
+
+// Struct: PrivateMetricsEntry
+metrics.private_metrics.mojom.PrivateMetricsEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'metrics.private_metrics.mojom.PrivateMetricsEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'kDwa', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

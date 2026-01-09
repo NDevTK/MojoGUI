@@ -9,6 +9,20 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
+// Struct: ObfuscatedFileUtilHeaderData
+chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ObfuscatedFileUtilHeaderData',
+      packedSize: 16,
+      fields: [
+        { name: 'nonce_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SafeArchiveAnalyzer
 chrome.mojom.SafeArchiveAnalyzer = {};
 

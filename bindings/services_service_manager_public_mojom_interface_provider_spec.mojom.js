@@ -8,3 +8,45 @@
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
+
+// Struct: InterfaceSet
+service_manager.mojom.InterfaceSetSpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.InterfaceSet',
+      packedSize: 16,
+      fields: [
+        { name: 'interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CapabilitySet
+service_manager.mojom.CapabilitySetSpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.CapabilitySet',
+      packedSize: 16,
+      fields: [
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InterfaceProviderSpec
+service_manager.mojom.InterfaceProviderSpecSpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.InterfaceProviderSpec',
+      packedSize: 16,
+      fields: [
+        { name: 'needs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

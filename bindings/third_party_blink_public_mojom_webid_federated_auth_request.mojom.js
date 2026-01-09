@@ -65,6 +65,118 @@ blink.mojom.Format = {
   kSdJwt: 0,
 };
 
+// Struct: IdentityProviderConfig
+blink.mojom.IdentityProviderConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IdentityProviderConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IdentityProviderRequestOptions
+blink.mojom.IdentityProviderRequestOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IdentityProviderRequestOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IdentityCredentialDisconnectOptions
+blink.mojom.IdentityCredentialDisconnectOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IdentityCredentialDisconnectOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'account_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IdentityUserInfo
+blink.mojom.IdentityUserInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IdentityUserInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'picture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LoginStatusAccount
+blink.mojom.LoginStatusAccountSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LoginStatusAccount',
+      packedSize: 16,
+      fields: [
+        { name: 'picture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LoginStatusOptions
+blink.mojom.LoginStatusOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LoginStatusOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'expiration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IdentityProviderGetParameters
+blink.mojom.IdentityProviderGetParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IdentityProviderGetParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TokenError
+blink.mojom.TokenErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TokenError',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FederatedAuthRequest
 blink.mojom.FederatedAuthRequest = {};
 

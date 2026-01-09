@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ServiceWorkerStreamHandle
+blink.mojom.ServiceWorkerStreamHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerStreamHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'callback_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerStreamCallback
 blink.mojom.ServiceWorkerStreamCallback = {};
 

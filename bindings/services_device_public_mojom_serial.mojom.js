@@ -64,6 +64,76 @@ device.mojom.SerialPortType = {
   BLUETOOTH_CLASSIC_RFCOMM: 1,
 };
 
+// Struct: SerialPortInfo
+device.mojom.SerialPortInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SerialPortInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SerialConnectionOptions
+device.mojom.SerialConnectionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SerialConnectionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SerialConnectionInfo
+device.mojom.SerialConnectionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SerialConnectionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'cts_flow_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SerialHostControlSignals
+device.mojom.SerialHostControlSignalsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SerialHostControlSignals',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SerialPortControlSignals
+device.mojom.SerialPortControlSignalsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.SerialPortControlSignals',
+      packedSize: 16,
+      fields: [
+        { name: 'dsr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SerialPortManager
 device.mojom.SerialPortManager = {};
 

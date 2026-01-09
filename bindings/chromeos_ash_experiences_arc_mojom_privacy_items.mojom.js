@@ -9,6 +9,34 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: PrivacyApplication
+arc.mojom.PrivacyApplicationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyApplication',
+      packedSize: 16,
+      fields: [
+        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrivacyItem
+arc.mojom.PrivacyItemSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrivacyItem',
+      packedSize: 16,
+      fields: [
+        { name: 'privacy_application', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrivacyItemsHost
 arc.mojom.PrivacyItemsHost = {};
 

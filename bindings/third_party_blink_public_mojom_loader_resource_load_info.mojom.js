@@ -33,3 +33,45 @@ blink.mojom.ResourceType = {
   kNavigationPreloadSubFrame: 19,
   kJson: 20,
 };
+
+// Struct: CommonNetworkInfo
+blink.mojom.CommonNetworkInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CommonNetworkInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'remote_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RedirectInfo
+blink.mojom.RedirectInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RedirectInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'network_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResourceLoadInfo
+blink.mojom.ResourceLoadInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ResourceLoadInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'did_use_server_http_auth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -9,6 +9,20 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: MediaDrmSupportResult
+media.mojom.MediaDrmSupportResultSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaDrmSupportResult',
+      packedSize: 16,
+      fields: [
+        { name: 'key_system_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaDrmSupport
 media.mojom.MediaDrmSupport = {};
 

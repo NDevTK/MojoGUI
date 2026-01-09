@@ -9,6 +9,20 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 
 
+// Struct: BucketTableEntry
+storage.mojom.BucketTableEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BucketTableEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: QuotaInternalsHandler
 storage.mojom.QuotaInternalsHandler = {};
 

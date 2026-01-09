@@ -9,6 +9,20 @@ var printing = printing || {};
 printing.mojom = printing.mojom || {};
 
 
+// Struct: FlattenPdfResult
+printing.mojom.FlattenPdfResultSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.FlattenPdfResult',
+      packedSize: 16,
+      fields: [
+        { name: 'page_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PdfFlattener
 printing.mojom.PdfFlattener = {};
 

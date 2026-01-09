@@ -25,6 +25,20 @@ blink.mojom.GetKeyboardLayoutMapStatus = {
   kDenied: 2,
 };
 
+// Struct: GetKeyboardLayoutMapResult
+blink.mojom.GetKeyboardLayoutMapResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GetKeyboardLayoutMapResult',
+      packedSize: 16,
+      fields: [
+        { name: 'layout_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeyboardLockService
 blink.mojom.KeyboardLockService = {};
 

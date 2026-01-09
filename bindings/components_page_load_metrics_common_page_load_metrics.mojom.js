@@ -16,6 +16,300 @@ page_load_metrics.mojom.CacheType = {
   kMemory: 2,
 };
 
+// Struct: DocumentTiming
+page_load_metrics.mojom.DocumentTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.DocumentTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'load_event_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LcpResourceLoadTimings
+page_load_metrics.mojom.LcpResourceLoadTimingsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.LcpResourceLoadTimings',
+      packedSize: 16,
+      fields: [
+        { name: 'load_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LargestContentfulPaintTiming
+page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.LargestContentfulPaintTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'image_request_priority_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaintTiming
+page_load_metrics.mojom.PaintTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.PaintTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'first_input_or_scroll_notified_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MonotonicPaintTiming
+page_load_metrics.mojom.MonotonicPaintTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.MonotonicPaintTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'first_contentful_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ParseTiming
+page_load_metrics.mojom.ParseTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.ParseTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'parse_blocked_on_script_execution_from_document_write_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InteractiveTiming
+page_load_metrics.mojom.InteractiveTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.InteractiveTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'first_scroll_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CustomUserTimingMark
+page_load_metrics.mojom.CustomUserTimingMarkSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.CustomUserTimingMark',
+      packedSize: 16,
+      fields: [
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DomainLookupTiming
+page_load_metrics.mojom.DomainLookupTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.DomainLookupTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'domain_lookup_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PageLoadTiming
+page_load_metrics.mojom.PageLoadTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.PageLoadTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'monotonic_paint_timing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameMetadata
+page_load_metrics.mojom.FrameMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.FrameMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'framework_detection_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubresourceLoadMetrics
+page_load_metrics.mojom.SubresourceLoadMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.SubresourceLoadMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'service_worker_subresource_load_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceWorkerSubresourceLoadMetrics
+page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResourceDataUpdate
+page_load_metrics.mojom.ResourceDataUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.ResourceDataUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'proxy_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LayoutShift
+page_load_metrics.mojom.LayoutShiftSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.LayoutShift',
+      packedSize: 16,
+      fields: [
+        { name: 'layout_shift_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameRenderDataUpdate
+page_load_metrics.mojom.FrameRenderDataUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.FrameRenderDataUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'new_layout_shifts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CpuTiming
+page_load_metrics.mojom.CpuTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.CpuTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'task_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InputTiming
+page_load_metrics.mojom.InputTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.InputTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'user_interaction_latencies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UserInteractionLatency
+page_load_metrics.mojom.UserInteractionLatencySpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.UserInteractionLatency',
+      packedSize: 16,
+      fields: [
+        { name: 'interaction_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackForwardCacheTiming
+page_load_metrics.mojom.BackForwardCacheTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.BackForwardCacheTiming',
+      packedSize: 16,
+      fields: [
+        { name: 'first_input_delay_after_back_forward_cache_restore', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SoftNavigationMetrics
+page_load_metrics.mojom.SoftNavigationMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_load_metrics.mojom.SoftNavigationMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'largest_contentful_paint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageLoadMetrics
 page_load_metrics.mojom.PageLoadMetrics = {};
 

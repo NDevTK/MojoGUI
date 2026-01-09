@@ -9,6 +9,20 @@ var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
 
+// Struct: CreateGraphSuccess
+webnn.mojom.CreateGraphSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.CreateGraphSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebNNGraphBuilder
 webnn.mojom.WebNNGraphBuilder = {};
 

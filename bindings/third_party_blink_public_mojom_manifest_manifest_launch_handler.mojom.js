@@ -16,3 +16,16 @@ blink.mojom.ClientMode = {
   kNavigateExisting: 2,
   kFocusExisting: 3,
 };
+
+// Struct: ManifestLaunchHandler
+blink.mojom.ManifestLaunchHandlerSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ManifestLaunchHandler',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

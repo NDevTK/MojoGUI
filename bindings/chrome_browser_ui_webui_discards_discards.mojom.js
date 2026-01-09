@@ -23,6 +23,90 @@ discards.mojom.CanFreeze = {
   NO: 2,
 };
 
+// Struct: TabDiscardsInfo
+discards.mojom.TabDiscardsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.TabDiscardsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'state_change_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PageInfo
+discards.mojom.PageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.PageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameInfo
+discards.mojom.FrameInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.FrameInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProcessInfo
+discards.mojom.ProcessInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.ProcessInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WorkerInfo
+discards.mojom.WorkerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.WorkerInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'description_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FavIconInfo
+discards.mojom.FavIconInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.FavIconInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DetailsProvider
 discards.mojom.DetailsProvider = {};
 

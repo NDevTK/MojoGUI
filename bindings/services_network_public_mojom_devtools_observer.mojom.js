@@ -9,6 +9,48 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: URLRequestDevToolsInfo
+network.mojom.URLRequestDevToolsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLRequestDevToolsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ad_related', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: URLResponseHeadDevToolsInfo
+network.mojom.URLResponseHeadDevToolsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLResponseHeadDevToolsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'emitted_extra_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OtherPartitionInfo
+network.mojom.OtherPartitionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.OtherPartitionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'site_has_cookie_in_other_partition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DevToolsObserver
 network.mojom.DevToolsObserver = {};
 

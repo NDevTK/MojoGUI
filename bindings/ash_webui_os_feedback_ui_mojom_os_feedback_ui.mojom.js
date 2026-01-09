@@ -65,6 +65,90 @@ ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
   kQuitNoHelpContentDisplayed: 5,
 };
 
+// Struct: HelpContent
+ash.os_feedback_ui.mojom.HelpContentSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.os_feedback_ui.mojom.HelpContent',
+      packedSize: 16,
+      fields: [
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchRequest
+ash.os_feedback_ui.mojom.SearchRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.os_feedback_ui.mojom.SearchRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'max_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchResponse
+ash.os_feedback_ui.mojom.SearchResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.os_feedback_ui.mojom.SearchResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'total_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FeedbackContext
+ash.os_feedback_ui.mojom.FeedbackContextSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.os_feedback_ui.mojom.FeedbackContext',
+      packedSize: 16,
+      fields: [
+        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AttachedFile
+ash.os_feedback_ui.mojom.AttachedFileSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.os_feedback_ui.mojom.AttachedFile',
+      packedSize: 16,
+      fields: [
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Report
+ash.os_feedback_ui.mojom.ReportSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.os_feedback_ui.mojom.Report',
+      packedSize: 16,
+      fields: [
+        { name: 'include_autofill_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HelpContentProvider
 ash.os_feedback_ui.mojom.HelpContentProvider = {};
 

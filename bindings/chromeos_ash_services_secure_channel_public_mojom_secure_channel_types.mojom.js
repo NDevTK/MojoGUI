@@ -18,6 +18,34 @@ ash.secure_channel.mojom.FileTransferStatus = {
   kCanceled: 3,
 };
 
+// Struct: PayloadFiles
+ash.secure_channel.mojom.PayloadFilesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.secure_channel.mojom.PayloadFiles',
+      packedSize: 16,
+      fields: [
+        { name: 'output_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileTransferUpdate
+ash.secure_channel.mojom.FileTransferUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.secure_channel.mojom.FileTransferUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes_transferred', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FilePayloadListener
 ash.secure_channel.mojom.FilePayloadListener = {};
 

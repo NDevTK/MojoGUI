@@ -26,6 +26,34 @@ emoji_picker.mojom.Category = {
   kGifs: 3,
 };
 
+// Struct: EmojiVariant
+emoji_picker.mojom.EmojiVariantSpec = {
+  $: {
+    structSpec: {
+      name: 'emoji_picker.mojom.EmojiVariant',
+      packedSize: 16,
+      fields: [
+        { name: 'variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HistoryItem
+emoji_picker.mojom.HistoryItemSpec = {
+  $: {
+    structSpec: {
+      name: 'emoji_picker.mojom.HistoryItem',
+      packedSize: 16,
+      fields: [
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 emoji_picker.mojom.PageHandlerFactory = {};
 

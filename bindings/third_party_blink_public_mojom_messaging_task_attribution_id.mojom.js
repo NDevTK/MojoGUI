@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: TaskAttributionId
+blink.mojom.TaskAttributionIdSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TaskAttributionId',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

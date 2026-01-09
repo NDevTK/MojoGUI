@@ -260,6 +260,90 @@ arc.mojom.AndroidDataDirectory = {
   kDataUserDE: 4,
 };
 
+// Struct: BootProgressEvent
+arc.mojom.BootProgressEventSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BootProgressEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'uptimeMillis', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GfxMetrics
+arc.mojom.GfxMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.GfxMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'frameTimePercentile95', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppKill
+arc.mojom.AppKillSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppKill',
+      packedSize: 16,
+      fields: [
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LowLatencyStylusLibPredictionTarget
+arc.mojom.LowLatencyStylusLibPredictionTargetSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.LowLatencyStylusLibPredictionTarget',
+      packedSize: 16,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AppCategoryDataSize
+arc.mojom.AppCategoryDataSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AppCategoryDataSize',
+      packedSize: 16,
+      fields: [
+        { name: 'data_size_in_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataDirectorySize
+arc.mojom.DataDirectorySizeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DataDirectorySize',
+      packedSize: 16,
+      fields: [
+        { name: 'size_in_mb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MetricsHost
 arc.mojom.MetricsHost = {};
 

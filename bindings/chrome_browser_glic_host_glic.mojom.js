@@ -201,6 +201,618 @@ glic.mojom.CurrentView = {
   kActuation: 1,
 };
 
+// Struct: ProfileEnablement
+glic.mojom.ProfileEnablementSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ProfileEnablement',
+      packedSize: 16,
+      fields: [
+        { name: 'not_consented', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetContextResultWithActionResultCode
+glic.mojom.GetContextResultWithActionResultCodeSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.GetContextResultWithActionResultCode',
+      packedSize: 16,
+      fields: [
+        { name: 'action_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UserProfileInfo
+glic.mojom.UserProfileInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.UserProfileInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_managed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebClientInitialState
+glic.mojom.WebClientInitialStateSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebClientInitialState',
+      packedSize: 16,
+      fields: [
+        { name: 'skill_previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetTabContextOptions
+glic.mojom.GetTabContextOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.GetTabContextOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetPinCandidatesOptions
+glic.mojom.GetPinCandidatesOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.GetPinCandidatesOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollToParams
+glic.mojom.ScrollToParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ScrollToParams',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollToTextSelector
+glic.mojom.ScrollToTextSelectorSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ScrollToTextSelector',
+      packedSize: 16,
+      fields: [
+        { name: 'search_range_start_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollToTextFragmentSelector
+glic.mojom.ScrollToTextFragmentSelectorSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ScrollToTextFragmentSelector',
+      packedSize: 16,
+      fields: [
+        { name: 'search_range_start_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollToNodeSelector
+glic.mojom.ScrollToNodeSelectorSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ScrollToNodeSelector',
+      packedSize: 16,
+      fields: [
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SuggestionContent
+glic.mojom.SuggestionContentSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.SuggestionContent',
+      packedSize: 16,
+      fields: [
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SkillPreview
+glic.mojom.SkillPreviewSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.SkillPreview',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Skill
+glic.mojom.SkillSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.Skill',
+      packedSize: 16,
+      fields: [
+        { name: 'prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateSkillRequest
+glic.mojom.CreateSkillRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.CreateSkillRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateSkillRequest
+glic.mojom.UpdateSkillRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.UpdateSkillRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ZeroStateSuggestions
+glic.mojom.ZeroStateSuggestionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ZeroStateSuggestions',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ZeroStateSuggestionsV2
+glic.mojom.ZeroStateSuggestionsV2Spec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ZeroStateSuggestionsV2',
+      packedSize: 16,
+      fields: [
+        { name: 'is_pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ZeroStateSuggestionsOptions
+glic.mojom.ZeroStateSuggestionsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ZeroStateSuggestionsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'supported_tools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinCandidate
+glic.mojom.PinCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PinCandidate',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinTabsOptions
+glic.mojom.PinTabsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PinTabsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'pin_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UnpinTabsOptions
+glic.mojom.UnpinTabsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.UnpinTabsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'unpin_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConversationInfo
+glic.mojom.ConversationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ConversationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'client_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PanelOpeningData
+glic.mojom.PanelOpeningDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PanelOpeningData',
+      packedSize: 16,
+      fields: [
+        { name: 'conversation_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PanelState
+glic.mojom.PanelStateSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PanelState',
+      packedSize: 16,
+      fields: [
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OnResponseStoppedDetails
+glic.mojom.OnResponseStoppedDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.OnResponseStoppedDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'cause', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenPanelInfo
+glic.mojom.OpenPanelInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.OpenPanelInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'can_user_resize', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContextData
+glic.mojom.ContextDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ContextData',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AdditionalContext
+glic.mojom.AdditionalContextSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.AdditionalContext',
+      packedSize: 16,
+      fields: [
+        { name: 'parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabContext
+glic.mojom.TabContextSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.TabContext',
+      packedSize: 16,
+      fields: [
+        { name: 'annotated_page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebPageData
+glic.mojom.WebPageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.WebPageData',
+      packedSize: 16,
+      fields: [
+        { name: 'main_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DocumentData
+glic.mojom.DocumentDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.DocumentData',
+      packedSize: 16,
+      fields: [
+        { name: 'inner_text_truncated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PdfDocumentData
+glic.mojom.PdfDocumentDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.PdfDocumentData',
+      packedSize: 16,
+      fields: [
+        { name: 'size_limit_exceeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabData
+glic.mojom.TabDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.TabData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_window_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NoFocusedTabData
+glic.mojom.NoFocusedTabDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.NoFocusedTabData',
+      packedSize: 16,
+      fields: [
+        { name: 'no_focus_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnnotatedPageData
+glic.mojom.AnnotatedPageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.AnnotatedPageData',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageOriginAnnotations
+glic.mojom.ImageOriginAnnotationsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ImageOriginAnnotations',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Journal
+glic.mojom.JournalSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.Journal',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CaptureRegionResult
+glic.mojom.CaptureRegionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.CaptureRegionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Screenshot
+glic.mojom.ScreenshotSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.Screenshot',
+      packedSize: 16,
+      fields: [
+        { name: 'origin_annotations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenSettingsOptions
+glic.mojom.OpenSettingsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.OpenSettingsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'highlightField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewChangeRequestActuation
+glic.mojom.ViewChangeRequestActuationSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ViewChangeRequestActuation',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewChangeRequestConversation
+glic.mojom.ViewChangeRequestConversationSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ViewChangeRequestConversation',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewChangeRequest
+glic.mojom.ViewChangeRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ViewChangeRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewChangedNotification
+glic.mojom.ViewChangedNotificationSpec = {
+  $: {
+    structSpec: {
+      name: 'glic.mojom.ViewChangedNotification',
+      packedSize: 16,
+      fields: [
+        { name: 'current_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PreloadPage
 glic.mojom.PreloadPage = {};
 

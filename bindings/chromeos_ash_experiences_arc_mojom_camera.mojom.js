@@ -9,6 +9,33 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: CameraDeviceInfo
+arc.mojom.CameraDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraDeviceInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CameraSupportedFormat
+arc.mojom.CameraSupportedFormatSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CameraSupportedFormat',
+      packedSize: 16,
+      fields: [
+        { name: 'frameRates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CameraService
 arc.mojom.CameraService = {};
 

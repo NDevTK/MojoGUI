@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: SHA256HashValue
+network.mojom.SHA256HashValueSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SHA256HashValue',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

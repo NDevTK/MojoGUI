@@ -36,6 +36,272 @@ blink.mojom.FocusState = {
   kNotFocusedAndNotActive: 2,
 };
 
+// Struct: KeyData
+blink.mojom.KeyDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.KeyData',
+      packedSize: 16,
+      fields: [
+        { name: 'unmodified_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PointerData
+blink.mojom.PointerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PointerData',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WheelData
+blink.mojom.WheelDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WheelData',
+      packedSize: 16,
+      fields: [
+        { name: 'delta_units', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MouseData
+blink.mojom.MouseDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MouseData',
+      packedSize: 16,
+      fields: [
+        { name: 'wheel_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScrollData
+blink.mojom.ScrollDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ScrollData',
+      packedSize: 16,
+      fields: [
+        { name: 'cursor_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinchBeginData
+blink.mojom.PinchBeginDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PinchBeginData',
+      packedSize: 16,
+      fields: [
+        { name: 'needs_wheel_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinchUpdateData
+blink.mojom.PinchUpdateDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PinchUpdateData',
+      packedSize: 16,
+      fields: [
+        { name: 'needs_wheel_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinchEndData
+blink.mojom.PinchEndDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PinchEndData',
+      packedSize: 16,
+      fields: [
+        { name: 'needs_wheel_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FlingData
+blink.mojom.FlingDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FlingData',
+      packedSize: 16,
+      fields: [
+        { name: 'prevent_boosting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TapData
+blink.mojom.TapDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TapData',
+      packedSize: 16,
+      fields: [
+        { name: 'needs_wheel_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TapDownData
+blink.mojom.TapDownDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TapDownData',
+      packedSize: 16,
+      fields: [
+        { name: 'tap_down_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GestureData
+blink.mojom.GestureDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GestureData',
+      packedSize: 16,
+      fields: [
+        { name: 'fling_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchPoint
+blink.mojom.TouchPointSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TouchPoint',
+      packedSize: 16,
+      fields: [
+        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchData
+blink.mojom.TouchDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TouchData',
+      packedSize: 16,
+      fields: [
+        { name: 'touches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Event
+blink.mojom.EventSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Event',
+      packedSize: 16,
+      fields: [
+        { name: 'touch_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DidOverscrollParams
+blink.mojom.DidOverscrollParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DidOverscrollParams',
+      packedSize: 16,
+      fields: [
+        { name: 'source_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchActionOptional
+blink.mojom.TouchActionOptionalSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TouchActionOptional',
+      packedSize: 16,
+      fields: [
+        { name: 'touch_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EditCommand
+blink.mojom.EditCommandSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.EditCommand',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectAroundCaretResult
+blink.mojom.SelectAroundCaretResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SelectAroundCaretResult',
+      packedSize: 16,
+      fields: [
+        { name: 'word_end_adjust', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WidgetInputHandlerHost
 blink.mojom.WidgetInputHandlerHost = {};
 

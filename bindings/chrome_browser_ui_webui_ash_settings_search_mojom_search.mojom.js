@@ -30,6 +30,20 @@ ash.settings.mojom.ParentResultBehavior = {
   kDoNotIncludeParentResults: 1,
 };
 
+// Struct: SearchResult
+ash.settings.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SearchResultsObserver
 ash.settings.mojom.SearchResultsObserver = {};
 

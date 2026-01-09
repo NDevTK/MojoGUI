@@ -17,6 +17,104 @@ history.mojom.FilteringBehavior = {
   kInvalid: 3,
 };
 
+// Struct: QueryState
+history.mojom.QueryStateSpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.QueryState',
+      packedSize: 16,
+      fields: [
+        { name: 'after', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HistoryQuery
+history.mojom.HistoryQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.HistoryQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'finished', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DebugInfo
+history.mojom.DebugInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.DebugInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'typed_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HistoryEntry
+history.mojom.HistoryEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.HistoryEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'debug', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QueryResult
+history.mojom.QueryResultSpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.QueryResult',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemovalItem
+history.mojom.RemovalItemSpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.RemovalItem',
+      packedSize: 16,
+      fields: [
+        { name: 'timestamps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccountInfo
+history.mojom.AccountInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'history.mojom.AccountInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 history.mojom.PageHandler = {};
 

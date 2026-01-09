@@ -16,6 +16,19 @@ chromeos.auth.mojom.Reason = {
   kAccessMultideviceSettings: 1,
 };
 
+// Struct: RequestTokenReply
+chromeos.auth.mojom.RequestTokenReplySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.auth.mojom.RequestTokenReply',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InSessionAuth
 chromeos.auth.mojom.InSessionAuth = {};
 

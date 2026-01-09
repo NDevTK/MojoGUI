@@ -38,6 +38,20 @@ chromecast.mojom.GesturePriority = {
   SETTINGS_UI: 3,
 };
 
+// Struct: CastWebViewParams
+chromecast.mojom.CastWebViewParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.CastWebViewParams',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CastWebService
 chromecast.mojom.CastWebService = {};
 

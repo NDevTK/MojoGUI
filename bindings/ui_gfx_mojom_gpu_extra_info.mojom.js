@@ -8,3 +8,31 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+
+// Struct: ANGLEFeature
+gfx.mojom.ANGLEFeatureSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.ANGLEFeature',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuExtraInfo
+gfx.mojom.GpuExtraInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.GpuExtraInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'angle_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

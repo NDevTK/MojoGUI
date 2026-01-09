@@ -14,3 +14,17 @@ signin.mojom.AccountType = {
   UNKNOWN: 0,
   GOOGLE: 1,
 };
+
+// Struct: AccountId
+signin.mojom.AccountIdSpec = {
+  $: {
+    structSpec: {
+      name: 'signin.mojom.AccountId',
+      packedSize: 16,
+      fields: [
+        { name: 'user_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

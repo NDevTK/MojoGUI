@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: PluginMimeType
+blink.mojom.PluginMimeTypeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PluginMimeType',
+      packedSize: 16,
+      fields: [
+        { name: 'file_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PluginInfo
+blink.mojom.PluginInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PluginInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'may_use_external_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PluginRegistry
 blink.mojom.PluginRegistry = {};
 

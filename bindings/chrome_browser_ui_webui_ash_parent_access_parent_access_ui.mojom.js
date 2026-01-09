@@ -38,6 +38,76 @@ parent_access_ui.mojom.ParentAccessResult = {
   kError: 4,
 };
 
+// Struct: ParentAccessServerMessage
+parent_access_ui.mojom.ParentAccessServerMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'parent_access_ui.mojom.ParentAccessServerMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ParentAccessParams
+parent_access_ui.mojom.ParentAccessParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'parent_access_ui.mojom.ParentAccessParams',
+      packedSize: 16,
+      fields: [
+        { name: 'kWebsiteAccess', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebApprovalsParams
+parent_access_ui.mojom.WebApprovalsParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'parent_access_ui.mojom.WebApprovalsParams',
+      packedSize: 16,
+      fields: [
+        { name: 'favicon_png_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExtensionApprovalsParams
+parent_access_ui.mojom.ExtensionApprovalsParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'parent_access_ui.mojom.ExtensionApprovalsParams',
+      packedSize: 16,
+      fields: [
+        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExtensionPermission
+parent_access_ui.mojom.ExtensionPermissionSpec = {
+  $: {
+    structSpec: {
+      name: 'parent_access_ui.mojom.ExtensionPermission',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ParentAccessUiHandler
 parent_access_ui.mojom.ParentAccessUiHandler = {};
 

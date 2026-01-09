@@ -19,6 +19,33 @@ ash.cros_healthd.internal.mojom.ConnectionType = {
   kUnknown: 3,
 };
 
+// Struct: TouchscreenDevice
+ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.internal.mojom.TouchscreenDevice',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InputDevice
+ash.cros_healthd.internal.mojom.InputDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.internal.mojom.InputDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ChromiumDataCollector
 ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
 

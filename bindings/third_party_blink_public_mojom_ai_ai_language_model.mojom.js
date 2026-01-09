@@ -27,6 +27,90 @@ blink.mojom.AILanguageModelPromptType = {
   kToolResponse: 4,
 };
 
+// Struct: AILanguageModelSamplingParams
+blink.mojom.AILanguageModelSamplingParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModelSamplingParams',
+      packedSize: 16,
+      fields: [
+        { name: 'temperature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AILanguageModelParams
+blink.mojom.AILanguageModelParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModelParams',
+      packedSize: 16,
+      fields: [
+        { name: 'max_sampling_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AILanguageModelInstanceInfo
+blink.mojom.AILanguageModelInstanceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModelInstanceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'input_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AILanguageModelExpected
+blink.mojom.AILanguageModelExpectedSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModelExpected',
+      packedSize: 16,
+      fields: [
+        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AILanguageModelPrompt
+blink.mojom.AILanguageModelPromptSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModelPrompt',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AILanguageModelCreateOptions
+blink.mojom.AILanguageModelCreateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageModelCreateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'expected_outputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AIManagerCreateLanguageModelClient
 blink.mojom.AIManagerCreateLanguageModelClient = {};
 

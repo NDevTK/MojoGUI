@@ -23,6 +23,20 @@ remote_cocoa.mojom.Visibility = {
   kHidden: 2,
 };
 
+// Struct: DraggingInfo
+remote_cocoa.mojom.DraggingInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.DraggingInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'operation_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebContentsNSView
 remote_cocoa.mojom.WebContentsNSView = {};
 

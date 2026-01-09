@@ -25,6 +25,20 @@ ash.settings.app_notification.mojom.Readiness = {
   kDisabledByLocalSettings: 9,
 };
 
+// Struct: App
+ash.settings.app_notification.mojom.AppSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_notification.mojom.App',
+      packedSize: 16,
+      fields: [
+        { name: 'notification_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppNotificationsHandler
 ash.settings.app_notification.mojom.AppNotificationsHandler = {};
 

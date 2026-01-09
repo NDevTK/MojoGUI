@@ -24,6 +24,20 @@ midi.mojom.PortState = {
   OPENED: 2,
 };
 
+// Struct: PortInfo
+midi.mojom.PortInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'midi.mojom.PortInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MidiSessionClient
 midi.mojom.MidiSessionClient = {};
 

@@ -41,3 +41,85 @@ blink.mojom.ParentResourceTimingAccess = {
   kReportWithoutResponseDetails: 1,
   kReportWithResponseDetails: 2,
 };
+
+// Struct: BeginNavigationParams
+blink.mojom.BeginNavigationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BeginNavigationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CommonNavigationParams
+blink.mojom.CommonNavigationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CommonNavigationParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NavigationTiming
+blink.mojom.NavigationTimingSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NavigationTiming',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OldPageInfo
+blink.mojom.OldPageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.OldPageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'new_lifecycle_state_for_old_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CommitNavigationParams
+blink.mojom.CommitNavigationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CommitNavigationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PageSwapEventParams
+blink.mojom.PageSwapEventParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PageSwapEventParams',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -24,6 +24,20 @@ image_annotation.mojom.AnnotationType = {
   kIcon: 3,
 };
 
+// Struct: Annotation
+image_annotation.mojom.AnnotationSpec = {
+  $: {
+    structSpec: {
+      name: 'image_annotation.mojom.Annotation',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImageProcessor
 image_annotation.mojom.ImageProcessor = {};
 

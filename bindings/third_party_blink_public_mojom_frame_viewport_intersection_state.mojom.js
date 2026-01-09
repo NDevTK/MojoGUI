@@ -15,3 +15,17 @@ blink.mojom.FrameOcclusionState = {
   kPossiblyOccluded: 1,
   kGuaranteedNotOccluded: 2,
 };
+
+// Struct: ViewportIntersectionState
+blink.mojom.ViewportIntersectionStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ViewportIntersectionState',
+      packedSize: 16,
+      fields: [
+        { name: 'main_frame_transform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

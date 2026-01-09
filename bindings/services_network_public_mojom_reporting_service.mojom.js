@@ -17,6 +17,34 @@ network.mojom.ReportingApiReportStatus = {
   kSuccess: 3,
 };
 
+// Struct: ReportingApiReport
+network.mojom.ReportingApiReportSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ReportingApiReport',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReportingApiEndpoint
+network.mojom.ReportingApiEndpointSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ReportingApiEndpoint',
+      packedSize: 16,
+      fields: [
+        { name: 'reporting_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ReportingApiObserver
 network.mojom.ReportingApiObserver = {};
 

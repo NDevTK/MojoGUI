@@ -9,6 +9,34 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Struct: RootCompositorFrameSinkParams
+viz.mojom.RootCompositorFrameSinkParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.RootCompositorFrameSinkParams',
+      packedSize: 16,
+      fields: [
+        { name: 'external_begin_frame_controller_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CompositorDisplayLinkParams
+viz.mojom.CompositorDisplayLinkParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorDisplayLinkParams',
+      packedSize: 16,
+      fields: [
+        { name: 'external_begin_frame_controller_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FrameSinkManager
 viz.mojom.FrameSinkManager = {};
 

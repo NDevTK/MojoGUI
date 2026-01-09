@@ -47,6 +47,48 @@ chromeos.printing.printing_manager.mojom.LaunchSource = {
   kHeaderButton: 1,
 };
 
+// Struct: CompletedPrintJobInfo
+chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.printing.printing_manager.mojom.CompletedPrintJobInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'completion_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ActivePrintJobInfo
+chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'active_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintJobInfo
+chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.printing.printing_manager.mojom.PrintJobInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'active_print_job_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrintJobsObserver
 chromeos.printing.printing_manager.mojom.PrintJobsObserver = {};
 

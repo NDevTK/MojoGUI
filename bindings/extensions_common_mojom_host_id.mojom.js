@@ -15,3 +15,17 @@ extensions.mojom.HostType = {
   kWebUi: 1,
   kControlledFrameEmbedder: 2,
 };
+
+// Struct: HostID
+extensions.mojom.HostIDSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.HostID',
+      packedSize: 16,
+      fields: [
+        { name: 'kExtensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

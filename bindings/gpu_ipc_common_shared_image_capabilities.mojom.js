@@ -8,3 +8,17 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+
+// Struct: SharedImageCapabilities
+gpu.mojom.SharedImageCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.SharedImageCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'texture_target_for_io_surfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

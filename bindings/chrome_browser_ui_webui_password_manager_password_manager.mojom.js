@@ -9,6 +9,34 @@ var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
 
 
+// Struct: DomainInfo
+password_manager.mojom.DomainInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'password_manager.mojom.DomainInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'signon_realm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ActorLoginPermission
+password_manager.mojom.ActorLoginPermissionSpec = {
+  $: {
+    structSpec: {
+      name: 'password_manager.mojom.ActorLoginPermission',
+      packedSize: 16,
+      fields: [
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 password_manager.mojom.PageHandlerFactory = {};
 

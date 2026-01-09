@@ -43,6 +43,20 @@ ash.help_app.mojom.SettingsComponent = {
   TOUCHPAD_SIMULATE_RIGHT_CLICK: 13,
 };
 
+// Struct: DeviceInfo
+ash.help_app.mojom.DeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.help_app.mojom.DeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_steam_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 ash.help_app.mojom.PageHandlerFactory = {};
 

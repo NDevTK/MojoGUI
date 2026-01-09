@@ -25,6 +25,71 @@ chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
   kGboard: 0,
 };
 
+// Struct: NextWordCompletionCandidate
+chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.NextWordCompletionCandidate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSuggesterQuery
+chromeos.machine_learning.mojom.TextSuggesterQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TextSuggesterQuery',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MultiWordSuggestionCandidate
+chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSuggesterResult
+chromeos.machine_learning.mojom.TextSuggesterResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TextSuggesterResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSuggesterSpec
+chromeos.machine_learning.mojom.TextSuggesterSpecSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.TextSuggesterSpec',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TextSuggester
 chromeos.machine_learning.mojom.TextSuggester = {};
 

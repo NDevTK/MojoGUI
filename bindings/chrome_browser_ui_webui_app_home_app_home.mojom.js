@@ -23,6 +23,34 @@ app_home.mojom.AppType = {
   kDeprecatedChromeApp: 2,
 };
 
+// Struct: AppInfo
+app_home.mojom.AppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.AppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'store_page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClickEvent
+app_home.mojom.ClickEventSpec = {
+  $: {
+    structSpec: {
+      name: 'app_home.mojom.ClickEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'shift_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 app_home.mojom.PageHandlerFactory = {};
 

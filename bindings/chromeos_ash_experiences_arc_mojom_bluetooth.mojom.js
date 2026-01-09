@@ -142,6 +142,244 @@ arc.mojom.BluetoothSocketType = {
   TYPE_L2CAP_LE: 1,
 };
 
+// Struct: BluetoothAddress
+arc.mojom.BluetoothAddressSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothAddress',
+      packedSize: 16,
+      fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothUUID
+arc.mojom.BluetoothUUIDSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothUUID',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothServiceRecord
+arc.mojom.BluetoothServiceRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothServiceRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothLocalLEFeatures
+arc.mojom.BluetoothLocalLEFeaturesSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothLocalLEFeatures',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_logging_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothRemoteVersion
+arc.mojom.BluetoothRemoteVersionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothRemoteVersion',
+      packedSize: 16,
+      fields: [
+        { name: 'manufacturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothGattID
+arc.mojom.BluetoothGattIDSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothGattID',
+      packedSize: 16,
+      fields: [
+        { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothGattServiceID
+arc.mojom.BluetoothGattServiceIDSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothGattServiceID',
+      packedSize: 16,
+      fields: [
+        { name: 'is_primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothGattValue
+arc.mojom.BluetoothGattValueSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothGattValue',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothServiceData
+arc.mojom.BluetoothServiceDataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothServiceData',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothAdvertisement
+arc.mojom.BluetoothAdvertisementSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothAdvertisement',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothGattDBElement
+arc.mojom.BluetoothGattDBElementSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothGattDBElement',
+      packedSize: 16,
+      fields: [
+        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothSdpAttribute
+arc.mojom.BluetoothSdpAttributeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothSdpAttribute',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothSdpRecord
+arc.mojom.BluetoothSdpRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothSdpRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'attrs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothCreateSdpRecordResult
+arc.mojom.BluetoothCreateSdpRecordResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothCreateSdpRecordResult',
+      packedSize: 16,
+      fields: [
+        { name: 'service_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothRfcommConnection
+arc.mojom.BluetoothRfcommConnectionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothRfcommConnection',
+      packedSize: 16,
+      fields: [
+        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothSocketFlags
+arc.mojom.BluetoothSocketFlagsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothSocketFlags',
+      packedSize: 16,
+      fields: [
+        { name: 'auth_16_digit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothSocketConnection
+arc.mojom.BluetoothSocketConnectionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BluetoothSocketConnection',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RfcommListeningSocketClient
 arc.mojom.RfcommListeningSocketClient = {};
 

@@ -18,6 +18,48 @@ chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResult = {
   OPEN_DEVICE_ERROR: 3,
 };
 
+// Struct: HeatmapPalmRejectionConfig
+chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HeatmapPalmRejectionConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'crop_heatmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HeatmapProcessedEvent
+chromeos.machine_learning.mojom.HeatmapProcessedEventSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.HeatmapProcessedEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'is_palm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CropHeatmap
+chromeos.machine_learning.mojom.CropHeatmapSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.CropHeatmap',
+      packedSize: 16,
+      fields: [
+        { name: 'top_crop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HeatmapPalmRejectionClient
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClient = {};
 

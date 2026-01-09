@@ -27,6 +27,48 @@ continuous_search.mojom.Status = {
   kNoResults: 1,
 };
 
+// Struct: SearchResult
+continuous_search.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'continuous_search.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResultGroup
+continuous_search.mojom.ResultGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'continuous_search.mojom.ResultGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CategoryResults
+continuous_search.mojom.CategoryResultsSpec = {
+  $: {
+    structSpec: {
+      name: 'continuous_search.mojom.CategoryResults',
+      packedSize: 16,
+      fields: [
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SearchResultExtractor
 continuous_search.mojom.SearchResultExtractor = {};
 

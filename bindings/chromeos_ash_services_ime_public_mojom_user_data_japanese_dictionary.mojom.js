@@ -58,3 +58,31 @@ ash.ime.mojom.JpPosType = {
   kFreeStandingWord: 43,
   kSuppressionWord: 44,
 };
+
+// Struct: JapaneseDictionaryEntry
+ash.ime.mojom.JapaneseDictionaryEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.JapaneseDictionaryEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'comment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JapaneseDictionary
+ash.ime.mojom.JapaneseDictionarySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.JapaneseDictionary',
+      packedSize: 16,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

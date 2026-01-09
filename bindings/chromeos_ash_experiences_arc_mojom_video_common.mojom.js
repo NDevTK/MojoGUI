@@ -96,3 +96,45 @@ arc.mojom.VideoPixelFormat = {
   PIXEL_FORMAT_UNKNOWN: 0,
   PIXEL_FORMAT_I420: 1,
 };
+
+// Struct: VideoFramePlane
+arc.mojom.VideoFramePlaneSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoFramePlane',
+      packedSize: 16,
+      fields: [
+        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ColorPlaneLayout
+arc.mojom.ColorPlaneLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ColorPlaneLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoFrameLayout
+arc.mojom.VideoFrameLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoFrameLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

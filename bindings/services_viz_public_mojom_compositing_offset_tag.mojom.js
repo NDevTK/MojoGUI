@@ -8,3 +8,45 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+
+// Struct: OffsetTag
+viz.mojom.OffsetTagSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.OffsetTag',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OffsetTagValue
+viz.mojom.OffsetTagValueSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.OffsetTagValue',
+      packedSize: 16,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OffsetTagDefinition
+viz.mojom.OffsetTagDefinitionSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.OffsetTagDefinition',
+      packedSize: 16,
+      fields: [
+        { name: 'max_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

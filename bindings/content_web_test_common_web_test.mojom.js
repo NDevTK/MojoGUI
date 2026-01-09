@@ -16,6 +16,103 @@ content.mojom.AutoResponseMode = {
   kAutoReject: 2,
 };
 
+// Struct: WebTestRunTestConfiguration
+content.mojom.WebTestRunTestConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRunTestConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'protocol_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebTestRendererDumpResult
+content.mojom.WebTestRendererDumpResultSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRendererDumpResult',
+      packedSize: 16,
+      fields: [
+        { name: 'selection_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WorkItemBackForward
+content.mojom.WorkItemBackForwardSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WorkItemBackForward',
+      packedSize: 16,
+      fields: [
+        { name: 'distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WorkItemLoad
+content.mojom.WorkItemLoadSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WorkItemLoad',
+      packedSize: 16,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WorkItemReload
+content.mojom.WorkItemReloadSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WorkItemReload',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WorkItemLoadingScript
+content.mojom.WorkItemLoadingScriptSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WorkItemLoadingScript',
+      packedSize: 16,
+      fields: [
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WorkItemNonLoadingScript
+content.mojom.WorkItemNonLoadingScriptSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WorkItemNonLoadingScript',
+      packedSize: 16,
+      fields: [
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebTestRenderFrame
 content.mojom.WebTestRenderFrame = {};
 

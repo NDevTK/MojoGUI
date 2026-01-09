@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: SchemefulSite
+network.mojom.SchemefulSiteSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SchemefulSite',
+      packedSize: 16,
+      fields: [
+        { name: 'site_as_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

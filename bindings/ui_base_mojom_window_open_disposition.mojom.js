@@ -24,3 +24,17 @@ ui.mojom.WindowOpenDisposition = {
   SWITCH_TO_TAB: 10,
   NEW_PICTURE_IN_PICTURE: 11,
 };
+
+// Struct: ClickModifiers
+ui.mojom.ClickModifiersSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.mojom.ClickModifiers',
+      packedSize: 16,
+      fields: [
+        { name: 'shift_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

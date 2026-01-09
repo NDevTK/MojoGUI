@@ -8,3 +8,17 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+
+// Struct: EventLatencyMetadata
+ui.mojom.EventLatencyMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.mojom.EventLatencyMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'dispatched_to_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

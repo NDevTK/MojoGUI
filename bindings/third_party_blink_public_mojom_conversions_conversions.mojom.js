@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: Impression
+blink.mojom.ImpressionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Impression',
+      packedSize: 16,
+      fields: [
+        { name: 'is_empty_attribution_src_tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AttributionHost
 blink.mojom.AttributionHost = {};
 

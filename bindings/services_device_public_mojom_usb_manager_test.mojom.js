@@ -9,6 +9,20 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
+// Struct: TestDeviceInfo
+device.mojom.TestDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.TestDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'landing_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UsbDeviceManagerTest
 device.mojom.UsbDeviceManagerTest = {};
 

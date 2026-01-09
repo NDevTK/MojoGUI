@@ -16,6 +16,34 @@ media.mojom.VideoDecoderSecureMemoryMode = {
   SECURE_OUTPUT: 2,
 };
 
+// Struct: CdmRequest
+media.mojom.CdmRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StreamProcessorRequest
+media.mojom.StreamProcessorRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.StreamProcessorRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FuchsiaMediaCdmProvider
 media.mojom.FuchsiaMediaCdmProvider = {};
 

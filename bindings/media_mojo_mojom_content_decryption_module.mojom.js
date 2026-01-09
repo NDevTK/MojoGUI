@@ -21,6 +21,62 @@ media.mojom.CdmKeyStatus = {
   USABLE_IN_FUTURE: 7,
 };
 
+// Struct: CdmConfig
+media.mojom.CdmConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'use_hw_secure_codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CdmPromiseResult
+media.mojom.CdmPromiseResultSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmPromiseResult',
+      packedSize: 16,
+      fields: [
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CdmKeyInformation
+media.mojom.CdmKeyInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmKeyInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'system_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CdmContext
+media.mojom.CdmContextSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContext',
+      packedSize: 16,
+      fields: [
+        { name: 'requires_media_foundation_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContentDecryptionModule
 media.mojom.ContentDecryptionModule = {};
 

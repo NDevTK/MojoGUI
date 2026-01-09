@@ -27,6 +27,104 @@ data_sharing.mojom.GroupActionProgress = {
   kSuccess: 3,
 };
 
+// Struct: ReadGroupsParams
+data_sharing.mojom.ReadGroupsParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.ReadGroupsParams',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadGroupParams
+data_sharing.mojom.ReadGroupParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.ReadGroupParams',
+      packedSize: 16,
+      fields: [
+        { name: 'consistency_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadGroupsResult
+data_sharing.mojom.ReadGroupsResultSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.ReadGroupsResult',
+      packedSize: 16,
+      fields: [
+        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadGroupWithTokenParam
+data_sharing.mojom.ReadGroupWithTokenParamSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.ReadGroupWithTokenParam',
+      packedSize: 16,
+      fields: [
+        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadGroupWithTokenResult
+data_sharing.mojom.ReadGroupWithTokenResultSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.ReadGroupWithTokenResult',
+      packedSize: 16,
+      fields: [
+        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SharedTab
+data_sharing.mojom.SharedTabSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.SharedTab',
+      packedSize: 16,
+      fields: [
+        { name: 'favicon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GroupPreview
+data_sharing.mojom.GroupPreviewSpec = {
+  $: {
+    structSpec: {
+      name: 'data_sharing.mojom.GroupPreview',
+      packedSize: 16,
+      fields: [
+        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 data_sharing.mojom.PageHandlerFactory = {};
 

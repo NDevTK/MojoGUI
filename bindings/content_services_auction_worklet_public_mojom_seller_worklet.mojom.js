@@ -9,6 +9,76 @@ var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
 
 
+// Struct: ComponentAuctionModifiedBidParams
+auction_worklet.mojom.ComponentAuctionModifiedBidParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.ComponentAuctionModifiedBidParams',
+      packedSize: 16,
+      fields: [
+        { name: 'bid_currency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ComponentAuctionReportResultParams
+auction_worklet.mojom.ComponentAuctionReportResultParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.ComponentAuctionReportResultParams',
+      packedSize: 16,
+      fields: [
+        { name: 'modified_bid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScoreAdDependencyLatencies
+auction_worklet.mojom.ScoreAdDependencyLatenciesSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.ScoreAdDependencyLatencies',
+      packedSize: 16,
+      fields: [
+        { name: 'score_ad_finish_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SellerTimingMetrics
+auction_worklet.mojom.SellerTimingMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.SellerTimingMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'script_timed_out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreativeInfoWithoutOwner
+auction_worklet.mojom.CreativeInfoWithoutOwnerSpec = {
+  $: {
+    structSpec: {
+      name: 'auction_worklet.mojom.CreativeInfoWithoutOwner',
+      packedSize: 16,
+      fields: [
+        { name: 'creative_scanning_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ScoreAdClient
 auction_worklet.mojom.ScoreAdClient = {};
 

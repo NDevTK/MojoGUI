@@ -9,6 +9,20 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: UDPSocketOptions
+network.mojom.UDPSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.UDPSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'ipv6_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UDPSocket
 network.mojom.UDPSocket = {};
 

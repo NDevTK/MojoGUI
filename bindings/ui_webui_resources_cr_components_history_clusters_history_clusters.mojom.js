@@ -35,6 +35,20 @@ history_clusters.mojom.VisitType = {
   kNonSRP: 1,
 };
 
+// Struct: QueryResult
+history_clusters.mojom.QueryResultSpec = {
+  $: {
+    structSpec: {
+      name: 'history_clusters.mojom.QueryResult',
+      packedSize: 16,
+      fields: [
+        { name: 'is_continuation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 history_clusters.mojom.PageHandler = {};
 

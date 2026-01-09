@@ -30,3 +30,17 @@ display.mojom.AccelerometerSupport = {
   AVAILABLE: 1,
   UNAVAILABLE: 2,
 };
+
+// Struct: Display
+display.mojom.DisplaySpec = {
+  $: {
+    structSpec: {
+      name: 'display.mojom.Display',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -66,3 +66,87 @@ network.mojom.CSPRequireTrustedTypesFor = {
   None: 0,
   Script: 1,
 };
+
+// Struct: ContentSecurityPolicyHeader
+network.mojom.ContentSecurityPolicyHeaderSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ContentSecurityPolicyHeader',
+      packedSize: 16,
+      fields: [
+        { name: 'kHTTP', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CSPSource
+network.mojom.CSPSourceSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CSPSource',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CSPSourceList
+network.mojom.CSPSourceListSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CSPSourceList',
+      packedSize: 16,
+      fields: [
+        { name: 'report_hash_algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CSPTrustedTypes
+network.mojom.CSPTrustedTypesSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CSPTrustedTypes',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContentSecurityPolicy
+network.mojom.ContentSecurityPolicySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ContentSecurityPolicy',
+      packedSize: 16,
+      fields: [
+        { name: 'parsing_errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CSPViolation
+network.mojom.CSPViolationSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CSPViolation',
+      packedSize: 16,
+      fields: [
+        { name: 'source_location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

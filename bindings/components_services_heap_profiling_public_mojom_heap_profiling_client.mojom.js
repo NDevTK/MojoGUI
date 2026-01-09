@@ -21,6 +21,48 @@ heap_profiling.mojom.AllocatorType = {
   kPartitionAlloc: 1,
 };
 
+// Struct: ProfilingParams
+heap_profiling.mojom.ProfilingParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.ProfilingParams',
+      packedSize: 16,
+      fields: [
+        { name: 'sampling_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HeapProfileSample
+heap_profiling.mojom.HeapProfileSampleSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.HeapProfileSample',
+      packedSize: 16,
+      fields: [
+        { name: 'stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HeapProfile
+heap_profiling.mojom.HeapProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.HeapProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProfilingClient
 heap_profiling.mojom.ProfilingClient = {};
 

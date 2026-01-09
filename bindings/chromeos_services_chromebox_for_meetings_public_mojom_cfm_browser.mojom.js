@@ -10,6 +10,45 @@ chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
+// Struct: ExtensionData
+chromeos.cfm.mojom.ExtensionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ExtensionData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProcessMemoryInformation
+chromeos.cfm.mojom.ProcessMemoryInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ProcessMemoryInformation',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProcessData
+chromeos.cfm.mojom.ProcessDataSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ProcessData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CfmBrowser
 chromeos.cfm.mojom.CfmBrowser = {};
 

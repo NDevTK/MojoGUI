@@ -10,6 +10,20 @@ metrics.dwa = metrics.dwa || {};
 metrics.dwa.mojom = metrics.dwa.mojom || {};
 
 
+// Struct: DwaEntry
+metrics.dwa.mojom.DwaEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'metrics.dwa.mojom.DwaEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DwaRecorderClientInterface
 metrics.dwa.mojom.DwaRecorderClientInterface = {};
 

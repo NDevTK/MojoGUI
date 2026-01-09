@@ -27,6 +27,20 @@ shape_detection.mojom.BarcodeFormat = {
   UPC_E: 13,
 };
 
+// Struct: BarcodeDetectionResult
+shape_detection.mojom.BarcodeDetectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.BarcodeDetectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'corner_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BarcodeDetection
 shape_detection.mojom.BarcodeDetection = {};
 

@@ -9,6 +9,62 @@ var mojom = mojom || {};
 mojom.user_education_internals = mojom.user_education_internals || {};
 
 
+// Struct: FeaturePromoDemoPageData
+mojom.user_education_internals.FeaturePromoDemoPageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.user_education_internals.FeaturePromoDemoPageData',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FeaturePromoDemoPageInfo
+mojom.user_education_internals.FeaturePromoDemoPageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.user_education_internals.FeaturePromoDemoPageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WhatsNewModuleDemoPageInfo
+mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.user_education_internals.WhatsNewModuleDemoPageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'queue_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WhatsNewEditionDemoPageInfo
+mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.user_education_internals.WhatsNewEditionDemoPageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'version_used', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UserEducationInternalsPageHandler
 mojom.user_education_internals.UserEducationInternalsPageHandler = {};
 

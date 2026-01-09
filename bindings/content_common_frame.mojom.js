@@ -39,6 +39,131 @@ content.mojom.CreateNewWindowStatus = {
   kSuccess: 3,
 };
 
+// Struct: CreateViewParams
+content.mojom.CreateViewParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateViewParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateLocalMainFrameParams
+content.mojom.CreateLocalMainFrameParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateLocalMainFrameParams',
+      packedSize: 16,
+      fields: [
+        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateProvisionalLocalMainFrameParams
+content.mojom.CreateProvisionalLocalMainFrameParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateProvisionalLocalMainFrameParams',
+      packedSize: 16,
+      fields: [
+        { name: 'previous_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateRemoteMainFrameParams
+content.mojom.CreateRemoteMainFrameParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateRemoteMainFrameParams',
+      packedSize: 16,
+      fields: [
+        { name: 'main_frame_interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateFrameWidgetParams
+content.mojom.CreateFrameWidgetParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateFrameWidgetParams',
+      packedSize: 16,
+      fields: [
+        { name: 'visual_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateFrameParams
+content.mojom.CreateFrameParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateFrameParams',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_metrics_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SnapshotAccessibilityTreeParams
+content.mojom.SnapshotAccessibilityTreeParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SnapshotAccessibilityTreeParams',
+      packedSize: 16,
+      fields: [
+        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateNewWindowParams
+content.mojom.CreateNewWindowParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateNewWindowParams',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateNewWindowReply
+content.mojom.CreateNewWindowReplySpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.CreateNewWindowReply',
+      packedSize: 16,
+      fields: [
+        { name: 'window_screen_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FrameHTMLSerializerHandler
 content.mojom.FrameHTMLSerializerHandler = {};
 

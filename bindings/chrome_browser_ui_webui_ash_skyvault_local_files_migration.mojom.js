@@ -23,6 +23,20 @@ policy.local_user_files.mojom.TimeUnit = {
   kHours: 1,
 };
 
+// Struct: TimeUnitAndValue
+policy.local_user_files.mojom.TimeUnitAndValueSpec = {
+  $: {
+    structSpec: {
+      name: 'policy.local_user_files.mojom.TimeUnitAndValue',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 policy.local_user_files.mojom.PageHandlerFactory = {};
 

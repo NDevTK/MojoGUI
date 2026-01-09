@@ -16,6 +16,47 @@ content.optional_numerics_unittest.mojom.RegularEnum = {
   kBar: 1,
 };
 
+// Struct: OptionalNumericsStruct
+content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.OptionalNumericsStruct',
+      packedSize: 16,
+      fields: [
+        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VersionedStructV0
+content.optional_numerics_unittest.mojom.VersionedStructV0Spec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.VersionedStructV0',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VersionedStructV2
+content.optional_numerics_unittest.mojom.VersionedStructV2Spec = {
+  $: {
+    structSpec: {
+      name: 'content.optional_numerics_unittest.mojom.VersionedStructV2',
+      packedSize: 16,
+      fields: [
+        { name: 'enum_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Params
 content.optional_numerics_unittest.mojom.Params = {};
 

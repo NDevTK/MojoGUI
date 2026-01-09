@@ -119,6 +119,33 @@ arc.mojom.AccountUpdateType = {
   REMOVAL: 1,
 };
 
+// Struct: AccountInfo
+arc.mojom.AccountInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.AccountInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcAccountInfo
+arc.mojom.ArcAccountInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcAccountInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AuthHost
 arc.mojom.AuthHost = {};
 

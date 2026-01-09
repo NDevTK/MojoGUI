@@ -15,3 +15,30 @@ lens.mojom.CoordinateType = {
   kNormalized: 1,
   kImage: 2,
 };
+
+// Struct: CenterRotatedBox
+lens.mojom.CenterRotatedBoxSpec = {
+  $: {
+    structSpec: {
+      name: 'lens.mojom.CenterRotatedBox',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Geometry
+lens.mojom.GeometrySpec = {
+  $: {
+    structSpec: {
+      name: 'lens.mojom.Geometry',
+      packedSize: 16,
+      fields: [
+        { name: 'segmentation_polygon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

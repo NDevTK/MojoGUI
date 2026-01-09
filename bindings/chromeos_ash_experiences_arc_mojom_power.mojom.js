@@ -36,6 +36,20 @@ arc.mojom.IdleState = {
   FORCE_INACTIVE: 1,
 };
 
+// Struct: BatterySaverModeState
+arc.mojom.BatterySaverModeStateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.BatterySaverModeState',
+      packedSize: 16,
+      fields: [
+        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PowerHost
 arc.mojom.PowerHost = {};
 

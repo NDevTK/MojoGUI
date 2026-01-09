@@ -9,6 +9,20 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: SessionData
+media.mojom.SessionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SessionData',
+      packedSize: 16,
+      fields: [
+        { name: 'key_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaDrmStorage
 media.mojom.MediaDrmStorage = {};
 

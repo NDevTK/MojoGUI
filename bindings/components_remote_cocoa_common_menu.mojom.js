@@ -9,6 +9,62 @@ var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
+// Struct: MenuItemCommonFields
+remote_cocoa.mojom.MenuItemCommonFieldsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.MenuItemCommonFields',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SubmenuMenuItem
+remote_cocoa.mojom.SubmenuMenuItemSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.SubmenuMenuItem',
+      packedSize: 16,
+      fields: [
+        { name: 'children', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MenuControllerParams
+remote_cocoa.mojom.MenuControllerParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.MenuControllerParams',
+      packedSize: 16,
+      fields: [
+        { name: 'iph_dot_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContextMenu
+remote_cocoa.mojom.ContextMenuSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.ContextMenu',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MenuHost
 remote_cocoa.mojom.MenuHost = {};
 

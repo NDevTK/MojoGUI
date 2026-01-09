@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: AIProofreaderCreateOptions
+blink.mojom.AIProofreaderCreateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIProofreaderCreateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'expected_input_languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AIProofreader
 blink.mojom.AIProofreader = {};
 

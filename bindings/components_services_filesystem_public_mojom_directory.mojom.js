@@ -9,6 +9,34 @@ var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};
 
 
+// Struct: FileOpenDetails
+filesystem.mojom.FileOpenDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'filesystem.mojom.FileOpenDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'open_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileOpenResult
+filesystem.mojom.FileOpenResultSpec = {
+  $: {
+    structSpec: {
+      name: 'filesystem.mojom.FileOpenResult',
+      packedSize: 16,
+      fields: [
+        { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Directory
 filesystem.mojom.Directory = {};
 

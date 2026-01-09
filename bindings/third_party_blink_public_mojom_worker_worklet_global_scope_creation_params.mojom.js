@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: WorkletGlobalScopeCreationParams
+blink.mojom.WorkletGlobalScopeCreationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WorkletGlobalScopeCreationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'wait_for_debugger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WorkletDevToolsHost
 blink.mojom.WorkletDevToolsHost = {};
 

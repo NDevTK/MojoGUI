@@ -15,6 +15,34 @@ arc.mojom.ReclaimType = {
   ALL: 1,
 };
 
+// Struct: ReclaimRequest
+arc.mojom.ReclaimRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ReclaimRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReclaimResult
+arc.mojom.ReclaimResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ReclaimResult',
+      packedSize: 16,
+      fields: [
+        { name: 'unreclaimed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MemoryInstance
 arc.mojom.MemoryInstance = {};
 

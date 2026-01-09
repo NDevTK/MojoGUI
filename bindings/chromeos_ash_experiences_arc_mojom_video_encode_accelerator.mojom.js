@@ -32,6 +32,62 @@ arc.mojom.Result = {
   kInsufficientResourcesError: 4,
 };
 
+// Struct: VideoEncodeProfile
+arc.mojom.VideoEncodeProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'max_framerate_denominator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConstantBitrate
+arc.mojom.ConstantBitrateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ConstantBitrate',
+      packedSize: 16,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VariableBitrate
+arc.mojom.VariableBitrateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VariableBitrate',
+      packedSize: 16,
+      fields: [
+        { name: 'peak', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoEncodeAcceleratorConfig
+arc.mojom.VideoEncodeAcceleratorConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAcceleratorConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'bitrate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoEncodeAccelerator
 arc.mojom.VideoEncodeAccelerator = {};
 

@@ -50,3 +50,17 @@ gpu.mojom.DawnBackendValidationLevel = {
   kPartial: 1,
   kFull: 2,
 };
+
+// Struct: GpuPreferences
+gpu.mojom.GpuPreferencesSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuPreferences',
+      packedSize: 16,
+      fields: [
+        { name: 'force_separate_egl_display_for_webgl_testing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

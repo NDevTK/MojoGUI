@@ -22,6 +22,20 @@ blink.mojom.FetchHandlerExistence = {
   DOES_NOT_EXIST: 2,
 };
 
+// Struct: ExtendableMessageEvent
+blink.mojom.ExtendableMessageEventSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ExtendableMessageEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'source_info_for_service_worker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerHost
 blink.mojom.ServiceWorkerHost = {};
 

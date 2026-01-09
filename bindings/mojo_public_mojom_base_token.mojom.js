@@ -8,3 +8,17 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: Token
+mojo_base.mojom.TokenSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.Token',
+      packedSize: 16,
+      fields: [
+        { name: 'low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -107,6 +107,284 @@ ash.cros_healthd.mojom.EventCategoryEnum = {
   kAudio: 5,
 };
 
+// Struct: UsbEventInfo
+ash.cros_healthd.mojom.UsbEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.UsbEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ThunderboltEventInfo
+ash.cros_healthd.mojom.ThunderboltEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.ThunderboltEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LidEventInfo
+ash.cros_healthd.mojom.LidEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.LidEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BluetoothEventInfo
+ash.cros_healthd.mojom.BluetoothEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.BluetoothEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PowerEventInfo
+ash.cros_healthd.mojom.PowerEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.PowerEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioEventInfo
+ash.cros_healthd.mojom.AudioEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.AudioEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioJackEventInfo
+ash.cros_healthd.mojom.AudioJackEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.AudioJackEventInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SdCardEventInfo
+ash.cros_healthd.mojom.SdCardEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.SdCardEventInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchpadButtonEvent
+ash.cros_healthd.mojom.TouchpadButtonEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.TouchpadButtonEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchPointInfo
+ash.cros_healthd.mojom.TouchPointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.TouchPointInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchpadTouchEvent
+ash.cros_healthd.mojom.TouchpadTouchEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.TouchpadTouchEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchpadConnectedEvent
+ash.cros_healthd.mojom.TouchpadConnectedEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.TouchpadConnectedEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExternalDisplayEventInfo
+ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.ExternalDisplayEventInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchscreenTouchEvent
+ash.cros_healthd.mojom.TouchscreenTouchEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.TouchscreenTouchEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchscreenConnectedEvent
+ash.cros_healthd.mojom.TouchscreenConnectedEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.TouchscreenConnectedEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StylusGarageEventInfo
+ash.cros_healthd.mojom.StylusGarageEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.StylusGarageEventInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StylusTouchPointInfo
+ash.cros_healthd.mojom.StylusTouchPointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.StylusTouchPointInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StylusTouchEvent
+ash.cros_healthd.mojom.StylusTouchEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.StylusTouchEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StylusConnectedEvent
+ash.cros_healthd.mojom.StylusConnectedEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.StylusConnectedEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CrashUploadInfo
+ash.cros_healthd.mojom.CrashUploadInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrashUploadInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CrashEventInfo
+ash.cros_healthd.mojom.CrashEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.CrashEventInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kChrome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrosHealthdBluetoothObserver
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserver = {};
 

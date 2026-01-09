@@ -9,6 +9,62 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: DirectTCPSocketOptions
+blink.mojom.DirectTCPSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectTCPSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'dns_query_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DirectConnectedUDPSocketOptions
+blink.mojom.DirectConnectedUDPSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectConnectedUDPSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'multicast_loopback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DirectBoundUDPSocketOptions
+blink.mojom.DirectBoundUDPSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectBoundUDPSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'multicast_loopback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DirectTCPServerSocketOptions
+blink.mojom.DirectTCPServerSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectTCPServerSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'backlog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DirectSocketsService
 blink.mojom.DirectSocketsService = {};
 

@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: SpellCheckSuggestion
+blink.mojom.SpellCheckSuggestionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpellCheckSuggestion',
+      packedSize: 16,
+      fields: [
+        { name: 'suggestion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextSuggestion
+blink.mojom.TextSuggestionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextSuggestion',
+      packedSize: 16,
+      fields: [
+        { name: 'suffix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TextSuggestionHost
 blink.mojom.TextSuggestionHost = {};
 

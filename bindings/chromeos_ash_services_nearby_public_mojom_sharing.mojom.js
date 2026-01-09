@@ -9,6 +9,47 @@ var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
 
 
+// Struct: WifiLanDependencies
+sharing.mojom.WifiLanDependenciesSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.WifiLanDependencies',
+      packedSize: 16,
+      fields: [
+        { name: 'mdns_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WifiDirectDependencies
+sharing.mojom.WifiDirectDependenciesSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.WifiDirectDependencies',
+      packedSize: 16,
+      fields: [
+        { name: 'firewall_hole_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NearbyDependencies
+sharing.mojom.NearbyDependenciesSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.NearbyDependencies',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Sharing
 sharing.mojom.Sharing = {};
 

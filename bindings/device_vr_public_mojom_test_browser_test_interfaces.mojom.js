@@ -33,6 +33,104 @@ device_test.mojom.EventType = {
   kNoEvent: 4,
 };
 
+// Struct: Color
+device_test.mojom.ColorSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.Color',
+      packedSize: 16,
+      fields: [
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ViewData
+device_test.mojom.ViewDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.ViewData',
+      packedSize: 16,
+      fields: [
+        { name: 'viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceConfig
+device_test.mojom.DeviceConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.DeviceConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'interpupillary_distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ControllerAxisData
+device_test.mojom.ControllerAxisDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.ControllerAxisData',
+      packedSize: 16,
+      fields: [
+        { name: 'axis_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ControllerFrameData
+device_test.mojom.ControllerFrameDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.ControllerFrameData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EventData
+device_test.mojom.EventDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.EventData',
+      packedSize: 16,
+      fields: [
+        { name: 'kInvalid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRVisibilityMask
+device_test.mojom.XRVisibilityMaskSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRVisibilityMask',
+      packedSize: 16,
+      fields: [
+        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: XRTestHook
 device_test.mojom.XRTestHook = {};
 

@@ -252,6 +252,227 @@ ash.ime.mojom.AutocorrectSuggestionProvider = {
   kUsEnglish840: 2,
 };
 
+// Struct: ModifierState
+ash.ime.mojom.ModifierStateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.ModifierState',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PhysicalKeyEvent
+ash.ime.mojom.PhysicalKeyEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.PhysicalKeyEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectionRange
+ash.ime.mojom.SelectionRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.SelectionRange',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InputFieldInfo
+ash.ime.mojom.InputFieldInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputFieldInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KoreanSettings
+ash.ime.mojom.KoreanSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.KoreanSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LatinSettings
+ash.ime.mojom.LatinSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.LatinSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FuzzyPinyinSettings
+ash.ime.mojom.FuzzyPinyinSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.FuzzyPinyinSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PinyinSettings
+ash.ime.mojom.PinyinSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.PinyinSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JapaneseSettings
+ash.ime.mojom.JapaneseSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.JapaneseSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ZhuyinSettings
+ash.ime.mojom.ZhuyinSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.ZhuyinSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChineseQuickSettings
+ash.ime.mojom.ChineseQuickSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.ChineseQuickSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: JapaneseQuickSettings
+ash.ime.mojom.JapaneseQuickSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.JapaneseQuickSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SuggestionCandidate
+ash.ime.mojom.SuggestionCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.SuggestionCandidate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InputMethodMetadata
+ash.ime.mojom.InputMethodMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.InputMethodMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AssistiveWindow
+ash.ime.mojom.AssistiveWindowSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.AssistiveWindow',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VietnameseTelexSettings
+ash.ime.mojom.VietnameseTelexSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.VietnameseTelexSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VietnameseVniSettings
+ash.ime.mojom.VietnameseVniSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.VietnameseVniSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InputMethod
 ash.ime.mojom.InputMethod = {};
 

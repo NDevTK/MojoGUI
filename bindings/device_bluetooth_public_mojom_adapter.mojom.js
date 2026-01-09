@@ -36,6 +36,48 @@ bluetooth.mojom.ConnectResult = {
   SOCKET: 22,
 };
 
+// Struct: ConnectToServiceResult
+bluetooth.mojom.ConnectToServiceResultSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.ConnectToServiceResult',
+      packedSize: 16,
+      fields: [
+        { name: 'send_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AcceptConnectionResult
+bluetooth.mojom.AcceptConnectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.AcceptConnectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'send_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AdapterInfo
+bluetooth.mojom.AdapterInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.AdapterInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'discovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Advertisement
 bluetooth.mojom.Advertisement = {};
 

@@ -37,6 +37,34 @@ storage.mojom.FileWriteAccess = {
   kAppendOnly: 2,
 };
 
+// Struct: StrictRelativePath
+storage.mojom.StrictRelativePathSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.StrictRelativePath',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PathAccessInfo
+storage.mojom.PathAccessInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.PathAccessInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'can_write', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileLock
 storage.mojom.FileLock = {};
 

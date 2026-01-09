@@ -9,6 +9,34 @@ var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
 
 
+// Struct: RequestParams
+cert_verifier.mojom.RequestParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.RequestParams',
+      packedSize: 16,
+      fields: [
+        { name: 'sct_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertVerifierConfig
+cert_verifier.mojom.CertVerifierConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_sha1_local_anchors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: URLLoaderFactoryConnector
 cert_verifier.mojom.URLLoaderFactoryConnector = {};
 

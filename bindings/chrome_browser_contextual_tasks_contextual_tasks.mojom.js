@@ -9,6 +9,20 @@ var contextual_tasks = contextual_tasks || {};
 contextual_tasks.mojom = contextual_tasks.mojom || {};
 
 
+// Struct: Tab
+contextual_tasks.mojom.TabSpec = {
+  $: {
+    structSpec: {
+      name: 'contextual_tasks.mojom.Tab',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 contextual_tasks.mojom.PageHandler = {};
 

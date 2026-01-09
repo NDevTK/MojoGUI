@@ -17,6 +17,34 @@ action_chips.mojom.ChipType = {
   kDeepDive: 3,
 };
 
+// Struct: TabInfo
+action_chips.mojom.TabInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'action_chips.mojom.TabInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'last_active_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ActionChip
+action_chips.mojom.ActionChipSpec = {
+  $: {
+    structSpec: {
+      name: 'action_chips.mojom.ActionChip',
+      packedSize: 16,
+      fields: [
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ActionChipsHandler
 action_chips.mojom.ActionChipsHandler = {};
 

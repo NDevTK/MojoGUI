@@ -17,3 +17,17 @@ viz.mojom.ThreadType = {
   kVideo: 3,
   kOther: 4,
 };
+
+// Struct: Thread
+viz.mojom.ThreadSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.Thread',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

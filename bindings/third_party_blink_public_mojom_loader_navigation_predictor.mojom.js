@@ -18,6 +18,146 @@ blink.mojom.AnchorElementUserInteractionEventForMLModelType = {
   kUnknown: 4,
 };
 
+// Struct: AnchorElementMetrics
+blink.mojom.AnchorElementMetricsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementMetrics',
+      packedSize: 16,
+      fields: [
+        { name: 'viewport_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementClick
+blink.mojom.AnchorElementClickSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementClick',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_start_to_click', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementPointerDataOnHoverTimerFired
+blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired',
+      packedSize: 16,
+      fields: [
+        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementEnteredViewport
+blink.mojom.AnchorElementEnteredViewportSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementEnteredViewport',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_start_to_entered_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementLeftViewport
+blink.mojom.AnchorElementLeftViewportSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementLeftViewport',
+      packedSize: 16,
+      fields: [
+        { name: 'time_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementPointerOver
+blink.mojom.AnchorElementPointerOverSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPointerOver',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_start_to_pointer_over', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementPointerOut
+blink.mojom.AnchorElementPointerOutSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPointerOut',
+      packedSize: 16,
+      fields: [
+        { name: 'hover_dwell_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementPointerEventForMLModel
+blink.mojom.AnchorElementPointerEventForMLModelSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPointerEventForMLModel',
+      packedSize: 16,
+      fields: [
+        { name: 'user_interaction_event_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementPointerDown
+blink.mojom.AnchorElementPointerDownSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPointerDown',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_start_to_pointer_down', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorElementPositionUpdate
+blink.mojom.AnchorElementPositionUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPositionUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'distance_from_pointer_down_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AnchorElementMetricsHost
 blink.mojom.AnchorElementMetricsHost = {};
 

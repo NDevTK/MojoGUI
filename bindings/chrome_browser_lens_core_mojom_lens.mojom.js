@@ -38,6 +38,20 @@ lens.mojom.SemanticEvent = {
   kTextGleamsViewEnd: 1,
 };
 
+// Struct: OverlayTheme
+lens.mojom.OverlayThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'lens.mojom.OverlayTheme',
+      packedSize: 16,
+      fields: [
+        { name: 'selection_element', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LensPageHandlerFactory
 lens.mojom.LensPageHandlerFactory = {};
 

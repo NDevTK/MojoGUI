@@ -16,6 +16,19 @@ arc.mojom.ArcShellCommand = {
   kMeminfo: 2,
 };
 
+// Struct: ArcShellExecutionRequest
+arc.mojom.ArcShellExecutionRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcShellExecutionRequest',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ArcShellExecutionInstance
 arc.mojom.ArcShellExecutionInstance = {};
 

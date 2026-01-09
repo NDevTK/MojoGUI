@@ -17,6 +17,187 @@ attribution_internals.mojom.Attributability = {
   kReachedEventLevelAttributionLimit: 3,
 };
 
+// Struct: ReportID
+attribution_internals.mojom.ReportIDSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.ReportID',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIReportEventLevelData
+attribution_internals.mojom.WebUIReportEventLevelDataSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIReportEventLevelData',
+      packedSize: 16,
+      fields: [
+        { name: 'attributed_truthfully', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AggregatableHistogramContribution
+attribution_internals.mojom.AggregatableHistogramContributionSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.AggregatableHistogramContribution',
+      packedSize: 16,
+      fields: [
+        { name: 'filtering_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIReportAggregatableAttributionData
+attribution_internals.mojom.WebUIReportAggregatableAttributionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIReportAggregatableAttributionData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_null_report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Empty
+attribution_internals.mojom.EmptySpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.Empty',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIReport
+attribution_internals.mojom.WebUIReportSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIReport',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIDebugReport
+attribution_internals.mojom.WebUIDebugReportSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIDebugReport',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIAggregatableDebugReport
+attribution_internals.mojom.WebUIAggregatableDebugReportSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIAggregatableDebugReport',
+      packedSize: 16,
+      fields: [
+        { name: 'send_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUISource
+attribution_internals.mojom.WebUISourceSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUISource',
+      packedSize: 16,
+      fields: [
+        { name: 'kAttributable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIRegistration
+attribution_internals.mojom.WebUIRegistrationSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIRegistration',
+      packedSize: 16,
+      fields: [
+        { name: 'cleared_debug_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUITrigger
+attribution_internals.mojom.WebUITriggerSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUITrigger',
+      packedSize: 16,
+      fields: [
+        { name: 'aggregatable_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUISourceRegistration
+attribution_internals.mojom.WebUISourceRegistrationSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUISourceRegistration',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIOsRegistration
+attribution_internals.mojom.WebUIOsRegistrationSpec = {
+  $: {
+    structSpec: {
+      name: 'attribution_internals.mojom.WebUIOsRegistration',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Observer
 attribution_internals.mojom.Observer = {};
 

@@ -29,6 +29,20 @@ blink.mojom.AIWriterLength = {
   kLong: 2,
 };
 
+// Struct: AIWriterCreateOptions
+blink.mojom.AIWriterCreateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIWriterCreateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'output_language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AIWriter
 blink.mojom.AIWriter = {};
 

@@ -22,3 +22,17 @@ blink.mojom.FrameCreationStackEvidence = {
   kNotCreatedByAdScript: 0,
   kCreatedByAdScript: 1,
 };
+
+// Struct: FrameAdEvidence
+blink.mojom.FrameAdEvidenceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FrameAdEvidence',
+      packedSize: 16,
+      fields: [
+        { name: 'kNotCreatedByAdScript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

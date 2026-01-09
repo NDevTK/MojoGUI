@@ -10,6 +10,20 @@ ash.mojom = ash.mojom || {};
 ash.mojom.scanner_feedback_ui = ash.mojom.scanner_feedback_ui || {};
 
 
+// Struct: FeedbackInfo
+ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.scanner_feedback_ui.FeedbackInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'screenshot_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 ash.mojom.scanner_feedback_ui.PageHandler = {};
 

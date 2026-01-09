@@ -29,6 +29,34 @@ blink.mojom.SharedStorageDataOriginType = {
   kCustomOrigin: 2,
 };
 
+// Struct: SharedStorageUrlWithMetadata
+blink.mojom.SharedStorageUrlWithMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedStorageUrlWithMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'reporting_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrivateAggregationConfig
+blink.mojom.PrivateAggregationConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PrivateAggregationConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'max_contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SharedStorageWorkletHost
 blink.mojom.SharedStorageWorkletHost = {};
 

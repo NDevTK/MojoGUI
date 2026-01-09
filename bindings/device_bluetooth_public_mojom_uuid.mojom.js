@@ -8,3 +8,17 @@
 var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
 
+
+// Struct: UUID
+bluetooth.mojom.UUIDSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.UUID',
+      packedSize: 16,
+      fields: [
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

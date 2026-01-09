@@ -16,6 +16,20 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
   kCredentialless: 2,
 };
 
+// Struct: CrossOriginEmbedderPolicy
+network.mojom.CrossOriginEmbedderPolicySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CrossOriginEmbedderPolicy',
+      packedSize: 16,
+      fields: [
+        { name: 'report_only_reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrossOriginEmbedderPolicyReporter
 network.mojom.CrossOriginEmbedderPolicyReporter = {};
 

@@ -25,3 +25,16 @@ device.mojom.FileType = {
   FILE_TYPE_UNKNOWN: 11,
   FILE_TYPE_OTHER: 12,
 };
+
+// Struct: MtpFileEntry
+device.mojom.MtpFileEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.MtpFileEntry',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

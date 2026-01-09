@@ -43,3 +43,17 @@ network.mojom.CorsError = {
   kInvalidPrivateNetworkAccess: 23,
   kLocalNetworkAccessPermissionDenied: 24,
 };
+
+// Struct: CorsErrorStatus
+network.mojom.CorsErrorStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CorsErrorStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'issue_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

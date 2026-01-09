@@ -26,6 +26,90 @@ device.mojom.LocationProviderManagerMode = {
   kHybridPlatform2: 5,
 };
 
+// Struct: AccessPointData
+device.mojom.AccessPointDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.AccessPointData',
+      packedSize: 16,
+      fields: [
+        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkLocationDiagnostics
+device.mojom.NetworkLocationDiagnosticsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NetworkLocationDiagnostics',
+      packedSize: 16,
+      fields: [
+        { name: 'wifi_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PositionCacheDiagnostics
+device.mojom.PositionCacheDiagnosticsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PositionCacheDiagnostics',
+      packedSize: 16,
+      fields: [
+        { name: 'last_network_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WifiPollingPolicyDiagnostics
+device.mojom.WifiPollingPolicyDiagnosticsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WifiPollingPolicyDiagnostics',
+      packedSize: 16,
+      fields: [
+        { name: 'no_wifi_interval', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GeolocationDiagnostics
+device.mojom.GeolocationDiagnosticsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GeolocationDiagnostics',
+      packedSize: 16,
+      fields: [
+        { name: 'kStopped', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkLocationResponse
+device.mojom.NetworkLocationResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.NetworkLocationResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'accuracy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GeolocationInternalsObserver
 device.mojom.GeolocationInternalsObserver = {};
 

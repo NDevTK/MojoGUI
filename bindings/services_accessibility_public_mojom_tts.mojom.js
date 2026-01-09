@@ -36,6 +36,62 @@ ax.mojom.TtsError = {
   kErrorUtteranceTooLong: 8,
 };
 
+// Struct: TtsVoice
+ax.mojom.TtsVoiceSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.TtsVoice',
+      packedSize: 16,
+      fields: [
+        { name: 'event_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TtsOptions
+ax.mojom.TtsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.TtsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TtsEvent
+ax.mojom.TtsEventSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.TtsEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'is_final', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TtsSpeakResult
+ax.mojom.TtsSpeakResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.TtsSpeakResult',
+      packedSize: 16,
+      fields: [
+        { name: 'utterance_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TtsUtteranceClient
 ax.mojom.TtsUtteranceClient = {};
 

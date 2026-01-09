@@ -94,3 +94,29 @@ ash.diagnostics.mojom.NumpadLayout = {
   kNumpad3Column: 0,
   kNumpad4Column: 1,
 };
+
+// Struct: KeyboardInfo
+ash.diagnostics.mojom.KeyboardInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.KeyboardInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyboardDiagnosticEventInfo
+ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.KeyboardDiagnosticEventInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

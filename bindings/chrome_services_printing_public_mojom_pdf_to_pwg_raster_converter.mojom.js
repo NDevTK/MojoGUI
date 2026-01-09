@@ -24,6 +24,20 @@ printing.mojom.DuplexMode = {
   SHORT_EDGE: 2,
 };
 
+// Struct: PwgRasterSettings
+printing.mojom.PwgRasterSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PwgRasterSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'TRANSFORM_NORMAL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PdfToPwgRasterConverter
 printing.mojom.PdfToPwgRasterConverter = {};
 

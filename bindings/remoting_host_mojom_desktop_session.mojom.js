@@ -116,6 +116,242 @@ remoting.mojom.ProtocolErrorCode = {
   kOperationTimeout: 29,
 };
 
+// Struct: AudioPacket
+remoting.mojom.AudioPacketSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.AudioPacket',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClipboardEvent
+remoting.mojom.ClipboardEventSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.ClipboardEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyEvent
+remoting.mojom.KeyEventSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.KeyEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'num_lock_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MouseEvent
+remoting.mojom.MouseEventSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.MouseEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'delta_y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextEvent
+remoting.mojom.TextEventSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.TextEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchEventPoint
+remoting.mojom.TouchEventPointSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.TouchEventPoint',
+      packedSize: 16,
+      fields: [
+        { name: 'pressure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TouchEvent
+remoting.mojom.TouchEventSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.TouchEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'touch_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FractionalCoordinate
+remoting.mojom.FractionalCoordinateSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FractionalCoordinate',
+      packedSize: 16,
+      fields: [
+        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DesktopEnvironmentOptions
+remoting.mojom.DesktopEnvironmentOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopEnvironmentOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'desktop_capture_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScreenResolution
+remoting.mojom.ScreenResolutionSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.ScreenResolution',
+      packedSize: 16,
+      fields: [
+        { name: 'dpi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileTransferError
+remoting.mojom.FileTransferErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileTransferError',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginFileReadSuccess
+remoting.mojom.BeginFileReadSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.BeginFileReadSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginFileWriteSuccess
+remoting.mojom.BeginFileWriteSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.BeginFileWriteSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'file_writer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CreateVideoCapturerResult
+remoting.mojom.CreateVideoCapturerResultSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.CreateVideoCapturerResult',
+      packedSize: 16,
+      fields: [
+        { name: 'video_capturer_event_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoTrackLayout
+remoting.mojom.VideoTrackLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoTrackLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoLayout
+remoting.mojom.VideoLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'primary_screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SourceLocation
+remoting.mojom.SourceLocationSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.SourceLocation',
+      packedSize: 16,
+      fields: [
+        { name: 'line_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DesktopSessionRequestHandler
 remoting.mojom.DesktopSessionRequestHandler = {};
 

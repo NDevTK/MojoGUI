@@ -22,6 +22,20 @@ blink.mojom.WaitMode = {
   PREEMPT: 2,
 };
 
+// Struct: LockInfo
+blink.mojom.LockInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LockInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LockHandle
 blink.mojom.LockHandle = {};
 

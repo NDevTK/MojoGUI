@@ -41,3 +41,73 @@ network.mojom.SRIMessageSignatureError = {
   kValidationFailedSignatureMismatch: 19,
   kValidationFailedIntegrityMismatch: 20,
 };
+
+// Struct: SRIMessageSignatureComponentParameter
+network.mojom.SRIMessageSignatureComponentParameterSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SRIMessageSignatureComponentParameter',
+      packedSize: 16,
+      fields: [
+        { name: 'kName', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SRIMessageSignatureComponent
+network.mojom.SRIMessageSignatureComponentSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SRIMessageSignatureComponent',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SRIMessageSignature
+network.mojom.SRIMessageSignatureSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SRIMessageSignature',
+      packedSize: 16,
+      fields: [
+        { name: 'serialized_signature_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SRIMessageSignatureIssue
+network.mojom.SRIMessageSignatureIssueSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SRIMessageSignatureIssue',
+      packedSize: 16,
+      fields: [
+        { name: 'integrity_assertions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SRIMessageSignatures
+network.mojom.SRIMessageSignaturesSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SRIMessageSignatures',
+      packedSize: 16,
+      fields: [
+        { name: 'issues', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

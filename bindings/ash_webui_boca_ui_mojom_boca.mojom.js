@@ -164,6 +164,202 @@ ash.boca.mojom.CrdConnectionState = {
   kFailed: 4,
 };
 
+// Struct: TabInfo
+ash.boca.mojom.TabInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.TabInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Identity
+ash.boca.mojom.IdentitySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Identity',
+      packedSize: 16,
+      fields: [
+        { name: 'photo_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Course
+ash.boca.mojom.CourseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Course',
+      packedSize: 16,
+      fields: [
+        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Material
+ash.boca.mojom.MaterialSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Material',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Assignment
+ash.boca.mojom.AssignmentSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Assignment',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Window
+ash.boca.mojom.WindowSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Window',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkInfo
+ash.boca.mojom.NetworkInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.NetworkInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'signal_strength', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Config
+ash.boca.mojom.ConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Config',
+      packedSize: 16,
+      fields: [
+        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CaptionConfig
+ash.boca.mojom.CaptionConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.CaptionConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'session_translation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ControlledTab
+ash.boca.mojom.ControlledTabSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.ControlledTab',
+      packedSize: 16,
+      fields: [
+        { name: 'navigation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OnTaskConfig
+ash.boca.mojom.OnTaskConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.OnTaskConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Session
+ash.boca.mojom.SessionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Session',
+      packedSize: 16,
+      fields: [
+        { name: 'activities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StudentActivity
+ash.boca.mojom.StudentActivitySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.StudentActivity',
+      packedSize: 16,
+      fields: [
+        { name: 'view_screen_session_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IdentifiedActivity
+ash.boca.mojom.IdentifiedActivitySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.IdentifiedActivity',
+      packedSize: 16,
+      fields: [
+        { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 ash.boca.mojom.PageHandler = {};
 

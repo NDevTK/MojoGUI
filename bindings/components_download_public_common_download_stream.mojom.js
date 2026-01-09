@@ -23,6 +23,20 @@ download.mojom.NetworkRequestStatus = {
   NETWORK_FAILED: 9,
 };
 
+// Struct: DownloadStreamHandle
+download.mojom.DownloadStreamHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'download.mojom.DownloadStreamHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DownloadStreamClient
 download.mojom.DownloadStreamClient = {};
 

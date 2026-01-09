@@ -17,6 +17,20 @@ remote_cocoa.mojom.HitTestResult = {
   kOther: 3,
 };
 
+// Struct: ValidateUserInterfaceItemResult
+remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.ValidateUserInterfaceItemResult',
+      packedSize: 16,
+      fields: [
+        { name: 'new_toggle_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NativeWidgetNSWindowHost
 remote_cocoa.mojom.NativeWidgetNSWindowHost = {};
 

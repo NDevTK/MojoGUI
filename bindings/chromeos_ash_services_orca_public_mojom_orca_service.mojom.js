@@ -33,6 +33,110 @@ ash.orca.mojom.TextQueryErrorCode = {
   kInvalidArgument: 0,
 };
 
+// Struct: PresetTextQuery
+ash.orca.mojom.PresetTextQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.PresetTextQuery',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextQueryRequest
+ash.orca.mojom.TextQueryRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.TextQueryRequest',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextQueryResult
+ash.orca.mojom.TextQueryResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.TextQueryResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextQueryError
+ash.orca.mojom.TextQueryErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.TextQueryError',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SurroundingText
+ash.orca.mojom.SurroundingTextSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.SurroundingText',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Context
+ash.orca.mojom.ContextSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.Context',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EditorConfig
+ash.orca.mojom.EditorConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.EditorConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TriggerContext
+ash.orca.mojom.TriggerContextSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.orca.mojom.TriggerContext',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EditorClient
 ash.orca.mojom.EditorClient = {};
 

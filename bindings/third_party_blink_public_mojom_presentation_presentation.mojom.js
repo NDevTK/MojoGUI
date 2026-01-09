@@ -42,6 +42,48 @@ blink.mojom.PresentationErrorType = {
   UNKNOWN: 4,
 };
 
+// Struct: PresentationInfo
+blink.mojom.PresentationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PresentationError
+blink.mojom.PresentationErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationError',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PresentationConnectionResult
+blink.mojom.PresentationConnectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PresentationConnectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PresentationConnection
 blink.mojom.PresentationConnection = {};
 

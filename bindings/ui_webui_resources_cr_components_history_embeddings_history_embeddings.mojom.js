@@ -28,6 +28,62 @@ history_embeddings.mojom.UserFeedback = {
   kUserFeedbackPositive: 2,
 };
 
+// Struct: AnswerData
+history_embeddings.mojom.AnswerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'history_embeddings.mojom.AnswerData',
+      packedSize: 16,
+      fields: [
+        { name: 'answer_text_directives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchResultItem
+history_embeddings.mojom.SearchResultItemSpec = {
+  $: {
+    structSpec: {
+      name: 'history_embeddings.mojom.SearchResultItem',
+      packedSize: 16,
+      fields: [
+        { name: 'is_url_known_to_sync', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchQuery
+history_embeddings.mojom.SearchQuerySpec = {
+  $: {
+    structSpec: {
+      name: 'history_embeddings.mojom.SearchQuery',
+      packedSize: 16,
+      fields: [
+        { name: 'time_range_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchResult
+history_embeddings.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'history_embeddings.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 history_embeddings.mojom.PageHandler = {};
 

@@ -9,6 +9,20 @@ var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
 
+// Struct: CreateTensorSuccess
+webnn.mojom.CreateTensorSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.CreateTensorSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'tensor_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebNNContext
 webnn.mojom.WebNNContext = {};
 

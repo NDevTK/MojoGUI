@@ -16,6 +16,34 @@ fuzz.mojom.FuzzEnum = {
   FUZZ_VALUE2: 2,
 };
 
+// Struct: FuzzDummyStruct
+fuzz.mojom.FuzzDummyStructSpec = {
+  $: {
+    structSpec: {
+      name: 'fuzz.mojom.FuzzDummyStruct',
+      packedSize: 16,
+      fields: [
+        { name: 'dummy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FuzzStruct
+fuzz.mojom.FuzzStructSpec = {
+  $: {
+    structSpec: {
+      name: 'fuzz.mojom.FuzzStruct',
+      packedSize: 16,
+      fields: [
+        { name: 'fuzz_complex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FuzzDummyInterface
 fuzz.mojom.FuzzDummyInterface = {};
 

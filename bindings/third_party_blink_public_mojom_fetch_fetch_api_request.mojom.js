@@ -68,3 +68,45 @@ blink.mojom.FetchPriorityHint = {
   kAuto: 1,
   kHigh: 2,
 };
+
+// Struct: FetchAPIRequestHeaders
+blink.mojom.FetchAPIRequestHeadersSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchAPIRequestHeaders',
+      packedSize: 16,
+      fields: [
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FetchAPIRequestBody
+blink.mojom.FetchAPIRequestBodySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchAPIRequestBody',
+      packedSize: 16,
+      fields: [
+        { name: 'contains_sensitive_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FetchAPIRequest
+blink.mojom.FetchAPIRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchAPIRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'service_worker_race_network_request_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

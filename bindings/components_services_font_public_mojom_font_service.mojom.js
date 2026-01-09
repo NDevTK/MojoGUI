@@ -23,6 +23,48 @@ font_service.mojom.RenderStyleSwitch = {
   NO_PREFERENCE: 2,
 };
 
+// Struct: TypefaceStyle
+font_service.mojom.TypefaceStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'font_service.mojom.TypefaceStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'slant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FontIdentity
+font_service.mojom.FontIdentitySpec = {
+  $: {
+    structSpec: {
+      name: 'font_service.mojom.FontIdentity',
+      packedSize: 16,
+      fields: [
+        { name: 'filepath', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FontRenderStyle
+font_service.mojom.FontRenderStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'font_service.mojom.FontRenderStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'use_subpixel_positioning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FontService
 font_service.mojom.FontService = {};
 

@@ -24,3 +24,16 @@ crosapi.mojom.ClipboardHistoryDisplayFormat = {
   kHtml: 2,
   kFile: 3,
 };
+
+// Struct: ClipboardHistoryItemDescriptor
+crosapi.mojom.ClipboardHistoryItemDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ClipboardHistoryItemDescriptor',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

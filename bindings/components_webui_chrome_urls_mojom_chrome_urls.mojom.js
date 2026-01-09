@@ -9,6 +9,34 @@ var chrome_urls = chrome_urls || {};
 chrome_urls.mojom = chrome_urls.mojom || {};
 
 
+// Struct: WebuiUrlInfo
+chrome_urls.mojom.WebuiUrlInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome_urls.mojom.WebuiUrlInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'internal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeUrlsData
+chrome_urls.mojom.ChromeUrlsDataSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome_urls.mojom.ChromeUrlsData',
+      packedSize: 16,
+      fields: [
+        { name: 'internal_debugging_uis_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 chrome_urls.mojom.PageHandlerFactory = {};
 

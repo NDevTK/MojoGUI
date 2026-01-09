@@ -46,6 +46,47 @@ crosapi.mojom.KeyTag = {
   kCorporate: 1,
 };
 
+// Struct: KeystoreRsaParams
+crosapi.mojom.KeystoreRsaParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.KeystoreRsaParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeystoreEcdsaParams
+crosapi.mojom.KeystoreEcdsaParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.KeystoreEcdsaParams',
+      packedSize: 16,
+      fields: [
+        { name: 'named_curve', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetPublicKeySuccessResult
+crosapi.mojom.GetPublicKeySuccessResultSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GetPublicKeySuccessResult',
+      packedSize: 16,
+      fields: [
+        { name: 'algorithm_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeystoreService
 crosapi.mojom.KeystoreService = {};
 

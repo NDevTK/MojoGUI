@@ -20,6 +20,34 @@ blink.mojom.RequestDigitalIdentityStatus = {
   kErrorInvalidJson: 6,
 };
 
+// Struct: DigitalCredentialGetRequest
+blink.mojom.DigitalCredentialGetRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DigitalCredentialGetRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DigitalCredentialCreateRequest
+blink.mojom.DigitalCredentialCreateRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DigitalCredentialCreateRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DigitalIdentityRequest
 blink.mojom.DigitalIdentityRequest = {};
 

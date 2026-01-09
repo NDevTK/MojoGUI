@@ -9,6 +9,20 @@ var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
 
 
+// Struct: TextDetectionResult
+shape_detection.mojom.TextDetectionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.TextDetectionResult',
+      packedSize: 16,
+      fields: [
+        { name: 'corner_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TextDetection
 shape_detection.mojom.TextDetection = {};
 

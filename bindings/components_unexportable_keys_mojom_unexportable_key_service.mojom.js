@@ -36,6 +36,34 @@ unexportable_keys.mojom.BackgroundTaskPriority = {
   kUserBlocking: 2,
 };
 
+// Struct: UnexportableKeyId
+unexportable_keys.mojom.UnexportableKeyIdSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyId',
+      packedSize: 16,
+      fields: [
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NewKeyData
+unexportable_keys.mojom.NewKeyDataSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.NewKeyData',
+      packedSize: 16,
+      fields: [
+        { name: 'creation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UnexportableKeyService
 unexportable_keys.mojom.UnexportableKeyService = {};
 

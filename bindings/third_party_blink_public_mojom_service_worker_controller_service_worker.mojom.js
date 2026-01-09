@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ServiceWorkerRouterData
+blink.mojom.ServiceWorkerRouterDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRouterData',
+      packedSize: 16,
+      fields: [
+        { name: 'remote_cache_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ControllerServiceWorkerInfo
+blink.mojom.ControllerServiceWorkerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ControllerServiceWorkerInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'used_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ControllerServiceWorker
 blink.mojom.ControllerServiceWorker = {};
 

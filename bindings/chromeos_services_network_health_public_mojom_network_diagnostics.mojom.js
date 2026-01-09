@@ -161,6 +161,104 @@ chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemType = 
   kProxyConnectionFailure: 0,
 };
 
+// Struct: GoogleServicesConnectivityErrorDetails
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'resolution_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GoogleServicesConnectivityConnectionErrorInfo
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'timestamp_end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GoogleServicesConnectivityConnectionError
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GoogleServicesConnectivityProxyConnectionError
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GoogleServicesConnectivityNoValidProxyError
+chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyError',
+      packedSize: 16,
+      fields: [
+        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpsLatencyResultValue
+chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.HttpsLatencyResultValue',
+      packedSize: 16,
+      fields: [
+        { name: 'latency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RoutineResult
+chromeos.network_diagnostics.mojom.RoutineResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_diagnostics.mojom.RoutineResult',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NetworkDiagnosticsRoutines
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines = {};
 

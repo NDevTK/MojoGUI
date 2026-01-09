@@ -9,6 +9,20 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: CastApplicationMediaInfo
+media.mojom.CastApplicationMediaInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CastApplicationMediaInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_audio_only_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CastApplicationMediaInfoManager
 media.mojom.CastApplicationMediaInfoManager = {};
 

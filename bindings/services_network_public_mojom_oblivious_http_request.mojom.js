@@ -9,6 +9,62 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: ObliviousHttpRequestBody
+network.mojom.ObliviousHttpRequestBodySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ObliviousHttpRequestBody',
+      packedSize: 16,
+      fields: [
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ObliviousHttpResponse
+network.mojom.ObliviousHttpResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ObliviousHttpResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'response_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ObliviousHttpPaddingParameters
+network.mojom.ObliviousHttpPaddingParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ObliviousHttpPaddingParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'pad_to_next_power_of_two', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ObliviousHttpRequest
+network.mojom.ObliviousHttpRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ObliviousHttpRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'padding_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ObliviousHttpClient
 network.mojom.ObliviousHttpClient = {};
 

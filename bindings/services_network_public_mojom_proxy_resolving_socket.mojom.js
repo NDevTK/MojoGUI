@@ -9,6 +9,20 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: ProxyResolvingSocketOptions
+network.mojom.ProxyResolvingSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ProxyResolvingSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProxyResolvingSocket
 network.mojom.ProxyResolvingSocket = {};
 

@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: FetchAPIResponse
+blink.mojom.FetchAPIResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchAPIResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -14,3 +14,16 @@ network.mojom.Type = {
   DELETE_MATCHES: 0,
   KEEP_MATCHES: 1,
 };
+
+// Struct: ClearDataFilter
+network.mojom.ClearDataFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ClearDataFilter',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

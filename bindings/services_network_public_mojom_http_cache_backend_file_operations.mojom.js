@@ -25,6 +25,20 @@ network.mojom.HttpCacheBackendDeleteFileMode = {
   kEnsureImmediateAvailability: 1,
 };
 
+// Struct: FileEnumerationEntry
+network.mojom.FileEnumerationEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.FileEnumerationEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileEnumerator
 network.mojom.FileEnumerator = {};
 

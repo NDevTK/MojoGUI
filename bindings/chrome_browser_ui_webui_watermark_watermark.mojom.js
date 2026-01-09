@@ -9,6 +9,20 @@ var watermark = watermark || {};
 watermark.mojom = watermark.mojom || {};
 
 
+// Struct: WatermarkStyle
+watermark.mojom.WatermarkStyleSpec = {
+  $: {
+    structSpec: {
+      name: 'watermark.mojom.WatermarkStyle',
+      packedSize: 16,
+      fields: [
+        { name: 'font_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 watermark.mojom.PageHandlerFactory = {};
 

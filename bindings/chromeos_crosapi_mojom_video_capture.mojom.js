@@ -24,6 +24,58 @@ crosapi.mojom.VideoRotation = {
   kVideoRotation270: 3,
 };
 
+// Struct: NativePixmapHandle
+crosapi.mojom.NativePixmapHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.NativePixmapHandle',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuMemoryBufferHandle
+crosapi.mojom.GpuMemoryBufferHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GpuMemoryBufferHandle',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoFrameInfo
+crosapi.mojom.VideoFrameInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.VideoFrameInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadyFrameInBuffer
+crosapi.mojom.ReadyFrameInBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ReadyFrameInBuffer',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ScopedAccessPermission
 crosapi.mojom.ScopedAccessPermission = {};
 

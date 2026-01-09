@@ -15,6 +15,34 @@ content.mojom.RenderProcessVisibleState = {
   kHidden: 1,
 };
 
+// Struct: UpdateScrollbarThemeParams
+content.mojom.UpdateScrollbarThemeParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.UpdateScrollbarThemeParams',
+      packedSize: 16,
+      fields: [
+        { name: 'scroll_view_rubber_banding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateSystemColorInfoParams
+content.mojom.UpdateSystemColorInfoParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.UpdateSystemColorInfoParams',
+      packedSize: 16,
+      fields: [
+        { name: 'accent_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Renderer
 content.mojom.Renderer = {};
 

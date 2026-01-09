@@ -40,6 +40,132 @@ connectors_internals.mojom.KeyManagerPermanentFailure = {
   INVALID_INSTALLATION: 4,
 };
 
+// Struct: Int32Value
+connectors_internals.mojom.Int32ValueSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.Int32Value',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LoadedKeyInfo
+connectors_internals.mojom.LoadedKeyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.LoadedKeyInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'has_ssl_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyInfo
+connectors_internals.mojom.KeyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.KeyInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'permanent_failure', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConsentMetadata
+connectors_internals.mojom.ConsentMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.ConsentMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'consent_received', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceTrustState
+connectors_internals.mojom.DeviceTrustStateSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.DeviceTrustState',
+      packedSize: 16,
+      fields: [
+        { name: 'consent_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertificateMetadata
+connectors_internals.mojom.CertificateMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.CertificateMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'issuer_display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClientIdentity
+connectors_internals.mojom.ClientIdentitySpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.ClientIdentity',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ClientCertificateState
+connectors_internals.mojom.ClientCertificateStateSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.ClientCertificateState',
+      packedSize: 16,
+      fields: [
+        { name: 'managed_browser_identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SignalsReportingState
+connectors_internals.mojom.SignalsReportingStateSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.SignalsReportingState',
+      packedSize: 16,
+      fields: [
+        { name: 'can_collect_all_fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 connectors_internals.mojom.PageHandler = {};
 

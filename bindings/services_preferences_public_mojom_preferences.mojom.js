@@ -27,6 +27,34 @@ prefs.mojom.ValueType = {
   PERSONAL: 1,
 };
 
+// Struct: TrackedPersistentPrefStoreConfiguration
+prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'prefs.mojom.TrackedPersistentPrefStoreConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'reset_on_load_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrackedPreferenceMetadata
+prefs.mojom.TrackedPreferenceMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'prefs.mojom.TrackedPreferenceMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'NO_ENFORCEMENT', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ResetOnLoadObserver
 prefs.mojom.ResetOnLoadObserver = {};
 

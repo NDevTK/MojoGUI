@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ServiceWorkerInstalledScriptsInfo
+blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerInstalledScriptsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'installed_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceWorkerScriptInfo
+blink.mojom.ServiceWorkerScriptInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerScriptInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'meta_data_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerInstalledScriptsManagerHost
 blink.mojom.ServiceWorkerInstalledScriptsManagerHost = {};
 

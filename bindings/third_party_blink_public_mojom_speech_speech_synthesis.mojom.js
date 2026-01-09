@@ -17,6 +17,34 @@ blink.mojom.SpeechSynthesisErrorCode = {
   kNoError: 3,
 };
 
+// Struct: SpeechSynthesisUtterance
+blink.mojom.SpeechSynthesisUtteranceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisUtterance',
+      packedSize: 16,
+      fields: [
+        { name: 'pitch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SpeechSynthesisVoice
+blink.mojom.SpeechSynthesisVoiceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeechSynthesisVoice',
+      packedSize: 16,
+      fields: [
+        { name: 'is_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SpeechSynthesisVoiceListObserver
 blink.mojom.SpeechSynthesisVoiceListObserver = {};
 

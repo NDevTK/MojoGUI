@@ -16,3 +16,31 @@ blink.mojom.AIManagerCreateClientError = {
   kInitialInputTooLarge: 2,
   kUnsupportedLanguage: 3,
 };
+
+// Struct: AILanguageCode
+blink.mojom.AILanguageCodeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AILanguageCode',
+      packedSize: 16,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QuotaErrorInfo
+blink.mojom.QuotaErrorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.QuotaErrorInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'quota', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

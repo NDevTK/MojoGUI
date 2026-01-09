@@ -9,6 +9,20 @@ var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
 
+// Struct: BindSourceInfo
+service_manager.mojom.BindSourceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.BindSourceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'required_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Service
 service_manager.mojom.Service = {};
 

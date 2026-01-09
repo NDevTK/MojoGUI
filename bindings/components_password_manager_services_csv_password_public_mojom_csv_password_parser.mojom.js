@@ -16,6 +16,33 @@ password_manager.mojom.Status = {
   kSemanticError: 2,
 };
 
+// Struct: CSVPasswordSequence
+password_manager.mojom.CSVPasswordSequenceSpec = {
+  $: {
+    structSpec: {
+      name: 'password_manager.mojom.CSVPasswordSequence',
+      packedSize: 16,
+      fields: [
+        { name: 'csv_passwords', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CSVPassword
+password_manager.mojom.CSVPasswordSpec = {
+  $: {
+    structSpec: {
+      name: 'password_manager.mojom.CSVPassword',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CSVPasswordParser
 password_manager.mojom.CSVPasswordParser = {};
 

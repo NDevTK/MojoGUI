@@ -9,6 +9,20 @@ var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
 
+// Struct: EnhancedCalendarServiceRequestParams
+ai.mojom.EnhancedCalendarServiceRequestParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.EnhancedCalendarServiceRequestParams',
+      packedSize: 16,
+      fields: [
+        { name: 'optional_prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EnhancedCalendarService
 ai.mojom.EnhancedCalendarService = {};
 

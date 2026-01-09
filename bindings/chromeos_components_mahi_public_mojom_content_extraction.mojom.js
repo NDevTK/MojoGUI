@@ -16,6 +16,59 @@ mahi.mojom.ResponseStatus = {
   kScreen2xNotAvailable: 2,
 };
 
+// Struct: ExtractionMethods
+mahi.mojom.ExtractionMethodsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ExtractionMethods',
+      packedSize: 16,
+      fields: [
+        { name: 'use_screen2x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExtractionRequest
+mahi.mojom.ExtractionRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ExtractionRequest',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExtractionResponse
+mahi.mojom.ExtractionResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ExtractionResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContentSizeResponse
+mahi.mojom.ContentSizeResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentSizeResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContentExtractionService
 mahi.mojom.ContentExtractionService = {};
 

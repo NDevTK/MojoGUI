@@ -102,6 +102,214 @@ ash.personalization_app.mojom.BacklightColor = {
   kRainbow: 8,
 };
 
+// Struct: WallpaperCollection
+ash.personalization_app.mojom.WallpaperCollectionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.WallpaperCollection',
+      packedSize: 16,
+      fields: [
+        { name: 'previews', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GooglePhotosAlbum
+ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.GooglePhotosAlbum',
+      packedSize: 16,
+      fields: [
+        { name: 'is_shared', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FetchGooglePhotosAlbumsResponse
+ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WallpaperImage
+ash.personalization_app.mojom.WallpaperImageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.WallpaperImage',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GooglePhotosPhoto
+ash.personalization_app.mojom.GooglePhotosPhotoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.GooglePhotosPhoto',
+      packedSize: 16,
+      fields: [
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FetchGooglePhotosPhotosResponse
+ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.FetchGooglePhotosPhotosResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'resume_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CurrentAttribution
+ash.personalization_app.mojom.CurrentAttributionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.CurrentAttribution',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CurrentWallpaper
+ash.personalization_app.mojom.CurrentWallpaperSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.CurrentWallpaper',
+      packedSize: 16,
+      fields: [
+        { name: 'action_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SampleColorScheme
+ash.personalization_app.mojom.SampleColorSchemeSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SampleColorScheme',
+      packedSize: 16,
+      fields: [
+        { name: 'tertiary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UserInfo
+ash.personalization_app.mojom.UserInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.UserInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeprecatedSourceInfo
+ash.personalization_app.mojom.DeprecatedSourceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.DeprecatedSourceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'website', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DefaultUserImage
+ash.personalization_app.mojom.DefaultUserImageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.DefaultUserImage',
+      packedSize: 16,
+      fields: [
+        { name: 'source_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProfileImage
+ash.personalization_app.mojom.ProfileImageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.ProfileImage',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InvalidImage
+ash.personalization_app.mojom.InvalidImageSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.InvalidImage',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AmbientModeAlbum
+ash.personalization_app.mojom.AmbientModeAlbumSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.AmbientModeAlbum',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WallpaperObserver
 ash.personalization_app.mojom.WallpaperObserver = {};
 

@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: FileSystemAccessCloudIdentifier
+blink.mojom.FileSystemAccessCloudIdentifierSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessCloudIdentifier',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

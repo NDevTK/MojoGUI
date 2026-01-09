@@ -14,3 +14,17 @@ blink.mojom.SharedWorkerSameSiteCookies = {
   kAll: 0,
   kNone: 1,
 };
+
+// Struct: SharedWorkerInfo
+blink.mojom.SharedWorkerInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedWorkerInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'extended_lifetime', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

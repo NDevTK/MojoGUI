@@ -29,6 +29,48 @@ ash.wifi_direct.mojom.WifiDirectOperationResult = {
   kUnknownFailure: 14,
 };
 
+// Struct: WifiP2PCapabilities
+ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiP2PCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'is_p2p_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WifiCredentials
+ash.wifi_direct.mojom.WifiCredentialsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiCredentials',
+      packedSize: 16,
+      fields: [
+        { name: 'passphrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WifiDirectConnectionProperties
+ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.wifi_direct.mojom.WifiDirectConnectionProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'ipv4_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WifiDirectManager
 ash.wifi_direct.mojom.WifiDirectManager = {};
 

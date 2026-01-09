@@ -14,3 +14,17 @@ blink.mojom.InsecureRequestsPolicy = {
   kDoNotUpgrade: 0,
   kUpgrade: 1,
 };
+
+// Struct: FetchClientSettingsObject
+blink.mojom.FetchClientSettingsObjectSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FetchClientSettingsObject',
+      packedSize: 16,
+      fields: [
+        { name: 'insecure_requests_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

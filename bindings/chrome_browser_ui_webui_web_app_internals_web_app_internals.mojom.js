@@ -8,6 +8,90 @@
 var mojom = mojom || {};
 
 
+// Struct: InstallIsolatedWebAppSuccess
+mojom.InstallIsolatedWebAppSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.InstallIsolatedWebAppSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'web_bundle_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateInfo
+mojom.UpdateInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.UpdateInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IwaDevModeAppInfo
+mojom.IwaDevModeAppInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.IwaDevModeAppInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'update_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VersionEntry
+mojom.VersionEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.VersionEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'web_bundle_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateManifest
+mojom.UpdateManifestSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.UpdateManifest',
+      packedSize: 16,
+      fields: [
+        { name: 'versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InstallFromBundleUrlParams
+mojom.InstallFromBundleUrlParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.InstallFromBundleUrlParams',
+      packedSize: 16,
+      fields: [
+        { name: 'update_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebAppInternalsHandler
 mojom.WebAppInternalsHandler = {};
 

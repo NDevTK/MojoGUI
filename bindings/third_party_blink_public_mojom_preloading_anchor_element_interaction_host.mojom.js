@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: AnchorElementPointerData
+blink.mojom.AnchorElementPointerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AnchorElementPointerData',
+      packedSize: 16,
+      fields: [
+        { name: 'mouse_acceleration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AnchorElementInteractionHost
 blink.mojom.AnchorElementInteractionHost = {};
 

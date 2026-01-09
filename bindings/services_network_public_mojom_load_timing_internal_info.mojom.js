@@ -21,3 +21,17 @@ network.mojom.AdvertisedAltSvcState = {
   kQuicNotBroken: 1,
   kQuicBroken: 2,
 };
+
+// Struct: LoadTimingInternalInfo
+network.mojom.LoadTimingInternalInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.LoadTimingInternalInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'http_network_session_quic_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

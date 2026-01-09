@@ -9,6 +9,90 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: HttpAuthStaticParams
+network.mojom.HttpAuthStaticParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpAuthStaticParams',
+      packedSize: 16,
+      fields: [
+        { name: 'gssapi_library_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HttpAuthDynamicParams
+network.mojom.HttpAuthDynamicParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.HttpAuthDynamicParams',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EnvironmentVariable
+network.mojom.EnvironmentVariableSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.EnvironmentVariable',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkServiceParams
+network.mojom.NetworkServiceParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceParams',
+      packedSize: 16,
+      fields: [
+        { name: 'system_dns_resolver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SCTAuditingConfiguration
+network.mojom.SCTAuditingConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SCTAuditingConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'hashdance_traffic_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkDurableMessageConfig
+network.mojom.NetworkDurableMessageConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkDurableMessageConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'http_storage_max_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: GssapiLibraryLoadObserver
 network.mojom.GssapiLibraryLoadObserver = {};
 

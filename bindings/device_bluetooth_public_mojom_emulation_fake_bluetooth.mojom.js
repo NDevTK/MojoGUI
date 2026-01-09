@@ -44,6 +44,90 @@ bluetooth.mojom.DescriptorOperationType = {
   kWrite: 1,
 };
 
+// Struct: Appearance
+bluetooth.mojom.AppearanceSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Appearance',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Power
+bluetooth.mojom.PowerSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.Power',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceDataMap
+bluetooth.mojom.ServiceDataMapSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.ServiceDataMap',
+      packedSize: 16,
+      fields: [
+        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScanRecord
+bluetooth.mojom.ScanRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.ScanRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'service_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScanResult
+bluetooth.mojom.ScanResultSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.ScanResult',
+      packedSize: 16,
+      fields: [
+        { name: 'scan_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CharacteristicProperties
+bluetooth.mojom.CharacteristicPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.CharacteristicProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'extended_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FakeBluetooth
 bluetooth.mojom.FakeBluetooth = {};
 

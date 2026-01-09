@@ -20,3 +20,17 @@ network.mojom.NoVarySearchParseError = {
   kExceptNotStringList: 6,
   kExceptWithoutTrueParams: 7,
 };
+
+// Struct: NoVarySearch
+network.mojom.NoVarySearchSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NoVarySearch',
+      packedSize: 16,
+      fields: [
+        { name: 'vary_on_key_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

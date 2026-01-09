@@ -18,3 +18,17 @@ gpu.mojom.GpuFeatureStatus = {
   Undefined: 4,
   Max: 5,
 };
+
+// Struct: GpuFeatureInfo
+gpu.mojom.GpuFeatureInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuFeatureInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'supported_buffer_formats_for_allocation_and_texturing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

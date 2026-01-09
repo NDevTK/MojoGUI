@@ -9,6 +9,34 @@ var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
 
 
+// Struct: IceServer
+sharing.mojom.IceServerSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.IceServer',
+      packedSize: 16,
+      fields: [
+        { name: 'credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebRtcDependencies
+sharing.mojom.WebRtcDependenciesSpec = {
+  $: {
+    structSpec: {
+      name: 'sharing.mojom.WebRtcDependencies',
+      packedSize: 16,
+      fields: [
+        { name: 'messenger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: IceConfigFetcher
 sharing.mojom.IceConfigFetcher = {};
 

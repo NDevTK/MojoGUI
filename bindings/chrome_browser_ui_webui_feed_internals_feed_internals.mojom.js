@@ -16,6 +16,34 @@ feed_internals.mojom.FeedOrder = {
   kReverseChron: 2,
 };
 
+// Struct: Properties
+feed_internals.mojom.PropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.Properties',
+      packedSize: 16,
+      fields: [
+        { name: 'following_feed_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LastFetchProperties
+feed_internals.mojom.LastFetchPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'feed_internals.mojom.LastFetchProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'last_action_upload_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 feed_internals.mojom.PageHandler = {};
 

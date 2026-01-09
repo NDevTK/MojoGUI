@@ -9,6 +9,62 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: WebTransportError
+network.mojom.WebTransportErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportError',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebTransportCertificateFingerprint
+network.mojom.WebTransportCertificateFingerprintSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportCertificateFingerprint',
+      packedSize: 16,
+      fields: [
+        { name: 'fingerprint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebTransportCloseInfo
+network.mojom.WebTransportCloseInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportCloseInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebTransportStats
+network.mojom.WebTransportStatsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.WebTransportStats',
+      packedSize: 16,
+      fields: [
+        { name: 'datagrams_lost_outgoing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebTransport
 network.mojom.WebTransport = {};
 

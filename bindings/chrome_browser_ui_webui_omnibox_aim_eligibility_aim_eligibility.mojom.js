@@ -9,6 +9,20 @@ var aim_eligibility = aim_eligibility || {};
 aim_eligibility.mojom = aim_eligibility.mojom || {};
 
 
+// Struct: EligibilityState
+aim_eligibility.mojom.EligibilityStateSpec = {
+  $: {
+    structSpec: {
+      name: 'aim_eligibility.mojom.EligibilityState',
+      packedSize: 16,
+      fields: [
+        { name: 'last_updated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Page
 aim_eligibility.mojom.Page = {};
 

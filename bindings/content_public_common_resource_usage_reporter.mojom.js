@@ -9,6 +9,47 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
+// Struct: ResourceTypeStat
+content.mojom.ResourceTypeStatSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ResourceTypeStat',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResourceTypeStats
+content.mojom.ResourceTypeStatsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ResourceTypeStats',
+      packedSize: 16,
+      fields: [
+        { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResourceUsageData
+content.mojom.ResourceUsageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.ResourceUsageData',
+      packedSize: 16,
+      fields: [
+        { name: 'web_cache_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ResourceUsageReporter
 content.mojom.ResourceUsageReporter = {};
 

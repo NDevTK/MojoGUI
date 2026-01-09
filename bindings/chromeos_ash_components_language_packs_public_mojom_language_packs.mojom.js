@@ -34,6 +34,34 @@ ash.language.mojom.ErrorCode = {
   kAllocation: 4,
 };
 
+// Struct: LanguagePackInfo
+ash.language.mojom.LanguagePackInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.LanguagePackInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BasePackInfo
+ash.language.mojom.BasePackInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.language.mojom.BasePackInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LanguagePacksObserver
 ash.language.mojom.LanguagePacksObserver = {};
 

@@ -27,3 +27,17 @@ network.mojom.ServiceWorkerStatus = {
   kWarmingUp: 4,
   kWarmedUp: 5,
 };
+
+// Struct: ServiceWorkerRouterInfo
+network.mojom.ServiceWorkerRouterInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ServiceWorkerRouterInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'evaluation_worker_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

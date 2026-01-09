@@ -67,6 +67,76 @@ payments.mojom.PaymentDelegation = {
   PAYER_EMAIL: 3,
 };
 
+// Struct: PaymentInstrument
+payments.mojom.PaymentInstrumentSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentInstrument',
+      packedSize: 16,
+      fields: [
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CanMakePaymentEventData
+payments.mojom.CanMakePaymentEventDataSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.CanMakePaymentEventData',
+      packedSize: 16,
+      fields: [
+        { name: 'modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentRequestEventData
+payments.mojom.PaymentRequestEventDataSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentRequestEventData',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_handler_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CanMakePaymentResponse
+payments.mojom.CanMakePaymentResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.CanMakePaymentResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'can_make_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentHandlerResponse
+payments.mojom.PaymentHandlerResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'shipping_option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PaymentManager
 payments.mojom.PaymentManager = {};
 

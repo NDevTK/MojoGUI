@@ -77,6 +77,102 @@ dlp_internals.mojom.UserType = {
   kKiosk: 3,
 };
 
+// Struct: DataTransferEndpoint
+dlp_internals.mojom.DataTransferEndpointSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.DataTransferEndpoint',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContentRestrictionInfo
+dlp_internals.mojom.ContentRestrictionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.ContentRestrictionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RenderFrameHostInfo
+dlp_internals.mojom.RenderFrameHostInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.RenderFrameHostInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'restrictions_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebContentsInfo
+dlp_internals.mojom.WebContentsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.WebContentsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'frames_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EventDestination
+dlp_internals.mojom.EventDestinationSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.EventDestination',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DlpEvent
+dlp_internals.mojom.DlpEventSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.DlpEvent',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileDatabaseEntry
+dlp_internals.mojom.FileDatabaseEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.FileDatabaseEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'referrer_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ReportingObserver
 dlp_internals.mojom.ReportingObserver = {};
 

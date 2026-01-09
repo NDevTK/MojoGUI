@@ -15,3 +15,16 @@ ash.mojom.WallpaperLayout = {
   kCenter: 1,
   kCenterCropped: 2,
 };
+
+// Struct: WallpaperSettings
+ash.mojom.WallpaperSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.WallpaperSettings',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -33,6 +33,20 @@ browser_command.mojom.Command = {
   kOpenAutofillSettings: 19,
 };
 
+// Struct: ClickInfo
+browser_command.mojom.ClickInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'browser_command.mojom.ClickInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'shift_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CommandHandlerFactory
 browser_command.mojom.CommandHandlerFactory = {};
 

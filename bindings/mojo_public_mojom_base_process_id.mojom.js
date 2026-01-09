@@ -8,3 +8,17 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: ProcessId
+mojo_base.mojom.ProcessIdSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.ProcessId',
+      packedSize: 16,
+      fields: [
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

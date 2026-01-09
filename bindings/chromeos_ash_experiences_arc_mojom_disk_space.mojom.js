@@ -9,6 +9,48 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: ApplicationsSize
+arc.mojom.ApplicationsSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ApplicationsSize',
+      packedSize: 16,
+      fields: [
+        { name: 'total_cache_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiskSpace
+arc.mojom.DiskSpaceSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DiskSpace',
+      packedSize: 16,
+      fields: [
+        { name: 'space_in_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QuotaSpaces
+arc.mojom.QuotaSpacesSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.QuotaSpaces',
+      packedSize: 16,
+      fields: [
+        { name: 'curspaces_for_project_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DiskSpaceHost
 arc.mojom.DiskSpaceHost = {};
 

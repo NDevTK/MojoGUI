@@ -8,3 +8,17 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+
+// Struct: ActivationSequence
+extensions.mojom.ActivationSequenceSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ActivationSequence',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

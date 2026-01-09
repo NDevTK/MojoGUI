@@ -37,6 +37,75 @@ smbfs.mojom.Source = {
   kKerberos: 1,
 };
 
+// Struct: Password
+smbfs.mojom.PasswordSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.Password',
+      packedSize: 16,
+      fields: [
+        { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KerberosConfig
+smbfs.mojom.KerberosConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.KerberosConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CredentialStorageOptions
+smbfs.mojom.CredentialStorageOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.CredentialStorageOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MountOptions
+smbfs.mojom.MountOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.MountOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'credential_storage_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Credentials
+smbfs.mojom.CredentialsSpec = {
+  $: {
+    structSpec: {
+      name: 'smbfs.mojom.Credentials',
+      packedSize: 16,
+      fields: [
+        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SmbFsBootstrap
 smbfs.mojom.SmbFsBootstrap = {};
 

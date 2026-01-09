@@ -18,6 +18,20 @@ blink.mojom.Type = {
   kSubMenu: 4,
 };
 
+// Struct: MenuItem
+blink.mojom.MenuItemSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MenuItem',
+      packedSize: 16,
+      fields: [
+        { name: 'kOption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PopupMenuClient
 blink.mojom.PopupMenuClient = {};
 

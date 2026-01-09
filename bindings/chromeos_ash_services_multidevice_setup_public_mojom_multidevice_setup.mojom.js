@@ -62,6 +62,20 @@ ash.multidevice_setup.mojom.FeatureState = {
   kUnavailableNoVerifiedHost_HostExistsButNotSetAndVerified: 10,
 };
 
+// Struct: HostDevice
+ash.multidevice_setup.mojom.HostDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.multidevice_setup.mojom.HostDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'connectivity_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AccountStatusChangeDelegate
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate = {};
 

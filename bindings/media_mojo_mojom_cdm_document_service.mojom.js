@@ -9,6 +9,20 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: MediaFoundationCdmData
+media.mojom.MediaFoundationCdmDataSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.MediaFoundationCdmData',
+      packedSize: 16,
+      fields: [
+        { name: 'cdm_store_path_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CdmDocumentService
 media.mojom.CdmDocumentService = {};
 

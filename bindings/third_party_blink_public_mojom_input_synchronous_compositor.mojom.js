@@ -9,6 +9,47 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: SyncCompositorDemandDrawHwParams
+blink.mojom.SyncCompositorDemandDrawHwParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SyncCompositorDemandDrawHwParams',
+      packedSize: 16,
+      fields: [
+        { name: 'need_new_local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyncCompositorDemandDrawSwParams
+blink.mojom.SyncCompositorDemandDrawSwParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SyncCompositorDemandDrawSwParams',
+      packedSize: 16,
+      fields: [
+        { name: 'transform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SyncCompositorCommonRendererParams
+blink.mojom.SyncCompositorCommonRendererParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SyncCompositorCommonRendererParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SynchronousCompositor
 blink.mojom.SynchronousCompositor = {};
 

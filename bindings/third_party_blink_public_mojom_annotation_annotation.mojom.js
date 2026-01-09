@@ -24,6 +24,20 @@ blink.mojom.AttachmentResult = {
   kRangeInvalid: 2,
 };
 
+// Struct: SelectorCreationResult
+blink.mojom.SelectorCreationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SelectorCreationResult',
+      packedSize: 16,
+      fields: [
+        { name: 'selected_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AnnotationAgent
 blink.mojom.AnnotationAgent = {};
 

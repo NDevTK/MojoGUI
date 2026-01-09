@@ -26,6 +26,48 @@ media.mojom.CdmCapabilityQueryStatus = {
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
 
+// Struct: VideoCodecInfo
+media.mojom.VideoCodecInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCodecInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CdmCapability
+media.mojom.CdmCapabilitySpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmCapability',
+      packedSize: 16,
+      fields: [
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeySystemCapability
+media.mojom.KeySystemCapabilitySpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.KeySystemCapability',
+      packedSize: 16,
+      fields: [
+        { name: 'hw_secure_capability_query_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeySystemSupportObserver
 media.mojom.KeySystemSupportObserver = {};
 

@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: RecordContentToVisibleTimeRequest
+blink.mojom.RecordContentToVisibleTimeRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RecordContentToVisibleTimeRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

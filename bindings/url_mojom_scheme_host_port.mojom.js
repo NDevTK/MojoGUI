@@ -8,3 +8,17 @@
 var url = url || {};
 url.mojom = url.mojom || {};
 
+
+// Struct: SchemeHostPort
+url.mojom.SchemeHostPortSpec = {
+  $: {
+    structSpec: {
+      name: 'url.mojom.SchemeHostPort',
+      packedSize: 16,
+      fields: [
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

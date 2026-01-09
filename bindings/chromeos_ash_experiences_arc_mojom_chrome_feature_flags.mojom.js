@@ -15,6 +15,20 @@ arc.mojom.RoundedWindowCompatStrategy = {
   kLeftRightBottomGesture: 1,
 };
 
+// Struct: FeatureFlags
+arc.mojom.FeatureFlagsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FeatureFlags',
+      packedSize: 16,
+      fields: [
+        { name: 'extend_intent_anr_timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ChromeFeatureFlagsInstance
 arc.mojom.ChromeFeatureFlagsInstance = {};
 

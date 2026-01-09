@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: MutableNetworkTrafficAnnotationTag
+network.mojom.MutableNetworkTrafficAnnotationTagSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.MutableNetworkTrafficAnnotationTag',
+      packedSize: 16,
+      fields: [
+        { name: 'unique_id_hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

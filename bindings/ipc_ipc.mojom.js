@@ -9,6 +9,20 @@ var IPC = IPC || {};
 IPC.mojom = IPC.mojom || {};
 
 
+// Struct: Message
+IPC.mojom.MessageSpec = {
+  $: {
+    structSpec: {
+      name: 'IPC.mojom.Message',
+      packedSize: 16,
+      fields: [
+        { name: 'handles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Channel
 IPC.mojom.Channel = {};
 

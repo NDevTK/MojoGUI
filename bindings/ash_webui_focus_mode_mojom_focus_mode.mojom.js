@@ -19,6 +19,34 @@ ash.focus_mode.mojom.PlaybackState = {
   kNone: 4,
 };
 
+// Struct: TrackDefinition
+ash.focus_mode.mojom.TrackDefinitionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.TrackDefinition',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_playback_reporting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PlaybackData
+ash.focus_mode.mojom.PlaybackDataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.focus_mode.mojom.PlaybackData',
+      packedSize: 16,
+      fields: [
+        { name: 'initial_playback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaClient
 ash.focus_mode.mojom.MediaClient = {};
 

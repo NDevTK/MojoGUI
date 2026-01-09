@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: SharedFile
+blink.mojom.SharedFileSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedFile',
+      packedSize: 16,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ShareService
 blink.mojom.ShareService = {};
 

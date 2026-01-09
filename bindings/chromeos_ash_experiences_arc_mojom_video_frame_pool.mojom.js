@@ -9,6 +9,19 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
+// Struct: VideoFrame
+arc.mojom.VideoFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoFrame',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoFramePool
 arc.mojom.VideoFramePool = {};
 

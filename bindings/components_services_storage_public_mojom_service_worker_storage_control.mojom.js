@@ -15,6 +15,48 @@ storage.mojom.ServiceWorkerStorageStorageKeyState = {
   kDelete: 1,
 };
 
+// Struct: ServiceWorkerLiveVersionInfo
+storage.mojom.ServiceWorkerLiveVersionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerLiveVersionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceWorkerFindRegistrationResult
+storage.mojom.ServiceWorkerFindRegistrationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
+      packedSize: 16,
+      fields: [
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceWorkerUserData
+storage.mojom.ServiceWorkerUserDataSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerUserData',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerLiveVersionRef
 storage.mojom.ServiceWorkerLiveVersionRef = {};
 

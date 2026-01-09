@@ -28,6 +28,132 @@ handwriting.mojom.CreateHandwritingRecognizerResult = {
   kNotSupported: 2,
 };
 
+// Struct: HandwritingPoint
+handwriting.mojom.HandwritingPointSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingPoint',
+      packedSize: 16,
+      fields: [
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingStroke
+handwriting.mojom.HandwritingStrokeSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingStroke',
+      packedSize: 16,
+      fields: [
+        { name: 'points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingDrawingSegment
+handwriting.mojom.HandwritingDrawingSegmentSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingDrawingSegment',
+      packedSize: 16,
+      fields: [
+        { name: 'end_point_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingSegment
+handwriting.mojom.HandwritingSegmentSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingSegment',
+      packedSize: 16,
+      fields: [
+        { name: 'drawing_segments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingPrediction
+handwriting.mojom.HandwritingPredictionSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingPrediction',
+      packedSize: 16,
+      fields: [
+        { name: 'segmentation_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingHints
+handwriting.mojom.HandwritingHintsSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingHints',
+      packedSize: 16,
+      fields: [
+        { name: 'alternatives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingHintsQueryResult
+handwriting.mojom.HandwritingHintsQueryResultSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingHintsQueryResult',
+      packedSize: 16,
+      fields: [
+        { name: 'alternatives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QueryHandwritingRecognizerResult
+handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.QueryHandwritingRecognizerResult',
+      packedSize: 16,
+      fields: [
+        { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HandwritingModelConstraint
+handwriting.mojom.HandwritingModelConstraintSpec = {
+  $: {
+    structSpec: {
+      name: 'handwriting.mojom.HandwritingModelConstraint',
+      packedSize: 16,
+      fields: [
+        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: HandwritingRecognizer
 handwriting.mojom.HandwritingRecognizer = {};
 

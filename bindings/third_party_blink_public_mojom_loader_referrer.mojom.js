@@ -8,3 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: Referrer
+blink.mojom.ReferrerSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Referrer',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

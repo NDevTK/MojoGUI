@@ -20,6 +20,34 @@ page_image_service.mojom.ClientId = {
   HistoryEmbeddings: 6,
 };
 
+// Struct: Options
+page_image_service.mojom.OptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_image_service.mojom.Options',
+      packedSize: 16,
+      fields: [
+        { name: 'true', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageResult
+page_image_service.mojom.ImageResultSpec = {
+  $: {
+    structSpec: {
+      name: 'page_image_service.mojom.ImageResult',
+      packedSize: 16,
+      fields: [
+        { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageImageServiceHandler
 page_image_service.mojom.PageImageServiceHandler = {};
 

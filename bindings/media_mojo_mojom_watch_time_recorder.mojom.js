@@ -9,6 +9,34 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: PlaybackProperties
+media.mojom.PlaybackPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.PlaybackProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'demuxer_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SecondaryPlaybackProperties
+media.mojom.SecondaryPlaybackPropertiesSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.SecondaryPlaybackProperties',
+      packedSize: 16,
+      fields: [
+        { name: 'natural_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WatchTimeRecorder
 media.mojom.WatchTimeRecorder = {};
 

@@ -31,6 +31,132 @@ side_panel.customize_chrome.mojom.UserFeedback = {
   kThumbsDown: 2,
 };
 
+// Struct: KeyLabel
+side_panel.customize_chrome.mojom.KeyLabelSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.KeyLabel',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Group
+side_panel.customize_chrome.mojom.GroupSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.Group',
+      packedSize: 16,
+      fields: [
+        { name: 'descriptor_as', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DescriptorB
+side_panel.customize_chrome.mojom.DescriptorBSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.DescriptorB',
+      packedSize: 16,
+      fields: [
+        { name: 'image_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Descriptors
+side_panel.customize_chrome.mojom.DescriptorsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.Descriptors',
+      packedSize: 16,
+      fields: [
+        { name: 'descriptor_c', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Inspiration
+side_panel.customize_chrome.mojom.InspirationSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.Inspiration',
+      packedSize: 16,
+      fields: [
+        { name: 'thumbnail_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InspirationDescriptors
+side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.InspirationDescriptors',
+      packedSize: 16,
+      fields: [
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InspirationGroup
+side_panel.customize_chrome.mojom.InspirationGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.InspirationGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'inspirations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WallpaperSearchResult
+side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.WallpaperSearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResultDescriptors
+side_panel.customize_chrome.mojom.ResultDescriptorsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.ResultDescriptors',
+      packedSize: 16,
+      fields: [
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WallpaperSearchHandlerFactory
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = {};
 

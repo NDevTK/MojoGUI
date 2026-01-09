@@ -16,6 +16,20 @@ network.mojom.DocumentIsolationPolicyValue = {
   kIsolateAndCredentialless: 2,
 };
 
+// Struct: DocumentIsolationPolicy
+network.mojom.DocumentIsolationPolicySpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DocumentIsolationPolicy',
+      packedSize: 16,
+      fields: [
+        { name: 'report_only_reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DocumentIsolationPolicyReporter
 network.mojom.DocumentIsolationPolicyReporter = {};
 

@@ -9,6 +9,20 @@ var new_tab_page = new_tab_page || {};
 new_tab_page.mojom = new_tab_page.mojom || {};
 
 
+// Struct: AccessToken
+new_tab_page.mojom.AccessTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.AccessToken',
+      packedSize: 16,
+      fields: [
+        { name: 'expiration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MicrosoftAuthUntrustedDocumentInterfacesFactory
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
 

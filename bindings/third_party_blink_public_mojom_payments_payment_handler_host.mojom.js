@@ -9,6 +9,48 @@ var payments = payments || {};
 payments.mojom = payments.mojom || {};
 
 
+// Struct: PaymentHandlerMethodData
+payments.mojom.PaymentHandlerMethodDataSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerMethodData',
+      packedSize: 16,
+      fields: [
+        { name: 'stringified_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentHandlerModifier
+payments.mojom.PaymentHandlerModifierSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerModifier',
+      packedSize: 16,
+      fields: [
+        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentRequestDetailsUpdate
+payments.mojom.PaymentRequestDetailsUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentRequestDetailsUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'shipping_address_errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PaymentHandlerHost
 payments.mojom.PaymentHandlerHost = {};
 

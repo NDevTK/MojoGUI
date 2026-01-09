@@ -9,6 +9,34 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: FirstPartySetsAccessDelegateParams
+network.mojom.FirstPartySetsAccessDelegateParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.FirstPartySetsAccessDelegateParams',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FirstPartySetsReadyEvent
+network.mojom.FirstPartySetsReadyEventSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.FirstPartySetsReadyEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'cache_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FirstPartySetsAccessDelegate
 network.mojom.FirstPartySetsAccessDelegate = {};
 

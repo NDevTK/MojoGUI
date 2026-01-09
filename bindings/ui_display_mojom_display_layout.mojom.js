@@ -22,3 +22,31 @@ display.mojom.OffsetReference = {
   TOP_LEFT: 0,
   BOTTOM_RIGHT: 1,
 };
+
+// Struct: DisplayPlacement
+display.mojom.DisplayPlacementSpec = {
+  $: {
+    structSpec: {
+      name: 'display.mojom.DisplayPlacement',
+      packedSize: 16,
+      fields: [
+        { name: 'offset_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DisplayLayout
+display.mojom.DisplayLayoutSpec = {
+  $: {
+    structSpec: {
+      name: 'display.mojom.DisplayLayout',
+      packedSize: 16,
+      fields: [
+        { name: 'placement_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

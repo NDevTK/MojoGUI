@@ -20,3 +20,17 @@ blink.mojom.UseCounterFeatureType = {
   kWebDXFeature: 6,
   kPermissionsPolicyEnabledPrivacySensitive: 7,
 };
+
+// Struct: UseCounterFeature
+blink.mojom.UseCounterFeatureSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.UseCounterFeature',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

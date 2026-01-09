@@ -14,6 +14,48 @@ remoting.mojom.StartSupportSessionError = {
   kExistingAdminSession: 0,
 };
 
+// Struct: SupportHostDetails
+remoting.mojom.SupportHostDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.SupportHostDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'supported_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SupportSessionParams
+remoting.mojom.SupportSessionParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.SupportSessionParams',
+      packedSize: 16,
+      fields: [
+        { name: 'authorized_helper', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NatPolicyState
+remoting.mojom.NatPolicyStateSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.NatPolicyState',
+      packedSize: 16,
+      fields: [
+        { name: 'relay_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SupportHostObserver
 remoting.mojom.SupportHostObserver = {};
 

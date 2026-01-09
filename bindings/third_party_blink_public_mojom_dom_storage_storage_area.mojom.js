@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: KeyValue
+blink.mojom.KeyValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.KeyValue',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: StorageAreaObserver
 blink.mojom.StorageAreaObserver = {};
 

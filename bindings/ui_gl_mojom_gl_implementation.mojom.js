@@ -33,3 +33,17 @@ gl.mojom.ANGLEImplementation = {
   kD3D11Warp: 9,
   kDefault: 10,
 };
+
+// Struct: GLImplementationParts
+gl.mojom.GLImplementationPartsSpec = {
+  $: {
+    structSpec: {
+      name: 'gl.mojom.GLImplementationParts',
+      packedSize: 16,
+      fields: [
+        { name: 'angle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

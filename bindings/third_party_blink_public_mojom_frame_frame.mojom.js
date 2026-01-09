@@ -80,6 +80,90 @@ blink.mojom.WindowProxyAccessType = {
   kAnonymousNamedGetter: 14,
 };
 
+// Struct: SavableSubframe
+blink.mojom.SavableSubframeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SavableSubframe',
+      packedSize: 16,
+      fields: [
+        { name: 'subframe_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetSavableResourceLinksReply
+blink.mojom.GetSavableResourceLinksReplySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GetSavableResourceLinksReply',
+      packedSize: 16,
+      fields: [
+        { name: 'subframes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FindInPageResultAXParams
+blink.mojom.FindInPageResultAXParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FindInPageResultAXParams',
+      packedSize: 16,
+      fields: [
+        { name: 'end_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DownloadURLParams
+blink.mojom.DownloadURLParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DownloadURLParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IframeAttributes
+blink.mojom.IframeAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IframeAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LegacyTechEventCodeLocation
+blink.mojom.LegacyTechEventCodeLocationSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LegacyTechEventCodeLocation',
+      packedSize: 16,
+      fields: [
+        { name: 'column', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LocalFrameHost
 blink.mojom.LocalFrameHost = {};
 

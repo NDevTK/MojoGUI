@@ -21,6 +21,48 @@ chrome.mojom.ResumeBlockedRequestsTrigger = {
   kThrottlingRequestsPaused: 7,
 };
 
+// Struct: BoundSessionThrottlerParams
+chrome.mojom.BoundSessionThrottlerParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.BoundSessionThrottlerParams',
+      packedSize: 16,
+      fields: [
+        { name: 'cookie_expiry_date', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DynamicParams
+chrome.mojom.DynamicParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.DynamicParams',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed_domains_for_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StaticParams
+chrome.mojom.StaticParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.StaticParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BoundSessionRequestThrottledHandler
 chrome.mojom.BoundSessionRequestThrottledHandler = {};
 

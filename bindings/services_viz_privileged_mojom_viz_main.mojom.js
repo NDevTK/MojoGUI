@@ -9,6 +9,34 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Struct: FrameSinkManagerParams
+viz.mojom.FrameSinkManagerParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkManagerParams',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_renderer_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuServiceCreationParams
+viz.mojom.GpuServiceCreationParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.GpuServiceCreationParams',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VizMain
 viz.mojom.VizMain = {};
 

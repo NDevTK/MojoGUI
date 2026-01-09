@@ -38,6 +38,34 @@ arc.mojom.CursorCoordinateSpace = {
   NOTIFICATION: 2,
 };
 
+// Struct: CompositionSegment
+arc.mojom.CompositionSegmentSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.CompositionSegment',
+      packedSize: 16,
+      fields: [
+        { name: 'style', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyEventData
+arc.mojom.KeyEventDataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.KeyEventData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_repeat', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImeHost
 arc.mojom.ImeHost = {};
 

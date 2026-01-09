@@ -25,6 +25,20 @@ translate.mojom.TranslateError = {
   TRANSLATE_ERROR_MAX: 11,
 };
 
+// Struct: LanguageDetectionDetails
+translate.mojom.LanguageDetectionDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'translate.mojom.LanguageDetectionDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'detection_model_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TranslateAgent
 translate.mojom.TranslateAgent = {};
 

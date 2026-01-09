@@ -10,6 +10,20 @@ chromeos.connectivity = chromeos.connectivity || {};
 chromeos.connectivity.mojom = chromeos.connectivity.mojom || {};
 
 
+// Struct: PasspointSubscription
+chromeos.connectivity.mojom.PasspointSubscriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.connectivity.mojom.PasspointSubscription',
+      packedSize: 16,
+      fields: [
+        { name: 'expiration_epoch_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PasspointEventsListener
 chromeos.connectivity.mojom.PasspointEventsListener = {};
 

@@ -84,6 +84,117 @@ media_session.mojom.SuspendType = {
   kContent: 2,
 };
 
+// Struct: MediaImage
+media_session.mojom.MediaImageSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.MediaImage',
+      packedSize: 16,
+      fields: [
+        { name: 'sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChapterInformation
+media_session.mojom.ChapterInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.ChapterInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'artwork', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaMetadata
+media_session.mojom.MediaMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.MediaMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'chapters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaImageBitmap
+media_session.mojom.MediaImageBitmapSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.MediaImageBitmap',
+      packedSize: 16,
+      fields: [
+        { name: 'color_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaPosition
+media_session.mojom.MediaPositionSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.MediaPosition',
+      packedSize: 16,
+      fields: [
+        { name: 'end_of_media', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemotePlaybackMetadata
+media_session.mojom.RemotePlaybackMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.RemotePlaybackMetadata',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaSessionInfo
+media_session.mojom.MediaSessionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.MediaSessionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kActive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaSessionDebugInfo
+media_session.mojom.MediaSessionDebugInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'media_session.mojom.MediaSessionDebugInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaSessionObserver
 media_session.mojom.MediaSessionObserver = {};
 

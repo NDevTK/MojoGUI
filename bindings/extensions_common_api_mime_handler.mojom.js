@@ -9,6 +9,34 @@ var extensions = extensions || {};
 extensions.mime_handler = extensions.mime_handler || {};
 
 
+// Struct: StreamInfo
+extensions.mime_handler.StreamInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mime_handler.StreamInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'embedded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PdfPluginAttributes
+extensions.mime_handler.PdfPluginAttributesSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mime_handler.PdfPluginAttributes',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_javascript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MimeHandlerService
 extensions.mime_handler.MimeHandlerService = {};
 

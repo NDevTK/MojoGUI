@@ -9,6 +9,48 @@ var optimization_guide_internals = optimization_guide_internals || {};
 optimization_guide_internals.mojom = optimization_guide_internals.mojom || {};
 
 
+// Struct: DownloadedModelInfo
+optimization_guide_internals.mojom.DownloadedModelInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide_internals.mojom.DownloadedModelInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LoggedClientIds
+optimization_guide_internals.mojom.LoggedClientIdsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide_internals.mojom.LoggedClientIds',
+      packedSize: 16,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MqlsLog
+optimization_guide_internals.mojom.MqlsLogSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide_internals.mojom.MqlsLog',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 optimization_guide_internals.mojom.PageHandlerFactory = {};
 

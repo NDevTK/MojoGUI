@@ -20,6 +20,34 @@ blink.mojom.PushErrorType = {
   INVALID_STATE: 6,
 };
 
+// Struct: PushSubscriptionOptions
+blink.mojom.PushSubscriptionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PushSubscriptionOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'application_server_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PushSubscription
+blink.mojom.PushSubscriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PushSubscription',
+      packedSize: 16,
+      fields: [
+        { name: 'auth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PushMessaging
 blink.mojom.PushMessaging = {};
 

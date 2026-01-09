@@ -14,3 +14,17 @@ blink.mojom.EntryType = {
   kMark: 0,
   kMeasure: 1,
 };
+
+// Struct: PerformanceMarkOrMeasure
+blink.mojom.PerformanceMarkOrMeasureSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PerformanceMarkOrMeasure',
+      packedSize: 16,
+      fields: [
+        { name: 'kMark', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

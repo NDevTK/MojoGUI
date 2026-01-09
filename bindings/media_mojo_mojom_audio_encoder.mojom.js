@@ -15,6 +15,48 @@ media.mojom.AacOutputFormat = {
   kADTS: 1,
 };
 
+// Struct: AacAudioEncoderConfig
+media.mojom.AacAudioEncoderConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AacAudioEncoderConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioEncoderConfig
+media.mojom.AudioEncoderConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioEncoderConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'aac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: EncodedAudioBuffer
+media.mojom.EncodedAudioBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.EncodedAudioBuffer',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AudioEncoder
 media.mojom.AudioEncoder = {};
 

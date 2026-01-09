@@ -22,6 +22,34 @@ service_manager.mojom.BindInterfacePriority = {
   kBestEffort: 1,
 };
 
+// Struct: Identity
+service_manager.mojom.IdentitySpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.Identity',
+      packedSize: 16,
+      fields: [
+        { name: 'globally_unique_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceInfo
+service_manager.mojom.ServiceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.ServiceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'sandbox_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProcessMetadata
 service_manager.mojom.ProcessMetadata = {};
 

@@ -19,3 +19,17 @@ gpu.mojom.CommandBufferNamespace = {
   GPU_CHANNEL_SHARED_IMAGE_INTERFACE: 5,
   WEBNN_CONTEXT_INTERFACE: 6,
 };
+
+// Struct: SyncToken
+gpu.mojom.SyncTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.SyncToken',
+      packedSize: 16,
+      fields: [
+        { name: 'release_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

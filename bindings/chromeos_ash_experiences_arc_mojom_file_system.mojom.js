@@ -31,6 +31,202 @@ arc.mojom.FileSelectorEventType = {
   CLICK_CANCEL: 3,
 };
 
+// Struct: Document
+arc.mojom.DocumentSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.Document',
+      packedSize: 16,
+      fields: [
+        { name: 'supports_thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Root
+arc.mojom.RootSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.Root',
+      packedSize: 16,
+      fields: [
+        { name: 'mime_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContentUrlWithMimeType
+arc.mojom.ContentUrlWithMimeTypeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ContentUrlWithMimeType',
+      packedSize: 16,
+      fields: [
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenUrlsRequest
+arc.mojom.OpenUrlsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.OpenUrlsRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'extras', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectFilesRequest
+arc.mojom.SelectFilesRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SelectFilesRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'search_query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DocumentPath
+arc.mojom.DocumentPathSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.DocumentPath',
+      packedSize: 16,
+      fields: [
+        { name: 'root_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SelectFilesResult
+arc.mojom.SelectFilesResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SelectFilesResult',
+      packedSize: 16,
+      fields: [
+        { name: 'picker_activity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSelectorEvent
+arc.mojom.FileSelectorEventSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FileSelectorEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'creator_task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetFileSelectorElementsRequest
+arc.mojom.GetFileSelectorElementsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.GetFileSelectorElementsRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'creator_task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSelectorElement
+arc.mojom.FileSelectorElementSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FileSelectorElement',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSelectorElements
+arc.mojom.FileSelectorElementsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FileSelectorElements',
+      packedSize: 16,
+      fields: [
+        { name: 'search_query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RootSize
+arc.mojom.RootSizeSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.RootSize',
+      packedSize: 16,
+      fields: [
+        { name: 'capacity_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileSession
+arc.mojom.FileSessionSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.FileSession',
+      packedSize: 16,
+      fields: [
+        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaStoreDownloadMetadata
+arc.mojom.MediaStoreDownloadMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MediaStoreDownloadMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileSystemHost
 arc.mojom.FileSystemHost = {};
 

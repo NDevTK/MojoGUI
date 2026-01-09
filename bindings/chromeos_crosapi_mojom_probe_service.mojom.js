@@ -94,6 +94,448 @@ crosapi.mojom.ProbeThermalSensorSource = {
   kSysFs: 1,
 };
 
+// Struct: ProbeError
+crosapi.mojom.ProbeErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeError',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeBatteryInfo
+crosapi.mojom.ProbeBatteryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeBatteryInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeUsbBusInterfaceInfo
+crosapi.mojom.ProbeUsbBusInterfaceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeUsbBusInterfaceInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeFwupdFirmwareVersionInfo
+crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeFwupdFirmwareVersionInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeUsbBusInfo
+crosapi.mojom.ProbeUsbBusInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeUsbBusInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeNonRemovableBlockDeviceInfo
+crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeNonRemovableBlockDeviceInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeCachedVpdInfo
+crosapi.mojom.ProbeCachedVpdInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeCachedVpdInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeCpuCStateInfo
+crosapi.mojom.ProbeCpuCStateInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeCpuCStateInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeLogicalCpuInfo
+crosapi.mojom.ProbeLogicalCpuInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeLogicalCpuInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbePhysicalCpuInfo
+crosapi.mojom.ProbePhysicalCpuInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbePhysicalCpuInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeCpuInfo
+crosapi.mojom.ProbeCpuInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeCpuInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeTimezoneInfo
+crosapi.mojom.ProbeTimezoneInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeTimezoneInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeMemoryInfo
+crosapi.mojom.ProbeMemoryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeMemoryInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeBacklightInfo
+crosapi.mojom.ProbeBacklightInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeBacklightInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeFanInfo
+crosapi.mojom.ProbeFanInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeFanInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeStatefulPartitionInfo
+crosapi.mojom.ProbeStatefulPartitionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeStatefulPartitionInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeTpmVersion
+crosapi.mojom.ProbeTpmVersionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeTpmVersion',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeTpmStatus
+crosapi.mojom.ProbeTpmStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeTpmStatus',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeTpmDictionaryAttack
+crosapi.mojom.ProbeTpmDictionaryAttackSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeTpmDictionaryAttack',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeTpmInfo
+crosapi.mojom.ProbeTpmInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeTpmInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeBluetoothAdapterInfo
+crosapi.mojom.ProbeBluetoothAdapterInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeBluetoothAdapterInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeOsVersion
+crosapi.mojom.ProbeOsVersionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeOsVersion',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeOsInfo
+crosapi.mojom.ProbeOsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeOsInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeSystemInfo
+crosapi.mojom.ProbeSystemInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeSystemInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeAudioInputNodeInfo
+crosapi.mojom.ProbeAudioInputNodeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeAudioInputNodeInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeAudioOutputNodeInfo
+crosapi.mojom.ProbeAudioOutputNodeInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeAudioOutputNodeInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeAudioInfo
+crosapi.mojom.ProbeAudioInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeAudioInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeEmbeddedDisplayInfo
+crosapi.mojom.ProbeEmbeddedDisplayInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeEmbeddedDisplayInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeExternalDisplayInfo
+crosapi.mojom.ProbeExternalDisplayInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeExternalDisplayInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeDisplayInfo
+crosapi.mojom.ProbeDisplayInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeDisplayInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeThermalSensorInfo
+crosapi.mojom.ProbeThermalSensorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeThermalSensorInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeThermalInfo
+crosapi.mojom.ProbeThermalInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeThermalInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeTelemetryInfo
+crosapi.mojom.ProbeTelemetryInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeTelemetryInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProbeOemData
+crosapi.mojom.ProbeOemDataSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ProbeOemData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TelemetryProbeService
 crosapi.mojom.TelemetryProbeService = {};
 

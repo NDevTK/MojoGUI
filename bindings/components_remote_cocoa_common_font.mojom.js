@@ -28,3 +28,17 @@ remote_cocoa.mojom.FontWeight = {
   kExtraBold: 7,
   kBlack: 8,
 };
+
+// Struct: Font
+remote_cocoa.mojom.FontSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Font',
+      packedSize: 16,
+      fields: [
+        { name: 'weight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

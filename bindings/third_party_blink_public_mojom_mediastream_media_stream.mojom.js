@@ -111,6 +111,131 @@ blink.mojom.WindowAudioPreference = {
   kExclude: 2,
 };
 
+// Struct: SearchOnlyByDeviceId
+blink.mojom.SearchOnlyByDeviceIdSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SearchOnlyByDeviceId',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchBySessionId
+blink.mojom.SearchBySessionIdSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SearchBySessionId',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaStreamDevice
+blink.mojom.MediaStreamDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaStreamDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'display_media_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TrackControls
+blink.mojom.TrackControlsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TrackControls',
+      packedSize: 16,
+      fields: [
+        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StreamControls
+blink.mojom.StreamControlsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StreamControls',
+      packedSize: 16,
+      fields: [
+        { name: 'exclude_monitor_type_surfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetOpenDeviceResponse
+blink.mojom.GetOpenDeviceResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GetOpenDeviceResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'pan_tilt_zoom_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CapturedWheelAction
+blink.mojom.CapturedWheelActionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CapturedWheelAction',
+      packedSize: 16,
+      fields: [
+        { name: 'wheel_delta_y', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StreamDevices
+blink.mojom.StreamDevicesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StreamDevices',
+      packedSize: 16,
+      fields: [
+        { name: 'video_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StreamDevicesSet
+blink.mojom.StreamDevicesSetSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StreamDevicesSet',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaStreamDeviceObserver
 blink.mojom.MediaStreamDeviceObserver = {};
 

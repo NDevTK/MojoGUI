@@ -39,6 +39,20 @@ blink.mojom.SpeculationInjectionType = {
   kAutoSpeculationRules: 3,
 };
 
+// Struct: SpeculationCandidate
+blink.mojom.SpeculationCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SpeculationCandidate',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SpeculationHost
 blink.mojom.SpeculationHost = {};
 

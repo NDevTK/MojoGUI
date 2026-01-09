@@ -9,6 +9,20 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
+// Struct: MemoryConsumerTraits
+content.mojom.MemoryConsumerTraitsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.MemoryConsumerTraits',
+      packedSize: 16,
+      fields: [
+        { name: 'garbage_collects_v8_heap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ChildMemoryConsumer
 content.mojom.ChildMemoryConsumer = {};
 

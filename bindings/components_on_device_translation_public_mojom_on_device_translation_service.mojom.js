@@ -19,6 +19,34 @@ on_device_translation.mojom.CreateTranslatorResult = {
   kErrorInvalidVersion: 5,
 };
 
+// Struct: OnDeviceTranslationLanguagePackage
+on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation.mojom.OnDeviceTranslationLanguagePackage',
+      packedSize: 16,
+      fields: [
+        { name: 'language2', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OnDeviceTranslationServiceConfig
+on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_translation.mojom.OnDeviceTranslationServiceConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'file_operation_proxy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileOperationProxy
 on_device_translation.mojom.FileOperationProxy = {};
 

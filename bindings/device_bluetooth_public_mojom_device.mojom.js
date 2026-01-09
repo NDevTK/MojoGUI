@@ -44,6 +44,76 @@ bluetooth.mojom.GattResult = {
   DESCRIPTOR_NOT_FOUND: 11,
 };
 
+// Struct: RSSIWrapper
+bluetooth.mojom.RSSIWrapperSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.RSSIWrapper',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DeviceInfo
+bluetooth.mojom.DeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.DeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'service_data_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceInfo
+bluetooth.mojom.ServiceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.ServiceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CharacteristicInfo
+bluetooth.mojom.CharacteristicInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.CharacteristicInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'last_known_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DescriptorInfo
+bluetooth.mojom.DescriptorInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'bluetooth.mojom.DescriptorInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'last_known_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Device
 bluetooth.mojom.Device = {};
 

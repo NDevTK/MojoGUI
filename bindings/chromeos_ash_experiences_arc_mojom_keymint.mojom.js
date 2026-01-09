@@ -168,6 +168,328 @@ arc.mojom.keymint.Tag = {
   MAX_BOOT_LEVEL: 63,
 };
 
+// Struct: AttestationKey
+arc.mojom.keymint.AttestationKeySpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.AttestationKey',
+      packedSize: 16,
+      fields: [
+        { name: 'issuer_subject_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyParameter
+arc.mojom.keymint.KeyParameterSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyParameter',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SharedSecretParameters
+arc.mojom.keymint.SharedSecretParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.SharedSecretParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'nonce', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyCreationResult
+arc.mojom.keymint.KeyCreationResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyCreationResult',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate_chain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Certificate
+arc.mojom.keymint.CertificateSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.Certificate',
+      packedSize: 16,
+      fields: [
+        { name: 'encoded_certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyCharacteristics
+arc.mojom.keymint.KeyCharacteristicsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyCharacteristics',
+      packedSize: 16,
+      fields: [
+        { name: 'authorizations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GenerateKeyRequest
+arc.mojom.keymint.GenerateKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.GenerateKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'attestation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImportKeyRequest
+arc.mojom.keymint.ImportKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.ImportKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'attestation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImportWrappedKeyRequest
+arc.mojom.keymint.ImportWrappedKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.ImportWrappedKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'biometric_sid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpgradeKeyRequest
+arc.mojom.keymint.UpgradeKeyRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.UpgradeKeyRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'upgrade_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginRequest
+arc.mojom.keymint.BeginRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.BeginRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BeginResult
+arc.mojom.keymint.BeginResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.BeginResult',
+      packedSize: 16,
+      fields: [
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HardwareAuthToken
+arc.mojom.keymint.HardwareAuthTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.HardwareAuthToken',
+      packedSize: 16,
+      fields: [
+        { name: 'mac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Timestamp
+arc.mojom.keymint.TimestampSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.Timestamp',
+      packedSize: 16,
+      fields: [
+        { name: 'milli_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TimeStampToken
+arc.mojom.keymint.TimeStampTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.TimeStampToken',
+      packedSize: 16,
+      fields: [
+        { name: 'mac', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetKeyCharacteristicsRequest
+arc.mojom.keymint.GetKeyCharacteristicsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.GetKeyCharacteristicsRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'app_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UpdateRequest
+arc.mojom.keymint.UpdateRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.UpdateRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'timestamp_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FinishRequest
+arc.mojom.keymint.FinishRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.FinishRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'confirmation_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyMintKeyBlob
+arc.mojom.keymint.KeyMintKeyBlobSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintKeyBlob',
+      packedSize: 16,
+      fields: [
+        { name: 'key_material', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: KeyMintBlob
+arc.mojom.keymint.KeyMintBlobSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintBlob',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GenerateEcdsaP256KeyPairResult
+arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.GenerateEcdsaP256KeyPairResult',
+      packedSize: 16,
+      fields: [
+        { name: 'handle_to_private_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertificateRequest
+arc.mojom.keymint.CertificateRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.CertificateRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GenerateCertificateRequestResult
+arc.mojom.keymint.GenerateCertificateRequestResultSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.GenerateCertificateRequestResult',
+      packedSize: 16,
+      fields: [
+        { name: 'mac_of_keys_to_sign', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: KeyMintHost
 arc.mojom.keymint.KeyMintHost = {};
 

@@ -76,6 +76,118 @@ arc.mojom.MessageCenterVisibility = {
   VISIBILITY_MESSAGE_CENTER: 1,
 };
 
+// Struct: ArcNotificationButton
+arc.mojom.ArcNotificationButtonSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcNotificationButton',
+      packedSize: 16,
+      fields: [
+        { name: 'buttonPlaceholder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcNotificationFlags
+arc.mojom.ArcNotificationFlagsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcNotificationFlags',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcNotificationData
+arc.mojom.ArcNotificationDataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcNotificationData',
+      packedSize: 16,
+      fields: [
+        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcDoNotDisturbStatus
+arc.mojom.ArcDoNotDisturbStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcDoNotDisturbStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcNotificationUserActionData
+arc.mojom.ArcNotificationUserActionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcNotificationUserActionData',
+      packedSize: 16,
+      fields: [
+        { name: 'to_be_focused_after_unlock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcLockScreenNotificationSetting
+arc.mojom.ArcLockScreenNotificationSettingSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcLockScreenNotificationSetting',
+      packedSize: 16,
+      fields: [
+        { name: 'show_private_notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NotificationConfiguration
+arc.mojom.NotificationConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NotificationConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'expansion_animation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ArcNotificationMessage
+arc.mojom.ArcNotificationMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcNotificationMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'sender_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NotificationsHost
 arc.mojom.NotificationsHost = {};
 

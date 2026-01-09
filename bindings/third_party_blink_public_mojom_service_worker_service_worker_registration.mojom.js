@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: ChangedServiceWorkerObjectsMask
+blink.mojom.ChangedServiceWorkerObjectsMaskSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ChangedServiceWorkerObjectsMask',
+      packedSize: 16,
+      fields: [
+        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceWorkerRegistrationObjectInfo
+blink.mojom.ServiceWorkerRegistrationObjectInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceWorkerRegistrationObjectHost
 blink.mojom.ServiceWorkerRegistrationObjectHost = {};
 

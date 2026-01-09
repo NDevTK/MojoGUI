@@ -17,6 +17,20 @@ blink.mojom.FileSystemType = {
   kExternal: 3,
 };
 
+// Struct: FileSystemInfo
+blink.mojom.FileSystemInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'kTemporary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FileSystemCancellableOperation
 blink.mojom.FileSystemCancellableOperation = {};
 

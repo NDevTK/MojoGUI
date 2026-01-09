@@ -99,3 +99,101 @@ gpu.mojom.OverlaySupport = {
   SCALING: 2,
   SOFTWARE: 3,
 };
+
+// Struct: GpuDevice
+gpu.mojom.GpuDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'gpu_preference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoDecodeAcceleratorSupportedProfile
+gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.VideoDecodeAcceleratorSupportedProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'encrypted_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoDecodeAcceleratorCapabilities
+gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.VideoDecodeAcceleratorCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoEncodeAcceleratorSupportedProfile
+gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.VideoEncodeAcceleratorSupportedProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'max_framerate_denominator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageDecodeAcceleratorSupportedProfile
+gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.ImageDecodeAcceleratorSupportedProfile',
+      packedSize: 16,
+      fields: [
+        { name: 'subsamplings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OverlayInfo
+gpu.mojom.OverlayInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.OverlayInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'p010_overlay_support', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuInfo
+gpu.mojom.GpuInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'vulkan_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

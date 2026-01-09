@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: SharedDictionaryUsageInfo
+network.mojom.SharedDictionaryUsageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SharedDictionaryUsageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'total_size_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

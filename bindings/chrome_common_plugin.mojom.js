@@ -19,6 +19,34 @@ chrome.mojom.PluginStatus = {
   kUnauthorized: 5,
 };
 
+// Struct: PluginInfo
+chrome.mojom.PluginInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.PluginInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'group_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PluginParam
+chrome.mojom.PluginParamSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.PluginParam',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PluginHost
 chrome.mojom.PluginHost = {};
 

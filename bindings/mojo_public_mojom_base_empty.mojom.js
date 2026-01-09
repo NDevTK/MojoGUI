@@ -8,3 +8,16 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: Empty
+mojo_base.mojom.EmptySpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.Empty',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

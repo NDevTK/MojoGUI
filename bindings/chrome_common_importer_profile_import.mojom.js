@@ -15,6 +15,20 @@ chrome.mojom.Scheme = {
   kBasic: 1,
 };
 
+// Struct: ImportedPasswordForm
+chrome.mojom.ImportedPasswordFormSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ImportedPasswordForm',
+      packedSize: 16,
+      fields: [
+        { name: 'kHtml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProfileImportObserver
 chrome.mojom.ProfileImportObserver = {};
 

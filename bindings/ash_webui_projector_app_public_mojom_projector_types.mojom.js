@@ -74,3 +74,73 @@ ash.projector.mojom.RequestType = {
   kPatch: 2,
   kDelete: 3,
 };
+
+// Struct: NewScreencastPrecondition
+ash.projector.mojom.NewScreencastPreconditionSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.NewScreencastPrecondition',
+      packedSize: 16,
+      fields: [
+        { name: 'reasons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PendingScreencast
+ash.projector.mojom.PendingScreencastSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.PendingScreencast',
+      packedSize: 16,
+      fields: [
+        { name: 'upload_failed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XhrResponse
+ash.projector.mojom.XhrResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.XhrResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Account
+ash.projector.mojom.AccountSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.Account',
+      packedSize: 16,
+      fields: [
+        { name: 'is_primary_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VideoInfo
+ash.projector.mojom.VideoInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.projector.mojom.VideoInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'file_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -29,6 +29,20 @@ blink.mojom.ModelStreamingResponseStatus = {
   kErrorResponseLowQuality: 15,
 };
 
+// Struct: ModelExecutionContextInfo
+blink.mojom.ModelExecutionContextInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ModelExecutionContextInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'current_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ModelStreamingResponder
 blink.mojom.ModelStreamingResponder = {};
 

@@ -9,6 +9,20 @@ var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
 
 
+// Struct: TabsSnapshot
+tabs_api.mojom.TabsSnapshotSpec = {
+  $: {
+    structSpec: {
+      name: 'tabs_api.mojom.TabsSnapshot',
+      packedSize: 16,
+      fields: [
+        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TabStripService
 tabs_api.mojom.TabStripService = {};
 

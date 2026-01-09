@@ -8,3 +8,17 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+
+// Struct: ElementId
+cc.mojom.ElementIdSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.ElementId',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

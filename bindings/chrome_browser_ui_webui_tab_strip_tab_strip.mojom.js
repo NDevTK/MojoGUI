@@ -9,6 +9,34 @@ var tab_strip = tab_strip || {};
 tab_strip.mojom = tab_strip.mojom || {};
 
 
+// Struct: Tab
+tab_strip.mojom.TabSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_strip.mojom.Tab',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabGroupVisualData
+tab_strip.mojom.TabGroupVisualDataSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_strip.mojom.TabGroupVisualData',
+      packedSize: 16,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 tab_strip.mojom.PageHandlerFactory = {};
 

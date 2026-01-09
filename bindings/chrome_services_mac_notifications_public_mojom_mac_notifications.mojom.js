@@ -33,6 +33,90 @@ mac_notifications.mojom.PermissionStatus = {
   kGranted: 3,
 };
 
+// Struct: ProfileIdentifier
+mac_notifications.mojom.ProfileIdentifierSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.ProfileIdentifier',
+      packedSize: 16,
+      fields: [
+        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NotificationIdentifier
+mac_notifications.mojom.NotificationIdentifierSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.NotificationIdentifier',
+      packedSize: 16,
+      fields: [
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NotificationMetadata
+mac_notifications.mojom.NotificationMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.NotificationMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'user_data_dir', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NotificationActionInfo
+mac_notifications.mojom.NotificationActionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.NotificationActionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NotificationActionButton
+mac_notifications.mojom.NotificationActionButtonSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.NotificationActionButton',
+      packedSize: 16,
+      fields: [
+        { name: 'placeholder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Notification
+mac_notifications.mojom.NotificationSpec = {
+  $: {
+    structSpec: {
+      name: 'mac_notifications.mojom.Notification',
+      packedSize: 16,
+      fields: [
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MacNotificationService
 mac_notifications.mojom.MacNotificationService = {};
 

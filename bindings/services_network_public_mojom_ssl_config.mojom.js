@@ -21,6 +21,20 @@ network.mojom.SSLNamedGroupsPreset = {
   kCnsa2: 1,
 };
 
+// Struct: SSLConfig
+network.mojom.SSLConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SSLConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'mtc_trust_anchor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SSLConfigClient
 network.mojom.SSLConfigClient = {};
 

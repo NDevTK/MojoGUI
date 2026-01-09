@@ -15,6 +15,20 @@ blink.mojom.IdleManagerError = {
   kPermissionDisabled: 1,
 };
 
+// Struct: IdleState
+blink.mojom.IdleStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IdleState',
+      packedSize: 16,
+      fields: [
+        { name: 'screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: IdleMonitor
 blink.mojom.IdleMonitor = {};
 

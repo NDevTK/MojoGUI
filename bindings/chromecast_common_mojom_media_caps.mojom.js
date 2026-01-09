@@ -10,6 +10,20 @@ chromecast.media = chromecast.media || {};
 chromecast.media.mojom = chromecast.media.mojom || {};
 
 
+// Struct: CodecProfileLevel
+chromecast.media.mojom.CodecProfileLevelSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.media.mojom.CodecProfileLevel',
+      packedSize: 16,
+      fields: [
+        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaCaps
 chromecast.media.mojom.MediaCaps = {};
 

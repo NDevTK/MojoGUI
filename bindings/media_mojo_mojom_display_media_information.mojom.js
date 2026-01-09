@@ -22,3 +22,17 @@ media.mojom.CursorCaptureType = {
   ALWAYS: 1,
   MOTION: 2,
 };
+
+// Struct: DisplayMediaInformation
+media.mojom.DisplayMediaInformationSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.DisplayMediaInformation',
+      packedSize: 16,
+      fields: [
+        { name: 'initial_zoom_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

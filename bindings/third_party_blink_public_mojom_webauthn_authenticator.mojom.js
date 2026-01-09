@@ -116,6 +116,412 @@ blink.mojom.PublicKeyCredentialType = {
   PUBLIC_KEY: 0,
 };
 
+// Struct: CommonCredentialInfo
+blink.mojom.CommonCredentialInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CommonCredentialInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'authenticator_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UvmEntry
+blink.mojom.UvmEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.UvmEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'matcher_protection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SupplementalPubKeysResponse
+blink.mojom.SupplementalPubKeysResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SupplementalPubKeysResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'signatures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AuthenticationExtensionsPaymentResponse
+blink.mojom.AuthenticationExtensionsPaymentResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AuthenticationExtensionsPaymentResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'browser_bound_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MakeCredentialAuthenticatorResponse
+blink.mojom.MakeCredentialAuthenticatorResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MakeCredentialAuthenticatorResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetAssertionAuthenticatorResponse
+blink.mojom.GetAssertionAuthenticatorResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GetAssertionAuthenticatorResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AuthenticationExtensionsClientOutputs
+blink.mojom.AuthenticationExtensionsClientOutputsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AuthenticationExtensionsClientOutputs',
+      packedSize: 16,
+      fields: [
+        { name: 'payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialRpEntity
+blink.mojom.PublicKeyCredentialRpEntitySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialRpEntity',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialUserEntity
+blink.mojom.PublicKeyCredentialUserEntitySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialUserEntity',
+      packedSize: 16,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialParameters
+blink.mojom.PublicKeyCredentialParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'algorithm_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CableAuthentication
+blink.mojom.CableAuthenticationSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CableAuthentication',
+      packedSize: 16,
+      fields: [
+        { name: 'experiments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PRFValues
+blink.mojom.PRFValuesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PRFValues',
+      packedSize: 16,
+      fields: [
+        { name: 'second', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentOptions
+blink.mojom.PaymentOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PaymentOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'browser_bound_public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PaymentCredentialInstrument
+blink.mojom.PaymentCredentialInstrumentSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PaymentCredentialInstrument',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShownPaymentEntityLogo
+blink.mojom.ShownPaymentEntityLogoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ShownPaymentEntityLogo',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemoteDesktopClientOverride
+blink.mojom.RemoteDesktopClientOverrideSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.RemoteDesktopClientOverride',
+      packedSize: 16,
+      fields: [
+        { name: 'same_origin_with_ancestors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SupplementalPubKeysRequest
+blink.mojom.SupplementalPubKeysRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SupplementalPubKeysRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'attestation_formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialRequestOptions
+blink.mojom.PublicKeyCredentialRequestOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialRequestOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AuthenticationExtensionsClientInputs
+blink.mojom.AuthenticationExtensionsClientInputsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AuthenticationExtensionsClientInputs',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_browser_bound_key_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetCredentialOptions
+blink.mojom.GetCredentialOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GetCredentialOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AuthenticatorSelectionCriteria
+blink.mojom.AuthenticatorSelectionCriteriaSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AuthenticatorSelectionCriteria',
+      packedSize: 16,
+      fields: [
+        { name: 'user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialCreationOptions
+blink.mojom.PublicKeyCredentialCreationOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialCreationOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialDescriptor
+blink.mojom.PublicKeyCredentialDescriptorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialDescriptor',
+      packedSize: 16,
+      fields: [
+        { name: 'transports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebAuthnDOMExceptionDetails
+blink.mojom.WebAuthnDOMExceptionDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebAuthnDOMExceptionDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PublicKeyCredentialReportOptions
+blink.mojom.PublicKeyCredentialReportOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PublicKeyCredentialReportOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'current_user_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AllAcceptedCredentialsOptions
+blink.mojom.AllAcceptedCredentialsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AllAcceptedCredentialsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'all_accepted_credentials_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CurrentUserDetailsOptions
+blink.mojom.CurrentUserDetailsOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CurrentUserDetailsOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebAuthnClientCapability
+blink.mojom.WebAuthnClientCapabilitySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebAuthnClientCapability',
+      packedSize: 16,
+      fields: [
+        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GetAssertionResponse
+blink.mojom.GetAssertionResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GetAssertionResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'dom_exception_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Authenticator
 blink.mojom.Authenticator = {};
 

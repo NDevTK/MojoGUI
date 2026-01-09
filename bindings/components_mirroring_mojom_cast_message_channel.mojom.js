@@ -9,6 +9,20 @@ var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
 
 
+// Struct: CastMessage
+mirroring.mojom.CastMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'mirroring.mojom.CastMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'json_format_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CastMessageChannel
 mirroring.mojom.CastMessageChannel = {};
 

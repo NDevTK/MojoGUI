@@ -14,3 +14,17 @@ variations.mojom.GoogleWebVisibility = {
   ANY: 0,
   FIRST_PARTY: 1,
 };
+
+// Struct: VariationsHeaders
+variations.mojom.VariationsHeadersSpec = {
+  $: {
+    structSpec: {
+      name: 'variations.mojom.VariationsHeaders',
+      packedSize: 16,
+      fields: [
+        { name: 'headers_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

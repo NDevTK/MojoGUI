@@ -9,6 +9,34 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
 
+// Struct: EventFilteringInfo
+extensions.mojom.EventFilteringInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventFilteringInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'window_exposed_by_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DispatchEventParams
+extensions.mojom.DispatchEventParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.DispatchEventParams',
+      packedSize: 16,
+      fields: [
+        { name: 'filtering_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: EventDispatcher
 extensions.mojom.EventDispatcher = {};
 

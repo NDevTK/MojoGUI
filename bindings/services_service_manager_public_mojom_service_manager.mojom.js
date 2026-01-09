@@ -16,6 +16,20 @@ service_manager.mojom.InstanceState = {
   kUnreachable: 2,
 };
 
+// Struct: RunningServiceInfo
+service_manager.mojom.RunningServiceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'service_manager.mojom.RunningServiceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ServiceManagerListener
 service_manager.mojom.ServiceManagerListener = {};
 

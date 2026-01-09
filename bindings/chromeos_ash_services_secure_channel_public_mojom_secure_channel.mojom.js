@@ -86,6 +86,34 @@ ash.secure_channel.mojom.SecureChannelState = {
   kFailureDisconnectDuringAuthentication: 16,
 };
 
+// Struct: BluetoothConnectionMetadata
+ash.secure_channel.mojom.BluetoothConnectionMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.secure_channel.mojom.BluetoothConnectionMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'current_rssi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConnectionMetadata
+ash.secure_channel.mojom.ConnectionMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.secure_channel.mojom.ConnectionMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'channel_binding_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Channel
 ash.secure_channel.mojom.Channel = {};
 

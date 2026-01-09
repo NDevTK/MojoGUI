@@ -10,6 +10,20 @@ chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
 
 
+// Struct: Feature
+chromecast.shell.mojom.FeatureSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.shell.mojom.Feature',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FeatureManager
 chromecast.shell.mojom.FeatureManager = {};
 

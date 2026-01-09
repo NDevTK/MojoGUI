@@ -20,3 +20,59 @@ chromeos.network_health.mojom.NetworkState = {
   kConnected: 5,
   kOnline: 6,
 };
+
+// Struct: UInt32Value
+chromeos.network_health.mojom.UInt32ValueSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_health.mojom.UInt32Value',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SignalStrengthStats
+chromeos.network_health.mojom.SignalStrengthStatsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_health.mojom.SignalStrengthStats',
+      packedSize: 16,
+      fields: [
+        { name: 'samples', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Network
+chromeos.network_health.mojom.NetworkSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_health.mojom.Network',
+      packedSize: 16,
+      fields: [
+        { name: 'portal_probe_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkHealthState
+chromeos.network_health.mojom.NetworkHealthStateSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_health.mojom.NetworkHealthState',
+      packedSize: 16,
+      fields: [
+        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

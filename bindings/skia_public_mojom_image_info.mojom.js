@@ -26,3 +26,31 @@ skia.mojom.AlphaType = {
   PREMUL: 1,
   UNPREMUL: 2,
 };
+
+// Struct: ImageInfo
+skia.mojom.ImageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'skia.mojom.ImageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'color_to_xyz_matrix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BitmapN32ImageInfo
+skia.mojom.BitmapN32ImageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'skia.mojom.BitmapN32ImageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'color_to_xyz_matrix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

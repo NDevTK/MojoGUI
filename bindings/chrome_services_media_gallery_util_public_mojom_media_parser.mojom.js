@@ -9,6 +9,62 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
+// Struct: ExtractVideoFrameResult
+chrome.mojom.ExtractVideoFrameResultSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.ExtractVideoFrameResult',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaStreamInfo
+chrome.mojom.MediaStreamInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaStreamInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'additional_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MediaMetadata
+chrome.mojom.MediaMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.MediaMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'raw_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AttachedImage
+chrome.mojom.AttachedImageSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.AttachedImage',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MediaParser
 chrome.mojom.MediaParser = {};
 

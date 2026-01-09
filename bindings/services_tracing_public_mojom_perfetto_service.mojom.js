@@ -30,6 +30,202 @@ tracing.mojom.TracingClientPriority = {
   kUserInitiated: 2,
 };
 
+// Struct: ChunksToMove
+tracing.mojom.ChunksToMoveSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ChunksToMove',
+      packedSize: 16,
+      fields: [
+        { name: 'target_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChunkPatch
+tracing.mojom.ChunkPatchSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ChunkPatch',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChunksToPatch
+tracing.mojom.ChunksToPatchSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ChunksToPatch',
+      packedSize: 16,
+      fields: [
+        { name: 'has_more_patches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CommitDataRequest
+tracing.mojom.CommitDataRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.CommitDataRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'flush_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ChromeConfig
+tracing.mojom.ChromeConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ChromeConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'event_package_name_filter_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConsoleConfig
+tracing.mojom.ConsoleConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.ConsoleConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InterceptorConfig
+tracing.mojom.InterceptorConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.InterceptorConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'console_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataSourceConfig
+tracing.mojom.DataSourceConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.DataSourceConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'histogram_samples_config_raw', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataSourceRegistration
+tracing.mojom.DataSourceRegistrationSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.DataSourceRegistration',
+      packedSize: 16,
+      fields: [
+        { name: 'handles_incremental_state_clear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BufferConfig
+tracing.mojom.BufferConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.BufferConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'fill_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DataSource
+tracing.mojom.DataSourceSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.DataSource',
+      packedSize: 16,
+      fields: [
+        { name: 'producer_name_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PerfettoBuiltinDataSource
+tracing.mojom.PerfettoBuiltinDataSourceSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.PerfettoBuiltinDataSource',
+      packedSize: 16,
+      fields: [
+        { name: 'primary_trace_clock_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: IncrementalStateConfig
+tracing.mojom.IncrementalStateConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.IncrementalStateConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'clear_period_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TraceConfig
+tracing.mojom.TraceConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'tracing.mojom.TraceConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'unique_session_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ProducerHost
 tracing.mojom.ProducerHost = {};
 

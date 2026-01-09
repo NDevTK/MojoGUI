@@ -51,6 +51,84 @@ crosapi.mojom.Status = {
   kNetworkError: 3,
 };
 
+// Struct: AccountKey
+crosapi.mojom.AccountKeySpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.AccountKey',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Account
+crosapi.mojom.AccountSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Account',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GoogleServiceAuthError
+crosapi.mojom.GoogleServiceAuthErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GoogleServiceAuthError',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccountAdditionOptions
+crosapi.mojom.AccountAdditionOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.AccountAdditionOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccountUpsertionResult
+crosapi.mojom.AccountUpsertionResultSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.AccountUpsertionResult',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AccessTokenInfo
+crosapi.mojom.AccessTokenInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.AccessTokenInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AccountManagerObserver
 crosapi.mojom.AccountManagerObserver = {};
 

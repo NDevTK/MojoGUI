@@ -83,6 +83,90 @@ app_management.mojom.RunOnOsLoginMode = {
   kWindowed: 2,
 };
 
+// Struct: Permission
+app_management.mojom.PermissionSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.Permission',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RunOnOsLogin
+app_management.mojom.RunOnOsLoginSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.RunOnOsLogin',
+      packedSize: 16,
+      fields: [
+        { name: 'is_managed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Locale
+app_management.mojom.LocaleSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.Locale',
+      packedSize: 16,
+      fields: [
+        { name: 'native_display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: App
+app_management.mojom.AppSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.App',
+      packedSize: 16,
+      fields: [
+        { name: 'disable_user_choice_navigation_capturing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ExtensionAppPermissionMessage
+app_management.mojom.ExtensionAppPermissionMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.ExtensionAppPermissionMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'submessages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileHandlingState
+app_management.mojom.FileHandlingStateSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.FileHandlingState',
+      packedSize: 16,
+      fields: [
+        { name: 'learn_more_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 app_management.mojom.PageHandlerFactory = {};
 

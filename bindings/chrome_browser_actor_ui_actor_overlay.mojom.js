@@ -10,6 +10,20 @@ actor.ui = actor.ui || {};
 actor.ui.mojom = actor.ui.mojom || {};
 
 
+// Struct: Theme
+actor.ui.mojom.ThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'actor.ui.mojom.Theme',
+      packedSize: 16,
+      fields: [
+        { name: 'magic_cursor_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ActorOverlayPageHandlerFactory
 actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
 

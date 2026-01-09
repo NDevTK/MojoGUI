@@ -58,6 +58,160 @@ new_tab_page.mojom.OptInStatus = {
   kOptOut: 2,
 };
 
+// Struct: BackgroundImage
+new_tab_page.mojom.BackgroundImageSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.BackgroundImage',
+      packedSize: 16,
+      fields: [
+        { name: 'image_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Theme
+new_tab_page.mojom.ThemeSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.Theme',
+      packedSize: 16,
+      fields: [
+        { name: 'most_visited', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ImageDoodle
+new_tab_page.mojom.ImageDoodleSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.ImageDoodle',
+      packedSize: 16,
+      fields: [
+        { name: 'animation_impression_log_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AllModeImageDoodle
+new_tab_page.mojom.AllModeImageDoodleSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.AllModeImageDoodle',
+      packedSize: 16,
+      fields: [
+        { name: 'share_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InteractiveDoodle
+new_tab_page.mojom.InteractiveDoodleSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.InteractiveDoodle',
+      packedSize: 16,
+      fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Doodle
+new_tab_page.mojom.DoodleSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.Doodle',
+      packedSize: 16,
+      fields: [
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PromoImagePart
+new_tab_page.mojom.PromoImagePartSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.PromoImagePart',
+      packedSize: 16,
+      fields: [
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PromoLinkPart
+new_tab_page.mojom.PromoLinkPartSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.PromoLinkPart',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PromoTextPart
+new_tab_page.mojom.PromoTextPartSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.PromoTextPart',
+      packedSize: 16,
+      fields: [
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Promo
+new_tab_page.mojom.PromoSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.Promo',
+      packedSize: 16,
+      fields: [
+        { name: 'middle_slot_parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ModuleIdName
+new_tab_page.mojom.ModuleIdNameSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.ModuleIdName',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 new_tab_page.mojom.PageHandlerFactory = {};
 

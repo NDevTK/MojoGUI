@@ -15,6 +15,20 @@ storage.mojom.SessionStorageCloneType = {
   kWaitForCloneOnNamespace: 1,
 };
 
+// Struct: SessionStorageUsageInfo
+storage.mojom.SessionStorageUsageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.SessionStorageUsageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'namespace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SessionStorageControl
 storage.mojom.SessionStorageControl = {};
 

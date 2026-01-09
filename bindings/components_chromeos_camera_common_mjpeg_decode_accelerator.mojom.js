@@ -19,6 +19,20 @@ chromeos_camera.mojom.DecodeError = {
   PLATFORM_FAILURE: 5,
 };
 
+// Struct: BitstreamBuffer
+chromeos_camera.mojom.BitstreamBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos_camera.mojom.BitstreamBuffer',
+      packedSize: 16,
+      fields: [
+        { name: 'subsamples', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MjpegDecodeAccelerator
 chromeos_camera.mojom.MjpegDecodeAccelerator = {};
 

@@ -10,6 +10,20 @@ ash.shortcut_customization = ash.shortcut_customization || {};
 ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
 
 
+// Struct: SearchResult
+ash.shortcut_customization.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.shortcut_customization.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'relevance_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SearchResultsAvailabilityObserver
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
 

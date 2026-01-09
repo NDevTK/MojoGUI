@@ -17,3 +17,17 @@ cros.mojom.PortraitModeSegResult = {
   kNoFaces: 3,
   kUnknown: 4,
 };
+
+// Struct: PortraitModeConfig
+cros.mojom.PortraitModeConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.PortraitModeConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_rectiface', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -98,6 +98,286 @@ crosapi.mojom.PrintJobSource = {
   kExtension: 0,
 };
 
+// Struct: LocalDestinationInfo
+crosapi.mojom.LocalDestinationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.LocalDestinationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'managed_print_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrinterStatus
+crosapi.mojom.PrinterStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrinterStatus',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StatusReason
+crosapi.mojom.StatusReasonSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.StatusReason',
+      packedSize: 24,
+      fields: [
+        { name: 'kUnknownReason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kExpiredCertificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Size
+crosapi.mojom.SizeSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Size',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Dpi
+crosapi.mojom.DpiSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Dpi',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SizeOption
+crosapi.mojom.SizeOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.SizeOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: StringOption
+crosapi.mojom.StringOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.StringOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DuplexOption
+crosapi.mojom.DuplexOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DuplexOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BoolOption
+crosapi.mojom.BoolOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.BoolOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DpiOption
+crosapi.mojom.DpiOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.DpiOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: QualityOption
+crosapi.mojom.QualityOptionSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.QualityOption',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ManagedPrintOptions
+crosapi.mojom.ManagedPrintOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.ManagedPrintOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintJob
+crosapi.mojom.PrintJobSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintJob',
+      packedSize: 16,
+      fields: [
+        { name: 'kSimplex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintServersConfig
+crosapi.mojom.PrintServersConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintServersConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'kStandard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintServer
+crosapi.mojom.PrintServerSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintServer',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CapabilitiesResponse
+crosapi.mojom.CapabilitiesResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.CapabilitiesResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Policies
+crosapi.mojom.PoliciesSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.Policies',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrintJobUpdate
+crosapi.mojom.PrintJobUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PrintJobUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'pages_printed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OAuthNotNeeded
+crosapi.mojom.OAuthNotNeededSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OAuthNotNeeded',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OAuthError
+crosapi.mojom.OAuthErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OAuthError',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OAuthAccessToken
+crosapi.mojom.OAuthAccessTokenSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.OAuthAccessToken',
+      packedSize: 16,
+      fields: [
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrintServerObserver
 crosapi.mojom.PrintServerObserver = {};
 

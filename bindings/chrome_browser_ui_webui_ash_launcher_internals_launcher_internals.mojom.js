@@ -9,6 +9,20 @@ var launcher_internals = launcher_internals || {};
 launcher_internals.mojom = launcher_internals.mojom || {};
 
 
+// Struct: Result
+launcher_internals.mojom.ResultSpec = {
+  $: {
+    structSpec: {
+      name: 'launcher_internals.mojom.Result',
+      packedSize: 16,
+      fields: [
+        { name: 'ranker_scores', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 launcher_internals.mojom.PageHandlerFactory = {};
 

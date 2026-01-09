@@ -16,3 +16,17 @@ cc.mojom.FilterQuality = {
   kMedium: 2,
   kHigh: 3,
 };
+
+// Struct: DynamicRangeLimit
+cc.mojom.DynamicRangeLimitSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.DynamicRangeLimit',
+      packedSize: 16,
+      fields: [
+        { name: 'constrained_high_mix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

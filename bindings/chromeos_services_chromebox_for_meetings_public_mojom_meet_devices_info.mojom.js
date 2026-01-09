@@ -10,6 +10,46 @@ chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
+// Struct: PolicyInfo
+chromeos.cfm.mojom.PolicyInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.PolicyInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SysInfo
+chromeos.cfm.mojom.SysInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.SysInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MachineStatisticsInfo
+chromeos.cfm.mojom.MachineStatisticsInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.MachineStatisticsInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'hwid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MeetDevicesInfo
 chromeos.cfm.mojom.MeetDevicesInfo = {};
 

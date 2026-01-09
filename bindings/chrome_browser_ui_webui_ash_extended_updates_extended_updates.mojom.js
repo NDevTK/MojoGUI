@@ -10,6 +10,20 @@ ash.extended_updates = ash.extended_updates || {};
 ash.extended_updates.mojom = ash.extended_updates.mojom || {};
 
 
+// Struct: App
+ash.extended_updates.mojom.AppSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.extended_updates.mojom.App',
+      packedSize: 16,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 ash.extended_updates.mojom.PageHandlerFactory = {};
 

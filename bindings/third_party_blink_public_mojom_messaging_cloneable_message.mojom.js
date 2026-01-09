@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: CloneableMessage
+blink.mojom.CloneableMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.CloneableMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'file_system_access_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

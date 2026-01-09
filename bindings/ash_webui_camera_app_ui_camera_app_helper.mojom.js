@@ -62,6 +62,48 @@ ash.camera_app.mojom.FileType = {
   kGif: 2,
 };
 
+// Struct: WifiConfig
+ash.camera_app.mojom.WifiConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WifiConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'eap_anonymous_identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CloudUpload
+ash.camera_app.mojom.CloudUploadSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CloudUpload',
+      packedSize: 16,
+      fields: [
+        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LocalFile
+ash.camera_app.mojom.LocalFileSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.LocalFile',
+      packedSize: 16,
+      fields: [
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TabletModeMonitor
 ash.camera_app.mojom.TabletModeMonitor = {};
 

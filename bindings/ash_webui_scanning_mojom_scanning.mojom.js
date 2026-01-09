@@ -55,6 +55,62 @@ ash.scanning.mojom.ScanResult = {
   kIoError: 6,
 };
 
+// Struct: ScanSource
+ash.scanning.mojom.ScanSourceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.scanning.mojom.ScanSource',
+      packedSize: 16,
+      fields: [
+        { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScannerCapabilities
+ash.scanning.mojom.ScannerCapabilitiesSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.scanning.mojom.ScannerCapabilities',
+      packedSize: 16,
+      fields: [
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ScanSettings
+ash.scanning.mojom.ScanSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.scanning.mojom.ScanSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'resolution_dpi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Scanner
+ash.scanning.mojom.ScannerSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.scanning.mojom.Scanner',
+      packedSize: 16,
+      fields: [
+        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ScanJobObserver
 ash.scanning.mojom.ScanJobObserver = {};
 

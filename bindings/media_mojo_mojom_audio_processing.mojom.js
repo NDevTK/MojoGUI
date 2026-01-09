@@ -9,6 +9,48 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: AudioProcessingStats
+media.mojom.AudioProcessingStatsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessingStats',
+      packedSize: 16,
+      fields: [
+        { name: 'echo_return_loss_enhancement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioProcessingSettings
+media.mojom.AudioProcessingSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessingSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'use_loopback_aec_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AudioProcessingConfig
+media.mojom.AudioProcessingConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessingConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AudioProcessorControls
 media.mojom.AudioProcessorControls = {};
 

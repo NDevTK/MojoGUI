@@ -23,3 +23,17 @@ blink.mojom.StylusWritingGestureGranularity = {
   CHARACTER: 0,
   WORD: 1,
 };
+
+// Struct: StylusWritingGestureData
+blink.mojom.StylusWritingGestureDataSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.StylusWritingGestureData',
+      packedSize: 16,
+      fields: [
+        { name: 'text_to_insert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -32,6 +32,20 @@ side_panel.mojom.ViewType = {
   kCount: 2,
 };
 
+// Struct: BookmarksTreeNode
+side_panel.mojom.BookmarksTreeNodeSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.mojom.BookmarksTreeNode',
+      packedSize: 16,
+      fields: [
+        { name: 'unmodifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BookmarksPageHandlerFactory
 side_panel.mojom.BookmarksPageHandlerFactory = {};
 

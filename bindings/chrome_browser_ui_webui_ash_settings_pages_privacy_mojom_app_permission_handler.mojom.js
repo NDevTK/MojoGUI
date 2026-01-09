@@ -11,6 +11,20 @@ ash.settings.app_permission = ash.settings.app_permission || {};
 ash.settings.app_permission.mojom = ash.settings.app_permission.mojom || {};
 
 
+// Struct: App
+ash.settings.app_permission.mojom.AppSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_permission.mojom.App',
+      packedSize: 16,
+      fields: [
+        { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppPermissionsHandler
 ash.settings.app_permission.mojom.AppPermissionsHandler = {};
 

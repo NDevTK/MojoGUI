@@ -9,6 +9,76 @@ var browsing_topics = browsing_topics || {};
 browsing_topics.mojom = browsing_topics.mojom || {};
 
 
+// Struct: WebUIBrowsingTopicsConfiguration
+browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.WebUIBrowsingTopicsConfiguration',
+      packedSize: 16,
+      fields: [
+        { name: 'disabled_topics_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUITopic
+browsing_topics.mojom.WebUITopicSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.WebUITopic',
+      packedSize: 16,
+      fields: [
+        { name: 'observed_by_domains', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIEpoch
+browsing_topics.mojom.WebUIEpochSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.WebUIEpoch',
+      packedSize: 16,
+      fields: [
+        { name: 'taxonomy_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIBrowsingTopicsState
+browsing_topics.mojom.WebUIBrowsingTopicsStateSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.WebUIBrowsingTopicsState',
+      packedSize: 16,
+      fields: [
+        { name: 'next_scheduled_calculation_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebUIModelInfo
+browsing_topics.mojom.WebUIModelInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'browsing_topics.mojom.WebUIModelInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'model_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandler
 browsing_topics.mojom.PageHandler = {};
 

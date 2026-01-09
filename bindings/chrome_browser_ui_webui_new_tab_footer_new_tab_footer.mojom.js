@@ -16,6 +16,34 @@ new_tab_footer.mojom.NewTabPageType = {
   kOther: 2,
 };
 
+// Struct: ManagementNotice
+new_tab_footer.mojom.ManagementNoticeSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_footer.mojom.ManagementNotice',
+      packedSize: 16,
+      fields: [
+        { name: 'custom_bitmap_data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundAttribution
+new_tab_footer.mojom.BackgroundAttributionSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_footer.mojom.BackgroundAttribution',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NewTabFooterHandlerFactory
 new_tab_footer.mojom.NewTabFooterHandlerFactory = {};
 

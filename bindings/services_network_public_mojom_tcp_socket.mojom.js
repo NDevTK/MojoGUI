@@ -9,6 +9,47 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: TCPKeepAliveOptions
+network.mojom.TCPKeepAliveOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPKeepAliveOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TCPConnectedSocketOptions
+network.mojom.TCPConnectedSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'keep_alive_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TCPServerSocketOptions
+network.mojom.TCPServerSocketOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPServerSocketOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_tracker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TCPBoundSocket
 network.mojom.TCPBoundSocket = {};
 

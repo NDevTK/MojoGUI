@@ -23,3 +23,17 @@ blink.mojom.FileSystemAccessStatus = {
   kOperationAborted: 9,
   kFileError: 10,
 };
+
+// Struct: FileSystemAccessError
+blink.mojom.FileSystemAccessErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessError',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

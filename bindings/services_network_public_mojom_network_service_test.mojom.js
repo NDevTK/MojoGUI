@@ -18,6 +18,34 @@ network.mojom.ResolverType = {
   kResolverTypeDirectLookup: 4,
 };
 
+// Struct: Rule
+network.mojom.RuleSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.Rule',
+      packedSize: 16,
+      fields: [
+        { name: 'dns_aliases', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SimpleCacheOpenEntryResult
+network.mojom.SimpleCacheOpenEntryResultSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheOpenEntryResult',
+      packedSize: 16,
+      fields: [
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SimpleCacheEntry
 network.mojom.SimpleCacheEntry = {};
 

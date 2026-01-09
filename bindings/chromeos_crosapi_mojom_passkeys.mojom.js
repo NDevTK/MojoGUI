@@ -30,6 +30,62 @@ crosapi.mojom.PasskeyAssertionError = {
   kSecurityDomainSecretUnavailable: 3,
 };
 
+// Struct: PasskeyCreationRequest
+crosapi.mojom.PasskeyCreationRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PasskeyCreationRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasskeyCreationResponse
+crosapi.mojom.PasskeyCreationResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PasskeyCreationResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'authenticator_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasskeyAssertionRequest
+crosapi.mojom.PasskeyAssertionRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PasskeyAssertionRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'user_verification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PasskeyAssertionResponse
+crosapi.mojom.PasskeyAssertionResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.PasskeyAssertionResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'authenticator_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PasskeyAuthenticator
 crosapi.mojom.PasskeyAuthenticator = {};
 

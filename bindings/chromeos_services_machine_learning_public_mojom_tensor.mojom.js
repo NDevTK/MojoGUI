@@ -9,3 +9,59 @@ var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
+
+// Struct: StringList
+chromeos.machine_learning.mojom.StringListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.StringList',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FloatList
+chromeos.machine_learning.mojom.FloatListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.FloatList',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Int64List
+chromeos.machine_learning.mojom.Int64ListSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.Int64List',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Tensor
+chromeos.machine_learning.mojom.TensorSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.Tensor',
+      packedSize: 16,
+      fields: [
+        { name: 'shape', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

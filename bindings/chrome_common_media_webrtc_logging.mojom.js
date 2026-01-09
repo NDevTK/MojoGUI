@@ -9,6 +9,20 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
+// Struct: WebRtcLoggingMessage
+chrome.mojom.WebRtcLoggingMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.WebRtcLoggingMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebRtcLoggingClient
 chrome.mojom.WebRtcLoggingClient = {};
 

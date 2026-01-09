@@ -9,6 +9,48 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Struct: FrameCountingPerSinkData
+viz.mojom.FrameCountingPerSinkDataSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameCountingPerSinkData',
+      packedSize: 16,
+      fields: [
+        { name: 'presented_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameCountingData
+viz.mojom.FrameCountingDataSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameCountingData',
+      packedSize: 16,
+      fields: [
+        { name: 'per_sink_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OverdrawData
+viz.mojom.OverdrawDataSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.OverdrawData',
+      packedSize: 16,
+      fields: [
+        { name: 'average_overdraws', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FrameSinksMetricsRecorder
 viz.mojom.FrameSinksMetricsRecorder = {};
 

@@ -17,6 +17,34 @@ network.mojom.EcnMarking = {
   kCe: 3,
 };
 
+// Struct: P2PReceivedPacket
+network.mojom.P2PReceivedPacketSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PReceivedPacket',
+      packedSize: 16,
+      fields: [
+        { name: 'ecn', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: P2PSendPacket
+network.mojom.P2PSendPacketSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PSendPacket',
+      packedSize: 16,
+      fields: [
+        { name: 'packet_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: P2PNetworkNotificationClient
 network.mojom.P2PNetworkNotificationClient = {};
 

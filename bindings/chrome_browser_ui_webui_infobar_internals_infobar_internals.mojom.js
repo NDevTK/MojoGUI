@@ -13,6 +13,20 @@ infobar_internals.mojom = infobar_internals.mojom || {};
 infobar_internals.mojom.InfoBarType = {
 };
 
+// Struct: InfoBarEntry
+infobar_internals.mojom.InfoBarEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'infobar_internals.mojom.InfoBarEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Page
 infobar_internals.mojom.Page = {};
 

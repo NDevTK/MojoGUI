@@ -39,6 +39,164 @@ ash.ime.mojom.HistogramBucketType = {
   kLinear: 0,
 };
 
+// Struct: CompositionSpan
+ash.ime.mojom.CompositionSpanSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.CompositionSpan',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TextRange
+ash.ime.mojom.TextRangeSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.TextRange',
+      packedSize: 16,
+      fields: [
+        { name: 'end', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AutocorrectSpan
+ash.ime.mojom.AutocorrectSpanSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.AutocorrectSpan',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CompletionCandidate
+ash.ime.mojom.CompletionCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.CompletionCandidate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SuggestionsRequest
+ash.ime.mojom.SuggestionsRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.SuggestionsRequest',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SuggestionsResponse
+ash.ime.mojom.SuggestionsResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.SuggestionsResponse',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SuggestionsTextContext
+ash.ime.mojom.SuggestionsTextContextSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.SuggestionsTextContext',
+      packedSize: 16,
+      fields: [
+        { name: 'surrounding_text_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NonCompliantApiMetric
+ash.ime.mojom.NonCompliantApiMetricSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.NonCompliantApiMetric',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Candidate
+ash.ime.mojom.CandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.Candidate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HighlightedCandidate
+ash.ime.mojom.HighlightedCandidateSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.HighlightedCandidate',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CandidatesWindow
+ash.ime.mojom.CandidatesWindowSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.CandidatesWindow',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BucketedHistogram
+ash.ime.mojom.BucketedHistogramSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.BucketedHistogram',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InputMethodHost
 ash.ime.mojom.InputMethodHost = {};
 

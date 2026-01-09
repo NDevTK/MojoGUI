@@ -71,3 +71,17 @@ blink.mojom.EffectiveConnectionType = {
   kEffectiveConnection4GType: 5,
   kEffectiveConnectionTypeLast: 6,
 };
+
+// Struct: WebPreferences
+blink.mojom.WebPreferencesSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebPreferences',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

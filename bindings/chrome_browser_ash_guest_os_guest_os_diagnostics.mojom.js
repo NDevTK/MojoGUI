@@ -15,3 +15,45 @@ guest_os.mojom.Status = {
   kFail: 1,
   kNotApplicable: 2,
 };
+
+// Struct: DiagnosticMessage
+guest_os.mojom.DiagnosticMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'guest_os.mojom.DiagnosticMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'learn_more_link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DiagnosticEntry
+guest_os.mojom.DiagnosticEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'guest_os.mojom.DiagnosticEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'kPass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Diagnostics
+guest_os.mojom.DiagnosticsSpec = {
+  $: {
+    structSpec: {
+      name: 'guest_os.mojom.Diagnostics',
+      packedSize: 16,
+      fields: [
+        { name: 'top_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

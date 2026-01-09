@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: IntrinsicSizingInfo
+blink.mojom.IntrinsicSizingInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.IntrinsicSizingInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'has_height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -16,3 +16,30 @@ viz.mojom.ContentFrameIntervalType = {
   kScrollBarFadeOutAnimation: 2,
   kCompositorScroll: 3,
 };
+
+// Struct: ContentFrameIntervalInfo
+viz.mojom.ContentFrameIntervalInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.ContentFrameIntervalInfo',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FrameIntervalInputs
+viz.mojom.FrameIntervalInputsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameIntervalInputs',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

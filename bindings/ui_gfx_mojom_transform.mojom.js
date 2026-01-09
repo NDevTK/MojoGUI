@@ -8,3 +8,17 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+
+// Struct: Transform
+gfx.mojom.TransformSpec = {
+  $: {
+    structSpec: {
+      name: 'gfx.mojom.Transform',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

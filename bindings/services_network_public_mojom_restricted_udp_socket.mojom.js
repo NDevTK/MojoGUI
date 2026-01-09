@@ -15,6 +15,20 @@ network.mojom.RestrictedUDPSocketMode = {
   BOUND: 1,
 };
 
+// Struct: RestrictedUDPSocketParams
+network.mojom.RestrictedUDPSocketParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.RestrictedUDPSocketParams',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_tracker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RestrictedUDPSocket
 network.mojom.RestrictedUDPSocket = {};
 

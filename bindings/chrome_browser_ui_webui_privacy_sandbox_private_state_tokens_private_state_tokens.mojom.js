@@ -9,6 +9,20 @@ var private_state_tokens = private_state_tokens || {};
 private_state_tokens.mojom = private_state_tokens.mojom || {};
 
 
+// Struct: IssuerTokenCount
+private_state_tokens.mojom.IssuerTokenCountSpec = {
+  $: {
+    structSpec: {
+      name: 'private_state_tokens.mojom.IssuerTokenCount',
+      packedSize: 16,
+      fields: [
+        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PrivateStateTokensPageHandler
 private_state_tokens.mojom.PrivateStateTokensPageHandler = {};
 

@@ -10,6 +10,34 @@ ash.help_app = ash.help_app || {};
 ash.help_app.mojom = ash.help_app.mojom || {};
 
 
+// Struct: SearchResult
+ash.help_app.mojom.SearchResultSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.help_app.mojom.SearchResult',
+      packedSize: 16,
+      fields: [
+        { name: 'relevance_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchConcept
+ash.help_app.mojom.SearchConceptSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.help_app.mojom.SearchConcept',
+      packedSize: 16,
+      fields: [
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SearchResultsObserver
 ash.help_app.mojom.SearchResultsObserver = {};
 

@@ -9,6 +9,20 @@ var cros = cros || {};
 cros.mojom = cros.mojom || {};
 
 
+// Struct: DetectCornersResult
+cros.mojom.DetectCornersResultSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.DetectCornersResult',
+      packedSize: 16,
+      fields: [
+        { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CrosDocumentScanner
 cros.mojom.CrosDocumentScanner = {};
 

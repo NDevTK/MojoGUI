@@ -31,3 +31,31 @@ network.mojom.CorsOriginAccessMatchPriority = {
   kHighPriority: 4,
   kMaxPriority: 5,
 };
+
+// Struct: CorsOriginPattern
+network.mojom.CorsOriginPatternSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CorsOriginPattern',
+      packedSize: 16,
+      fields: [
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CorsOriginAccessPatterns
+network.mojom.CorsOriginAccessPatternsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CorsOriginAccessPatterns',
+      packedSize: 16,
+      fields: [
+        { name: 'block_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

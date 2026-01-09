@@ -42,6 +42,76 @@ compose.mojom.UserFeedback = {
   kUserFeedbackPositive: 2,
 };
 
+// Struct: ComposeResponse
+compose.mojom.ComposeResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'triggered_from_modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PartialComposeResponse
+compose.mojom.PartialComposeResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.PartialComposeResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ComposeState
+compose.mojom.ComposeStateSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ComposeState',
+      packedSize: 16,
+      fields: [
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConfigurableParams
+compose.mojom.ConfigurableParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.ConfigurableParams',
+      packedSize: 16,
+      fields: [
+        { name: 'max_character_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OpenMetadata
+compose.mojom.OpenMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'compose.mojom.OpenMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'configurable_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ComposeSessionUntrustedPageHandlerFactory
 compose.mojom.ComposeSessionUntrustedPageHandlerFactory = {};
 

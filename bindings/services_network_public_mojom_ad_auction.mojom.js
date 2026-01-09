@@ -15,3 +15,16 @@ network.mojom.Type = {
   kView: 1,
   kClick: 2,
 };
+
+// Struct: AdAuctionEventRecord
+network.mojom.AdAuctionEventRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.AdAuctionEventRecord',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

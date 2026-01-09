@@ -77,6 +77,62 @@ network.mojom.UpdateType = {
   REMOVED: 2,
 };
 
+// Struct: DnsOverHttpsServerConfig
+network.mojom.DnsOverHttpsServerConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DnsOverHttpsServerConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DnsOverHttpsConfig
+network.mojom.DnsOverHttpsConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DnsOverHttpsConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DnsConfigOverrides
+network.mojom.DnsConfigOverridesSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.DnsConfigOverrides',
+      packedSize: 16,
+      fields: [
+        { name: 'NO_OVERRIDE', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ResolveHostParameters
+network.mojom.ResolveHostParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ResolveHostParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'ANY', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ResolveHostHandle
 network.mojom.ResolveHostHandle = {};
 

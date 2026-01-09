@@ -36,3 +36,31 @@ ash.multidevice.mojom.SoftwareFeatureState = {
   kSupported: 1,
   kEnabled: 2,
 };
+
+// Struct: BeaconSeed
+ash.multidevice.mojom.BeaconSeedSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.multidevice.mojom.BeaconSeed',
+      packedSize: 16,
+      fields: [
+        { name: 'end_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RemoteDevice
+ash.multidevice.mojom.RemoteDeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.multidevice.mojom.RemoteDevice',
+      packedSize: 16,
+      fields: [
+        { name: 'bluetooth_public_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

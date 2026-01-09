@@ -52,6 +52,174 @@ tab_search.mojom.UserFeedback = {
   kUserFeedBackNegative: 2,
 };
 
+// Struct: ProfileData
+tab_search.mojom.ProfileDataSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.ProfileData',
+      packedSize: 16,
+      fields: [
+        { name: 'recently_closed_section_expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Window
+tab_search.mojom.WindowSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.Window',
+      packedSize: 16,
+      fields: [
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Tab
+tab_search.mojom.TabSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.Tab',
+      packedSize: 16,
+      fields: [
+        { name: 'last_active_elapsed_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RecentlyClosedTab
+tab_search.mojom.RecentlyClosedTabSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.RecentlyClosedTab',
+      packedSize: 16,
+      fields: [
+        { name: 'last_active_elapsed_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabGroup
+tab_search.mojom.TabGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.TabGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RecentlyClosedTabGroup
+tab_search.mojom.RecentlyClosedTabGroupSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.RecentlyClosedTabGroup',
+      packedSize: 16,
+      fields: [
+        { name: 'last_active_elapsed_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SwitchToTabInfo
+tab_search.mojom.SwitchToTabInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.SwitchToTabInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabOrganization
+tab_search.mojom.TabOrganizationSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.TabOrganization',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabOrganizationSession
+tab_search.mojom.TabOrganizationSessionSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.TabOrganizationSession',
+      packedSize: 16,
+      fields: [
+        { name: 'active_tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabUpdateInfo
+tab_search.mojom.TabUpdateInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.TabUpdateInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TabsRemovedInfo
+tab_search.mojom.TabsRemovedInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.TabsRemovedInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'recently_closed_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UnusedTabInfo
+tab_search.mojom.UnusedTabInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_search.mojom.UnusedTabInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'duplicate_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 tab_search.mojom.PageHandlerFactory = {};
 

@@ -8,3 +8,17 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+
+// Struct: LayerTreeDebugState
+cc.mojom.LayerTreeDebugStateSpec = {
+  $: {
+    structSpec: {
+      name: 'cc.mojom.LayerTreeDebugState',
+      packedSize: 16,
+      fields: [
+        { name: 'record_rendering_stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -31,3 +31,31 @@ payments.mojom.CreateDigitalGoodsResponseCode = {
   kUnsupportedPaymentMethod: 1,
   kUnsupportedContext: 2,
 };
+
+// Struct: ItemDetails
+payments.mojom.ItemDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.ItemDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PurchaseReference
+payments.mojom.PurchaseReferenceSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PurchaseReference',
+      packedSize: 16,
+      fields: [
+        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

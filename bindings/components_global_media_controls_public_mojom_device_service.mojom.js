@@ -20,6 +20,19 @@ global_media_controls.mojom.IconType = {
   kInput: 6,
 };
 
+// Struct: Device
+global_media_controls.mojom.DeviceSpec = {
+  $: {
+    structSpec: {
+      name: 'global_media_controls.mojom.Device',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DeviceListHost
 global_media_controls.mojom.DeviceListHost = {};
 

@@ -15,3 +15,45 @@ gpu.mojom.GpuDiskCacheType = {
   kDawnWebGPU: 1,
   kDawnGraphite: 2,
 };
+
+// Struct: GpuDiskCacheGlShaderHandle
+gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuDiskCacheGlShaderHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuDiskCacheDawnWebGPUHandle
+gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuDiskCacheDawnWebGPUHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: GpuDiskCacheDawnGraphiteHandle
+gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.GpuDiskCacheDawnGraphiteHandle',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

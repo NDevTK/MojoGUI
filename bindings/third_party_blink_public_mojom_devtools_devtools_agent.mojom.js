@@ -15,6 +15,34 @@ blink.mojom.DevToolsExecutionContextType = {
   kWorklet: 1,
 };
 
+// Struct: DevToolsMessage
+blink.mojom.DevToolsMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DevToolsSessionState
+blink.mojom.DevToolsSessionStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DevToolsSessionState',
+      packedSize: 16,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: DevToolsAgent
 blink.mojom.DevToolsAgent = {};
 

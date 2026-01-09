@@ -39,6 +39,103 @@ ash.cloud_upload.mojom.OperationType = {
   kCopy: 1,
 };
 
+// Struct: DialogTask
+ash.cloud_upload.mojom.DialogTaskSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.DialogTask',
+      packedSize: 16,
+      fields: [
+        { name: 'icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OneDriveSetupDialogArgs
+ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.OneDriveSetupDialogArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'set_office_as_default_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MoveConfirmationOneDriveDialogArgs
+ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: MoveConfirmationGoogleDriveDialogArgs
+ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ConnectToOneDriveDialogArgs
+ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.ConnectToOneDriveDialogArgs',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FileHandlerDialogArgs
+ash.cloud_upload.mojom.FileHandlerDialogArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.FileHandlerDialogArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'show_microsoft_office_task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: DialogArgs
+ash.cloud_upload.mojom.DialogArgsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cloud_upload.mojom.DialogArgs',
+      packedSize: 16,
+      fields: [
+        { name: 'dialog_specific_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 ash.cloud_upload.mojom.PageHandlerFactory = {};
 

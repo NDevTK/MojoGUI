@@ -9,6 +9,33 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+// Struct: WebrtcPredictionFeatures
+media.mojom.WebrtcPredictionFeaturesSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.WebrtcPredictionFeatures',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebrtcVideoStats
+media.mojom.WebrtcVideoStatsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.WebrtcVideoStats',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebrtcVideoPerfRecorder
 media.mojom.WebrtcVideoPerfRecorder = {};
 

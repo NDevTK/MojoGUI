@@ -76,6 +76,20 @@ read_anything.mojom.DistillationStatus = {
   kRestarted: 3,
 };
 
+// Struct: VoicePackInfo
+read_anything.mojom.VoicePackInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'read_anything.mojom.VoicePackInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: UntrustedPageHandlerFactory
 read_anything.mojom.UntrustedPageHandlerFactory = {};
 

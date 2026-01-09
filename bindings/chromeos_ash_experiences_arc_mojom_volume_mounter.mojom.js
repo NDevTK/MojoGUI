@@ -22,6 +22,20 @@ arc.mojom.DeviceType = {
   DEVICE_TYPE_SD: 2,
 };
 
+// Struct: MountPointInfo
+arc.mojom.MountPointInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.MountPointInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VolumeMounterHost
 arc.mojom.VolumeMounterHost = {};
 

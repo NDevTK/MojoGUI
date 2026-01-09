@@ -20,3 +20,31 @@ storage.mojom.ServiceWorkerDatabaseStatus = {
   kErrorDisabled: 6,
   kErrorStorageDisconnected: 7,
 };
+
+// Struct: ServiceWorkerRegistrationData
+storage.mojom.ServiceWorkerRegistrationDataSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerRegistrationData',
+      packedSize: 16,
+      fields: [
+        { name: 'has_usb_event_handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceWorkerResourceRecord
+storage.mojom.ServiceWorkerResourceRecordSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.ServiceWorkerResourceRecord',
+      packedSize: 16,
+      fields: [
+        { name: 'sha256_checksum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

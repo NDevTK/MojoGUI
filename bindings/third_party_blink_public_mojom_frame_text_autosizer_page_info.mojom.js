@@ -8,3 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: TextAutosizerPageInfo
+blink.mojom.TextAutosizerPageInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextAutosizerPageInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'device_scale_adjustment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

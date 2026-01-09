@@ -9,6 +9,48 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: SharedStorageWorkletPermissionsPolicyState
+blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedStorageWorkletPermissionsPolicyState',
+      packedSize: 16,
+      fields: [
+        { name: 'run_ad_auction_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SharedStorageKeyAndOrValue
+blink.mojom.SharedStorageKeyAndOrValueSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SharedStorageKeyAndOrValue',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PrivateAggregationOperationDetails
+blink.mojom.PrivateAggregationOperationDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PrivateAggregationOperationDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'filtering_id_max_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SharedStorageEntriesListener
 blink.mojom.SharedStorageEntriesListener = {};
 

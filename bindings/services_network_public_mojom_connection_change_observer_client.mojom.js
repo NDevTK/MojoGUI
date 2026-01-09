@@ -17,6 +17,19 @@ network.mojom.NetworkChangeEvent = {
   kDefaultNetworkChanged: 3,
 };
 
+// Struct: ConnectionKeepAliveConfig
+network.mojom.ConnectionKeepAliveConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ConnectionKeepAliveConfig',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ConnectionChangeObserverClient
 network.mojom.ConnectionChangeObserverClient = {};
 

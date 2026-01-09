@@ -14,6 +14,34 @@ blink.mojom.NodeLocationType = {
   kStart: 0,
 };
 
+// Struct: InnerTextFrame
+blink.mojom.InnerTextFrameSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InnerTextFrame',
+      packedSize: 16,
+      fields: [
+        { name: 'segments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InnerTextParams
+blink.mojom.InnerTextParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InnerTextParams',
+      packedSize: 16,
+      fields: [
+        { name: 'min_words_per_passage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InnerTextAgent
 blink.mojom.InnerTextAgent = {};
 

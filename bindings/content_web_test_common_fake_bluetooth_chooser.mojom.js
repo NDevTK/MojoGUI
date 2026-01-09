@@ -23,6 +23,20 @@ content.mojom.ChooserEventType = {
   UNAUTHORIZED: 9,
 };
 
+// Struct: FakeBluetoothChooserEvent
+content.mojom.FakeBluetoothChooserEventSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.FakeBluetoothChooserEvent',
+      packedSize: 16,
+      fields: [
+        { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: FakeBluetoothChooser
 content.mojom.FakeBluetoothChooser = {};
 

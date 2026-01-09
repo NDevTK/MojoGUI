@@ -8,3 +8,31 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+
+// Struct: FilePath
+mojo_base.mojom.FilePathSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.FilePath',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RelativeFilePath
+mojo_base.mojom.RelativeFilePathSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.RelativeFilePath',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

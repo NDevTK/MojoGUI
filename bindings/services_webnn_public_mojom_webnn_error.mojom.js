@@ -14,3 +14,17 @@ webnn.mojom.Code = {
   kUnknownError: 0,
   kNotSupportedError: 1,
 };
+
+// Struct: Error
+webnn.mojom.ErrorSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.Error',
+      packedSize: 16,
+      fields: [
+        { name: 'kUnknownError', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

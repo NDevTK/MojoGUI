@@ -16,6 +16,48 @@ reading_list.mojom.CurrentPageActionButtonState = {
   kMarkAsRead: 2,
 };
 
+// Struct: ReadLaterEntriesByStatus
+reading_list.mojom.ReadLaterEntriesByStatusSpec = {
+  $: {
+    structSpec: {
+      name: 'reading_list.mojom.ReadLaterEntriesByStatus',
+      packedSize: 16,
+      fields: [
+        { name: 'read_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ReadLaterEntry
+reading_list.mojom.ReadLaterEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'reading_list.mojom.ReadLaterEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'display_time_since_update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Window
+reading_list.mojom.WindowSpec = {
+  $: {
+    structSpec: {
+      name: 'reading_list.mojom.Window',
+      packedSize: 16,
+      fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 reading_list.mojom.PageHandlerFactory = {};
 

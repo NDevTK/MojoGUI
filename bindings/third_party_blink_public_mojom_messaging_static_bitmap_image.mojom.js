@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: AcceleratedStaticBitmapImage
+blink.mojom.AcceleratedStaticBitmapImageSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AcceleratedStaticBitmapImage',
+      packedSize: 16,
+      fields: [
+        { name: 'release_callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ImageReleaseCallback
 blink.mojom.ImageReleaseCallback = {};
 

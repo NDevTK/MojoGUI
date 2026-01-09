@@ -9,6 +9,20 @@ var actor_internals = actor_internals || {};
 actor_internals.mojom = actor_internals.mojom || {};
 
 
+// Struct: JournalEntry
+actor_internals.mojom.JournalEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'actor_internals.mojom.JournalEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'screenshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: Page
 actor_internals.mojom.Page = {};
 

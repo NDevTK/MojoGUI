@@ -15,6 +15,48 @@ viz.mojom.Type = {
   kDelete: 1,
 };
 
+// Struct: TransferableUIResourceRequest
+viz.mojom.TransferableUIResourceRequestSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.TransferableUIResourceRequest',
+      packedSize: 16,
+      fields: [
+        { name: 'kCreate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LayerTreeUpdate
+viz.mojom.LayerTreeUpdateSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerTreeUpdate',
+      packedSize: 16,
+      fields: [
+        { name: 'is_viewport_mobile_optimized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PendingLayerContext
+viz.mojom.PendingLayerContextSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.PendingLayerContext',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LayerContext
 viz.mojom.LayerContext = {};
 

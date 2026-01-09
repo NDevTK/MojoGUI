@@ -9,6 +9,20 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
+// Struct: LoggingSettings
+content.mojom.LoggingSettingsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.LoggingSettings',
+      packedSize: 16,
+      fields: [
+        { name: 'log_file_descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ChildProcessHost
 content.mojom.ChildProcessHost = {};
 

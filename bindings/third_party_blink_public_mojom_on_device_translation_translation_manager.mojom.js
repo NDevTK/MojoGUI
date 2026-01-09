@@ -37,6 +37,34 @@ blink.mojom.CreateTranslatorError = {
   kInvalidStoragePartition: 9,
 };
 
+// Struct: TranslatorLanguageCode
+blink.mojom.TranslatorLanguageCodeSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TranslatorLanguageCode',
+      packedSize: 16,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TranslatorCreateOptions
+blink.mojom.TranslatorCreateOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TranslatorCreateOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'observer_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: TranslationManagerCreateTranslatorClient
 blink.mojom.TranslationManagerCreateTranslatorClient = {};
 

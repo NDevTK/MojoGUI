@@ -9,6 +9,20 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: WebUsbRequestDeviceOptions
+blink.mojom.WebUsbRequestDeviceOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.WebUsbRequestDeviceOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'exclusion_filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebUsbService
 blink.mojom.WebUsbService = {};
 

@@ -126,6 +126,760 @@ device.mojom.XRVisibilityState = {
   HIDDEN: 2,
 };
 
+// Struct: XRDepthConfig
+device.mojom.XRDepthConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDepthConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'depth_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRSessionDeviceConfig
+device.mojom.XRSessionDeviceConfigSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRSessionDeviceConfig',
+      packedSize: 16,
+      fields: [
+        { name: 'depth_configuration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRSession
+device.mojom.XRSessionSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRSession',
+      packedSize: 16,
+      fields: [
+        { name: 'false', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRPresentationConnection
+device.mojom.XRPresentationConnectionSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRPresentationConnection',
+      packedSize: 16,
+      fields: [
+        { name: 'transport_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRInputSourceDescription
+device.mojom.XRInputSourceDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRInputSourceDescription',
+      packedSize: 16,
+      fields: [
+        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRInputSourceState
+device.mojom.XRInputSourceStateSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRInputSourceState',
+      packedSize: 16,
+      fields: [
+        { name: 'hand_tracking_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VRFieldOfView
+device.mojom.VRFieldOfViewSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.VRFieldOfView',
+      packedSize: 16,
+      fields: [
+        { name: 'right_degrees', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VRPose
+device.mojom.VRPoseSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.VRPose',
+      packedSize: 16,
+      fields: [
+        { name: 'emulated_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Pose
+device.mojom.PoseSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.Pose',
+      packedSize: 16,
+      fields: [
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AnchorId
+device.mojom.AnchorIdSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.AnchorId',
+      packedSize: 16,
+      fields: [
+        { name: 'id_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: HitTestSubscriptionId
+device.mojom.HitTestSubscriptionIdSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.HitTestSubscriptionId',
+      packedSize: 16,
+      fields: [
+        { name: 'id_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: PlaneId
+device.mojom.PlaneIdSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.PlaneId',
+      packedSize: 16,
+      fields: [
+        { name: 'id_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XrVisibilityMaskId
+device.mojom.XrVisibilityMaskIdSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XrVisibilityMaskId',
+      packedSize: 16,
+      fields: [
+        { name: 'id_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRRay
+device.mojom.XRRaySpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRay',
+      packedSize: 16,
+      fields: [
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRHitResult
+device.mojom.XRHitResultSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHitResult',
+      packedSize: 16,
+      fields: [
+        { name: 'plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRViewGeometry
+device.mojom.XRViewGeometrySpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRViewGeometry',
+      packedSize: 16,
+      fields: [
+        { name: 'mojo_from_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRVisibilityMask
+device.mojom.XRVisibilityMaskSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRVisibilityMask',
+      packedSize: 16,
+      fields: [
+        { name: 'unvalidated_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRView
+device.mojom.XRViewSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRView',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility_mask_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: VRStageParameters
+device.mojom.VRStageParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.VRStageParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRPresentationTransportOptions
+device.mojom.XRPresentationTransportOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRPresentationTransportOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'wait_for_gpu_fence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRInputSourceSpaceInfo
+device.mojom.XRInputSourceSpaceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRInputSourceSpaceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'input_source_space_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRHandJointSpaceInfo
+device.mojom.XRHandJointSpaceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHandJointSpaceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'joint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRPlanePointData
+device.mojom.XRPlanePointDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRPlanePointData',
+      packedSize: 16,
+      fields: [
+        { name: 'z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRPlaneData
+device.mojom.XRPlaneDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRPlaneData',
+      packedSize: 16,
+      fields: [
+        { name: 'polygon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRPlaneDetectionData
+device.mojom.XRPlaneDetectionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRPlaneDetectionData',
+      packedSize: 16,
+      fields: [
+        { name: 'updated_planes_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRAnchorData
+device.mojom.XRAnchorDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRAnchorData',
+      packedSize: 16,
+      fields: [
+        { name: 'mojo_from_anchor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRAnchorsData
+device.mojom.XRAnchorsDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRAnchorsData',
+      packedSize: 16,
+      fields: [
+        { name: 'updated_anchors_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRHitTestSubscriptionResultData
+device.mojom.XRHitTestSubscriptionResultDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHitTestSubscriptionResultData',
+      packedSize: 16,
+      fields: [
+        { name: 'hit_test_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRHitTestTransientInputSubscriptionResultData
+device.mojom.XRHitTestTransientInputSubscriptionResultDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHitTestTransientInputSubscriptionResultData',
+      packedSize: 16,
+      fields: [
+        { name: 'input_source_id_to_hit_test_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRHitTestSubscriptionResultsData
+device.mojom.XRHitTestSubscriptionResultsDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRHitTestSubscriptionResultsData',
+      packedSize: 16,
+      fields: [
+        { name: 'transient_input_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RgbTupleF32
+device.mojom.RgbTupleF32Spec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.RgbTupleF32',
+      packedSize: 16,
+      fields: [
+        { name: 'blue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRSphericalHarmonics
+device.mojom.XRSphericalHarmonicsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRSphericalHarmonics',
+      packedSize: 16,
+      fields: [
+        { name: 'coefficients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRCubeMap
+device.mojom.XRCubeMapSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRCubeMap',
+      packedSize: 16,
+      fields: [
+        { name: 'negative_z', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRLightProbe
+device.mojom.XRLightProbeSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRLightProbe',
+      packedSize: 16,
+      fields: [
+        { name: 'main_light_intensity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRReflectionProbe
+device.mojom.XRReflectionProbeSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRReflectionProbe',
+      packedSize: 16,
+      fields: [
+        { name: 'cube_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRLightEstimationData
+device.mojom.XRLightEstimationDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRLightEstimationData',
+      packedSize: 16,
+      fields: [
+        { name: 'reflection_probe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRDepthDataStillValid
+device.mojom.XRDepthDataStillValidSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDepthDataStillValid',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRDepthDataUpdated
+device.mojom.XRDepthDataUpdatedSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRDepthDataUpdated',
+      packedSize: 16,
+      fields: [
+        { name: 'view_geometry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRTrackedImageData
+device.mojom.XRTrackedImageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRTrackedImageData',
+      packedSize: 16,
+      fields: [
+        { name: 'width_in_meters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRTrackedImagesData
+device.mojom.XRTrackedImagesDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRTrackedImagesData',
+      packedSize: 16,
+      fields: [
+        { name: 'image_trackable_scores', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: LayerId
+device.mojom.LayerIdSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.LayerId',
+      packedSize: 16,
+      fields: [
+        { name: 'id_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRProjectionLayerData
+device.mojom.XRProjectionLayerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRProjectionLayerData',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRQuadLayerData
+device.mojom.XRQuadLayerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRQuadLayerData',
+      packedSize: 16,
+      fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRCylinderLayerData
+device.mojom.XRCylinderLayerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRCylinderLayerData',
+      packedSize: 16,
+      fields: [
+        { name: 'aspect_ratio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XREquirectLayerData
+device.mojom.XREquirectLayerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XREquirectLayerData',
+      packedSize: 16,
+      fields: [
+        { name: 'lower_vertical_angle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRCubeLayerData
+device.mojom.XRCubeLayerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRCubeLayerData',
+      packedSize: 16,
+      fields: [
+        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRLayerReadOnlyData
+device.mojom.XRLayerReadOnlyDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRLayerReadOnlyData',
+      packedSize: 16,
+      fields: [
+        { name: 'is_static', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRLayerMutableData
+device.mojom.XRLayerMutableDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRLayerMutableData',
+      packedSize: 16,
+      fields: [
+        { name: 'layer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRCompositionLayerData
+device.mojom.XRCompositionLayerDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRCompositionLayerData',
+      packedSize: 16,
+      fields: [
+        { name: 'mutable_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRLayerFrameData
+device.mojom.XRLayerFrameDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRLayerFrameData',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_sync_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRRenderInfo
+device.mojom.XRRenderInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRRenderInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'views', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRFrameData
+device.mojom.XRFrameDataSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRFrameData',
+      packedSize: 16,
+      fields: [
+        { name: 'tracked_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RequestSessionSuccess
+device.mojom.RequestSessionSuccessSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.RequestSessionSuccess',
+      packedSize: 16,
+      fields: [
+        { name: 'xr_internals_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: XRFrameDataRequestOptions
+device.mojom.XRFrameDataRequestOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.XRFrameDataRequestOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'stage_parameters_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VRService
 device.mojom.VRService = {};
 

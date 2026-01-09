@@ -18,3 +18,17 @@ blink.mojom.TouchState = {
   kStateStationary: 4,
   kStateCancelled: 5,
 };
+
+// Struct: TouchEventConsumers
+blink.mojom.TouchEventConsumersSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TouchEventConsumers',
+      packedSize: 16,
+      fields: [
+        { name: 'has_hit_testable_scrollbar', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

@@ -10,6 +10,34 @@ chromecast.external_mojo = chromecast.external_mojo || {};
 chromecast.external_mojo.mojom = chromecast.external_mojo.mojom || {};
 
 
+// Struct: ExternalServiceInfo
+chromecast.external_mojo.mojom.ExternalServiceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ExternalServiceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'disconnect_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ServiceInstanceInfo
+chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.external_mojo.mojom.ServiceInstanceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'service_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ExternalService
 chromecast.external_mojo.mojom.ExternalService = {};
 

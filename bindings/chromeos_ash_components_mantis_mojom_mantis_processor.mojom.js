@@ -23,6 +23,19 @@ mantis.mojom.SegmentationMode = {
   kLasso: 0,
 };
 
+// Struct: TouchPoint
+mantis.mojom.TouchPointSpec = {
+  $: {
+    structSpec: {
+      name: 'mantis.mojom.TouchPoint',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: MantisProcessor
 mantis.mojom.MantisProcessor = {};
 

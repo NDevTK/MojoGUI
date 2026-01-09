@@ -9,6 +9,34 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
 
+// Struct: ExecuteCodeParams
+extensions.mojom.ExecuteCodeParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.ExecuteCodeParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_web_view', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: RequestParams
+extensions.mojom.RequestParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.RequestParams',
+      packedSize: 16,
+      fields: [
+        { name: 'js_callstack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: LocalFrame
 extensions.mojom.LocalFrame = {};
 

@@ -9,6 +9,34 @@ var ukm = ukm || {};
 ukm.mojom = ukm.mojom || {};
 
 
+// Struct: UkmEntry
+ukm.mojom.UkmEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'ukm.mojom.UkmEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: UkmRecorderParameters
+ukm.mojom.UkmRecorderParametersSpec = {
+  $: {
+    structSpec: {
+      name: 'ukm.mojom.UkmRecorderParameters',
+      packedSize: 16,
+      fields: [
+        { name: 'event_hash_bypass_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SingularUkmInterface
 ukm.mojom.SingularUkmInterface = {};
 

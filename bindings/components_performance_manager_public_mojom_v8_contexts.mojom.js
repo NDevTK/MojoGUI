@@ -19,3 +19,31 @@ performance_manager.mojom.V8ContextWorldType = {
   kInspector: 5,
   kRegExp: 6,
 };
+
+// Struct: IframeAttributionData
+performance_manager.mojom.IframeAttributionDataSpec = {
+  $: {
+    structSpec: {
+      name: 'performance_manager.mojom.IframeAttributionData',
+      packedSize: 16,
+      fields: [
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: V8ContextDescription
+performance_manager.mojom.V8ContextDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'performance_manager.mojom.V8ContextDescription',
+      packedSize: 16,
+      fields: [
+        { name: 'execution_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

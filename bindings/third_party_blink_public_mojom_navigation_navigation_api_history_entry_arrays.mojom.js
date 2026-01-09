@@ -8,3 +8,31 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+
+// Struct: NavigationApiHistoryEntry
+blink.mojom.NavigationApiHistoryEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NavigationApiHistoryEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NavigationApiHistoryEntryArrays
+blink.mojom.NavigationApiHistoryEntryArraysSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.NavigationApiHistoryEntryArrays',
+      packedSize: 16,
+      fields: [
+        { name: 'previous_entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

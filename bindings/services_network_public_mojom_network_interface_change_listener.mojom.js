@@ -9,6 +9,76 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: IfAddrMsg
+network.mojom.IfAddrMsgSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.IfAddrMsg',
+      packedSize: 16,
+      fields: [
+        { name: 'ifa_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: AddressMap
+network.mojom.AddressMapSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.AddressMap',
+      packedSize: 16,
+      fields: [
+        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: OnlineLinks
+network.mojom.OnlineLinksSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.OnlineLinks',
+      packedSize: 16,
+      fields: [
+        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: InitialAddressMap
+network.mojom.InitialAddressMapSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.InitialAddressMap',
+      packedSize: 16,
+      fields: [
+        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: NetworkInterfaceChangeParams
+network.mojom.NetworkInterfaceChangeParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkInterfaceChangeParams',
+      packedSize: 16,
+      fields: [
+        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NetworkInterfaceChangeListener
 network.mojom.NetworkInterfaceChangeListener = {};
 

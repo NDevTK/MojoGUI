@@ -24,3 +24,16 @@ blink.mojom.QuotaStatusCode = {
   kErrorAbort: 4,
   kUnknown: 5,
 };
+
+// Struct: UsageBreakdown
+blink.mojom.UsageBreakdownSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.UsageBreakdown',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

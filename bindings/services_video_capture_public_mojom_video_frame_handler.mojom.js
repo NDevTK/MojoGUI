@@ -9,6 +9,20 @@ var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
 
 
+// Struct: ReadyFrameInBuffer
+video_capture.mojom.ReadyFrameInBufferSpec = {
+  $: {
+    structSpec: {
+      name: 'video_capture.mojom.ReadyFrameInBuffer',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: VideoFrameAccessHandler
 video_capture.mojom.VideoFrameAccessHandler = {};
 

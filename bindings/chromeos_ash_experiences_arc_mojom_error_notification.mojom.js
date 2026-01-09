@@ -14,6 +14,20 @@ arc.mojom.ErrorType = {
   ANR: 0,
 };
 
+// Struct: ErrorDetails
+arc.mojom.ErrorDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ErrorDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'buttonLabels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ErrorNotificationHost
 arc.mojom.ErrorNotificationHost = {};
 

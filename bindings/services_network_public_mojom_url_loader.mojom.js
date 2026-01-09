@@ -9,6 +9,20 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Struct: URLLoaderClientEndpoints
+network.mojom.URLLoaderClientEndpointsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.URLLoaderClientEndpoints',
+      packedSize: 16,
+      fields: [
+        { name: 'url_loader_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: URLLoader
 network.mojom.URLLoader = {};
 

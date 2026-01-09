@@ -8,3 +8,17 @@
 var url = url || {};
 url.mojom = url.mojom || {};
 
+
+// Struct: Url
+url.mojom.UrlSpec = {
+  $: {
+    structSpec: {
+      name: 'url.mojom.Url',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

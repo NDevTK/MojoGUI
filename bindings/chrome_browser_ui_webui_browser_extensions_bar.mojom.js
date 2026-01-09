@@ -9,6 +9,20 @@ var extensions_bar = extensions_bar || {};
 extensions_bar.mojom = extensions_bar.mojom || {};
 
 
+// Struct: ExtensionActionInfo
+extensions_bar.mojom.ExtensionActionInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.ExtensionActionInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'data_url_for_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: PageHandlerFactory
 extensions_bar.mojom.PageHandlerFactory = {};
 

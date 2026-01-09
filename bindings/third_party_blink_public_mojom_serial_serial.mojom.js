@@ -9,6 +9,34 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Struct: SerialPortInfo
+blink.mojom.SerialPortInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SerialPortInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'connected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SerialPortFilter
+blink.mojom.SerialPortFilterSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SerialPortFilter',
+      packedSize: 16,
+      fields: [
+        { name: 'bluetooth_service_class_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: SerialService
 blink.mojom.SerialService = {};
 

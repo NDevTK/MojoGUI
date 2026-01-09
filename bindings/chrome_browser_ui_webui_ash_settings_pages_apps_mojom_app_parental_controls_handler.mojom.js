@@ -18,6 +18,20 @@ ash.settings.app_parental_controls.mojom.PinValidationResult = {
   kPinNumericError: 2,
 };
 
+// Struct: App
+ash.settings.app_parental_controls.mojom.AppSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.app_parental_controls.mojom.App',
+      packedSize: 16,
+      fields: [
+        { name: 'is_blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: AppParentalControlsHandler
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
 

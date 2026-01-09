@@ -34,3 +34,31 @@ ntp.most_relevant_tab_resumption.mojom.VisitSource = {
   kTab: 0,
   kHistory: 1,
 };
+
+// Struct: Decoration
+ntp.most_relevant_tab_resumption.mojom.DecorationSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.most_relevant_tab_resumption.mojom.Decoration',
+      packedSize: 16,
+      fields: [
+        { name: 'display_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: URLVisit
+ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.most_relevant_tab_resumption.mojom.URLVisit',
+      packedSize: 16,
+      fields: [
+        { name: 'training_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

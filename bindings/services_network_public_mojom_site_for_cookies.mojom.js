@@ -8,3 +8,17 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+
+// Struct: SiteForCookies
+network.mojom.SiteForCookiesSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SiteForCookies',
+      packedSize: 16,
+      fields: [
+        { name: 'schemefully_same', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

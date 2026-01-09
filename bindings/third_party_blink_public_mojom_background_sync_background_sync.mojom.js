@@ -39,6 +39,33 @@ blink.mojom.BackgroundSyncType = {
   PERIODIC: 1,
 };
 
+// Struct: SyncRegistrationOptions
+blink.mojom.SyncRegistrationOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SyncRegistrationOptions',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: BackgroundSyncRegistrationInfo
+blink.mojom.BackgroundSyncRegistrationInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BackgroundSyncRegistrationInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'sync_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: OneShotBackgroundSyncService
 blink.mojom.OneShotBackgroundSyncService = {};
 

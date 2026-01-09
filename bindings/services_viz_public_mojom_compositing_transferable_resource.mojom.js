@@ -35,3 +35,31 @@ viz.mojom.ResourceSource = {
   kVideo: 14,
   kWebGPUSwapBuffer: 15,
 };
+
+// Struct: MetadataOverride
+viz.mojom.MetadataOverrideSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.MetadataOverride',
+      packedSize: 16,
+      fields: [
+        { name: 'alpha_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: TransferableResource
+viz.mojom.TransferableResourceSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.TransferableResource',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata_override', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};

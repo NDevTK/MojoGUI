@@ -21,6 +21,34 @@ network.mojom.RestrictedCookieManagerRole = {
   NETWORK: 1,
 };
 
+// Struct: CookieManagerGetOptions
+network.mojom.CookieManagerGetOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieManagerGetOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'match_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CookiesResponse
+network.mojom.CookiesResponseSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookiesResponse',
+      packedSize: 16,
+      fields: [
+        { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: RestrictedCookieManager
 network.mojom.RestrictedCookieManager = {};
 

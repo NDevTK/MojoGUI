@@ -24,6 +24,34 @@ arc.mojom.WebApkInstallResult = {
   kErrorNotGoogleSigned: 10,
 };
 
+// Struct: WebShareTargetInfo
+arc.mojom.WebShareTargetInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WebShareTargetInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'file_accepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: WebApkInfo
+arc.mojom.WebApkInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WebApkInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'share_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: WebApkInstance
 arc.mojom.WebApkInstance = {};
 

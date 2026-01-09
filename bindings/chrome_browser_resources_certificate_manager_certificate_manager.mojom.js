@@ -26,6 +26,34 @@ certificate_manager.mojom.SuccessResult = {
   kSuccess: 0,
 };
 
+// Struct: SummaryCertInfo
+certificate_manager.mojom.SummaryCertInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.SummaryCertInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_deletable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: CertManagementMetadata
+certificate_manager.mojom.CertManagementMetadataSpec = {
+  $: {
+    structSpec: {
+      name: 'certificate_manager.mojom.CertManagementMetadata',
+      packedSize: 16,
+      fields: [
+        { name: 'show_user_certs_ui', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CertificateManagerPageHandlerFactory
 certificate_manager.mojom.CertificateManagerPageHandlerFactory = {};
 

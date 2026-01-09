@@ -9,6 +9,20 @@ var legion = legion || {};
 legion.mojom = legion.mojom || {};
 
 
+// Struct: HandshakeMessage
+legion.mojom.HandshakeMessageSpec = {
+  $: {
+    structSpec: {
+      name: 'legion.mojom.HandshakeMessage',
+      packedSize: 16,
+      fields: [
+        { name: 'ciphertext', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: OakSession
 legion.mojom.OakSession = {};
 

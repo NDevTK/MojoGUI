@@ -10,6 +10,20 @@ ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
 
 
+// Struct: Status
+ash.ime.mojom.StatusSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.Status',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InputMethodUserDataService
 ash.ime.mojom.InputMethodUserDataService = {};
 

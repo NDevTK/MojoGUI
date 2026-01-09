@@ -16,6 +16,19 @@ drivefs.mojom.ExtensionConnectionStatus = {
   kFeatureNotEnabled: 2,
 };
 
+// Struct: ExtensionConnectionParams
+drivefs.mojom.ExtensionConnectionParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'drivefs.mojom.ExtensionConnectionParams',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: NativeMessagingPort
 drivefs.mojom.NativeMessagingPort = {};
 

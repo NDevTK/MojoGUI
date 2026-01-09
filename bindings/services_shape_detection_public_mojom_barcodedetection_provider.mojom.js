@@ -9,6 +9,20 @@ var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
 
 
+// Struct: BarcodeDetectorOptions
+shape_detection.mojom.BarcodeDetectorOptionsSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.BarcodeDetectorOptions',
+      packedSize: 16,
+      fields: [
+        { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BarcodeDetectionProvider
 shape_detection.mojom.BarcodeDetectionProvider = {};
 

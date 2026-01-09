@@ -9,6 +9,62 @@ var user_data_importer = user_data_importer || {};
 user_data_importer.mojom = user_data_importer.mojom || {};
 
 
+// Struct: ImportedBookmarkEntry
+user_data_importer.mojom.ImportedBookmarkEntrySpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.ImportedBookmarkEntry',
+      packedSize: 16,
+      fields: [
+        { name: 'in_toolbar', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: SearchEngineInfo
+user_data_importer.mojom.SearchEngineInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.SearchEngineInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: FaviconUsageData
+user_data_importer.mojom.FaviconUsageDataSpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.FaviconUsageData',
+      packedSize: 16,
+      fields: [
+        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ParsedBookmarks
+user_data_importer.mojom.ParsedBookmarksSpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.ParsedBookmarks',
+      packedSize: 16,
+      fields: [
+        { name: 'favicons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: BookmarkHtmlParser
 user_data_importer.mojom.BookmarkHtmlParser = {};
 

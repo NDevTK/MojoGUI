@@ -26,6 +26,34 @@ blink.mojom.ContentCategory = {
   AUDIO: 4,
 };
 
+// Struct: ContentIconDefinition
+blink.mojom.ContentIconDefinitionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContentIconDefinition',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ContentDescription
+blink.mojom.ContentDescriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContentDescription',
+      packedSize: 16,
+      fields: [
+        { name: 'launch_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: ContentIndexService
 blink.mojom.ContentIndexService = {};
 

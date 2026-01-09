@@ -9,6 +9,62 @@ var commerce = commerce || {};
 commerce.mojom = commerce.mojom || {};
 
 
+// Struct: EligibilityDetail
+commerce.mojom.EligibilityDetailSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.EligibilityDetail',
+      packedSize: 16,
+      fields: [
+        { name: 'expected_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ShoppingEligibilityDetails
+commerce.mojom.ShoppingEligibilityDetailsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.ShoppingEligibilityDetails',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: Subscription
+commerce.mojom.SubscriptionSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.Subscription',
+      packedSize: 16,
+      fields: [
+        { name: 'product_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
+// Struct: ProductSpecificationsSet
+commerce.mojom.ProductSpecificationsSetSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce.mojom.ProductSpecificationsSet',
+      packedSize: 16,
+      fields: [
+        { name: 'url_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: CommerceInternalsHandlerFactory
 commerce.mojom.CommerceInternalsHandlerFactory = {};
 

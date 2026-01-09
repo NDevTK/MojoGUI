@@ -24,6 +24,20 @@ device.mojom.InputDeviceType = {
   TYPE_UNKNOWN: 3,
 };
 
+// Struct: InputDeviceInfo
+device.mojom.InputDeviceInfoSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.InputDeviceInfo',
+      packedSize: 16,
+      fields: [
+        { name: 'is_touchscreen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+};
+
 // Interface: InputDeviceManagerClient
 device.mojom.InputDeviceManagerClient = {};
 
