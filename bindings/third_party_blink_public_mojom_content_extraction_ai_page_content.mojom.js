@@ -11,68 +11,26 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AIPageContentAttributeType
 blink.mojom.AIPageContentAttributeType = {
-  kRoot: 0,
-  kIframe: 1,
-  kContainer: 2,
-  kAnchor: 3,
-  kParagraph: 4,
-  kHeading: 5,
-  kCanvas: 6,
-  kVideo: 7,
-  kFormControl: 8,
-  kTable: 9,
-  kTableRow: 10,
-  kTableCell: 11,
-  kOrderedList: 12,
-  kUnorderedList: 13,
-  kListItem: 14,
 };
 
 // Enum: AIPageContentAnnotatedRole
 blink.mojom.AIPageContentAnnotatedRole = {
-  kHeader: 0,
-  kNav: 1,
-  kSearch: 2,
-  kMain: 3,
-  kArticle: 4,
-  kSection: 5,
-  kAside: 6,
-  kFooter: 7,
-  kContentHidden: 8,
-  kPaidContent: 9,
 };
 
 // Enum: AIPageContentClickabilityReason
 blink.mojom.AIPageContentClickabilityReason = {
-  keypress: 0,
-  keyup: 1,
-  as: 2,
 };
 
 // Enum: AIPageContentInteractionDisabledReason
 blink.mojom.AIPageContentInteractionDisabledReason = {
-  kDisabled: 0,
-  kAriaDisabled: 1,
-  kCursorNotAllowed: 2,
 };
 
 // Enum: AIPageContentTextSize
 blink.mojom.AIPageContentTextSize = {
-  kXS: 0,
-  kS: 1,
-  kM: 2,
-  kL: 3,
-  kXL: 4,
 };
 
 // Enum: AIPageContentAnchorRel
 blink.mojom.AIPageContentAnchorRel = {
-  kRelationUnknown: 0,
-  kRelationNoReferrer: 1,
-  kRelationNoOpener: 2,
-  kRelationOpener: 3,
-  kRelationPrivacyPolicy: 4,
-  kRelationTermsOfService: 5,
 };
 
 // Enum: Reason
@@ -81,14 +39,10 @@ blink.mojom.Reason = {
 
 // Enum: AIPageContentTableRowType
 blink.mojom.AIPageContentTableRowType = {
-  kHeader: 0,
-  kBody: 1,
-  kFooter: 2,
 };
 
 // Enum: AIPageContentRedactionDecision
 blink.mojom.AIPageContentRedactionDecision = {
-  kNoRedactionNecessary: 0,
 };
 
 // Enum: AIPageContentMode
@@ -98,7 +52,6 @@ blink.mojom.AIPageContentMode = {
 // Struct: AIPageContentGeometry
 blink.mojom.AIPageContentGeometry = class {
   constructor(values = {}) {
-    this.hit-testable = values.hit-testable !== undefined ? values.hit-testable : null;
     this.visible_bounding_box = values.visible_bounding_box !== undefined ? values.visible_bounding_box : null;
     this.lines = values.lines !== undefined ? values.lines : null;
     this.layout = values.layout !== undefined ? values.layout : null;
@@ -133,7 +86,6 @@ blink.mojom.AIPageContentNodeInteractionInfo = class {
   constructor(values = {}) {
     this.is_focusable = values.is_focusable !== undefined ? values.is_focusable : false;
     this.clickability_reasons = values.clickability_reasons !== undefined ? values.clickability_reasons : 0;
-    this.`aria-disabled` = values.`aria-disabled` !== undefined ? values.`aria-disabled` : null;
     this.interaction_disabled_reasons = values.interaction_disabled_reasons !== undefined ? values.interaction_disabled_reasons : 0;
   }
 };
@@ -299,7 +251,6 @@ blink.mojom.AIPageContent = class {
 blink.mojom.AIPageContentOptions = class {
   constructor(values = {}) {
     this.mode = values.mode !== undefined ? values.mode : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.false = values.false !== undefined ? values.false : false;
   }
 };

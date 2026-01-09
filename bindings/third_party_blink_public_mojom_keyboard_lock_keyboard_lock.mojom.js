@@ -11,18 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: KeyboardLockRequestResult
 blink.mojom.KeyboardLockRequestResult = {
-  kSuccess: 0,
-  kFrameDetachedError: 1,
-  kNoValidKeyCodesError: 2,
-  kChildFrameError: 3,
-  kRequestFailedError: 4,
 };
 
 // Enum: GetKeyboardLayoutMapStatus
 blink.mojom.GetKeyboardLayoutMapStatus = {
-  kSuccess: 0,
-  kFail: 1,
-  kDenied: 2,
 };
 
 // Struct: GetKeyboardLayoutMapResult

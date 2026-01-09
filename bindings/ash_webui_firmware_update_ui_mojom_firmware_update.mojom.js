@@ -12,21 +12,10 @@ ash.firmware_update.mojom = ash.firmware_update.mojom || {};
 
 // Enum: UpdatePriority
 ash.firmware_update.mojom.UpdatePriority = {
-  kLow: 0,
-  kMedium: 1,
-  kHigh: 2,
-  kCritical: 3,
 };
 
 // Enum: UpdateState
 ash.firmware_update.mojom.UpdateState = {
-  kUnknown: 0,
-  kIdle: 1,
-  kUpdating: 2,
-  kRestarting: 3,
-  kFailed: 4,
-  kSuccess: 5,
-  kWaitingForUser: 6,
 };
 
 // Enum: DeviceRequestId
@@ -35,7 +24,6 @@ ash.firmware_update.mojom.DeviceRequestId = {
 
 // Enum: DeviceRequestKind
 ash.firmware_update.mojom.DeviceRequestKind = {
-  so: 0,
 };
 
 // Struct: FirmwareUpdate

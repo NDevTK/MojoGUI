@@ -11,11 +11,6 @@ network.mojom = network.mojom || {};
 
 // Enum: NetLogCaptureMode
 network.mojom.NetLogCaptureMode = {
-  but: 0,
-  but: 1,
-  and: 2,
-  but: 3,
-  even: 4,
 };
 
 // Enum: NetLogEventPhase

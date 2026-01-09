@@ -11,17 +11,10 @@ network.mojom = network.mojom || {};
 
 // Enum: HttpCacheBackendOpenFileFlags
 network.mojom.HttpCacheBackendOpenFileFlags = {
-  kOpenAndRead: 0,
-  kCreateAndWrite: 1,
-  kOpenReadWriteWinShareDelete: 2,
-  kCreateReadWriteWinShareDelete: 3,
-  kCreateAlwaysWriteWinShareDelete: 4,
-  kOpenReadWinShareDeleteWinSequentialScan: 5,
 };
 
 // Enum: HttpCacheBackendDeleteFileMode
 network.mojom.HttpCacheBackendDeleteFileMode = {
-  meaning: 0,
 };
 
 // Struct: FileEnumerationEntry

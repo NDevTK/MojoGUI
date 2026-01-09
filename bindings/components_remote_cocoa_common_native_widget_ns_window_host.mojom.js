@@ -11,10 +11,6 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 // Enum: HitTestResult
 remote_cocoa.mojom.HitTestResult = {
-  then: 0,
-  this: 1,
-  traffic: 2,
-  etc: 3,
 };
 
 // Struct: ValidateUserInterfaceItemResult

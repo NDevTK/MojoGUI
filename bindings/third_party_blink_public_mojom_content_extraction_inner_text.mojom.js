@@ -11,7 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: NodeLocationType
 blink.mojom.NodeLocationType = {
-  kStart: 0,
 };
 
 // Struct: InnerTextFrame
@@ -28,7 +27,6 @@ blink.mojom.InnerTextParams = class {
     this.collecting = values.collecting !== undefined ? values.collecting : null;
     this.max_words_per_aggregate_passage = values.max_words_per_aggregate_passage !== undefined ? values.max_words_per_aggregate_passage : 0;
     this.collecting = values.collecting !== undefined ? values.collecting : null;
-    this.parameter: = values.parameter: !== undefined ? values.parameter: : null;
     this.under = values.under !== undefined ? values.under : 0;
     this.greedily_aggregate_sibling_nodes = values.greedily_aggregate_sibling_nodes !== undefined ? values.greedily_aggregate_sibling_nodes : false;
     this.extraction = values.extraction !== undefined ? values.extraction : null;

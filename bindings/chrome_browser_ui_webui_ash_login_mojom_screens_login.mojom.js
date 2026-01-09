@@ -12,21 +12,10 @@ ash.screens_login.mojom = ash.screens_login.mojom || {};
 
 // Enum: ArcVmUIState
 ash.screens_login.mojom.ArcVmUIState = {
-  kLoading: 0,
-  kWelcome: 1,
-  kResume: 2,
-  kProgress: 3,
-  kSuccess: 4,
-  kFailure: 5,
 };
 
 // Enum: UIState
 ash.screens_login.mojom.UIState = {
-  kInitial: 0,
-  kReady: 1,
-  kMigrating: 2,
-  kMigratingFailed: 3,
-  kNotEnoughStorage: 4,
 };
 
 // Interface: ArcVmDataMigrationPageHandler

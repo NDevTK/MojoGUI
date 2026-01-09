@@ -33,8 +33,7 @@ payments.mojom.HasEnrolledInstrumentQueryResult = {
   HAS_ENROLLED_INSTRUMENT: 0,
   HAS_NO_ENROLLED_INSTRUMENT: 1,
   QUERY_QUOTA_EXCEEDED: 2,
-
-  WARNING_HAS_NO_ENROLLED_INSTRUMENT: 4,
+  WARNING_HAS_NO_ENROLLED_INSTRUMENT: 3,
 };
 
 // Enum: AndroidPayEnvironment
@@ -73,7 +72,8 @@ payments.mojom.PaymentComplete = {
 payments.mojom.PaymentResponse = class {
   constructor(values = {}) {
     this.method_name = values.method_name !== undefined ? values.method_name : "";
-    this.stringified_details = values.stringified_details !== undefined ? values.stringified_details : "";
+    this.can = values.can !== undefined ? values.can : "";
+    this.be = values.be !== undefined ? values.be : null;
   }
 };
 

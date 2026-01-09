@@ -12,7 +12,6 @@ blink.mojom = blink.mojom || {};
 // Struct: HitTestResponse
 blink.mojom.HitTestResponse = class {
   constructor(values = {}) {
-    this.(See = values.(See !== undefined ? values.(See : null;
     this.stitched_child_tree_id = values.stitched_child_tree_id !== undefined ? values.stitched_child_tree_id : null;
     this.hit_frame_token = values.hit_frame_token !== undefined ? values.hit_frame_token : null;
     this.for = values.for !== undefined ? values.for : null;

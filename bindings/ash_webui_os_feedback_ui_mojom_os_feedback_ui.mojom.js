@@ -16,12 +16,10 @@ ash.os_feedback_ui.mojom.HelpContentType = {
 
 // Enum: SendReportStatus
 ash.os_feedback_ui.mojom.SendReportStatus = {
-  the: 0,
 };
 
 // Enum: FeedbackAppPostSubmitAction
 ash.os_feedback_ui.mojom.FeedbackAppPostSubmitAction = {
-  you: 0,
 };
 
 // Enum: FeedbackAppPreSubmitAction

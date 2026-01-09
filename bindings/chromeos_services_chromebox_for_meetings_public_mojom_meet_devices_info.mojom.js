@@ -13,14 +13,12 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 // Struct: PolicyInfo
 chromeos.cfm.mojom.PolicyInfo = class {
   constructor(values = {}) {
-    this.release_channel_delegated@6 = values.release_channel_delegated@6 !== undefined ? values.release_channel_delegated@6 : 0;
   }
 };
 
 // Struct: SysInfo
 chromeos.cfm.mojom.SysInfo = class {
   constructor(values = {}) {
-    this.release_board@7 = values.release_board@7 !== undefined ? values.release_board@7 : "";
   }
 };
 

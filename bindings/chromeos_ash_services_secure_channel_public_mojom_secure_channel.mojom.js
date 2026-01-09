@@ -12,13 +12,7 @@ ash.secure_channel.mojom = ash.secure_channel.mojom || {};
 
 // Enum: ConnectionAttemptFailureReason
 ash.secure_channel.mojom.ConnectionAttemptFailureReason = {
-  but: 0,
-  dropped: 1,
-  or: 2,
-  but: 3,
-  Nearby: 4,
-  not: 5,
-  but: 6,
+  N: 0,
 };
 
 // Enum: ConnectionCreationDetail
@@ -29,15 +23,10 @@ ash.secure_channel.mojom.ConnectionCreationDetail = {
 
 // Enum: ConnectionPriority
 ash.secure_channel.mojom.ConnectionPriority = {
-  background: 0,
-  heartbeat: 1,
-  the: 2,
 };
 
 // Enum: ConnectionMedium
 ash.secure_channel.mojom.ConnectionMedium = {
-  which: 0,
-  then: 1,
 };
 
 // Enum: DiscoveryResult
@@ -46,33 +35,10 @@ ash.secure_channel.mojom.DiscoveryResult = {
 
 // Enum: DiscoveryErrorCode
 ash.secure_channel.mojom.DiscoveryErrorCode = {
-  kBluetoothTurnedOff: 0,
-  kFilterCreationFailed: 1,
-  kErrorStartingDiscovery: 2,
-  kBleSessionInvalidated: 3,
-  kDeviceNotInScanRequest: 4,
-  kTimeout: 5,
 };
 
 // Enum: SecureChannelState
 ash.secure_channel.mojom.SecureChannelState = {
-  kGeneratingSessionKeys: 0,
-  kSendingHello: 1,
-  kSentHello: 2,
-  kReceivedResponderAuth: 3,
-  kValidatedResponderAuth: 4,
-  kSentInitiatorAuth: 5,
-  kAuthenticationSuccess: 6,
-  kFailureNotConnectedToRemoteDevice: 7,
-  kFailedToGenerateSessionKeys: 8,
-  kFailedToGenerateHelloMessage: 9,
-  kFailedToSendHelloMessage: 10,
-  kFailedToWaitForResponderAuth: 11,
-  kReceivedUnexpectedMessage: 12,
-  kFailedToValidateReponderAuth: 13,
-  kFailedToGenerateInitiatorAuth: 14,
-  kFailedToSendInitiatorAuth: 15,
-  kFailureDisconnectDuringAuthentication: 16,
 };
 
 // Struct: BluetoothConnectionMetadata

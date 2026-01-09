@@ -13,24 +13,18 @@ chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 // Struct: ExtensionData
 chromeos.cfm.mojom.ExtensionData = class {
   constructor(values = {}) {
-    this.description@4 = values.description@4 !== undefined ? values.description@4 : "";
   }
 };
 
 // Struct: ProcessMemoryInformation
 chromeos.cfm.mojom.ProcessMemoryInformation = class {
   constructor(values = {}) {
-    this.num_processes@3 = values.num_processes@3 !== undefined ? values.num_processes@3 : 0;
-    this.open_fds_soft_limit@6 = values.open_fds_soft_limit@6 !== undefined ? values.open_fds_soft_limit@6 : 0;
-    this.renderer_type@7 = values.renderer_type@7 !== undefined ? values.renderer_type@7 : "";
-    this.extension_info@10 = values.extension_info@10 !== undefined ? values.extension_info@10 : 0;
   }
 };
 
 // Struct: ProcessData
 chromeos.cfm.mojom.ProcessData = class {
   constructor(values = {}) {
-    this.processes@2 = values.processes@2 !== undefined ? values.processes@2 : "";
   }
 };
 

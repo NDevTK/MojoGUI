@@ -16,9 +16,6 @@ ash.settings.mojom.SearchResultType = {
 
 // Enum: SearchResultDefaultRank
 ash.settings.mojom.SearchResultDefaultRank = {
-  kHigh: 0,
-  kMedium: 1,
-  kLow: 2,
 };
 
 // Enum: ParentResultBehavior

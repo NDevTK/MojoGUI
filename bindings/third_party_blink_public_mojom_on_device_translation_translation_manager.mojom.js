@@ -11,22 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: CanCreateTranslatorResult
 blink.mojom.CanCreateTranslatorResult = {
-  but: 0,
-  but: 1,
-  because: 2,
-  because: 3,
-  because: 4,
-  because: 5,
 };
 
 // Enum: CreateTranslatorError
 blink.mojom.CreateTranslatorError = {
-  because: 0,
-  because: 1,
-  because: 2,
-  because: 3,
-  because: 4,
-  because: 5,
 };
 
 // Struct: TranslatorLanguageCode

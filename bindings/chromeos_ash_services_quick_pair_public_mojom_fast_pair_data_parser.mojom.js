@@ -16,9 +16,6 @@ ash.quick_pair.mojom.MessageType = {
 
 // Enum: Acknowledgement
 ash.quick_pair.mojom.Acknowledgement = {
-  not: 0,
-  device: 1,
-  not: 2,
 };
 
 // Enum: MessageGroup

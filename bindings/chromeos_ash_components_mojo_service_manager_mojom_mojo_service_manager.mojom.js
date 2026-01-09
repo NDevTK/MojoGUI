@@ -16,22 +16,17 @@ chromeos.mojo_service_manager.mojom.Type = {
 
 // Enum: ErrorCode
 chromeos.mojo_service_manager.mojom.ErrorCode = {
-  all: 0,
-  if: 1,
-  the: 2,
 };
 
 // Struct: ProcessIdentity
 chromeos.mojo_service_manager.mojom.ProcessIdentity = class {
   constructor(values = {}) {
-    this.gid@3 = values.gid@3 !== undefined ? values.gid@3 : 0;
   }
 };
 
 // Struct: RegisteredServiceState
 chromeos.mojo_service_manager.mojom.RegisteredServiceState = class {
   constructor(values = {}) {
-    this.owner@0 = values.owner@0 !== undefined ? values.owner@0 : null;
   }
 };
 
@@ -51,7 +46,6 @@ chromeos.mojo_service_manager.mojom.ServiceEvent = class {
 // Struct: Error
 chromeos.mojo_service_manager.mojom.Error = class {
   constructor(values = {}) {
-    this.message@1 = values.message@1 !== undefined ? values.message@1 : "";
   }
 };
 

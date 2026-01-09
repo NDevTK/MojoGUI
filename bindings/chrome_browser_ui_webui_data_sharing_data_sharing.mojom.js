@@ -11,20 +11,10 @@ data_sharing.mojom = data_sharing.mojom || {};
 
 // Enum: GroupAction
 data_sharing.mojom.GroupAction = {
-  kUnknown: 0,
-  kJoinGroup: 1,
-  kDeleteGroup: 2,
-  kLeaveGroup: 3,
-  kKeepGroup: 4,
-  kStopSharing: 5,
 };
 
 // Enum: GroupActionProgress
 data_sharing.mojom.GroupActionProgress = {
-  kUnknown: 0,
-  kStarted: 1,
-  kFailed: 2,
-  kSuccess: 3,
 };
 
 // Struct: ReadGroupsParams

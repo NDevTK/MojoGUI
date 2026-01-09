@@ -11,18 +11,11 @@ global_media_controls.mojom = global_media_controls.mojom || {};
 
 // Enum: IconType
 global_media_controls.mojom.IconType = {
-  kUnknown: 0,
-  kThrobber: 1,
-  kInfo: 2,
-  kTv: 3,
-  kSpeaker: 4,
-  kSpeakerGroup: 5,
 };
 
 // Struct: Device
 global_media_controls.mojom.Device = class {
   constructor(values = {}) {
-    this.icon@3 = values.icon@3 !== undefined ? values.icon@3 : "";
   }
 };
 

@@ -11,8 +11,6 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: Scheme
 chrome.mojom.Scheme = {
-  kHtml: 0,
-  kBasic: 1,
 };
 
 // Struct: ImportedPasswordForm

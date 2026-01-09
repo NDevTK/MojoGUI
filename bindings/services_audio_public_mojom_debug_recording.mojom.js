@@ -11,9 +11,6 @@ audio.mojom = audio.mojom || {};
 
 // Enum: DebugRecordingStreamType
 audio.mojom.DebugRecordingStreamType = {
-  kInput: 0,
-  kOutput: 1,
-  kLoopback: 2,
 };
 
 // Interface: DebugRecordingFileProvider

@@ -17,13 +17,11 @@ network.mojom.UDPSocketOptions = class {
     this.false = values.false !== undefined ? values.false : false;
     this.socket = values.socket !== undefined ? values.socket : null;
     this.false = values.false !== undefined ? values.false : false;
-    this.1 = values.1 !== undefined ? values.1 : 0;
     this.to = values.to !== undefined ? values.to : null;
     this.off = values.off !== undefined ? values.off : null;
     this.true = values.true !== undefined ? values.true : false;
     this.kernel = values.kernel !== undefined ? values.kernel : null;
     this.case = values.case !== undefined ? values.case : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.case = values.case !== undefined ? values.case : null;
     this.ipv6_only = values.ipv6_only !== undefined ? values.ipv6_only : 0;
   }

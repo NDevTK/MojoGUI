@@ -12,35 +12,10 @@ ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
 // Enum: RoutineType
 ash.diagnostics.mojom.RoutineType = {
-  kBatteryCharge: 0,
-  kBatteryDischarge: 1,
-  kCpuCache: 2,
-  kCpuStress: 3,
-  kCpuFloatingPoint: 4,
-  kCpuPrime: 5,
-  kMemory: 6,
-  kLanConnectivity: 7,
-  kSignalStrength: 8,
-  kGatewayCanBePinged: 9,
-  kHasSecureWiFiConnection: 10,
-  kDnsResolverPresent: 11,
-  kDnsLatency: 12,
-  kDnsResolution: 13,
-  kCaptivePortal: 14,
-  kHttpFirewall: 15,
-  kHttpsFirewall: 16,
-  kHttpsLatency: 17,
-  kArcHttp: 18,
-  kArcPing: 19,
-  kArcDnsResolution: 20,
 };
 
 // Enum: StandardRoutineResult
 ash.diagnostics.mojom.StandardRoutineResult = {
-  kTestPassed: 0,
-  kTestFailed: 1,
-  kExecutionError: 2,
-  kUnableToRun: 3,
 };
 
 // Struct: PowerRoutineResult

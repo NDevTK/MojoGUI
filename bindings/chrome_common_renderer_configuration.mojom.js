@@ -11,14 +11,7 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: ResumeBlockedRequestsTrigger
 chrome.mojom.ResumeBlockedRequestsTrigger = {
-  kObservedFreshCookies: 0,
-  kCookieRefreshFetchSuccess: 1,
-  kCookieRefreshFetchFailure: 2,
-  Deprecated: 3,
-  kShutdownOrSessionTermination: 4,
-  kCookieAlreadyFresh: 5,
-  kRendererDisconnected: 6,
-  kThrottlingRequestsPaused: 7,
+  D: 0,
 };
 
 // Struct: BoundSessionThrottlerParams

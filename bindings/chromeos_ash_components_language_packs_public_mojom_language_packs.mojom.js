@@ -12,7 +12,6 @@ ash.language.mojom = ash.language.mojom || {};
 
 // Enum: FeatureId
 ash.language.mojom.FeatureId = {
-  not: 0,
 };
 
 // Enum: PackState
@@ -20,16 +19,11 @@ ash.language.mojom.PackState = {
   NOT_INSTALLED: 0,
   INSTALLING: 1,
   INSTALLED: 2,
-  Default: 3,
+  D: 3,
 };
 
 // Enum: ErrorCode
 ash.language.mojom.ErrorCode = {
-  kNone: 0,
-  kOther: 1,
-  kWrongId: 2,
-  kNeedReboot: 3,
-  kAllocation: 4,
 };
 
 // Struct: LanguagePackInfo

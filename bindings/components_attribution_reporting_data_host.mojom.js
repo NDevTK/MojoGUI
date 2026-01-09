@@ -11,8 +11,6 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 // Enum: DataAvailableCallsite
 attribution_reporting.mojom.DataAvailableCallsite = {
-  kBlink: 0,
-  kBrowser: 1,
 };
 
 // Interface: DataHost

@@ -11,12 +11,10 @@ storage.mojom = storage.mojom || {};
 
 // Enum: BlobDataItemType
 storage.mojom.BlobDataItemType = {
-  kUnknown: 0,
 };
 
 // Enum: WriteBlobToFileResult
 storage.mojom.WriteBlobToFileResult = {
-  kError: 0,
 };
 
 // Struct: BlobDataItem

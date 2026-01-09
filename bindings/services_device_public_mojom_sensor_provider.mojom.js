@@ -17,26 +17,20 @@ device.mojom.SensorCreationResult = {
 
 // Enum: CreateVirtualSensorResult
 device.mojom.CreateVirtualSensorResult = {
-  kSuccess: 0,
-  kSensorTypeAlreadyOverridden: 1,
 };
 
 // Enum: UpdateVirtualSensorResult
 device.mojom.UpdateVirtualSensorResult = {
-  kSuccess: 0,
-  kSensorTypeNotOverridden: 1,
 };
 
 // Enum: GetVirtualSensorInformationError
 device.mojom.GetVirtualSensorInformationError = {
-  kSensorTypeNotOverridden: 0,
 };
 
 // Struct: SensorInitParams
 device.mojom.SensorInitParams = class {
   constructor(values = {}) {
     this.minimum_frequency = values.minimum_frequency !== undefined ? values.minimum_frequency : 0;
-    this.48 = values.48 !== undefined ? values.48 : 0;
   }
 };
 

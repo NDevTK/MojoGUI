@@ -11,8 +11,6 @@ viz.mojom = viz.mojom || {};
 
 // Enum: Type
 viz.mojom.Type = {
-  kCreate: 0,
-  kDelete: 1,
 };
 
 // Struct: TransferableUIResourceRequest

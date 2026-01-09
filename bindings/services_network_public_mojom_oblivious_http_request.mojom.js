@@ -28,7 +28,6 @@ network.mojom.ObliviousHttpResponse = class {
 network.mojom.ObliviousHttpPaddingParameters = class {
   constructor(values = {}) {
     this.exponential_mean = values.exponential_mean !== undefined ? values.exponential_mean : 0;
-    this.added. = values.added. !== undefined ? values.added. : null;
     this.pad_to_next_power_of_two = values.pad_to_next_power_of_two !== undefined ? values.pad_to_next_power_of_two : false;
   }
 };

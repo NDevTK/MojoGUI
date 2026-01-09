@@ -11,8 +11,6 @@ metrics.mojom = metrics.mojom || {};
 
 // Enum: ProfileType
 metrics.mojom.ProfileType = {
-  kCPU: 0,
-  kHeap: 1,
 };
 
 // Struct: SampledProfile

@@ -19,7 +19,6 @@ media.mojom.WebrtcPredictionFeatures = class {
 // Struct: WebrtcVideoStats
 media.mojom.WebrtcVideoStats = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

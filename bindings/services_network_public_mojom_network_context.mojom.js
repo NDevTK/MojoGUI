@@ -11,15 +11,10 @@ network.mojom = network.mojom || {};
 
 // Enum: TrustTokenOperationPolicyVerdict
 network.mojom.TrustTokenOperationPolicyVerdict = {
-  kForbid: 0,
-  kPotentiallyPermit: 1,
 };
 
 // Enum: SCTAuditingMode
 network.mojom.SCTAuditingMode = {
-  so: 0,
-  and: 1,
-  and: 2,
 };
 
 // Enum: DomainReliabilityClearMode
@@ -48,7 +43,6 @@ network.mojom.CertVerifierServiceRemoteParams = class {
 // Struct: HttpAuthStaticNetworkContextParams
 network.mojom.HttpAuthStaticNetworkContextParams = class {
   constructor(values = {}) {
-    this.DefaultCredentials.ALLOW_DEFAULT_CREDENTIALS = values.DefaultCredentials.ALLOW_DEFAULT_CREDENTIALS !== undefined ? values.DefaultCredentials.ALLOW_DEFAULT_CREDENTIALS : null;
   }
 };
 
@@ -60,12 +54,10 @@ network.mojom.NetworkContextFilePaths = class {
     this.no_vary_search_directory = values.no_vary_search_directory !== undefined ? values.no_vary_search_directory : null;
     this.data_directory = values.data_directory !== undefined ? values.data_directory : null;
     this.from = values.from !== undefined ? values.from : null;
-    this.true. = values.true. !== undefined ? values.true. : null;
     this.be = values.be !== undefined ? values.be : null;
     this.unsandboxed_data_path = values.unsandboxed_data_path !== undefined ? values.unsandboxed_data_path : null;
     this.cookie_database_name = values.cookie_database_name !== undefined ? values.cookie_database_name : null;
     this.device_bound_sessions_database_name = values.device_bound_sessions_database_name !== undefined ? values.device_bound_sessions_database_name : null;
-    this.`data_directory` = values.`data_directory` !== undefined ? values.`data_directory` : null;
     this.see = values.see !== undefined ? values.see : null;
     this.trust_token_database_name = values.trust_token_database_name !== undefined ? values.trust_token_database_name : null;
     this.is = values.is !== undefined ? values.is : null;
@@ -76,7 +68,6 @@ network.mojom.NetworkContextFilePaths = class {
     this.empty = values.empty !== undefined ? values.empty : null;
     this.reporting_and_nel_store_database_name = values.reporting_and_nel_store_database_name !== undefined ? values.reporting_and_nel_store_database_name : null;
     this.empty = values.empty !== undefined ? values.empty : null;
-    this.can't = values.can't !== undefined ? values.can't : null;
     this.sct_auditing_pending_reports_file_name = values.sct_auditing_pending_reports_file_name !== undefined ? values.sct_auditing_pending_reports_file_name : null;
     this.from = values.from !== undefined ? values.from : null;
     this.to = values.to !== undefined ? values.to : null;
@@ -130,7 +121,6 @@ network.mojom.NetworkContextParams = class {
     this.false = values.false !== undefined ? values.false : false;
     this.file_paths = values.file_paths !== undefined ? values.file_paths : null;
     this.false = values.false !== undefined ? values.false : false;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.false = values.false !== undefined ? values.false : false;
     this.NetworkContext = values.NetworkContext !== undefined ? values.NetworkContext : null;
     this.NetworkContext = values.NetworkContext !== undefined ? values.NetworkContext : null;
@@ -184,7 +174,6 @@ network.mojom.URLLoaderFactoryParams = class {
   constructor(values = {}) {
     this.kInvalidProcessId = values.kInvalidProcessId !== undefined ? values.kInvalidProcessId : 0;
     this.false = values.false !== undefined ? values.false : false;
-    this.isn't = values.isn't !== undefined ? values.isn't : null;
     this.Fetch = values.Fetch !== undefined ? values.Fetch : null;
     this.false = values.false !== undefined ? values.false : false;
     this.will = values.will !== undefined ? values.will : null;
@@ -194,7 +183,6 @@ network.mojom.URLLoaderFactoryParams = class {
     this.false = values.false !== undefined ? values.false : false;
     this.to = values.to !== undefined ? values.to : null;
     this.be = values.be !== undefined ? values.be : null;
-    this.non-empty = values.non-empty !== undefined ? values.non-empty : null;
     this.false = values.false !== undefined ? values.false : false;
     this.device_bound_session_observer = values.device_bound_session_observer !== undefined ? values.device_bound_session_observer : null;
     this.not = values.not !== undefined ? values.not : null;

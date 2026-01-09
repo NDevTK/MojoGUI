@@ -11,7 +11,6 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ChangeType
 arc.mojom.ChangeType = {
-  the: 0,
 };
 
 // Enum: SelectFilesActionType

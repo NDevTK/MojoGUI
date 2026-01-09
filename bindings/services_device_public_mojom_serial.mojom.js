@@ -65,7 +65,6 @@ device.mojom.SerialPortInfo = class {
     this.PLATFORM_SERIAL = values.PLATFORM_SERIAL !== undefined ? values.PLATFORM_SERIAL : null;
     this.bluetooth_service_class_id = values.bluetooth_service_class_id !== undefined ? values.bluetooth_service_class_id : 0;
     this.example = values.example !== undefined ? values.example : null;
-    this.string. = values.string. !== undefined ? values.string. : null;
     this.true = values.true !== undefined ? values.true : false;
   }
 };

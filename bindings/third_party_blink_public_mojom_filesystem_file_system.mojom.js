@@ -11,10 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: FileSystemType
 blink.mojom.FileSystemType = {
-  kTemporary: 0,
-  kPersistent: 1,
-  kIsolated: 2,
-  kExternal: 3,
 };
 
 // Struct: FileSystemInfo

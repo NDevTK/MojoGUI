@@ -12,7 +12,6 @@ blink.mojom = blink.mojom || {};
 // Struct: RequestManifestError
 blink.mojom.RequestManifestError = class {
   constructor(values = {}) {
-    this.error. = values.error. !== undefined ? values.error. : null;
     this.details = values.details !== undefined ? values.details : [];
   }
 };

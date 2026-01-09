@@ -11,29 +11,10 @@ ax.mojom = ax.mojom || {};
 
 // Enum: TtsEventType
 ax.mojom.TtsEventType = {
-  kStart: 0,
-  kEnd: 1,
-  kWord: 2,
-  kSentence: 3,
-  kMarker: 4,
-  kInterrupted: 5,
-  kCancelled: 6,
-  kError: 7,
-  kPause: 8,
-  kResume: 9,
 };
 
 // Enum: TtsError
 ax.mojom.TtsError = {
-  kNoError: 0,
-  kErrorExtensionIdMismatch: 1,
-  kErrorInvalidLang: 2,
-  kErrorInvalidPitch: 3,
-  kErrorInvalidRate: 4,
-  kErrorInvalidVolume: 5,
-  kErrorMissingPauseOrResume: 6,
-  kErrorUndeclaredEventType: 7,
-  kErrorUtteranceTooLong: 8,
 };
 
 // Struct: TtsVoice
@@ -49,12 +30,8 @@ ax.mojom.TtsVoice = class {
 // Struct: TtsOptions
 ax.mojom.TtsOptions = class {
   constructor(values = {}) {
-    this.1.0 = values.1.0 !== undefined ? values.1.0 : 0;
     this.is = values.is !== undefined ? values.is : null;
     this.above = values.above !== undefined ? values.above : null;
-    this.1.0 = values.1.0 !== undefined ? values.1.0 : 0;
-    this.1 = values.1 !== undefined ? values.1 : null;
-    this.1.0 = values.1.0 !== undefined ? values.1.0 : 0;
     this.If = values.If !== undefined ? values.If : null;
     this.false = values.false !== undefined ? values.false : 0;
     this.voice_name = values.voice_name !== undefined ? values.voice_name : "";

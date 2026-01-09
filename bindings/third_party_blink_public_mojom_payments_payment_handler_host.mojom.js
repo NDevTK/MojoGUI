@@ -13,7 +13,6 @@ payments.mojom = payments.mojom || {};
 payments.mojom.PaymentHandlerMethodData = class {
   constructor(values = {}) {
     this.method_name = values.method_name !== undefined ? values.method_name : "";
-    this.example: = values.example: !== undefined ? values.example: : null;
   }
 };
 

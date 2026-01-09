@@ -12,20 +12,10 @@ ash.auth.mojom = ash.auth.mojom || {};
 
 // Enum: AuthFactor
 ash.auth.mojom.AuthFactor = {
-  kRecovery: 0,
-  kPrefBasedPin: 1,
-  kCryptohomePin: 2,
-  kCryptohomePinV2: 3,
-  kGaiaPassword: 4,
-  kLocalPassword: 5,
 };
 
 // Enum: ManagementType
 ash.auth.mojom.ManagementType = {
-  kNone: 0,
-  kDevice: 1,
-  kUser: 2,
-  kChildRestriction: 3,
 };
 
 // Enum: ConfigureResult
@@ -34,20 +24,10 @@ ash.auth.mojom.ConfigureResult = {
 
 // Enum: PinComplexity
 ash.auth.mojom.PinComplexity = {
-  kOk: 0,
-  kInvalidTokenError: 1,
-  kErrLow: 2,
-  kErrMedium: 3,
-  kErrHigh: 4,
 };
 
 // Enum: PasswordComplexity
 ash.auth.mojom.PasswordComplexity = {
-  kOk: 0,
-  kTooShort: 1,
-  kErrLow: 2,
-  kErrMedium: 3,
-  kErrHigh: 4,
 };
 
 // Interface: FactorObserver

@@ -11,9 +11,6 @@ ntp_promo.mojom = ntp_promo.mojom || {};
 
 // Enum: ShowNtpPromosResult
 ntp_promo.mojom.ShowNtpPromosResult = {
-  kShown: 0,
-  kNotShownNoPromos: 1,
-  kNotShownDueToPolicy: 2,
 };
 
 // Struct: PromosShown

@@ -15,7 +15,6 @@ extensions.mojom.SerializationFormat = {
 
 // Enum: ChannelType
 extensions.mojom.ChannelType = {
-  both: 0,
 };
 
 // Enum: MessagingEndpointType

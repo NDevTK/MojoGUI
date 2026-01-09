@@ -11,23 +11,14 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AISummarizerType
 blink.mojom.AISummarizerType = {
-  kTLDR: 0,
-  kKeyPoints: 1,
-  kTeaser: 2,
-  kHeadline: 3,
 };
 
 // Enum: AISummarizerFormat
 blink.mojom.AISummarizerFormat = {
-  kPlainText: 0,
-  kMarkDown: 1,
 };
 
 // Enum: AISummarizerLength
 blink.mojom.AISummarizerLength = {
-  kShort: 0,
-  kMedium: 1,
-  kLong: 2,
 };
 
 // Struct: AISummarizerCreateOptions

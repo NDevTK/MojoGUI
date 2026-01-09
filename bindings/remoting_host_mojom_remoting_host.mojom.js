@@ -11,10 +11,6 @@ remoting.mojom = remoting.mojom || {};
 
 // Enum: TransportRouteType
 remoting.mojom.TransportRouteType = {
-  kUndefined: 0,
-  kDirect: 1,
-  kStun: 2,
-  kRelay: 3,
 };
 
 // Struct: TransportRoute

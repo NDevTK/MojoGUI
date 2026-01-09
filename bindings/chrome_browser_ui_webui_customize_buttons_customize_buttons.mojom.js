@@ -11,8 +11,6 @@ customize_buttons.mojom = customize_buttons.mojom || {};
 
 // Enum: SidePanelOpenTrigger
 customize_buttons.mojom.SidePanelOpenTrigger = {
-  kNewTabPage: 0,
-  kNewTabFooter: 1,
 };
 
 // Interface: CustomizeButtonsHandlerFactory

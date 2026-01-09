@@ -11,88 +11,74 @@ blink.mojom = blink.mojom || {};
 
 // Enum: IDBCursorDirection
 blink.mojom.IDBCursorDirection = {
-  Next: 0,
-  NextNoDuplicate: 1,
-  Prev: 2,
-  PrevNoDuplicate: 3,
+  N: 0,
+  N: 1,
+  P: 2,
+  P: 3,
 };
 
 // Enum: IDBDataLoss
 blink.mojom.IDBDataLoss = {
-  None: 0,
-  Total: 1,
+  N: 0,
+  T: 1,
 };
 
 // Enum: IDBKeyType
 blink.mojom.IDBKeyType = {
-  per: 0,
-  Binary: 1,
-  String: 2,
-  Date: 3,
-  Number: 4,
-  e: 5,
-  e: 6,
-  min: 7,
+  B: 0,
+  S: 1,
+  D: 2,
+  N: 3,
 };
 
 // Enum: IDBTransactionDurability
 blink.mojom.IDBTransactionDurability = {
-  and: 0,
 };
 
 // Enum: IDBGetAllResultType
 blink.mojom.IDBGetAllResultType = {
-  Keys: 0,
-  Values: 1,
-  Records: 2,
+  K: 0,
+  V: 1,
+  R: 2,
 };
 
 // Enum: IDBKeyPathType
 blink.mojom.IDBKeyPathType = {
-  Null: 0,
-  String: 1,
-  Array: 2,
+  N: 0,
+  S: 1,
+  A: 2,
 };
 
 // Enum: IDBOperationType
 blink.mojom.IDBOperationType = {
-  Add: 0,
-  Put: 1,
-  Delete: 2,
-  Clear: 3,
+  A: 0,
+  P: 1,
+  D: 2,
+  C: 3,
 };
 
 // Enum: IDBPutMode
 blink.mojom.IDBPutMode = {
-  AddOrUpdate: 0,
-  AddOnly: 1,
-  CursorUpdate: 2,
+  A: 0,
+  A: 1,
+  C: 2,
 };
 
 // Enum: IDBTaskType
 blink.mojom.IDBTaskType = {
-  Normal: 0,
-  Preemptive: 1,
+  N: 0,
+  P: 1,
 };
 
 // Enum: IDBTransactionMode
 blink.mojom.IDBTransactionMode = {
-  ReadOnly: 0,
-  ReadWrite: 1,
-  VersionChange: 2,
+  R: 0,
+  R: 1,
+  V: 2,
 };
 
 // Enum: IDBException
 blink.mojom.IDBException = {
-  kNoError: 0,
-  kUnknownError: 1,
-  kConstraintError: 2,
-  kDataError: 3,
-  kVersionError: 4,
-  kAbortError: 5,
-  kIgnorableAbortError: 6,
-  kQuotaError: 7,
-  kTimeoutError: 8,
 };
 
 // Struct: IDBKeyPath

@@ -11,8 +11,6 @@ url_rewrite.mojom = url_rewrite.mojom || {};
 
 // Enum: UrlRequestAccessPolicy
 url_rewrite.mojom.UrlRequestAccessPolicy = {
-  kAllow: 0,
-  kDeny: 1,
 };
 
 // Struct: UrlRequestRewriteRules

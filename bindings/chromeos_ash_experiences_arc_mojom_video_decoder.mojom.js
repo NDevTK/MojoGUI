@@ -21,14 +21,12 @@ arc.mojom.DecoderStatus = {
 // Struct: Buffer
 arc.mojom.Buffer = class {
   constructor(values = {}) {
-    this.offset@3 = values.offset@3 !== undefined ? values.offset@3 : 0;
   }
 };
 
 // Struct: VideoDecoderConfig
 arc.mojom.VideoDecoderConfig = class {
   constructor(values = {}) {
-    this.coded_size@1 = values.coded_size@1 !== undefined ? values.coded_size@1 : null;
   }
 };
 

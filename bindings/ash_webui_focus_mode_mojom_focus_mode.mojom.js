@@ -12,11 +12,6 @@ ash.focus_mode.mojom = ash.focus_mode.mojom || {};
 
 // Enum: PlaybackState
 ash.focus_mode.mojom.PlaybackState = {
-  kPlaying: 0,
-  kPaused: 1,
-  kSwitchedToNext: 2,
-  kEnded: 3,
-  kNone: 4,
 };
 
 // Struct: TrackDefinition

@@ -11,12 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: PrivateAggregationErrorEvent
 blink.mojom.PrivateAggregationErrorEvent = {
-  but: 0,
-  but: 1,
-  the: 2,
-  the: 3,
-  but: 4,
-  see: 5,
 };
 
 // Struct: DebugKey

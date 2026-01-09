@@ -11,10 +11,6 @@ media_router.mojom = media_router.mojom || {};
 
 // Enum: LogCategory
 media_router.mojom.LogCategory = {
-  kDiscovery: 0,
-  kRoute: 1,
-  kMirroring: 2,
-  kUi: 3,
 };
 
 // Interface: Logger

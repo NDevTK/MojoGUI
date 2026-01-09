@@ -18,7 +18,6 @@ network.mojom.ConnectionKeepAliveConfig = class {
   constructor(values = {}) {
     this.false = values.false !== undefined ? values.false : 0;
     this.comma = values.comma !== undefined ? values.comma : null;
-    this."" = values."" !== undefined ? values."" : 0;
   }
 };
 

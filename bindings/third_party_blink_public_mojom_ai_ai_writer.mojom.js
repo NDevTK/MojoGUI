@@ -11,22 +11,14 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AIWriterTone
 blink.mojom.AIWriterTone = {
-  kFormal: 0,
-  kNeutral: 1,
-  kCasual: 2,
 };
 
 // Enum: AIWriterFormat
 blink.mojom.AIWriterFormat = {
-  kPlainText: 0,
-  kMarkdown: 1,
 };
 
 // Enum: AIWriterLength
 blink.mojom.AIWriterLength = {
-  kShort: 0,
-  kMedium: 1,
-  kLong: 2,
 };
 
 // Struct: AIWriterCreateOptions

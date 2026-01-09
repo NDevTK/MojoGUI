@@ -11,58 +11,34 @@ blink.mojom = blink.mojom || {};
 
 // Enum: RequestTokenStatus
 blink.mojom.RequestTokenStatus = {
-  kSuccess: 0,
-  kErrorTooManyRequests: 1,
-  kErrorCanceled: 2,
-  kError: 3,
 };
 
 // Enum: RequestUserInfoStatus
 blink.mojom.RequestUserInfoStatus = {
-  kSuccess: 0,
-  kError: 1,
 };
 
 // Enum: DisconnectStatus
 blink.mojom.DisconnectStatus = {
-  kSuccess: 0,
-  kErrorTooManyRequests: 1,
-  kError: 2,
 };
 
 // Enum: IdpSigninStatus
 blink.mojom.IdpSigninStatus = {
-  kSignedIn: 0,
-  kSignedOut: 1,
 };
 
 // Enum: RpContext
 blink.mojom.RpContext = {
-  kSignIn: 0,
-  kSignUp: 1,
-  kUse: 2,
-  kContinue: 3,
 };
 
 // Enum: RpMode
 blink.mojom.RpMode = {
-  kActive: 0,
-  kPassive: 1,
 };
 
 // Enum: RegisterIdpStatus
 blink.mojom.RegisterIdpStatus = {
-  kSuccess: 0,
-  kErrorFeatureDisabled: 1,
-  kErrorCrossOriginConfig: 2,
-  kErrorNoTransientActivation: 3,
-  kErrorDeclined: 4,
-  kErrorInvalidConfig: 5,
 };
 
 // Enum: Format
 blink.mojom.Format = {
-  kSdJwt: 0,
 };
 
 // Struct: IdentityProviderConfig
@@ -79,9 +55,7 @@ blink.mojom.IdentityProviderRequestOptions = class {
     this.nonce = values.nonce !== undefined ? values.nonce : "";
     this.login_hint = values.login_hint !== undefined ? values.login_hint : "";
     this.domain_hint = values.domain_hint !== undefined ? values.domain_hint : "";
-    this."name" = values."name" !== undefined ? values."name" : null;
     this.params_json = values.params_json !== undefined ? values.params_json : "";
-    this.requesting. = values.requesting. !== undefined ? values.requesting. : null;
     this.format = values.format !== undefined ? values.format : null;
   }
 };

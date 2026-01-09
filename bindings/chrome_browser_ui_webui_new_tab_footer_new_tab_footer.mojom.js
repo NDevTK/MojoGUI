@@ -11,9 +11,6 @@ new_tab_footer.mojom = new_tab_footer.mojom || {};
 
 // Enum: NewTabPageType
 new_tab_footer.mojom.NewTabPageType = {
-  kFirstPartyWebUI: 0,
-  kExtension: 1,
-  kOther: 2,
 };
 
 // Struct: ManagementNotice

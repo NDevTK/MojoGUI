@@ -15,11 +15,6 @@ blink.mojom.ContextMenuDataMediaType = {
 
 // Enum: CustomContextMenuItemType
 blink.mojom.CustomContextMenuItemType = {
-  kOption: 0,
-  kCheckableOption: 1,
-  kGroup: 2,
-  kSeparator: 3,
-  kSubMenu: 4,
 };
 
 // Struct: Accelerator

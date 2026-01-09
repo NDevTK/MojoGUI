@@ -22,9 +22,6 @@ network.mojom.CookiePriority = {
 
 // Enum: CookieSourceScheme
 network.mojom.CookieSourceScheme = {
-  kUnset: 0,
-  kNonSecure: 1,
-  kSecure: 2,
 };
 
 // Enum: CookieSameSite
@@ -33,31 +30,14 @@ network.mojom.CookieSameSite = {
   NO_RESTRICTION: 1,
   LAX_MODE: 2,
   STRICT_MODE: 3,
-  next: 4,
 };
 
 // Enum: CookieEffectiveSameSite
 network.mojom.CookieEffectiveSameSite = {
-  kNoRestriction: 0,
-  kLaxMode: 1,
-  kStrictMode: 2,
-  kLaxModeAllowUnsafe: 3,
-  kUndefined: 4,
 };
 
 // Enum: CookieExemptionReason
 network.mojom.CookieExemptionReason = {
-  kNone: 0,
-  kUserSetting: 1,
-  k3PCDMetadata: 2,
-  k3PCDDeprecationTrial: 3,
-  kTopLevel3PCDDeprecationTrial: 4,
-  k3PCDHeuristics: 5,
-  kEnterprisePolicy: 6,
-  kStorageAccess: 7,
-  kTopLevelStorageAccess: 8,
-  kScheme: 9,
-  kSameSiteNoneCookiesInSandbox: 10,
 };
 
 // Enum: ContextType
@@ -70,42 +50,19 @@ network.mojom.ContextType = {
 
 // Enum: CookieSameSiteContextMetadataDowngradeType
 network.mojom.CookieSameSiteContextMetadataDowngradeType = {
-  kNoDowngrade: 0,
-  kStrictToLax: 1,
-  kStrictToCross: 2,
-  kLaxToCross: 3,
 };
 
 // Enum: CookieSourceType
 network.mojom.CookieSourceType = {
-  kUnknown: 0,
-  kHTTP: 1,
-  kScript: 2,
-  kOther: 3,
 };
 
 // Enum: ContextRedirectTypeBug1221316
 network.mojom.ContextRedirectTypeBug1221316 = {
-  kUnset: 0,
-  kNoRedirect: 1,
-  kCrossSiteRedirect: 2,
-  kPartialSameSiteRedirect: 3,
-  kAllSameSiteRedirect: 4,
 };
 
 // Enum: HttpMethod
 network.mojom.HttpMethod = {
-  kUnset: 0,
-  kUnknown: 1,
-  kGet: 2,
-  kHead: 3,
-  kPost: 4,
-  KPut: 5,
-  kDelete: 6,
-  kConnect: 7,
-  kOptions: 8,
-  kTrace: 9,
-  kPatch: 10,
+  KP: 0,
 };
 
 // Enum: CookieAccessSemantics
@@ -124,20 +81,6 @@ network.mojom.CookieScopeSemantics = {
 
 // Enum: CookieChangeCause
 network.mojom.CookieChangeCause = {
-  but: 0,
-  value: 1,
-  expiry: 2,
-  secure: 3,
-  but: 4,
-  it: 5,
-  secure: 6,
-  same: 7,
-  http: 8,
-  given: 9,
-  and: 10,
-  then: 11,
-  then: 12,
-  then: 13,
 };
 
 // Enum: CookieDeletionSessionControl
@@ -243,7 +186,6 @@ network.mojom.CookieChangeInfo = class {
 network.mojom.CookieDeletionFilter = class {
   constructor(values = {}) {
     this.host_name = values.host_name !== undefined ? values.host_name : "";
-    this.5.1.{3 = values.5.1.{3 !== undefined ? values.5.1.{3 : null;
   }
 };
 

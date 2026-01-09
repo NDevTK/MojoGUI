@@ -11,28 +11,18 @@ media.mojom = media.mojom || {};
 
 // Enum: ConfidenceLevel
 media.mojom.ConfidenceLevel = {
-  kUnknown: 0,
-  kNotConfident: 1,
-  kConfident: 2,
-  kHighlyConfident: 3,
 };
 
 // Enum: AsrSwitchResult
 media.mojom.AsrSwitchResult = {
-  kDefaultNoSwitch: 0,
-  kSwitchSucceeded: 1,
-  kSwitchFailed: 2,
-  kSwitchSkipedNoLp: 3,
 };
 
 // Enum: SpeechRecognitionMode
 media.mojom.SpeechRecognitionMode = {
-  kUnknown: 0,
 };
 
 // Enum: RecognizerClientType
 media.mojom.RecognizerClientType = {
-  kUnknown: 0,
 };
 
 // Struct: HypothesisParts
@@ -54,7 +44,6 @@ media.mojom.TimingInformation = class {
   constructor(values = {}) {
     this.audio_end_time = values.audio_end_time !== undefined ? values.audio_end_time : null;
     this.hypothesis_parts = values.hypothesis_parts !== undefined ? values.hypothesis_parts : [];
-    this.`audio_start_time` = values.`audio_start_time` !== undefined ? values.`audio_start_time` : null;
     this.originating_media_timestamps = values.originating_media_timestamps !== undefined ? values.originating_media_timestamps : [];
   }
 };

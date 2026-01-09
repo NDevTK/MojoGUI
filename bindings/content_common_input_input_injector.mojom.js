@@ -11,41 +11,18 @@ content.mojom = content.mojom || {};
 
 // Enum: GestureSourceType
 content.mojom.GestureSourceType = {
-  kDefaultInput: 0,
-  kTouchInput: 1,
-  kMouseInput: 2,
-  kTouchpadInput: 3,
-  kPenInput: 4,
-  kGestureSourceTypeMax: 5,
 };
 
 // Enum: PointerActionType
 content.mojom.PointerActionType = {
-  kNotInitialized: 0,
-  kPress: 1,
-  kMove: 2,
-  kRelease: 3,
-  kCancel: 4,
-  kLeave: 5,
-  kIdle: 6,
 };
 
 // Enum: SyntheticButton
 content.mojom.SyntheticButton = {
-  kNoButton: 0,
-  kLeft: 1,
-  kMiddle: 2,
-  kRight: 3,
-  kBack: 4,
-  kForward: 5,
 };
 
 // Enum: InputEventPattern
 content.mojom.InputEventPattern = {
-  kDefaultPattern: 0,
-  kOnePerVsync: 1,
-  kTwoPerVsync: 2,
-  kEveryOtherVsync: 3,
 };
 
 // Struct: SyntheticSmoothDrag

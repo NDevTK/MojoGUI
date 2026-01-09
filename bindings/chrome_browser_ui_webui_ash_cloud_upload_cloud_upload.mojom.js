@@ -12,31 +12,14 @@ ash.cloud_upload.mojom = ash.cloud_upload.mojom || {};
 
 // Enum: UserAction
 ash.cloud_upload.mojom.UserAction = {
-  kCancel: 0,
-  kCancelGoogleDrive: 1,
-  kCancelOneDrive: 2,
-  kSetUpOneDrive: 3,
-  kUploadToGoogleDrive: 4,
-  kUploadToOneDrive: 5,
-  kConfirmOrUploadToGoogleDrive: 6,
-  kConfirmOrUploadToOneDrive: 7,
 };
 
 // Enum: MetricsRecordedSetupPage
 ash.cloud_upload.mojom.MetricsRecordedSetupPage = {
-  kFileHandlerPage: 0,
-  kMoveConfirmationOneDrive: 1,
-  kMoveConfirmationGoogleDrive: 2,
-  kOneDriveSetupWelcome: 3,
-  kOneDriveSetupPWAInstall: 4,
-  kOneDriveSetupODFSMount: 5,
-  kOneDriveSetupComplete: 6,
 };
 
 // Enum: OperationType
 ash.cloud_upload.mojom.OperationType = {
-  kMove: 0,
-  kCopy: 1,
 };
 
 // Struct: DialogTask

@@ -215,9 +215,6 @@ arc.mojom.BluetoothAdvertisement = class {
 // Struct: BluetoothGattDBElement
 arc.mojom.BluetoothGattDBElement = class {
   constructor(values = {}) {
-    this.|BTGATT_DB_PRIMARY_SERVICE| = values.|BTGATT_DB_PRIMARY_SERVICE| !== undefined ? values.|BTGATT_DB_PRIMARY_SERVICE| : 0;
-    this.|BTGATT_DB_SECONDARY_SERVICE| = values.|BTGATT_DB_SECONDARY_SERVICE| !== undefined ? values.|BTGATT_DB_SECONDARY_SERVICE| : null;
-    this.|BTGATT_DB_CHARACTERISTIC| = values.|BTGATT_DB_CHARACTERISTIC| !== undefined ? values.|BTGATT_DB_CHARACTERISTIC| : 0;
     this.element_id = values.element_id !== undefined ? values.element_id : 0;
   }
 };

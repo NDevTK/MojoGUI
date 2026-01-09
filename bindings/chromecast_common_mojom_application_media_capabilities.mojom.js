@@ -13,7 +13,6 @@ chromecast.shell.mojom = chromecast.shell.mojom || {};
 // Struct: BitstreamAudioCodecsInfo
 chromecast.shell.mojom.BitstreamAudioCodecsInfo = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

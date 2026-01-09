@@ -15,22 +15,14 @@ content.mojom.ViewWidgetType = {
 
 // Enum: ChildFrameOwnerElementType
 content.mojom.ChildFrameOwnerElementType = {
-  kIframe: 0,
-  kObject: 1,
-  kEmbed: 2,
-  kFrame: 3,
 };
 
 // Enum: FrameDeleteIntention
 content.mojom.FrameDeleteIntention = {
-  and: 0,
-  and: 1,
 };
 
 // Enum: CreateNewWindowStatus
 content.mojom.CreateNewWindowStatus = {
-  e: 0,
-  e: 1,
 };
 
 // Struct: CreateViewParams
@@ -50,7 +42,6 @@ content.mojom.CreateViewParams = class {
     this.fenced_frame_mode = values.fenced_frame_mode !== undefined ? values.fenced_frame_mode : null;
     this.outermost = values.outermost !== undefined ? values.outermost : null;
     this.attribution_support = values.attribution_support !== undefined ? values.attribution_support : {};
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
@@ -92,7 +83,6 @@ content.mojom.CreateFrameParams = class {
     this.parent_frame_token = values.parent_frame_token !== undefined ? values.parent_frame_token : null;
     this.is = values.is !== undefined ? values.is : null;
     this.tree_scope_type = values.tree_scope_type !== undefined ? values.tree_scope_type : 0;
-    this.frame's = values.frame's !== undefined ? values.frame's : null;
     this.devtools_frame_token = values.devtools_frame_token !== undefined ? values.devtools_frame_token : null;
     this.the = values.the !== undefined ? values.the : null;
     this.true = values.true !== undefined ? values.true : false;

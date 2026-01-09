@@ -11,55 +11,30 @@ app_management.mojom = app_management.mojom || {};
 
 // Enum: AppType
 app_management.mojom.AppType = {
-  kUnknown: 0,
-  kArc: 1,
-  see: 2,
-  see: 3,
-  see: 4,
 };
 
 // Enum: PermissionType
 app_management.mojom.PermissionType = {
-  kUnknown: 0,
-  kCamera: 1,
-  kLocation: 2,
-  kMicrophone: 3,
-  kNotifications: 4,
-  kContacts: 5,
-  kStorage: 6,
-  kPrinting: 7,
-  kFileHandling: 8,
 };
 
 // Enum: TriState
 app_management.mojom.TriState = {
-  kAllow: 0,
-  kBlock: 1,
-  kAsk: 2,
 };
 
 // Enum: InstallReason
 app_management.mojom.InstallReason = {
-  kUnknown: 0,
-  kSystem: 1,
-  but: 2,
-  no: 3,
 };
 
 // Enum: InstallSource
 app_management.mojom.InstallSource = {
-  kUnknown: 0,
-  kSystem: 1,
 };
 
 // Enum: WindowMode
 app_management.mojom.WindowMode = {
-  kUnknown: 0,
 };
 
 // Enum: RunOnOsLoginMode
 app_management.mojom.RunOnOsLoginMode = {
-  kUnknown: 0,
 };
 
 // Struct: Permission
@@ -79,7 +54,6 @@ app_management.mojom.RunOnOsLogin = class {
 // Struct: Locale
 app_management.mojom.Locale = class {
   constructor(values = {}) {
-    this.en_US. = values.en_US. !== undefined ? values.en_US. : null;
     this.to = values.to !== undefined ? values.to : null;
     this.locale_tag = values.locale_tag !== undefined ? values.locale_tag : "";
     this.display_name = values.display_name !== undefined ? values.display_name : "";
@@ -92,7 +66,6 @@ app_management.mojom.App = class {
   constructor(values = {}) {
     this.publisher_id = values.publisher_id !== undefined ? values.publisher_id : false;
     this.formatted_origin = values.formatted_origin !== undefined ? values.formatted_origin : "";
-    this."foo.com" = values."foo.com" !== undefined ? values."foo.com" : null;
     this.disable_user_choice_navigation_capturing = values.disable_user_choice_navigation_capturing !== undefined ? values.disable_user_choice_navigation_capturing : false;
   }
 };
@@ -108,7 +81,6 @@ app_management.mojom.ExtensionAppPermissionMessage = class {
 app_management.mojom.FileHandlingState = class {
   constructor(values = {}) {
     this.is_managed = values.is_managed !== undefined ? values.is_managed : false;
-    this."MD = values."MD !== undefined ? values."MD : null;
     this.user_visible_types_label = values.user_visible_types_label !== undefined ? values.user_visible_types_label : "";
     this.learn_more_url = values.learn_more_url !== undefined ? values.learn_more_url : null;
   }

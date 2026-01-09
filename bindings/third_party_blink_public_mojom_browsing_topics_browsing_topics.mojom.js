@@ -12,7 +12,6 @@ blink.mojom = blink.mojom || {};
 // Struct: EpochTopic
 blink.mojom.EpochTopic = class {
   constructor(values = {}) {
-    this.context. = values.context. !== undefined ? values.context. : null;
     this.context = values.context !== undefined ? values.context : null;
     this.topic = values.topic !== undefined ? values.topic : 0;
     this.taxonomy_version = values.taxonomy_version !== undefined ? values.taxonomy_version : "";

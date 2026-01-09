@@ -84,11 +84,10 @@ arc.mojom.keymint.KeyPurpose = {
 
 // Enum: HardwareAuthenticatorType
 arc.mojom.keymint.HardwareAuthenticatorType = {
-  thus: 0,
-  NONE: 1,
-  PASSWORD: 2,
-  FINGERPRINT: 3,
-  ANY: 4,
+  NONE: 0,
+  PASSWORD: 1,
+  FINGERPRINT: 2,
+  ANY: 3,
 };
 
 // Enum: SecurityLevel

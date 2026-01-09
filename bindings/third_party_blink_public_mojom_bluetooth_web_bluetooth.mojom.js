@@ -74,9 +74,6 @@ blink.mojom.WebBluetoothGATTQueryQuantity = {
 
 // Enum: WebBluetoothWriteType
 blink.mojom.WebBluetoothWriteType = {
-  kWriteDefaultDeprecated: 0,
-  kWriteWithResponse: 1,
-  kWriteWithoutResponse: 2,
 };
 
 // Struct: WebBluetoothLeScanFilter

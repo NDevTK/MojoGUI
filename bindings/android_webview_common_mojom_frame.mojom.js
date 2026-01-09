@@ -11,13 +11,6 @@ android_webview.mojom = android_webview.mojom || {};
 
 // Enum: HitTestDataType
 android_webview.mojom.HitTestDataType = {
-  and: 0,
-  kGeo: 1,
-  kEmail: 2,
-  then: 3,
-  but: 4,
-  such: 5,
-  but: 6,
 };
 
 // Struct: HitTestData

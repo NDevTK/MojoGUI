@@ -27,8 +27,6 @@ help_bubble.mojom.HelpBubbleArrowPosition = {
 
 // Enum: HelpBubbleClosedReason
 help_bubble.mojom.HelpBubbleClosedReason = {
-  anchor: 0,
-  etc: 1,
 };
 
 // Struct: HelpBubbleButtonParams

@@ -27,7 +27,6 @@ sharing.mojom.WifiDirectDependencies = class {
 // Struct: NearbyDependencies
 sharing.mojom.NearbyDependencies = class {
   constructor(values = {}) {
-    this.nearby.connections.mojom.LogSeverity.kInfo = values.nearby.connections.mojom.LogSeverity.kInfo !== undefined ? values.nearby.connections.mojom.LogSeverity.kInfo : null;
   }
 };
 

@@ -11,9 +11,6 @@ on_device_translation_internals.mojom = on_device_translation_internals.mojom ||
 
 // Enum: LanguagePackStatus
 on_device_translation_internals.mojom.LanguagePackStatus = {
-  kNotInstalled: 0,
-  kInstalling: 1,
-  kInstalled: 2,
 };
 
 // Struct: LanguagePackInfo

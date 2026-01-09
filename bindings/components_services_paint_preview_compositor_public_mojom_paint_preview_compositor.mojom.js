@@ -11,7 +11,6 @@ paint_preview.mojom = paint_preview.mojom || {};
 
 // Enum: BeginCompositeStatus
 paint_preview.mojom.BeginCompositeStatus = {
-  but: 0,
 };
 
 // Enum: BitmapStatus

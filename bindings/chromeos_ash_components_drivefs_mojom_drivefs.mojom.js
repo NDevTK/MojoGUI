@@ -11,37 +11,18 @@ drivefs.mojom = drivefs.mojom || {};
 
 // Enum: CancelUploadMode
 drivefs.mojom.CancelUploadMode = {
-  kTrashAfterCancellation: 0,
-  kDeleteAfterCancellation: 1,
 };
 
 // Enum: DocsOfflineEnableStatus
 drivefs.mojom.DocsOfflineEnableStatus = {
-  kSuccess: 0,
-  kAlreadyEnabled: 1,
-  kUnknownError: 2,
-  kDisableUnsupported: 3,
-  kOfflineEligible: 4,
-  kOfflineIneligibleUnknown: 5,
-  kOfflineIneligibleOtherUser: 6,
-  kOfflineIneligibleDbInInvalidState: 7,
-  kOfflineIneligiblePolicyDisallow: 8,
-  kOfflineIneligibleNoExtension: 9,
-  kOfflineIneligibleInsufficientDiskSpace: 10,
-  kNativeMessageHostError: 11,
-  kNativeMessageClientError: 12,
-  kSystemError: 13,
 };
 
 // Enum: CreateOrDelete
 drivefs.mojom.CreateOrDelete = {
-  kCreated: 0,
-  kDeleted: 1,
 };
 
 // Enum: CSESupport
 drivefs.mojom.CSESupport = {
-  but: 0,
 };
 
 // Enum: AccessTokenStatus
@@ -62,38 +43,14 @@ drivefs.mojom.DialogResult = {
 
 // Enum: FileError
 drivefs.mojom.FileError = {
-  kFailed: 0,
-  kInUse: 1,
-  kExists: 2,
-  kNotFound: 3,
-  kAccessDenied: 4,
-  kTooManyOpened: 5,
-  kNoMemory: 6,
-  kNoServerSpace: 7,
-  kNotADirectory: 8,
-  kInvalidOperation: 9,
-  kSecurity: 10,
-  kAbort: 11,
-  kNotAFile: 12,
-  kNotEmpty: 13,
-  kInvalidUrl: 14,
-  kNoConnection: 15,
-  kNoLocalSpace: 16,
-  kServiceUnavailable: 17,
-  kOkWithMoreResults: 18,
 };
 
 // Enum: Type
 drivefs.mojom.Type = {
-  kCantUploadStorageFull: 0,
-  kPinningFailedDiskFull: 1,
-  kCantUploadStorageFullOrganization: 2,
-  kCantUploadSharedDriveStorageFull: 3,
 };
 
 // Enum: Type
 drivefs.mojom.Type = {
-  kEnableDocsOffline: 0,
 };
 
 // Enum: Type
@@ -102,15 +59,10 @@ drivefs.mojom.Type = {
 
 // Enum: CanPinStatus
 drivefs.mojom.CanPinStatus = {
-  kOk: 0,
-  kDisabled: 1,
 };
 
 // Enum: LookupStatus
 drivefs.mojom.LookupStatus = {
-  kOk: 0,
-  kNotFound: 1,
-  kPermissionDenied: 2,
 };
 
 // Enum: ItemEventReason
@@ -119,50 +71,26 @@ drivefs.mojom.ItemEventReason = {
 
 // Enum: State
 drivefs.mojom.State = {
-  kQueued: 0,
-  kInProgress: 1,
-  kCompleted: 2,
-  kFailed: 3,
-  kCancelledAndDeleted: 4,
-  kCancelledAndTrashed: 5,
 };
 
 // Enum: Type
 drivefs.mojom.Type = {
-  kCreate: 0,
-  kDelete: 1,
-  kModify: 2,
 };
 
 // Enum: QuerySource
 drivefs.mojom.QuerySource = {
-  kLocalOnly: 0,
-  kCloudOnly: 1,
-  kLocalAndCloud: 2,
 };
 
 // Enum: SortField
 drivefs.mojom.SortField = {
-  kNone: 0,
-  kLastModified: 1,
-  kLastViewedByMe: 2,
-  kFileSize: 3,
-  kSharedWithMe: 4,
 };
 
 // Enum: SortDirection
 drivefs.mojom.SortDirection = {
-  kAscending: 0,
-  kDescending: 1,
 };
 
 // Enum: DateComparisonOperator
 drivefs.mojom.DateComparisonOperator = {
-  kLessOrEqual: 0,
-  kLessThan: 1,
-  kEqual: 2,
-  kGreaterThan: 3,
-  kGreaterOrEqual: 4,
 };
 
 // Enum: QueryKind
@@ -175,36 +103,14 @@ drivefs.mojom.UserType = {
 
 // Enum: NetError
 drivefs.mojom.NetError = {
-  kOk: 0,
-  kIOPending: 1,
-  kFailed: 2,
-  kAborted: 3,
-  kInvalidArgument: 4,
-  kInvalidHandle: 5,
-  kFileNotFound: 6,
-  kTimedOut: 7,
-  kNameNotResolved: 8,
-  kInternetDisconnected: 9,
-  kAddressUnreachable: 10,
 };
 
 // Enum: MirrorItemSyncingStatus
 drivefs.mojom.MirrorItemSyncingStatus = {
-  kUnknown: 0,
-  kSynced: 1,
-  kSyncing: 2,
-  kSyncError: 3,
 };
 
 // Enum: Type
 drivefs.mojom.Type = {
-  kGenericUploadFailure: 0,
-  kGenericDownloadFailure: 1,
-  kMultipleFailures: 2,
-  kExceedsCloudDownloadQuota: 3,
-  kNoDiskSpace: 4,
-  kExceedsCloudStorageQuota: 5,
-  kExceedsCloudUploadQuota: 6,
 };
 
 // Struct: DriveFsConfiguration
@@ -259,7 +165,6 @@ drivefs.mojom.ShortcutDetails = class {
 // Struct: ImageMetadata
 drivefs.mojom.ImageMetadata = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
@@ -325,9 +230,6 @@ drivefs.mojom.FileChange = class {
 // Struct: QueryParameters
 drivefs.mojom.QueryParameters = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
-    this.2 = values.2 !== undefined ? values.2 : null;
   }
 };
 

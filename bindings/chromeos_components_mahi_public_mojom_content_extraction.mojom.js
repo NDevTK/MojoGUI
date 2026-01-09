@@ -11,7 +11,6 @@ mahi.mojom = mahi.mojom || {};
 
 // Enum: ResponseStatus
 mahi.mojom.ResponseStatus = {
-  kSuccess: 0,
 };
 
 // Struct: ExtractionMethods
@@ -24,22 +23,18 @@ mahi.mojom.ExtractionMethods = class {
 // Struct: ExtractionRequest
 mahi.mojom.ExtractionRequest = class {
   constructor(values = {}) {
-    this.deprecated_ukm_source_id@0 = values.deprecated_ukm_source_id@0 !== undefined ? values.deprecated_ukm_source_id@0 : 0;
-    this.updates@3 = values.updates@3 !== undefined ? values.updates@3 : [];
   }
 };
 
 // Struct: ExtractionResponse
 mahi.mojom.ExtractionResponse = class {
   constructor(values = {}) {
-    this.status@1 = values.status@1 !== undefined ? values.status@1 : "";
   }
 };
 
 // Struct: ContentSizeResponse
 mahi.mojom.ContentSizeResponse = class {
   constructor(values = {}) {
-    this.status@1 = values.status@1 !== undefined ? values.status@1 : 0;
   }
 };
 

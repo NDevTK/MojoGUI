@@ -11,8 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SelectionGranularity
 blink.mojom.SelectionGranularity = {
-  kWord: 0,
-  kSentence: 1,
 };
 
 // Enum: PanAction
@@ -21,15 +19,10 @@ blink.mojom.PanAction = {
 
 // Enum: ImeState
 blink.mojom.ImeState = {
-  kNone: 0,
-  kTextSuggestionSelected: 1,
 };
 
 // Enum: FocusState
 blink.mojom.FocusState = {
-  kFocused: 0,
-  kNotFocusedAndActive: 1,
-  kNotFocusedAndNotActive: 2,
 };
 
 // Struct: KeyData

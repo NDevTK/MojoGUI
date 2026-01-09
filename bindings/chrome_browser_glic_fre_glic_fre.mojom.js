@@ -11,10 +11,6 @@ glic.mojom = glic.mojom || {};
 
 // Enum: FreWebUiState
 glic.mojom.FreWebUiState = {
-  combined: 0,
-  will: 1,
-  but: 2,
-  or: 3,
 };
 
 // Interface: FrePageHandlerFactory

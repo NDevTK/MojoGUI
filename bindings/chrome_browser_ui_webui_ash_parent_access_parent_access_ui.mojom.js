@@ -11,9 +11,6 @@ parent_access_ui.mojom = parent_access_ui.mojom || {};
 
 // Enum: GetOauthTokenStatus
 parent_access_ui.mojom.GetOauthTokenStatus = {
-  kSuccess: 0,
-  kError: 1,
-  kOnlyOneFetchAtATime: 2,
 };
 
 // Enum: ParentAccessServerMessageType
@@ -22,17 +19,10 @@ parent_access_ui.mojom.ParentAccessServerMessageType = {
 
 // Enum: FlowType
 parent_access_ui.mojom.FlowType = {
-  kWebsiteAccess: 0,
-  kExtensionAccess: 1,
 };
 
 // Enum: ParentAccessResult
 parent_access_ui.mojom.ParentAccessResult = {
-  kApproved: 0,
-  kDeclined: 1,
-  kCanceled: 2,
-  kDisabled: 3,
-  kError: 4,
 };
 
 // Struct: ParentAccessServerMessage

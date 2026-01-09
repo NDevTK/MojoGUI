@@ -11,9 +11,6 @@ cert_verifier.mojom = cert_verifier.mojom || {};
 
 // Enum: CertificateTrust
 cert_verifier.mojom.CertificateTrust = {
-  kUnspecified: 0,
-  kDistrusted: 1,
-  kTrusted: 2,
 };
 
 // Struct: CertVerifierCreationParams

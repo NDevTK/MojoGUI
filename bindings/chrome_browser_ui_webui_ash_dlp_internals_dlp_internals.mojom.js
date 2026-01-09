@@ -11,70 +11,30 @@ dlp_internals.mojom = dlp_internals.mojom || {};
 
 // Enum: EndpointType
 dlp_internals.mojom.EndpointType = {
-  kDefault: 0,
-  kUrl: 1,
-  kClipboardHistory: 2,
-  kUnknownVm: 3,
-  kArc: 4,
-  kBorealis: 5,
-  kCrostini: 6,
-  kPluginVm: 7,
 };
 
 // Enum: ContentRestriction
 dlp_internals.mojom.ContentRestriction = {
-  kScreenshot: 0,
-  kPrivacyScreen: 1,
-  kPrint: 2,
-  kScreenShare: 3,
 };
 
 // Enum: Level
 dlp_internals.mojom.Level = {
-  kNotSet: 0,
-  kReport: 1,
-  kWarn: 2,
-  kBlock: 3,
-  kAllow: 4,
 };
 
 // Enum: Component
 dlp_internals.mojom.Component = {
-  kUndefinedComponent: 0,
-  kArc: 1,
-  kCrostini: 2,
-  kPluginVm: 3,
-  kUsb: 4,
-  kDrive: 5,
-  kOnedrive: 6,
 };
 
 // Enum: Restriction
 dlp_internals.mojom.Restriction = {
-  kUndefinedRestriction: 0,
-  kClipboard: 1,
-  kScreenshot: 2,
-  kScreencast: 3,
-  kPrinting: 4,
-  kEprivacy: 5,
-  kFiles: 6,
 };
 
 // Enum: Mode
 dlp_internals.mojom.Mode = {
-  kUndefinedMode: 0,
-  kBlock: 1,
-  kReport: 2,
-  kWarn: 3,
-  kWarnProceed: 4,
 };
 
 // Enum: UserType
 dlp_internals.mojom.UserType = {
-  kUndefinedUserType: 0,
-  kRegular: 1,
-  kManagedGuest: 2,
-  kKiosk: 3,
 };
 
 // Struct: DataTransferEndpoint
@@ -109,26 +69,12 @@ dlp_internals.mojom.WebContentsInfo = class {
 // Struct: EventDestination
 dlp_internals.mojom.EventDestination = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
-    this.2 = values.2 !== undefined ? values.2 : null;
-    this.3 = values.3 !== undefined ? values.3 : null;
-    this.4 = values.4 !== undefined ? values.4 : null;
-    this.5 = values.5 !== undefined ? values.5 : null;
-    this.6 = values.6 !== undefined ? values.6 : null;
   }
 };
 
 // Struct: DlpEvent
 dlp_internals.mojom.DlpEvent = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
-    this.2 = values.2 !== undefined ? values.2 : null;
-    this.3 = values.3 !== undefined ? values.3 : null;
-    this.4 = values.4 !== undefined ? values.4 : 0;
-    this.5 = values.5 !== undefined ? values.5 : null;
-    this.6 = values.6 !== undefined ? values.6 : null;
   }
 };
 

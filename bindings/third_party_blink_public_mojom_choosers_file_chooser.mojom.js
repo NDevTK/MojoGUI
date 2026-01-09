@@ -11,10 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: Mode
 blink.mojom.Mode = {
-  but: 0,
-  but: 1,
-  rather: 2,
-  and: 3,
 };
 
 // Struct: FileChooserParams
@@ -40,7 +36,6 @@ blink.mojom.NativeFileInfo = class {
 // Struct: FileSystemFileInfo
 blink.mojom.FileSystemFileInfo = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

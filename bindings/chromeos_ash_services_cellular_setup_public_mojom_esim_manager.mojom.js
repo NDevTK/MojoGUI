@@ -12,26 +12,18 @@ ash.cellular_setup.mojom = ash.cellular_setup.mojom || {};
 
 // Enum: ProfileState
 ash.cellular_setup.mojom.ProfileState = {
-  kPending: 0,
 };
 
 // Enum: ProfileInstallResult
 ash.cellular_setup.mojom.ProfileInstallResult = {
-  kSuccess: 0,
 };
 
 // Enum: ProfileInstallMethod
 ash.cellular_setup.mojom.ProfileInstallMethod = {
-  kViaSmds: 0,
-  kViaQrCodeAfterSmds: 1,
-  kViaQrCodeSkippedSmds: 2,
-  kViaActivationCodeAfterSmds: 3,
-  kViaActivationCodeSkippedSmds: 4,
 };
 
 // Enum: ESimOperationResult
 ash.cellular_setup.mojom.ESimOperationResult = {
-  kSuccess: 0,
 };
 
 // Struct: EuiccProperties

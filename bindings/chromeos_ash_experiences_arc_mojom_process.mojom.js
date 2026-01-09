@@ -17,34 +17,25 @@ arc.mojom.ProcessState = {
   R_TOP: 3,
   R_FOREGROUND_SERVICE: 4,
   R_BOUND_FOREGROUND_SERVICE: 5,
-  and: 6,
-  R_IMPORTANT_FOREGROUND: 7,
-  but: 8,
-  R_IMPORTANT_BACKGROUND: 9,
-  R_TRANSIENT_BACKGROUND: 10,
-  R_BACKUP: 11,
-  this: 12,
-  R_SERVICE: 13,
-  receivers: 14,
-  but: 15,
-  R_RECEIVER: 16,
-  R_TOP_SLEEPING: 17,
-  but: 18,
-  R_HEAVY_WEIGHT: 19,
-  R_HOME: 20,
-  R_LAST_ACTIVITY: 21,
-  R_CACHED_ACTIVITY: 22,
-  R_CACHED_ACTIVITY_CLIENT: 23,
-  R_CACHED_RECENT: 24,
-  R_CACHED_EMPTY: 25,
-  R_NONEXISTENT: 26,
+  R_IMPORTANT_FOREGROUND: 6,
+  R_IMPORTANT_BACKGROUND: 7,
+  R_TRANSIENT_BACKGROUND: 8,
+  R_BACKUP: 9,
+  R_SERVICE: 10,
+  R_RECEIVER: 11,
+  R_TOP_SLEEPING: 12,
+  R_HEAVY_WEIGHT: 13,
+  R_HOME: 14,
+  R_LAST_ACTIVITY: 15,
+  R_CACHED_ACTIVITY: 16,
+  R_CACHED_ACTIVITY_CLIENT: 17,
+  R_CACHED_RECENT: 18,
+  R_CACHED_EMPTY: 19,
+  R_NONEXISTENT: 20,
 };
 
 // Enum: PressureLevel
 arc.mojom.PressureLevel = {
-  kForeground: 0,
-  kPerceptible: 1,
-  kCached: 2,
 };
 
 // Struct: RunningAppProcessInfo
@@ -57,7 +48,6 @@ arc.mojom.RunningAppProcessInfo = class {
 // Struct: ArcMemoryDump
 arc.mojom.ArcMemoryDump = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

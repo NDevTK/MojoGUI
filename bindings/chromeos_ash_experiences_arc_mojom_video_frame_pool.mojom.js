@@ -12,7 +12,6 @@ arc.mojom = arc.mojom || {};
 // Struct: VideoFrame
 arc.mojom.VideoFrame = class {
   constructor(values = {}) {
-    this.modifier@5 = values.modifier@5 !== undefined ? values.modifier@5 : 0;
   }
 };
 

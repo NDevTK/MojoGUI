@@ -12,41 +12,14 @@ ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
 
 // Enum: UserAction
 ash.shortcut_customization.mojom.UserAction = {
-  kOpenEditDialog: 0,
-  kStartAddAccelerator: 1,
-  kStartReplaceAccelerator: 2,
-  kRemoveAccelerator: 3,
-  kSuccessfulModification: 4,
-  kResetAction: 5,
-  kResetAll: 6,
 };
 
 // Enum: EditDialogCompletedActions
 ash.shortcut_customization.mojom.EditDialogCompletedActions = {
-  kNoAction: 0,
-  kAdd: 1,
-  kEdit: 2,
-  kEditAdd: 3,
-  kRemove: 4,
-  kRemoveAdd: 5,
-  kRemoveEdit: 6,
-  kRemoveEditAdd: 7,
-  kReset: 8,
-  kResetAdd: 9,
-  kResetEdit: 10,
-  kResetEditAdd: 11,
-  kResetRemove: 12,
-  kResetRemoveAdd: 13,
-  kResetRemoveEdit: 14,
-  kResetRemoveEditAdd: 15,
 };
 
 // Enum: Subactions
 ash.shortcut_customization.mojom.Subactions = {
-  kNoErrorCancel: 0,
-  kNoErrorSuccess: 1,
-  kErrorCancel: 2,
-  kErrorSuccess: 3,
 };
 
 // Struct: AcceleratorResultData

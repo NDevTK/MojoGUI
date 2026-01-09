@@ -19,21 +19,18 @@ chromeos.machine_learning.mojom.DocumentScannerResultStatus = {
 // Struct: DocumentScannerConfig
 chromeos.machine_learning.mojom.DocumentScannerConfig = class {
   constructor(values = {}) {
-    this.library_dlc_path@1 = values.library_dlc_path@1 !== undefined ? values.library_dlc_path@1 : "";
   }
 };
 
 // Struct: DetectCornersResult
 chromeos.machine_learning.mojom.DetectCornersResult = class {
   constructor(values = {}) {
-    this.corners@1 = values.corners@1 !== undefined ? values.corners@1 : 0;
   }
 };
 
 // Struct: DoPostProcessingResult
 chromeos.machine_learning.mojom.DoPostProcessingResult = class {
   constructor(values = {}) {
-    this.processed_jpeg_image@1 = values.processed_jpeg_image@1 !== undefined ? values.processed_jpeg_image@1 : 0;
   }
 };
 

@@ -11,17 +11,6 @@ patch.mojom = patch.mojom || {};
 
 // Enum: ZucchiniStatus
 patch.mojom.ZucchiniStatus = {
-  kStatusSuccess: 0,
-  kStatusInvalidParam: 1,
-  kStatusFileReadError: 2,
-  kStatusFileWriteError: 3,
-  kStatusPatchReadError: 4,
-  kStatusPatchWriteError: 5,
-  kStatusInvalidOldImage: 6,
-  kStatusInvalidNewImage: 7,
-  kStatusDiskFull: 8,
-  kStatusIoError: 9,
-  kStatusFatal: 10,
 };
 
 // Interface: FilePatcher

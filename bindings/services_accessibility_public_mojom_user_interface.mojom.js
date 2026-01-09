@@ -11,15 +11,10 @@ ax.mojom = ax.mojom || {};
 
 // Enum: FocusType
 ax.mojom.FocusType = {
-  kGlow: 0,
-  kSolid: 1,
-  kDashed: 2,
 };
 
 // Enum: FocusRingStackingOrder
 ax.mojom.FocusRingStackingOrder = {
-  kAboveAccessibilityBubbles: 0,
-  kBelowAccessibilityBubbles: 1,
 };
 
 // Struct: FocusRingInfo

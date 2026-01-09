@@ -11,9 +11,6 @@ search_engine_choice.mojom = search_engine_choice.mojom || {};
 
 // Enum: ScrollState
 search_engine_choice.mojom.ScrollState = {
-  kAtTheBottom: 0,
-  kAtTheBottomWithErrorMargin: 1,
-  kNotAtTheBottom: 2,
 };
 
 // Interface: PageHandlerFactory

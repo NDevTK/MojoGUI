@@ -15,18 +15,15 @@ mantis.mojom.MantisError = {
 
 // Enum: SafetyClassifierVerdict
 mantis.mojom.SafetyClassifierVerdict = {
-  kPass: 0,
 };
 
 // Enum: SegmentationMode
 mantis.mojom.SegmentationMode = {
-  kLasso: 0,
 };
 
 // Struct: TouchPoint
 mantis.mojom.TouchPoint = class {
   constructor(values = {}) {
-    this.y@1 = values.y@1 !== undefined ? values.y@1 : 0;
   }
 };
 

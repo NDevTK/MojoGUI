@@ -12,7 +12,6 @@ arc.mojom = arc.mojom || {};
 // Struct: CameraDeviceInfo
 arc.mojom.CameraDeviceInfo = class {
   constructor(values = {}) {
-    this.vertical_view_angle_4_3@12 = values.vertical_view_angle_4_3@12 !== undefined ? values.vertical_view_angle_4_3@12 : 0;
   }
 };
 

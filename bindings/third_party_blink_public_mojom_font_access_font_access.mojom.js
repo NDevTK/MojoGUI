@@ -11,7 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: FontEnumerationStatus
 blink.mojom.FontEnumerationStatus = {
-  kOk: 0,
 };
 
 // Struct: FontData

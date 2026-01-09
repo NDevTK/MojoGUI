@@ -11,9 +11,6 @@ customize_color_scheme_mode.mojom = customize_color_scheme_mode.mojom || {};
 
 // Enum: ColorSchemeMode
 customize_color_scheme_mode.mojom.ColorSchemeMode = {
-  kSystem: 0,
-  kLight: 1,
-  kDark: 2,
 };
 
 // Interface: CustomizeColorSchemeModeHandlerFactory

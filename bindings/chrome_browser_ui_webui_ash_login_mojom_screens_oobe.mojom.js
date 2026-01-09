@@ -12,11 +12,6 @@ ash.screens_oobe.mojom = ash.screens_oobe.mojom || {};
 
 // Enum: ConsumerUpdateStep
 ash.screens_oobe.mojom.ConsumerUpdateStep = {
-  kCheckingForUpdate: 0,
-  kUpdateInProgress: 1,
-  kRestartInProgress: 2,
-  kManualReboot: 3,
-  kCellularPermission: 4,
 };
 
 // Interface: ConsumerUpdatePageHandler

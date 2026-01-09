@@ -12,14 +12,11 @@ chromeos.auth.mojom = chromeos.auth.mojom || {};
 
 // Enum: Reason
 chromeos.auth.mojom.Reason = {
-  kAccessAuthenticationSettings: 0,
-  kAccessMultideviceSettings: 1,
 };
 
 // Struct: RequestTokenReply
 chromeos.auth.mojom.RequestTokenReply = class {
   constructor(values = {}) {
-    this.timeout@1 = values.timeout@1 !== undefined ? values.timeout@1 : "";
   }
 };
 

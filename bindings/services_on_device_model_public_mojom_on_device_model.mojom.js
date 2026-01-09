@@ -15,22 +15,15 @@ on_device_model.mojom.Token = {
 
 // Enum: Priority
 on_device_model.mojom.Priority = {
-  the: 0,
 };
 
 // Enum: PerformanceClass
 on_device_model.mojom.PerformanceClass = {
-  kLow: 0,
-  kMedium: 1,
-  kHigh: 2,
-  kVeryHigh: 3,
 };
 
 // Enum: LoadModelResult
 on_device_model.mojom.LoadModelResult = {
-  kSuccess: 0,
-  kGpuBlocked: 1,
-  EnableIf: 2,
+  E: 0,
 };
 
 // Struct: AdaptationAssets
@@ -103,7 +96,6 @@ on_device_model.mojom.Input = class {
 on_device_model.mojom.AppendOptions = class {
   constructor(values = {}) {
     this.input = values.input !== undefined ? values.input : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
@@ -131,7 +123,6 @@ on_device_model.mojom.SpeechRecognitionResult = class {
 // Struct: AsrStreamOptions
 on_device_model.mojom.AsrStreamOptions = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

@@ -12,16 +12,10 @@ ash.scanning.mojom = ash.scanning.mojom || {};
 
 // Enum: ColorMode
 ash.scanning.mojom.ColorMode = {
-  kBlackAndWhite: 0,
-  kGrayscale: 1,
-  kColor: 2,
 };
 
 // Enum: FileType
 ash.scanning.mojom.FileType = {
-  kJpg: 0,
-  kPdf: 1,
-  kPng: 2,
 };
 
 // Enum: SourceType

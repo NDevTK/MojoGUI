@@ -27,7 +27,6 @@ js_injection.mojom.JavaScriptExecutable = class {
 js_injection.mojom.JsWebMessageArrayBufferValue = class {
   constructor(values = {}) {
     this.array_buffer_value = values.array_buffer_value !== undefined ? values.array_buffer_value : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

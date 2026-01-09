@@ -11,14 +11,6 @@ network.mojom = network.mojom || {};
 
 // Enum: WebBundleErrorType
 network.mojom.WebBundleErrorType = {
-  kMetadataParseError: 0,
-  kResponseParseError: 1,
-  kResourceNotFound: 2,
-  kMemoryQuotaExceeded: 3,
-  kServingConstraintsNotMet: 4,
-  kWebBundleFetchFailed: 5,
-  kWebBundleRedirected: 6,
-  kDeprecationWarning: 7,
 };
 
 // Interface: WebBundleHandle

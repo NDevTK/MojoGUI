@@ -11,15 +11,11 @@ printing.mojom = printing.mojom || {};
 
 // Enum: PrintFailureReason
 printing.mojom.PrintFailureReason = {
-  kGeneralFailure: 0,
-  kInvalidPageRange: 1,
-  kPrintingInProgress: 2,
 };
 
 // Struct: PreviewIds
 printing.mojom.PreviewIds = class {
   constructor(values = {}) {
-    this.-1 = values.-1 !== undefined ? values.-1 : 0;
   }
 };
 
@@ -78,7 +74,6 @@ printing.mojom.PrintParams = class {
   constructor(values = {}) {
     this.margins = values.margins !== undefined ? values.margins : 0;
     this.printable_area = values.printable_area !== undefined ? values.printable_area : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.false = values.false !== undefined ? values.false : 0;
     this.false = values.false !== undefined ? values.false : 0;
     this.kNone = values.kNone !== undefined ? values.kNone : 0;

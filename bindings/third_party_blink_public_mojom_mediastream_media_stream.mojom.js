@@ -12,14 +12,9 @@ blink.mojom = blink.mojom || {};
 // Enum: MediaStreamType
 blink.mojom.MediaStreamType = {
   NO_SERVICE: 0,
-  webcam: 1,
-  DEVICE_VIDEO_CAPTURE: 2,
-  GUM_TAB_VIDEO_CAPTURE: 3,
-  generated: 4,
-  DISPLAY_AUDIO_CAPTURE: 5,
-  this: 6,
-  this: 7,
-  as: 8,
+  DEVICE_VIDEO_CAPTURE: 1,
+  GUM_TAB_VIDEO_CAPTURE: 2,
+  DISPLAY_AUDIO_CAPTURE: 3,
 };
 
 // Enum: MediaStreamRequestResult
@@ -83,29 +78,14 @@ blink.mojom.PreferredDisplaySurface = {
 
 // Enum: CapturedSurfaceControlResult
 blink.mojom.CapturedSurfaceControlResult = {
-  kSuccess: 0,
-  kUnknownError: 1,
-  kNoPermissionError: 2,
-  kCapturerNotFoundError: 3,
-  kCapturedSurfaceNotFoundError: 4,
-  kDisallowedForSelfCaptureError: 5,
-  kCapturerNotFocusedError: 6,
-  kMinZoomLevel: 7,
-  kMaxZoomLevel: 8,
 };
 
 // Enum: ZoomLevelAction
 blink.mojom.ZoomLevelAction = {
-  kIncrease: 0,
-  kDecrease: 1,
-  kReset: 2,
 };
 
 // Enum: WindowAudioPreference
 blink.mojom.WindowAudioPreference = {
-  kSystem: 0,
-  kWindow: 1,
-  kExclude: 2,
 };
 
 // Struct: SearchOnlyByDeviceId

@@ -11,71 +11,38 @@ read_anything.mojom = read_anything.mojom || {};
 
 // Enum: InstallationState
 read_anything.mojom.InstallationState = {
-  kNotInstalled: 0,
-  kInstalling: 1,
-  kInstalled: 2,
 };
 
 // Enum: ErrorCode
 read_anything.mojom.ErrorCode = {
-  kOther: 0,
-  kWrongId: 1,
-  kNeedReboot: 2,
-  kAllocation: 3,
-  kUnsupportedPlatform: 4,
 };
 
 // Enum: ReadAnythingPresentationState
 read_anything.mojom.ReadAnythingPresentationState = {
-  kUndefined: 0,
-  not: 1,
 };
 
 // Enum: Colors
 read_anything.mojom.Colors = {
-  kLight: 0,
-  kDark: 1,
-  kYellow: 2,
 };
 
 // Enum: LetterSpacing
 read_anything.mojom.LetterSpacing = {
-  kTightDeprecated: 0,
-  kWide: 1,
-  kVeryWide: 2,
 };
 
 // Enum: LineSpacing
 read_anything.mojom.LineSpacing = {
-  kTightDeprecated: 0,
-  kStandard: 1,
-  kVeryLoose: 2,
 };
 
 // Enum: HighlightGranularity
 read_anything.mojom.HighlightGranularity = {
-  regardless: 0,
-  we: 1,
-  and: 2,
-  we: 3,
 };
 
 // Enum: LineFocus
 read_anything.mojom.LineFocus = {
-  three: 0,
-  or: 1,
-  kWindow3: 2,
-  kWindow5: 3,
-  kLineStatic: 4,
-  kLineCursor: 5,
 };
 
 // Enum: DistillationStatus
 read_anything.mojom.DistillationStatus = {
-  kFailure: 0,
-  kSuccess: 1,
-  kStillRunning: 2,
-  kRestarted: 3,
 };
 
 // Struct: VoicePackInfo

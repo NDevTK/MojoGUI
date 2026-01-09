@@ -1,21 +1,8 @@
 // MojoJS Bindings Index
 // Auto-generated - Do not edit manually
 
-(function (global) {
+(function(global) {
   'use strict';
-
-  // Create trusted types policy for script URLs
-  let trustedPolicy = null;
-  if (typeof window.trustedTypes !== 'undefined') {
-    try {
-      trustedPolicy = window.trustedTypes.createPolicy('mojoBindings', {
-        createScriptURL: (input) => input
-      });
-    } catch (e) {
-      // Policy might already exist or not be allowed
-      console.warn('Could not create trusted types policy:', e);
-    }
-  }
 
   const MojoBindings = {
     _indexData: null,
@@ -23,7 +10,7 @@
 
     async loadIndex() {
       if (this._indexData) return this._indexData;
-      const response = await fetch('./bindings/index.json');
+      const response = await fetch('./index.json');
       this._indexData = await response.json();
       return this._indexData;
     },
@@ -36,8 +23,8 @@
     async searchInterfaces(query) {
       const interfaces = await this.getInterfaces();
       const q = query.toLowerCase();
-      return interfaces.filter(i =>
-        i.name.toLowerCase().includes(q) ||
+      return interfaces.filter(i => 
+        i.name.toLowerCase().includes(q) || 
         i.module.toLowerCase().includes(q)
       );
     },
@@ -48,22 +35,12 @@
       }
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        const scriptUrl = `./bindings/${filename}`;
-
-        // Use trusted types if available
-        if (trustedPolicy) {
-          script.src = trustedPolicy.createScriptURL(scriptUrl);
-        } else {
-          script.src = scriptUrl;
-        }
-
+        script.src = `./${filename}`;
         script.onload = () => {
           this._loadedModules[filename] = true;
           resolve(true);
         };
-        script.onerror = () => {
-          reject(new Error(`Failed to load binding: ${filename}`));
-        };
+        script.onerror = reject;
         document.head.appendChild(script);
       });
     },
@@ -75,4 +52,3 @@
 
   global.MojoBindings = MojoBindings;
 })(typeof window !== 'undefined' ? window : this);
-

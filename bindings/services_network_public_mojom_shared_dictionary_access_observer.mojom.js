@@ -11,8 +11,6 @@ network.mojom = network.mojom || {};
 
 // Enum: Type
 network.mojom.Type = {
-  kRead: 0,
-  kWrite: 1,
 };
 
 // Struct: SharedDictionaryAccessDetails

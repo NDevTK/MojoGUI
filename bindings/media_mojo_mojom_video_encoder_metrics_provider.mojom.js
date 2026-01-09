@@ -11,10 +11,6 @@ media.mojom = media.mojom || {};
 
 // Enum: VideoEncoderUseCase
 media.mojom.VideoEncoderUseCase = {
-  kCastMirroring: 0,
-  kMediaRecorder: 1,
-  kWebCodecs: 2,
-  kWebRTC: 3,
 };
 
 // Interface: VideoEncoderMetricsProvider

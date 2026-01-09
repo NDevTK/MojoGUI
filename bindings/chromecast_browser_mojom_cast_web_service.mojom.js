@@ -26,7 +26,6 @@ chromecast.mojom.RendererType = {
 
 // Enum: RendererPool
 chromecast.mojom.RendererPool = {
-  which: 0,
 };
 
 // Enum: GesturePriority
@@ -40,12 +39,9 @@ chromecast.mojom.GesturePriority = {
 chromecast.mojom.CastWebViewParams = class {
   constructor(values = {}) {
     this.false = values.false !== undefined ? values.false : false;
-    this."" = values."" !== undefined ? values."" : false;
     this.prelaunch_url = values.prelaunch_url !== undefined ? values.prelaunch_url : null;
-    this.RendererType.DEFAULT_RENDERER = values.RendererType.DEFAULT_RENDERER !== undefined ? values.RendererType.DEFAULT_RENDERER : false;
     this.false = values.false !== undefined ? values.false : false;
     this.false = values.false !== undefined ? values.false : false;
-    this.GesturePriority.NONE = values.GesturePriority.NONE !== undefined ? values.GesturePriority.NONE : false;
     this.true = values.true !== undefined ? values.true : false;
   }
 };

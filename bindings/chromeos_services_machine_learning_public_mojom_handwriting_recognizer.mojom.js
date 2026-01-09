@@ -20,9 +20,6 @@ chromeos.machine_learning.mojom.Status = {
 chromeos.machine_learning.mojom.LoadHandwritingModelResult = {
   OK: 0,
   LOAD_MODEL_ERROR: 1,
-  but: 2,
-  but: 3,
-  but: 4,
 };
 
 // Struct: InkPoint
@@ -93,8 +90,6 @@ chromeos.machine_learning.mojom.HandwritingRecognizerCandidate = class {
 // Struct: HandwritingRecognizerResult
 chromeos.machine_learning.mojom.HandwritingRecognizerResult = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
   }
 };
 

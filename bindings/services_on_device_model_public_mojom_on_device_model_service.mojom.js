@@ -11,41 +11,22 @@ on_device_model.mojom = on_device_model.mojom || {};
 
 // Enum: ModelBackendType
 on_device_model.mojom.ModelBackendType = {
-  and: 0,
 };
 
 // Enum: ModelPerformanceHint
 on_device_model.mojom.ModelPerformanceHint = {
-  kHighestQuality: 0,
-  kFastestInference: 1,
 };
 
 // Enum: PlatformModelState
 on_device_model.mojom.PlatformModelState = {
-  kInstalledOnDisk: 0,
-  kInvalidUuid: 1,
-  kInvalidDlcClient: 2,
-  kInvalidDlcPackage: 3,
-  kInvalidDlcVerifiedState: 4,
-  kInvalidDlcInstall: 5,
-  kInvalidModelFormat: 6,
-  kInvalidModelDescriptor: 7,
-  kInvalidBaseModelDescriptor: 8,
 };
 
 // Enum: FormatFeature
 on_device_model.mojom.FormatFeature = {
-  kPrompt: 0,
-  kAudioSummary: 1,
-  kAudioTitle: 2,
 };
 
 // Enum: SafetyFeature
 on_device_model.mojom.SafetyFeature = {
-  kAudioSummaryRequest: 0,
-  kAudioTitleRequest: 1,
-  kAudioSummaryResponse: 2,
-  kAudioTitleResponse: 3,
 };
 
 // Struct: ModelAssets

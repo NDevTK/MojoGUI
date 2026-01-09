@@ -11,7 +11,6 @@ content.mojom = content.mojom || {};
 
 // Enum: MhtmlSaveStatus
 content.mojom.MhtmlSaveStatus = {
-  kSuccess: 0,
 };
 
 // Struct: SerializeAsMHTMLParams

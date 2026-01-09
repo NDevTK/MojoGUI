@@ -19,10 +19,6 @@ remote_cocoa.mojom.WindowVisibilityState = {
 
 // Enum: VisibilityTransition
 remote_cocoa.mojom.VisibilityTransition = {
-  kShow: 0,
-  kHide: 1,
-  kBoth: 2,
-  kNone: 3,
 };
 
 // Enum: ToolbarVisibilityStyle

@@ -15,14 +15,10 @@ arc.mojom.CpuRestrictionState = {
 
 // Enum: DisplayWakeLockType
 arc.mojom.DisplayWakeLockType = {
-  turn: 0,
-  or: 1,
-  but: 2,
 };
 
 // Enum: WakefulnessMode
 arc.mojom.WakefulnessMode = {
-  the: 0,
 };
 
 // Enum: IdleState

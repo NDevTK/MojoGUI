@@ -13,11 +13,6 @@ ash.settings.app_notification.mojom = ash.settings.app_notification.mojom || {};
 
 // Enum: Readiness
 ash.settings.app_notification.mojom.Readiness = {
-  kUnknown: 0,
-  kReady: 1,
-  kRemoved: 2,
-  kUninstalledByNonUser: 3,
-  kDisabledByLocalSettings: 4,
 };
 
 // Struct: App

@@ -12,7 +12,6 @@ content.mojom = content.mojom || {};
 // Struct: ResourceTypeStat
 content.mojom.ResourceTypeStat = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

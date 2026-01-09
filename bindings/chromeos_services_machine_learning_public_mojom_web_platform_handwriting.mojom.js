@@ -50,9 +50,6 @@ chromeos.machine_learning.web_platform.mojom.HandwritingPrediction = class {
 // Struct: HandwritingHints
 chromeos.machine_learning.web_platform.mojom.HandwritingHints = class {
   constructor(values = {}) {
-    this.input_type@1 = values.input_type@1 !== undefined ? values.input_type@1 : "";
-    this.alternatives@3 = values.alternatives@3 !== undefined ? values.alternatives@3 : 0;
-    this.text_context@4 = values.text_context@4 !== undefined ? values.text_context@4 : "";
   }
 };
 

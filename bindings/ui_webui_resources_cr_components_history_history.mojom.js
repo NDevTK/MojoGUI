@@ -11,10 +11,6 @@ history.mojom = history.mojom || {};
 
 // Enum: FilteringBehavior
 history.mojom.FilteringBehavior = {
-  kUnknown: 0,
-  kAllow: 1,
-  kWarn: 2,
-  kInvalid: 3,
 };
 
 // Struct: QueryState

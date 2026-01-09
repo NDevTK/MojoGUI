@@ -21,42 +21,18 @@ arc.mojom.GetNetworksRequestType = {
 
 // Enum: ConnectionStateType
 arc.mojom.ConnectionStateType = {
-  or: 0,
-  or: 1,
-  but: 2,
-  kStateIdle: 3,
-  but: 4,
-  and: 5,
 };
 
 // Enum: EapMethod
 arc.mojom.EapMethod = {
-  kNone: 0,
-  kLeap: 1,
-  kPeap: 2,
-  kTls: 3,
-  kTtls: 4,
 };
 
 // Enum: EapPhase2Method
 arc.mojom.EapPhase2Method = {
-  kNone: 0,
-  kPap: 1,
-  kMschap: 2,
-  kMschapv2: 3,
 };
 
 // Enum: KeyManagement
 arc.mojom.KeyManagement = {
-  kNone: 0,
-  kIeee8021X: 1,
-  kFtEap: 2,
-  kFtPsk: 3,
-  kFtSae: 4,
-  kWpaEap: 5,
-  kWpaEapSha256: 6,
-  kWpaPsk: 7,
-  kSae: 8,
 };
 
 // Enum: IPAddressType
@@ -83,42 +59,26 @@ arc.mojom.MeteredOverride = {
 
 // Enum: Flag
 arc.mojom.Flag = {
-  b: 0,
 };
 
 // Enum: WifiBand
 arc.mojom.WifiBand = {
-  k2Ghz: 0,
-  k5Ghz: 1,
-  k6Ghz: 2,
-  k60Ghz: 3,
 };
 
 // Enum: LohsStatus
 arc.mojom.LohsStatus = {
-  kSuccess: 0,
-  kErrorGeneric: 1,
-  kErrorIncompatibleMode: 2,
-  kErrorTetheringDisallowed: 3,
-  but: 4,
 };
 
 // Enum: IpProtocol
 arc.mojom.IpProtocol = {
-  kTcp: 0,
-  kUdp: 1,
 };
 
 // Enum: SocketEvent
 arc.mojom.SocketEvent = {
-  kOpen: 0,
-  kClose: 1,
 };
 
 // Enum: QosCategory
 arc.mojom.QosCategory = {
-  kRealtimeInteractive: 0,
-  kMultimediaConferencing: 1,
 };
 
 // Struct: VisibleNetworkDetails
@@ -139,30 +99,19 @@ arc.mojom.ConfiguredNetworkDetails = class {
 // Struct: PasspointCredentials
 arc.mojom.PasspointCredentials = class {
   constructor(values = {}) {
-    this.friendly_name@8 = values.friendly_name@8 !== undefined ? values.friendly_name@8 : 0;
-    this.subscription_expiration_time_ms@9 = values.subscription_expiration_time_ms@9 !== undefined ? values.subscription_expiration_time_ms@9 : 0;
   }
 };
 
 // Struct: PasspointRemovalProperties
 arc.mojom.PasspointRemovalProperties = class {
   constructor(values = {}) {
-    this.package_name@1 = values.package_name@1 !== undefined ? values.package_name@1 : "";
   }
 };
 
 // Struct: EapCredentials
 arc.mojom.EapCredentials = class {
   constructor(values = {}) {
-    this.phase2_method@1 = values.phase2_method@1 !== undefined ? values.phase2_method@1 : null;
-    this.client_certificate_key@8 = values.client_certificate_key@8 !== undefined ? values.client_certificate_key@8 : "";
-    this.subject_match@9 = values.subject_match@9 !== undefined ? values.subject_match@9 : "";
-    this.subject_alternative_name_match_list@10 = values.subject_alternative_name_match_list@10 !== undefined ? values.subject_alternative_name_match_list@10 : "";
     this.will = values.will !== undefined ? values.will : null;
-    this.tls_version_max@12 = values.tls_version_max@12 !== undefined ? values.tls_version_max@12 : "";
-    this.use_system_cas@13 = values.use_system_cas@13 !== undefined ? values.use_system_cas@13 : false;
-    this.use_proactive_key_caching@14 = values.use_proactive_key_caching@14 !== undefined ? values.use_proactive_key_caching@14 : false;
-    this.use_login_password@15 = values.use_login_password@15 !== undefined ? values.use_login_password@15 : false;
   }
 };
 
@@ -205,40 +154,30 @@ arc.mojom.NetworkConfiguration = class {
 // Struct: LinkSpeed
 arc.mojom.LinkSpeed = class {
   constructor(values = {}) {
-    this.downlink_speed_kbps@1 = values.downlink_speed_kbps@1 !== undefined ? values.downlink_speed_kbps@1 : 0;
   }
 };
 
 // Struct: WifiConfiguration
 arc.mojom.WifiConfiguration = class {
   constructor(values = {}) {
-    this.bssid@3 = values.bssid@3 !== undefined ? values.bssid@3 : 0;
-    this.static_ipv4_config@11 = values.static_ipv4_config@11 !== undefined ? values.static_ipv4_config@11 : "";
-    this.dns_servers@13 = values.dns_servers@13 !== undefined ? values.dns_servers@13 : "";
-    this.ignored. = values.ignored. !== undefined ? values.ignored. : null;
-    this.to. = values.to. !== undefined ? values.to. : null;
-    this.bssid_allowlist@14 = values.bssid_allowlist@14 !== undefined ? values.bssid_allowlist@14 : "";
   }
 };
 
 // Struct: StaticIpv4Configuration
 arc.mojom.StaticIpv4Configuration = class {
   constructor(values = {}) {
-    this.prefix_length@2 = values.prefix_length@2 !== undefined ? values.prefix_length@2 : 0;
   }
 };
 
 // Struct: PacUrlProxyConfig
 arc.mojom.PacUrlProxyConfig = class {
   constructor(values = {}) {
-    this.pac_url@0 = values.pac_url@0 !== undefined ? values.pac_url@0 : null;
   }
 };
 
 // Struct: ManualProxyConfig
 arc.mojom.ManualProxyConfig = class {
   constructor(values = {}) {
-    this.exclusion_list@2 = values.exclusion_list@2 !== undefined ? values.exclusion_list@2 : 0;
   }
 };
 
@@ -252,10 +191,6 @@ arc.mojom.GetNetworksResponseType = class {
 // Struct: AndroidVpnConfiguration
 arc.mojom.AndroidVpnConfiguration = class {
   constructor(values = {}) {
-    this.app_label@1 = values.app_label@1 !== undefined ? values.app_label@1 : "";
-    this.split_include@5 = values.split_include@5 !== undefined ? values.split_include@5 : false;
-    this.domains@8 = values.domains@8 !== undefined ? values.domains@8 : "";
-    this.mtu@10 = values.mtu@10 !== undefined ? values.mtu@10 : 0;
   }
 };
 
@@ -283,7 +218,6 @@ arc.mojom.ArcPingTestResult = class {
 // Struct: LohsConfig
 arc.mojom.LohsConfig = class {
   constructor(values = {}) {
-    this.passphrase@3 = values.passphrase@3 !== undefined ? values.passphrase@3 : "";
   }
 };
 
@@ -306,8 +240,6 @@ arc.mojom.PasspointApprovalResponse = class {
 // Struct: SocketConnectionEvent
 arc.mojom.SocketConnectionEvent = class {
   constructor(values = {}) {
-    this.proto@4 = values.proto@4 !== undefined ? values.proto@4 : 0;
-    this.qos_category@7 = values.qos_category@7 !== undefined ? values.qos_category@7 : null;
   }
 };
 

@@ -19,7 +19,6 @@ chrome.mojom.ExtractVideoFrameResult = class {
 // Struct: MediaStreamInfo
 chrome.mojom.MediaStreamInfo = class {
   constructor(values = {}) {
-    this."mp3" = values."mp3" !== undefined ? values."mp3" : null;
     this.additional_properties = values.additional_properties !== undefined ? values.additional_properties : "";
   }
 };

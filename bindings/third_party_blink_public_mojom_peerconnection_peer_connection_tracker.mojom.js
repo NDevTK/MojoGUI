@@ -11,11 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: DeviceThermalState
 blink.mojom.DeviceThermalState = {
-  kUnknown: 0,
-  kNominal: 1,
-  kFair: 2,
-  kSerious: 3,
-  kCritical: 4,
 };
 
 // Struct: PeerConnectionInfo

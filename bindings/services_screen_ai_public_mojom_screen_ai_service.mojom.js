@@ -36,7 +36,6 @@ screen_ai.mojom.VisualAnnotation = class {
 screen_ai.mojom.LineBox = class {
   constructor(values = {}) {
     this.text_line = values.text_line !== undefined ? values.text_line : "";
-    this.639-2 = values.639-2 !== undefined ? values.639-2 : null;
     this.confidence = values.confidence !== undefined ? values.confidence : 0;
   }
 };
@@ -45,7 +44,6 @@ screen_ai.mojom.LineBox = class {
 screen_ai.mojom.WordBox = class {
   constructor(values = {}) {
     this.word = values.word !== undefined ? values.word : "";
-    this.639-2 = values.639-2 !== undefined ? values.639-2 : null;
     this.confidence = values.confidence !== undefined ? values.confidence : 0;
   }
 };

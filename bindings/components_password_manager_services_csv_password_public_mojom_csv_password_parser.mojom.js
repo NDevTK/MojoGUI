@@ -11,9 +11,6 @@ password_manager.mojom = password_manager.mojom || {};
 
 // Enum: Status
 password_manager.mojom.Status = {
-  kOK: 0,
-  kSyntaxError: 1,
-  kSemanticError: 2,
 };
 
 // Struct: CSVPasswordSequence
@@ -26,9 +23,6 @@ password_manager.mojom.CSVPasswordSequence = class {
 // Struct: CSVPassword
 password_manager.mojom.CSVPassword = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
-    this.2 = values.2 !== undefined ? values.2 : null;
   }
 };
 

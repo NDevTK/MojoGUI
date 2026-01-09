@@ -11,20 +11,6 @@ media.mojom = media.mojom || {};
 
 // Enum: MediaURLScheme
 media.mojom.MediaURLScheme = {
-  kUnknown: 0,
-  kMissing: 1,
-  kHttp: 2,
-  kHttps: 3,
-  kFtp: 4,
-  kChromeExtension: 5,
-  kJavascript: 6,
-  kFile: 7,
-  kBlob: 8,
-  kData: 9,
-  kFileSystem: 10,
-  kChrome: 11,
-  kContent: 12,
-  kContentId: 13,
 };
 
 // Interface: MediaMetricsProvider

@@ -11,14 +11,6 @@ history_embeddings.mojom = history_embeddings.mojom || {};
 
 // Enum: AnswerStatus
 history_embeddings.mojom.AnswerStatus = {
-  kUnspecified: 0,
-  kLoading: 1,
-  kSuccess: 2,
-  kUnanswerable: 3,
-  kModelUnavailable: 4,
-  kExecutionFailure: 5,
-  kExecutionCanceled: 6,
-  kFiltered: 7,
 };
 
 // Enum: UserFeedback

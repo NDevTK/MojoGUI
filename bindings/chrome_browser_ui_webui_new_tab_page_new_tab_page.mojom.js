@@ -11,13 +11,6 @@ new_tab_page.mojom = new_tab_page.mojom || {};
 
 // Enum: NtpBackgroundImageSource
 new_tab_page.mojom.NtpBackgroundImageSource = {
-  kNoImage: 0,
-  kFirstPartyThemeWithoutDailyRefresh: 1,
-  kFirstPartyThemeWithDailyRefresh: 2,
-  kThirdPartyTheme: 3,
-  kUploadedImage: 4,
-  kWallpaperSearch: 5,
-  kWallpaperSearchInspiration: 6,
 };
 
 // Enum: DoodleImageType
@@ -26,33 +19,14 @@ new_tab_page.mojom.DoodleImageType = {
 
 // Enum: DoodleShareChannel
 new_tab_page.mojom.DoodleShareChannel = {
-  kFacebook: 0,
-  kTwitter: 1,
-  kEmail: 2,
-  kLinkCopy: 3,
 };
 
 // Enum: CustomizeDialogAction
 new_tab_page.mojom.CustomizeDialogAction = {
-  kCancelClicked: 0,
-  kDoneClicked: 1,
-  kOpenClicked: 2,
-  kBackgroundsBackClicked: 3,
-  kBackgroundsNoBackgroundSelected: 4,
-  kBackgroundsCollectionOpened: 5,
-  kBackgroundsRefreshToggleClicked: 6,
-  kBackgroundsImageSelected: 7,
-  kBackgroundsUploadFromDeviceClicked: 8,
-  kShortcutsCustomLinksClicked: 9,
-  kShortcutsMostVisitedClicked: 10,
-  kShortcutsVisibilityToggleClicked: 11,
 };
 
 // Enum: OptInStatus
 new_tab_page.mojom.OptInStatus = {
-  kExplicitOptIn: 0,
-  kImplicitOptIn: 1,
-  kOptOut: 2,
 };
 
 // Struct: BackgroundImage

@@ -14,7 +14,6 @@ ui.ozone.mojom = ui.ozone.mojom || {};
 ui.ozone.mojom.SetGesturePropErrorCode = {
   SUCCESS: 0,
   UNKNOWN_ERROR: 1,
-  or: 2,
 };
 
 // Interface: GesturePropertiesService

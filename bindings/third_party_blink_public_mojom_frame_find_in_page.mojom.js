@@ -15,8 +15,6 @@ blink.mojom.StopFindAction = {
 
 // Enum: FindMatchUpdateType
 blink.mojom.FindMatchUpdateType = {
-  kFinalUpdate: 0,
-  kMoreUpdatesComing: 1,
 };
 
 // Struct: FindOptions

@@ -11,28 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: LinkGenerationReadyStatus
 blink.mojom.LinkGenerationReadyStatus = {
-  kRequestedBeforeReady: 0,
-  kRequestedAfterReady: 1,
 };
 
 // Enum: LinkGenerationError
 blink.mojom.LinkGenerationError = {
-  kNone: 0,
-  kIncorrectSelector: 1,
-  kNoRange: 2,
-  kNoContext: 3,
-  kContextExhausted: 4,
-  kContextLimitReached: 5,
-  kEmptySelection: 6,
-  kTabHidden: 7,
-  kOmniboxNavigation: 8,
-  kTabCrash: 9,
-  kUnknown: 10,
-  kIFrame: 11,
-  kTimeout: 12,
-  kBlockList: 13,
-  kNoRemoteConnection: 14,
-  kNotGenerated: 15,
 };
 
 // Interface: TextFragmentReceiver

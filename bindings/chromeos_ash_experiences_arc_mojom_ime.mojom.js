@@ -32,9 +32,6 @@ arc.mojom.SegmentStyle = {
 
 // Enum: CursorCoordinateSpace
 arc.mojom.CursorCoordinateSpace = {
-  0: 0,
-  0: 1,
-  0: 2,
 };
 
 // Struct: CompositionSegment

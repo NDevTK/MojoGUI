@@ -11,8 +11,6 @@ network.mojom = network.mojom || {};
 
 // Enum: SSLVersion
 network.mojom.SSLVersion = {
-  kTLS12: 0,
-  kTLS13: 1,
 };
 
 // Enum: SSLNamedGroupsPreset
@@ -25,7 +23,6 @@ network.mojom.SSLConfig = class {
     this.kTLS13 = values.kTLS13 !== undefined ? values.kTLS13 : false;
     this.order = values.order !== undefined ? values.order : null;
     this.the = values.the !== undefined ? values.the : null;
-    this.0x0004 = values.0x0004 !== undefined ? values.0x0004 : null;
     this.to = values.to !== undefined ? values.to : null;
     this.false = values.false !== undefined ? values.false : 0;
     this.true = values.true !== undefined ? values.true : false;

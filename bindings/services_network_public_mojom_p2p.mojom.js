@@ -11,7 +11,6 @@ network.mojom = network.mojom || {};
 
 // Enum: EcnMarking
 network.mojom.EcnMarking = {
-  kNotEct: 0,
 };
 
 // Struct: P2PReceivedPacket

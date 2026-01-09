@@ -11,11 +11,6 @@ network.mojom = network.mojom || {};
 
 // Enum: ResolverType
 network.mojom.ResolverType = {
-  kResolverTypeFail: 0,
-  kResolverTypeFailTimeout: 1,
-  kResolverTypeSystem: 2,
-  kResolverTypeIPLiteral: 3,
-  kResolverTypeDirectLookup: 4,
 };
 
 // Struct: Rule

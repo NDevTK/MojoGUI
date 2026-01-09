@@ -11,7 +11,6 @@ page_load_metrics.mojom = page_load_metrics.mojom || {};
 
 // Enum: CacheType
 page_load_metrics.mojom.CacheType = {
-  kNotCached: 0,
 };
 
 // Struct: DocumentTiming
@@ -98,15 +97,12 @@ page_load_metrics.mojom.PageLoadTiming = class {
     this.domain_lookup_timing = values.domain_lookup_timing !== undefined ? values.domain_lookup_timing : 0;
     this.activation_start = values.activation_start !== undefined ? values.activation_start : [];
     this.monotonic_paint_timing = values.monotonic_paint_timing !== undefined ? values.monotonic_paint_timing : 0;
-    this.page_load_timing.h. = values.page_load_timing.h. !== undefined ? values.page_load_timing.h. : null;
   }
 };
 
 // Struct: FrameMetadata
 page_load_metrics.mojom.FrameMetadata = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.(0,0)) = values.(0,0)) !== undefined ? values.(0,0)) : null;
     this.frame = values.frame !== undefined ? values.frame : 0;
     this.is = values.is !== undefined ? values.is : null;
     this.subsequent = values.subsequent !== undefined ? values.subsequent : null;
@@ -130,83 +126,64 @@ page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics = class {
   constructor(values = {}) {
     this.worker = values.worker !== undefined ? values.worker : null;
     this.image_handled = values.image_handled !== undefined ? values.image_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.image_fallback = values.image_fallback !== undefined ? values.image_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.css_handled = values.css_handled !== undefined ? values.css_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.css_fallback = values.css_fallback !== undefined ? values.css_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.script_handled = values.script_handled !== undefined ? values.script_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.script_fallback = values.script_fallback !== undefined ? values.script_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.font_handled = values.font_handled !== undefined ? values.font_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.font_fallback = values.font_fallback !== undefined ? values.font_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.raw_handled = values.raw_handled !== undefined ? values.raw_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.raw_fallback = values.raw_fallback !== undefined ? values.raw_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.svg_handled = values.svg_handled !== undefined ? values.svg_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.svg_fallback = values.svg_fallback !== undefined ? values.svg_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.xsl_handled = values.xsl_handled !== undefined ? values.xsl_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.xsl_fallback = values.xsl_fallback !== undefined ? values.xsl_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.link_prefetch_handled = values.link_prefetch_handled !== undefined ? values.link_prefetch_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.link_prefetch_fallback = values.link_prefetch_fallback !== undefined ? values.link_prefetch_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.text_track_handled = values.text_track_handled !== undefined ? values.text_track_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.text_track_fallback = values.text_track_fallback !== undefined ? values.text_track_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.audio_handled = values.audio_handled !== undefined ? values.audio_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.audio_fallback = values.audio_fallback !== undefined ? values.audio_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.video_handled = values.video_handled !== undefined ? values.video_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.video_fallback = values.video_fallback !== undefined ? values.video_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.manifest_handled = values.manifest_handled !== undefined ? values.manifest_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.manifest_fallback = values.manifest_fallback !== undefined ? values.manifest_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.speculation_rules_handled = values.speculation_rules_handled !== undefined ? values.speculation_rules_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.speculation_rules_fallback = values.speculation_rules_fallback !== undefined ? values.speculation_rules_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.mock_handled = values.mock_handled !== undefined ? values.mock_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.mock_fallback = values.mock_fallback !== undefined ? values.mock_fallback : false;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.dictionary_handled = values.dictionary_handled !== undefined ? values.dictionary_handled : false;
-    this.fallback. = values.fallback. !== undefined ? values.fallback. : null;
     this.worker = values.worker !== undefined ? values.worker : null;
     this.dictionary_fallback = values.dictionary_fallback !== undefined ? values.dictionary_fallback : false;
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.total_cache_lookup_time_for_subresources = values.total_cache_lookup_time_for_subresources !== undefined ? values.total_cache_lookup_time_for_subresources : 0;
   }
 };

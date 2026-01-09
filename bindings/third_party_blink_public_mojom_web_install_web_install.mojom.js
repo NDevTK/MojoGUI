@@ -11,9 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: WebInstallServiceResult
 blink.mojom.WebInstallServiceResult = {
-  kSuccess: 0,
-  kAbortError: 1,
-  kDataError: 2,
 };
 
 // Struct: InstallOptions

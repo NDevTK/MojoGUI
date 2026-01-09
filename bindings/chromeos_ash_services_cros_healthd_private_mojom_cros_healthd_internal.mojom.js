@@ -18,7 +18,6 @@ ash.cros_healthd.internal.mojom.ConnectionType = {
 // Struct: TouchscreenDevice
 ash.cros_healthd.internal.mojom.TouchscreenDevice = class {
   constructor(values = {}) {
-    this.has_stylus_garage_switch@3 = values.has_stylus_garage_switch@3 !== undefined ? values.has_stylus_garage_switch@3 : 0;
   }
 };
 

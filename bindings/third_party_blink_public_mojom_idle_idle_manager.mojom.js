@@ -11,8 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: IdleManagerError
 blink.mojom.IdleManagerError = {
-  kSuccess: 0,
-  kPermissionDisabled: 1,
 };
 
 // Struct: IdleState

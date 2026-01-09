@@ -15,8 +15,6 @@ heap_profiling.mojom.StackMode = {
 
 // Enum: AllocatorType
 heap_profiling.mojom.AllocatorType = {
-  kMalloc: 0,
-  kPartitionAlloc: 1,
 };
 
 // Struct: ProfilingParams

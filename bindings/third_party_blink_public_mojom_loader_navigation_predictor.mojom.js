@@ -11,11 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AnchorElementUserInteractionEventForMLModelType
 blink.mojom.AnchorElementUserInteractionEventForMLModelType = {
-  kPointerOver: 0,
-  kPointerOut: 1,
-  kEnteredViewport: 2,
-  kLeftViewport: 3,
-  kUnknown: 4,
 };
 
 // Struct: AnchorElementMetrics

@@ -11,16 +11,10 @@ chromecast.mojom = chromecast.mojom || {};
 
 // Enum: VisibilityType
 chromecast.mojom.VisibilityType = {
-  supporting: 0,
-  and: 1,
 };
 
 // Enum: VisibilityPriority
 chromecast.mojom.VisibilityPriority = {
-  it: 0,
-  it: 1,
-  it: 2,
-  but: 3,
 };
 
 // Interface: CastContentWindowObserver

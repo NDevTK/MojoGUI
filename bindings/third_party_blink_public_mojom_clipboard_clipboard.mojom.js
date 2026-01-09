@@ -11,15 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: ClipboardFormat
 blink.mojom.ClipboardFormat = {
-  kPlaintext: 0,
-  kHtml: 1,
-  kSmartPaste: 2,
-  kBookmark: 3,
 };
 
 // Enum: ClipboardBuffer
 blink.mojom.ClipboardBuffer = {
-  kStandard: 0,
 };
 
 // Enum: PlatformClipboardPermissionState

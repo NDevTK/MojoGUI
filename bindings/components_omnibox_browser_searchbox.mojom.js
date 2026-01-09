@@ -11,30 +11,18 @@ searchbox.mojom = searchbox.mojom || {};
 
 // Enum: ToolMode
 searchbox.mojom.ToolMode = {
-  kDefault: 0,
-  kDeepSearch: 1,
-  kCreateImage: 2,
 };
 
 // Enum: SideType
 searchbox.mojom.SideType = {
-  kDefaultPrimary: 0,
-  kSecondary: 1,
 };
 
 // Enum: RenderType
 searchbox.mojom.RenderType = {
-  kDefaultVertical: 0,
-  kHorizontal: 1,
-  kGrid: 2,
 };
 
 // Enum: SelectionLineState
 searchbox.mojom.SelectionLineState = {
-  kNormal: 0,
-  kKeywordMode: 1,
-  kFocusedButtonAction: 2,
-  kFocusedButtonRemoveSuggestion: 3,
 };
 
 // Struct: ACMatchClassification
@@ -108,7 +96,6 @@ searchbox.mojom.SelectedFileInfo = class {
 // Struct: SuggestionGroup
 searchbox.mojom.SuggestionGroup = class {
   constructor(values = {}) {
-    this.SideType.kDefaultPrimary = values.SideType.kDefaultPrimary !== undefined ? values.SideType.kDefaultPrimary : "";
   }
 };
 

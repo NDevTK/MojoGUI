@@ -11,15 +11,10 @@ media.mojom = media.mojom || {};
 
 // Enum: DecryptStatus
 media.mojom.DecryptStatus = {
-  kSuccess: 0,
-  kNoKey: 1,
-  kFailure: 2,
 };
 
 // Enum: CdmContextEvent
 media.mojom.CdmContextEvent = {
-  kHasAdditionalUsableKey: 0,
-  kHardwareContextReset: 1,
 };
 
 // Interface: CdmContextEventCallback

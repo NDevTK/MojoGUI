@@ -11,9 +11,6 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 // Enum: TrustedSignalsCompressionScheme
 auction_worklet.mojom.TrustedSignalsCompressionScheme = {
-  kNone: 0,
-  kGzip: 1,
-  kBrotli: 2,
 };
 
 // Struct: TrustedSignalsCacheKey

@@ -17,11 +17,6 @@ payments.mojom.PaymentCredentialStorageStatus = {
 
 // Enum: SecurePaymentConfirmationAvailabilityEnum
 payments.mojom.SecurePaymentConfirmationAvailabilityEnum = {
-  kAvailable: 0,
-  kUnavailableUnknownReason: 1,
-  kUnavailableFeatureNotEnabled: 2,
-  kUnavailableNoPermissionPolicy: 3,
-  kUnavailableNoUserVerifyingPlatformAuthenticator: 4,
 };
 
 // Interface: SecurePaymentConfirmationService

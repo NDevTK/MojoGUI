@@ -11,20 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AILanguageModelPromptRole
 blink.mojom.AILanguageModelPromptRole = {
-  kSystem: 0,
-  kUser: 1,
-  kAssistant: 2,
-  kToolCall: 3,
-  kToolResponse: 4,
 };
 
 // Enum: AILanguageModelPromptType
 blink.mojom.AILanguageModelPromptType = {
-  kText: 0,
-  kImage: 1,
-  kAudio: 2,
-  kToolCall: 3,
-  kToolResponse: 4,
 };
 
 // Struct: AILanguageModelSamplingParams

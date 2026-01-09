@@ -11,18 +11,10 @@ glic.mojom = glic.mojom || {};
 
 // Enum: ProfileReadyState
 glic.mojom.ProfileReadyState = {
-  and: 0,
-  but: 1,
 };
 
 // Enum: WebUiState
 glic.mojom.WebUiState = {
-  combined: 0,
-  will: 1,
-  but: 2,
-  or: 3,
-  but: 4,
-  but: 5,
 };
 
 // Enum: MetricUserInputReactionType
@@ -31,7 +23,6 @@ glic.mojom.MetricUserInputReactionType = {
 
 // Enum: PrepareForClientResult
 glic.mojom.PrepareForClientResult = {
-  and: 0,
 };
 
 // Enum: PerformActionsErrorReason
@@ -60,18 +51,10 @@ glic.mojom.CaptureScreenshotErrorReason = {
 
 // Enum: Platform
 glic.mojom.Platform = {
-  kUnknown: 0,
-  kMacOS: 1,
-  kWindows: 2,
-  kLinux: 3,
-  kChromeOS: 4,
 };
 
 // Enum: ScrollToErrorReason
 glic.mojom.ScrollToErrorReason = {
-  or: 0,
-  may: 1,
-  or: 2,
 };
 
 // Enum: SkillSource
@@ -96,13 +79,10 @@ glic.mojom.RegisterConversationErrorReason = {
 
 // Enum: PanelStateKind
 glic.mojom.PanelStateKind = {
-  detached: 0,
-  attached: 1,
 };
 
 // Enum: InvocationSource
 glic.mojom.InvocationSource = {
-  so: 0,
 };
 
 // Enum: WebClientMode
@@ -115,15 +95,10 @@ glic.mojom.WebClientModel = {
 
 // Enum: WebUseCounter
 glic.mojom.WebUseCounter = {
-  kSubmitPromptWithAutoMode: 0,
-  kTaskInterruptedForUserConfirmation: 1,
-  kTaskInterruptedForUserClarification: 2,
 };
 
 // Enum: ResponseStopCause
 glic.mojom.ResponseStopCause = {
-  kUser: 0,
-  kOther: 1,
 };
 
 // Enum: CaptureRegionErrorReason
@@ -136,13 +111,10 @@ glic.mojom.SettingsPageField = {
 
 // Enum: HostCapability
 glic.mojom.HostCapability = {
-  bypassing: 0,
-  bypassing: 1,
 };
 
 // Enum: CurrentView
 glic.mojom.CurrentView = {
-  aural: 0,
 };
 
 // Struct: ProfileEnablement
@@ -181,7 +153,6 @@ glic.mojom.GetTabContextOptions = class {
   constructor(values = {}) {
     this.include_pdf = values.include_pdf !== undefined ? values.include_pdf : 0;
     this.pdf_size_limit = values.pdf_size_limit !== undefined ? values.pdf_size_limit : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
@@ -391,7 +362,6 @@ glic.mojom.PdfDocumentData = class {
 glic.mojom.TabData = class {
   constructor(values = {}) {
     this.is_observable = values.is_observable !== undefined ? values.is_observable : 0;
-    this.UI. = values.UI. !== undefined ? values.UI. : null;
     this.is_media_active = values.is_media_active !== undefined ? values.is_media_active : false;
     this.is_window_active = values.is_window_active !== undefined ? values.is_window_active : false;
   }

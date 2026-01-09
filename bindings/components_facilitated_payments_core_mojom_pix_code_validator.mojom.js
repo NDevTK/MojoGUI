@@ -12,9 +12,6 @@ payments.facilitated.mojom = payments.facilitated.mojom || {};
 
 // Enum: PixQrCodeType
 payments.facilitated.mojom.PixQrCodeType = {
-  kInvalid: 0,
-  kDynamic: 1,
-  kStatic: 2,
 };
 
 // Interface: PixCodeValidator

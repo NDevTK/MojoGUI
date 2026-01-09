@@ -11,21 +11,14 @@ tracing.mojom = tracing.mojom || {};
 
 // Enum: ConsoleOutput
 tracing.mojom.ConsoleOutput = {
-  kOutputUnspecified: 0,
-  kOutputStdOut: 1,
-  kOutputStdErr: 2,
 };
 
 // Enum: BufferFillPolicy
 tracing.mojom.BufferFillPolicy = {
-  kUnspecified: 0,
 };
 
 // Enum: TracingClientPriority
 tracing.mojom.TracingClientPriority = {
-  kUnknown: 0,
-  kBackground: 1,
-  kUserInitiated: 2,
 };
 
 // Struct: ChunksToMove

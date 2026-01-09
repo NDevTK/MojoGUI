@@ -11,13 +11,10 @@ network.mojom = network.mojom || {};
 
 // Enum: LocalNetworkAccessResult
 network.mojom.LocalNetworkAccessResult = {
-  kGranted: 0,
-  kDenied: 1,
 };
 
 // Enum: TransportType
 network.mojom.TransportType = {
-  but: 0,
 };
 
 // Struct: LoadInfo

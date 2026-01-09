@@ -11,9 +11,6 @@ reload_button.mojom = reload_button.mojom || {};
 
 // Enum: ClickDispositionFlag
 reload_button.mojom.ClickDispositionFlag = {
-  kMiddleMouseButton: 0,
-  kAltKeyDown: 1,
-  kMetaKeyDown: 2,
 };
 
 // Interface: PageHandlerFactory

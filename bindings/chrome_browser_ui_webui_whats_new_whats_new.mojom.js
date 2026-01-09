@@ -15,17 +15,6 @@ whats_new.mojom.ScrollDepth = {
 
 // Enum: ModulePosition
 whats_new.mojom.ModulePosition = {
-  kSpotlight1: 0,
-  kSpotlight2: 1,
-  kSpotlight3: 2,
-  kSpotlight4: 3,
-  kExploreMore1: 4,
-  kExploreMore2: 5,
-  kExploreMore3: 6,
-  kExploreMore4: 7,
-  kExploreMore5: 8,
-  kExploreMore6: 9,
-  kUndefined: 10,
 };
 
 // Interface: PageHandlerFactory

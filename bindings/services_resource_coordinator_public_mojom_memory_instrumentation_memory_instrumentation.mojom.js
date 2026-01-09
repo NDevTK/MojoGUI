@@ -42,15 +42,10 @@ memory_instrumentation.mojom.ProcessType = {
 
 // Enum: MemoryMapOption
 memory_instrumentation.mojom.MemoryMapOption = {
-  e: 0,
-  system: 1,
 };
 
 // Enum: MemDumpFlags
 memory_instrumentation.mojom.MemDumpFlags = {
-  populate: 0,
-  populate: 1,
-  populate: 2,
 };
 
 // Enum: RequestOutcome
@@ -102,9 +97,6 @@ memory_instrumentation.mojom.VmRegion = class {
 // Struct: PlatformPrivateFootprint
 memory_instrumentation.mojom.PlatformPrivateFootprint = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
@@ -112,21 +104,15 @@ memory_instrumentation.mojom.PlatformPrivateFootprint = class {
 memory_instrumentation.mojom.RawOSMemDump = class {
   constructor(values = {}) {
     this.native_library_pages_bitmap = values.native_library_pages_bitmap !== undefined ? values.native_library_pages_bitmap : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
 // Struct: OSMemDump
 memory_instrumentation.mojom.OSMemDump = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.false = values.false !== undefined ? values.false : 0;
     this.swapped = values.swapped !== undefined ? values.swapped : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.memory = values.memory !== undefined ? values.memory : null;
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
@@ -151,7 +137,6 @@ memory_instrumentation.mojom.ProcessMemoryDump = class {
 // Struct: AggregatedMetrics
 memory_instrumentation.mojom.AggregatedMetrics = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 

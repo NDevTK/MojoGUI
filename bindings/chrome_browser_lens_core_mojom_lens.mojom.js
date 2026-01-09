@@ -11,31 +11,10 @@ lens.mojom = lens.mojom || {};
 
 // Enum: UserAction
 lens.mojom.UserAction = {
-  kRegionSelection: 0,
-  kRegionSelectionChange: 1,
-  kTextSelection: 2,
-  kObjectClick: 3,
-  kTranslateText: 4,
-  kCopyText: 5,
-  kMyActivity: 6,
-  kLearnMore: 7,
-  kSendFeedback: 8,
-  kTapRegionSelection: 9,
-  kTranslateButtonEnableAction: 10,
-  kTranslateButtonDisableAction: 11,
-  kTranslateSourceLanguageChanged: 12,
-  kTranslateTargetLanguageChanged: 13,
-  kTranslateTextSelection: 14,
-  kCopyAsImage: 15,
-  kSaveAsImage: 16,
-  kMathSelection: 17,
-  kFullScreenshotRegionSelection: 18,
 };
 
 // Enum: SemanticEvent
 lens.mojom.SemanticEvent = {
-  kTextGleamsViewStart: 0,
-  kTextGleamsViewEnd: 1,
 };
 
 // Struct: OverlayTheme

@@ -12,15 +12,12 @@ network.mojom = network.mojom || {};
 // Struct: TCPKeepAliveOptions
 network.mojom.TCPKeepAliveOptions = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
   }
 };
 
 // Struct: TCPConnectedSocketOptions
 network.mojom.TCPConnectedSocketOptions = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : 0;
-    this.0 = values.0 !== undefined ? values.0 : 0;
     this.packet = values.packet !== undefined ? values.packet : null;
     this.default = values.default !== undefined ? values.default : null;
     this.to = values.to !== undefined ? values.to : null;

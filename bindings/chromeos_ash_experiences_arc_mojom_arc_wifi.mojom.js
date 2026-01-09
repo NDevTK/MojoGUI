@@ -12,8 +12,6 @@ arc.mojom = arc.mojom || {};
 // Struct: WifiScanResult
 arc.mojom.WifiScanResult = class {
   constructor(values = {}) {
-    this.bssid@1 = values.bssid@1 !== undefined ? values.bssid@1 : "";
-    this.rssi@4 = values.rssi@4 !== undefined ? values.rssi@4 : 0;
   }
 };
 

@@ -12,14 +12,10 @@ ash.cros_safety.mojom = ash.cros_safety.mojom || {};
 
 // Enum: GetCloudSafetySessionResult
 ash.cros_safety.mojom.GetCloudSafetySessionResult = {
-  kOk: 0,
 };
 
 // Enum: GetOnDeviceSafetySessionResult
 ash.cros_safety.mojom.GetOnDeviceSafetySessionResult = {
-  kOk: 0,
-  downloading: 1,
-  etc: 2,
 };
 
 // Interface: CrosSafetyService

@@ -12,23 +12,6 @@ ash.personalization_app.mojom = ash.personalization_app.mojom || {};
 
 // Enum: SearchConceptId
 ash.personalization_app.mojom.SearchConceptId = {
-  kPersonalization: 0,
-  kChangeWallpaper: 1,
-  kTimeOfDayWallpaper: 2,
-  kChangeDeviceAccountImage: 3,
-  kAmbientMode: 4,
-  kAmbientModeChooseSource: 5,
-  kAmbientModeTurnOff: 6,
-  kAmbientModeGooglePhotos: 7,
-  kAmbientModeArtGallery: 8,
-  kAmbientModeTurnOn: 9,
-  kAmbientModeTimeOfDay: 10,
-  kDarkMode: 11,
-  kDarkModeSchedule: 12,
-  kDarkModeTurnOff: 13,
-  kDarkModeTurnOn: 14,
-  kDynamicColor: 15,
-  kKeyboardBacklight: 16,
 };
 
 // Struct: SearchResult

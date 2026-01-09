@@ -52,7 +52,6 @@ blink.mojom.BackgroundFetchOptions = class {
 // Struct: BackgroundFetchRegistrationData
 blink.mojom.BackgroundFetchRegistrationData = class {
   constructor(values = {}) {
-    this.BackgroundFetchFailureReason.NONE = values.BackgroundFetchFailureReason.NONE !== undefined ? values.BackgroundFetchFailureReason.NONE : 0;
   }
 };
 
@@ -67,7 +66,6 @@ blink.mojom.BackgroundFetchRegistration = class {
 blink.mojom.BackgroundFetchUkmData = class {
   constructor(values = {}) {
     this.display = values.display !== undefined ? values.display : null;
-    this.-1 = values.-1 !== undefined ? values.-1 : 0;
   }
 };
 

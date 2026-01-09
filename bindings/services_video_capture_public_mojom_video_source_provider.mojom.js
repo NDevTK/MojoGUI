@@ -11,8 +11,6 @@ video_capture.mojom = video_capture.mojom || {};
 
 // Enum: GetSourceInfosResult
 video_capture.mojom.GetSourceInfosResult = {
-  kSuccess: 0,
-  kErrorDroppedRequest: 1,
 };
 
 // Interface: VideoSourceProvider

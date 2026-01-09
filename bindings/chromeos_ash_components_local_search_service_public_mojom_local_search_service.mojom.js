@@ -12,17 +12,10 @@ ash.local_search_service.mojom = ash.local_search_service.mojom || {};
 
 // Enum: IndexId
 ash.local_search_service.mojom.IndexId = {
-  kCrosSettings: 0,
-  kHelpApp: 1,
-  kHelpAppLauncher: 2,
-  kPersonalization: 3,
-  kShortcutsApp: 4,
 };
 
 // Enum: Backend
 ash.local_search_service.mojom.Backend = {
-  kLinearMap: 0,
-  kInvertedIndex: 1,
 };
 
 // Interface: SearchMetricsReporter

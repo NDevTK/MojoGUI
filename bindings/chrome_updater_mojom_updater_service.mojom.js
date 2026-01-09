@@ -11,41 +11,24 @@ updater.mojom = updater.mojom || {};
 
 // Enum: State
 updater.mojom.State = {
-  but: 0,
 };
 
 // Enum: PolicySource
 updater.mojom.PolicySource = {
-  if: 0,
-  Group: 1,
-  Managed: 2,
+  G: 0,
+  M: 1,
 };
 
 // Enum: PolicySameVersionUpdate
 updater.mojom.PolicySameVersionUpdate = {
-  the: 0,
-  and: 1,
 };
 
 // Enum: Result
 updater.mojom.Result = {
-  such: 0,
-  kUpdateCanceled: 1,
-  or: 2,
-  because: 3,
-  or: 4,
-  either: 5,
-  or: 6,
 };
 
 // Enum: ErrorCategory
 updater.mojom.ErrorCategory = {
-  kNone: 0,
-  kDownload: 1,
-  kUnpack: 2,
-  kInstall: 3,
-  kService: 4,
-  kUpdateCheck: 5,
 };
 
 // Enum: Priority
@@ -71,7 +54,6 @@ updater.mojom.RegistrationRequest = class {
 // Struct: UpdateState
 updater.mojom.UpdateState = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
     this.kNotStarted = values.kNotStarted !== undefined ? values.kNotStarted : null;
     this.kDecompressing = values.kDecompressing !== undefined ? values.kDecompressing : null;
     this.kPatching = values.kPatching !== undefined ? values.kPatching : null;
@@ -88,7 +70,6 @@ updater.mojom.AppState = class {
 // Struct: PolicyValue
 updater.mojom.PolicyValue = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
     this.kSourceDefault = values.kSourceDefault !== undefined ? values.kSourceDefault : null;
   }
 };

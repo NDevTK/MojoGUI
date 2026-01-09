@@ -11,17 +11,6 @@ optimization_guide.mojom = optimization_guide.mojom || {};
 
 // Enum: OnDeviceFeature
 optimization_guide.mojom.OnDeviceFeature = {
-  kCompose: 0,
-  kTest: 1,
-  kPromptApi: 2,
-  kHistorySearch: 3,
-  kSummarize: 4,
-  kHistoryQueryIntent: 5,
-  kScamDetection: 6,
-  kPermissionsAi: 7,
-  kWritingAssistanceApi: 8,
-  kOnDeviceSpeechRecognition: 9,
-  kProofreaderApi: 10,
 };
 
 // Enum: ModelUnavailableReason

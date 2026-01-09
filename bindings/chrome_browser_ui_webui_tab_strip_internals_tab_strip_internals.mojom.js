@@ -15,8 +15,6 @@ tab_strip_internals.mojom.Type = {
 
 // Enum: Layout
 tab_strip_internals.mojom.Layout = {
-  kVertical: 0,
-  kHorizontal: 1,
 };
 
 // Struct: Container
@@ -50,7 +48,6 @@ tab_strip_internals.mojom.NodeId = class {
 // Struct: TabStripModel
 tab_strip_internals.mojom.TabStripModel = class {
   constructor(values = {}) {
-    this.TabStripCollection. = values.TabStripCollection. !== undefined ? values.TabStripCollection. : null;
     this.example = values.example !== undefined ? values.example : null;
     this.created = values.created !== undefined ? values.created : null;
     this.root = values.root !== undefined ? values.root : null;

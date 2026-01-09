@@ -12,7 +12,6 @@ enterprise_companion.mojom = enterprise_companion.mojom || {};
 // Struct: Status
 enterprise_companion.mojom.Status = class {
   constructor(values = {}) {
-    this.description@2 = values.description@2 !== undefined ? values.description@2 : 0;
   }
 };
 

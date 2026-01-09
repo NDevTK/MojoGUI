@@ -11,10 +11,6 @@ media.mojom = media.mojom || {};
 
 // Enum: AvailabilityStatus
 media.mojom.AvailabilityStatus = {
-  kUnavailable: 0,
-  kDownloadable: 1,
-  kDownloading: 2,
-  kAvailable: 3,
 };
 
 // Struct: StartSpeechRecognitionRequestParams

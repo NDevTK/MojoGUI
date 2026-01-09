@@ -18,37 +18,29 @@ crosapi.mojom.DeviceAccessResultCode = {
 
 // Enum: VideoRotation
 crosapi.mojom.VideoRotation = {
-  kVideoRotation0: 0,
-  kVideoRotation90: 1,
-  kVideoRotation180: 2,
-  kVideoRotation270: 3,
 };
 
 // Struct: NativePixmapHandle
 crosapi.mojom.NativePixmapHandle = class {
   constructor(values = {}) {
-    this.modifier@1 = values.modifier@1 !== undefined ? values.modifier@1 : 0;
   }
 };
 
 // Struct: GpuMemoryBufferHandle
 crosapi.mojom.GpuMemoryBufferHandle = class {
   constructor(values = {}) {
-    this.platform_handle@3 = values.platform_handle@3 !== undefined ? values.platform_handle@3 : 0;
   }
 };
 
 // Struct: VideoFrameInfo
 crosapi.mojom.VideoFrameInfo = class {
   constructor(values = {}) {
-    this.reference_time@5 = values.reference_time@5 !== undefined ? values.reference_time@5 : null;
   }
 };
 
 // Struct: ReadyFrameInBuffer
 crosapi.mojom.ReadyFrameInBuffer = class {
   constructor(values = {}) {
-    this.frame_info@3 = values.frame_info@3 !== undefined ? values.frame_info@3 : 0;
   }
 };
 

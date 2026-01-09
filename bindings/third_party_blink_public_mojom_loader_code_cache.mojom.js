@@ -11,7 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: CodeCacheType
 blink.mojom.CodeCacheType = {
-  kJavascript: 0,
 };
 
 // Interface: CodeCacheHost

@@ -18,18 +18,10 @@ device_test.mojom.Eye = {
 
 // Enum: ControllerRole
 device_test.mojom.ControllerRole = {
-  kControllerRoleInvalid: 0,
-  kControllerRoleRight: 1,
-  kControllerRoleVoice: 2,
 };
 
 // Enum: EventType
 device_test.mojom.EventType = {
-  kSessionLost: 0,
-  kVisibilityVisibleBlurred: 1,
-  kInstanceLost: 2,
-  kInteractionProfileChanged: 3,
-  kNoEvent: 4,
 };
 
 // Struct: Color

@@ -20,7 +20,6 @@ media_router.mojom.SinkIconType = {
 
 // Enum: RouteControllerType
 media_router.mojom.RouteControllerType = {
-  kNone: 0,
 };
 
 // Enum: Severity
@@ -63,7 +62,6 @@ media_router.mojom.CastMediaSink = class {
 media_router.mojom.MediaRoute = class {
   constructor(values = {}) {
     this.media_sink_name = values.media_sink_name !== undefined ? values.media_sink_name : "";
-    this.media" = values.media" !== undefined ? values.media" : null;
     this.is_connecting = values.is_connecting !== undefined ? values.is_connecting : false;
   }
 };

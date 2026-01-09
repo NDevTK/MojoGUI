@@ -11,45 +11,26 @@ tab_search.mojom = tab_search.mojom || {};
 
 // Enum: TabOrganizationState
 tab_search.mojom.TabOrganizationState = {
-  kInitializing: 0,
-  kNotStarted: 1,
-  kInProgress: 2,
-  kSuccess: 3,
-  kFailure: 4,
 };
 
 // Enum: TabOrganizationFeature
 tab_search.mojom.TabOrganizationFeature = {
-  kSelector: 0,
-  kAutoTabGroups: 1,
-  kDeclutter: 2,
 };
 
 // Enum: TabOrganizationError
 tab_search.mojom.TabOrganizationError = {
-  kNone: 0,
-  kGrouping: 1,
-  kGeneric: 2,
 };
 
 // Enum: TabOrganizationModelStrategy
 tab_search.mojom.TabOrganizationModelStrategy = {
-  kTopic: 0,
-  kTask: 1,
-  kDomain: 2,
 };
 
 // Enum: TabSearchSection
 tab_search.mojom.TabSearchSection = {
-  kSearch: 0,
-  kOrganize: 1,
 };
 
 // Enum: UserFeedback
 tab_search.mojom.UserFeedback = {
-  kUserFeedBackUnspecified: 0,
-  kUserFeedBackPositive: 1,
-  kUserFeedBackNegative: 2,
 };
 
 // Struct: ProfileData

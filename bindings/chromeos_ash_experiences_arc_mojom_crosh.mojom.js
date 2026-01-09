@@ -11,15 +11,11 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ArcShellCommand
 arc.mojom.ArcShellCommand = {
-  kTop: 0,
-  kCpuinfo: 1,
-  kMeminfo: 2,
 };
 
 // Struct: ArcShellExecutionRequest
 arc.mojom.ArcShellExecutionRequest = class {
   constructor(values = {}) {
-    this.command@0 = values.command@0 !== undefined ? values.command@0 : null;
   }
 };
 

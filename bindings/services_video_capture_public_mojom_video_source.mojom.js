@@ -11,8 +11,6 @@ video_capture.mojom = video_capture.mojom || {};
 
 // Enum: CreatePushSubscriptionSuccessCode
 video_capture.mojom.CreatePushSubscriptionSuccessCode = {
-  kCreatedWithRequestedSettings: 0,
-  kCreatedWithDifferentSettings: 1,
 };
 
 // Interface: PushVideoStreamSubscription

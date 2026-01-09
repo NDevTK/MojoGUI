@@ -12,7 +12,6 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: Status
 chromeos.machine_learning.mojom.Status = {
-  candidates: 0,
 };
 
 // Struct: GrammarCheckerQuery
@@ -40,8 +39,6 @@ chromeos.machine_learning.mojom.GrammarCheckerCandidate = class {
 // Struct: GrammarCheckerResult
 chromeos.machine_learning.mojom.GrammarCheckerResult = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
   }
 };
 

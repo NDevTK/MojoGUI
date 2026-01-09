@@ -11,7 +11,6 @@ smbfs.mojom = smbfs.mojom || {};
 
 // Enum: MountError
 smbfs.mojom.MountError = {
-  or: 0,
 };
 
 // Enum: DeleteRecursivelyError
@@ -32,8 +31,6 @@ smbfs.mojom.Password = class {
 // Struct: KerberosConfig
 smbfs.mojom.KerberosConfig = class {
   constructor(values = {}) {
-    this.0 = values.0 !== undefined ? values.0 : null;
-    this.1 = values.1 !== undefined ? values.1 : null;
   }
 };
 

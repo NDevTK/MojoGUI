@@ -11,9 +11,6 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 // Enum: CutCopyPasteCommand
 remote_cocoa.mojom.CutCopyPasteCommand = {
-  kCut: 0,
-  kCopy: 1,
-  kPaste: 2,
 };
 
 // Interface: StubInterface

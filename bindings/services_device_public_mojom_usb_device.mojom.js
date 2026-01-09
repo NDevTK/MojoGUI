@@ -69,8 +69,6 @@ device.mojom.UsbUsageType = {
 
 // Enum: UsbTransferStatus
 device.mojom.UsbTransferStatus = {
-  but: 0,
-  but: 1,
 };
 
 // Struct: UsbEndpointInfo
@@ -112,7 +110,6 @@ device.mojom.UsbDeviceInfo = class {
 device.mojom.UsbControlTransferParams = class {
   constructor(values = {}) {
     this.index = values.index !== undefined ? values.index : 0;
-    this."12eba9f901039b36" = values."12eba9f901039b36" !== undefined ? values."12eba9f901039b36" : "";
   }
 };
 

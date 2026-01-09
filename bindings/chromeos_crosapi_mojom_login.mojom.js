@@ -12,7 +12,6 @@ crosapi.mojom = crosapi.mojom || {};
 // Struct: SamlUserSessionProperties
 crosapi.mojom.SamlUserSessionProperties = class {
   constructor(values = {}) {
-    this.oauth_code@3 = values.oauth_code@3 !== undefined ? values.oauth_code@3 : "";
   }
 };
 

@@ -11,31 +11,14 @@ blink.mojom = blink.mojom || {};
 
 // Enum: MediaDeviceType
 blink.mojom.MediaDeviceType = {
-  kMediaAudioInput: 0,
-  kMediaVideoInput: 1,
-  kMediaAudioOutput: 2,
-  kNumMediaDeviceTypes: 3,
 };
 
 // Enum: FacingMode
 blink.mojom.FacingMode = {
-  kNone: 0,
-  kUser: 1,
-  kEnvironment: 2,
-  kLeft: 3,
-  kRight: 4,
 };
 
 // Enum: AudioOutputStatus
 blink.mojom.AudioOutputStatus = {
-  kSuccess: 0,
-  kNoPermission: 1,
-  kNoDevices: 2,
-  kUnknown: 3,
-  kDeviceNotFound: 4,
-  kErrorOtherRequestInProgress: 5,
-  kNotSupported: 6,
-  kNoUserActivation: 7,
 };
 
 // Struct: MediaDeviceInfo

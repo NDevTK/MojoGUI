@@ -25,30 +25,18 @@ device.mojom.XRTargetRayMode = {
 
 // Enum: XRSessionFeatureRequestStatus
 device.mojom.XRSessionFeatureRequestStatus = {
-  kNotRequested: 0,
-  kRequired: 1,
-  kOptionalAccepted: 2,
-  kOptionalRejected: 3,
 };
 
 // Enum: XREnvironmentBlendMode
 device.mojom.XREnvironmentBlendMode = {
-  kOpaque: 0,
-  kAlphaBlend: 1,
-  kAdditive: 2,
 };
 
 // Enum: XRInteractionMode
 device.mojom.XRInteractionMode = {
-  kScreenSpace: 0,
-  kWorldSpace: 1,
 };
 
 // Enum: XREye
 device.mojom.XREye = {
-  kNone: 0,
-  kLeft: 1,
-  kRight: 2,
 };
 
 // Enum: XRPresentationTransportMethod
@@ -59,17 +47,10 @@ device.mojom.XRPresentationTransportMethod = {
 
 // Enum: XRReferenceSpaceType
 device.mojom.XRReferenceSpaceType = {
-  kViewer: 0,
-  kLocal: 1,
-  kLocalFloor: 2,
-  kBoundedFloor: 3,
-  kUnbounded: 4,
 };
 
 // Enum: XRInputSourceSpaceType
 device.mojom.XRInputSourceSpaceType = {
-  kTargetRay: 0,
-  kGrip: 1,
 };
 
 // Enum: XRPlaneOrientation
@@ -81,19 +62,10 @@ device.mojom.XRPlaneOrientation = {
 
 // Enum: XRSemanticLabel
 device.mojom.XRSemanticLabel = {
-  kOther: 0,
-  kFloor: 1,
-  kWall: 2,
-  kCeiling: 3,
-  kTable: 4,
 };
 
 // Enum: XRLayerLayout
 device.mojom.XRLayerLayout = {
-  kMono: 0,
-  kStereo: 1,
-  kStereoLeftRight: 2,
-  kStereoTopBottom: 3,
 };
 
 // Enum: CreateCompositionLayerResult
@@ -129,7 +101,6 @@ device.mojom.XRDepthConfig = class {
 // Struct: XRSessionDeviceConfig
 device.mojom.XRSessionDeviceConfig = class {
   constructor(values = {}) {
-    this.1.0 = values.1.0 !== undefined ? values.1.0 : 0;
     this.views = values.views !== undefined ? values.views : [];
     this.true = values.true !== undefined ? values.true : false;
     this.depth_configuration = values.depth_configuration !== undefined ? values.depth_configuration : null;
@@ -254,7 +225,6 @@ device.mojom.XRViewGeometry = class {
   constructor(values = {}) {
     this.field_of_view = values.field_of_view !== undefined ? values.field_of_view : null;
     this.be = values.be !== undefined ? values.be : null;
-    this.local_from_view. = values.local_from_view. !== undefined ? values.local_from_view. : null;
     this.mojo_from_view = values.mojo_from_view !== undefined ? values.mojo_from_view : null;
   }
 };
@@ -383,10 +353,7 @@ device.mojom.XRSphericalHarmonics = class {
 // Struct: XRCubeMap
 device.mojom.XRCubeMap = class {
   constructor(values = {}) {
-    this.4 = values.4 !== undefined ? values.4 : 0;
-    this.value. = values.value. !== undefined ? values.value. : null;
     this.width_and_height = values.width_and_height !== undefined ? values.width_and_height : 0;
-    this.order. = values.order. !== undefined ? values.order. : null;
     this.separately = values.separately !== undefined ? values.separately : null;
     this.a = values.a !== undefined ? values.a : null;
     this.negative_z = values.negative_z !== undefined ? values.negative_z : 0;
@@ -534,7 +501,6 @@ device.mojom.XRFrameData = class {
     this.mojo_from_floor = values.mojo_from_floor !== undefined ? values.mojo_from_floor : false;
     this.devices = values.devices !== undefined ? values.devices : null;
     this.input_state = values.input_state !== undefined ? values.input_state : [];
-    this.re-computed = values.re-computed !== undefined ? values.re-computed : null;
     this.perfectly = values.perfectly !== undefined ? values.perfectly : null;
     this.hit_test_subscription_results = values.hit_test_subscription_results !== undefined ? values.hit_test_subscription_results : 0;
     this.budget = values.budget !== undefined ? values.budget : null;
@@ -555,7 +521,6 @@ device.mojom.XRFrameDataRequestOptions = class {
     this.include_lighting_estimation_data = values.include_lighting_estimation_data !== undefined ? values.include_lighting_estimation_data : false;
     this.has = values.has !== undefined ? values.has : null;
     this.immediately = values.immediately !== undefined ? values.immediately : null;
-    this.ready. = values.ready. !== undefined ? values.ready. : null;
     this.stage_parameters_id = values.stage_parameters_id !== undefined ? values.stage_parameters_id : 0;
   }
 };

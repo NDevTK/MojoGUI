@@ -11,9 +11,6 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: IconSize
 chrome.mojom.IconSize = {
-  kSmall: 0,
-  kNormal: 1,
-  kLarge: 2,
 };
 
 // Interface: UtilReadIcon

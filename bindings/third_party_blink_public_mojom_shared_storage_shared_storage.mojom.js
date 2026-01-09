@@ -11,22 +11,14 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SharedStorageGetStatus
 blink.mojom.SharedStorageGetStatus = {
-  kSuccess: 0,
-  kNotFound: 1,
-  kError: 2,
 };
 
 // Enum: SharedStorageWorkletCreationMethod
 blink.mojom.SharedStorageWorkletCreationMethod = {
-  kAddModule: 0,
-  kCreateWorklet: 1,
 };
 
 // Enum: SharedStorageDataOriginType
 blink.mojom.SharedStorageDataOriginType = {
-  kContextOrigin: 0,
-  kScriptOrigin: 1,
-  kCustomOrigin: 2,
 };
 
 // Struct: SharedStorageUrlWithMetadata

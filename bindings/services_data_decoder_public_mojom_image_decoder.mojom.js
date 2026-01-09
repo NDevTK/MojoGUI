@@ -11,7 +11,6 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 // Enum: ImageCodec
 data_decoder.mojom.ImageCodec = {
-  kDefault: 0,
 };
 
 // Struct: AnimationFrame

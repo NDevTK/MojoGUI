@@ -19,17 +19,6 @@ proxy_resolver.mojom.HostResolveOperation = {
 
 // Enum: WinHttpStatus
 proxy_resolver.mojom.WinHttpStatus = {
-  kOk: 0,
-  kAborted: 1,
-  kWinHttpOpenFailed: 2,
-  kWinHttpSetTimeoutsFailed: 3,
-  kWinHttpSetStatusCallbackFailed: 4,
-  kWinHttpGetIEProxyConfigForCurrentUserFailed: 5,
-  kWinHttpCreateProxyResolverFailed: 6,
-  kWinHttpGetProxyForURLExFailed: 7,
-  kStatusCallbackFailed: 8,
-  kWinHttpGetProxyResultFailed: 9,
-  kEmptyProxyList: 10,
 };
 
 // Struct: ProxyInfo

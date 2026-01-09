@@ -12,8 +12,6 @@ chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
 // Enum: CreateCdmStatus
 chromeos.cdm.mojom.CreateCdmStatus = {
-  kNoMoreInstances: 0,
-  kInsufficientGpuResources: 1,
 };
 
 // Interface: CdmFactory

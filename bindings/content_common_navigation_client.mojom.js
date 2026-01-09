@@ -11,16 +11,11 @@ content.mojom = content.mojom || {};
 
 // Enum: NavigationClientDisconnectReason
 content.mojom.NavigationClientDisconnectReason = {
-  it: 0,
-  this: 1,
-  method: 2,
-  other: 3,
 };
 
 // Struct: DidCommitProvisionalLoadParams
 content.mojom.DidCommitProvisionalLoadParams = class {
   constructor(values = {}) {
-    this.-1 = values.-1 !== undefined ? values.-1 : 0;
     this.transition = values.transition !== undefined ? values.transition : "";
     this.http_status_code = values.http_status_code !== undefined ? values.http_status_code : 0;
     this.is_overriding_user_agent = values.is_overriding_user_agent !== undefined ? values.is_overriding_user_agent : false;
@@ -30,7 +25,6 @@ content.mojom.DidCommitProvisionalLoadParams = class {
     this.unload_end = values.unload_end !== undefined ? values.unload_end : null;
     this.is = values.is !== undefined ? values.is : null;
     this.other = values.other !== undefined ? values.other : null;
-    this.below. = values.below. !== undefined ? values.below. : null;
     this.metrics = values.metrics !== undefined ? values.metrics : null;
     this.commit_reply_sent = values.commit_reply_sent !== undefined ? values.commit_reply_sent : null;
   }

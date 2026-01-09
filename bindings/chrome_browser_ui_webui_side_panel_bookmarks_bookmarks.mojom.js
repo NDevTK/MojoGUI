@@ -11,23 +11,14 @@ side_panel.mojom = side_panel.mojom || {};
 
 // Enum: ActionSource
 side_panel.mojom.ActionSource = {
-  kBookmark: 0,
-  kPriceTracking: 1,
 };
 
 // Enum: SortOrder
 side_panel.mojom.SortOrder = {
-  kNewest: 0,
-  kOldest: 1,
-  kLastOpened: 2,
-  kAlphabetical: 3,
-  kReverseAlphabetical: 4,
 };
 
 // Enum: ViewType
 side_panel.mojom.ViewType = {
-  kCompact: 0,
-  kExpanded: 1,
 };
 
 // Struct: BookmarksTreeNode

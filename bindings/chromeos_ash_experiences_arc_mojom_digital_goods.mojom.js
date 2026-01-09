@@ -11,9 +11,6 @@ arc.mojom = arc.mojom || {};
 
 // Enum: PurchaseState
 arc.mojom.PurchaseState = {
-  kUnknown: 0,
-  kPurchased: 1,
-  kPending: 2,
 };
 
 // Struct: PurchaseDetails

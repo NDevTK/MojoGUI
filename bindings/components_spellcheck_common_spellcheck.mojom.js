@@ -11,8 +11,6 @@ spellcheck.mojom = spellcheck.mojom || {};
 
 // Enum: Decoration
 spellcheck.mojom.Decoration = {
-  kSpelling: 0,
-  kGrammar: 1,
 };
 
 // Struct: SpellCheckBDictLanguage

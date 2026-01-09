@@ -11,7 +11,6 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ArcAuthCodeStatus
 arc.mojom.ArcAuthCodeStatus = {
-  you: 0,
 };
 
 // Enum: GeneralSignInError
@@ -20,20 +19,15 @@ arc.mojom.GeneralSignInError = {
 
 // Enum: GMSCheckInError
 arc.mojom.GMSCheckInError = {
-  but: 0,
 };
 
 // Enum: GMSSignInError
 arc.mojom.GMSSignInError = {
-  but: 0,
-  SERVICE_UNAVAILABLE: 1,
-  we: 2,
+  SERVICE_UNAVAILABLE: 0,
 };
 
 // Enum: CloudProvisionFlowError
 arc.mojom.CloudProvisionFlowError = {
-  so: 0,
-  most: 1,
 };
 
 // Enum: ArcSignInSuccess
@@ -42,7 +36,6 @@ arc.mojom.ArcSignInSuccess = {
 
 // Enum: AccountCheckStatus
 arc.mojom.AccountCheckStatus = {
-  you: 0,
 };
 
 // Enum: AndroidIdSource
@@ -55,7 +48,6 @@ arc.mojom.ReauthReason = {
 
 // Enum: MainAccountResolutionStatus
 arc.mojom.MainAccountResolutionStatus = {
-  you: 0,
 };
 
 // Enum: ManagementChangeStatus
@@ -65,7 +57,6 @@ arc.mojom.ManagementChangeStatus = {
 // Enum: ChromeAccountType
 arc.mojom.ChromeAccountType = {
   UNKNOWN: 0,
-  and: 1,
 };
 
 // Enum: MetricsType
@@ -80,8 +71,6 @@ arc.mojom.AccountUpdateType = {
 arc.mojom.AccountInfo = class {
   constructor(values = {}) {
     this.is = values.is !== undefined ? values.is : null;
-    this.DEPRECATED_enrollment_token@3 = values.DEPRECATED_enrollment_token@3 !== undefined ? values.DEPRECATED_enrollment_token@3 : false;
-    this.account_name@4 = values.account_name@4 !== undefined ? values.account_name@4 : "";
   }
 };
 

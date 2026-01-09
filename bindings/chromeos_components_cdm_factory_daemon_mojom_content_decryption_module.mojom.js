@@ -20,8 +20,6 @@ chromeos.cdm.mojom.EmeInitDataType = {
 
 // Enum: CdmSessionType
 chromeos.cdm.mojom.CdmSessionType = {
-  kTemporary: 0,
-  kPersistentLicense: 1,
 };
 
 // Enum: CdmMessageType
@@ -45,16 +43,6 @@ chromeos.cdm.mojom.CdmKeyStatus = {
 
 // Enum: HdcpVersion
 chromeos.cdm.mojom.HdcpVersion = {
-  kHdcpVersionNone: 0,
-  kHdcpVersion1_0: 1,
-  kHdcpVersion1_1: 2,
-  kHdcpVersion1_2: 3,
-  kHdcpVersion1_3: 4,
-  kHdcpVersion1_4: 5,
-  kHdcpVersion2_0: 6,
-  kHdcpVersion2_1: 7,
-  kHdcpVersion2_2: 8,
-  kHdcpVersion2_3: 9,
 };
 
 // Enum: PromiseException
@@ -67,15 +55,10 @@ chromeos.cdm.mojom.PromiseException = {
 
 // Enum: EncryptionScheme
 chromeos.cdm.mojom.EncryptionScheme = {
-  kCenc: 0,
-  kCbcs: 1,
 };
 
 // Enum: DecryptStatus
 chromeos.cdm.mojom.DecryptStatus = {
-  kSuccess: 0,
-  kNoKey: 1,
-  kFailure: 2,
 };
 
 // Struct: CdmPromiseResult

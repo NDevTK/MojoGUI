@@ -17,7 +17,6 @@ blink.mojom.EmbeddedWorkerStartParams = class {
     this.worker = values.worker !== undefined ? values.worker : null;
     this.incumbent = values.incumbent !== undefined ? values.incumbent : null;
     this.the = values.the !== undefined ? values.the : null;
-    this.load. = values.load. !== undefined ? values.load. : null;
     this.renderer_preferences = values.renderer_preferences !== undefined ? values.renderer_preferences : false;
     this.instance_host = values.instance_host !== undefined ? values.instance_host : 0;
     this.dip_reporting_observer = values.dip_reporting_observer !== undefined ? values.dip_reporting_observer : 0;

@@ -11,25 +11,14 @@ gpu.mojom = gpu.mojom || {};
 
 // Enum: ContextType
 gpu.mojom.ContextType = {
-  kWebGL1: 0,
-  kWebGL2: 1,
-  kOpenGLES2: 2,
-  kOpenGLES3: 3,
-  kOpenGLES31ForTesting: 4,
 };
 
 // Enum: ContextColorSpace
 gpu.mojom.ContextColorSpace = {
-  kUnspecified: 0,
-  kSRGB: 1,
-  kDisplayP3: 2,
 };
 
 // Enum: SchedulingPriority
 gpu.mojom.SchedulingPriority = {
-  kHigh: 0,
-  kNormal: 1,
-  kLow: 2,
 };
 
 // Struct: RasterCreationAttribs

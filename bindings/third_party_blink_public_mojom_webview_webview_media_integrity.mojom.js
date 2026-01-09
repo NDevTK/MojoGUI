@@ -11,9 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: WebViewMediaIntegrityErrorCode
 blink.mojom.WebViewMediaIntegrityErrorCode = {
-  and: 0,
-  so: 1,
-  because: 2,
 };
 
 // Interface: WebViewMediaIntegrityService

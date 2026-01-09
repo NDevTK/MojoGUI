@@ -11,12 +11,10 @@ media_session.mojom = media_session.mojom || {};
 
 // Enum: EnforcementMode
 media_session.mojom.EnforcementMode = {
-  without: 0,
 };
 
 // Enum: AudioFocusType
 media_session.mojom.AudioFocusType = {
-  when: 0,
 };
 
 // Struct: AudioFocusRequestState

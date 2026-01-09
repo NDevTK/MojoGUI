@@ -14,7 +14,7 @@ arc.mojom.PatternType = {
   PATTERN_LITERAL: 0,
   PATTERN_PREFIX: 1,
   PATTERN_SIMPLE_GLOB: 2,
-  Default: 3,
+  D: 3,
 };
 
 // Enum: ChromePage
@@ -74,14 +74,10 @@ arc.mojom.ChromeApp = {
 
 // Enum: SupportedLinkChangeSource
 arc.mojom.SupportedLinkChangeSource = {
-  kUnknown: 0,
 };
 
 // Enum: AndroidSetting
 arc.mojom.AndroidSetting = {
-  kGeoLocation: 0,
-  replaced: 1,
-  kGeoLocationUserTriggered: 2,
 };
 
 // Enum: CaptionTextShadowType
@@ -149,7 +145,6 @@ arc.mojom.UrlWithMimeType = class {
 arc.mojom.TextSelectionAction = class {
   constructor(values = {}) {
     this.activity = values.activity !== undefined ? values.activity : null;
-    this."Map" = values."Map" !== undefined ? values."Map" : null;
     this.bitmap_icon = values.bitmap_icon !== undefined ? values.bitmap_icon : 0;
   }
 };

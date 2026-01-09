@@ -11,15 +11,10 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AuctionAdConfigField
 blink.mojom.AuctionAdConfigField = {
-  kAuctionSignals: 0,
-  kSellerSignals: 1,
-  kSellerTKVSignals: 2,
 };
 
 // Enum: AuctionAdConfigBuyerTimeoutField
 blink.mojom.AuctionAdConfigBuyerTimeoutField = {
-  kPerBuyerTimeouts: 0,
-  kPerBuyerCumulativeTimeouts: 1,
 };
 
 // Interface: AbortableAdAuction

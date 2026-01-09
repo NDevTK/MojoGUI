@@ -11,12 +11,6 @@ remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 // Enum: SelectFileDialogType
 remote_cocoa.mojom.SelectFileDialogType = {
-  kFolder: 0,
-  kUploadFolder: 1,
-  kExistingFolder: 2,
-  kOpenFile: 3,
-  kOpenMultiFile: 4,
-  kSaveAsFile: 5,
 };
 
 // Struct: SelectFileTypeInfo

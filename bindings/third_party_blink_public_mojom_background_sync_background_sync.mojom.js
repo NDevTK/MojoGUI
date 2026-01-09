@@ -42,8 +42,6 @@ blink.mojom.BackgroundSyncType = {
 // Struct: SyncRegistrationOptions
 blink.mojom.SyncRegistrationOptions = class {
   constructor(values = {}) {
-    this."" = values."" !== undefined ? values."" : "";
-    this.-1 = values.-1 !== undefined ? values.-1 : 0;
   }
 };
 

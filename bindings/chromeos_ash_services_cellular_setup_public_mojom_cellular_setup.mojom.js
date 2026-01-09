@@ -12,15 +12,10 @@ ash.cellular_setup.mojom = ash.cellular_setup.mojom || {};
 
 // Enum: CarrierPortalStatus
 ash.cellular_setup.mojom.CarrierPortalStatus = {
-  kPortalFailedToLoad: 0,
-  kPortalLoadedWithoutPaidUser: 1,
-  kPortalLoadedButErrorOccurredDuringPayment: 2,
-  kPortalLoadedAndUserCompletedPayment: 3,
 };
 
 // Enum: ActivationResult
 ash.cellular_setup.mojom.ActivationResult = {
-  due: 0,
 };
 
 // Struct: CellularMetadata

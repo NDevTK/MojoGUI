@@ -11,28 +11,16 @@ device.mojom = device.mojom || {};
 
 // Enum: NDEFErrorType
 device.mojom.NDEFErrorType = {
-  no: 0,
-  the: 1,
-  INVALID_MESSAGE: 2,
-  OPERATION_CANCELLED: 3,
+  INVALID_MESSAGE: 0,
+  OPERATION_CANCELLED: 1,
 };
 
 // Enum: NDEFRecordTypeCategory
 device.mojom.NDEFRecordTypeCategory = {
-  including: 0,
-  and: 1,
-  etc: 2,
 };
 
 // Enum: NSRawTypeNameFormat
 device.mojom.NSRawTypeNameFormat = {
-  kAbsoluteURI: 0,
-  kEmpty: 1,
-  kMedia: 2,
-  kExternal: 3,
-  kWellKnown: 4,
-  kUnchanged: 5,
-  kUnknown: 6,
 };
 
 // Struct: NDEFError

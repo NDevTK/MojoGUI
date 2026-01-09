@@ -11,15 +11,6 @@ arc.mojom = arc.mojom || {};
 
 // Enum: WebApkInstallResult
 arc.mojom.WebApkInstallResult = {
-  kSuccess: 0,
-  kErrorUnknown: 1,
-  kErrorServiceTimeout: 2,
-  kErrorPolicyViolation: 3,
-  kErrorApiDisabled: 4,
-  kErrorUnknownAccount: 5,
-  kErrorResolveNetworkError: 6,
-  kErrorResolveError: 7,
-  kErrorNotGoogleSigned: 8,
 };
 
 // Struct: WebShareTargetInfo

@@ -11,10 +11,6 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 // Enum: AuctionWorkletFunction
 auction_worklet.mojom.AuctionWorkletFunction = {
-  kBidderGenerateBid: 0,
-  kBidderReportWin: 1,
-  kSellerScoreAd: 2,
-  kSellerReportResult: 3,
 };
 
 // Interface: AuctionSharedStorageHost

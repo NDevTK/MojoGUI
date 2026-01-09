@@ -12,22 +12,19 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: AnnotationUsecase
 chromeos.machine_learning.mojom.AnnotationUsecase = {
-  Share: 0,
-  Linkify: 1,
+  S: 0,
+  L: 1,
 };
 
 // Struct: TextEntity
 chromeos.machine_learning.mojom.TextEntity = class {
   constructor(values = {}) {
-    this.name@0 = values.name@0 !== undefined ? values.name@0 : "";
-    this.data@2 = values.data@2 !== undefined ? values.data@2 : 0;
   }
 };
 
 // Struct: TextAnnotation
 chromeos.machine_learning.mojom.TextAnnotation = class {
   constructor(values = {}) {
-    this.entities@2 = values.entities@2 !== undefined ? values.entities@2 : 0;
   }
 };
 
@@ -35,8 +32,6 @@ chromeos.machine_learning.mojom.TextAnnotation = class {
 chromeos.machine_learning.mojom.TextAnnotationRequest = class {
   constructor(values = {}) {
     this.ANNOTATION_USECASE_SMART = values.ANNOTATION_USECASE_SMART !== undefined ? values.ANNOTATION_USECASE_SMART : "";
-    this.reference_time@4 = values.reference_time@4 !== undefined ? values.reference_time@4 : null;
-    this.reference_timezone@5 = values.reference_timezone@5 !== undefined ? values.reference_timezone@5 : "";
     this.false = values.false !== undefined ? values.false : false;
   }
 };
@@ -44,7 +39,6 @@ chromeos.machine_learning.mojom.TextAnnotationRequest = class {
 // Struct: CodepointSpan
 chromeos.machine_learning.mojom.CodepointSpan = class {
   constructor(values = {}) {
-    this.end_offset@1 = values.end_offset@1 !== undefined ? values.end_offset@1 : 0;
   }
 };
 

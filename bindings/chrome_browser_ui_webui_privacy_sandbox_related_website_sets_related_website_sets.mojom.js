@@ -11,9 +11,6 @@ related_website_sets.mojom = related_website_sets.mojom || {};
 
 // Enum: SiteType
 related_website_sets.mojom.SiteType = {
-  kPrimary: 0,
-  kAssociated: 1,
-  kService: 2,
 };
 
 // Struct: Member

@@ -11,12 +11,10 @@ media.mojom = media.mojom || {};
 
 // Enum: Status
 media.mojom.Status = {
-  kSuccess: 0,
 };
 
 // Enum: Status
 media.mojom.Status = {
-  kSuccess: 0,
 };
 
 // Interface: CdmStorage

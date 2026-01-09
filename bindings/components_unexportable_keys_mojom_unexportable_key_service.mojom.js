@@ -19,20 +19,10 @@ unexportable_keys.mojom.SignatureAlgorithm = {
 
 // Enum: ServiceError
 unexportable_keys.mojom.ServiceError = {
-  kKeyNotFound: 0,
-  kKeyCollision: 1,
-  kNoKeyProvider: 2,
-  kAlgorithmNotSupported: 3,
-  kKeyNotReady: 4,
-  kVerifySignatureFailed: 5,
-  kOperationNotSupported: 6,
 };
 
 // Enum: BackgroundTaskPriority
 unexportable_keys.mojom.BackgroundTaskPriority = {
-  kBestEffort: 0,
-  kUserVisible: 1,
-  kUserBlocking: 2,
 };
 
 // Struct: UnexportableKeyId

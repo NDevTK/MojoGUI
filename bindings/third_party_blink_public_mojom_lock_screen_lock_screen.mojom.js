@@ -11,9 +11,6 @@ blink.mojom = blink.mojom || {};
 
 // Enum: LockScreenServiceStatus
 blink.mojom.LockScreenServiceStatus = {
-  kSuccess: 0,
-  kNotAllowedFromContext: 1,
-  kWriteError: 2,
 };
 
 // Interface: LockScreenService
