@@ -78,6 +78,22 @@ jobs:
           # Configuration
           ROOT_DIR = 'chromium_src'
 
+          TYPE_MAPPING = {
+              'bool': 'mojo.internal.Bool',
+              'int8': 'mojo.internal.Int8',
+              'int16': 'mojo.internal.Int16',
+              'int32': 'mojo.internal.Int32',
+              'int64': 'mojo.internal.Int64',
+              'uint8': 'mojo.internal.Uint8',
+              'uint16': 'mojo.internal.Uint16',
+              'uint32': 'mojo.internal.Uint32',
+              'uint64': 'mojo.internal.Uint64',
+              'float': 'mojo.internal.Float',
+              'double': 'mojo.internal.Double',
+              'string': 'mojo.internal.String',
+              'handle': 'mojo.internal.Handle',
+          }
+
           def parse_mojom_file(file_path):
               """Parse a .mojom file and extract interface definitions using regex."""
               try:
@@ -255,22 +271,6 @@ jobs:
               """Map mojom types to mojo.internal types."""
               type_clean = mojom_type.replace('?', '').strip()
               
-              type_mapping = {
-                  'bool': 'mojo.internal.Bool',
-                  'int8': 'mojo.internal.Int8',
-                  'int16': 'mojo.internal.Int16',
-                  'int32': 'mojo.internal.Int32',
-                  'int64': 'mojo.internal.Int64',
-                  'uint8': 'mojo.internal.Uint8',
-                  'uint16': 'mojo.internal.Uint16',
-                  'uint32': 'mojo.internal.Uint32',
-                  'uint64': 'mojo.internal.Uint64',
-                  'float': 'mojo.internal.Float',
-                  'double': 'mojo.internal.Double',
-                  'string': 'mojo.internal.String',
-                  'handle': 'mojo.internal.Handle',
-              }
-              
               # Check for arrays
               if type_clean.startswith('array<'):
                   return 'mojo.internal.Array'
@@ -290,8 +290,8 @@ jobs:
                   return 'mojo.internal.AssociatedInterfaceProxy'
               
               # Look up in type map
-              if type_clean in type_mapping:
-                  return type_mapping[type_clean]
+              if type_clean in TYPE_MAPPING:
+                  return TYPE_MAPPING[type_clean]
               
               # For unknown types (likely structs/enums), default to pointer
               return 'mojo.internal.Pointer'
@@ -316,7 +316,7 @@ jobs:
               
               def resolve_mojo_type(type_name):
                   # Check basic types first
-                  if type_name in type_mapping or type_name.startswith('array') or type_name.startswith('map') or type_name.startswith('pending'):
+                  if type_name in TYPE_MAPPING or type_name.startswith('array') or type_name.startswith('map') or type_name.startswith('pending'):
                        return mojo_type_map(type_name)
 
                   # Check local types
