@@ -1,7 +1,7 @@
 // MojoJS Bindings Index
 // Auto-generated - Do not edit manually
 
-(function (global) {
+(function(global) {
   'use strict';
 
   // Create trusted types policy for script URLs
@@ -12,7 +12,6 @@
         createScriptURL: (input) => input
       });
     } catch (e) {
-      // Policy might already exist or not be allowed
       console.warn('Could not create trusted types policy:', e);
     }
   }
@@ -36,8 +35,8 @@
     async searchInterfaces(query) {
       const interfaces = await this.getInterfaces();
       const q = query.toLowerCase();
-      return interfaces.filter(i =>
-        i.name.toLowerCase().includes(q) ||
+      return interfaces.filter(i => 
+        i.name.toLowerCase().includes(q) || 
         i.module.toLowerCase().includes(q)
       );
     },
@@ -49,14 +48,13 @@
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
         const scriptUrl = `./bindings/${filename}`;
-
-        // Use trusted types if available
+        
         if (trustedPolicy) {
           script.src = trustedPolicy.createScriptURL(scriptUrl);
         } else {
           script.src = scriptUrl;
         }
-
+        
         script.onload = () => {
           this._loadedModules[filename] = true;
           resolve(true);
