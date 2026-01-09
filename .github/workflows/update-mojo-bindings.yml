@@ -138,10 +138,10 @@ jobs:
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/bindings/mojom_parser.py',
-                  '--output_root', '.',
-                  '--input_root', '.',
-                  '-I', 'chromium_src', # Include path for imports to resolve
-                  '--filelist', 'mojom_files_list.txt'
+                  '--output-root', '.',
+                  '--input-root', '.',
+                  '--input-root', 'chromium_src', # Include path for imports to resolve
+                  '--mojom-file-list', 'mojom_files_list.txt'
               ]
               
               try:
