@@ -94,22 +94,39 @@ jobs:
               result['imports'] = imports
 
               # Extract interfaces with their methods
-              interface_pattern = r'interface\s+(\w+)\s*\{([^}]*)\}'
-              for match in re.finditer(interface_pattern, content, re.DOTALL):
+              # Use a function to handle nested braces properly
+              interface_start_pattern = r'interface\s+(\w+)\s*\{'
+              for match in re.finditer(interface_start_pattern, content):
                   interface_name = match.group(1)
-                  interface_body = match.group(2)
+                  start_pos = match.end()
+                  
+                  # Find matching closing brace (handle nesting)
+                  brace_count = 1
+                  end_pos = start_pos
+                  while brace_count > 0 and end_pos < len(content):
+                      if content[end_pos] == '{':
+                          brace_count += 1
+                      elif content[end_pos] == '}':
+                          brace_count -= 1
+                      end_pos += 1
+                  
+                  interface_body = content[start_pos:end_pos-1]
+                  
+                  # Remove comments from interface body
+                  interface_body = re.sub(r'//[^\n]*', '', interface_body)
+                  interface_body = re.sub(r'/\*.*?\*/', '', interface_body, flags=re.DOTALL)
               
                   methods = []
                   # Parse methods: MethodName(params) => (return_params);
-                  # Must start at beginning of line (after whitespace) and be PascalCase
-                  method_pattern = r'^\s*([A-Z]\w*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?\s*;'
-                  for method_match in re.finditer(method_pattern, interface_body, re.MULTILINE):
+                  # Method names start with capital letter, allow optional semicolon
+                  method_pattern = r'([A-Z][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
+                  for method_match in re.finditer(method_pattern, interface_body):
                       method_name = method_match.group(1)
                       params_str = method_match.group(2).strip()
                       returns_str = method_match.group(3)
                       
-                      # Skip if it looks like a comment or annotation
-                      if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED'):
+                      # Skip common false positives
+                      if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch'):
                           continue
                       
                       params = parse_params(params_str) if params_str else []
@@ -121,9 +138,17 @@ jobs:
                           'returns': returns
                       })
               
+                  # Deduplicate methods by name
+                  seen = set()
+                  unique_methods = []
+                  for m in methods:
+                      if m['name'] not in seen:
+                          seen.add(m['name'])
+                          unique_methods.append(m)
+                  
                   result['interfaces'].append({
                       'name': interface_name,
-                      'methods': methods
+                      'methods': unique_methods
                   })
 
               # Extract structs
