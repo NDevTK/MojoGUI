@@ -338,9 +338,9 @@ jobs:
                       js_code += f"    // Ordinal: {idx}\n"
                       js_code += "    return this.proxy.sendMessage(\n"
                       js_code += f"      {idx},  // ordinal\n"
-                      js_code += f"      {full_name}_{method['name']}_ParamsSpec.$,\n"
+                      js_code += f"      {full_name}_{method['name']}_ParamsSpec,\n"
                       if method.get('returns'):
-                          js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec.$,\n"
+                          js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
                       else:
                           js_code += "      null,\n"
                       js_code += f"      [{params_str}]);\n"
