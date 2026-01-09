@@ -19,24 +19,52 @@ chromeos_camera.mojom.DecodeError = {
   PLATFORM_FAILURE: 5,
 };
 
-// Struct: BitstreamBuffer
-chromeos_camera.mojom.BitstreamBuffer = class {
-  constructor(values = {}) {
-    this.subsamples = values.subsamples !== undefined ? values.subsamples : 0;
-  }
-};
-
 // Interface: MjpegDecodeAccelerator
-chromeos_camera.mojom.MjpegDecodeAcceleratorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos_camera.mojom.MjpegDecodeAccelerator';
-  }
-
-};
-
-chromeos_camera.mojom.MjpegDecodeAcceleratorRequest = class {
+chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos_camera.mojom.MjpegDecodeAcceleratorRemote = class {
+  static get $interfaceName() {
+    return 'chromeos_camera.mojom.MjpegDecodeAccelerator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver,
+      handle);
+    this.$ = new chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos_camera.mojom.MjpegDecodeAccelerator.getRemote = function() {
+  let remote = new chromeos_camera.mojom.MjpegDecodeAcceleratorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos_camera.mojom.MjpegDecodeAccelerator',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos_camera.mojom.MjpegDecodeAcceleratorPtr = chromeos_camera.mojom.MjpegDecodeAcceleratorRemote;
+chromeos_camera.mojom.MjpegDecodeAcceleratorRequest = chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver;
+

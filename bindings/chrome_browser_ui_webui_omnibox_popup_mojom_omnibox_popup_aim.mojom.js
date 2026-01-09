@@ -10,84 +10,324 @@ omnibox_popup_aim.mojom = omnibox_popup_aim.mojom || {};
 
 
 // Interface: PageHandlerFactory
-omnibox_popup_aim.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'omnibox_popup_aim.mojom.PageHandlerFactory';
+omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+omnibox_popup_aim.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'omnibox_popup_aim.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-omnibox_popup_aim.mojom.PageHandlerFactoryRequest = class {
+omnibox_popup_aim.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new omnibox_popup_aim.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'omnibox_popup_aim.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+omnibox_popup_aim.mojom.PageHandlerFactoryPtr = omnibox_popup_aim.mojom.PageHandlerFactoryRemote;
+omnibox_popup_aim.mojom.PageHandlerFactoryRequest = omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+omnibox_popup_aim.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-omnibox_popup_aim.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'omnibox_popup_aim.mojom.PageHandler';
+omnibox_popup_aim.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'omnibox_popup_aim.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      omnibox_popup_aim.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   requestClose() {
-    // Method: RequestClose
-    // Call: RequestClose()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$,
+      null,
+      []);
   }
 
   navigateCurrentTab(url) {
-    // Method: NavigateCurrentTab
-    // Call: NavigateCurrentTab(url)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$,
+      null,
+      [url]);
   }
 
 };
 
-omnibox_popup_aim.mojom.PageHandlerRequest = class {
+omnibox_popup_aim.mojom.PageHandler.getRemote = function() {
+  let remote = new omnibox_popup_aim.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'omnibox_popup_aim.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RequestClose
+omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.PageHandler.RequestClose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for NavigateCurrentTab
+omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.PageHandler.NavigateCurrentTab_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+omnibox_popup_aim.mojom.PageHandlerPtr = omnibox_popup_aim.mojom.PageHandlerRemote;
+omnibox_popup_aim.mojom.PageHandlerRequest = omnibox_popup_aim.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+omnibox_popup_aim.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-omnibox_popup_aim.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'omnibox_popup_aim.mojom.Page';
+omnibox_popup_aim.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'omnibox_popup_aim.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      omnibox_popup_aim.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new omnibox_popup_aim.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onPopupShown(context) {
-    // Method: OnPopupShown
-    // Call: OnPopupShown(context)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$,
+      null,
+      [context]);
   }
 
   addContext(context) {
-    // Method: AddContext
-    // Call: AddContext(context)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$,
+      null,
+      [context]);
   }
 
   onPopupHidden() {
-    // Method: OnPopupHidden
-    return new Promise((resolve) => {
-      // Call: OnPopupHidden()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$,
+      omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$,
+      []);
   }
 
   setPreserveContextOnClose(preserve_context_on_close) {
-    // Method: SetPreserveContextOnClose
-    // Call: SetPreserveContextOnClose(preserve_context_on_close)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$,
+      null,
+      [preserve_context_on_close]);
   }
 
 };
 
-omnibox_popup_aim.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+omnibox_popup_aim.mojom.Page.getRemote = function() {
+  let remote = new omnibox_popup_aim.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'omnibox_popup_aim.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnPopupShown
+omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.Page.OnPopupShown_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for AddContext
+omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.Page.AddContext_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnPopupHidden
+omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.Page.OnPopupHidden_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.Page.OnPopupHidden_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPreserveContextOnClose
+omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'omnibox_popup_aim.mojom.Page.SetPreserveContextOnClose_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'preserve_context_on_close', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+omnibox_popup_aim.mojom.PagePtr = omnibox_popup_aim.mojom.PageRemote;
+omnibox_popup_aim.mojom.PageRequest = omnibox_popup_aim.mojom.PagePendingReceiver;
+

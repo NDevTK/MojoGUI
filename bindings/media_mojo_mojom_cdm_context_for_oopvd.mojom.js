@@ -23,89 +23,370 @@ media.mojom.CdmContextEvent = {
 };
 
 // Interface: CdmContextEventCallback
-media.mojom.CdmContextEventCallbackPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.CdmContextEventCallback';
+media.mojom.CdmContextEventCallbackPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.CdmContextEventCallbackRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.CdmContextEventCallback';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.CdmContextEventCallbackPendingReceiver,
+      handle);
+    this.$ = new media.mojom.CdmContextEventCallbackRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   eventCallback(event) {
-    // Method: EventCallback
-    // Call: EventCallback(event)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$,
+      null,
+      [event]);
   }
 
 };
 
-media.mojom.CdmContextEventCallbackRequest = class {
+media.mojom.CdmContextEventCallback.getRemote = function() {
+  let remote = new media.mojom.CdmContextEventCallbackRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.CdmContextEventCallback',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for EventCallback
+media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextEventCallback.EventCallback_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.CdmContextEventCallbackPtr = media.mojom.CdmContextEventCallbackRemote;
+media.mojom.CdmContextEventCallbackRequest = media.mojom.CdmContextEventCallbackPendingReceiver;
+
+
+// Interface: CdmContextForOOPVD
+media.mojom.CdmContextForOOPVDPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CdmContextForOOPVD
-media.mojom.CdmContextForOOPVDPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.CdmContextForOOPVD';
+media.mojom.CdmContextForOOPVDRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.CdmContextForOOPVD';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.CdmContextForOOPVDPendingReceiver,
+      handle);
+    this.$ = new media.mojom.CdmContextForOOPVDRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getHwKeyData(decrypt_config, hw_identifier) {
-    // Method: GetHwKeyData
-    return new Promise((resolve) => {
-      // Call: GetHwKeyData(decrypt_config, hw_identifier)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$,
+      [decrypt_config, hw_identifier]);
   }
 
   registerEventCallback(callback) {
-    // Method: RegisterEventCallback
-    // Call: RegisterEventCallback(callback)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$,
+      null,
+      [callback]);
   }
 
   getHwConfigData() {
-    // Method: GetHwConfigData
-    return new Promise((resolve) => {
-      // Call: GetHwConfigData()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$,
+      []);
   }
 
   getScreenResolutions() {
-    // Method: GetScreenResolutions
-    return new Promise((resolve) => {
-      // Call: GetScreenResolutions()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$,
+      []);
   }
 
   allocateSecureBuffer(size) {
-    // Method: AllocateSecureBuffer
-    return new Promise((resolve) => {
-      // Call: AllocateSecureBuffer(size)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$,
+      [size]);
   }
 
   parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
-    // Method: ParseEncryptedSliceHeader
-    return new Promise((resolve) => {
-      // Call: ParseEncryptedSliceHeader(secure_handle, offset, stream_data)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$,
+      [secure_handle, offset, stream_data]);
   }
 
   decryptVideoBuffer(buffer, bytes) {
-    // Method: DecryptVideoBuffer
-    return new Promise((resolve) => {
-      // Call: DecryptVideoBuffer(buffer, bytes)
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$,
+      media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$,
+      [buffer, bytes]);
   }
 
 };
 
-media.mojom.CdmContextForOOPVDRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.CdmContextForOOPVD.getRemote = function() {
+  let remote = new media.mojom.CdmContextForOOPVDRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.CdmContextForOOPVD',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetHwKeyData
+media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.GetHwKeyData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'decrypt_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.GetHwKeyData_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RegisterEventCallback
+media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.RegisterEventCallback_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetHwConfigData
+media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.GetHwConfigData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.GetHwConfigData_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetScreenResolutions
+media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.GetScreenResolutions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.GetScreenResolutions_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AllocateSecureBuffer
+media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.AllocateSecureBuffer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.AllocateSecureBuffer_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'secure_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ParseEncryptedSliceHeader
+media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.ParseEncryptedSliceHeader_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.ParseEncryptedSliceHeader_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'slice_header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DecryptVideoBuffer
+media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.DecryptVideoBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmContextForOOPVD.DecryptVideoBuffer_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'decoder_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.CdmContextForOOPVDPtr = media.mojom.CdmContextForOOPVDRemote;
+media.mojom.CdmContextForOOPVDRequest = media.mojom.CdmContextForOOPVDPendingReceiver;
+

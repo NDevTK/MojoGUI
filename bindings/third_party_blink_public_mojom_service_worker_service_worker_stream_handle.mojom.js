@@ -9,34 +9,96 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: ServiceWorkerStreamHandle
-blink.mojom.ServiceWorkerStreamHandle = class {
-  constructor(values = {}) {
-    this.callback_receiver = values.callback_receiver !== undefined ? values.callback_receiver : null;
-  }
-};
-
 // Interface: ServiceWorkerStreamCallback
-blink.mojom.ServiceWorkerStreamCallbackPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ServiceWorkerStreamCallback';
-  }
-
-  onCompleted() {
-    // Method: OnCompleted
-    // Call: OnCompleted()
-  }
-
-  onAborted() {
-    // Method: OnAborted
-    // Call: OnAborted()
-  }
-
-};
-
-blink.mojom.ServiceWorkerStreamCallbackRequest = class {
+blink.mojom.ServiceWorkerStreamCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.ServiceWorkerStreamCallbackRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ServiceWorkerStreamCallback';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ServiceWorkerStreamCallbackPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onCompleted() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  onAborted() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+blink.mojom.ServiceWorkerStreamCallback.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerStreamCallbackRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ServiceWorkerStreamCallback',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnCompleted
+blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerStreamCallback.OnCompleted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnAborted
+blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerStreamCallback.OnAborted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ServiceWorkerStreamCallbackPtr = blink.mojom.ServiceWorkerStreamCallbackRemote;
+blink.mojom.ServiceWorkerStreamCallbackRequest = blink.mojom.ServiceWorkerStreamCallbackPendingReceiver;
+

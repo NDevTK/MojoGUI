@@ -17,52 +17,65 @@ crosapi.mojom.UserVerificationRequirement = {
 
 // Enum: PasskeyCreationError
 crosapi.mojom.PasskeyCreationError = {
+  kNonPrimaryAccount: 0,
+  kPendingRequest: 1,
+  kSecurityDomainSecretUnavailable: 2,
 };
 
 // Enum: PasskeyAssertionError
 crosapi.mojom.PasskeyAssertionError = {
-};
-
-// Struct: PasskeyCreationRequest
-crosapi.mojom.PasskeyCreationRequest = class {
-  constructor(values = {}) {
-    this.user_verification = values.user_verification !== undefined ? values.user_verification : 0;
-  }
-};
-
-// Struct: PasskeyCreationResponse
-crosapi.mojom.PasskeyCreationResponse = class {
-  constructor(values = {}) {
-    this.authenticator_data = values.authenticator_data !== undefined ? values.authenticator_data : 0;
-  }
-};
-
-// Struct: PasskeyAssertionRequest
-crosapi.mojom.PasskeyAssertionRequest = class {
-  constructor(values = {}) {
-    this.user_verification = values.user_verification !== undefined ? values.user_verification : 0;
-  }
-};
-
-// Struct: PasskeyAssertionResponse
-crosapi.mojom.PasskeyAssertionResponse = class {
-  constructor(values = {}) {
-    this.signature = values.signature !== undefined ? values.signature : 0;
-    this.authenticator_data = values.authenticator_data !== undefined ? values.authenticator_data : 0;
-  }
+  kNonPrimaryAccount: 0,
+  kPendingRequest: 1,
+  kCredentialNotFound: 2,
+  kSecurityDomainSecretUnavailable: 3,
 };
 
 // Interface: PasskeyAuthenticator
-crosapi.mojom.PasskeyAuthenticatorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.PasskeyAuthenticator';
-  }
-
-};
-
-crosapi.mojom.PasskeyAuthenticatorRequest = class {
+crosapi.mojom.PasskeyAuthenticatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.PasskeyAuthenticatorRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.PasskeyAuthenticator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.PasskeyAuthenticatorPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.PasskeyAuthenticator.getRemote = function() {
+  let remote = new crosapi.mojom.PasskeyAuthenticatorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.PasskeyAuthenticator',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.PasskeyAuthenticatorPtr = crosapi.mojom.PasskeyAuthenticatorRemote;
+crosapi.mojom.PasskeyAuthenticatorRequest = crosapi.mojom.PasskeyAuthenticatorPendingReceiver;
+

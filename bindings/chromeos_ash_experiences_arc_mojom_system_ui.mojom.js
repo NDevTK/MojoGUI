@@ -19,16 +19,51 @@ arc.mojom.ThemeStyleType = {
 };
 
 // Interface: SystemUiInstance
-arc.mojom.SystemUiInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.SystemUiInstance';
-  }
-
-};
-
-arc.mojom.SystemUiInstanceRequest = class {
+arc.mojom.SystemUiInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.SystemUiInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.SystemUiInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.SystemUiInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.SystemUiInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.SystemUiInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.SystemUiInstance.getRemote = function() {
+  let remote = new arc.mojom.SystemUiInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.SystemUiInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.SystemUiInstancePtr = arc.mojom.SystemUiInstanceRemote;
+arc.mojom.SystemUiInstanceRequest = arc.mojom.SystemUiInstancePendingReceiver;
+

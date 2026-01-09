@@ -16,85 +16,200 @@ font_data_service.mojom.TypefaceSlant = {
   kOblique: 2,
 };
 
-// Struct: TypefaceStyle
-font_data_service.mojom.TypefaceStyle = class {
-  constructor(values = {}) {
-    this.slant = values.slant !== undefined ? values.slant : 0;
-  }
-};
-
-// Struct: Coordinate
-font_data_service.mojom.Coordinate = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: VariationPosition
-font_data_service.mojom.VariationPosition = class {
-  constructor(values = {}) {
-    this.coordinateCount = values.coordinateCount !== undefined ? values.coordinateCount : 0;
-  }
-};
-
-// Struct: TypefaceFile
-font_data_service.mojom.TypefaceFile = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : 0;
-  }
-};
-
-// Struct: MatchFamilyNameResult
-font_data_service.mojom.MatchFamilyNameResult = class {
-  constructor(values = {}) {
-    this.typeface_data = values.typeface_data !== undefined ? values.typeface_data : null;
-    this.variation_position = values.variation_position !== undefined ? values.variation_position : 0;
-  }
-};
-
 // Interface: FontDataService
-font_data_service.mojom.FontDataServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'font_data_service.mojom.FontDataService';
-  }
-
-  matchFamilyName(family_name, style) {
-    // Method: MatchFamilyName
-    return new Promise((resolve) => {
-      // Call: MatchFamilyName(family_name, style)
-      resolve({});
-    });
-  }
-
-  matchFamilyNameCharacter(family_name, style, bcp47s, character) {
-    // Method: MatchFamilyNameCharacter
-    return new Promise((resolve) => {
-      // Call: MatchFamilyNameCharacter(family_name, style, bcp47s, character)
-      resolve({});
-    });
-  }
-
-  getAllFamilyNames() {
-    // Method: GetAllFamilyNames
-    return new Promise((resolve) => {
-      // Call: GetAllFamilyNames()
-      resolve({});
-    });
-  }
-
-  legacyMakeTypeface(family_name, style) {
-    // Method: LegacyMakeTypeface
-    return new Promise((resolve) => {
-      // Call: LegacyMakeTypeface(family_name, style)
-      resolve({});
-    });
-  }
-
-};
-
-font_data_service.mojom.FontDataServiceRequest = class {
+font_data_service.mojom.FontDataServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+font_data_service.mojom.FontDataServiceRemote = class {
+  static get $interfaceName() {
+    return 'font_data_service.mojom.FontDataService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      font_data_service.mojom.FontDataServicePendingReceiver,
+      handle);
+    this.$ = new font_data_service.mojom.FontDataServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  matchFamilyName(family_name, style) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$,
+      font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec.$,
+      [family_name, style]);
+  }
+
+  matchFamilyNameCharacter(family_name, style, bcp47s, character) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$,
+      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec.$,
+      [family_name, style, bcp47s, character]);
+  }
+
+  getAllFamilyNames() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$,
+      font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec.$,
+      []);
+  }
+
+  legacyMakeTypeface(family_name, style) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$,
+      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$,
+      [family_name, style]);
+  }
+
+};
+
+font_data_service.mojom.FontDataService.getRemote = function() {
+  let remote = new font_data_service.mojom.FontDataServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'font_data_service.mojom.FontDataService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for MatchFamilyName
+font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.MatchFamilyName_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.MatchFamilyName_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MatchFamilyNameCharacter
+font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.MatchFamilyNameCharacter_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bcp47s', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'character', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.MatchFamilyNameCharacter_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAllFamilyNames
+font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.GetAllFamilyNames_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.GetAllFamilyNames_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LegacyMakeTypeface
+font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.LegacyMakeTypeface_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'font_data_service.mojom.FontDataService.LegacyMakeTypeface_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+font_data_service.mojom.FontDataServicePtr = font_data_service.mojom.FontDataServiceRemote;
+font_data_service.mojom.FontDataServiceRequest = font_data_service.mojom.FontDataServicePendingReceiver;
+

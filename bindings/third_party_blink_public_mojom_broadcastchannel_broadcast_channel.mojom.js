@@ -10,41 +10,149 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BroadcastChannelClient
-blink.mojom.BroadcastChannelClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.BroadcastChannelClient';
+blink.mojom.BroadcastChannelClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+blink.mojom.BroadcastChannelClientRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.BroadcastChannelClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.BroadcastChannelClientPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.BroadcastChannelClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onMessage(message) {
-    // Method: OnMessage
-    // Call: OnMessage(message)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec.$,
+      null,
+      [message]);
   }
 
 };
 
-blink.mojom.BroadcastChannelClientRequest = class {
+blink.mojom.BroadcastChannelClient.getRemote = function() {
+  let remote = new blink.mojom.BroadcastChannelClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.BroadcastChannelClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnMessage
+blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BroadcastChannelClient.OnMessage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.BroadcastChannelClientPtr = blink.mojom.BroadcastChannelClientRemote;
+blink.mojom.BroadcastChannelClientRequest = blink.mojom.BroadcastChannelClientPendingReceiver;
+
+
+// Interface: BroadcastChannelProvider
+blink.mojom.BroadcastChannelProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: BroadcastChannelProvider
-blink.mojom.BroadcastChannelProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.BroadcastChannelProvider';
+blink.mojom.BroadcastChannelProviderRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.BroadcastChannelProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.BroadcastChannelProviderPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.BroadcastChannelProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   connectToChannel(name, client, connection) {
-    // Method: ConnectToChannel
-    // Call: ConnectToChannel(name, client, connection)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec.$,
+      null,
+      [name, client, connection]);
   }
 
 };
 
-blink.mojom.BroadcastChannelProviderRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+blink.mojom.BroadcastChannelProvider.getRemote = function() {
+  let remote = new blink.mojom.BroadcastChannelProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.BroadcastChannelProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ConnectToChannel
+blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.BroadcastChannelProvider.ConnectToChannel_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+blink.mojom.BroadcastChannelProviderPtr = blink.mojom.BroadcastChannelProviderRemote;
+blink.mojom.BroadcastChannelProviderRequest = blink.mojom.BroadcastChannelProviderPendingReceiver;
+

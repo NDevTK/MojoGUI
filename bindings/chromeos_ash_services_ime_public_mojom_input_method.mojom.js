@@ -92,29 +92,35 @@ ash.ime.mojom.DomCode = {
 
 // Enum: KeyEventResult
 ash.ime.mojom.KeyEventResult = {
+  kConsumedByIme: 0,
 };
 
 // Enum: InputFieldType
 ash.ime.mojom.InputFieldType = {
-  kSearch: 0,
-  kTelephone: 1,
-  kURL: 2,
-  kEmail: 3,
-  kNumber: 4,
+  kNoIME: 0,
+  kText: 1,
+  kSearch: 2,
+  kTelephone: 3,
+  kURL: 4,
+  kEmail: 5,
+  kNumber: 6,
+  kPassword: 7,
 };
 
 // Enum: AutocorrectMode
 ash.ime.mojom.AutocorrectMode = {
+  kEnabled: 0,
 };
 
 // Enum: PersonalizationMode
 ash.ime.mojom.PersonalizationMode = {
-  or: 0,
+  kDisabled: 0,
+  kEnabled: 1,
 };
 
 // Enum: TextPredictionMode
 ash.ime.mojom.TextPredictionMode = {
-  but: 0,
+  kEnabled: 0,
 };
 
 // Enum: KoreanLayout
@@ -196,14 +202,15 @@ ash.ime.mojom.ZhuyinLayout = {
 
 // Enum: ZhuyinSelectionKeys
 ash.ime.mojom.ZhuyinSelectionKeys = {
-  and: 0,
-  and: 1,
+  kAsdfghjkl: 0,
+  kAsdfzxcv89: 1,
+  kAsdfjkl789: 2,
+  k1234Qweras: 3,
 };
 
 // Enum: ChineseLanguageMode
 ash.ime.mojom.ChineseLanguageMode = {
-  the: 0,
-  the: 1,
+  kRaw: 0,
 };
 
 // Enum: JapaneseInputMode
@@ -217,8 +224,8 @@ ash.ime.mojom.JapaneseInputMode = {
 
 // Enum: SuggestionMode
 ash.ime.mojom.SuggestionMode = {
-  the: 0,
-  the: 1,
+  kCompletion: 0,
+  kPrediction: 1,
 };
 
 // Enum: SuggestionType
@@ -232,9 +239,10 @@ ash.ime.mojom.SuggestionType = {
 ash.ime.mojom.AssistiveWindowType = {
   kUndo: 0,
   kEmojiSuggestionDeprecated: 1,
-  kGrammarSuggestion: 2,
-  kMultiWordSuggestion: 3,
-  kLongpressDiacriticsSuggestion: 4,
+  kPersonalInfoSuggestion: 2,
+  kGrammarSuggestion: 3,
+  kMultiWordSuggestion: 4,
+  kLongpressDiacriticsSuggestion: 5,
 };
 
 // Enum: AutocorrectSuggestionProvider
@@ -244,120 +252,52 @@ ash.ime.mojom.AutocorrectSuggestionProvider = {
   kUsEnglish840: 2,
 };
 
-// Struct: ModifierState
-ash.ime.mojom.ModifierState = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: PhysicalKeyEvent
-ash.ime.mojom.PhysicalKeyEvent = class {
-  constructor(values = {}) {
-    this.be = values.be !== undefined ? values.be : null;
-  }
-};
-
-// Struct: SelectionRange
-ash.ime.mojom.SelectionRange = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: InputFieldInfo
-ash.ime.mojom.InputFieldInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: KoreanSettings
-ash.ime.mojom.KoreanSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: LatinSettings
-ash.ime.mojom.LatinSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FuzzyPinyinSettings
-ash.ime.mojom.FuzzyPinyinSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: PinyinSettings
-ash.ime.mojom.PinyinSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: JapaneseSettings
-ash.ime.mojom.JapaneseSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ZhuyinSettings
-ash.ime.mojom.ZhuyinSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ChineseQuickSettings
-ash.ime.mojom.ChineseQuickSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: JapaneseQuickSettings
-ash.ime.mojom.JapaneseQuickSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: SuggestionCandidate
-ash.ime.mojom.SuggestionCandidate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: InputMethodMetadata
-ash.ime.mojom.InputMethodMetadata = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: AssistiveWindow
-ash.ime.mojom.AssistiveWindow = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: VietnameseTelexSettings
-ash.ime.mojom.VietnameseTelexSettings = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: VietnameseVniSettings
-ash.ime.mojom.VietnameseVniSettings = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: InputMethod
-ash.ime.mojom.InputMethodPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.ime.mojom.InputMethod';
-  }
-
-};
-
-ash.ime.mojom.InputMethodRequest = class {
+ash.ime.mojom.InputMethodPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.ime.mojom.InputMethodRemote = class {
+  static get $interfaceName() {
+    return 'ash.ime.mojom.InputMethod';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.ime.mojom.InputMethodPendingReceiver,
+      handle);
+    this.$ = new ash.ime.mojom.InputMethodRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.ime.mojom.InputMethodRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ash.ime.mojom.InputMethod.getRemote = function() {
+  let remote = new ash.ime.mojom.InputMethodRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.ime.mojom.InputMethod',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ash.ime.mojom.InputMethodPtr = ash.ime.mojom.InputMethodRemote;
+ash.ime.mojom.InputMethodRequest = ash.ime.mojom.InputMethodPendingReceiver;
+

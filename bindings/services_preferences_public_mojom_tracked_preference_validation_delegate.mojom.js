@@ -11,36 +11,122 @@ prefs.mojom = prefs.mojom || {};
 
 // Enum: ValueState
 prefs.mojom.ValueState = {
-  but: 0,
-  and: 1,
-  but: 2,
-  but: 3,
-  so: 4,
-  signaling: 5,
-  and: 6,
+  UNCHANGED: 0,
+  CLEARED: 1,
+  CHANGED: 2,
+  UNTRUSTED_UNKNOWN_VALUE: 3,
+  TRUSTED_UNKNOWN_VALUE: 4,
+  TRUSTED_NULL_VALUE: 5,
+  UNSUPPORTED: 6,
+  UNCHANGED_ENCRYPTED: 7,
+  CHANGED_ENCRYPTED: 8,
+  CLEARED_ENCRYPTED: 9,
+  UNCHANGED_VIA_HMAC_FALLBACK: 10,
+  CHANGED_VIA_HMAC_FALLBACK: 11,
+  CLEARED_VIA_HMAC_FALLBACK: 12,
 };
 
 // Interface: TrackedPreferenceValidationDelegate
-prefs.mojom.TrackedPreferenceValidationDelegatePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'prefs.mojom.TrackedPreferenceValidationDelegate';
-  }
-
-  onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal) {
-    // Method: OnAtomicPreferenceValidation
-    // Call: OnAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal)
-  }
-
-  onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
-    // Method: OnSplitPreferenceValidation
-    // Call: OnSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal)
-  }
-
-};
-
-prefs.mojom.TrackedPreferenceValidationDelegateRequest = class {
+prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
+  static get $interfaceName() {
+    return 'prefs.mojom.TrackedPreferenceValidationDelegate';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver,
+      handle);
+    this.$ = new prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$,
+      null,
+      [pref_path, value, value_state, external_validation_value_state, is_personal]);
+  }
+
+  onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$,
+      null,
+      [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal]);
+  }
+
+};
+
+prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
+  let remote = new prefs.mojom.TrackedPreferenceValidationDelegateRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'prefs.mojom.TrackedPreferenceValidationDelegate',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnAtomicPreferenceValidation
+prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'prefs.mojom.TrackedPreferenceValidationDelegate.OnAtomicPreferenceValidation_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value_state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'external_validation_value_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSplitPreferenceValidation
+prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'prefs.mojom.TrackedPreferenceValidationDelegate.OnSplitPreferenceValidation_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'invalid_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'external_validation_invalid_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'external_validation_value_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_personal', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+prefs.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.TrackedPreferenceValidationDelegateRemote;
+prefs.mojom.TrackedPreferenceValidationDelegateRequest = prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
+

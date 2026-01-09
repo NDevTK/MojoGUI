@@ -17,227 +17,948 @@ blink.mojom.FileSystemType = {
   kExternal: 3,
 };
 
-// Struct: FileSystemInfo
-blink.mojom.FileSystemInfo = class {
-  constructor(values = {}) {
-    this.kTemporary = values.kTemporary !== undefined ? values.kTemporary : "";
+// Interface: FileSystemCancellableOperation
+blink.mojom.FileSystemCancellableOperationPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: FileSystemCancellableOperation
-blink.mojom.FileSystemCancellableOperationPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FileSystemCancellableOperation';
+blink.mojom.FileSystemCancellableOperationRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FileSystemCancellableOperation';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FileSystemCancellableOperationPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FileSystemCancellableOperationRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FileSystemCancellableOperationRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   cancel() {
-    // Method: Cancel
-    return new Promise((resolve) => {
-      // Call: Cancel()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec.$,
+      blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-blink.mojom.FileSystemCancellableOperationRequest = class {
+blink.mojom.FileSystemCancellableOperation.getRemote = function() {
+  let remote = new blink.mojom.FileSystemCancellableOperationRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FileSystemCancellableOperation',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Cancel
+blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemCancellableOperation.Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemCancellableOperation.Cancel_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FileSystemCancellableOperationPtr = blink.mojom.FileSystemCancellableOperationRemote;
+blink.mojom.FileSystemCancellableOperationRequest = blink.mojom.FileSystemCancellableOperationPendingReceiver;
+
+
+// Interface: FileSystemOperationListener
+blink.mojom.FileSystemOperationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: FileSystemOperationListener
-blink.mojom.FileSystemOperationListenerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FileSystemOperationListener';
+blink.mojom.FileSystemOperationListenerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FileSystemOperationListener';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FileSystemOperationListenerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FileSystemOperationListenerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FileSystemOperationListenerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   resultsRetrieved(entries, has_more) {
-    // Method: ResultsRetrieved
-    // Call: ResultsRetrieved(entries, has_more)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec.$,
+      null,
+      [entries, has_more]);
   }
 
   didWrite(byte_count, complete) {
-    // Method: DidWrite
-    // Call: DidWrite(byte_count, complete)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec.$,
+      null,
+      [byte_count, complete]);
   }
 
   errorOccurred(error_code) {
-    // Method: ErrorOccurred
-    // Call: ErrorOccurred(error_code)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec.$,
+      null,
+      [error_code]);
   }
 
 };
 
-blink.mojom.FileSystemOperationListenerRequest = class {
+blink.mojom.FileSystemOperationListener.getRemote = function() {
+  let remote = new blink.mojom.FileSystemOperationListenerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FileSystemOperationListener',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ResultsRetrieved
+blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemOperationListener.ResultsRetrieved_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_more', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DidWrite
+blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemOperationListener.DidWrite_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'byte_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ErrorOccurred
+blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemOperationListener.ErrorOccurred_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FileSystemOperationListenerPtr = blink.mojom.FileSystemOperationListenerRemote;
+blink.mojom.FileSystemOperationListenerRequest = blink.mojom.FileSystemOperationListenerPendingReceiver;
+
+
+// Interface: ReceivedSnapshotListener
+blink.mojom.ReceivedSnapshotListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ReceivedSnapshotListener
-blink.mojom.ReceivedSnapshotListenerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ReceivedSnapshotListener';
+blink.mojom.ReceivedSnapshotListenerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ReceivedSnapshotListener';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ReceivedSnapshotListenerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ReceivedSnapshotListenerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ReceivedSnapshotListenerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   didReceiveSnapshotFile() {
-    // Method: DidReceiveSnapshotFile
-    // Call: DidReceiveSnapshotFile()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-blink.mojom.ReceivedSnapshotListenerRequest = class {
+blink.mojom.ReceivedSnapshotListener.getRemote = function() {
+  let remote = new blink.mojom.ReceivedSnapshotListenerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ReceivedSnapshotListener',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DidReceiveSnapshotFile
+blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ReceivedSnapshotListener.DidReceiveSnapshotFile_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ReceivedSnapshotListenerPtr = blink.mojom.ReceivedSnapshotListenerRemote;
+blink.mojom.ReceivedSnapshotListenerRequest = blink.mojom.ReceivedSnapshotListenerPendingReceiver;
+
+
+// Interface: FileSystemManager
+blink.mojom.FileSystemManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: FileSystemManager
-blink.mojom.FileSystemManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FileSystemManager';
+blink.mojom.FileSystemManagerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FileSystemManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FileSystemManagerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FileSystemManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FileSystemManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   open(origin, file_system_type) {
-    // Method: Open
-    return new Promise((resolve) => {
-      // Call: Open(origin, file_system_type)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FileSystemManager_Open_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Open_ResponseParamsSpec.$,
+      [origin, file_system_type]);
   }
 
   resolveURL(filesystem_url) {
-    // Method: ResolveURL
-    return new Promise((resolve) => {
-      // Call: ResolveURL(filesystem_url)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.FileSystemManager_ResolveURL_ParamsSpec.$,
+      blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec.$,
+      [filesystem_url]);
   }
 
   move(src_path, dest_path) {
-    // Method: Move
-    return new Promise((resolve) => {
-      // Call: Move(src_path, dest_path)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.FileSystemManager_Move_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Move_ResponseParamsSpec.$,
+      [src_path, dest_path]);
   }
 
   copy(src_path, dest_path) {
-    // Method: Copy
-    return new Promise((resolve) => {
-      // Call: Copy(src_path, dest_path)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.FileSystemManager_Copy_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Copy_ResponseParamsSpec.$,
+      [src_path, dest_path]);
   }
 
   remove(path, recursive) {
-    // Method: Remove
-    return new Promise((resolve) => {
-      // Call: Remove(path, recursive)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      blink.mojom.FileSystemManager_Remove_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Remove_ResponseParamsSpec.$,
+      [path, recursive]);
   }
 
   readMetadata(path) {
-    // Method: ReadMetadata
-    return new Promise((resolve) => {
-      // Call: ReadMetadata(path)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec.$,
+      blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec.$,
+      [path]);
   }
 
   create(path, exclusive, is_directory, recursive) {
-    // Method: Create
-    return new Promise((resolve) => {
-      // Call: Create(path, exclusive, is_directory, recursive)
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      blink.mojom.FileSystemManager_Create_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Create_ResponseParamsSpec.$,
+      [path, exclusive, is_directory, recursive]);
   }
 
   exists(path, is_directory) {
-    // Method: Exists
-    return new Promise((resolve) => {
-      // Call: Exists(path, is_directory)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      blink.mojom.FileSystemManager_Exists_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Exists_ResponseParamsSpec.$,
+      [path, is_directory]);
   }
 
   readDirectory(path, listener) {
-    // Method: ReadDirectory
-    // Call: ReadDirectory(path, listener)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec.$,
+      null,
+      [path, listener]);
   }
 
   readDirectorySync(path) {
-    // Method: ReadDirectorySync
-    return new Promise((resolve) => {
-      // Call: ReadDirectorySync(path)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec.$,
+      blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec.$,
+      [path]);
   }
 
   write(file_path, blob, position, op_receiver, listener) {
-    // Method: Write
-    // Call: Write(file_path, blob, position, op_receiver, listener)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      blink.mojom.FileSystemManager_Write_ParamsSpec.$,
+      null,
+      [file_path, blob, position, op_receiver, listener]);
   }
 
   writeSync(file_path, blob, position) {
-    // Method: WriteSync
-    return new Promise((resolve) => {
-      // Call: WriteSync(file_path, blob, position)
-      resolve({});
-    });
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      blink.mojom.FileSystemManager_WriteSync_ParamsSpec.$,
+      blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec.$,
+      [file_path, blob, position]);
   }
 
   truncate(file_path, length, op_receiver) {
-    // Method: Truncate
-    return new Promise((resolve) => {
-      // Call: Truncate(file_path, length, op_receiver)
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      blink.mojom.FileSystemManager_Truncate_ParamsSpec.$,
+      blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec.$,
+      [file_path, length, op_receiver]);
   }
 
   truncateSync(file_path, length) {
-    // Method: TruncateSync
-    return new Promise((resolve) => {
-      // Call: TruncateSync(file_path, length)
-      resolve({});
-    });
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      blink.mojom.FileSystemManager_TruncateSync_ParamsSpec.$,
+      blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec.$,
+      [file_path, length]);
   }
 
   createSnapshotFile(file_path) {
-    // Method: CreateSnapshotFile
-    return new Promise((resolve) => {
-      // Call: CreateSnapshotFile(file_path)
-      resolve({});
-    });
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec.$,
+      blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec.$,
+      [file_path]);
   }
 
   getPlatformPath(file_path) {
-    // Method: GetPlatformPath
-    return new Promise((resolve) => {
-      // Call: GetPlatformPath(file_path)
-      resolve({});
-    });
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec.$,
+      blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec.$,
+      [file_path]);
   }
 
   registerBlob(content_type, url, length, expected_modification_time) {
-    // Method: RegisterBlob
-    return new Promise((resolve) => {
-      // Call: RegisterBlob(content_type, url, length, expected_modification_time)
-      resolve({});
-    });
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec.$,
+      blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec.$,
+      [content_type, url, length, expected_modification_time]);
   }
 
 };
 
-blink.mojom.FileSystemManagerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+blink.mojom.FileSystemManager.getRemote = function() {
+  let remote = new blink.mojom.FileSystemManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FileSystemManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Open
+blink.mojom.FileSystemManager_Open_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Open_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_system_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+blink.mojom.FileSystemManager_Open_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Open_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'root_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResolveURL
+blink.mojom.FileSystemManager_ResolveURL_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ResolveURL_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filesystem_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ResolveURL_ResponseParams',
+      packedSize: 40,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Move
+blink.mojom.FileSystemManager_Move_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Move_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'src_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dest_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_Move_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Move_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Copy
+blink.mojom.FileSystemManager_Copy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Copy_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'src_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dest_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_Copy_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Copy_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Remove
+blink.mojom.FileSystemManager_Remove_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Remove_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'recursive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_Remove_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Remove_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReadMetadata
+blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ReadMetadata_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ReadMetadata_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'file_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Create
+blink.mojom.FileSystemManager_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Create_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'exclusive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'recursive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_Create_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Create_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Exists
+blink.mojom.FileSystemManager_Exists_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Exists_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_Exists_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Exists_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReadDirectory
+blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ReadDirectory_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReadDirectorySync
+blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ReadDirectorySync_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.ReadDirectorySync_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Write
+blink.mojom.FileSystemManager_Write_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Write_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'op_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WriteSync
+blink.mojom.FileSystemManager_WriteSync_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.WriteSync_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.WriteSync_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'byte_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Truncate
+blink.mojom.FileSystemManager_Truncate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Truncate_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'op_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.Truncate_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for TruncateSync
+blink.mojom.FileSystemManager_TruncateSync_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.TruncateSync_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.TruncateSync_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateSnapshotFile
+blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.CreateSnapshotFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.CreateSnapshotFile_ResponseParams',
+      packedSize: 40,
+      fields: [
+        { name: 'file_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'platform_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'snapshot_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetPlatformPath
+blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.GetPlatformPath_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.GetPlatformPath_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'platform_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RegisterBlob
+blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.RegisterBlob_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'expected_modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemManager.RegisterBlob_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FileSystemManagerPtr = blink.mojom.FileSystemManagerRemote;
+blink.mojom.FileSystemManagerRequest = blink.mojom.FileSystemManagerPendingReceiver;
+

@@ -20,83 +20,262 @@ ash.cellular_setup.mojom.CarrierPortalStatus = {
 
 // Enum: ActivationResult
 ash.cellular_setup.mojom.ActivationResult = {
-  due: 0,
-};
-
-// Struct: CellularMetadata
-ash.cellular_setup.mojom.CellularMetadata = class {
-  constructor(values = {}) {
-    this.carrier = values.carrier !== undefined ? values.carrier : "";
-    this.meid = values.meid !== undefined ? values.meid : "";
-    this.imei = values.imei !== undefined ? values.imei : "";
-    this.mdn = values.mdn !== undefined ? values.mdn : "";
-  }
+  kSuccessfullyStartedActivation: 0,
+  kAlreadyActivated: 1,
+  kFailedToActivate: 2,
 };
 
 // Interface: CarrierPortalHandler
-ash.cellular_setup.mojom.CarrierPortalHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.cellular_setup.mojom.CarrierPortalHandler';
+ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.cellular_setup.mojom.CarrierPortalHandlerRemote = class {
+  static get $interfaceName() {
+    return 'ash.cellular_setup.mojom.CarrierPortalHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver,
+      handle);
+    this.$ = new ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onCarrierPortalStatusChange(status) {
-    // Method: OnCarrierPortalStatusChange
-    // Call: OnCarrierPortalStatusChange(status)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$,
+      null,
+      [status]);
   }
 
 };
 
-ash.cellular_setup.mojom.CarrierPortalHandlerRequest = class {
+ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
+  let remote = new ash.cellular_setup.mojom.CarrierPortalHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cellular_setup.mojom.CarrierPortalHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnCarrierPortalStatusChange
+ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.CarrierPortalHandler.OnCarrierPortalStatusChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.cellular_setup.mojom.CarrierPortalHandlerPtr = ash.cellular_setup.mojom.CarrierPortalHandlerRemote;
+ash.cellular_setup.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver;
+
+
+// Interface: ActivationDelegate
+ash.cellular_setup.mojom.ActivationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ActivationDelegate
-ash.cellular_setup.mojom.ActivationDelegatePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.cellular_setup.mojom.ActivationDelegate';
+ash.cellular_setup.mojom.ActivationDelegateRemote = class {
+  static get $interfaceName() {
+    return 'ash.cellular_setup.mojom.ActivationDelegate';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.cellular_setup.mojom.ActivationDelegatePendingReceiver,
+      handle);
+    this.$ = new ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onActivationStarted(metadata) {
-    // Method: OnActivationStarted
-    // Call: OnActivationStarted(metadata)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$,
+      null,
+      [metadata]);
   }
 
   onActivationFinished(result) {
-    // Method: OnActivationFinished
-    // Call: OnActivationFinished(result)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$,
+      null,
+      [result]);
   }
 
 };
 
-ash.cellular_setup.mojom.ActivationDelegateRequest = class {
+ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
+  let remote = new ash.cellular_setup.mojom.ActivationDelegateRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cellular_setup.mojom.ActivationDelegate',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnActivationStarted
+ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationStarted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnActivationFinished
+ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationFinished_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.cellular_setup.mojom.ActivationDelegatePtr = ash.cellular_setup.mojom.ActivationDelegateRemote;
+ash.cellular_setup.mojom.ActivationDelegateRequest = ash.cellular_setup.mojom.ActivationDelegatePendingReceiver;
+
+
+// Interface: CellularSetup
+ash.cellular_setup.mojom.CellularSetupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CellularSetup
-ash.cellular_setup.mojom.CellularSetupPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.cellular_setup.mojom.CellularSetup';
+ash.cellular_setup.mojom.CellularSetupRemote = class {
+  static get $interfaceName() {
+    return 'ash.cellular_setup.mojom.CellularSetup';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.cellular_setup.mojom.CellularSetupPendingReceiver,
+      handle);
+    this.$ = new ash.cellular_setup.mojom.CellularSetupRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   startActivation(delegate) {
-    // Method: StartActivation
-    return new Promise((resolve) => {
-      // Call: StartActivation(delegate)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$,
+      ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec.$,
+      [delegate]);
   }
 
 };
 
-ash.cellular_setup.mojom.CellularSetupRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
+  let remote = new ash.cellular_setup.mojom.CellularSetupRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cellular_setup.mojom.CellularSetup',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for StartActivation
+ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.cellular_setup.mojom.CellularSetupPtr = ash.cellular_setup.mojom.CellularSetupRemote;
+ash.cellular_setup.mojom.CellularSetupRequest = ash.cellular_setup.mojom.CellularSetupPendingReceiver;
+

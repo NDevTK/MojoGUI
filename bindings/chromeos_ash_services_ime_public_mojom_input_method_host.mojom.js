@@ -17,9 +17,7 @@ ash.ime.mojom.CommitTextCursorBehavior = {
 
 // Enum: CompositionSpanStyle
 ash.ime.mojom.CompositionSpanStyle = {
-  this: 0,
-  distinguishing: 1,
-  this: 2,
+  kNone: 0,
 };
 
 // Enum: InputMethodApiOperation
@@ -31,101 +29,62 @@ ash.ime.mojom.InputMethodApiOperation = {
 
 // Enum: KoreanAction
 ash.ime.mojom.KoreanAction = {
+  kHanjaKey: 0,
+  kHangeulKey: 1,
+  kComposeOutOfOrder: 2,
 };
 
 // Enum: HistogramBucketType
 ash.ime.mojom.HistogramBucketType = {
-  buckets: 0,
-  infinity: 1,
-  buckets: 2,
-  infinity: 3,
-};
-
-// Struct: CompositionSpan
-ash.ime.mojom.CompositionSpan = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextRange
-ash.ime.mojom.TextRange = class {
-  constructor(values = {}) {
-    this.end = values.end !== undefined ? values.end : 0;
-  }
-};
-
-// Struct: AutocorrectSpan
-ash.ime.mojom.AutocorrectSpan = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: CompletionCandidate
-ash.ime.mojom.CompletionCandidate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: SuggestionsRequest
-ash.ime.mojom.SuggestionsRequest = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: SuggestionsResponse
-ash.ime.mojom.SuggestionsResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: SuggestionsTextContext
-ash.ime.mojom.SuggestionsTextContext = class {
-  constructor(values = {}) {
-    this.surrounding_text_length = values.surrounding_text_length !== undefined ? values.surrounding_text_length : 0;
-  }
-};
-
-// Struct: NonCompliantApiMetric
-ash.ime.mojom.NonCompliantApiMetric = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: Candidate
-ash.ime.mojom.Candidate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: HighlightedCandidate
-ash.ime.mojom.HighlightedCandidate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: CandidatesWindow
-ash.ime.mojom.CandidatesWindow = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: BucketedHistogram
-ash.ime.mojom.BucketedHistogram = class {
-  constructor(values = {}) {
-  }
+  kLinear: 0,
 };
 
 // Interface: InputMethodHost
-ash.ime.mojom.InputMethodHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.ime.mojom.InputMethodHost';
-  }
-
-};
-
-ash.ime.mojom.InputMethodHostRequest = class {
+ash.ime.mojom.InputMethodHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.ime.mojom.InputMethodHostRemote = class {
+  static get $interfaceName() {
+    return 'ash.ime.mojom.InputMethodHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.ime.mojom.InputMethodHostPendingReceiver,
+      handle);
+    this.$ = new ash.ime.mojom.InputMethodHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ash.ime.mojom.InputMethodHost.getRemote = function() {
+  let remote = new ash.ime.mojom.InputMethodHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.ime.mojom.InputMethodHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ash.ime.mojom.InputMethodHostPtr = ash.ime.mojom.InputMethodHostRemote;
+ash.ime.mojom.InputMethodHostRequest = ash.ime.mojom.InputMethodHostPendingReceiver;
+

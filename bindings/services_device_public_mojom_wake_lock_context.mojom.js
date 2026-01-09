@@ -10,21 +10,77 @@ device.mojom = device.mojom || {};
 
 
 // Interface: WakeLockContext
-device.mojom.WakeLockContextPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.WakeLockContext';
-  }
-
-  getWakeLock(type, reason, description, wake_lock) {
-    // Method: GetWakeLock
-    // Call: GetWakeLock(type, reason, description, wake_lock)
-  }
-
-};
-
-device.mojom.WakeLockContextRequest = class {
+device.mojom.WakeLockContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+device.mojom.WakeLockContextRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.WakeLockContext';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.WakeLockContextPendingReceiver,
+      handle);
+    this.$ = new device.mojom.WakeLockContextRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.WakeLockContextRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getWakeLock(type, reason, description, wake_lock) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device.mojom.WakeLockContext_GetWakeLock_ParamsSpec.$,
+      null,
+      [type, reason, description, wake_lock]);
+  }
+
+};
+
+device.mojom.WakeLockContext.getRemote = function() {
+  let remote = new device.mojom.WakeLockContextRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.WakeLockContext',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetWakeLock
+device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.WakeLockContext.GetWakeLock_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'wake_lock', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device.mojom.WakeLockContextPtr = device.mojom.WakeLockContextRemote;
+device.mojom.WakeLockContextRequest = device.mojom.WakeLockContextPendingReceiver;
+

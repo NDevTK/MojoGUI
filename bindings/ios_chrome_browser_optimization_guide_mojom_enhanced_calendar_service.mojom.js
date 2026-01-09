@@ -9,33 +9,88 @@ var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
 
-// Struct: EnhancedCalendarServiceRequestParams
-ai.mojom.EnhancedCalendarServiceRequestParams = class {
-  constructor(values = {}) {
-    this.selected_text = values.selected_text !== undefined ? values.selected_text : "";
-    this.optional_prompt = values.optional_prompt !== undefined ? values.optional_prompt : "";
-  }
-};
-
 // Interface: EnhancedCalendarService
-ai.mojom.EnhancedCalendarServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ai.mojom.EnhancedCalendarService';
-  }
-
-  executeEnhancedCalendarRequest(request_params) {
-    // Method: ExecuteEnhancedCalendarRequest
-    return new Promise((resolve) => {
-      // Call: ExecuteEnhancedCalendarRequest(request_params)
-      resolve({});
-    });
-  }
-
-};
-
-ai.mojom.EnhancedCalendarServiceRequest = class {
+ai.mojom.EnhancedCalendarServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ai.mojom.EnhancedCalendarServiceRemote = class {
+  static get $interfaceName() {
+    return 'ai.mojom.EnhancedCalendarService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ai.mojom.EnhancedCalendarServicePendingReceiver,
+      handle);
+    this.$ = new ai.mojom.EnhancedCalendarServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  executeEnhancedCalendarRequest(request_params) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec.$,
+      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec.$,
+      [request_params]);
+  }
+
+};
+
+ai.mojom.EnhancedCalendarService.getRemote = function() {
+  let remote = new ai.mojom.EnhancedCalendarServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ai.mojom.EnhancedCalendarService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ExecuteEnhancedCalendarRequest
+ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ai.mojom.EnhancedCalendarServicePtr = ai.mojom.EnhancedCalendarServiceRemote;
+ai.mojom.EnhancedCalendarServiceRequest = ai.mojom.EnhancedCalendarServicePendingReceiver;
+

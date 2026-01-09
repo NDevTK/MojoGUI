@@ -24,37 +24,114 @@ printing.mojom.DuplexMode = {
   SHORT_EDGE: 2,
 };
 
-// Struct: PwgRasterSettings
-printing.mojom.PwgRasterSettings = class {
-  constructor(values = {}) {
-    this.TRANSFORM_NORMAL = values.TRANSFORM_NORMAL !== undefined ? values.TRANSFORM_NORMAL : null;
-  }
-};
-
 // Interface: PdfToPwgRasterConverter
-printing.mojom.PdfToPwgRasterConverterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'printing.mojom.PdfToPwgRasterConverter';
-  }
-
-  convert(pdf_region, pdf_settings, pwg_raster_settings) {
-    // Method: Convert
-    return new Promise((resolve) => {
-      // Call: Convert(pdf_region, pdf_settings, pwg_raster_settings)
-      resolve({});
-    });
-  }
-
-  setUseSkiaRendererPolicy(use_skia) {
-    // Method: SetUseSkiaRendererPolicy
-    // Call: SetUseSkiaRendererPolicy(use_skia)
-  }
-
-};
-
-printing.mojom.PdfToPwgRasterConverterRequest = class {
+printing.mojom.PdfToPwgRasterConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+printing.mojom.PdfToPwgRasterConverterRemote = class {
+  static get $interfaceName() {
+    return 'printing.mojom.PdfToPwgRasterConverter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      printing.mojom.PdfToPwgRasterConverterPendingReceiver,
+      handle);
+    this.$ = new printing.mojom.PdfToPwgRasterConverterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  convert(pdf_region, pdf_settings, pwg_raster_settings) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$,
+      printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$,
+      [pdf_region, pdf_settings, pwg_raster_settings]);
+  }
+
+  setUseSkiaRendererPolicy(use_skia) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      null,
+      [use_skia]);
+  }
+
+};
+
+printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
+  let remote = new printing.mojom.PdfToPwgRasterConverterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'printing.mojom.PdfToPwgRasterConverter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Convert
+printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToPwgRasterConverter.Convert_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetUseSkiaRendererPolicy
+printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToPwgRasterConverter.SetUseSkiaRendererPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+printing.mojom.PdfToPwgRasterConverterPtr = printing.mojom.PdfToPwgRasterConverterRemote;
+printing.mojom.PdfToPwgRasterConverterRequest = printing.mojom.PdfToPwgRasterConverterPendingReceiver;
+

@@ -12,40 +12,58 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: LoadHeatmapPalmRejectionResult
 chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResult = {
-};
-
-// Struct: HeatmapPalmRejectionConfig
-chromeos.machine_learning.mojom.HeatmapPalmRejectionConfig = class {
-  constructor(values = {}) {
-    this.crop_heatmap = values.crop_heatmap !== undefined ? values.crop_heatmap : 0;
-  }
-};
-
-// Struct: HeatmapProcessedEvent
-chromeos.machine_learning.mojom.HeatmapProcessedEvent = class {
-  constructor(values = {}) {
-    this.is_palm = values.is_palm !== undefined ? values.is_palm : false;
-  }
-};
-
-// Struct: CropHeatmap
-chromeos.machine_learning.mojom.CropHeatmap = class {
-  constructor(values = {}) {
-    this.top_crop = values.top_crop !== undefined ? values.top_crop : 0;
-  }
+  OK: 0,
+  LOAD_MODEL_ERROR: 1,
+  CREATE_GRAPH_EXECUTOR_ERROR: 2,
+  OPEN_DEVICE_ERROR: 3,
 };
 
 // Interface: HeatmapPalmRejectionClient
-chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient';
-  }
-
-};
-
-chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRequest = class {
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPtr = chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote;
+chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRequest = chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver;
+

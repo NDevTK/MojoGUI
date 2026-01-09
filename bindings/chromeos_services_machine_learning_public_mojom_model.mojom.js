@@ -12,10 +12,19 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: BuiltinModelId
 chromeos.machine_learning.mojom.BuiltinModelId = {
+  UNSUPPORTED_UNKNOWN: 0,
+  TEST_MODEL: 1,
+  UNSUPPORTED_SMART_DIM_20181115: 2,
+  UNSUPPORTED_SMART_DIM_20190221: 3,
+  UNSUPPORTED_TOP_CAT_20190722: 4,
+  SMART_DIM_20190521: 5,
+  UNSUPPORTED_SEARCH_RANKER_20190923: 6,
 };
 
 // Enum: GpuDelegateApi
 chromeos.machine_learning.mojom.GpuDelegateApi = {
+  OPENGL: 0,
+  OPENCL: 1,
 };
 
 // Enum: CreateGraphExecutorResult
@@ -27,38 +36,52 @@ chromeos.machine_learning.mojom.CreateGraphExecutorResult = {
   NNAPI_USE_ERROR: 4,
 };
 
-// Struct: GraphExecutorOptions
-chromeos.machine_learning.mojom.GraphExecutorOptions = class {
-  constructor(values = {}) {
-    this.OPENGL = values.OPENGL !== undefined ? values.OPENGL : false;
-  }
-};
-
-// Struct: BuiltinModelSpec
-chromeos.machine_learning.mojom.BuiltinModelSpec = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : null;
-  }
-};
-
-// Struct: FlatBufferModelSpec
-chromeos.machine_learning.mojom.FlatBufferModelSpec = class {
-  constructor(values = {}) {
-    this.metrics_model_name = values.metrics_model_name !== undefined ? values.metrics_model_name : 0;
-  }
-};
-
 // Interface: Model
-chromeos.machine_learning.mojom.ModelPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.Model';
-  }
-
-};
-
-chromeos.machine_learning.mojom.ModelRequest = class {
+chromeos.machine_learning.mojom.ModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.ModelRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.Model';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.ModelPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.ModelRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.ModelRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.Model.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.ModelRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.Model',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.ModelPtr = chromeos.machine_learning.mojom.ModelRemote;
+chromeos.machine_learning.mojom.ModelRequest = chromeos.machine_learning.mojom.ModelPendingReceiver;
+

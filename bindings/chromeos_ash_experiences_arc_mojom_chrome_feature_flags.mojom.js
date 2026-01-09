@@ -15,24 +15,52 @@ arc.mojom.RoundedWindowCompatStrategy = {
   kLeftRightBottomGesture: 1,
 };
 
-// Struct: FeatureFlags
-arc.mojom.FeatureFlags = class {
-  constructor(values = {}) {
-    this.extend_intent_anr_timeout = values.extend_intent_anr_timeout !== undefined ? values.extend_intent_anr_timeout : 0;
-  }
-};
-
 // Interface: ChromeFeatureFlagsInstance
-arc.mojom.ChromeFeatureFlagsInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.ChromeFeatureFlagsInstance';
-  }
-
-};
-
-arc.mojom.ChromeFeatureFlagsInstanceRequest = class {
+arc.mojom.ChromeFeatureFlagsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.ChromeFeatureFlagsInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.ChromeFeatureFlagsInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.ChromeFeatureFlagsInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
+  let remote = new arc.mojom.ChromeFeatureFlagsInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.ChromeFeatureFlagsInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.ChromeFeatureFlagsInstancePtr = arc.mojom.ChromeFeatureFlagsInstanceRemote;
+arc.mojom.ChromeFeatureFlagsInstanceRequest = arc.mojom.ChromeFeatureFlagsInstancePendingReceiver;
+

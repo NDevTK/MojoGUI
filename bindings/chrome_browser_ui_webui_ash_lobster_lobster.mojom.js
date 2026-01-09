@@ -36,37 +36,52 @@ lobster.mojom.WebUIMetricEvent = {
   kFeedbackThumbsDown: 10,
 };
 
-// Struct: Candidate
-lobster.mojom.Candidate = class {
-  constructor(values = {}) {
-    this.data_url = values.data_url !== undefined ? values.data_url : 0;
-  }
-};
-
-// Struct: Error
-lobster.mojom.Error = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FeedbackPreview
-lobster.mojom.FeedbackPreview = class {
-  constructor(values = {}) {
-    this.preview_data_url = values.preview_data_url !== undefined ? values.preview_data_url : "";
-  }
-};
-
 // Interface: UntrustedLobsterPageHandler
-lobster.mojom.UntrustedLobsterPageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'lobster.mojom.UntrustedLobsterPageHandler';
-  }
-
-};
-
-lobster.mojom.UntrustedLobsterPageHandlerRequest = class {
+lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+lobster.mojom.UntrustedLobsterPageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'lobster.mojom.UntrustedLobsterPageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver,
+      handle);
+    this.$ = new lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
+  let remote = new lobster.mojom.UntrustedLobsterPageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'lobster.mojom.UntrustedLobsterPageHandler',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+lobster.mojom.UntrustedLobsterPageHandlerPtr = lobster.mojom.UntrustedLobsterPageHandlerRemote;
+lobster.mojom.UntrustedLobsterPageHandlerRequest = lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver;
+

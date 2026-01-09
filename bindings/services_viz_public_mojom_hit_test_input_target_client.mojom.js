@@ -10,24 +10,89 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: InputTargetClient
-viz.mojom.InputTargetClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.InputTargetClient';
-  }
-
-  frameSinkIdAt(point, trace_id) {
-    // Method: FrameSinkIdAt
-    return new Promise((resolve) => {
-      // Call: FrameSinkIdAt(point, trace_id)
-      resolve({});
-    });
-  }
-
-};
-
-viz.mojom.InputTargetClientRequest = class {
+viz.mojom.InputTargetClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+viz.mojom.InputTargetClientRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.InputTargetClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.InputTargetClientPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.InputTargetClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.InputTargetClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  frameSinkIdAt(point, trace_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec.$,
+      viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec.$,
+      [point, trace_id]);
+  }
+
+};
+
+viz.mojom.InputTargetClient.getRemote = function() {
+  let remote = new viz.mojom.InputTargetClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.InputTargetClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for FrameSinkIdAt
+viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.InputTargetClientPtr = viz.mojom.InputTargetClientRemote;
+viz.mojom.InputTargetClientRequest = viz.mojom.InputTargetClientPendingReceiver;
+

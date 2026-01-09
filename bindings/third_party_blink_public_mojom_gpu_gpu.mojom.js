@@ -10,24 +10,87 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: GpuDataManager
-blink.mojom.GpuDataManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.GpuDataManager';
-  }
-
-  are3DAPIsBlockedForUrl(url) {
-    // Method: Are3DAPIsBlockedForUrl
-    return new Promise((resolve) => {
-      // Call: Are3DAPIsBlockedForUrl(url)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.GpuDataManagerRequest = class {
+blink.mojom.GpuDataManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.GpuDataManagerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.GpuDataManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.GpuDataManagerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.GpuDataManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.GpuDataManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  are3DAPIsBlockedForUrl(url) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec.$,
+      blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec.$,
+      [url]);
+  }
+
+};
+
+blink.mojom.GpuDataManager.getRemote = function() {
+  let remote = new blink.mojom.GpuDataManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.GpuDataManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Are3DAPIsBlockedForUrl
+blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GpuDataManager.Are3DAPIsBlockedForUrl_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.GpuDataManager.Are3DAPIsBlockedForUrl_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.GpuDataManagerPtr = blink.mojom.GpuDataManagerRemote;
+blink.mojom.GpuDataManagerRequest = blink.mojom.GpuDataManagerPendingReceiver;
+

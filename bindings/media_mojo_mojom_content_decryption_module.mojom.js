@@ -21,164 +21,570 @@ media.mojom.CdmKeyStatus = {
   USABLE_IN_FUTURE: 7,
 };
 
-// Struct: CdmConfig
-media.mojom.CdmConfig = class {
-  constructor(values = {}) {
-    this.use_hw_secure_codecs = values.use_hw_secure_codecs !== undefined ? values.use_hw_secure_codecs : false;
-  }
-};
-
-// Struct: CdmPromiseResult
-media.mojom.CdmPromiseResult = class {
-  constructor(values = {}) {
-    this.error_message = values.error_message !== undefined ? values.error_message : 0;
-  }
-};
-
-// Struct: CdmKeyInformation
-media.mojom.CdmKeyInformation = class {
-  constructor(values = {}) {
-    this.system_code = values.system_code !== undefined ? values.system_code : 0;
-  }
-};
-
-// Struct: CdmContext
-media.mojom.CdmContext = class {
-  constructor(values = {}) {
-    this.requires_media_foundation_renderer = values.requires_media_foundation_renderer !== undefined ? values.requires_media_foundation_renderer : false;
-  }
-};
-
 // Interface: ContentDecryptionModule
-media.mojom.ContentDecryptionModulePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.ContentDecryptionModule';
+media.mojom.ContentDecryptionModulePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.ContentDecryptionModuleRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.ContentDecryptionModule';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.ContentDecryptionModulePendingReceiver,
+      handle);
+    this.$ = new media.mojom.ContentDecryptionModuleRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setClient(client) {
-    // Method: SetClient
-    // Call: SetClient(client)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$,
+      null,
+      [client]);
   }
 
   setServerCertificate(certificate_data) {
-    // Method: SetServerCertificate
-    return new Promise((resolve) => {
-      // Call: SetServerCertificate(certificate_data)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$,
+      [certificate_data]);
   }
 
   getStatusForPolicy(min_hdcp_version) {
-    // Method: GetStatusForPolicy
-    return new Promise((resolve) => {
-      // Call: GetStatusForPolicy(min_hdcp_version)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$,
+      [min_hdcp_version]);
   }
 
   createSessionAndGenerateRequest(session_type, init_data_type, init_data) {
-    // Method: CreateSessionAndGenerateRequest
-    return new Promise((resolve) => {
-      // Call: CreateSessionAndGenerateRequest(session_type, init_data_type, init_data)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$,
+      [session_type, init_data_type, init_data]);
   }
 
   loadSession(session_type, session_id) {
-    // Method: LoadSession
-    return new Promise((resolve) => {
-      // Call: LoadSession(session_type, session_id)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$,
+      [session_type, session_id]);
   }
 
   updateSession(session_id, response) {
-    // Method: UpdateSession
-    return new Promise((resolve) => {
-      // Call: UpdateSession(session_id, response)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$,
+      [session_id, response]);
   }
 
   closeSession(session_id) {
-    // Method: CloseSession
-    return new Promise((resolve) => {
-      // Call: CloseSession(session_id)
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$,
+      [session_id]);
   }
 
   removeSession(session_id) {
-    // Method: RemoveSession
-    return new Promise((resolve) => {
-      // Call: RemoveSession(session_id)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$,
+      media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$,
+      [session_id]);
   }
 
 };
 
-media.mojom.ContentDecryptionModuleRequest = class {
+media.mojom.ContentDecryptionModule.getRemote = function() {
+  let remote = new media.mojom.ContentDecryptionModuleRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.ContentDecryptionModule',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetClient
+media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.SetClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetServerCertificate
+media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetStatusForPolicy
+media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateSessionAndGenerateRequest
+media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'init_data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'init_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LoadSession
+media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.LoadSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.LoadSession_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateSession
+media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.UpdateSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.UpdateSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseSession
+media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.CloseSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.CloseSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RemoveSession
+media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.RemoveSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModule.RemoveSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.ContentDecryptionModulePtr = media.mojom.ContentDecryptionModuleRemote;
+media.mojom.ContentDecryptionModuleRequest = media.mojom.ContentDecryptionModulePendingReceiver;
+
+
+// Interface: ContentDecryptionModuleClient
+media.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ContentDecryptionModuleClient
-media.mojom.ContentDecryptionModuleClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.ContentDecryptionModuleClient';
+media.mojom.ContentDecryptionModuleClientRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.ContentDecryptionModuleClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.ContentDecryptionModuleClientPendingReceiver,
+      handle);
+    this.$ = new media.mojom.ContentDecryptionModuleClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onSessionMessage(session_id, message_type, message) {
-    // Method: OnSessionMessage
-    // Call: OnSessionMessage(session_id, message_type, message)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$,
+      null,
+      [session_id, message_type, message]);
   }
 
   onSessionClosed(session_id, reason) {
-    // Method: OnSessionClosed
-    // Call: OnSessionClosed(session_id, reason)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$,
+      null,
+      [session_id, reason]);
   }
 
   onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
-    // Method: OnSessionKeysChange
-    // Call: OnSessionKeysChange(session_id, has_additional_usable_key, keys_info)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$,
+      null,
+      [session_id, has_additional_usable_key, keys_info]);
   }
 
   onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
-    // Method: OnSessionExpirationUpdate
-    // Call: OnSessionExpirationUpdate(session_id, new_expiry_time_sec)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$,
+      null,
+      [session_id, new_expiry_time_sec]);
   }
 
 };
 
-media.mojom.ContentDecryptionModuleClientRequest = class {
+media.mojom.ContentDecryptionModuleClient.getRemote = function() {
+  let remote = new media.mojom.ContentDecryptionModuleClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.ContentDecryptionModuleClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnSessionMessage
+media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionMessage_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSessionClosed
+media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionClosed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSessionKeysChange
+media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionKeysChange_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_additional_usable_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'keys_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSessionExpirationUpdate
+media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionExpirationUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.ContentDecryptionModuleClientPtr = media.mojom.ContentDecryptionModuleClientRemote;
+media.mojom.ContentDecryptionModuleClientRequest = media.mojom.ContentDecryptionModuleClientPendingReceiver;
+
+
+// Interface: CdmFactory
+media.mojom.CdmFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CdmFactory
-media.mojom.CdmFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.CdmFactory';
+media.mojom.CdmFactoryRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.CdmFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.CdmFactoryPendingReceiver,
+      handle);
+    this.$ = new media.mojom.CdmFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.CdmFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createCdm(cdm_config) {
-    // Method: CreateCdm
-    return new Promise((resolve) => {
-      // Call: CreateCdm(cdm_config)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.CdmFactory_CreateCdm_ParamsSpec.$,
+      media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$,
+      [cdm_config]);
   }
 
 };
 
-media.mojom.CdmFactoryRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.CdmFactory.getRemote = function() {
+  let remote = new media.mojom.CdmFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.CdmFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateCdm
+media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmFactory.CreateCdm_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.CdmFactoryPtr = media.mojom.CdmFactoryRemote;
+media.mojom.CdmFactoryRequest = media.mojom.CdmFactoryPendingReceiver;
+

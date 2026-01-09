@@ -65,148 +65,366 @@ blink.mojom.Format = {
   kSdJwt: 0,
 };
 
-// Struct: IdentityProviderConfig
-blink.mojom.IdentityProviderConfig = class {
-  constructor(values = {}) {
-    this.from_idp_registration_api = values.from_idp_registration_api !== undefined ? values.from_idp_registration_api : false;
-    this.client_id = values.client_id !== undefined ? values.client_id : "";
-  }
-};
-
-// Struct: IdentityProviderRequestOptions
-blink.mojom.IdentityProviderRequestOptions = class {
-  constructor(values = {}) {
-    this.nonce = values.nonce !== undefined ? values.nonce : "";
-    this.login_hint = values.login_hint !== undefined ? values.login_hint : "";
-    this.domain_hint = values.domain_hint !== undefined ? values.domain_hint : "";
-    this.params_json = values.params_json !== undefined ? values.params_json : "";
-    this.format = values.format !== undefined ? values.format : null;
-  }
-};
-
-// Struct: IdentityCredentialDisconnectOptions
-blink.mojom.IdentityCredentialDisconnectOptions = class {
-  constructor(values = {}) {
-    this.account_hint = values.account_hint !== undefined ? values.account_hint : "";
-  }
-};
-
-// Struct: IdentityUserInfo
-blink.mojom.IdentityUserInfo = class {
-  constructor(values = {}) {
-    this.picture = values.picture !== undefined ? values.picture : "";
-  }
-};
-
-// Struct: LoginStatusAccount
-blink.mojom.LoginStatusAccount = class {
-  constructor(values = {}) {
-    this.picture = values.picture !== undefined ? values.picture : "";
-  }
-};
-
-// Struct: LoginStatusOptions
-blink.mojom.LoginStatusOptions = class {
-  constructor(values = {}) {
-    this.expiration = values.expiration !== undefined ? values.expiration : [];
-  }
-};
-
-// Struct: IdentityProviderGetParameters
-blink.mojom.IdentityProviderGetParameters = class {
-  constructor(values = {}) {
-    this.context = values.context !== undefined ? values.context : [];
-    this.the = values.the !== undefined ? values.the : null;
-    this.mode = values.mode !== undefined ? values.mode : null;
-  }
-};
-
-// Struct: TokenError
-blink.mojom.TokenError = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : "";
-  }
-};
-
 // Interface: FederatedAuthRequest
-blink.mojom.FederatedAuthRequestPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FederatedAuthRequest';
-  }
-
-  requestToken(idp_get_params, requirement) {
-    // Method: RequestToken
-    return new Promise((resolve) => {
-      // Call: RequestToken(idp_get_params, requirement)
-      resolve({});
-    });
-  }
-
-  requestUserInfo(provider) {
-    // Method: RequestUserInfo
-    return new Promise((resolve) => {
-      // Call: RequestUserInfo(provider)
-      resolve({});
-    });
-  }
-
-  cancelTokenRequest() {
-    // Method: CancelTokenRequest
-    // Call: CancelTokenRequest()
-  }
-
-  resolveTokenRequest(account_id, token) {
-    // Method: ResolveTokenRequest
-    return new Promise((resolve) => {
-      // Call: ResolveTokenRequest(account_id, token)
-      resolve({});
-    });
-  }
-
-  setIdpSigninStatus(origin, status, options) {
-    // Method: SetIdpSigninStatus
-    // Call: SetIdpSigninStatus(origin, status, options)
-  }
-
-  registerIdP(url) {
-    // Method: RegisterIdP
-    return new Promise((resolve) => {
-      // Call: RegisterIdP(url)
-      resolve({});
-    });
-  }
-
-  unregisterIdP(url) {
-    // Method: UnregisterIdP
-    return new Promise((resolve) => {
-      // Call: UnregisterIdP(url)
-      resolve({});
-    });
-  }
-
-  closeModalDialogView() {
-    // Method: CloseModalDialogView
-    // Call: CloseModalDialogView()
-  }
-
-  preventSilentAccess() {
-    // Method: PreventSilentAccess
-    // Call: PreventSilentAccess()
-  }
-
-  disconnect(options) {
-    // Method: Disconnect
-    return new Promise((resolve) => {
-      // Call: Disconnect(options)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.FederatedAuthRequestRequest = class {
+blink.mojom.FederatedAuthRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.FederatedAuthRequestRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FederatedAuthRequest';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FederatedAuthRequestPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FederatedAuthRequestRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  requestToken(idp_get_params, requirement) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$,
+      [idp_get_params, requirement]);
+  }
+
+  requestUserInfo(provider) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$,
+      [provider]);
+  }
+
+  cancelTokenRequest() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  resolveTokenRequest(account_id, token) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$,
+      [account_id, token]);
+  }
+
+  setIdpSigninStatus(origin, status, options) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$,
+      null,
+      [origin, status, options]);
+  }
+
+  registerIdP(url) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$,
+      [url]);
+  }
+
+  unregisterIdP(url) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$,
+      [url]);
+  }
+
+  closeModalDialogView() {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  preventSilentAccess() {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  disconnect(options) {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$,
+      blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$,
+      [options]);
+  }
+
+};
+
+blink.mojom.FederatedAuthRequest.getRemote = function() {
+  let remote = new blink.mojom.FederatedAuthRequestRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FederatedAuthRequest',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RequestToken
+blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.RequestToken_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'idp_get_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'requirement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.RequestToken_ResponseParams',
+      packedSize: 48,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selected_identity_provider_config_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_auto_selected', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RequestUserInfo
+blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CancelTokenRequest
+blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.CancelTokenRequest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResolveTokenRequest
+blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.ResolveTokenRequest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'account_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.ResolveTokenRequest_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetIdpSigninStatus
+blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.SetIdpSigninStatus_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RegisterIdP
+blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UnregisterIdP
+blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.UnregisterIdP_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.UnregisterIdP_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseModalDialogView
+blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.CloseModalDialogView_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PreventSilentAccess
+blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.PreventSilentAccess_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Disconnect
+blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.Disconnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FederatedAuthRequest.Disconnect_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FederatedAuthRequestPtr = blink.mojom.FederatedAuthRequestRemote;
+blink.mojom.FederatedAuthRequestRequest = blink.mojom.FederatedAuthRequestPendingReceiver;
+

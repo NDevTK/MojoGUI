@@ -21,14 +21,15 @@ ash.nearby.presence.mojom.IdentityType = {
 
 // Enum: PresenceDeviceType
 ash.nearby.presence.mojom.PresenceDeviceType = {
-  kPhone: 0,
-  kTablet: 1,
-  kDisplay: 2,
-  kLaptop: 3,
-  kTv: 4,
-  kWatch: 5,
-  kChromeos: 6,
-  kFoldable: 7,
+  kUnknown: 0,
+  kPhone: 1,
+  kTablet: 2,
+  kDisplay: 3,
+  kLaptop: 4,
+  kTv: 5,
+  kWatch: 6,
+  kChromeos: 7,
+  kFoldable: 8,
 };
 
 // Enum: ActionType
@@ -58,159 +59,415 @@ ash.nearby.presence.mojom.CredentialType = {
   kCredentialTypeGaia: 2,
 };
 
-// Struct: ScanRequest
-ash.nearby.presence.mojom.ScanRequest = class {
-  constructor(values = {}) {
-    this.scan_filters = values.scan_filters !== undefined ? values.scan_filters : "";
-  }
-};
-
-// Struct: PrivateKey
-ash.nearby.presence.mojom.PrivateKey = class {
-  constructor(values = {}) {
-    this.key = values.key !== undefined ? values.key : 0;
-  }
-};
-
-// Struct: PresenceScanFilter
-ash.nearby.presence.mojom.PresenceScanFilter = class {
-  constructor(values = {}) {
-    this.device_type = values.device_type !== undefined ? values.device_type : null;
-  }
-};
-
-// Struct: Metadata
-ash.nearby.presence.mojom.Metadata = class {
-  constructor(values = {}) {
-    this.device_id = values.device_id !== undefined ? values.device_id : 0;
-  }
-};
-
-// Struct: SharedCredential
-ash.nearby.presence.mojom.SharedCredential = class {
-  constructor(values = {}) {
-    this.identity_type = values.identity_type !== undefined ? values.identity_type : 0;
-    this.encrypted_metadata_bytes_v1 = values.encrypted_metadata_bytes_v1 !== undefined ? values.encrypted_metadata_bytes_v1 : 0;
-    this.salt = values.salt !== undefined ? values.salt : null;
-    this.signature_version = values.signature_version !== undefined ? values.signature_version : 0;
-    this.salt = values.salt !== undefined ? values.salt : null;
-    this.identity_token_signed_adv_hmac_key_v1 = values.identity_token_signed_adv_hmac_key_v1 !== undefined ? values.identity_token_signed_adv_hmac_key_v1 : 0;
-  }
-};
-
-// Struct: PresenceDevice
-ash.nearby.presence.mojom.PresenceDevice = class {
-  constructor(values = {}) {
-    this.decrypt_shared_credential = values.decrypt_shared_credential !== undefined ? values.decrypt_shared_credential : 0;
-  }
-};
-
-// Struct: LocalCredential
-ash.nearby.presence.mojom.LocalCredential = class {
-  constructor(values = {}) {
-    this.secret_id = values.secret_id !== undefined ? values.secret_id : 0;
-    this.signature_version = values.signature_version !== undefined ? values.signature_version : 0;
-  }
-};
-
 // Interface: ScanSession
-ash.nearby.presence.mojom.ScanSessionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.nearby.presence.mojom.ScanSession';
-  }
-
-};
-
-ash.nearby.presence.mojom.ScanSessionRequest = class {
+ash.nearby.presence.mojom.ScanSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+ash.nearby.presence.mojom.ScanSessionRemote = class {
+  static get $interfaceName() {
+    return 'ash.nearby.presence.mojom.ScanSession';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.nearby.presence.mojom.ScanSessionPendingReceiver,
+      handle);
+    this.$ = new ash.nearby.presence.mojom.ScanSessionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.nearby.presence.mojom.ScanSessionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ash.nearby.presence.mojom.ScanSession.getRemote = function() {
+  let remote = new ash.nearby.presence.mojom.ScanSessionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.nearby.presence.mojom.ScanSession',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ash.nearby.presence.mojom.ScanSessionPtr = ash.nearby.presence.mojom.ScanSessionRemote;
+ash.nearby.presence.mojom.ScanSessionRequest = ash.nearby.presence.mojom.ScanSessionPendingReceiver;
+
+
 // Interface: ScanObserver
-ash.nearby.presence.mojom.ScanObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.nearby.presence.mojom.ScanObserver';
+ash.nearby.presence.mojom.ScanObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.nearby.presence.mojom.ScanObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.nearby.presence.mojom.ScanObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.nearby.presence.mojom.ScanObserverPendingReceiver,
+      handle);
+    this.$ = new ash.nearby.presence.mojom.ScanObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onDeviceFound(device) {
-    // Method: OnDeviceFound
-    // Call: OnDeviceFound(device)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$,
+      null,
+      [device]);
   }
 
   onDeviceChanged(device) {
-    // Method: OnDeviceChanged
-    // Call: OnDeviceChanged(device)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$,
+      null,
+      [device]);
   }
 
   onDeviceLost(device) {
-    // Method: OnDeviceLost
-    // Call: OnDeviceLost(device)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$,
+      null,
+      [device]);
   }
 
 };
 
-ash.nearby.presence.mojom.ScanObserverRequest = class {
+ash.nearby.presence.mojom.ScanObserver.getRemote = function() {
+  let remote = new ash.nearby.presence.mojom.ScanObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.nearby.presence.mojom.ScanObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDeviceFound
+ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceFound_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeviceChanged
+ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeviceLost
+ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.ScanObserver.OnDeviceLost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.nearby.presence.mojom.ScanObserverPtr = ash.nearby.presence.mojom.ScanObserverRemote;
+ash.nearby.presence.mojom.ScanObserverRequest = ash.nearby.presence.mojom.ScanObserverPendingReceiver;
+
+
+// Interface: NearbyPresence
+ash.nearby.presence.mojom.NearbyPresencePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NearbyPresence
-ash.nearby.presence.mojom.NearbyPresencePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.nearby.presence.mojom.NearbyPresence';
+ash.nearby.presence.mojom.NearbyPresenceRemote = class {
+  static get $interfaceName() {
+    return 'ash.nearby.presence.mojom.NearbyPresence';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.nearby.presence.mojom.NearbyPresencePendingReceiver,
+      handle);
+    this.$ = new ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   startScan(scan_request) {
-    // Method: StartScan
-    return new Promise((resolve) => {
-      // Call: StartScan(scan_request)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$,
+      [scan_request]);
   }
 
   setScanObserver(scan_observer) {
-    // Method: SetScanObserver
-    // Call: SetScanObserver(scan_observer)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$,
+      null,
+      [scan_observer]);
   }
 
   updateLocalDeviceMetadata(metadata) {
-    // Method: UpdateLocalDeviceMetadata
-    // Call: UpdateLocalDeviceMetadata(metadata)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$,
+      null,
+      [metadata]);
   }
 
   updateLocalDeviceMetadataAndGenerateCredentials(metadata) {
-    // Method: UpdateLocalDeviceMetadataAndGenerateCredentials
-    return new Promise((resolve) => {
-      // Call: UpdateLocalDeviceMetadataAndGenerateCredentials(metadata)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$,
+      [metadata]);
   }
 
   updateRemoteSharedCredentials(shared_credentials, account_name) {
-    // Method: UpdateRemoteSharedCredentials
-    return new Promise((resolve) => {
-      // Call: UpdateRemoteSharedCredentials(shared_credentials, account_name)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$,
+      [shared_credentials, account_name]);
   }
 
   getLocalSharedCredentials(account_name) {
-    // Method: GetLocalSharedCredentials
-    return new Promise((resolve) => {
-      // Call: GetLocalSharedCredentials(account_name)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$,
+      ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$,
+      [account_name]);
   }
 
 };
 
-ash.nearby.presence.mojom.NearbyPresenceRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.nearby.presence.mojom.NearbyPresence.getRemote = function() {
+  let remote = new ash.nearby.presence.mojom.NearbyPresenceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.nearby.presence.mojom.NearbyPresence',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for StartScan
+ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'scan_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'scan_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetScanObserver
+ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.SetScanObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'scan_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateLocalDeviceMetadata
+ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadata_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateLocalDeviceMetadataAndGenerateCredentials
+ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadataAndGenerateCredentials_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateRemoteSharedCredentials
+ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateRemoteSharedCredentials_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'account_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.UpdateRemoteSharedCredentials_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetLocalSharedCredentials
+ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.GetLocalSharedCredentials_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.nearby.presence.mojom.NearbyPresence.GetLocalSharedCredentials_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.nearby.presence.mojom.NearbyPresencePtr = ash.nearby.presence.mojom.NearbyPresenceRemote;
+ash.nearby.presence.mojom.NearbyPresenceRequest = ash.nearby.presence.mojom.NearbyPresencePendingReceiver;
+

@@ -13,11 +13,11 @@ arc.mojom = arc.mojom || {};
 arc.mojom.ArcNotificationEvent = {
   BODY_CLICKED: 0,
   CLOSED: 1,
-  DEPRECATED_BUTTON_2_CLICKED: 2,
-  DEPRECATED_BUTTON_3_CLICKED: 3,
-  DEPRECATED_BUTTON_4_CLICKED: 4,
-  DEPRECATED_BUTTON_5_CLICKED: 5,
-  or: 6,
+  DEPRECATED_BUTTON_1_CLICKED: 2,
+  DEPRECATED_BUTTON_2_CLICKED: 3,
+  DEPRECATED_BUTTON_3_CLICKED: 4,
+  DEPRECATED_BUTTON_4_CLICKED: 5,
+  DEPRECATED_BUTTON_5_CLICKED: 6,
 };
 
 // Enum: ArcNotificationType
@@ -54,6 +54,8 @@ arc.mojom.ArcNotificationRemoteInputState = {
 
 // Enum: ArcNotificationShownContents
 arc.mojom.ArcNotificationShownContents = {
+  CONTENTS_SHOWN: 0,
+  SETTINGS_SHOWN: 1,
 };
 
 // Enum: ArcNotificationStyle
@@ -70,95 +72,106 @@ arc.mojom.ArcNotificationStyle = {
 
 // Enum: MessageCenterVisibility
 arc.mojom.MessageCenterVisibility = {
-};
-
-// Struct: ArcNotificationButton
-arc.mojom.ArcNotificationButton = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-    this.buttonPlaceholder = values.buttonPlaceholder !== undefined ? values.buttonPlaceholder : "";
-  }
-};
-
-// Struct: ArcNotificationFlags
-arc.mojom.ArcNotificationFlags = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: ArcNotificationData
-arc.mojom.ArcNotificationData = class {
-  constructor(values = {}) {
-    this.time = values.time !== undefined ? values.time : 0;
-    this.progress_max = values.progress_max !== undefined ? values.progress_max : 0;
-    this.remote_input_state = values.remote_input_state !== undefined ? values.remote_input_state : 0;
-    this.group_key = values.group_key !== undefined ? values.group_key : false;
-    this.messages = values.messages !== undefined ? values.messages : 0;
-  }
-};
-
-// Struct: ArcDoNotDisturbStatus
-arc.mojom.ArcDoNotDisturbStatus = class {
-  constructor(values = {}) {
-    this.enabled = values.enabled !== undefined ? values.enabled : false;
-  }
-};
-
-// Struct: ArcNotificationUserActionData
-arc.mojom.ArcNotificationUserActionData = class {
-  constructor(values = {}) {
-    this.to_be_focused_after_unlock = values.to_be_focused_after_unlock !== undefined ? values.to_be_focused_after_unlock : 0;
-  }
-};
-
-// Struct: ArcLockScreenNotificationSetting
-arc.mojom.ArcLockScreenNotificationSetting = class {
-  constructor(values = {}) {
-    this.show_private_notification = values.show_private_notification !== undefined ? values.show_private_notification : false;
-  }
-};
-
-// Struct: NotificationConfiguration
-arc.mojom.NotificationConfiguration = class {
-  constructor(values = {}) {
-    this.expansion_animation = values.expansion_animation !== undefined ? values.expansion_animation : false;
-  }
-};
-
-// Struct: ArcNotificationMessage
-arc.mojom.ArcNotificationMessage = class {
-  constructor(values = {}) {
-    this.sender_icon = values.sender_icon !== undefined ? values.sender_icon : "";
-  }
+  VISIBILITY_TRANSIENT: 0,
+  VISIBILITY_MESSAGE_CENTER: 1,
 };
 
 // Interface: NotificationsHost
-arc.mojom.NotificationsHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.NotificationsHost';
-  }
-
-};
-
-arc.mojom.NotificationsHostRequest = class {
+arc.mojom.NotificationsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.NotificationsHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.NotificationsHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.NotificationsHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.NotificationsHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.NotificationsHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.NotificationsHost.getRemote = function() {
+  let remote = new arc.mojom.NotificationsHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.NotificationsHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.NotificationsHostPtr = arc.mojom.NotificationsHostRemote;
+arc.mojom.NotificationsHostRequest = arc.mojom.NotificationsHostPendingReceiver;
+
 
 // Interface: NotificationsInstance
-arc.mojom.NotificationsInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.NotificationsInstance';
-  }
-
-};
-
-arc.mojom.NotificationsInstanceRequest = class {
+arc.mojom.NotificationsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.NotificationsInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.NotificationsInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.NotificationsInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.NotificationsInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.NotificationsInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.NotificationsInstance.getRemote = function() {
+  let remote = new arc.mojom.NotificationsInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.NotificationsInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.NotificationsInstancePtr = arc.mojom.NotificationsInstanceRemote;
+arc.mojom.NotificationsInstanceRequest = arc.mojom.NotificationsInstancePendingReceiver;
+

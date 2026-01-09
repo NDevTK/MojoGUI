@@ -18,34 +18,97 @@ blink.mojom.Type = {
   kSubMenu: 4,
 };
 
-// Struct: MenuItem
-blink.mojom.MenuItem = class {
-  constructor(values = {}) {
-    this.kOption = values.kOption !== undefined ? values.kOption : null;
-  }
-};
-
 // Interface: PopupMenuClient
-blink.mojom.PopupMenuClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.PopupMenuClient';
-  }
-
-  didAcceptIndices(indices) {
-    // Method: DidAcceptIndices
-    // Call: DidAcceptIndices(indices)
-  }
-
-  didCancel() {
-    // Method: DidCancel
-    // Call: DidCancel()
-  }
-
-};
-
-blink.mojom.PopupMenuClientRequest = class {
+blink.mojom.PopupMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.PopupMenuClientRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.PopupMenuClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.PopupMenuClientPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.PopupMenuClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.PopupMenuClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  didAcceptIndices(indices) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec.$,
+      null,
+      [indices]);
+  }
+
+  didCancel() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.PopupMenuClient_DidCancel_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+blink.mojom.PopupMenuClient.getRemote = function() {
+  let remote = new blink.mojom.PopupMenuClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.PopupMenuClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DidAcceptIndices
+blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PopupMenuClient.DidAcceptIndices_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DidCancel
+blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PopupMenuClient.DidCancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.PopupMenuClientPtr = blink.mojom.PopupMenuClientRemote;
+blink.mojom.PopupMenuClientRequest = blink.mojom.PopupMenuClientPendingReceiver;
+

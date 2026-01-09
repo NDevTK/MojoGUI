@@ -17,46 +17,90 @@ ash.babelorca.mojom.ParsingState = {
   kClosed: 2,
 };
 
-// Struct: TranscriptPart
-ash.babelorca.mojom.TranscriptPart = class {
-  constructor(values = {}) {
-    this.language = values.language !== undefined ? values.language : 0;
-  }
-};
-
-// Struct: BabelOrcaMessage
-ash.babelorca.mojom.BabelOrcaMessage = class {
-  constructor(values = {}) {
-    this.current_transcript = values.current_transcript !== undefined ? values.current_transcript : 0;
-  }
-};
-
-// Struct: StreamStatus
-ash.babelorca.mojom.StreamStatus = class {
-  constructor(values = {}) {
-    this.message = values.message !== undefined ? values.message : 0;
-  }
-};
-
 // Interface: TachyonParsingService
-ash.babelorca.mojom.TachyonParsingServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.babelorca.mojom.TachyonParsingService';
-  }
-
-  parse(stream_data) {
-    // Method: Parse
-    return new Promise((resolve) => {
-      // Call: Parse(stream_data)
-      resolve({});
-    });
-  }
-
-};
-
-ash.babelorca.mojom.TachyonParsingServiceRequest = class {
+ash.babelorca.mojom.TachyonParsingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.babelorca.mojom.TachyonParsingServiceRemote = class {
+  static get $interfaceName() {
+    return 'ash.babelorca.mojom.TachyonParsingService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.babelorca.mojom.TachyonParsingServicePendingReceiver,
+      handle);
+    this.$ = new ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  parse(stream_data) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$,
+      ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$,
+      [stream_data]);
+  }
+
+};
+
+ash.babelorca.mojom.TachyonParsingService.getRemote = function() {
+  let remote = new ash.babelorca.mojom.TachyonParsingServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.babelorca.mojom.TachyonParsingService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Parse
+ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.babelorca.mojom.TachyonParsingService.Parse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.babelorca.mojom.TachyonParsingService.Parse_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.babelorca.mojom.TachyonParsingServicePtr = ash.babelorca.mojom.TachyonParsingServiceRemote;
+ash.babelorca.mojom.TachyonParsingServiceRequest = ash.babelorca.mojom.TachyonParsingServicePendingReceiver;
+

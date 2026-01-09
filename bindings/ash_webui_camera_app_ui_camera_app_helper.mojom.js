@@ -20,6 +20,8 @@ ash.camera_app.mojom.ScreenState = {
 // Enum: LidState
 ash.camera_app.mojom.LidState = {
   kOpen: 0,
+  kClosed: 1,
+  kNotPresent: 2,
 };
 
 // Enum: WindowStateType
@@ -32,11 +34,18 @@ ash.camera_app.mojom.WindowStateType = {
 
 // Enum: FileMonitorResult
 ash.camera_app.mojom.FileMonitorResult = {
+  kDeleted: 0,
+  kCanceled: 1,
+  kError: 2,
 };
 
 // Enum: StorageMonitorStatus
 ash.camera_app.mojom.StorageMonitorStatus = {
-  display: 0,
+  kNormal: 0,
+  kLow: 1,
+  kCriticallyLow: 2,
+  kCanceled: 3,
+  kError: 4,
 };
 
 // Enum: AspectRatio
@@ -49,507 +58,1984 @@ ash.camera_app.mojom.AspectRatio = {
 // Enum: FileType
 ash.camera_app.mojom.FileType = {
   kPhoto: 0,
-};
-
-// Struct: WifiConfig
-ash.camera_app.mojom.WifiConfig = class {
-  constructor(values = {}) {
-    this.eap_anonymous_identity = values.eap_anonymous_identity !== undefined ? values.eap_anonymous_identity : "";
-  }
-};
-
-// Struct: CloudUpload
-ash.camera_app.mojom.CloudUpload = class {
-  constructor(values = {}) {
-    this.thumbnail = values.thumbnail !== undefined ? values.thumbnail : 0;
-  }
-};
-
-// Struct: LocalFile
-ash.camera_app.mojom.LocalFile = class {
-  constructor(values = {}) {
-    this.file_name = values.file_name !== undefined ? values.file_name : "";
-  }
+  kVideo: 1,
+  kGif: 2,
 };
 
 // Interface: TabletModeMonitor
-ash.camera_app.mojom.TabletModeMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.TabletModeMonitor';
+ash.camera_app.mojom.TabletModeMonitorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.camera_app.mojom.TabletModeMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.TabletModeMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.TabletModeMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(is_tablet_mode) {
-    // Method: Update
-    // Call: Update(is_tablet_mode)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$,
+      null,
+      [is_tablet_mode]);
   }
 
 };
 
-ash.camera_app.mojom.TabletModeMonitorRequest = class {
+ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.TabletModeMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.TabletModeMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.TabletModeMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.TabletModeMonitorPtr = ash.camera_app.mojom.TabletModeMonitorRemote;
+ash.camera_app.mojom.TabletModeMonitorRequest = ash.camera_app.mojom.TabletModeMonitorPendingReceiver;
+
+
+// Interface: ScreenStateMonitor
+ash.camera_app.mojom.ScreenStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ScreenStateMonitor
-ash.camera_app.mojom.ScreenStateMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.ScreenStateMonitor';
+ash.camera_app.mojom.ScreenStateMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.ScreenStateMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.ScreenStateMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(state) {
-    // Method: Update
-    // Call: Update(state)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$,
+      null,
+      [state]);
   }
 
 };
 
-ash.camera_app.mojom.ScreenStateMonitorRequest = class {
+ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.ScreenStateMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.ScreenStateMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.ScreenStateMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.ScreenStateMonitorPtr = ash.camera_app.mojom.ScreenStateMonitorRemote;
+ash.camera_app.mojom.ScreenStateMonitorRequest = ash.camera_app.mojom.ScreenStateMonitorPendingReceiver;
+
+
+// Interface: ScreenLockedMonitor
+ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ScreenLockedMonitor
-ash.camera_app.mojom.ScreenLockedMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.ScreenLockedMonitor';
+ash.camera_app.mojom.ScreenLockedMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.ScreenLockedMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(is_screen_locked) {
-    // Method: Update
-    // Call: Update(is_screen_locked)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$,
+      null,
+      [is_screen_locked]);
   }
 
 };
 
-ash.camera_app.mojom.ScreenLockedMonitorRequest = class {
+ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.ScreenLockedMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.ScreenLockedMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.ScreenLockedMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.ScreenLockedMonitorPtr = ash.camera_app.mojom.ScreenLockedMonitorRemote;
+ash.camera_app.mojom.ScreenLockedMonitorRequest = ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver;
+
+
+// Interface: ExternalScreenMonitor
+ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ExternalScreenMonitor
-ash.camera_app.mojom.ExternalScreenMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.ExternalScreenMonitor';
+ash.camera_app.mojom.ExternalScreenMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.ExternalScreenMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(has_external_screen) {
-    // Method: Update
-    // Call: Update(has_external_screen)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$,
+      null,
+      [has_external_screen]);
   }
 
 };
 
-ash.camera_app.mojom.ExternalScreenMonitorRequest = class {
+ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.ExternalScreenMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.ExternalScreenMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.ExternalScreenMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'has_external_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.ExternalScreenMonitorPtr = ash.camera_app.mojom.ExternalScreenMonitorRemote;
+ash.camera_app.mojom.ExternalScreenMonitorRequest = ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver;
+
+
+// Interface: CameraUsageOwnershipMonitor
+ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CameraUsageOwnershipMonitor
-ash.camera_app.mojom.CameraUsageOwnershipMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.CameraUsageOwnershipMonitor';
+ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.CameraUsageOwnershipMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onCameraUsageOwnershipChanged(has_usage) {
-    // Method: OnCameraUsageOwnershipChanged
-    // Call: OnCameraUsageOwnershipChanged(has_usage)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$,
+      null,
+      [has_usage]);
   }
 
 };
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = class {
+ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.CameraUsageOwnershipMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnCameraUsageOwnershipChanged
+ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraUsageOwnershipMonitor.OnCameraUsageOwnershipChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'has_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.CameraUsageOwnershipMonitorPtr = ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote;
+ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver;
+
+
+// Interface: LidStateMonitor
+ash.camera_app.mojom.LidStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: LidStateMonitor
-ash.camera_app.mojom.LidStateMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.LidStateMonitor';
+ash.camera_app.mojom.LidStateMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.LidStateMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.LidStateMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.LidStateMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(lid_status) {
-    // Method: Update
-    // Call: Update(lid_status)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$,
+      null,
+      [lid_status]);
   }
 
 };
 
-ash.camera_app.mojom.LidStateMonitorRequest = class {
+ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.LidStateMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.LidStateMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.LidStateMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.LidStateMonitorPtr = ash.camera_app.mojom.LidStateMonitorRemote;
+ash.camera_app.mojom.LidStateMonitorRequest = ash.camera_app.mojom.LidStateMonitorPendingReceiver;
+
+
+// Interface: SWPrivacySwitchMonitor
+ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: SWPrivacySwitchMonitor
-ash.camera_app.mojom.SWPrivacySwitchMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.SWPrivacySwitchMonitor';
+ash.camera_app.mojom.SWPrivacySwitchMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.SWPrivacySwitchMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(is_sw_privacy_switch_on) {
-    // Method: Update
-    // Call: Update(is_sw_privacy_switch_on)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$,
+      null,
+      [is_sw_privacy_switch_on]);
   }
 
 };
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = class {
+ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.SWPrivacySwitchMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.SWPrivacySwitchMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.SWPrivacySwitchMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_sw_privacy_switch_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.SWPrivacySwitchMonitorPtr = ash.camera_app.mojom.SWPrivacySwitchMonitorRemote;
+ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver;
+
+
+// Interface: WindowStateMonitor
+ash.camera_app.mojom.WindowStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: WindowStateMonitor
-ash.camera_app.mojom.WindowStateMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.WindowStateMonitor';
+ash.camera_app.mojom.WindowStateMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.WindowStateMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.WindowStateMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onWindowStateChanged(states) {
-    // Method: OnWindowStateChanged
-    // Call: OnWindowStateChanged(states)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$,
+      null,
+      [states]);
   }
 
   onWindowFocusChanged(is_focus) {
-    // Method: OnWindowFocusChanged
-    // Call: OnWindowFocusChanged(is_focus)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$,
+      null,
+      [is_focus]);
   }
 
 };
 
-ash.camera_app.mojom.WindowStateMonitorRequest = class {
+ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.WindowStateMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.WindowStateMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnWindowStateChanged
+ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateMonitor.OnWindowStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnWindowFocusChanged
+ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateMonitor.OnWindowFocusChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_focus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.WindowStateMonitorPtr = ash.camera_app.mojom.WindowStateMonitorRemote;
+ash.camera_app.mojom.WindowStateMonitorRequest = ash.camera_app.mojom.WindowStateMonitorPendingReceiver;
+
+
+// Interface: StorageMonitor
+ash.camera_app.mojom.StorageMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: StorageMonitor
-ash.camera_app.mojom.StorageMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.StorageMonitor';
+ash.camera_app.mojom.StorageMonitorRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.StorageMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.StorageMonitorPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.StorageMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(status) {
-    // Method: Update
-    // Call: Update(status)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$,
+      null,
+      [status]);
   }
 
 };
 
-ash.camera_app.mojom.StorageMonitorRequest = class {
+ash.camera_app.mojom.StorageMonitor.getRemote = function() {
+  let remote = new ash.camera_app.mojom.StorageMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.StorageMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.StorageMonitor.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.StorageMonitorPtr = ash.camera_app.mojom.StorageMonitorRemote;
+ash.camera_app.mojom.StorageMonitorRequest = ash.camera_app.mojom.StorageMonitorPendingReceiver;
+
+
+// Interface: WindowStateController
+ash.camera_app.mojom.WindowStateControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: WindowStateController
-ash.camera_app.mojom.WindowStateControllerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.WindowStateController';
+ash.camera_app.mojom.WindowStateControllerRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.WindowStateController';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.WindowStateControllerPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.WindowStateControllerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addMonitor(monitor) {
-    // Method: AddMonitor
-    return new Promise((resolve) => {
-      // Call: AddMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   getWindowState() {
-    // Method: GetWindowState
-    return new Promise((resolve) => {
-      // Call: GetWindowState()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$,
+      ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec.$,
+      []);
   }
 
   minimize() {
-    // Method: Minimize
-    // Call: Minimize()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$,
+      null,
+      []);
   }
 
   restore() {
-    // Method: Restore
-    // Call: Restore()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$,
+      null,
+      []);
   }
 
   maximize() {
-    // Method: Maximize
-    // Call: Maximize()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$,
+      null,
+      []);
   }
 
   fullscreen() {
-    // Method: Fullscreen
-    // Call: Fullscreen()
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$,
+      null,
+      []);
   }
 
   focus() {
-    // Method: Focus
-    // Call: Focus()
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-ash.camera_app.mojom.WindowStateControllerRequest = class {
+ash.camera_app.mojom.WindowStateController.getRemote = function() {
+  let remote = new ash.camera_app.mojom.WindowStateControllerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.WindowStateController',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddMonitor
+ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.AddMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.AddMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetWindowState
+ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.GetWindowState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.GetWindowState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Minimize
+ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.Minimize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Restore
+ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.Restore_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Maximize
+ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.Maximize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Fullscreen
+ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.Fullscreen_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Focus
+ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.WindowStateController.Focus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.WindowStateControllerPtr = ash.camera_app.mojom.WindowStateControllerRemote;
+ash.camera_app.mojom.WindowStateControllerRequest = ash.camera_app.mojom.WindowStateControllerPendingReceiver;
+
+
+// Interface: CameraAppHelper
+ash.camera_app.mojom.CameraAppHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CameraAppHelper
-ash.camera_app.mojom.CameraAppHelperPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.CameraAppHelper';
+ash.camera_app.mojom.CameraAppHelperRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.CameraAppHelper';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.CameraAppHelperPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.CameraAppHelperRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   handleCameraResult(intent_id, action, data) {
-    // Method: HandleCameraResult
-    return new Promise((resolve) => {
-      // Call: HandleCameraResult(intent_id, action, data)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec.$,
+      [intent_id, action, data]);
   }
 
   isTabletMode() {
-    // Method: IsTabletMode
-    return new Promise((resolve) => {
-      // Call: IsTabletMode()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec.$,
+      []);
   }
 
   startPerfEventTrace(event) {
-    // Method: StartPerfEventTrace
-    // Call: StartPerfEventTrace(event)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   stopPerfEventTrace(event) {
-    // Method: StopPerfEventTrace
-    // Call: StopPerfEventTrace(event)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   setTabletMonitor(monitor) {
-    // Method: SetTabletMonitor
-    return new Promise((resolve) => {
-      // Call: SetTabletMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   setScreenStateMonitor(monitor) {
-    // Method: SetScreenStateMonitor
-    return new Promise((resolve) => {
-      // Call: SetScreenStateMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   isMetricsAndCrashReportingEnabled() {
-    // Method: IsMetricsAndCrashReportingEnabled
-    return new Promise((resolve) => {
-      // Call: IsMetricsAndCrashReportingEnabled()
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec.$,
+      []);
   }
 
   setExternalScreenMonitor(monitor) {
-    // Method: SetExternalScreenMonitor
-    return new Promise((resolve) => {
-      // Call: SetExternalScreenMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   openFileInGallery(name) {
-    // Method: OpenFileInGallery
-    // Call: OpenFileInGallery(name)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$,
+      null,
+      [name]);
   }
 
   openFeedbackDialog(placeholder) {
-    // Method: OpenFeedbackDialog
-    // Call: OpenFeedbackDialog(placeholder)
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$,
+      null,
+      [placeholder]);
   }
 
   openUrlInBrowser(url) {
-    // Method: OpenUrlInBrowser
-    // Call: OpenUrlInBrowser(url)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$,
+      null,
+      [url]);
   }
 
   getWindowStateController() {
-    // Method: GetWindowStateController
-    return new Promise((resolve) => {
-      // Call: GetWindowStateController()
-      resolve({});
-    });
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec.$,
+      []);
   }
 
   processCapturedFile(file_type, destination) {
-    // Method: ProcessCapturedFile
-    return new Promise((resolve) => {
-      // Call: ProcessCapturedFile(file_type, destination)
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec.$,
+      [file_type, destination]);
   }
 
   monitorFileDeletion(name) {
-    // Method: MonitorFileDeletion
-    return new Promise((resolve) => {
-      // Call: MonitorFileDeletion(name)
-      resolve({});
-    });
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec.$,
+      [name]);
   }
 
   isDocumentScannerSupported() {
-    // Method: IsDocumentScannerSupported
-    return new Promise((resolve) => {
-      // Call: IsDocumentScannerSupported()
-      resolve({});
-    });
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec.$,
+      []);
   }
 
   checkDocumentModeReadiness() {
-    // Method: CheckDocumentModeReadiness
-    return new Promise((resolve) => {
-      // Call: CheckDocumentModeReadiness()
-      resolve({});
-    });
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec.$,
+      []);
   }
 
   scanDocumentCorners(jpeg_data) {
-    // Method: ScanDocumentCorners
-    return new Promise((resolve) => {
-      // Call: ScanDocumentCorners(jpeg_data)
-      resolve({});
-    });
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec.$,
+      [jpeg_data]);
   }
 
   convertToDocument(jpeg_data, corners, rotation) {
-    // Method: ConvertToDocument
-    return new Promise((resolve) => {
-      // Call: ConvertToDocument(jpeg_data, corners, rotation)
-      resolve({});
-    });
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec.$,
+      [jpeg_data, corners, rotation]);
   }
 
   maybeTriggerSurvey() {
-    // Method: MaybeTriggerSurvey
-    // Call: MaybeTriggerSurvey()
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$,
+      null,
+      []);
   }
 
   startStorageMonitor(monitor) {
-    // Method: StartStorageMonitor
-    return new Promise((resolve) => {
-      // Call: StartStorageMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   stopStorageMonitor() {
-    // Method: StopStorageMonitor
-    // Call: StopStorageMonitor()
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$,
+      null,
+      []);
   }
 
   openStorageManagement() {
-    // Method: OpenStorageManagement
-    // Call: OpenStorageManagement()
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$,
+      null,
+      []);
   }
 
   openWifiDialog(config) {
-    // Method: OpenWifiDialog
-    // Call: OpenWifiDialog(config)
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$,
+      null,
+      [config]);
   }
 
   setLidStateMonitor(monitor) {
-    // Method: SetLidStateMonitor
-    return new Promise((resolve) => {
-      // Call: SetLidStateMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   setSWPrivacySwitchMonitor(monitor) {
-    // Method: SetSWPrivacySwitchMonitor
-    return new Promise((resolve) => {
-      // Call: SetSWPrivacySwitchMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 24
+    return this.proxy.sendMessage(
+      24,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   getEventsSender() {
-    // Method: GetEventsSender
-    return new Promise((resolve) => {
-      // Call: GetEventsSender()
-      resolve({});
-    });
+    // Ordinal: 25
+    return this.proxy.sendMessage(
+      25,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec.$,
+      []);
   }
 
   setScreenLockedMonitor(monitor) {
-    // Method: SetScreenLockedMonitor
-    return new Promise((resolve) => {
-      // Call: SetScreenLockedMonitor(monitor)
-      resolve({});
-    });
+    // Ordinal: 26
+    return this.proxy.sendMessage(
+      26,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec.$,
+      [monitor]);
   }
 
   renderPdfAsJpeg(pdf_data) {
-    // Method: RenderPdfAsJpeg
-    return new Promise((resolve) => {
-      // Call: RenderPdfAsJpeg(pdf_data)
-      resolve({});
-    });
+    // Ordinal: 27
+    return this.proxy.sendMessage(
+      27,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec.$,
+      [pdf_data]);
   }
 
   performOcr(jpeg_data) {
-    // Method: PerformOcr
-    return new Promise((resolve) => {
-      // Call: PerformOcr(jpeg_data)
-      resolve({});
-    });
+    // Ordinal: 28
+    return this.proxy.sendMessage(
+      28,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec.$,
+      [jpeg_data]);
   }
 
   performOcrInline(jpeg_data) {
-    // Method: PerformOcrInline
-    return new Promise((resolve) => {
-      // Call: PerformOcrInline(jpeg_data)
-      resolve({});
-    });
+    // Ordinal: 29
+    return this.proxy.sendMessage(
+      29,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec.$,
+      [jpeg_data]);
   }
 
   createPdfBuilder(builder) {
-    // Method: CreatePdfBuilder
-    // Call: CreatePdfBuilder(builder)
+    // Ordinal: 30
+    return this.proxy.sendMessage(
+      30,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$,
+      null,
+      [builder]);
   }
 
   getAspectRatioOrder() {
-    // Method: GetAspectRatioOrder
-    return new Promise((resolve) => {
-      // Call: GetAspectRatioOrder()
-      resolve({});
-    });
+    // Ordinal: 31
+    return this.proxy.sendMessage(
+      31,  // ordinal
+      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$,
+      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-ash.camera_app.mojom.CameraAppHelperRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
+  let remote = new ash.camera_app.mojom.CameraAppHelperRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.CameraAppHelper',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for HandleCameraResult
+ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsTabletMode
+ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsTabletMode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsTabletMode_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartPerfEventTrace
+ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.StartPerfEventTrace_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StopPerfEventTrace
+ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.StopPerfEventTrace_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetTabletMonitor
+ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetTabletMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetTabletMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetScreenStateMonitor
+ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsMetricsAndCrashReportingEnabled
+ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsMetricsAndCrashReportingEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsMetricsAndCrashReportingEnabled_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetExternalScreenMonitor
+ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetExternalScreenMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetExternalScreenMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'has_external_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenFileInGallery
+ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.OpenFileInGallery_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenFeedbackDialog
+ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.OpenFeedbackDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'placeholder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenUrlInBrowser
+ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.OpenUrlInBrowser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetWindowStateController
+ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetWindowStateController_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetWindowStateController_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ProcessCapturedFile
+ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.ProcessCapturedFile_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'file_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.ProcessCapturedFile_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MonitorFileDeletion
+ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.MonitorFileDeletion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.MonitorFileDeletion_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsDocumentScannerSupported
+ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsDocumentScannerSupported_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsDocumentScannerSupported_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CheckDocumentModeReadiness
+ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.CheckDocumentModeReadiness_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.CheckDocumentModeReadiness_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ScanDocumentCorners
+ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.ScanDocumentCorners_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.ScanDocumentCorners_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ConvertToDocument
+ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.ConvertToDocument_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.ConvertToDocument_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'doc_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MaybeTriggerSurvey
+ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.MaybeTriggerSurvey_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartStorageMonitor
+ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'initial_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StopStorageMonitor
+ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.StopStorageMonitor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenStorageManagement
+ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.OpenStorageManagement_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenWifiDialog
+ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.OpenWifiDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetLidStateMonitor
+ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSWPrivacySwitchMonitor
+ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetSWPrivacySwitchMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetSWPrivacySwitchMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_sw_privacy_switch_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetEventsSender
+ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetEventsSender_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetEventsSender_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'events_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetScreenLockedMonitor
+ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenLockedMonitor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenLockedMonitor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RenderPdfAsJpeg
+ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.RenderPdfAsJpeg_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pdf_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.RenderPdfAsJpeg_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PerformOcr
+ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PerformOcrInline
+ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcrInline_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcrInline_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreatePdfBuilder
+ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.CreatePdfBuilder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'builder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAspectRatioOrder
+ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetAspectRatioOrder_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetAspectRatioOrder_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.CameraAppHelperPtr = ash.camera_app.mojom.CameraAppHelperRemote;
+ash.camera_app.mojom.CameraAppHelperRequest = ash.camera_app.mojom.CameraAppHelperPendingReceiver;
+

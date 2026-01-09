@@ -11,252 +11,244 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: ButtonType
 crosapi.mojom.ButtonType = {
-  should: 0,
-  kVolumeUp: 1,
+  kVolumeUp: 0,
+  kVolumeDown: 1,
 };
 
 // Enum: TelemetryDiagnosticLedName
 crosapi.mojom.TelemetryDiagnosticLedName = {
-  should: 0,
-  kBattery: 1,
-  kPower: 2,
-  kAdapter: 3,
-  kLeft: 4,
-  kRight: 5,
+  kBattery: 0,
+  kPower: 1,
+  kAdapter: 2,
+  kLeft: 3,
+  kRight: 4,
 };
 
 // Enum: TelemetryDiagnosticLedColor
 crosapi.mojom.TelemetryDiagnosticLedColor = {
-  should: 0,
-  kRed: 1,
-  kGreen: 2,
-  kBlue: 3,
-  kYellow: 4,
-  kWhite: 5,
-  kAmber: 6,
+  kRed: 0,
+  kGreen: 1,
+  kBlue: 2,
+  kYellow: 3,
+  kWhite: 4,
+  kAmber: 5,
 };
 
 // Enum: Type
 crosapi.mojom.Type = {
+  kDownload: 0,
+  kUpload: 1,
 };
 
 // Enum: State
 crosapi.mojom.State = {
-  should: 0,
+  kCorrectColor: 0,
+  kNotLitUp: 1,
 };
 
 // Enum: State
 crosapi.mojom.State = {
-  should: 0,
+  kOk: 0,
+  kAnyNotLitUp: 1,
 };
 
 // Enum: Reason
 crosapi.mojom.Reason = {
+  kWaitingToBeScheduled: 0,
+  kWaitingForInteraction: 1,
 };
 
 // Enum: TelemetryDiagnosticMemtesterTestItemEnum
 crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnum = {
-  repeating: 0,
-  repeating: 1,
-  repeated: 2,
+  kUnknown: 0,
+  kStuckAddress: 1,
+  kCompareAND: 2,
+  kCompareDIV: 3,
+  kCompareMUL: 4,
+  kCompareOR: 5,
+  kCompareSUB: 6,
+  kCompareXOR: 7,
+  kSequentialIncrement: 8,
+  kBitFlip: 9,
+  kBitSpread: 10,
+  kBlockSequential: 11,
+  kCheckerboard: 12,
+  kRandomValue: 13,
+  kSolidBits: 14,
+  kWalkingOnes: 15,
+  kWalkingZeroes: 16,
+  kEightBitWrites: 17,
+  kSixteenBitWrites: 18,
 };
 
 // Enum: TelemetryDiagnosticHardwarePresenceStatus
 crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatus = {
-  should: 0,
-  skipping: 1,
+  kMatched: 0,
+  kNotMatched: 1,
+  kNotConfigured: 2,
 };
 
 // Enum: TelemetryDiagnosticCameraSubtestResult
 crosapi.mojom.TelemetryDiagnosticCameraSubtestResult = {
-  should: 0,
-  possibly: 1,
+  kNotRun: 0,
+  kPassed: 1,
+  kFailed: 2,
 };
 
 // Enum: Issue
 crosapi.mojom.Issue = {
-  should: 0,
-};
-
-// Struct: TelemetryDiagnosticMemoryRoutineArgument
-crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticVolumeButtonRoutineArgument
-crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticFanRoutineArgument
-crosapi.mojom.TelemetryDiagnosticFanRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticLedLitUpRoutineArgument
-crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticNetworkBandwidthRoutineArgument
-crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineArgument
-crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticKeyboardBacklightRoutineArgument
-crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgument = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticRoutineStateInitialized
-crosapi.mojom.TelemetryDiagnosticRoutineStateInitialized = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo
-crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticRoutineStateRunning
-crosapi.mojom.TelemetryDiagnosticRoutineStateRunning = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticCheckLedLitUpStateReply
-crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReply = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticCheckKeyboardBacklightStateReply
-crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReply = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticCheckLedLitUpStateInquiry
-crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquiry = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticCheckKeyboardBacklightStateInquiry
-crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquiry = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticRoutineStateWaiting
-crosapi.mojom.TelemetryDiagnosticRoutineStateWaiting = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticMemtesterResult
-crosapi.mojom.TelemetryDiagnosticMemtesterResult = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticMemoryRoutineDetail
-crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetail = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticVolumeButtonRoutineDetail
-crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetail = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticFanRoutineDetail
-crosapi.mojom.TelemetryDiagnosticFanRoutineDetail = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticNetworkBandwidthRoutineDetail
-crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetail = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticCameraFrameAnalysisRoutineDetail
-crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetail = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticRoutineStateFinished
-crosapi.mojom.TelemetryDiagnosticRoutineStateFinished = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TelemetryDiagnosticRoutineState
-crosapi.mojom.TelemetryDiagnosticRoutineState = class {
-  constructor(values = {}) {
-  }
+  kNone: 0,
+  kCameraServiceNotAvailable: 1,
+  kBlockedByPrivacyShutter: 2,
+  kLensAreDirty: 3,
 };
 
 // Interface: TelemetryDiagnosticRoutineControl
-crosapi.mojom.TelemetryDiagnosticRoutineControlPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutineControl';
-  }
-
-};
-
-crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = class {
+crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.TelemetryDiagnosticRoutineControlRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.TelemetryDiagnosticRoutineControl';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryDiagnosticRoutineControlRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.TelemetryDiagnosticRoutineControl',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.TelemetryDiagnosticRoutineControlPtr = crosapi.mojom.TelemetryDiagnosticRoutineControlRemote;
+crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver;
+
 
 // Interface: TelemetryDiagnosticRoutineObserver
-crosapi.mojom.TelemetryDiagnosticRoutineObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutineObserver';
-  }
-
-};
-
-crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = class {
+crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.TelemetryDiagnosticRoutineObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.TelemetryDiagnosticRoutineObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.TelemetryDiagnosticRoutineObserverPtr = crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote;
+crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver;
+
 
 // Interface: TelemetryDiagnosticRoutinesService
-crosapi.mojom.TelemetryDiagnosticRoutinesServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.TelemetryDiagnosticRoutinesService';
-  }
-
-};
-
-crosapi.mojom.TelemetryDiagnosticRoutinesServiceRequest = class {
+crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.TelemetryDiagnosticRoutinesService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.TelemetryDiagnosticRoutinesService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.TelemetryDiagnosticRoutinesServicePtr = crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote;
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceRequest = crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver;
+

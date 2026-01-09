@@ -11,36 +11,51 @@ arc.mojom = arc.mojom || {};
 
 // Enum: BootType
 arc.mojom.BootType = {
+  UNKNOWN: 0,
+  FIRST_BOOT: 1,
+  FIRST_BOOT_AFTER_UPDATE: 2,
+  REGULAR_BOOT: 3,
 };
 
 // Enum: NativeBridgeType
 arc.mojom.NativeBridgeType = {
+  NONE: 0,
+  HOUDINI: 1,
+  NDK_TRANSLATION: 2,
 };
 
 // Enum: CompanionLibApiId
 arc.mojom.CompanionLibApiId = {
-  GET_DISPLAY_TOPOLOGY: 0,
-  GET_PRIMARY_DISPLAY_ID: 1,
-  GET_WORKSPACE_INSETS: 2,
-  REGISTER_CALLBACK: 3,
-  UNREGISTER_CALLBACK: 4,
-  GET_CAPTION_HEIGHT: 5,
-  GET_HIDDEN_CAPTION_BUTTON: 6,
-  HIDE_CAPTION_BUTTON: 7,
-  GET_TASK_WINDOW_BOUNDS: 8,
-  GET_TASK_WINDOW_STATE: 9,
-  IS_SHADOW_HIDDEN: 10,
-  HIDE_SHADOW: 11,
-  ON_CLOSE_REQUEST_RESPONSE: 12,
-  SET_ON_CLOSE_REQUEST_HANDLER: 13,
-  REMOVE_ON_CLOSE_REQUEST_HANDLER: 14,
-  SET_TASK_WINDOW_BOUNDS: 15,
-  SET_TASK_WINDOW_STATE: 16,
-  IS_CLIPPING_TO_TASK_DISABLED: 17,
+  UNSUPPORTED: 0,
+  GET_DEVICE_MODE: 1,
+  GET_DISPLAY_TOPOLOGY: 2,
+  GET_PRIMARY_DISPLAY_ID: 3,
+  GET_WORKSPACE_INSETS: 4,
+  REGISTER_CALLBACK: 5,
+  UNREGISTER_CALLBACK: 6,
+  ACTIVATE_TASK: 7,
+  GET_CAPTION_HEIGHT: 8,
+  GET_HIDDEN_CAPTION_BUTTON: 9,
+  HIDE_CAPTION_BUTTON: 10,
+  GET_TASK_WINDOW_BOUNDS: 11,
+  GET_TASK_WINDOW_STATE: 12,
+  IS_SHADOW_HIDDEN: 13,
+  HIDE_SHADOW: 14,
+  ON_CLOSE_REQUEST_RESPONSE: 15,
+  SET_ON_CLOSE_REQUEST_HANDLER: 16,
+  REMOVE_ON_CLOSE_REQUEST_HANDLER: 17,
+  SET_TASK_WINDOW_BOUNDS: 18,
+  SET_TASK_WINDOW_STATE: 19,
+  GET_WINDOW_STATE: 20,
+  WINDOW_INTERACTION_CONTROLLER: 21,
+  SET_CLIPPING_TO_TASK_DISABLE: 22,
+  IS_CLIPPING_TO_TASK_DISABLED: 23,
 };
 
 // Enum: ArcDnsQuery
 arc.mojom.ArcDnsQuery = {
+  OTHER_HOST_NAME: 0,
+  ANDROID_API_HOST_NAME: 1,
 };
 
 // Enum: ArcNetworkEvent
@@ -125,7 +140,7 @@ arc.mojom.AppPrimaryAbi = {
 
 // Enum: ArcCorePriAbiMigEvent
 arc.mojom.ArcCorePriAbiMigEvent = {
-  it: 0,
+  kUnsupported: 0,
   kMigrationCompleted: 1,
   kGmsNoDowngrade: 2,
   kGmsDowngradeSuccess: 3,
@@ -137,6 +152,9 @@ arc.mojom.ArcCorePriAbiMigEvent = {
 
 // Enum: DataRestoreStatus
 arc.mojom.DataRestoreStatus = {
+  kNotNeeded: 0,
+  kSuccess: 1,
+  kFailed: 2,
 };
 
 // Enum: LowLatencyStylusLibraryType
@@ -147,18 +165,25 @@ arc.mojom.LowLatencyStylusLibraryType = {
 
 // Enum: LowLatencyStylusLibApiId
 arc.mojom.LowLatencyStylusLibApiId = {
-  the: 0,
-  kGLInkOverlaySetViewMatrix: 1,
+  kInkOverlayLowLatencyLibInUse: 0,
+  kGLInkOverlayLowLatencyLibInUse: 1,
+  kGLInkOverlaySetProjectionMatrix: 2,
+  kGLInkOverlaySetViewMatrix: 3,
 };
 
 // Enum: VpnServiceBuilderCompatApiId
 arc.mojom.VpnServiceBuilderCompatApiId = {
-  the: 0,
+  kVpnExcludeRoute: 0,
+  kVpnAddRoute: 1,
 };
 
 // Enum: MainAccountHashMigrationStatus
 arc.mojom.MainAccountHashMigrationStatus = {
-  you: 0,
+  kHashCodeMigrationNotRequired: 0,
+  kHashCodeMigrationSuccessful: 1,
+  kHashCodeMigrationFailed: 2,
+  kHashCodeMigrationFailedDueToMultipleAccounts: 3,
+  kHashCodeMigrationFailedDueToNoMatchingAccount: 4,
 };
 
 // Enum: WaylandTimingEvent
@@ -235,77 +260,102 @@ arc.mojom.AndroidDataDirectory = {
   kDataUserDE: 4,
 };
 
-// Struct: BootProgressEvent
-arc.mojom.BootProgressEvent = class {
-  constructor(values = {}) {
-    this.event = values.event !== undefined ? values.event : "";
-    this.uptimeMillis = values.uptimeMillis !== undefined ? values.uptimeMillis : 0;
-  }
-};
-
-// Struct: GfxMetrics
-arc.mojom.GfxMetrics = class {
-  constructor(values = {}) {
-    this.frameTimePercentile95 = values.frameTimePercentile95 !== undefined ? values.frameTimePercentile95 : 0;
-  }
-};
-
-// Struct: AppKill
-arc.mojom.AppKill = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-    this.kills = values.kills !== undefined ? values.kills : null;
-    this.count = values.count !== undefined ? values.count : 0;
-  }
-};
-
-// Struct: LowLatencyStylusLibPredictionTarget
-arc.mojom.LowLatencyStylusLibPredictionTarget = class {
-  constructor(values = {}) {
-    this.target = values.target !== undefined ? values.target : 0;
-  }
-};
-
-// Struct: AppCategoryDataSize
-arc.mojom.AppCategoryDataSize = class {
-  constructor(values = {}) {
-    this.data_size_in_mb = values.data_size_in_mb !== undefined ? values.data_size_in_mb : 0;
-  }
-};
-
-// Struct: DataDirectorySize
-arc.mojom.DataDirectorySize = class {
-  constructor(values = {}) {
-    this.size_in_mb = values.size_in_mb !== undefined ? values.size_in_mb : 0;
-  }
-};
-
 // Interface: MetricsHost
-arc.mojom.MetricsHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.MetricsHost';
-  }
-
-};
-
-arc.mojom.MetricsHostRequest = class {
+arc.mojom.MetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.MetricsHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.MetricsHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.MetricsHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.MetricsHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.MetricsHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.MetricsHost.getRemote = function() {
+  let remote = new arc.mojom.MetricsHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.MetricsHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.MetricsHostPtr = arc.mojom.MetricsHostRemote;
+arc.mojom.MetricsHostRequest = arc.mojom.MetricsHostPendingReceiver;
+
 
 // Interface: MetricsInstance
-arc.mojom.MetricsInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.MetricsInstance';
-  }
-
-};
-
-arc.mojom.MetricsInstanceRequest = class {
+arc.mojom.MetricsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.MetricsInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.MetricsInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.MetricsInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.MetricsInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.MetricsInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.MetricsInstance.getRemote = function() {
+  let remote = new arc.mojom.MetricsInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.MetricsInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.MetricsInstancePtr = arc.mojom.MetricsInstanceRemote;
+arc.mojom.MetricsInstanceRequest = arc.mojom.MetricsInstancePendingReceiver;
+

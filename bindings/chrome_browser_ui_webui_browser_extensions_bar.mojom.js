@@ -9,90 +9,313 @@ var extensions_bar = extensions_bar || {};
 extensions_bar.mojom = extensions_bar.mojom || {};
 
 
-// Struct: ExtensionActionInfo
-extensions_bar.mojom.ExtensionActionInfo = class {
-  constructor(values = {}) {
-    this.tooltip = values.tooltip !== undefined ? values.tooltip : "";
-    this.data_url_for_icon = values.data_url_for_icon !== undefined ? values.data_url_for_icon : false;
+// Interface: PageHandlerFactory
+extensions_bar.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: PageHandlerFactory
-extensions_bar.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'extensions_bar.mojom.PageHandlerFactory';
+extensions_bar.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'extensions_bar.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      extensions_bar.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-extensions_bar.mojom.PageHandlerFactoryRequest = class {
+extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new extensions_bar.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'extensions_bar.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+extensions_bar.mojom.PageHandlerFactoryPtr = extensions_bar.mojom.PageHandlerFactoryRemote;
+extensions_bar.mojom.PageHandlerFactoryRequest = extensions_bar.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+extensions_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-extensions_bar.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'extensions_bar.mojom.PageHandler';
+extensions_bar.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'extensions_bar.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      extensions_bar.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new extensions_bar.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   executeUserAction(id) {
-    // Method: ExecuteUserAction
-    // Call: ExecuteUserAction(id)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   showContextMenu(source, id) {
-    // Method: ShowContextMenu
-    // Call: ShowContextMenu(source, id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$,
+      null,
+      [source, id]);
   }
 
   toggleExtensionsMenuFromWebUI() {
-    // Method: ToggleExtensionsMenuFromWebUI
-    // Call: ToggleExtensionsMenuFromWebUI()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-extensions_bar.mojom.PageHandlerRequest = class {
+extensions_bar.mojom.PageHandler.getRemote = function() {
+  let remote = new extensions_bar.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'extensions_bar.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ExecuteUserAction
+extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.PageHandler.ExecuteUserAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ShowContextMenu
+extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.PageHandler.ShowContextMenu_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ToggleExtensionsMenuFromWebUI
+extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.PageHandler.ToggleExtensionsMenuFromWebUI_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+extensions_bar.mojom.PageHandlerPtr = extensions_bar.mojom.PageHandlerRemote;
+extensions_bar.mojom.PageHandlerRequest = extensions_bar.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+extensions_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-extensions_bar.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'extensions_bar.mojom.Page';
+extensions_bar.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'extensions_bar.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      extensions_bar.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new extensions_bar.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+extensions_bar.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   actionsAddedOrUpdated(actions) {
-    // Method: ActionsAddedOrUpdated
-    // Call: ActionsAddedOrUpdated(actions)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$,
+      null,
+      [actions]);
   }
 
   actionRemoved(id) {
-    // Method: ActionRemoved
-    // Call: ActionRemoved(id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   actionPoppedOut() {
-    // Method: ActionPoppedOut
-    // Call: ActionPoppedOut()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-extensions_bar.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+extensions_bar.mojom.Page.getRemote = function() {
+  let remote = new extensions_bar.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'extensions_bar.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ActionsAddedOrUpdated
+extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.Page.ActionsAddedOrUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ActionRemoved
+extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.Page.ActionRemoved_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ActionPoppedOut
+extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions_bar.mojom.Page.ActionPoppedOut_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+extensions_bar.mojom.PagePtr = extensions_bar.mojom.PageRemote;
+extensions_bar.mojom.PageRequest = extensions_bar.mojom.PagePendingReceiver;
+

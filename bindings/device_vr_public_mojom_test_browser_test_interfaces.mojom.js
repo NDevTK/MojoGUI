@@ -19,8 +19,9 @@ device_test.mojom.Eye = {
 // Enum: ControllerRole
 device_test.mojom.ControllerRole = {
   kControllerRoleInvalid: 0,
-  kControllerRoleRight: 1,
-  kControllerRoleVoice: 2,
+  kControllerRoleLeft: 1,
+  kControllerRoleRight: 2,
+  kControllerRoleVoice: 3,
 };
 
 // Enum: EventType
@@ -32,160 +33,453 @@ device_test.mojom.EventType = {
   kNoEvent: 4,
 };
 
-// Struct: Color
-device_test.mojom.Color = class {
-  constructor(values = {}) {
-    this.a = values.a !== undefined ? values.a : 0;
-  }
-};
-
-// Struct: ViewData
-device_test.mojom.ViewData = class {
-  constructor(values = {}) {
-    this.viewport = values.viewport !== undefined ? values.viewport : null;
-  }
-};
-
-// Struct: DeviceConfig
-device_test.mojom.DeviceConfig = class {
-  constructor(values = {}) {
-    this.interpupillary_distance = values.interpupillary_distance !== undefined ? values.interpupillary_distance : 0;
-  }
-};
-
-// Struct: ControllerAxisData
-device_test.mojom.ControllerAxisData = class {
-  constructor(values = {}) {
-    this.axis_type = values.axis_type !== undefined ? values.axis_type : 0;
-  }
-};
-
-// Struct: ControllerFrameData
-device_test.mojom.ControllerFrameData = class {
-  constructor(values = {}) {
-    this.is_valid = values.is_valid !== undefined ? values.is_valid : 0;
-  }
-};
-
-// Struct: EventData
-device_test.mojom.EventData = class {
-  constructor(values = {}) {
-    this.kInvalid = values.kInvalid !== undefined ? values.kInvalid : 0;
-  }
-};
-
-// Struct: XRVisibilityMask
-device_test.mojom.XRVisibilityMask = class {
-  constructor(values = {}) {
-    this.indices = values.indices !== undefined ? values.indices : 0;
-  }
-};
-
 // Interface: XRTestHook
-device_test.mojom.XRTestHookPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device_test.mojom.XRTestHook';
+device_test.mojom.XRTestHookPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+device_test.mojom.XRTestHookRemote = class {
+  static get $interfaceName() {
+    return 'device_test.mojom.XRTestHook';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device_test.mojom.XRTestHookPendingReceiver,
+      handle);
+    this.$ = new device_test.mojom.XRTestHookRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device_test.mojom.XRTestHookRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onFrameSubmitted(frame_data) {
-    // Method: OnFrameSubmitted
-    // Call: OnFrameSubmitted(frame_data)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$,
+      null,
+      [frame_data]);
   }
 
   waitGetDeviceConfig() {
-    // Method: WaitGetDeviceConfig
-    return new Promise((resolve) => {
-      // Call: WaitGetDeviceConfig()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$,
+      []);
   }
 
   waitGetPresentingPose() {
-    // Method: WaitGetPresentingPose
-    return new Promise((resolve) => {
-      // Call: WaitGetPresentingPose()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$,
+      []);
   }
 
   waitGetMagicWindowPose() {
-    // Method: WaitGetMagicWindowPose
-    return new Promise((resolve) => {
-      // Call: WaitGetMagicWindowPose()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$,
+      []);
   }
 
   waitGetControllerRoleForTrackedDeviceIndex(index) {
-    // Method: WaitGetControllerRoleForTrackedDeviceIndex
-    return new Promise((resolve) => {
-      // Call: WaitGetControllerRoleForTrackedDeviceIndex(index)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$,
+      [index]);
   }
 
   waitGetControllerData(index) {
-    // Method: WaitGetControllerData
-    return new Promise((resolve) => {
-      // Call: WaitGetControllerData(index)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$,
+      [index]);
   }
 
   waitGetEventData() {
-    // Method: WaitGetEventData
-    return new Promise((resolve) => {
-      // Call: WaitGetEventData()
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$,
+      []);
   }
 
   waitGetCanCreateSession() {
-    // Method: WaitGetCanCreateSession
-    return new Promise((resolve) => {
-      // Call: WaitGetCanCreateSession()
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$,
+      []);
   }
 
   waitGetVisibilityMask(view_index) {
-    // Method: WaitGetVisibilityMask
-    return new Promise((resolve) => {
-      // Call: WaitGetVisibilityMask(view_index)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$,
+      device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$,
+      [view_index]);
   }
 
 };
 
-device_test.mojom.XRTestHookRequest = class {
+device_test.mojom.XRTestHook.getRemote = function() {
+  let remote = new device_test.mojom.XRTestHookRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device_test.mojom.XRTestHook',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnFrameSubmitted
+device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.OnFrameSubmitted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetDeviceConfig
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetPresentingPose
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetMagicWindowPose
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetControllerRoleForTrackedDeviceIndex
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetControllerData
+device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetControllerData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetControllerData_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetEventData
+device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetEventData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetEventData_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetCanCreateSession
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WaitGetVisibilityMask
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device_test.mojom.XRTestHookPtr = device_test.mojom.XRTestHookRemote;
+device_test.mojom.XRTestHookRequest = device_test.mojom.XRTestHookPendingReceiver;
+
+
+// Interface: XRServiceTestHook
+device_test.mojom.XRServiceTestHookPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: XRServiceTestHook
-device_test.mojom.XRServiceTestHookPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device_test.mojom.XRServiceTestHook';
+device_test.mojom.XRServiceTestHookRemote = class {
+  static get $interfaceName() {
+    return 'device_test.mojom.XRServiceTestHook';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device_test.mojom.XRServiceTestHookPendingReceiver,
+      handle);
+    this.$ = new device_test.mojom.XRServiceTestHookRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setTestHook(hook) {
-    // Method: SetTestHook
-    // Call: SetTestHook(hook)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$,
+      null,
+      [hook]);
   }
 
   terminateDeviceServiceProcessForTesting() {
-    // Method: TerminateDeviceServiceProcessForTesting
-    // Call: TerminateDeviceServiceProcessForTesting()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-device_test.mojom.XRServiceTestHookRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+device_test.mojom.XRServiceTestHook.getRemote = function() {
+  let remote = new device_test.mojom.XRServiceTestHookRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device_test.mojom.XRServiceTestHook',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetTestHook
+device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRServiceTestHook.SetTestHook_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for TerminateDeviceServiceProcessForTesting
+device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device_test.mojom.XRServiceTestHook.TerminateDeviceServiceProcessForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device_test.mojom.XRServiceTestHookPtr = device_test.mojom.XRServiceTestHookRemote;
+device_test.mojom.XRServiceTestHookRequest = device_test.mojom.XRServiceTestHookPendingReceiver;
+

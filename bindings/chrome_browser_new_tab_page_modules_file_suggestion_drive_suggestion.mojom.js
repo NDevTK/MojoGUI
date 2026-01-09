@@ -10,34 +10,130 @@ file_suggestion.mojom = file_suggestion.mojom || {};
 
 
 // Interface: DriveSuggestionHandler
-file_suggestion.mojom.DriveSuggestionHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'file_suggestion.mojom.DriveSuggestionHandler';
-  }
-
-  getFiles() {
-    // Method: GetFiles
-    return new Promise((resolve) => {
-      // Call: GetFiles()
-      resolve({});
-    });
-  }
-
-  dismissModule() {
-    // Method: DismissModule
-    // Call: DismissModule()
-  }
-
-  restoreModule() {
-    // Method: RestoreModule
-    // Call: RestoreModule()
-  }
-
-};
-
-file_suggestion.mojom.DriveSuggestionHandlerRequest = class {
+file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+file_suggestion.mojom.DriveSuggestionHandlerRemote = class {
+  static get $interfaceName() {
+    return 'file_suggestion.mojom.DriveSuggestionHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver,
+      handle);
+    this.$ = new file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getFiles() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec.$,
+      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec.$,
+      []);
+  }
+
+  dismissModule() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  restoreModule() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
+  let remote = new file_suggestion.mojom.DriveSuggestionHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'file_suggestion.mojom.DriveSuggestionHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetFiles
+file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DismissModule
+file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.DriveSuggestionHandler.DismissModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RestoreModule
+file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'file_suggestion.mojom.DriveSuggestionHandler.RestoreModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+file_suggestion.mojom.DriveSuggestionHandlerPtr = file_suggestion.mojom.DriveSuggestionHandlerRemote;
+file_suggestion.mojom.DriveSuggestionHandlerRequest = file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver;
+

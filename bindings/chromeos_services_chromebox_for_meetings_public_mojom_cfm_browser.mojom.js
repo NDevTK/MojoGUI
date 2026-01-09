@@ -10,35 +10,52 @@ chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
 
-// Struct: ExtensionData
-chromeos.cfm.mojom.ExtensionData = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProcessMemoryInformation
-chromeos.cfm.mojom.ProcessMemoryInformation = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProcessData
-chromeos.cfm.mojom.ProcessData = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: CfmBrowser
-chromeos.cfm.mojom.CfmBrowserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.cfm.mojom.CfmBrowser';
-  }
-
-};
-
-chromeos.cfm.mojom.CfmBrowserRequest = class {
+chromeos.cfm.mojom.CfmBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.cfm.mojom.CfmBrowserRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.cfm.mojom.CfmBrowser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.cfm.mojom.CfmBrowserPendingReceiver,
+      handle);
+    this.$ = new chromeos.cfm.mojom.CfmBrowserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
+  let remote = new chromeos.cfm.mojom.CfmBrowserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.cfm.mojom.CfmBrowser',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.cfm.mojom.CfmBrowserPtr = chromeos.cfm.mojom.CfmBrowserRemote;
+chromeos.cfm.mojom.CfmBrowserRequest = chromeos.cfm.mojom.CfmBrowserPendingReceiver;
+

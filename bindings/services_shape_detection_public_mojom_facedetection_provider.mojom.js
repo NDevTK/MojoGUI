@@ -10,21 +10,75 @@ shape_detection.mojom = shape_detection.mojom || {};
 
 
 // Interface: FaceDetectionProvider
-shape_detection.mojom.FaceDetectionProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'shape_detection.mojom.FaceDetectionProvider';
-  }
-
-  createFaceDetection(receiver, options) {
-    // Method: CreateFaceDetection
-    // Call: CreateFaceDetection(receiver, options)
-  }
-
-};
-
-shape_detection.mojom.FaceDetectionProviderRequest = class {
+shape_detection.mojom.FaceDetectionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+shape_detection.mojom.FaceDetectionProviderRemote = class {
+  static get $interfaceName() {
+    return 'shape_detection.mojom.FaceDetectionProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      shape_detection.mojom.FaceDetectionProviderPendingReceiver,
+      handle);
+    this.$ = new shape_detection.mojom.FaceDetectionProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+shape_detection.mojom.FaceDetectionProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  createFaceDetection(receiver, options) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec.$,
+      null,
+      [receiver, options]);
+  }
+
+};
+
+shape_detection.mojom.FaceDetectionProvider.getRemote = function() {
+  let remote = new shape_detection.mojom.FaceDetectionProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'shape_detection.mojom.FaceDetectionProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateFaceDetection
+shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'shape_detection.mojom.FaceDetectionProvider.CreateFaceDetection_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+shape_detection.mojom.FaceDetectionProviderPtr = shape_detection.mojom.FaceDetectionProviderRemote;
+shape_detection.mojom.FaceDetectionProviderRequest = shape_detection.mojom.FaceDetectionProviderPendingReceiver;
+

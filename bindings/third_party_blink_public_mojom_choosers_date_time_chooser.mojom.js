@@ -9,44 +9,111 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: DateTimeSuggestion
-blink.mojom.DateTimeSuggestion = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: DateTimeDialogValue
-blink.mojom.DateTimeDialogValue = class {
-  constructor(values = {}) {
-    this.suggestions = values.suggestions !== undefined ? values.suggestions : 0;
-  }
-};
-
 // Interface: DateTimeChooser
-blink.mojom.DateTimeChooserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.DateTimeChooser';
-  }
-
-  openDateTimeDialog(value) {
-    // Method: OpenDateTimeDialog
-    return new Promise((resolve) => {
-      // Call: OpenDateTimeDialog(value)
-      resolve({});
-    });
-  }
-
-  closeDateTimeDialog() {
-    // Method: CloseDateTimeDialog
-    // Call: CloseDateTimeDialog()
-  }
-
-};
-
-blink.mojom.DateTimeChooserRequest = class {
+blink.mojom.DateTimeChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.DateTimeChooserRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.DateTimeChooser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.DateTimeChooserPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.DateTimeChooserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.DateTimeChooserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  openDateTimeDialog(value) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec.$,
+      blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec.$,
+      [value]);
+  }
+
+  closeDateTimeDialog() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+blink.mojom.DateTimeChooser.getRemote = function() {
+  let remote = new blink.mojom.DateTimeChooserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.DateTimeChooser',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OpenDateTimeDialog
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dialog_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseDateTimeDialog
+blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DateTimeChooser.CloseDateTimeDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.DateTimeChooserPtr = blink.mojom.DateTimeChooserRemote;
+blink.mojom.DateTimeChooserRequest = blink.mojom.DateTimeChooserPendingReceiver;
+

@@ -24,86 +24,202 @@ crosapi.mojom.VideoRotation = {
   kVideoRotation270: 3,
 };
 
-// Struct: NativePixmapHandle
-crosapi.mojom.NativePixmapHandle = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: GpuMemoryBufferHandle
-crosapi.mojom.GpuMemoryBufferHandle = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: VideoFrameInfo
-crosapi.mojom.VideoFrameInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ReadyFrameInBuffer
-crosapi.mojom.ReadyFrameInBuffer = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: ScopedAccessPermission
-crosapi.mojom.ScopedAccessPermissionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.ScopedAccessPermission';
-  }
-
-};
-
-crosapi.mojom.ScopedAccessPermissionRequest = class {
+crosapi.mojom.ScopedAccessPermissionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.ScopedAccessPermissionRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.ScopedAccessPermission';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.ScopedAccessPermissionPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.ScopedAccessPermissionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.ScopedAccessPermissionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.ScopedAccessPermission.getRemote = function() {
+  let remote = new crosapi.mojom.ScopedAccessPermissionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.ScopedAccessPermission',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.ScopedAccessPermissionPtr = crosapi.mojom.ScopedAccessPermissionRemote;
+crosapi.mojom.ScopedAccessPermissionRequest = crosapi.mojom.ScopedAccessPermissionPendingReceiver;
+
 
 // Interface: VideoFrameHandler
-crosapi.mojom.VideoFrameHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.VideoFrameHandler';
-  }
-
-};
-
-crosapi.mojom.VideoFrameHandlerRequest = class {
+crosapi.mojom.VideoFrameHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.VideoFrameHandlerRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.VideoFrameHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.VideoFrameHandlerPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.VideoFrameHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.VideoFrameHandler.getRemote = function() {
+  let remote = new crosapi.mojom.VideoFrameHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.VideoFrameHandler',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.VideoFrameHandlerPtr = crosapi.mojom.VideoFrameHandlerRemote;
+crosapi.mojom.VideoFrameHandlerRequest = crosapi.mojom.VideoFrameHandlerPendingReceiver;
+
 
 // Interface: VideoCaptureDevice
-crosapi.mojom.VideoCaptureDevicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.VideoCaptureDevice';
-  }
-
-};
-
-crosapi.mojom.VideoCaptureDeviceRequest = class {
+crosapi.mojom.VideoCaptureDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.VideoCaptureDeviceRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.VideoCaptureDevice';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.VideoCaptureDevicePendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.VideoCaptureDeviceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.VideoCaptureDevice.getRemote = function() {
+  let remote = new crosapi.mojom.VideoCaptureDeviceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.VideoCaptureDevice',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.VideoCaptureDevicePtr = crosapi.mojom.VideoCaptureDeviceRemote;
+crosapi.mojom.VideoCaptureDeviceRequest = crosapi.mojom.VideoCaptureDevicePendingReceiver;
+
 
 // Interface: VideoCaptureDeviceFactory
-crosapi.mojom.VideoCaptureDeviceFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.VideoCaptureDeviceFactory';
-  }
-
-};
-
-crosapi.mojom.VideoCaptureDeviceFactoryRequest = class {
+crosapi.mojom.VideoCaptureDeviceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.VideoCaptureDeviceFactoryRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.VideoCaptureDeviceFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.VideoCaptureDeviceFactoryPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.VideoCaptureDeviceFactory.getRemote = function() {
+  let remote = new crosapi.mojom.VideoCaptureDeviceFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.VideoCaptureDeviceFactory',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.VideoCaptureDeviceFactoryPtr = crosapi.mojom.VideoCaptureDeviceFactoryRemote;
+crosapi.mojom.VideoCaptureDeviceFactoryRequest = crosapi.mojom.VideoCaptureDeviceFactoryPendingReceiver;
+

@@ -26,58 +26,157 @@ chromecast.mojom.RendererType = {
 
 // Enum: RendererPool
 chromecast.mojom.RendererPool = {
-  which: 0,
+  NONE: 0,
+  OVERLAY: 1,
 };
 
 // Enum: GesturePriority
 chromecast.mojom.GesturePriority = {
-  ROOT_UI: 0,
-  MAIN_ACTIVITY: 1,
-  SETTINGS_UI: 2,
-};
-
-// Struct: CastWebViewParams
-chromecast.mojom.CastWebViewParams = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : false;
-    this.prelaunch_url = values.prelaunch_url !== undefined ? values.prelaunch_url : null;
-    this.false = values.false !== undefined ? values.false : false;
-    this.false = values.false !== undefined ? values.false : false;
-    this.true = values.true !== undefined ? values.true : false;
-  }
+  NONE: 0,
+  ROOT_UI: 1,
+  MAIN_ACTIVITY: 2,
+  SETTINGS_UI: 3,
 };
 
 // Interface: CastWebService
-chromecast.mojom.CastWebServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromecast.mojom.CastWebService';
-  }
-
-  createWebView(params, web_contents, window) {
-    // Method: CreateWebView
-    // Call: CreateWebView(params, web_contents, window)
-  }
-
-  registerWebUiClient(client, hosts) {
-    // Method: RegisterWebUiClient
-    // Call: RegisterWebUiClient(client, hosts)
-  }
-
-  flushDomLocalStorage() {
-    // Method: FlushDomLocalStorage
-    // Call: FlushDomLocalStorage()
-  }
-
-  clearLocalStorage() {
-    // Method: ClearLocalStorage
-    // Call: ClearLocalStorage()
-  }
-
-};
-
-chromecast.mojom.CastWebServiceRequest = class {
+chromecast.mojom.CastWebServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromecast.mojom.CastWebServiceRemote = class {
+  static get $interfaceName() {
+    return 'chromecast.mojom.CastWebService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromecast.mojom.CastWebServicePendingReceiver,
+      handle);
+    this.$ = new chromecast.mojom.CastWebServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromecast.mojom.CastWebServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  createWebView(params, web_contents, window) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$,
+      null,
+      [params, web_contents, window]);
+  }
+
+  registerWebUiClient(client, hosts) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$,
+      null,
+      [client, hosts]);
+  }
+
+  flushDomLocalStorage() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  clearLocalStorage() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+chromecast.mojom.CastWebService.getRemote = function() {
+  let remote = new chromecast.mojom.CastWebServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromecast.mojom.CastWebService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateWebView
+chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.CastWebService.CreateWebView_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'web_contents', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RegisterWebUiClient
+chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.CastWebService.RegisterWebUiClient_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for FlushDomLocalStorage
+chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.CastWebService.FlushDomLocalStorage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ClearLocalStorage
+chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromecast.mojom.CastWebService.ClearLocalStorage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+chromecast.mojom.CastWebServicePtr = chromecast.mojom.CastWebServiceRemote;
+chromecast.mojom.CastWebServiceRequest = chromecast.mojom.CastWebServicePendingReceiver;
+

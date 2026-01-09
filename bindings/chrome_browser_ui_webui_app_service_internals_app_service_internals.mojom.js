@@ -9,63 +9,87 @@ var mojom = mojom || {};
 mojom.app_service_internals = mojom.app_service_internals || {};
 
 
-// Struct: AppInfo
-mojom.app_service_internals.AppInfo = class {
-  constructor(values = {}) {
-    this.name = values.name !== undefined ? values.name : "";
-    this.debug_info = values.debug_info !== undefined ? values.debug_info : "";
-  }
-};
-
-// Struct: PreferredAppInfo
-mojom.app_service_internals.PreferredAppInfo = class {
-  constructor(values = {}) {
-    this.preferred_filters = values.preferred_filters !== undefined ? values.preferred_filters : "";
-  }
-};
-
-// Struct: PromiseAppInfo
-mojom.app_service_internals.PromiseAppInfo = class {
-  constructor(values = {}) {
-    this.package_id = values.package_id !== undefined ? values.package_id : "";
-    this.debug_info = values.debug_info !== undefined ? values.debug_info : "";
-  }
-};
-
-// Struct: AppCapabilityInfo
-mojom.app_service_internals.AppCapabilityInfo = class {
-  constructor(values = {}) {
-    this.name = values.name !== undefined ? values.name : "";
-    this.debug_info = values.debug_info !== undefined ? values.debug_info : "";
-  }
-};
-
-// Struct: DebugInfo
-mojom.app_service_internals.DebugInfo = class {
-  constructor(values = {}) {
-    this.app_capability_list = values.app_capability_list !== undefined ? values.app_capability_list : [];
-  }
-};
-
 // Interface: AppServiceInternalsPageHandler
-mojom.app_service_internals.AppServiceInternalsPageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'mojom.app_service_internals.AppServiceInternalsPageHandler';
-  }
-
-  getDebugInfo() {
-    // Method: GetDebugInfo
-    return new Promise((resolve) => {
-      // Call: GetDebugInfo()
-      resolve({});
-    });
-  }
-
-};
-
-mojom.app_service_internals.AppServiceInternalsPageHandlerRequest = class {
+mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+mojom.app_service_internals.AppServiceInternalsPageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'mojom.app_service_internals.AppServiceInternalsPageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver,
+      handle);
+    this.$ = new mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getDebugInfo() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec.$,
+      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function() {
+  let remote = new mojom.app_service_internals.AppServiceInternalsPageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'mojom.app_service_internals.AppServiceInternalsPageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetDebugInfo
+mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+mojom.app_service_internals.AppServiceInternalsPageHandlerPtr = mojom.app_service_internals.AppServiceInternalsPageHandlerRemote;
+mojom.app_service_internals.AppServiceInternalsPageHandlerRequest = mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver;
+

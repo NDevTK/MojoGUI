@@ -11,14 +11,38 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: ScanFailureMode
 crosapi.mojom.ScanFailureMode = {
+  kUnknown: 0,
+  kDeviceBusy: 1,
+  kAdfJammed: 2,
+  kAdfEmpty: 3,
+  kFlatbedOpen: 4,
+  kIoError: 5,
 };
 
 // Enum: ScannerOperationResult
 crosapi.mojom.ScannerOperationResult = {
+  kSuccess: 0,
+  kUnsupported: 1,
+  kCancelled: 2,
+  kDeviceBusy: 3,
+  kInvalid: 4,
+  kWrongType: 5,
+  kEndOfData: 6,
+  kAdfJammed: 7,
+  kAdfEmpty: 8,
+  kCoverOpen: 9,
+  kIoError: 10,
+  kAccessDenied: 11,
+  kNoMemory: 12,
+  kDeviceUnreachable: 13,
+  kDeviceMissing: 14,
+  kInternalError: 15,
 };
 
 // Enum: ConnectionType
 crosapi.mojom.ConnectionType = {
+  kUsb: 0,
+  kNetwork: 1,
 };
 
 // Enum: OptionType
@@ -33,19 +57,12 @@ crosapi.mojom.OptionType = {
 
 // Enum: OptionUnit
 crosapi.mojom.OptionUnit = {
-  e: 0,
-  threshold: 1,
-  e: 2,
-  scan: 3,
-  e: 4,
-  color: 5,
-  e: 6,
-  scan: 7,
-  e: 8,
-  resolution: 9,
-  e: 10,
-  brightness: 11,
-  e: 12,
+  kPixel: 0,
+  kBit: 1,
+  kMm: 2,
+  kDpi: 3,
+  kPercent: 4,
+  kMicrosecond: 5,
 };
 
 // Enum: OptionConstraintType
@@ -59,131 +76,56 @@ crosapi.mojom.OptionConstraintType = {
 
 // Enum: OptionConfigurability
 crosapi.mojom.OptionConfigurability = {
-};
-
-// Struct: ScannerInfo
-crosapi.mojom.ScannerInfo = class {
-  constructor(values = {}) {
-    this.known = values.known !== undefined ? values.known : null;
-  }
-};
-
-// Struct: ScannerEnumFilter
-crosapi.mojom.ScannerEnumFilter = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: IntRange
-crosapi.mojom.IntRange = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FixedRange
-crosapi.mojom.FixedRange = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: OptionConstraint
-crosapi.mojom.OptionConstraint = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ScannerOption
-crosapi.mojom.ScannerOption = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: GetScannerListResponse
-crosapi.mojom.GetScannerListResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: OpenScannerResponse
-crosapi.mojom.OpenScannerResponse = class {
-  constructor(values = {}) {
-    this.the = values.the !== undefined ? values.the : null;
-    this.by = values.by !== undefined ? values.by : null;
-  }
-};
-
-// Struct: CloseScannerResponse
-crosapi.mojom.CloseScannerResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: StartScanOptions
-crosapi.mojom.StartScanOptions = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: StartPreparedScanResponse
-crosapi.mojom.StartPreparedScanResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ReadScanDataResponse
-crosapi.mojom.ReadScanDataResponse = class {
-  constructor(values = {}) {
-    this.total = values.total !== undefined ? values.total : null;
-  }
-};
-
-// Struct: OptionSetting
-crosapi.mojom.OptionSetting = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: OptionGroup
-crosapi.mojom.OptionGroup = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: SetOptionResult
-crosapi.mojom.SetOptionResult = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: SetOptionsResponse
-crosapi.mojom.SetOptionsResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: GetOptionGroupsResponse
-crosapi.mojom.GetOptionGroupsResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: CancelScanResponse
-crosapi.mojom.CancelScanResponse = class {
-  constructor(values = {}) {
-  }
+  kNotConfigurable: 0,
+  kHardwareConfigurable: 1,
 };
 
 // Interface: DocumentScan
-crosapi.mojom.DocumentScanPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.DocumentScan';
-  }
-
-};
-
-crosapi.mojom.DocumentScanRequest = class {
+crosapi.mojom.DocumentScanPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.DocumentScanRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.DocumentScan';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.DocumentScanPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.DocumentScanRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.DocumentScanRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.DocumentScan.getRemote = function() {
+  let remote = new crosapi.mojom.DocumentScanRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.DocumentScan',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.DocumentScanPtr = crosapi.mojom.DocumentScanRemote;
+crosapi.mojom.DocumentScanRequest = crosapi.mojom.DocumentScanPendingReceiver;
+

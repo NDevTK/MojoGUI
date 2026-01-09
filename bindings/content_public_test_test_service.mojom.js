@@ -10,105 +10,447 @@ content.mojom = content.mojom || {};
 
 
 // Interface: TestService
-content.mojom.TestServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'content.mojom.TestService';
-  }
-
-  doSomething() {
-    // Method: DoSomething
-    // Call: DoSomething()
-  }
-
-  doTerminateProcess() {
-    // Method: DoTerminateProcess
-    // Call: DoTerminateProcess()
-  }
-
-  doCrashImmediately() {
-    // Method: DoCrashImmediately
-    // Call: DoCrashImmediately()
-  }
-
-  createFolder() {
-    // Method: CreateFolder
-    return new Promise((resolve) => {
-      // Call: CreateFolder()
-      resolve({});
-    });
-  }
-
-  getRequestorName() {
-    // Method: GetRequestorName
-    return new Promise((resolve) => {
-      // Call: GetRequestorName()
-      resolve({});
-    });
-  }
-
-  createReadOnlySharedMemoryRegion(message) {
-    // Method: CreateReadOnlySharedMemoryRegion
-    return new Promise((resolve) => {
-      // Call: CreateReadOnlySharedMemoryRegion(message)
-      resolve({});
-    });
-  }
-
-  createWritableSharedMemoryRegion(message) {
-    // Method: CreateWritableSharedMemoryRegion
-    return new Promise((resolve) => {
-      // Call: CreateWritableSharedMemoryRegion(message)
-      resolve({});
-    });
-  }
-
-  createUnsafeSharedMemoryRegion(message) {
-    // Method: CreateUnsafeSharedMemoryRegion
-    return new Promise((resolve) => {
-      // Call: CreateUnsafeSharedMemoryRegion(message)
-      resolve({});
-    });
-  }
-
-  cloneSharedMemoryContents(region) {
-    // Method: CloneSharedMemoryContents
-    return new Promise((resolve) => {
-      // Call: CloneSharedMemoryContents(region)
-      resolve({});
-    });
-  }
-
-  isProcessSandboxed() {
-    // Method: IsProcessSandboxed
-    return new Promise((resolve) => {
-      // Call: IsProcessSandboxed()
-      resolve({});
-    });
-  }
-
-  pseudonymizeString(value) {
-    // Method: PseudonymizeString
-    return new Promise((resolve) => {
-      // Call: PseudonymizeString(value)
-      resolve({});
-    });
-  }
-
-  passWriteableFile(file) {
-    // Method: PassWriteableFile
-    // Call: PassWriteableFile(file)
-  }
-
-  writeToPreloadedPipe() {
-    // Method: WriteToPreloadedPipe
-    // Call: WriteToPreloadedPipe()
-  }
-
-};
-
-content.mojom.TestServiceRequest = class {
+content.mojom.TestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+content.mojom.TestServiceRemote = class {
+  static get $interfaceName() {
+    return 'content.mojom.TestService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      content.mojom.TestServicePendingReceiver,
+      handle);
+    this.$ = new content.mojom.TestServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+content.mojom.TestServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  doSomething() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      content.mojom.TestService_DoSomething_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  doTerminateProcess() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.mojom.TestService_DoTerminateProcess_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  doCrashImmediately() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      content.mojom.TestService_DoCrashImmediately_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  createFolder() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      content.mojom.TestService_CreateFolder_ParamsSpec.$,
+      content.mojom.TestService_CreateFolder_ResponseParamsSpec.$,
+      []);
+  }
+
+  getRequestorName() {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      content.mojom.TestService_GetRequestorName_ParamsSpec.$,
+      content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$,
+      []);
+  }
+
+  createReadOnlySharedMemoryRegion(message) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$,
+      content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$,
+      [message]);
+  }
+
+  createWritableSharedMemoryRegion(message) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$,
+      content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$,
+      [message]);
+  }
+
+  createUnsafeSharedMemoryRegion(message) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$,
+      content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$,
+      [message]);
+  }
+
+  cloneSharedMemoryContents(region) {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$,
+      content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$,
+      [region]);
+  }
+
+  isProcessSandboxed() {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$,
+      content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$,
+      []);
+  }
+
+  pseudonymizeString(value) {
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      content.mojom.TestService_PseudonymizeString_ParamsSpec.$,
+      content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$,
+      [value]);
+  }
+
+  passWriteableFile(file) {
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      content.mojom.TestService_PassWriteableFile_ParamsSpec.$,
+      null,
+      [file]);
+  }
+
+  writeToPreloadedPipe() {
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+content.mojom.TestService.getRemote = function() {
+  let remote = new content.mojom.TestServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'content.mojom.TestService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DoSomething
+content.mojom.TestService_DoSomething_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.DoSomething_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DoTerminateProcess
+content.mojom.TestService_DoTerminateProcess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.DoTerminateProcess_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DoCrashImmediately
+content.mojom.TestService_DoCrashImmediately_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.DoCrashImmediately_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateFolder
+content.mojom.TestService_CreateFolder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateFolder_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_CreateFolder_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateFolder_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetRequestorName
+content.mojom.TestService_GetRequestorName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.GetRequestorName_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_GetRequestorName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.GetRequestorName_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateReadOnlySharedMemoryRegion
+content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateReadOnlySharedMemoryRegion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateReadOnlySharedMemoryRegion_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateWritableSharedMemoryRegion
+content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateWritableSharedMemoryRegion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateWritableSharedMemoryRegion_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateUnsafeSharedMemoryRegion
+content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateUnsafeSharedMemoryRegion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CreateUnsafeSharedMemoryRegion_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloneSharedMemoryContents
+content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CloneSharedMemoryContents_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.CloneSharedMemoryContents_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'new_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsProcessSandboxed
+content.mojom.TestService_IsProcessSandboxed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.IsProcessSandboxed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.IsProcessSandboxed_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_sandboxed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PseudonymizeString
+content.mojom.TestService_PseudonymizeString_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.PseudonymizeString_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.PseudonymizeString_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PassWriteableFile
+content.mojom.TestService_PassWriteableFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.PassWriteableFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WriteToPreloadedPipe
+content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.TestService.WriteToPreloadedPipe_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+content.mojom.TestServicePtr = content.mojom.TestServiceRemote;
+content.mojom.TestServiceRequest = content.mojom.TestServicePendingReceiver;
+

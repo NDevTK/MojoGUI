@@ -9,62 +9,160 @@ var payments = payments || {};
 payments.mojom = payments.mojom || {};
 
 
-// Struct: PaymentHandlerMethodData
-payments.mojom.PaymentHandlerMethodData = class {
-  constructor(values = {}) {
-    this.method_name = values.method_name !== undefined ? values.method_name : "";
-  }
-};
-
-// Struct: PaymentHandlerModifier
-payments.mojom.PaymentHandlerModifier = class {
-  constructor(values = {}) {
-    this.method_data = values.method_data !== undefined ? values.method_data : null;
-  }
-};
-
-// Struct: PaymentRequestDetailsUpdate
-payments.mojom.PaymentRequestDetailsUpdate = class {
-  constructor(values = {}) {
-    this.shipping_address_errors = values.shipping_address_errors !== undefined ? values.shipping_address_errors : "";
-  }
-};
-
 // Interface: PaymentHandlerHost
-payments.mojom.PaymentHandlerHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'payments.mojom.PaymentHandlerHost';
-  }
-
-  changePaymentMethod(method_data) {
-    // Method: ChangePaymentMethod
-    return new Promise((resolve) => {
-      // Call: ChangePaymentMethod(method_data)
-      resolve({});
-    });
-  }
-
-  changeShippingOption(shipping_option_id) {
-    // Method: ChangeShippingOption
-    return new Promise((resolve) => {
-      // Call: ChangeShippingOption(shipping_option_id)
-      resolve({});
-    });
-  }
-
-  changeShippingAddress(shipping_address) {
-    // Method: ChangeShippingAddress
-    return new Promise((resolve) => {
-      // Call: ChangeShippingAddress(shipping_address)
-      resolve({});
-    });
-  }
-
-};
-
-payments.mojom.PaymentHandlerHostRequest = class {
+payments.mojom.PaymentHandlerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+payments.mojom.PaymentHandlerHostRemote = class {
+  static get $interfaceName() {
+    return 'payments.mojom.PaymentHandlerHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      payments.mojom.PaymentHandlerHostPendingReceiver,
+      handle);
+    this.$ = new payments.mojom.PaymentHandlerHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  changePaymentMethod(method_data) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$,
+      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$,
+      [method_data]);
+  }
+
+  changeShippingOption(shipping_option_id) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$,
+      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$,
+      [shipping_option_id]);
+  }
+
+  changeShippingAddress(shipping_address) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$,
+      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$,
+      [shipping_address]);
+  }
+
+};
+
+payments.mojom.PaymentHandlerHost.getRemote = function() {
+  let remote = new payments.mojom.PaymentHandlerHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'payments.mojom.PaymentHandlerHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ChangePaymentMethod
+payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ChangeShippingOption
+payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'shipping_option_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ChangeShippingAddress
+payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'shipping_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+payments.mojom.PaymentHandlerHostPtr = payments.mojom.PaymentHandlerHostRemote;
+payments.mojom.PaymentHandlerHostRequest = payments.mojom.PaymentHandlerHostPendingReceiver;
+

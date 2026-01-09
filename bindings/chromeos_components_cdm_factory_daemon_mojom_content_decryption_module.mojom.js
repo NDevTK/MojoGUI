@@ -78,67 +78,102 @@ chromeos.cdm.mojom.DecryptStatus = {
   kFailure: 2,
 };
 
-// Struct: CdmPromiseResult
-chromeos.cdm.mojom.CdmPromiseResult = class {
-  constructor(values = {}) {
-    this.error_message = values.error_message !== undefined ? values.error_message : 0;
-  }
-};
-
-// Struct: CdmKeyInformation
-chromeos.cdm.mojom.CdmKeyInformation = class {
-  constructor(values = {}) {
-    this.system_code = values.system_code !== undefined ? values.system_code : 0;
-  }
-};
-
-// Struct: EncryptionPattern
-chromeos.cdm.mojom.EncryptionPattern = class {
-  constructor(values = {}) {
-    this.skip_byte_block = values.skip_byte_block !== undefined ? values.skip_byte_block : 0;
-  }
-};
-
-// Struct: SubsampleEntry
-chromeos.cdm.mojom.SubsampleEntry = class {
-  constructor(values = {}) {
-    this.cipher_bytes = values.cipher_bytes !== undefined ? values.cipher_bytes : 0;
-  }
-};
-
-// Struct: DecryptConfig
-chromeos.cdm.mojom.DecryptConfig = class {
-  constructor(values = {}) {
-    this.encryption_pattern = values.encryption_pattern !== undefined ? values.encryption_pattern : "";
-  }
-};
-
 // Interface: ContentDecryptionModule
-chromeos.cdm.mojom.ContentDecryptionModulePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.cdm.mojom.ContentDecryptionModule';
-  }
-
-};
-
-chromeos.cdm.mojom.ContentDecryptionModuleRequest = class {
+chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.cdm.mojom.ContentDecryptionModuleRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.cdm.mojom.ContentDecryptionModule';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver,
+      handle);
+    this.$ = new chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.cdm.mojom.ContentDecryptionModule.getRemote = function() {
+  let remote = new chromeos.cdm.mojom.ContentDecryptionModuleRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.cdm.mojom.ContentDecryptionModule',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.cdm.mojom.ContentDecryptionModulePtr = chromeos.cdm.mojom.ContentDecryptionModuleRemote;
+chromeos.cdm.mojom.ContentDecryptionModuleRequest = chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver;
+
 
 // Interface: ContentDecryptionModuleClient
-chromeos.cdm.mojom.ContentDecryptionModuleClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.cdm.mojom.ContentDecryptionModuleClient';
-  }
-
-};
-
-chromeos.cdm.mojom.ContentDecryptionModuleClientRequest = class {
+chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.cdm.mojom.ContentDecryptionModuleClientRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.cdm.mojom.ContentDecryptionModuleClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver,
+      handle);
+    this.$ = new chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.cdm.mojom.ContentDecryptionModuleClient.getRemote = function() {
+  let remote = new chromeos.cdm.mojom.ContentDecryptionModuleClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.cdm.mojom.ContentDecryptionModuleClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.cdm.mojom.ContentDecryptionModuleClientPtr = chromeos.cdm.mojom.ContentDecryptionModuleClientRemote;
+chromeos.cdm.mojom.ContentDecryptionModuleClientRequest = chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver;
+

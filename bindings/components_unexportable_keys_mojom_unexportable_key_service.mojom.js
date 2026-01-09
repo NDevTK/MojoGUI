@@ -19,13 +19,14 @@ unexportable_keys.mojom.SignatureAlgorithm = {
 
 // Enum: ServiceError
 unexportable_keys.mojom.ServiceError = {
-  kKeyNotFound: 0,
-  kKeyCollision: 1,
-  kNoKeyProvider: 2,
-  kAlgorithmNotSupported: 3,
-  kKeyNotReady: 4,
-  kVerifySignatureFailed: 5,
-  kOperationNotSupported: 6,
+  kCryptoApiFailed: 0,
+  kKeyNotFound: 1,
+  kKeyCollision: 2,
+  kNoKeyProvider: 3,
+  kAlgorithmNotSupported: 4,
+  kKeyNotReady: 5,
+  kVerifySignatureFailed: 6,
+  kOperationNotSupported: 7,
 };
 
 // Enum: BackgroundTaskPriority
@@ -35,64 +36,208 @@ unexportable_keys.mojom.BackgroundTaskPriority = {
   kUserBlocking: 2,
 };
 
-// Struct: UnexportableKeyId
-unexportable_keys.mojom.UnexportableKeyId = class {
-  constructor(values = {}) {
-    this.key_id = values.key_id !== undefined ? values.key_id : null;
-  }
-};
-
-// Struct: NewKeyData
-unexportable_keys.mojom.NewKeyData = class {
-  constructor(values = {}) {
-    this.creation_time = values.creation_time !== undefined ? values.creation_time : 0;
-  }
-};
-
 // Interface: UnexportableKeyService
-unexportable_keys.mojom.UnexportableKeyServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'unexportable_keys.mojom.UnexportableKeyService';
-  }
-
-  generateSigningKey(acceptable_algorithms, priority) {
-    // Method: GenerateSigningKey
-    // Call: GenerateSigningKey(acceptable_algorithms, priority)
-  }
-
-  fromWrappedSigningKey(wrapped_key, priority) {
-    // Method: FromWrappedSigningKey
-    // Call: FromWrappedSigningKey(wrapped_key, priority)
-  }
-
-  sign(key_id, data, priority) {
-    // Method: Sign
-    // Call: Sign(key_id, data, priority)
-  }
-
-  getAllSigningKeysForGarbageCollection(priority) {
-    // Method: GetAllSigningKeysForGarbageCollection
-    // Call: GetAllSigningKeysForGarbageCollection(priority)
-  }
-
-  deleteKey(key_id, priority) {
-    // Method: DeleteKey
-    return new Promise((resolve) => {
-      // Call: DeleteKey(key_id, priority)
-      resolve({});
-    });
-  }
-
-  deleteAllKeys(priority) {
-    // Method: DeleteAllKeys
-    // Call: DeleteAllKeys(priority)
-  }
-
-};
-
-unexportable_keys.mojom.UnexportableKeyServiceRequest = class {
+unexportable_keys.mojom.UnexportableKeyServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+unexportable_keys.mojom.UnexportableKeyServiceRemote = class {
+  static get $interfaceName() {
+    return 'unexportable_keys.mojom.UnexportableKeyService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      unexportable_keys.mojom.UnexportableKeyServicePendingReceiver,
+      handle);
+    this.$ = new unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  generateSigningKey(acceptable_algorithms, priority) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$,
+      null,
+      [acceptable_algorithms, priority]);
+  }
+
+  fromWrappedSigningKey(wrapped_key, priority) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$,
+      null,
+      [wrapped_key, priority]);
+  }
+
+  sign(key_id, data, priority) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$,
+      null,
+      [key_id, data, priority]);
+  }
+
+  getAllSigningKeysForGarbageCollection(priority) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$,
+      null,
+      [priority]);
+  }
+
+  deleteKey(key_id, priority) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$,
+      unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec.$,
+      [key_id, priority]);
+  }
+
+  deleteAllKeys(priority) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$,
+      null,
+      [priority]);
+  }
+
+};
+
+unexportable_keys.mojom.UnexportableKeyService.getRemote = function() {
+  let remote = new unexportable_keys.mojom.UnexportableKeyServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'unexportable_keys.mojom.UnexportableKeyService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GenerateSigningKey
+unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.GenerateSigningKey_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'acceptable_algorithms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for FromWrappedSigningKey
+unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.FromWrappedSigningKey_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'wrapped_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Sign
+unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.Sign_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAllSigningKeysForGarbageCollection
+unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.GetAllSigningKeysForGarbageCollection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DeleteKey
+unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DeleteAllKeys
+unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteAllKeys_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+unexportable_keys.mojom.UnexportableKeyServicePtr = unexportable_keys.mojom.UnexportableKeyServiceRemote;
+unexportable_keys.mojom.UnexportableKeyServiceRequest = unexportable_keys.mojom.UnexportableKeyServicePendingReceiver;
+

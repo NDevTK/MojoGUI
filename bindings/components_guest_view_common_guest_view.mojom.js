@@ -10,41 +10,151 @@ guest_view.mojom = guest_view.mojom || {};
 
 
 // Interface: ViewHandle
-guest_view.mojom.ViewHandlePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'guest_view.mojom.ViewHandle';
-  }
-
-};
-
-guest_view.mojom.ViewHandleRequest = class {
+guest_view.mojom.ViewHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+guest_view.mojom.ViewHandleRemote = class {
+  static get $interfaceName() {
+    return 'guest_view.mojom.ViewHandle';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      guest_view.mojom.ViewHandlePendingReceiver,
+      handle);
+    this.$ = new guest_view.mojom.ViewHandleRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+guest_view.mojom.ViewHandleRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+guest_view.mojom.ViewHandle.getRemote = function() {
+  let remote = new guest_view.mojom.ViewHandleRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'guest_view.mojom.ViewHandle',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+guest_view.mojom.ViewHandlePtr = guest_view.mojom.ViewHandleRemote;
+guest_view.mojom.ViewHandleRequest = guest_view.mojom.ViewHandlePendingReceiver;
+
+
 // Interface: GuestViewHost
-guest_view.mojom.GuestViewHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'guest_view.mojom.GuestViewHost';
+guest_view.mojom.GuestViewHostPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+guest_view.mojom.GuestViewHostRemote = class {
+  static get $interfaceName() {
+    return 'guest_view.mojom.GuestViewHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      guest_view.mojom.GuestViewHostPendingReceiver,
+      handle);
+    this.$ = new guest_view.mojom.GuestViewHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+guest_view.mojom.GuestViewHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   attachToEmbedderFrame(element_instance_id, guest_instance_id, params) {
-    // Method: AttachToEmbedderFrame
-    // Call: AttachToEmbedderFrame(element_instance_id, guest_instance_id, params)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$,
+      null,
+      [element_instance_id, guest_instance_id, params]);
   }
 
   viewCreated(view_instance_id, view_type, keep_alive_handle_receiver) {
-    // Method: ViewCreated
-    // Call: ViewCreated(view_instance_id, view_type, keep_alive_handle_receiver)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$,
+      null,
+      [view_instance_id, view_type, keep_alive_handle_receiver]);
   }
 
 };
 
-guest_view.mojom.GuestViewHostRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+guest_view.mojom.GuestViewHost.getRemote = function() {
+  let remote = new guest_view.mojom.GuestViewHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'guest_view.mojom.GuestViewHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AttachToEmbedderFrame
+guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'guest_view.mojom.GuestViewHost.AttachToEmbedderFrame_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'guest_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ViewCreated
+guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'guest_view.mojom.GuestViewHost.ViewCreated_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'view_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'view_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'keep_alive_handle_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+guest_view.mojom.GuestViewHostPtr = guest_view.mojom.GuestViewHostRemote;
+guest_view.mojom.GuestViewHostRequest = guest_view.mojom.GuestViewHostPendingReceiver;
+

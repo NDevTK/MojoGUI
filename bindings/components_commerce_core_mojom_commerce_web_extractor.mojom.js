@@ -10,24 +10,86 @@ commerce_web_extractor.mojom = commerce_web_extractor.mojom || {};
 
 
 // Interface: CommerceWebExtractor
-commerce_web_extractor.mojom.CommerceWebExtractorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'commerce_web_extractor.mojom.CommerceWebExtractor';
-  }
-
-  extractMetaInfo() {
-    // Method: ExtractMetaInfo
-    return new Promise((resolve) => {
-      // Call: ExtractMetaInfo()
-      resolve({});
-    });
-  }
-
-};
-
-commerce_web_extractor.mojom.CommerceWebExtractorRequest = class {
+commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+commerce_web_extractor.mojom.CommerceWebExtractorRemote = class {
+  static get $interfaceName() {
+    return 'commerce_web_extractor.mojom.CommerceWebExtractor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver,
+      handle);
+    this.$ = new commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  extractMetaInfo() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec.$,
+      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
+  let remote = new commerce_web_extractor.mojom.CommerceWebExtractorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'commerce_web_extractor.mojom.CommerceWebExtractor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ExtractMetaInfo
+commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+commerce_web_extractor.mojom.CommerceWebExtractorPtr = commerce_web_extractor.mojom.CommerceWebExtractorRemote;
+commerce_web_extractor.mojom.CommerceWebExtractorRequest = commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver;
+

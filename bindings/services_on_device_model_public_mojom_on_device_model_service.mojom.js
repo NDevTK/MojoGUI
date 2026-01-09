@@ -11,7 +11,9 @@ on_device_model.mojom = on_device_model.mojom || {};
 
 // Enum: ModelBackendType
 on_device_model.mojom.ModelBackendType = {
-  and: 0,
+  kGpu: 0,
+  kApu: 1,
+  kCpu: 2,
 };
 
 // Enum: ModelPerformanceHint
@@ -48,119 +50,285 @@ on_device_model.mojom.SafetyFeature = {
   kAudioTitleResponse: 3,
 };
 
-// Struct: ModelAssets
-on_device_model.mojom.ModelAssets = class {
-  constructor(values = {}) {
-    this.adapter_cache = values.adapter_cache !== undefined ? values.adapter_cache : null;
-  }
-};
-
-// Struct: LoadModelParams
-on_device_model.mojom.LoadModelParams = class {
-  constructor(values = {}) {
-    this.adaptation_ranks = values.adaptation_ranks !== undefined ? values.adaptation_ranks : 0;
-    this.kHighestQuality = values.kHighestQuality !== undefined ? values.kHighestQuality : 0;
-  }
-};
-
-// Struct: TextSafetyModelAssets
-on_device_model.mojom.TextSafetyModelAssets = class {
-  constructor(values = {}) {
-    this.sp_model = values.sp_model !== undefined ? values.sp_model : null;
-  }
-};
-
-// Struct: BertSafetyModelAssets
-on_device_model.mojom.BertSafetyModelAssets = class {
-  constructor(values = {}) {
-    this.model = values.model !== undefined ? values.model : null;
-  }
-};
-
-// Struct: LanguageModelAssets
-on_device_model.mojom.LanguageModelAssets = class {
-  constructor(values = {}) {
-    this.model = values.model !== undefined ? values.model : null;
-  }
-};
-
-// Struct: TextSafetyModelParams
-on_device_model.mojom.TextSafetyModelParams = class {
-  constructor(values = {}) {
-    this.language_assets = values.language_assets !== undefined ? values.language_assets : null;
-  }
-};
-
 // Interface: PlatformModelProgressObserver
-on_device_model.mojom.PlatformModelProgressObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
-  }
-
-};
-
-on_device_model.mojom.PlatformModelProgressObserverRequest = class {
+on_device_model.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+on_device_model.mojom.PlatformModelProgressObserverRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.PlatformModelProgressObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.PlatformModelProgressObserverPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
+  let remote = new on_device_model.mojom.PlatformModelProgressObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.PlatformModelProgressObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.PlatformModelProgressObserverPtr = on_device_model.mojom.PlatformModelProgressObserverRemote;
+on_device_model.mojom.PlatformModelProgressObserverRequest = on_device_model.mojom.PlatformModelProgressObserverPendingReceiver;
+
+
 // Interface: OnDeviceModelService
-on_device_model.mojom.OnDeviceModelServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.OnDeviceModelService';
+on_device_model.mojom.OnDeviceModelServicePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+on_device_model.mojom.OnDeviceModelServiceRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.OnDeviceModelService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.OnDeviceModelServicePendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   loadModel(params, model) {
-    // Method: LoadModel
-    return new Promise((resolve) => {
-      // Call: LoadModel(params, model)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$,
+      [params, model]);
   }
 
   getCapabilities(weights) {
-    // Method: GetCapabilities
-    return new Promise((resolve) => {
-      // Call: GetCapabilities(weights)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$,
+      [weights]);
   }
 
   loadTextSafetyModel(params, model) {
-    // Method: LoadTextSafetyModel
-    // Call: LoadTextSafetyModel(params, model)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$,
+      null,
+      [params, model]);
   }
 
   getDeviceAndPerformanceInfo() {
-    // Method: GetDeviceAndPerformanceInfo
-    return new Promise((resolve) => {
-      // Call: GetDeviceAndPerformanceInfo()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$,
+      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-on_device_model.mojom.OnDeviceModelServiceRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+on_device_model.mojom.OnDeviceModelService.getRemote = function() {
+  let remote = new on_device_model.mojom.OnDeviceModelServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.OnDeviceModelService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for LoadModel
+on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetCapabilities
+on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LoadTextSafetyModel
+on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.LoadTextSafetyModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDeviceAndPerformanceInfo
+on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+on_device_model.mojom.OnDeviceModelServicePtr = on_device_model.mojom.OnDeviceModelServiceRemote;
+on_device_model.mojom.OnDeviceModelServiceRequest = on_device_model.mojom.OnDeviceModelServicePendingReceiver;
+
 
 // Interface: OnDeviceModelPlatformService
-on_device_model.mojom.OnDeviceModelPlatformServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
-  }
-
-};
-
-on_device_model.mojom.OnDeviceModelPlatformServiceRequest = class {
+on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.OnDeviceModelPlatformServiceRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.OnDeviceModelPlatformService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
+  let remote = new on_device_model.mojom.OnDeviceModelPlatformServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.OnDeviceModelPlatformService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.OnDeviceModelPlatformServicePtr = on_device_model.mojom.OnDeviceModelPlatformServiceRemote;
+on_device_model.mojom.OnDeviceModelPlatformServiceRequest = on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver;
+

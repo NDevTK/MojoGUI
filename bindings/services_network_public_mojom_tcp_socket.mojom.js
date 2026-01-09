@@ -9,161 +9,556 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
-// Struct: TCPKeepAliveOptions
-network.mojom.TCPKeepAliveOptions = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TCPConnectedSocketOptions
-network.mojom.TCPConnectedSocketOptions = class {
-  constructor(values = {}) {
-    this.packet = values.packet !== undefined ? values.packet : null;
-    this.default = values.default !== undefined ? values.default : null;
-    this.to = values.to !== undefined ? values.to : null;
-    this.true = values.true !== undefined ? values.true : false;
-    this.default = values.default !== undefined ? values.default : null;
-    this.keep_alive_options = values.keep_alive_options !== undefined ? values.keep_alive_options : null;
-  }
-};
-
-// Struct: TCPServerSocketOptions
-network.mojom.TCPServerSocketOptions = class {
-  constructor(values = {}) {
-    this.connection_tracker = values.connection_tracker !== undefined ? values.connection_tracker : 0;
-  }
-};
-
 // Interface: TCPBoundSocket
-network.mojom.TCPBoundSocketPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.TCPBoundSocket';
+network.mojom.TCPBoundSocketPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+network.mojom.TCPBoundSocketRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.TCPBoundSocket';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.TCPBoundSocketPendingReceiver,
+      handle);
+    this.$ = new network.mojom.TCPBoundSocketRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.TCPBoundSocketRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   listen(backlog, socket) {
-    // Method: Listen
-    return new Promise((resolve) => {
-      // Call: Listen(backlog, socket)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.TCPBoundSocket_Listen_ParamsSpec.$,
+      network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$,
+      [backlog, socket]);
   }
 
   connect(remote_addr_list, tcp_connected_socket_options, socket, observer) {
-    // Method: Connect
-    return new Promise((resolve) => {
-      // Call: Connect(remote_addr_list, tcp_connected_socket_options, socket, observer)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.TCPBoundSocket_Connect_ParamsSpec.$,
+      network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$,
+      [remote_addr_list, tcp_connected_socket_options, socket, observer]);
   }
 
 };
 
-network.mojom.TCPBoundSocketRequest = class {
+network.mojom.TCPBoundSocket.getRemote = function() {
+  let remote = new network.mojom.TCPBoundSocketRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.TCPBoundSocket',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Listen
+network.mojom.TCPBoundSocket_Listen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPBoundSocket.Listen_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'backlog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPBoundSocket.Listen_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Connect
+network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPBoundSocket.Connect_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'remote_addr_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tcp_connected_socket_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPBoundSocket.Connect_ResponseParams',
+      packedSize: 48,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_addr', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receive_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.TCPBoundSocketPtr = network.mojom.TCPBoundSocketRemote;
+network.mojom.TCPBoundSocketRequest = network.mojom.TCPBoundSocketPendingReceiver;
+
+
+// Interface: TCPConnectedSocket
+network.mojom.TCPConnectedSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: TCPConnectedSocket
-network.mojom.TCPConnectedSocketPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.TCPConnectedSocket';
+network.mojom.TCPConnectedSocketRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.TCPConnectedSocket';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.TCPConnectedSocketPendingReceiver,
+      handle);
+    this.$ = new network.mojom.TCPConnectedSocketRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.TCPConnectedSocketRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   upgradeToTLS(host_port_pair, options, traffic_annotation, receiver, observer) {
-    // Method: UpgradeToTLS
-    return new Promise((resolve) => {
-      // Call: UpgradeToTLS(host_port_pair, options, traffic_annotation, receiver, observer)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$,
+      network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$,
+      [host_port_pair, options, traffic_annotation, receiver, observer]);
   }
 
   setSendBufferSize(send_buffer_size) {
-    // Method: SetSendBufferSize
-    return new Promise((resolve) => {
-      // Call: SetSendBufferSize(send_buffer_size)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$,
+      [send_buffer_size]);
   }
 
   setReceiveBufferSize(receive_buffer_size) {
-    // Method: SetReceiveBufferSize
-    return new Promise((resolve) => {
-      // Call: SetReceiveBufferSize(receive_buffer_size)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$,
+      [receive_buffer_size]);
   }
 
   setNoDelay(no_delay) {
-    // Method: SetNoDelay
-    return new Promise((resolve) => {
-      // Call: SetNoDelay(no_delay)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$,
+      [no_delay]);
   }
 
   setKeepAlive(enable, delay_secs) {
-    // Method: SetKeepAlive
-    return new Promise((resolve) => {
-      // Call: SetKeepAlive(enable, delay_secs)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$,
+      network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$,
+      [enable, delay_secs]);
   }
 
 };
 
-network.mojom.TCPConnectedSocketRequest = class {
+network.mojom.TCPConnectedSocket.getRemote = function() {
+  let remote = new network.mojom.TCPConnectedSocketRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.TCPConnectedSocket',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for UpgradeToTLS
+network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.UpgradeToTLS_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'host_port_pair', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.UpgradeToTLS_ResponseParams',
+      packedSize: 40,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receive_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ssl_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSendBufferSize
+network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetSendBufferSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'send_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetSendBufferSize_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetReceiveBufferSize
+network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetReceiveBufferSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receive_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetReceiveBufferSize_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetNoDelay
+network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetNoDelay_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'no_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetNoDelay_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetKeepAlive
+network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetKeepAlive_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'delay_secs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPConnectedSocket.SetKeepAlive_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.TCPConnectedSocketPtr = network.mojom.TCPConnectedSocketRemote;
+network.mojom.TCPConnectedSocketRequest = network.mojom.TCPConnectedSocketPendingReceiver;
+
+
+// Interface: SocketObserver
+network.mojom.SocketObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: SocketObserver
-network.mojom.SocketObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.SocketObserver';
+network.mojom.SocketObserverRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.SocketObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.SocketObserverPendingReceiver,
+      handle);
+    this.$ = new network.mojom.SocketObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.SocketObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onReadError(net_error) {
-    // Method: OnReadError
-    // Call: OnReadError(net_error)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.SocketObserver_OnReadError_ParamsSpec.$,
+      null,
+      [net_error]);
   }
 
   onWriteError(net_error) {
-    // Method: OnWriteError
-    // Call: OnWriteError(net_error)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.SocketObserver_OnWriteError_ParamsSpec.$,
+      null,
+      [net_error]);
   }
 
 };
 
-network.mojom.SocketObserverRequest = class {
+network.mojom.SocketObserver.getRemote = function() {
+  let remote = new network.mojom.SocketObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.SocketObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnReadError
+network.mojom.SocketObserver_OnReadError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SocketObserver.OnReadError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnWriteError
+network.mojom.SocketObserver_OnWriteError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SocketObserver.OnWriteError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.SocketObserverPtr = network.mojom.SocketObserverRemote;
+network.mojom.SocketObserverRequest = network.mojom.SocketObserverPendingReceiver;
+
+
+// Interface: TCPServerSocket
+network.mojom.TCPServerSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: TCPServerSocket
-network.mojom.TCPServerSocketPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.TCPServerSocket';
+network.mojom.TCPServerSocketRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.TCPServerSocket';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.TCPServerSocketPendingReceiver,
+      handle);
+    this.$ = new network.mojom.TCPServerSocketRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.TCPServerSocketRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   accept(observer) {
-    // Method: Accept
-    return new Promise((resolve) => {
-      // Call: Accept(observer)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.TCPServerSocket_Accept_ParamsSpec.$,
+      network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$,
+      [observer]);
   }
 
 };
 
-network.mojom.TCPServerSocketRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+network.mojom.TCPServerSocket.getRemote = function() {
+  let remote = new network.mojom.TCPServerSocketRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.TCPServerSocket',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Accept
+network.mojom.TCPServerSocket_Accept_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPServerSocket.Accept_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TCPServerSocket.Accept_ResponseParams',
+      packedSize: 48,
+      fields: [
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'remote_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connected_socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receive_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.TCPServerSocketPtr = network.mojom.TCPServerSocketRemote;
+network.mojom.TCPServerSocketRequest = network.mojom.TCPServerSocketPendingReceiver;
+

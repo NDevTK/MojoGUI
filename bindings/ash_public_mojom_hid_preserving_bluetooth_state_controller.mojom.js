@@ -16,21 +16,75 @@ ash.mojom.HidWarningDialogSource = {
 };
 
 // Interface: HidPreservingBluetoothStateController
-ash.mojom.HidPreservingBluetoothStateControllerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.mojom.HidPreservingBluetoothStateController';
-  }
-
-  tryToSetBluetoothEnabledState(enabled, source) {
-    // Method: TryToSetBluetoothEnabledState
-    // Call: TryToSetBluetoothEnabledState(enabled, source)
-  }
-
-};
-
-ash.mojom.HidPreservingBluetoothStateControllerRequest = class {
+ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.mojom.HidPreservingBluetoothStateControllerRemote = class {
+  static get $interfaceName() {
+    return 'ash.mojom.HidPreservingBluetoothStateController';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver,
+      handle);
+    this.$ = new ash.mojom.HidPreservingBluetoothStateControllerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.mojom.HidPreservingBluetoothStateControllerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  tryToSetBluetoothEnabledState(enabled, source) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$,
+      null,
+      [enabled, source]);
+  }
+
+};
+
+ash.mojom.HidPreservingBluetoothStateController.getRemote = function() {
+  let remote = new ash.mojom.HidPreservingBluetoothStateControllerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.mojom.HidPreservingBluetoothStateController',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for TryToSetBluetoothEnabledState
+ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.mojom.HidPreservingBluetoothStateController.TryToSetBluetoothEnabledState_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.mojom.HidPreservingBluetoothStateControllerPtr = ash.mojom.HidPreservingBluetoothStateControllerRemote;
+ash.mojom.HidPreservingBluetoothStateControllerRequest = ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver;
+

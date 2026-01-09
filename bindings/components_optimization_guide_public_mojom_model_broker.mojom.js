@@ -26,93 +26,298 @@ optimization_guide.mojom.OnDeviceFeature = {
 
 // Enum: ModelUnavailableReason
 optimization_guide.mojom.ModelUnavailableReason = {
-};
-
-// Struct: ModelSolutionConfig
-optimization_guide.mojom.ModelSolutionConfig = class {
-  constructor(values = {}) {
-    this.max_tokens = values.max_tokens !== undefined ? values.max_tokens : 0;
-  }
-};
-
-// Struct: ModelSubscriptionOptions
-optimization_guide.mojom.ModelSubscriptionOptions = class {
-  constructor(values = {}) {
-    this.mark_used = values.mark_used !== undefined ? values.mark_used : false;
-  }
+  kUnknown: 0,
+  kNotSupported: 1,
+  kPendingAssets: 2,
+  kPendingUsage: 3,
 };
 
 // Interface: ModelSolution
-optimization_guide.mojom.ModelSolutionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'optimization_guide.mojom.ModelSolution';
+optimization_guide.mojom.ModelSolutionPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+optimization_guide.mojom.ModelSolutionRemote = class {
+  static get $interfaceName() {
+    return 'optimization_guide.mojom.ModelSolution';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      optimization_guide.mojom.ModelSolutionPendingReceiver,
+      handle);
+    this.$ = new optimization_guide.mojom.ModelSolutionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createSession(session, params) {
-    // Method: CreateSession
-    // Call: CreateSession(session, params)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$,
+      null,
+      [session, params]);
   }
 
   createTextSafetySession(session) {
-    // Method: CreateTextSafetySession
-    // Call: CreateTextSafetySession(session)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$,
+      null,
+      [session]);
   }
 
   reportHealthyCompletion() {
-    // Method: ReportHealthyCompletion
-    // Call: ReportHealthyCompletion()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-optimization_guide.mojom.ModelSolutionRequest = class {
+optimization_guide.mojom.ModelSolution.getRemote = function() {
+  let remote = new optimization_guide.mojom.ModelSolutionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'optimization_guide.mojom.ModelSolution',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateSession
+optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSolution.CreateSession_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateTextSafetySession
+optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSolution.CreateTextSafetySession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReportHealthyCompletion
+optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSolution.ReportHealthyCompletion_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+optimization_guide.mojom.ModelSolutionPtr = optimization_guide.mojom.ModelSolutionRemote;
+optimization_guide.mojom.ModelSolutionRequest = optimization_guide.mojom.ModelSolutionPendingReceiver;
+
+
+// Interface: ModelSubscriber
+optimization_guide.mojom.ModelSubscriberPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ModelSubscriber
-optimization_guide.mojom.ModelSubscriberPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'optimization_guide.mojom.ModelSubscriber';
+optimization_guide.mojom.ModelSubscriberRemote = class {
+  static get $interfaceName() {
+    return 'optimization_guide.mojom.ModelSubscriber';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      optimization_guide.mojom.ModelSubscriberPendingReceiver,
+      handle);
+    this.$ = new optimization_guide.mojom.ModelSubscriberRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   unavailable(reason) {
-    // Method: Unavailable
-    // Call: Unavailable(reason)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$,
+      null,
+      [reason]);
   }
 
   available(config, solution) {
-    // Method: Available
-    // Call: Available(config, solution)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$,
+      null,
+      [config, solution]);
   }
 
 };
 
-optimization_guide.mojom.ModelSubscriberRequest = class {
+optimization_guide.mojom.ModelSubscriber.getRemote = function() {
+  let remote = new optimization_guide.mojom.ModelSubscriberRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'optimization_guide.mojom.ModelSubscriber',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Unavailable
+optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSubscriber.Unavailable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Available
+optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelSubscriber.Available_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+optimization_guide.mojom.ModelSubscriberPtr = optimization_guide.mojom.ModelSubscriberRemote;
+optimization_guide.mojom.ModelSubscriberRequest = optimization_guide.mojom.ModelSubscriberPendingReceiver;
+
+
+// Interface: ModelBroker
+optimization_guide.mojom.ModelBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ModelBroker
-optimization_guide.mojom.ModelBrokerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'optimization_guide.mojom.ModelBroker';
+optimization_guide.mojom.ModelBrokerRemote = class {
+  static get $interfaceName() {
+    return 'optimization_guide.mojom.ModelBroker';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      optimization_guide.mojom.ModelBrokerPendingReceiver,
+      handle);
+    this.$ = new optimization_guide.mojom.ModelBrokerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   subscribe(options, subcriber) {
-    // Method: Subscribe
-    // Call: Subscribe(options, subcriber)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$,
+      null,
+      [options, subcriber]);
   }
 
 };
 
-optimization_guide.mojom.ModelBrokerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+optimization_guide.mojom.ModelBroker.getRemote = function() {
+  let remote = new optimization_guide.mojom.ModelBrokerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'optimization_guide.mojom.ModelBroker',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Subscribe
+optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'optimization_guide.mojom.ModelBroker.Subscribe_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+optimization_guide.mojom.ModelBrokerPtr = optimization_guide.mojom.ModelBrokerRemote;
+optimization_guide.mojom.ModelBrokerRequest = optimization_guide.mojom.ModelBrokerPendingReceiver;
+

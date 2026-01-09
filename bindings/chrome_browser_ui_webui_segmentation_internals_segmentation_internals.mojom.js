@@ -9,103 +9,316 @@ var segmentation_internals = segmentation_internals || {};
 segmentation_internals.mojom = segmentation_internals.mojom || {};
 
 
-// Struct: ServiceStatus
-segmentation_internals.mojom.ServiceStatus = class {
-  constructor(values = {}) {
-    this.intialization_status = values.intialization_status !== undefined ? values.intialization_status : 0;
-  }
-};
-
-// Struct: SegmentInfo
-segmentation_internals.mojom.SegmentInfo = class {
-  constructor(values = {}) {
-    this.prediction_timestamp = values.prediction_timestamp !== undefined ? values.prediction_timestamp : 0;
-  }
-};
-
-// Struct: ClientInfo
-segmentation_internals.mojom.ClientInfo = class {
-  constructor(values = {}) {
-    this.segment_info = values.segment_info !== undefined ? values.segment_info : "";
-  }
-};
-
 // Interface: PageHandlerFactory
-segmentation_internals.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'segmentation_internals.mojom.PageHandlerFactory';
+segmentation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+segmentation_internals.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'segmentation_internals.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      segmentation_internals.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-segmentation_internals.mojom.PageHandlerFactoryRequest = class {
+segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new segmentation_internals.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'segmentation_internals.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+segmentation_internals.mojom.PageHandlerFactoryPtr = segmentation_internals.mojom.PageHandlerFactoryRemote;
+segmentation_internals.mojom.PageHandlerFactoryRequest = segmentation_internals.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+segmentation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-segmentation_internals.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'segmentation_internals.mojom.PageHandler';
+segmentation_internals.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'segmentation_internals.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      segmentation_internals.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new segmentation_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getServiceStatus() {
-    // Method: GetServiceStatus
-    // Call: GetServiceStatus()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$,
+      null,
+      []);
   }
 
   executeModel(segment_id) {
-    // Method: ExecuteModel
-    // Call: ExecuteModel(segment_id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$,
+      null,
+      [segment_id]);
   }
 
   overwriteResult(segment_id, result) {
-    // Method: OverwriteResult
-    // Call: OverwriteResult(segment_id, result)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$,
+      null,
+      [segment_id, result]);
   }
 
   setSelected(segmentation_key, optimization_target) {
-    // Method: SetSelected
-    // Call: SetSelected(segmentation_key, optimization_target)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$,
+      null,
+      [segmentation_key, optimization_target]);
   }
 
 };
 
-segmentation_internals.mojom.PageHandlerRequest = class {
+segmentation_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new segmentation_internals.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'segmentation_internals.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetServiceStatus
+segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.PageHandler.GetServiceStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ExecuteModel
+segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.PageHandler.ExecuteModel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OverwriteResult
+segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.PageHandler.OverwriteResult_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSelected
+segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.PageHandler.SetSelected_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'segmentation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optimization_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+segmentation_internals.mojom.PageHandlerPtr = segmentation_internals.mojom.PageHandlerRemote;
+segmentation_internals.mojom.PageHandlerRequest = segmentation_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+segmentation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-segmentation_internals.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'segmentation_internals.mojom.Page';
+segmentation_internals.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'segmentation_internals.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      segmentation_internals.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new segmentation_internals.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+segmentation_internals.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onServiceStatusChanged(is_initialized, status_flag) {
-    // Method: OnServiceStatusChanged
-    // Call: OnServiceStatusChanged(is_initialized, status_flag)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$,
+      null,
+      [is_initialized, status_flag]);
   }
 
   onClientInfoAvailable(client_info) {
-    // Method: OnClientInfoAvailable
-    // Call: OnClientInfoAvailable(client_info)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$,
+      null,
+      [client_info]);
   }
 
 };
 
-segmentation_internals.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+segmentation_internals.mojom.Page.getRemote = function() {
+  let remote = new segmentation_internals.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'segmentation_internals.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnServiceStatusChanged
+segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.Page.OnServiceStatusChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status_flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnClientInfoAvailable
+segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'segmentation_internals.mojom.Page.OnClientInfoAvailable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+segmentation_internals.mojom.PagePtr = segmentation_internals.mojom.PageRemote;
+segmentation_internals.mojom.PageRequest = segmentation_internals.mojom.PagePendingReceiver;
+

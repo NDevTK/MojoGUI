@@ -15,99 +15,242 @@ ax.mojom.SpeechRecognitionType = {
   kNetwork: 1,
 };
 
-// Struct: SpeechRecognitionResultEvent
-ax.mojom.SpeechRecognitionResultEvent = class {
-  constructor(values = {}) {
-    this.is_final = values.is_final !== undefined ? values.is_final : false;
-  }
-};
-
-// Struct: SpeechRecognitionErrorEvent
-ax.mojom.SpeechRecognitionErrorEvent = class {
-  constructor(values = {}) {
-    this.message = values.message !== undefined ? values.message : "";
-  }
-};
-
-// Struct: StartOptions
-ax.mojom.StartOptions = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-    this.interim_results = values.interim_results !== undefined ? values.interim_results : false;
-  }
-};
-
-// Struct: StopOptions
-ax.mojom.StopOptions = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-  }
-};
-
-// Struct: SpeechRecognitionStartInfo
-ax.mojom.SpeechRecognitionStartInfo = class {
-  constructor(values = {}) {
-    this.observer_or_error = values.observer_or_error !== undefined ? values.observer_or_error : null;
-  }
-};
-
 // Interface: SpeechRecognitionEventObserver
-ax.mojom.SpeechRecognitionEventObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ax.mojom.SpeechRecognitionEventObserver';
+ax.mojom.SpeechRecognitionEventObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ax.mojom.SpeechRecognitionEventObserverRemote = class {
+  static get $interfaceName() {
+    return 'ax.mojom.SpeechRecognitionEventObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ax.mojom.SpeechRecognitionEventObserverPendingReceiver,
+      handle);
+    this.$ = new ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onStop() {
-    // Method: OnStop
-    // Call: OnStop()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$,
+      null,
+      []);
   }
 
   onResult(event) {
-    // Method: OnResult
-    // Call: OnResult(event)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   onError(event) {
-    // Method: OnError
-    // Call: OnError(event)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$,
+      null,
+      [event]);
   }
 
 };
 
-ax.mojom.SpeechRecognitionEventObserverRequest = class {
+ax.mojom.SpeechRecognitionEventObserver.getRemote = function() {
+  let remote = new ax.mojom.SpeechRecognitionEventObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ax.mojom.SpeechRecognitionEventObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnStop
+ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognitionEventObserver.OnStop_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnResult
+ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognitionEventObserver.OnResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnError
+ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognitionEventObserver.OnError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ax.mojom.SpeechRecognitionEventObserverPtr = ax.mojom.SpeechRecognitionEventObserverRemote;
+ax.mojom.SpeechRecognitionEventObserverRequest = ax.mojom.SpeechRecognitionEventObserverPendingReceiver;
+
+
+// Interface: SpeechRecognition
+ax.mojom.SpeechRecognitionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: SpeechRecognition
-ax.mojom.SpeechRecognitionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ax.mojom.SpeechRecognition';
+ax.mojom.SpeechRecognitionRemote = class {
+  static get $interfaceName() {
+    return 'ax.mojom.SpeechRecognition';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ax.mojom.SpeechRecognitionPendingReceiver,
+      handle);
+    this.$ = new ax.mojom.SpeechRecognitionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ax.mojom.SpeechRecognitionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   start(options) {
-    // Method: Start
-    return new Promise((resolve) => {
-      // Call: Start(options)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ax.mojom.SpeechRecognition_Start_ParamsSpec.$,
+      ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$,
+      [options]);
   }
 
   stop(options) {
-    // Method: Stop
-    return new Promise((resolve) => {
-      // Call: Stop(options)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ax.mojom.SpeechRecognition_Stop_ParamsSpec.$,
+      ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$,
+      [options]);
   }
 
 };
 
-ax.mojom.SpeechRecognitionRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ax.mojom.SpeechRecognition.getRemote = function() {
+  let remote = new ax.mojom.SpeechRecognitionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ax.mojom.SpeechRecognition',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Start
+ax.mojom.SpeechRecognition_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognition.Start_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognition.Start_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Stop
+ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognition.Stop_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.SpeechRecognition.Stop_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ax.mojom.SpeechRecognitionPtr = ax.mojom.SpeechRecognitionRemote;
+ax.mojom.SpeechRecognitionRequest = ax.mojom.SpeechRecognitionPendingReceiver;
+

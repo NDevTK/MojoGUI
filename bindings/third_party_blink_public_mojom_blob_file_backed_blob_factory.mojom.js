@@ -10,26 +10,103 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileBackedBlobFactory
-blink.mojom.FileBackedBlobFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FileBackedBlobFactory';
-  }
-
-  registerBlob(blob, uuid, content_type, file) {
-    // Method: RegisterBlob
-    // Call: RegisterBlob(blob, uuid, content_type, file)
-  }
-
-  registerBlobSync(blob, uuid, content_type, file) {
-    // Method: RegisterBlobSync
-    // Call: RegisterBlobSync(blob, uuid, content_type, file)
-  }
-
-};
-
-blink.mojom.FileBackedBlobFactoryRequest = class {
+blink.mojom.FileBackedBlobFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.FileBackedBlobFactoryRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FileBackedBlobFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FileBackedBlobFactoryPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FileBackedBlobFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  registerBlob(blob, uuid, content_type, file) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$,
+      null,
+      [blob, uuid, content_type, file]);
+  }
+
+  registerBlobSync(blob, uuid, content_type, file) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$,
+      null,
+      [blob, uuid, content_type, file]);
+  }
+
+};
+
+blink.mojom.FileBackedBlobFactory.getRemote = function() {
+  let remote = new blink.mojom.FileBackedBlobFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FileBackedBlobFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RegisterBlob
+blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileBackedBlobFactory.RegisterBlob_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RegisterBlobSync
+blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileBackedBlobFactory.RegisterBlobSync_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FileBackedBlobFactoryPtr = blink.mojom.FileBackedBlobFactoryRemote;
+blink.mojom.FileBackedBlobFactoryRequest = blink.mojom.FileBackedBlobFactoryPendingReceiver;
+

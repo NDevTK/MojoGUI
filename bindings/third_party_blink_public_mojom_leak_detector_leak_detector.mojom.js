@@ -9,32 +9,87 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: LeakDetectionResult
-blink.mojom.LeakDetectionResult = class {
-  constructor(values = {}) {
-    this.number_of_live_resource_fetchers = values.number_of_live_resource_fetchers !== undefined ? values.number_of_live_resource_fetchers : 0;
-  }
-};
-
 // Interface: LeakDetector
-blink.mojom.LeakDetectorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.LeakDetector';
-  }
-
-  performLeakDetection() {
-    // Method: PerformLeakDetection
-    return new Promise((resolve) => {
-      // Call: PerformLeakDetection()
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.LeakDetectorRequest = class {
+blink.mojom.LeakDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.LeakDetectorRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.LeakDetector';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.LeakDetectorPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.LeakDetectorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.LeakDetectorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  performLeakDetection() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec.$,
+      blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+blink.mojom.LeakDetector.getRemote = function() {
+  let remote = new blink.mojom.LeakDetectorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.LeakDetector',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for PerformLeakDetection
+blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LeakDetector.PerformLeakDetection_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.LeakDetector.PerformLeakDetection_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.LeakDetectorPtr = blink.mojom.LeakDetectorRemote;
+blink.mojom.LeakDetectorRequest = blink.mojom.LeakDetectorPendingReceiver;
+

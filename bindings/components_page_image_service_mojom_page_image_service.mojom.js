@@ -11,44 +11,99 @@ page_image_service.mojom = page_image_service.mojom || {};
 
 // Enum: ClientId
 page_image_service.mojom.ClientId = {
-  JourneysSidePanel: 0,
-  NtpRealbox: 1,
-  NtpQuests: 2,
-};
-
-// Struct: Options
-page_image_service.mojom.Options = class {
-  constructor(values = {}) {
-    this.true = values.true !== undefined ? values.true : false;
-  }
-};
-
-// Struct: ImageResult
-page_image_service.mojom.ImageResult = class {
-  constructor(values = {}) {
-    this.image_url = values.image_url !== undefined ? values.image_url : null;
-  }
+  Journeys: 0,
+  JourneysSidePanel: 1,
+  NtpRealbox: 2,
+  NtpQuests: 3,
+  Bookmarks: 4,
+  NtpTabResumption: 5,
+  HistoryEmbeddings: 6,
 };
 
 // Interface: PageImageServiceHandler
-page_image_service.mojom.PageImageServiceHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'page_image_service.mojom.PageImageServiceHandler';
-  }
-
-  getPageImageUrl(client_id, page_url, options) {
-    // Method: GetPageImageUrl
-    return new Promise((resolve) => {
-      // Call: GetPageImageUrl(client_id, page_url, options)
-      resolve({});
-    });
-  }
-
-};
-
-page_image_service.mojom.PageImageServiceHandlerRequest = class {
+page_image_service.mojom.PageImageServiceHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+page_image_service.mojom.PageImageServiceHandlerRemote = class {
+  static get $interfaceName() {
+    return 'page_image_service.mojom.PageImageServiceHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      page_image_service.mojom.PageImageServiceHandlerPendingReceiver,
+      handle);
+    this.$ = new page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getPageImageUrl(client_id, page_url, options) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$,
+      page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec.$,
+      [client_id, page_url, options]);
+  }
+
+};
+
+page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
+  let remote = new page_image_service.mojom.PageImageServiceHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'page_image_service.mojom.PageImageServiceHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetPageImageUrl
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+page_image_service.mojom.PageImageServiceHandlerPtr = page_image_service.mojom.PageImageServiceHandlerRemote;
+page_image_service.mojom.PageImageServiceHandlerRequest = page_image_service.mojom.PageImageServiceHandlerPendingReceiver;
+

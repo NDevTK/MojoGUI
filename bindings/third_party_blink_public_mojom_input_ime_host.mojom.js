@@ -9,46 +9,75 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: EditorBoundsInfo
-blink.mojom.EditorBoundsInfo = class {
-  constructor(values = {}) {
-    this.handwriting_bounds = values.handwriting_bounds !== undefined ? values.handwriting_bounds : null;
-  }
-};
-
-// Struct: TextAppearanceInfo
-blink.mojom.TextAppearanceInfo = class {
-  constructor(values = {}) {
-    this.text_color = values.text_color !== undefined ? values.text_color : null;
-  }
-};
-
-// Struct: InputCursorAnchorInfo
-blink.mojom.InputCursorAnchorInfo = class {
-  constructor(values = {}) {
-    this.visible_line_bounds = values.visible_line_bounds !== undefined ? values.visible_line_bounds : [];
-    this.insertion_marker = values.insertion_marker !== undefined ? values.insertion_marker : null;
-    this.update = values.update !== undefined ? values.update : null;
-    this.requested = values.requested !== undefined ? values.requested : false;
-  }
-};
-
 // Interface: ImeRenderWidgetHost
-blink.mojom.ImeRenderWidgetHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ImeRenderWidgetHost';
-  }
-
-  updateCursorAnchorInfo(cursor_anchor_info) {
-    // Method: UpdateCursorAnchorInfo
-    // Call: UpdateCursorAnchorInfo(cursor_anchor_info)
-  }
-
-};
-
-blink.mojom.ImeRenderWidgetHostRequest = class {
+blink.mojom.ImeRenderWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.ImeRenderWidgetHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ImeRenderWidgetHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ImeRenderWidgetHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ImeRenderWidgetHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  updateCursorAnchorInfo(cursor_anchor_info) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$,
+      null,
+      [cursor_anchor_info]);
+  }
+
+};
+
+blink.mojom.ImeRenderWidgetHost.getRemote = function() {
+  let remote = new blink.mojom.ImeRenderWidgetHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ImeRenderWidgetHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for UpdateCursorAnchorInfo
+blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ImeRenderWidgetHost.UpdateCursorAnchorInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cursor_anchor_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ImeRenderWidgetHostPtr = blink.mojom.ImeRenderWidgetHostRemote;
+blink.mojom.ImeRenderWidgetHostRequest = blink.mojom.ImeRenderWidgetHostPendingReceiver;
+

@@ -10,21 +10,74 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PrinterXmlParser
-printing.mojom.PrinterXmlParserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'printing.mojom.PrinterXmlParser';
-  }
-
-  parseXmlForPrinterCapabilities(capabilities_xml) {
-    // Method: ParseXmlForPrinterCapabilities
-    // Call: ParseXmlForPrinterCapabilities(capabilities_xml)
-  }
-
-};
-
-printing.mojom.PrinterXmlParserRequest = class {
+printing.mojom.PrinterXmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+printing.mojom.PrinterXmlParserRemote = class {
+  static get $interfaceName() {
+    return 'printing.mojom.PrinterXmlParser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      printing.mojom.PrinterXmlParserPendingReceiver,
+      handle);
+    this.$ = new printing.mojom.PrinterXmlParserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+printing.mojom.PrinterXmlParserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  parseXmlForPrinterCapabilities(capabilities_xml) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$,
+      null,
+      [capabilities_xml]);
+  }
+
+};
+
+printing.mojom.PrinterXmlParser.getRemote = function() {
+  let remote = new printing.mojom.PrinterXmlParserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'printing.mojom.PrinterXmlParser',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ParseXmlForPrinterCapabilities
+printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PrinterXmlParser.ParseXmlForPrinterCapabilities_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'capabilities_xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+printing.mojom.PrinterXmlParserPtr = printing.mojom.PrinterXmlParserRemote;
+printing.mojom.PrinterXmlParserRequest = printing.mojom.PrinterXmlParserPendingReceiver;
+

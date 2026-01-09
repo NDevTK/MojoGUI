@@ -38,144 +38,490 @@ blink.mojom.AudioOutputStatus = {
   kNoUserActivation: 7,
 };
 
-// Struct: MediaDeviceInfo
-blink.mojom.MediaDeviceInfo = class {
-  constructor(values = {}) {
-    this.availability = values.availability !== undefined ? values.availability : "";
-  }
-};
-
-// Struct: VideoInputDeviceCapabilities
-blink.mojom.VideoInputDeviceCapabilities = class {
-  constructor(values = {}) {
-    this.availability = values.availability !== undefined ? values.availability : "";
-  }
-};
-
-// Struct: SelectAudioOutputResult
-blink.mojom.SelectAudioOutputResult = class {
-  constructor(values = {}) {
-    this.device_info = values.device_info !== undefined ? values.device_info : null;
-  }
-};
-
-// Struct: AudioInputDeviceCapabilities
-blink.mojom.AudioInputDeviceCapabilities = class {
-  constructor(values = {}) {
-    this.latency = values.latency !== undefined ? values.latency : 0;
-  }
-};
-
 // Interface: MediaDevicesDispatcherHost
-blink.mojom.MediaDevicesDispatcherHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.MediaDevicesDispatcherHost';
+blink.mojom.MediaDevicesDispatcherHostPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+blink.mojom.MediaDevicesDispatcherHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.MediaDevicesDispatcherHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.MediaDevicesDispatcherHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   enumerateDevices(request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities) {
-    // Method: EnumerateDevices
-    return new Promise((resolve) => {
-      // Call: EnumerateDevices(request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec.$,
+      [request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities]);
   }
 
   getVideoInputCapabilities() {
-    // Method: GetVideoInputCapabilities
-    return new Promise((resolve) => {
-      // Call: GetVideoInputCapabilities()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec.$,
+      []);
   }
 
   getAllVideoInputDeviceFormats(device_id) {
-    // Method: GetAllVideoInputDeviceFormats
-    return new Promise((resolve) => {
-      // Call: GetAllVideoInputDeviceFormats(device_id)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec.$,
+      [device_id]);
   }
 
   getAvailableVideoInputDeviceFormats(device_id) {
-    // Method: GetAvailableVideoInputDeviceFormats
-    return new Promise((resolve) => {
-      // Call: GetAvailableVideoInputDeviceFormats(device_id)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec.$,
+      [device_id]);
   }
 
   getAudioInputCapabilities() {
-    // Method: GetAudioInputCapabilities
-    return new Promise((resolve) => {
-      // Call: GetAudioInputCapabilities()
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec.$,
+      []);
   }
 
   addMediaDevicesListener(subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener) {
-    // Method: AddMediaDevicesListener
-    // Call: AddMediaDevicesListener(subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$,
+      null,
+      [subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener]);
   }
 
   setCaptureHandleConfig(config) {
-    // Method: SetCaptureHandleConfig
-    // Call: SetCaptureHandleConfig(config)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$,
+      null,
+      [config]);
   }
 
   closeFocusWindowOfOpportunity(label) {
-    // Method: CloseFocusWindowOfOpportunity
-    // Call: CloseFocusWindowOfOpportunity(label)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$,
+      null,
+      [label]);
   }
 
   produceSubCaptureTargetId(type) {
-    // Method: ProduceSubCaptureTargetId
-    return new Promise((resolve) => {
-      // Call: ProduceSubCaptureTargetId(type)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec.$,
+      [type]);
   }
 
   setPreferredSinkId(sink_id) {
-    // Method: SetPreferredSinkId
-    return new Promise((resolve) => {
-      // Call: SetPreferredSinkId(sink_id)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec.$,
+      [sink_id]);
   }
 
   selectAudioOutput(device_id) {
-    // Method: SelectAudioOutput
-    return new Promise((resolve) => {
-      // Call: SelectAudioOutput(device_id)
-      resolve({});
-    });
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$,
+      blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec.$,
+      [device_id]);
   }
 
 };
 
-blink.mojom.MediaDevicesDispatcherHostRequest = class {
+blink.mojom.MediaDevicesDispatcherHost.getRemote = function() {
+  let remote = new blink.mojom.MediaDevicesDispatcherHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.MediaDevicesDispatcherHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for EnumerateDevices
+blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.EnumerateDevices_Params',
+      packedSize: 48,
+      fields: [
+        { name: 'request_audio_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_video_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_audio_output', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_video_input_capabilities', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_audio_input_capabilities', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.EnumerateDevices_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'enumeration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_input_device_capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_input_device_capabilities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetVideoInputCapabilities
+blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetVideoInputCapabilities_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetVideoInputCapabilities_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'video_input_device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAllVideoInputDeviceFormats
+blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAllVideoInputDeviceFormats_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAllVideoInputDeviceFormats_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAvailableVideoInputDeviceFormats
+blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAvailableVideoInputDeviceFormats_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAvailableVideoInputDeviceFormats_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAudioInputCapabilities
+blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAudioInputCapabilities_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAudioInputCapabilities_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'audio_input_device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AddMediaDevicesListener
+blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.AddMediaDevicesListener_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'subscribe_audio_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscribe_video_input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subscribe_audio_output', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetCaptureHandleConfig
+blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SetCaptureHandleConfig_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseFocusWindowOfOpportunity
+blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.CloseFocusWindowOfOpportunity_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ProduceSubCaptureTargetId
+blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.ProduceSubCaptureTargetId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.ProduceSubCaptureTargetId_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPreferredSinkId
+blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SetPreferredSinkId_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SetPreferredSinkId_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SelectAudioOutput
+blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SelectAudioOutput_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SelectAudioOutput_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.MediaDevicesDispatcherHostPtr = blink.mojom.MediaDevicesDispatcherHostRemote;
+blink.mojom.MediaDevicesDispatcherHostRequest = blink.mojom.MediaDevicesDispatcherHostPendingReceiver;
+
+
+// Interface: MediaDevicesListener
+blink.mojom.MediaDevicesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: MediaDevicesListener
-blink.mojom.MediaDevicesListenerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.MediaDevicesListener';
+blink.mojom.MediaDevicesListenerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.MediaDevicesListener';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.MediaDevicesListenerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.MediaDevicesListenerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.MediaDevicesListenerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onDevicesChanged(type, device_infos) {
-    // Method: OnDevicesChanged
-    // Call: OnDevicesChanged(type, device_infos)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$,
+      null,
+      [type, device_infos]);
   }
 
 };
 
-blink.mojom.MediaDevicesListenerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+blink.mojom.MediaDevicesListener.getRemote = function() {
+  let remote = new blink.mojom.MediaDevicesListenerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.MediaDevicesListener',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDevicesChanged
+blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.MediaDevicesListener.OnDevicesChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+blink.mojom.MediaDevicesListenerPtr = blink.mojom.MediaDevicesListenerRemote;
+blink.mojom.MediaDevicesListenerRequest = blink.mojom.MediaDevicesListenerPendingReceiver;
+

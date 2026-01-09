@@ -58,102 +58,246 @@ ash.diagnostics.mojom.SecurityType = {
   kWpaPsk: 4,
 };
 
-// Struct: IPConfigProperties
-ash.diagnostics.mojom.IPConfigProperties = class {
-  constructor(values = {}) {
-    this.ip_address = values.ip_address !== undefined ? values.ip_address : 0;
-  }
-};
-
-// Struct: CellularStateProperties
-ash.diagnostics.mojom.CellularStateProperties = class {
-  constructor(values = {}) {
-    this.lock_type = values.lock_type !== undefined ? values.lock_type : 0;
-  }
-};
-
-// Struct: EthernetStateProperties
-ash.diagnostics.mojom.EthernetStateProperties = class {
-  constructor(values = {}) {
-    this.authentication = values.authentication !== undefined ? values.authentication : null;
-  }
-};
-
-// Struct: WiFiStateProperties
-ash.diagnostics.mojom.WiFiStateProperties = class {
-  constructor(values = {}) {
-    this.security = values.security !== undefined ? values.security : 0;
-  }
-};
-
-// Struct: Network
-ash.diagnostics.mojom.Network = class {
-  constructor(values = {}) {
-    this.ip_config = values.ip_config !== undefined ? values.ip_config : "";
-  }
-};
-
 // Interface: NetworkListObserver
-ash.diagnostics.mojom.NetworkListObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.diagnostics.mojom.NetworkListObserver';
+ash.diagnostics.mojom.NetworkListObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.diagnostics.mojom.NetworkListObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.diagnostics.mojom.NetworkListObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.diagnostics.mojom.NetworkListObserverPendingReceiver,
+      handle);
+    this.$ = new ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onNetworkListChanged(network_guids, active_guid) {
-    // Method: OnNetworkListChanged
-    // Call: OnNetworkListChanged(network_guids, active_guid)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$,
+      null,
+      [network_guids, active_guid]);
   }
 
 };
 
-ash.diagnostics.mojom.NetworkListObserverRequest = class {
+ash.diagnostics.mojom.NetworkListObserver.getRemote = function() {
+  let remote = new ash.diagnostics.mojom.NetworkListObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.diagnostics.mojom.NetworkListObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnNetworkListChanged
+ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.NetworkListObserver.OnNetworkListChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.diagnostics.mojom.NetworkListObserverPtr = ash.diagnostics.mojom.NetworkListObserverRemote;
+ash.diagnostics.mojom.NetworkListObserverRequest = ash.diagnostics.mojom.NetworkListObserverPendingReceiver;
+
+
+// Interface: NetworkStateObserver
+ash.diagnostics.mojom.NetworkStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NetworkStateObserver
-ash.diagnostics.mojom.NetworkStateObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.diagnostics.mojom.NetworkStateObserver';
+ash.diagnostics.mojom.NetworkStateObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.diagnostics.mojom.NetworkStateObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.diagnostics.mojom.NetworkStateObserverPendingReceiver,
+      handle);
+    this.$ = new ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onNetworkStateChanged(network) {
-    // Method: OnNetworkStateChanged
-    // Call: OnNetworkStateChanged(network)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$,
+      null,
+      [network]);
   }
 
 };
 
-ash.diagnostics.mojom.NetworkStateObserverRequest = class {
+ash.diagnostics.mojom.NetworkStateObserver.getRemote = function() {
+  let remote = new ash.diagnostics.mojom.NetworkStateObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.diagnostics.mojom.NetworkStateObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnNetworkStateChanged
+ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.NetworkStateObserver.OnNetworkStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.diagnostics.mojom.NetworkStateObserverPtr = ash.diagnostics.mojom.NetworkStateObserverRemote;
+ash.diagnostics.mojom.NetworkStateObserverRequest = ash.diagnostics.mojom.NetworkStateObserverPendingReceiver;
+
+
+// Interface: NetworkHealthProvider
+ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NetworkHealthProvider
-ash.diagnostics.mojom.NetworkHealthProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.diagnostics.mojom.NetworkHealthProvider';
+ash.diagnostics.mojom.NetworkHealthProviderRemote = class {
+  static get $interfaceName() {
+    return 'ash.diagnostics.mojom.NetworkHealthProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver,
+      handle);
+    this.$ = new ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   observeNetworkList(observer) {
-    // Method: ObserveNetworkList
-    // Call: ObserveNetworkList(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   observeNetwork(observer, guid) {
-    // Method: ObserveNetwork
-    // Call: ObserveNetwork(observer, guid)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$,
+      null,
+      [observer, guid]);
   }
 
 };
 
-ash.diagnostics.mojom.NetworkHealthProviderRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.diagnostics.mojom.NetworkHealthProvider.getRemote = function() {
+  let remote = new ash.diagnostics.mojom.NetworkHealthProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.diagnostics.mojom.NetworkHealthProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ObserveNetworkList
+ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetworkList_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ObserveNetwork
+ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetwork_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.diagnostics.mojom.NetworkHealthProviderPtr = ash.diagnostics.mojom.NetworkHealthProviderRemote;
+ash.diagnostics.mojom.NetworkHealthProviderRequest = ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver;
+

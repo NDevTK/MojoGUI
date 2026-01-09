@@ -10,24 +10,88 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: CborParser
-data_decoder.mojom.CborParserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'data_decoder.mojom.CborParser';
-  }
-
-  parse(cbor) {
-    // Method: Parse
-    return new Promise((resolve) => {
-      // Call: Parse(cbor)
-      resolve({});
-    });
-  }
-
-};
-
-data_decoder.mojom.CborParserRequest = class {
+data_decoder.mojom.CborParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+data_decoder.mojom.CborParserRemote = class {
+  static get $interfaceName() {
+    return 'data_decoder.mojom.CborParser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      data_decoder.mojom.CborParserPendingReceiver,
+      handle);
+    this.$ = new data_decoder.mojom.CborParserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+data_decoder.mojom.CborParserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  parse(cbor) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      data_decoder.mojom.CborParser_Parse_ParamsSpec.$,
+      data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$,
+      [cbor]);
+  }
+
+};
+
+data_decoder.mojom.CborParser.getRemote = function() {
+  let remote = new data_decoder.mojom.CborParserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'data_decoder.mojom.CborParser',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Parse
+data_decoder.mojom.CborParser_Parse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.CborParser.Parse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cbor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'data_decoder.mojom.CborParser.Parse_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+data_decoder.mojom.CborParserPtr = data_decoder.mojom.CborParserRemote;
+data_decoder.mojom.CborParserRequest = data_decoder.mojom.CborParserPendingReceiver;
+

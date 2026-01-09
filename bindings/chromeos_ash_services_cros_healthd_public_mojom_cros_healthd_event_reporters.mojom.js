@@ -11,16 +11,51 @@ ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
 
 // Interface: AshEventReporter
-ash.cros_healthd.mojom.AshEventReporterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.cros_healthd.mojom.AshEventReporter';
-  }
-
-};
-
-ash.cros_healthd.mojom.AshEventReporterRequest = class {
+ash.cros_healthd.mojom.AshEventReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.cros_healthd.mojom.AshEventReporterRemote = class {
+  static get $interfaceName() {
+    return 'ash.cros_healthd.mojom.AshEventReporter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.cros_healthd.mojom.AshEventReporterPendingReceiver,
+      handle);
+    this.$ = new ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.AshEventReporterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cros_healthd.mojom.AshEventReporter',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ash.cros_healthd.mojom.AshEventReporterPtr = ash.cros_healthd.mojom.AshEventReporterRemote;
+ash.cros_healthd.mojom.AshEventReporterRequest = ash.cros_healthd.mojom.AshEventReporterPendingReceiver;
+

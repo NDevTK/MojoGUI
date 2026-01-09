@@ -9,21 +9,74 @@ var mojom = mojom || {};
 
 
 // Interface: LocationInternalsHandler
-mojom.LocationInternalsHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'mojom.LocationInternalsHandler';
-  }
-
-  bindInternalsInterface(receiver) {
-    // Method: BindInternalsInterface
-    // Call: BindInternalsInterface(receiver)
-  }
-
-};
-
-mojom.LocationInternalsHandlerRequest = class {
+mojom.LocationInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+mojom.LocationInternalsHandlerRemote = class {
+  static get $interfaceName() {
+    return 'mojom.LocationInternalsHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojom.LocationInternalsHandlerPendingReceiver,
+      handle);
+    this.$ = new mojom.LocationInternalsHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+mojom.LocationInternalsHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  bindInternalsInterface(receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec.$,
+      null,
+      [receiver]);
+  }
+
+};
+
+mojom.LocationInternalsHandler.getRemote = function() {
+  let remote = new mojom.LocationInternalsHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'mojom.LocationInternalsHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for BindInternalsInterface
+mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.LocationInternalsHandler.BindInternalsInterface_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+mojom.LocationInternalsHandlerPtr = mojom.LocationInternalsHandlerRemote;
+mojom.LocationInternalsHandlerRequest = mojom.LocationInternalsHandlerPendingReceiver;
+

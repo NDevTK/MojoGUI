@@ -27,43 +27,47 @@ arc.mojom.ChromePage = {
   DISPLAY: 5,
   WIFI: 6,
   LANGUAGES: 7,
-  HELP: 8,
-  ACCOUNTS: 9,
-  APPEARANCE: 10,
-  AUTOFILL: 11,
-  BLUETOOTHDEVICES: 12,
-  CHANGEPICTURE: 13,
-  CLEARBROWSERDATA: 14,
-  CUPSPRINTERS: 15,
-  DOWNLOADS: 16,
-  KEYBOARDOVERLAY: 17,
-  LOCKSCREEN: 18,
-  MANAGEACCESSIBILITY: 19,
-  NETWORKSTYPEVPN: 20,
-  ONSTARTUP: 21,
-  PASSWORDS: 22,
-  POINTEROVERLAY: 23,
-  RESET: 24,
-  SEARCH: 25,
-  STORAGE: 26,
-  SYNCSETUP: 27,
-  ABOUTBLANK: 28,
-  ABOUTDOWNLOADS: 29,
-  ABOUTHISTORY: 30,
-  OSLANGUAGESLANGUAGES: 31,
-  PRIVACYHUB: 32,
-  TEXTTOSPEECH: 33,
-  AUDIO: 34,
-  DISPLAYANDMAGNFICATION: 35,
-  KEYBOARDANDTEXTINPUT: 36,
-  CURSORANDTOUCHPAD: 37,
-  AUDIOANDCAPTIONS: 38,
-  PERDEVICEKEYBOARD: 39,
-  PERDEVICEMOUSE: 40,
-  PERDEVICETOUCHPAD: 41,
-  PERDEVICEPOINTINGSTICK: 42,
-  GRAPHICSTABLET: 43,
-  NETWORKS: 44,
+  PRIVACY: 8,
+  HELP: 9,
+  ACCOUNTS: 10,
+  APPEARANCE: 11,
+  AUTOFILL: 12,
+  BLUETOOTHDEVICES: 13,
+  CHANGEPICTURE: 14,
+  CLEARBROWSERDATA: 15,
+  CUPSPRINTERS: 16,
+  DOWNLOADS: 17,
+  KEYBOARDOVERLAY: 18,
+  LOCKSCREEN: 19,
+  MANAGEACCESSIBILITY: 20,
+  NETWORKSTYPEVPN: 21,
+  ONSTARTUP: 22,
+  PASSWORDS: 23,
+  POINTEROVERLAY: 24,
+  RESET: 25,
+  SEARCH: 26,
+  STORAGE: 27,
+  SYNCSETUP: 28,
+  ABOUTBLANK: 29,
+  ABOUTDOWNLOADS: 30,
+  ABOUTHISTORY: 31,
+  MANAGEACCESSIBILITYTTS: 32,
+  OSLANGUAGESINPUT: 33,
+  OSLANGUAGESLANGUAGES: 34,
+  SMARTPRIVACY: 35,
+  PRIVACYHUB: 36,
+  TEXTTOSPEECH: 37,
+  AUDIO: 38,
+  DISPLAYANDMAGNFICATION: 39,
+  KEYBOARDANDTEXTINPUT: 40,
+  CURSORANDTOUCHPAD: 41,
+  AUDIOANDCAPTIONS: 42,
+  PERDEVICEKEYBOARD: 43,
+  PERDEVICEMOUSE: 44,
+  PERDEVICETOUCHPAD: 45,
+  PERDEVICEPOINTINGSTICK: 46,
+  GRAPHICSTABLET: 47,
+  NETWORKS: 48,
 };
 
 // Enum: ChromeApp
@@ -75,168 +79,173 @@ arc.mojom.ChromeApp = {
 // Enum: SupportedLinkChangeSource
 arc.mojom.SupportedLinkChangeSource = {
   kUnknown: 0,
+  kArcSystem: 1,
+  kUserPreference: 2,
 };
 
 // Enum: AndroidSetting
 arc.mojom.AndroidSetting = {
   kGeoLocation: 0,
-  replaced: 1,
+  kGeoLocationAtBoot: 1,
   kGeoLocationUserTriggered: 2,
+  kGeoLocationAccuracyUserTriggered: 3,
 };
 
 // Enum: CaptionTextShadowType
 arc.mojom.CaptionTextShadowType = {
-};
-
-// Struct: PatternMatcher
-arc.mojom.PatternMatcher = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : "";
-  }
-};
-
-// Struct: AuthorityEntry
-arc.mojom.AuthorityEntry = class {
-  constructor(values = {}) {
-    this.port = values.port !== undefined ? values.port : 0;
-  }
-};
-
-// Struct: UriComponents
-arc.mojom.UriComponents = class {
-  constructor(values = {}) {
-    this.path = values.path !== undefined ? values.path : "";
-  }
-};
-
-// Struct: IntentInfo
-arc.mojom.IntentInfo = class {
-  constructor(values = {}) {
-    this.extras = values.extras !== undefined ? values.extras : false;
-    this.uri_components = values.uri_components !== undefined ? values.uri_components : null;
-  }
-};
-
-// Struct: IntentFilter
-arc.mojom.IntentFilter = class {
-  constructor(values = {}) {
-    this.activity_label = values.activity_label !== undefined ? values.activity_label : "";
-  }
-};
-
-// Struct: IntentHandlerInfo
-arc.mojom.IntentHandlerInfo = class {
-  constructor(values = {}) {
-    this.fallback_url = values.fallback_url !== undefined ? values.fallback_url : false;
-  }
-};
-
-// Struct: ActivityIcon
-arc.mojom.ActivityIcon = class {
-  constructor(values = {}) {
-    this.icon_png_data = values.icon_png_data !== undefined ? values.icon_png_data : 0;
-  }
-};
-
-// Struct: UrlWithMimeType
-arc.mojom.UrlWithMimeType = class {
-  constructor(values = {}) {
-    this.mime_type = values.mime_type !== undefined ? values.mime_type : "";
-  }
-};
-
-// Struct: TextSelectionAction
-arc.mojom.TextSelectionAction = class {
-  constructor(values = {}) {
-    this.activity = values.activity !== undefined ? values.activity : null;
-    this.bitmap_icon = values.bitmap_icon !== undefined ? values.bitmap_icon : 0;
-  }
-};
-
-// Struct: LaunchFileInfo
-arc.mojom.LaunchFileInfo = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : "";
-    this.name = values.name !== undefined ? values.name : 0;
-  }
-};
-
-// Struct: LaunchIntent
-arc.mojom.LaunchIntent = class {
-  constructor(values = {}) {
-    this.files = values.files !== undefined ? values.files : "";
-  }
-};
-
-// Struct: SupportedLinksPackage
-arc.mojom.SupportedLinksPackage = class {
-  constructor(values = {}) {
-    this.deprecated_filters = values.deprecated_filters !== undefined ? values.deprecated_filters : 0;
-  }
-};
-
-// Struct: CaptionColor
-arc.mojom.CaptionColor = class {
-  constructor(values = {}) {
-    this.blue = values.blue !== undefined ? values.blue : 0;
-  }
-};
-
-// Struct: CaptionStyle
-arc.mojom.CaptionStyle = class {
-  constructor(values = {}) {
-    this.text_shadow_type = values.text_shadow_type !== undefined ? values.text_shadow_type : 0;
-  }
-};
-
-// Struct: AccessibilityFeatures
-arc.mojom.AccessibilityFeatures = class {
-  constructor(values = {}) {
-    this.switch_access_enabled = values.switch_access_enabled !== undefined ? values.switch_access_enabled : false;
-  }
+  kNone: 0,
+  kUniform: 1,
+  kDropShadow: 2,
+  kRaised: 3,
+  kDepressed: 4,
 };
 
 // Interface: CustomTabSession
-arc.mojom.CustomTabSessionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.CustomTabSession';
-  }
-
-};
-
-arc.mojom.CustomTabSessionRequest = class {
+arc.mojom.CustomTabSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.CustomTabSessionRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.CustomTabSession';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.CustomTabSessionPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.CustomTabSessionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.CustomTabSessionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.CustomTabSession.getRemote = function() {
+  let remote = new arc.mojom.CustomTabSessionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.CustomTabSession',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.CustomTabSessionPtr = arc.mojom.CustomTabSessionRemote;
+arc.mojom.CustomTabSessionRequest = arc.mojom.CustomTabSessionPendingReceiver;
+
 
 // Interface: IntentHelperHost
-arc.mojom.IntentHelperHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.IntentHelperHost';
-  }
-
-};
-
-arc.mojom.IntentHelperHostRequest = class {
+arc.mojom.IntentHelperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.IntentHelperHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.IntentHelperHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.IntentHelperHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.IntentHelperHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.IntentHelperHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.IntentHelperHost.getRemote = function() {
+  let remote = new arc.mojom.IntentHelperHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.IntentHelperHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.IntentHelperHostPtr = arc.mojom.IntentHelperHostRemote;
+arc.mojom.IntentHelperHostRequest = arc.mojom.IntentHelperHostPendingReceiver;
+
 
 // Interface: IntentHelperInstance
-arc.mojom.IntentHelperInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.IntentHelperInstance';
-  }
-
-};
-
-arc.mojom.IntentHelperInstanceRequest = class {
+arc.mojom.IntentHelperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.IntentHelperInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.IntentHelperInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.IntentHelperInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.IntentHelperInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.IntentHelperInstance.getRemote = function() {
+  let remote = new arc.mojom.IntentHelperInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.IntentHelperInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.IntentHelperInstancePtr = arc.mojom.IntentHelperInstanceRemote;
+arc.mojom.IntentHelperInstanceRequest = arc.mojom.IntentHelperInstancePendingReceiver;
+

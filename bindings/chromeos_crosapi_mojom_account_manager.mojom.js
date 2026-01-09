@@ -51,84 +51,152 @@ crosapi.mojom.Status = {
   kNetworkError: 3,
 };
 
-// Struct: AccountKey
-crosapi.mojom.AccountKey = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: Account
-crosapi.mojom.Account = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: GoogleServiceAuthError
-crosapi.mojom.GoogleServiceAuthError = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: AccountAdditionOptions
-crosapi.mojom.AccountAdditionOptions = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: AccountUpsertionResult
-crosapi.mojom.AccountUpsertionResult = class {
-  constructor(values = {}) {
-    this.Ash = values.Ash !== undefined ? values.Ash : null;
-  }
-};
-
-// Struct: AccessTokenInfo
-crosapi.mojom.AccessTokenInfo = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: AccountManagerObserver
-crosapi.mojom.AccountManagerObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.AccountManagerObserver';
-  }
-
-};
-
-crosapi.mojom.AccountManagerObserverRequest = class {
+crosapi.mojom.AccountManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.AccountManagerObserverRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.AccountManagerObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.AccountManagerObserverPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.AccountManagerObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.AccountManagerObserver.getRemote = function() {
+  let remote = new crosapi.mojom.AccountManagerObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.AccountManagerObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.AccountManagerObserverPtr = crosapi.mojom.AccountManagerObserverRemote;
+crosapi.mojom.AccountManagerObserverRequest = crosapi.mojom.AccountManagerObserverPendingReceiver;
+
 
 // Interface: AccountManager
-crosapi.mojom.AccountManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.AccountManager';
-  }
-
-};
-
-crosapi.mojom.AccountManagerRequest = class {
+crosapi.mojom.AccountManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.AccountManagerRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.AccountManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.AccountManagerPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.AccountManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.AccountManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.AccountManager.getRemote = function() {
+  let remote = new crosapi.mojom.AccountManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.AccountManager',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.AccountManagerPtr = crosapi.mojom.AccountManagerRemote;
+crosapi.mojom.AccountManagerRequest = crosapi.mojom.AccountManagerPendingReceiver;
+
 
 // Interface: AccessTokenFetcher
-crosapi.mojom.AccessTokenFetcherPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.AccessTokenFetcher';
-  }
-
-};
-
-crosapi.mojom.AccessTokenFetcherRequest = class {
+crosapi.mojom.AccessTokenFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.AccessTokenFetcherRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.AccessTokenFetcher';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.AccessTokenFetcherPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.AccessTokenFetcherRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.AccessTokenFetcher.getRemote = function() {
+  let remote = new crosapi.mojom.AccessTokenFetcherRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.AccessTokenFetcher',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.AccessTokenFetcherPtr = crosapi.mojom.AccessTokenFetcherRemote;
+crosapi.mojom.AccessTokenFetcherRequest = crosapi.mojom.AccessTokenFetcherPendingReceiver;
+

@@ -9,54 +9,75 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
-// Struct: ObliviousHttpRequestBody
-network.mojom.ObliviousHttpRequestBody = class {
-  constructor(values = {}) {
-    this.content_type = values.content_type !== undefined ? values.content_type : "";
-  }
-};
-
-// Struct: ObliviousHttpResponse
-network.mojom.ObliviousHttpResponse = class {
-  constructor(values = {}) {
-    this.response_code = values.response_code !== undefined ? values.response_code : 0;
-    this.response_body = values.response_body !== undefined ? values.response_body : "";
-  }
-};
-
-// Struct: ObliviousHttpPaddingParameters
-network.mojom.ObliviousHttpPaddingParameters = class {
-  constructor(values = {}) {
-    this.exponential_mean = values.exponential_mean !== undefined ? values.exponential_mean : 0;
-    this.pad_to_next_power_of_two = values.pad_to_next_power_of_two !== undefined ? values.pad_to_next_power_of_two : false;
-  }
-};
-
-// Struct: ObliviousHttpRequest
-network.mojom.ObliviousHttpRequest = class {
-  constructor(values = {}) {
-    this.timeout_duration = values.timeout_duration !== undefined ? values.timeout_duration : null;
-    this.resource_url = values.resource_url !== undefined ? values.resource_url : "";
-    this.padding_params = values.padding_params !== undefined ? values.padding_params : "";
-  }
-};
-
 // Interface: ObliviousHttpClient
-network.mojom.ObliviousHttpClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.ObliviousHttpClient';
-  }
-
-  onCompleted(response) {
-    // Method: OnCompleted
-    // Call: OnCompleted(response)
-  }
-
-};
-
-network.mojom.ObliviousHttpClientRequest = class {
+network.mojom.ObliviousHttpClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+network.mojom.ObliviousHttpClientRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.ObliviousHttpClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.ObliviousHttpClientPendingReceiver,
+      handle);
+    this.$ = new network.mojom.ObliviousHttpClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.ObliviousHttpClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onCompleted(response) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec.$,
+      null,
+      [response]);
+  }
+
+};
+
+network.mojom.ObliviousHttpClient.getRemote = function() {
+  let remote = new network.mojom.ObliviousHttpClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.ObliviousHttpClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnCompleted
+network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.ObliviousHttpClient.OnCompleted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.ObliviousHttpClientPtr = network.mojom.ObliviousHttpClientRemote;
+network.mojom.ObliviousHttpClientRequest = network.mojom.ObliviousHttpClientPendingReceiver;
+

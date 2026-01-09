@@ -11,11 +11,14 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: SearchStatus
 crosapi.mojom.SearchStatus = {
-  and: 0,
+  kDone: 0,
+  kInProgress: 1,
+  kCancelled: 2,
 };
 
 // Enum: SearchResultType
 crosapi.mojom.SearchResultType = {
+  kOmniboxResult: 0,
 };
 
 // Enum: OptionalBool
@@ -31,8 +34,9 @@ crosapi.mojom.OmniboxType = {
   kFaviconDeprecated: 1,
   kCalculatorDeprecated: 2,
   kBookmark: 3,
-  kSearch: 4,
-  kHistory: 5,
+  kDomain: 4,
+  kSearch: 5,
+  kHistory: 6,
 };
 
 // Enum: MetricsType
@@ -74,54 +78,152 @@ crosapi.mojom.PageTransition = {
   kGenerated: 1,
 };
 
-// Struct: SearchResult
-crosapi.mojom.SearchResult = class {
-  constructor(values = {}) {
-    this.kUnset = values.kUnset !== undefined ? values.kUnset : false;
-  }
-};
-
 // Interface: SearchResultsPublisher
-crosapi.mojom.SearchResultsPublisherPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.SearchResultsPublisher';
-  }
-
-};
-
-crosapi.mojom.SearchResultsPublisherRequest = class {
+crosapi.mojom.SearchResultsPublisherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.SearchResultsPublisherRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.SearchResultsPublisher';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.SearchResultsPublisherPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.SearchResultsPublisherRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.SearchResultsPublisherRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.SearchResultsPublisher.getRemote = function() {
+  let remote = new crosapi.mojom.SearchResultsPublisherRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.SearchResultsPublisher',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.SearchResultsPublisherPtr = crosapi.mojom.SearchResultsPublisherRemote;
+crosapi.mojom.SearchResultsPublisherRequest = crosapi.mojom.SearchResultsPublisherPendingReceiver;
+
 
 // Interface: SearchController
-crosapi.mojom.SearchControllerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.SearchController';
-  }
-
-};
-
-crosapi.mojom.SearchControllerRequest = class {
+crosapi.mojom.SearchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.SearchControllerRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.SearchController';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.SearchControllerPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.SearchControllerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.SearchControllerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.SearchController.getRemote = function() {
+  let remote = new crosapi.mojom.SearchControllerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.SearchController',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.SearchControllerPtr = crosapi.mojom.SearchControllerRemote;
+crosapi.mojom.SearchControllerRequest = crosapi.mojom.SearchControllerPendingReceiver;
+
 
 // Interface: SearchResultConsumer
-crosapi.mojom.SearchResultConsumerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.SearchResultConsumer';
-  }
-
-};
-
-crosapi.mojom.SearchResultConsumerRequest = class {
+crosapi.mojom.SearchResultConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.SearchResultConsumerRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.SearchResultConsumer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.SearchResultConsumerPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.SearchResultConsumerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.SearchResultConsumerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.SearchResultConsumer.getRemote = function() {
+  let remote = new crosapi.mojom.SearchResultConsumerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.SearchResultConsumer',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.SearchResultConsumerPtr = crosapi.mojom.SearchResultConsumerRemote;
+crosapi.mojom.SearchResultConsumerRequest = crosapi.mojom.SearchResultConsumerPendingReceiver;
+

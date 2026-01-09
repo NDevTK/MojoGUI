@@ -17,11 +17,10 @@ arc.mojom.VideoFrameStorageType = {
 
 // Enum: Error
 arc.mojom.Error = {
-  GPU: 0,
-  GPU: 1,
-  GPU: 2,
-  and: 3,
-  kErrorMax: 4,
+  kIllegalStateError: 0,
+  kInvalidArgumentError: 1,
+  kPlatformFailureError: 2,
+  kErrorMax: 3,
 };
 
 // Enum: Result
@@ -33,60 +32,102 @@ arc.mojom.Result = {
   kInsufficientResourcesError: 4,
 };
 
-// Struct: VideoEncodeProfile
-arc.mojom.VideoEncodeProfile = class {
-  constructor(values = {}) {
-    this.max_framerate_denominator = values.max_framerate_denominator !== undefined ? values.max_framerate_denominator : 0;
-  }
-};
-
-// Struct: ConstantBitrate
-arc.mojom.ConstantBitrate = class {
-  constructor(values = {}) {
-    this.target = values.target !== undefined ? values.target : 0;
-  }
-};
-
-// Struct: VariableBitrate
-arc.mojom.VariableBitrate = class {
-  constructor(values = {}) {
-    this.peak = values.peak !== undefined ? values.peak : 0;
-  }
-};
-
-// Struct: VideoEncodeAcceleratorConfig
-arc.mojom.VideoEncodeAcceleratorConfig = class {
-  constructor(values = {}) {
-    this.bitrate = values.bitrate !== undefined ? values.bitrate : 0;
-  }
-};
-
 // Interface: VideoEncodeAccelerator
-arc.mojom.VideoEncodeAcceleratorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.VideoEncodeAccelerator';
-  }
-
-};
-
-arc.mojom.VideoEncodeAcceleratorRequest = class {
+arc.mojom.VideoEncodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.VideoEncodeAcceleratorRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.VideoEncodeAccelerator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.VideoEncodeAcceleratorPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.VideoEncodeAcceleratorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.VideoEncodeAccelerator.getRemote = function() {
+  let remote = new arc.mojom.VideoEncodeAcceleratorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.VideoEncodeAccelerator',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.VideoEncodeAcceleratorPtr = arc.mojom.VideoEncodeAcceleratorRemote;
+arc.mojom.VideoEncodeAcceleratorRequest = arc.mojom.VideoEncodeAcceleratorPendingReceiver;
+
 
 // Interface: VideoEncodeClient
-arc.mojom.VideoEncodeClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.VideoEncodeClient';
-  }
-
-};
-
-arc.mojom.VideoEncodeClientRequest = class {
+arc.mojom.VideoEncodeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.VideoEncodeClientRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.VideoEncodeClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.VideoEncodeClientPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.VideoEncodeClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.VideoEncodeClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.VideoEncodeClient.getRemote = function() {
+  let remote = new arc.mojom.VideoEncodeClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.VideoEncodeClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.VideoEncodeClientPtr = arc.mojom.VideoEncodeClientRemote;
+arc.mojom.VideoEncodeClientRequest = arc.mojom.VideoEncodeClientPendingReceiver;
+

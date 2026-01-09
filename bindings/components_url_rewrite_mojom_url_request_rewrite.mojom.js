@@ -15,81 +15,75 @@ url_rewrite.mojom.UrlRequestAccessPolicy = {
   kDeny: 1,
 };
 
-// Struct: UrlRequestRewriteRules
-url_rewrite.mojom.UrlRequestRewriteRules = class {
-  constructor(values = {}) {
-    this.rules = values.rules !== undefined ? values.rules : [];
-  }
-};
-
-// Struct: UrlRequestRule
-url_rewrite.mojom.UrlRequestRule = class {
-  constructor(values = {}) {
-    this.to = values.to !== undefined ? values.to : null;
-    this.hosts_filter = values.hosts_filter !== undefined ? values.hosts_filter : "";
-    this.to = values.to !== undefined ? values.to : null;
-    this.actions = values.actions !== undefined ? values.actions : "";
-  }
-};
-
-// Struct: UrlRequestRewriteAddHeaders
-url_rewrite.mojom.UrlRequestRewriteAddHeaders = class {
-  constructor(values = {}) {
-    this.headers = values.headers !== undefined ? values.headers : [];
-  }
-};
-
-// Struct: UrlHeader
-url_rewrite.mojom.UrlHeader = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : "";
-  }
-};
-
-// Struct: UrlRequestRewriteRemoveHeader
-url_rewrite.mojom.UrlRequestRewriteRemoveHeader = class {
-  constructor(values = {}) {
-    this.header_name = values.header_name !== undefined ? values.header_name : "";
-  }
-};
-
-// Struct: UrlRequestRewriteSubstituteQueryPattern
-url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern = class {
-  constructor(values = {}) {
-    this.substitution = values.substitution !== undefined ? values.substitution : "";
-  }
-};
-
-// Struct: UrlRequestRewriteReplaceUrl
-url_rewrite.mojom.UrlRequestRewriteReplaceUrl = class {
-  constructor(values = {}) {
-    this.new_url = values.new_url !== undefined ? values.new_url : "";
-  }
-};
-
-// Struct: UrlRequestRewriteAppendToQuery
-url_rewrite.mojom.UrlRequestRewriteAppendToQuery = class {
-  constructor(values = {}) {
-    this.query = values.query !== undefined ? values.query : "";
-  }
-};
-
 // Interface: UrlRequestRulesReceiver
-url_rewrite.mojom.UrlRequestRulesReceiverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'url_rewrite.mojom.UrlRequestRulesReceiver';
-  }
-
-  onRulesUpdated(rules) {
-    // Method: OnRulesUpdated
-    // Call: OnRulesUpdated(rules)
-  }
-
-};
-
-url_rewrite.mojom.UrlRequestRulesReceiverRequest = class {
+url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+url_rewrite.mojom.UrlRequestRulesReceiverRemote = class {
+  static get $interfaceName() {
+    return 'url_rewrite.mojom.UrlRequestRulesReceiver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver,
+      handle);
+    this.$ = new url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onRulesUpdated(rules) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$,
+      null,
+      [rules]);
+  }
+
+};
+
+url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
+  let remote = new url_rewrite.mojom.UrlRequestRulesReceiverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'url_rewrite.mojom.UrlRequestRulesReceiver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnRulesUpdated
+url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'url_rewrite.mojom.UrlRequestRulesReceiver.OnRulesUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+url_rewrite.mojom.UrlRequestRulesReceiverPtr = url_rewrite.mojom.UrlRequestRulesReceiverRemote;
+url_rewrite.mojom.UrlRequestRulesReceiverRequest = url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver;
+

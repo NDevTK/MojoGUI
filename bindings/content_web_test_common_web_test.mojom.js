@@ -16,381 +16,1450 @@ content.mojom.AutoResponseMode = {
   kAutoReject: 2,
 };
 
-// Struct: WebTestRunTestConfiguration
-content.mojom.WebTestRunTestConfiguration = class {
-  constructor(values = {}) {
-    this.protocol_mode = values.protocol_mode !== undefined ? values.protocol_mode : 0;
-  }
-};
-
-// Struct: WebTestRendererDumpResult
-content.mojom.WebTestRendererDumpResult = class {
-  constructor(values = {}) {
-    this.selection_rect = values.selection_rect !== undefined ? values.selection_rect : 0;
-  }
-};
-
-// Struct: WorkItemBackForward
-content.mojom.WorkItemBackForward = class {
-  constructor(values = {}) {
-    this.distance = values.distance !== undefined ? values.distance : 0;
-  }
-};
-
-// Struct: WorkItemLoad
-content.mojom.WorkItemLoad = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : "";
-    this.target = values.target !== undefined ? values.target : "";
-  }
-};
-
-// Struct: WorkItemReload
-content.mojom.WorkItemReload = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: WorkItemLoadingScript
-content.mojom.WorkItemLoadingScript = class {
-  constructor(values = {}) {
-    this.script = values.script !== undefined ? values.script : "";
-  }
-};
-
-// Struct: WorkItemNonLoadingScript
-content.mojom.WorkItemNonLoadingScript = class {
-  constructor(values = {}) {
-    this.script = values.script !== undefined ? values.script : "";
-  }
-};
-
 // Interface: WebTestRenderFrame
-content.mojom.WebTestRenderFramePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'content.mojom.WebTestRenderFrame';
+content.mojom.WebTestRenderFramePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+content.mojom.WebTestRenderFrameRemote = class {
+  static get $interfaceName() {
+    return 'content.mojom.WebTestRenderFrame';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      content.mojom.WebTestRenderFramePendingReceiver,
+      handle);
+    this.$ = new content.mojom.WebTestRenderFrameRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+content.mojom.WebTestRenderFrameRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   synchronouslyCompositeAfterTest() {
-    // Method: SynchronouslyCompositeAfterTest
-    // Call: SynchronouslyCompositeAfterTest()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec.$,
+      null,
+      []);
   }
 
   dumpFrameLayout() {
-    // Method: DumpFrameLayout
-    return new Promise((resolve) => {
-      // Call: DumpFrameLayout()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec.$,
+      content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec.$,
+      []);
   }
 
   setTestConfiguration(config, starting_test) {
-    // Method: SetTestConfiguration
-    // Call: SetTestConfiguration(config, starting_test)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec.$,
+      null,
+      [config, starting_test]);
   }
 
   onDeactivated() {
-    // Method: OnDeactivated
-    // Call: OnDeactivated()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec.$,
+      null,
+      []);
   }
 
   onReactivated() {
-    // Method: OnReactivated
-    // Call: OnReactivated()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec.$,
+      null,
+      []);
   }
 
   blockTestUntilStart() {
-    // Method: BlockTestUntilStart
-    // Call: BlockTestUntilStart()
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec.$,
+      null,
+      []);
   }
 
   startTest() {
-    // Method: StartTest
-    // Call: StartTest()
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      content.mojom.WebTestRenderFrame_StartTest_ParamsSpec.$,
+      null,
+      []);
   }
 
   setupRendererProcessForNonTestWindow() {
-    // Method: SetupRendererProcessForNonTestWindow
-    // Call: SetupRendererProcessForNonTestWindow()
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec.$,
+      null,
+      []);
   }
 
   replicateWebTestRuntimeFlagsChanges(changed_layout_test_runtime_flags) {
-    // Method: ReplicateWebTestRuntimeFlagsChanges
-    // Call: ReplicateWebTestRuntimeFlagsChanges(changed_layout_test_runtime_flags)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec.$,
+      null,
+      [changed_layout_test_runtime_flags]);
   }
 
   testFinishedFromSecondaryRenderer() {
-    // Method: TestFinishedFromSecondaryRenderer
-    // Call: TestFinishedFromSecondaryRenderer()
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec.$,
+      null,
+      []);
   }
 
   resetRendererAfterWebTest() {
-    // Method: ResetRendererAfterWebTest
-    // Call: ResetRendererAfterWebTest()
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec.$,
+      null,
+      []);
   }
 
   processWorkItem(work_item) {
-    // Method: ProcessWorkItem
-    // Call: ProcessWorkItem(work_item)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec.$,
+      null,
+      [work_item]);
   }
 
   replicateWorkQueueStates(work_queue_states) {
-    // Method: ReplicateWorkQueueStates
-    // Call: ReplicateWorkQueueStates(work_queue_states)
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec.$,
+      null,
+      [work_queue_states]);
   }
 
 };
 
-content.mojom.WebTestRenderFrameRequest = class {
+content.mojom.WebTestRenderFrame.getRemote = function() {
+  let remote = new content.mojom.WebTestRenderFrameRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'content.mojom.WebTestRenderFrame',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SynchronouslyCompositeAfterTest
+content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.SynchronouslyCompositeAfterTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DumpFrameLayout
+content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.DumpFrameLayout_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.DumpFrameLayout_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_layout_dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetTestConfiguration
+content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.SetTestConfiguration_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'starting_test', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeactivated
+content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.OnDeactivated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnReactivated
+content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.OnReactivated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BlockTestUntilStart
+content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.BlockTestUntilStart_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartTest
+content.mojom.WebTestRenderFrame_StartTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.StartTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetupRendererProcessForNonTestWindow
+content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.SetupRendererProcessForNonTestWindow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReplicateWebTestRuntimeFlagsChanges
+content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.ReplicateWebTestRuntimeFlagsChanges_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'changed_layout_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for TestFinishedFromSecondaryRenderer
+content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.TestFinishedFromSecondaryRenderer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResetRendererAfterWebTest
+content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.ResetRendererAfterWebTest_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ProcessWorkItem
+content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.ProcessWorkItem_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReplicateWorkQueueStates
+content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestRenderFrame.ReplicateWorkQueueStates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+content.mojom.WebTestRenderFramePtr = content.mojom.WebTestRenderFrameRemote;
+content.mojom.WebTestRenderFrameRequest = content.mojom.WebTestRenderFramePendingReceiver;
+
+
+// Interface: WebTestControlHost
+content.mojom.WebTestControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: WebTestControlHost
-content.mojom.WebTestControlHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'content.mojom.WebTestControlHost';
+content.mojom.WebTestControlHostRemote = class {
+  static get $interfaceName() {
+    return 'content.mojom.WebTestControlHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      content.mojom.WebTestControlHostPendingReceiver,
+      handle);
+    this.$ = new content.mojom.WebTestControlHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+content.mojom.WebTestControlHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   initiateCaptureDump(result, capture_navigation_history, capture_pixels) {
-    // Method: InitiateCaptureDump
-    // Call: InitiateCaptureDump(result, capture_navigation_history, capture_pixels)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec.$,
+      null,
+      [result, capture_navigation_history, capture_pixels]);
   }
 
   testFinishedInSecondaryRenderer() {
-    // Method: TestFinishedInSecondaryRenderer
-    // Call: TestFinishedInSecondaryRenderer()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec.$,
+      null,
+      []);
   }
 
   printMessageToStderr(message) {
-    // Method: PrintMessageToStderr
-    // Call: PrintMessageToStderr(message)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec.$,
+      null,
+      [message]);
   }
 
   printMessage(message) {
-    // Method: PrintMessage
-    // Call: PrintMessage(message)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      content.mojom.WebTestControlHost_PrintMessage_ParamsSpec.$,
+      null,
+      [message]);
   }
 
   overridePreferences(web_preferences) {
-    // Method: OverridePreferences
-    // Call: OverridePreferences(web_preferences)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec.$,
+      null,
+      [web_preferences]);
   }
 
   reload() {
-    // Method: Reload
-    // Call: Reload()
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      content.mojom.WebTestControlHost_Reload_ParamsSpec.$,
+      null,
+      []);
   }
 
   checkForLeakedWindows() {
-    // Method: CheckForLeakedWindows
-    // Call: CheckForLeakedWindows()
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec.$,
+      null,
+      []);
   }
 
   setMainWindowHidden(hidden) {
-    // Method: SetMainWindowHidden
-    // Call: SetMainWindowHidden(hidden)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec.$,
+      null,
+      [hidden]);
   }
 
   setFrameWindowHidden(frame_token, hidden) {
-    // Method: SetFrameWindowHidden
-    // Call: SetFrameWindowHidden(frame_token, hidden)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec.$,
+      null,
+      [frame_token, hidden]);
   }
 
   goToOffset(offset) {
-    // Method: GoToOffset
-    // Call: GoToOffset(offset)
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      content.mojom.WebTestControlHost_GoToOffset_ParamsSpec.$,
+      null,
+      [offset]);
   }
 
   sendBluetoothManualChooserEvent(event, argument) {
-    // Method: SendBluetoothManualChooserEvent
-    // Call: SendBluetoothManualChooserEvent(event, argument)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec.$,
+      null,
+      [event, argument]);
   }
 
   setBluetoothManualChooser(enable) {
-    // Method: SetBluetoothManualChooser
-    // Call: SetBluetoothManualChooser(enable)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec.$,
+      null,
+      [enable]);
   }
 
   getBluetoothManualChooserEvents() {
-    // Method: GetBluetoothManualChooserEvents
-    return new Promise((resolve) => {
-      // Call: GetBluetoothManualChooserEvents()
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec.$,
+      content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec.$,
+      []);
   }
 
   setPopupBlockingEnabled(block_popups) {
-    // Method: SetPopupBlockingEnabled
-    // Call: SetPopupBlockingEnabled(block_popups)
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec.$,
+      null,
+      [block_popups]);
   }
 
   loadURLForFrame(url, frame_name) {
-    // Method: LoadURLForFrame
-    // Call: LoadURLForFrame(url, frame_name)
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec.$,
+      null,
+      [url, frame_name]);
   }
 
   simulateScreenOrientationChanged() {
-    // Method: SimulateScreenOrientationChanged
-    // Call: SimulateScreenOrientationChanged()
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
   setPermission(name, status, origin, embedding_origin) {
-    // Method: SetPermission
-    // Call: SetPermission(name, status, origin, embedding_origin)
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      content.mojom.WebTestControlHost_SetPermission_ParamsSpec.$,
+      null,
+      [name, status, origin, embedding_origin]);
   }
 
   blockThirdPartyCookies(block) {
-    // Method: BlockThirdPartyCookies
-    // Call: BlockThirdPartyCookies(block)
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec.$,
+      null,
+      [block]);
   }
 
   getWritableDirectory() {
-    // Method: GetWritableDirectory
-    return new Promise((resolve) => {
-      // Call: GetWritableDirectory()
-      resolve({});
-    });
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec.$,
+      content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec.$,
+      []);
   }
 
   setFilePathForMockFileDialog(path) {
-    // Method: SetFilePathForMockFileDialog
-    // Call: SetFilePathForMockFileDialog(path)
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec.$,
+      null,
+      [path]);
   }
 
   createSubresourceFilterRulesetFile(disallowed_suffixes) {
-    // Method: CreateSubresourceFilterRulesetFile
-    return new Promise((resolve) => {
-      // Call: CreateSubresourceFilterRulesetFile(disallowed_suffixes)
-      resolve({});
-    });
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec.$,
+      content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec.$,
+      [disallowed_suffixes]);
   }
 
   focusDevtoolsSecondaryWindow() {
-    // Method: FocusDevtoolsSecondaryWindow
-    // Call: FocusDevtoolsSecondaryWindow()
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec.$,
+      null,
+      []);
   }
 
   setTrustTokenKeyCommitments(raw_commitments) {
-    // Method: SetTrustTokenKeyCommitments
-    // Call: SetTrustTokenKeyCommitments(raw_commitments)
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec.$,
+      null,
+      [raw_commitments]);
   }
 
   clearTrustTokenState() {
-    // Method: ClearTrustTokenState
-    // Call: ClearTrustTokenState()
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec.$,
+      null,
+      []);
   }
 
   simulateWebNotificationClick(title, action_index, reply) {
-    // Method: SimulateWebNotificationClick
-    // Call: SimulateWebNotificationClick(title, action_index, reply)
+    // Ordinal: 24
+    return this.proxy.sendMessage(
+      24,  // ordinal
+      content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec.$,
+      null,
+      [title, action_index, reply]);
   }
 
   simulateWebNotificationClose(title, by_user) {
-    // Method: SimulateWebNotificationClose
-    // Call: SimulateWebNotificationClose(title, by_user)
+    // Ordinal: 25
+    return this.proxy.sendMessage(
+      25,  // ordinal
+      content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec.$,
+      null,
+      [title, by_user]);
   }
 
   simulateWebContentIndexDelete(id) {
-    // Method: SimulateWebContentIndexDelete
-    // Call: SimulateWebContentIndexDelete(id)
+    // Ordinal: 26
+    return this.proxy.sendMessage(
+      26,  // ordinal
+      content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   webTestRuntimeFlagsChanged(changed_web_test_runtime_flags) {
-    // Method: WebTestRuntimeFlagsChanged
-    // Call: WebTestRuntimeFlagsChanged(changed_web_test_runtime_flags)
+    // Ordinal: 27
+    return this.proxy.sendMessage(
+      27,  // ordinal
+      content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec.$,
+      null,
+      [changed_web_test_runtime_flags]);
   }
 
   registerIsolatedFileSystem(file_paths) {
-    // Method: RegisterIsolatedFileSystem
-    return new Promise((resolve) => {
-      // Call: RegisterIsolatedFileSystem(file_paths)
-      resolve({});
-    });
+    // Ordinal: 28
+    return this.proxy.sendMessage(
+      28,  // ordinal
+      content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec.$,
+      content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec.$,
+      [file_paths]);
   }
 
   dropPointerLock() {
-    // Method: DropPointerLock
-    // Call: DropPointerLock()
+    // Ordinal: 29
+    return this.proxy.sendMessage(
+      29,  // ordinal
+      content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec.$,
+      null,
+      []);
   }
 
   setPointerLockWillFail() {
-    // Method: SetPointerLockWillFail
-    // Call: SetPointerLockWillFail()
+    // Ordinal: 30
+    return this.proxy.sendMessage(
+      30,  // ordinal
+      content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec.$,
+      null,
+      []);
   }
 
   setPointerLockWillRespondAsynchronously() {
-    // Method: SetPointerLockWillRespondAsynchronously
-    // Call: SetPointerLockWillRespondAsynchronously()
+    // Ordinal: 31
+    return this.proxy.sendMessage(
+      31,  // ordinal
+      content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec.$,
+      null,
+      []);
   }
 
   allowPointerLock() {
-    // Method: AllowPointerLock
-    // Call: AllowPointerLock()
+    // Ordinal: 32
+    return this.proxy.sendMessage(
+      32,  // ordinal
+      content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec.$,
+      null,
+      []);
   }
 
   workItemAdded(work_item) {
-    // Method: WorkItemAdded
-    // Call: WorkItemAdded(work_item)
+    // Ordinal: 33
+    return this.proxy.sendMessage(
+      33,  // ordinal
+      content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec.$,
+      null,
+      [work_item]);
   }
 
   requestWorkItem() {
-    // Method: RequestWorkItem
-    // Call: RequestWorkItem()
+    // Ordinal: 34
+    return this.proxy.sendMessage(
+      34,  // ordinal
+      content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec.$,
+      null,
+      []);
   }
 
   workQueueStatesChanged(changed_work_queue_states) {
-    // Method: WorkQueueStatesChanged
-    // Call: WorkQueueStatesChanged(changed_work_queue_states)
+    // Ordinal: 35
+    return this.proxy.sendMessage(
+      35,  // ordinal
+      content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec.$,
+      null,
+      [changed_work_queue_states]);
   }
 
   setAcceptLanguages(accept_languages) {
-    // Method: SetAcceptLanguages
-    // Call: SetAcceptLanguages(accept_languages)
+    // Ordinal: 36
+    return this.proxy.sendMessage(
+      36,  // ordinal
+      content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec.$,
+      null,
+      [accept_languages]);
   }
 
   setRegisterProtocolHandlerMode(mode) {
-    // Method: SetRegisterProtocolHandlerMode
-    // Call: SetRegisterProtocolHandlerMode(mode)
+    // Ordinal: 37
+    return this.proxy.sendMessage(
+      37,  // ordinal
+      content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec.$,
+      null,
+      [mode]);
   }
 
   enableAutoResize(min_size, max_size) {
-    // Method: EnableAutoResize
-    // Call: EnableAutoResize(min_size, max_size)
+    // Ordinal: 38
+    return this.proxy.sendMessage(
+      38,  // ordinal
+      content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec.$,
+      null,
+      [min_size, max_size]);
   }
 
   disableAutoResize(new_size) {
-    // Method: DisableAutoResize
-    // Call: DisableAutoResize(new_size)
+    // Ordinal: 39
+    return this.proxy.sendMessage(
+      39,  // ordinal
+      content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec.$,
+      null,
+      [new_size]);
   }
 
 };
 
-content.mojom.WebTestControlHostRequest = class {
+content.mojom.WebTestControlHost.getRemote = function() {
+  let remote = new content.mojom.WebTestControlHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'content.mojom.WebTestControlHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for InitiateCaptureDump
+content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.InitiateCaptureDump_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capture_navigation_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capture_pixels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for TestFinishedInSecondaryRenderer
+content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.TestFinishedInSecondaryRenderer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PrintMessageToStderr
+content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.PrintMessageToStderr_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PrintMessage
+content.mojom.WebTestControlHost_PrintMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.PrintMessage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OverridePreferences
+content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.OverridePreferences_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'web_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Reload
+content.mojom.WebTestControlHost_Reload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.Reload_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CheckForLeakedWindows
+content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.CheckForLeakedWindows_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetMainWindowHidden
+content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetMainWindowHidden_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hidden', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFrameWindowHidden
+content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetFrameWindowHidden_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GoToOffset
+content.mojom.WebTestControlHost_GoToOffset_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.GoToOffset_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendBluetoothManualChooserEvent
+content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SendBluetoothManualChooserEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'argument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetBluetoothManualChooser
+content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetBluetoothManualChooser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetBluetoothManualChooserEvents
+content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.GetBluetoothManualChooserEvents_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.GetBluetoothManualChooserEvents_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPopupBlockingEnabled
+content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetPopupBlockingEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'block_popups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LoadURLForFrame
+content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.LoadURLForFrame_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SimulateScreenOrientationChanged
+content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SimulateScreenOrientationChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPermission
+content.mojom.WebTestControlHost_SetPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetPermission_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'embedding_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BlockThirdPartyCookies
+content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.BlockThirdPartyCookies_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetWritableDirectory
+content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.GetWritableDirectory_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.GetWritableDirectory_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFilePathForMockFileDialog
+content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetFilePathForMockFileDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateSubresourceFilterRulesetFile
+content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'disallowed_suffixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for FocusDevtoolsSecondaryWindow
+content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.FocusDevtoolsSecondaryWindow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetTrustTokenKeyCommitments
+content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetTrustTokenKeyCommitments_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'raw_commitments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ClearTrustTokenState
+content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.ClearTrustTokenState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SimulateWebNotificationClick
+content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SimulateWebNotificationClick_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SimulateWebNotificationClose
+content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SimulateWebNotificationClose_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'by_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SimulateWebContentIndexDelete
+content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SimulateWebContentIndexDelete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WebTestRuntimeFlagsChanged
+content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.WebTestRuntimeFlagsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'changed_web_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RegisterIsolatedFileSystem
+content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'filesystem_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DropPointerLock
+content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.DropPointerLock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPointerLockWillFail
+content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetPointerLockWillFail_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPointerLockWillRespondAsynchronously
+content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetPointerLockWillRespondAsynchronously_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AllowPointerLock
+content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.AllowPointerLock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WorkItemAdded
+content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.WorkItemAdded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RequestWorkItem
+content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.RequestWorkItem_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WorkQueueStatesChanged
+content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.WorkQueueStatesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'changed_work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetAcceptLanguages
+content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetAcceptLanguages_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'accept_languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetRegisterProtocolHandlerMode
+content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.SetRegisterProtocolHandlerMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnableAutoResize
+content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.EnableAutoResize_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DisableAutoResize
+content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.WebTestControlHost.DisableAutoResize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+content.mojom.WebTestControlHostPtr = content.mojom.WebTestControlHostRemote;
+content.mojom.WebTestControlHostRequest = content.mojom.WebTestControlHostPendingReceiver;
+
+
+// Interface: NonAssociatedWebTestControlHost
+content.mojom.NonAssociatedWebTestControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NonAssociatedWebTestControlHost
-content.mojom.NonAssociatedWebTestControlHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'content.mojom.NonAssociatedWebTestControlHost';
+content.mojom.NonAssociatedWebTestControlHostRemote = class {
+  static get $interfaceName() {
+    return 'content.mojom.NonAssociatedWebTestControlHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      content.mojom.NonAssociatedWebTestControlHostPendingReceiver,
+      handle);
+    this.$ = new content.mojom.NonAssociatedWebTestControlHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+content.mojom.NonAssociatedWebTestControlHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setLCPPNavigationHint(hint) {
-    // Method: SetLCPPNavigationHint
-    // Call: SetLCPPNavigationHint(hint)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec.$,
+      null,
+      [hint]);
   }
 
 };
 
-content.mojom.NonAssociatedWebTestControlHostRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+content.mojom.NonAssociatedWebTestControlHost.getRemote = function() {
+  let remote = new content.mojom.NonAssociatedWebTestControlHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'content.mojom.NonAssociatedWebTestControlHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetLCPPNavigationHint
+content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.NonAssociatedWebTestControlHost.SetLCPPNavigationHint_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+content.mojom.NonAssociatedWebTestControlHostPtr = content.mojom.NonAssociatedWebTestControlHostRemote;
+content.mojom.NonAssociatedWebTestControlHostRequest = content.mojom.NonAssociatedWebTestControlHostPendingReceiver;
+

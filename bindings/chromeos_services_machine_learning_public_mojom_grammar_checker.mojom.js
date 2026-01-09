@@ -12,48 +12,56 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: Status
 chromeos.machine_learning.mojom.Status = {
-  candidates: 0,
-};
-
-// Struct: GrammarCheckerQuery
-chromeos.machine_learning.mojom.GrammarCheckerQuery = class {
-  constructor(values = {}) {
-    this.text = values.text !== undefined ? values.text : "";
-    this.language = values.language !== undefined ? values.language : "";
-  }
-};
-
-// Struct: GrammarCorrectionFragment
-chromeos.machine_learning.mojom.GrammarCorrectionFragment = class {
-  constructor(values = {}) {
-    this.replacement = values.replacement !== undefined ? values.replacement : 0;
-  }
-};
-
-// Struct: GrammarCheckerCandidate
-chromeos.machine_learning.mojom.GrammarCheckerCandidate = class {
-  constructor(values = {}) {
-    this.fragments = values.fragments !== undefined ? values.fragments : 0;
-  }
-};
-
-// Struct: GrammarCheckerResult
-chromeos.machine_learning.mojom.GrammarCheckerResult = class {
-  constructor(values = {}) {
-  }
+  OK: 0,
+  ERROR: 1,
 };
 
 // Interface: GrammarChecker
-chromeos.machine_learning.mojom.GrammarCheckerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.GrammarChecker';
-  }
-
-};
-
-chromeos.machine_learning.mojom.GrammarCheckerRequest = class {
+chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.GrammarCheckerRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.GrammarChecker';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.GrammarChecker.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.GrammarCheckerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.GrammarChecker',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.GrammarCheckerPtr = chromeos.machine_learning.mojom.GrammarCheckerRemote;
+chromeos.machine_learning.mojom.GrammarCheckerRequest = chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver;
+

@@ -21,39 +21,102 @@ arc.mojom.ClockId = {
   BOOTTIME_ALARM: 1,
 };
 
-// Struct: CreateTimerRequest
-arc.mojom.CreateTimerRequest = class {
-  constructor(values = {}) {
-    this.expiration_fd = values.expiration_fd !== undefined ? values.expiration_fd : null;
-  }
-};
-
 // Interface: TimerHost
-arc.mojom.TimerHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.TimerHost';
-  }
-
-};
-
-arc.mojom.TimerHostRequest = class {
+arc.mojom.TimerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.TimerHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.TimerHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.TimerHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.TimerHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.TimerHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.TimerHost.getRemote = function() {
+  let remote = new arc.mojom.TimerHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.TimerHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.TimerHostPtr = arc.mojom.TimerHostRemote;
+arc.mojom.TimerHostRequest = arc.mojom.TimerHostPendingReceiver;
+
 
 // Interface: TimerInstance
-arc.mojom.TimerInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.TimerInstance';
-  }
-
-};
-
-arc.mojom.TimerInstanceRequest = class {
+arc.mojom.TimerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.TimerInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.TimerInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.TimerInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.TimerInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.TimerInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.TimerInstance.getRemote = function() {
+  let remote = new arc.mojom.TimerInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.TimerInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.TimerInstancePtr = arc.mojom.TimerInstanceRemote;
+arc.mojom.TimerInstanceRequest = arc.mojom.TimerInstancePendingReceiver;
+

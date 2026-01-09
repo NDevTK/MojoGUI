@@ -9,114 +9,382 @@ var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
 
 
-// Struct: RequestParams
-cert_verifier.mojom.RequestParams = class {
-  constructor(values = {}) {
-    this.sct_list = values.sct_list !== undefined ? values.sct_list : 0;
-  }
-};
-
-// Struct: CertVerifierConfig
-cert_verifier.mojom.CertVerifierConfig = class {
-  constructor(values = {}) {
-    this.enable_sha1_local_anchors = values.enable_sha1_local_anchors !== undefined ? values.enable_sha1_local_anchors : false;
-  }
-};
-
 // Interface: URLLoaderFactoryConnector
-cert_verifier.mojom.URLLoaderFactoryConnectorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cert_verifier.mojom.URLLoaderFactoryConnector';
+cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+cert_verifier.mojom.URLLoaderFactoryConnectorRemote = class {
+  static get $interfaceName() {
+    return 'cert_verifier.mojom.URLLoaderFactoryConnector';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver,
+      handle);
+    this.$ = new cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createURLLoaderFactory(url_loader_factory) {
-    // Method: CreateURLLoaderFactory
-    // Call: CreateURLLoaderFactory(url_loader_factory)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$,
+      null,
+      [url_loader_factory]);
   }
 
 };
 
-cert_verifier.mojom.URLLoaderFactoryConnectorRequest = class {
+cert_verifier.mojom.URLLoaderFactoryConnector.getRemote = function() {
+  let remote = new cert_verifier.mojom.URLLoaderFactoryConnectorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cert_verifier.mojom.URLLoaderFactoryConnector',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateURLLoaderFactory
+cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.URLLoaderFactoryConnector.CreateURLLoaderFactory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+cert_verifier.mojom.URLLoaderFactoryConnectorPtr = cert_verifier.mojom.URLLoaderFactoryConnectorRemote;
+cert_verifier.mojom.URLLoaderFactoryConnectorRequest = cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver;
+
+
+// Interface: CertVerifierService
+cert_verifier.mojom.CertVerifierServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CertVerifierService
-cert_verifier.mojom.CertVerifierServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cert_verifier.mojom.CertVerifierService';
+cert_verifier.mojom.CertVerifierServiceRemote = class {
+  static get $interfaceName() {
+    return 'cert_verifier.mojom.CertVerifierService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cert_verifier.mojom.CertVerifierServicePendingReceiver,
+      handle);
+    this.$ = new cert_verifier.mojom.CertVerifierServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   enableNetworkAccess(url_loader_factory, reconnector) {
-    // Method: EnableNetworkAccess
-    // Call: EnableNetworkAccess(url_loader_factory, reconnector)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$,
+      null,
+      [url_loader_factory, reconnector]);
   }
 
   verify(params, net_log_source, cert_verifier_request) {
-    // Method: Verify
-    // Call: Verify(params, net_log_source, cert_verifier_request)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$,
+      null,
+      [params, net_log_source, cert_verifier_request]);
   }
 
   verify2QwacBinding(binding, hostname, tls_certificate, net_log_source) {
-    // Method: Verify2QwacBinding
-    return new Promise((resolve) => {
-      // Call: Verify2QwacBinding(binding, hostname, tls_certificate, net_log_source)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$,
+      cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec.$,
+      [binding, hostname, tls_certificate, net_log_source]);
   }
 
   setConfig(config) {
-    // Method: SetConfig
-    // Call: SetConfig(config)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$,
+      null,
+      [config]);
   }
 
 };
 
-cert_verifier.mojom.CertVerifierServiceRequest = class {
+cert_verifier.mojom.CertVerifierService.getRemote = function() {
+  let remote = new cert_verifier.mojom.CertVerifierServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cert_verifier.mojom.CertVerifierService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for EnableNetworkAccess
+cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierService.EnableNetworkAccess_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Verify
+cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierService.Verify_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Verify2QwacBinding
+cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetConfig
+cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierService.SetConfig_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+cert_verifier.mojom.CertVerifierServicePtr = cert_verifier.mojom.CertVerifierServiceRemote;
+cert_verifier.mojom.CertVerifierServiceRequest = cert_verifier.mojom.CertVerifierServicePendingReceiver;
+
+
+// Interface: CertVerifierServiceClient
+cert_verifier.mojom.CertVerifierServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CertVerifierServiceClient
-cert_verifier.mojom.CertVerifierServiceClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cert_verifier.mojom.CertVerifierServiceClient';
+cert_verifier.mojom.CertVerifierServiceClientRemote = class {
+  static get $interfaceName() {
+    return 'cert_verifier.mojom.CertVerifierServiceClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cert_verifier.mojom.CertVerifierServiceClientPendingReceiver,
+      handle);
+    this.$ = new cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onCertVerifierChanged() {
-    // Method: OnCertVerifierChanged
-    // Call: OnCertVerifierChanged()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-cert_verifier.mojom.CertVerifierServiceClientRequest = class {
+cert_verifier.mojom.CertVerifierServiceClient.getRemote = function() {
+  let remote = new cert_verifier.mojom.CertVerifierServiceClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cert_verifier.mojom.CertVerifierServiceClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnCertVerifierChanged
+cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierServiceClient.OnCertVerifierChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+cert_verifier.mojom.CertVerifierServiceClientPtr = cert_verifier.mojom.CertVerifierServiceClientRemote;
+cert_verifier.mojom.CertVerifierServiceClientRequest = cert_verifier.mojom.CertVerifierServiceClientPendingReceiver;
+
+
+// Interface: CertVerifierRequest
+cert_verifier.mojom.CertVerifierRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CertVerifierRequest
-cert_verifier.mojom.CertVerifierRequestPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cert_verifier.mojom.CertVerifierRequest';
+cert_verifier.mojom.CertVerifierRequestRemote = class {
+  static get $interfaceName() {
+    return 'cert_verifier.mojom.CertVerifierRequest';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cert_verifier.mojom.CertVerifierRequestPendingReceiver,
+      handle);
+    this.$ = new cert_verifier.mojom.CertVerifierRequestRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   complete(result, net_error) {
-    // Method: Complete
-    // Call: Complete(result, net_error)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$,
+      null,
+      [result, net_error]);
   }
 
 };
 
-cert_verifier.mojom.CertVerifierRequestRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+cert_verifier.mojom.CertVerifierRequest.getRemote = function() {
+  let remote = new cert_verifier.mojom.CertVerifierRequestRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cert_verifier.mojom.CertVerifierRequest',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Complete
+cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cert_verifier.mojom.CertVerifierRequest.Complete_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+cert_verifier.mojom.CertVerifierRequestPtr = cert_verifier.mojom.CertVerifierRequestRemote;
+cert_verifier.mojom.CertVerifierRequestRequest = cert_verifier.mojom.CertVerifierRequestPendingReceiver;
+

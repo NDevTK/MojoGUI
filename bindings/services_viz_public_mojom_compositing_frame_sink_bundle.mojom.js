@@ -9,90 +9,246 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
-// Struct: BundledFrameSubmission
-viz.mojom.BundledFrameSubmission = class {
-  constructor(values = {}) {
-    this.data = values.data !== undefined ? values.data : 0;
-  }
-};
-
-// Struct: BundledCompositorFrame
-viz.mojom.BundledCompositorFrame = class {
-  constructor(values = {}) {
-    this.submit_time = values.submit_time !== undefined ? values.submit_time : 0;
-  }
-};
-
-// Struct: BundledReturnedResources
-viz.mojom.BundledReturnedResources = class {
-  constructor(values = {}) {
-    this.resources = values.resources !== undefined ? values.resources : 0;
-  }
-};
-
-// Struct: BeginFrameInfo
-viz.mojom.BeginFrameInfo = class {
-  constructor(values = {}) {
-    this.resources = values.resources !== undefined ? values.resources : 0;
-  }
-};
-
 // Interface: FrameSinkBundle
-viz.mojom.FrameSinkBundlePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.FrameSinkBundle';
+viz.mojom.FrameSinkBundlePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+viz.mojom.FrameSinkBundleRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.FrameSinkBundle';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.FrameSinkBundlePendingReceiver,
+      handle);
+    this.$ = new viz.mojom.FrameSinkBundleRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.FrameSinkBundleRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setNeedsBeginFrame(sink_id, needs_begin_frame) {
-    // Method: SetNeedsBeginFrame
-    // Call: SetNeedsBeginFrame(sink_id, needs_begin_frame)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$,
+      null,
+      [sink_id, needs_begin_frame]);
   }
 
   submit(submissions) {
-    // Method: Submit
-    // Call: Submit(submissions)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$,
+      null,
+      [submissions]);
   }
 
   setThreads(sink_id, threads) {
-    // Method: SetThreads
-    // Call: SetThreads(sink_id, threads)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$,
+      null,
+      [sink_id, threads]);
   }
 
 };
 
-viz.mojom.FrameSinkBundleRequest = class {
+viz.mojom.FrameSinkBundle.getRemote = function() {
+  let remote = new viz.mojom.FrameSinkBundleRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.FrameSinkBundle',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetNeedsBeginFrame
+viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkBundle.SetNeedsBeginFrame_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'needs_begin_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Submit
+viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkBundle.Submit_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetThreads
+viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkBundle.SetThreads_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.FrameSinkBundlePtr = viz.mojom.FrameSinkBundleRemote;
+viz.mojom.FrameSinkBundleRequest = viz.mojom.FrameSinkBundlePendingReceiver;
+
+
+// Interface: FrameSinkBundleClient
+viz.mojom.FrameSinkBundleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: FrameSinkBundleClient
-viz.mojom.FrameSinkBundleClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.FrameSinkBundleClient';
+viz.mojom.FrameSinkBundleClientRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.FrameSinkBundleClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.FrameSinkBundleClientPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.FrameSinkBundleClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   flushNotifications(acks, begin_frames, reclaimed_resources) {
-    // Method: FlushNotifications
-    // Call: FlushNotifications(acks, begin_frames, reclaimed_resources)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$,
+      null,
+      [acks, begin_frames, reclaimed_resources]);
   }
 
   onBeginFramePausedChanged(sink_id, paused) {
-    // Method: OnBeginFramePausedChanged
-    // Call: OnBeginFramePausedChanged(sink_id, paused)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$,
+      null,
+      [sink_id, paused]);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(sink_id, sequence_id) {
-    // Method: OnCompositorFrameTransitionDirectiveProcessed
-    // Call: OnCompositorFrameTransitionDirectiveProcessed(sink_id, sequence_id)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$,
+      null,
+      [sink_id, sequence_id]);
   }
 
 };
 
-viz.mojom.FrameSinkBundleClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+viz.mojom.FrameSinkBundleClient.getRemote = function() {
+  let remote = new viz.mojom.FrameSinkBundleClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.FrameSinkBundleClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for FlushNotifications
+viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkBundleClient.FlushNotifications_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnBeginFramePausedChanged
+viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkBundleClient.OnBeginFramePausedChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'paused', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
+viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.FrameSinkBundleClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sequence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.FrameSinkBundleClientPtr = viz.mojom.FrameSinkBundleClientRemote;
+viz.mojom.FrameSinkBundleClientRequest = viz.mojom.FrameSinkBundleClientPendingReceiver;
+

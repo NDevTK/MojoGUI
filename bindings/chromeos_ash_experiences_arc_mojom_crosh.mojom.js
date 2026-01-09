@@ -16,23 +16,52 @@ arc.mojom.ArcShellCommand = {
   kMeminfo: 2,
 };
 
-// Struct: ArcShellExecutionRequest
-arc.mojom.ArcShellExecutionRequest = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: ArcShellExecutionInstance
-arc.mojom.ArcShellExecutionInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.ArcShellExecutionInstance';
-  }
-
-};
-
-arc.mojom.ArcShellExecutionInstanceRequest = class {
+arc.mojom.ArcShellExecutionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.ArcShellExecutionInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.ArcShellExecutionInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.ArcShellExecutionInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.ArcShellExecutionInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.ArcShellExecutionInstance.getRemote = function() {
+  let remote = new arc.mojom.ArcShellExecutionInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.ArcShellExecutionInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.ArcShellExecutionInstancePtr = arc.mojom.ArcShellExecutionInstanceRemote;
+arc.mojom.ArcShellExecutionInstanceRequest = arc.mojom.ArcShellExecutionInstancePendingReceiver;
+

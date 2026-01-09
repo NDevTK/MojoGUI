@@ -10,71 +10,283 @@ payments.mojom = payments.mojom || {};
 
 
 // Interface: DigitalGoods
-payments.mojom.DigitalGoodsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'payments.mojom.DigitalGoods';
+payments.mojom.DigitalGoodsPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+payments.mojom.DigitalGoodsRemote = class {
+  static get $interfaceName() {
+    return 'payments.mojom.DigitalGoods';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      payments.mojom.DigitalGoodsPendingReceiver,
+      handle);
+    this.$ = new payments.mojom.DigitalGoodsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+payments.mojom.DigitalGoodsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getDetails(item_ids) {
-    // Method: GetDetails
-    return new Promise((resolve) => {
-      // Call: GetDetails(item_ids)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$,
+      payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$,
+      [item_ids]);
   }
 
   listPurchases() {
-    // Method: ListPurchases
-    return new Promise((resolve) => {
-      // Call: ListPurchases()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$,
+      payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$,
+      []);
   }
 
   listPurchaseHistory() {
-    // Method: ListPurchaseHistory
-    return new Promise((resolve) => {
-      // Call: ListPurchaseHistory()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$,
+      payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$,
+      []);
   }
 
   consume(purchase_token) {
-    // Method: Consume
-    return new Promise((resolve) => {
-      // Call: Consume(purchase_token)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      payments.mojom.DigitalGoods_Consume_ParamsSpec.$,
+      payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$,
+      [purchase_token]);
   }
 
 };
 
-payments.mojom.DigitalGoodsRequest = class {
+payments.mojom.DigitalGoods.getRemote = function() {
+  let remote = new payments.mojom.DigitalGoodsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'payments.mojom.DigitalGoods',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetDetails
+payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.GetDetails_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.GetDetails_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'item_details_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListPurchases
+payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.ListPurchases_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.ListPurchases_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListPurchaseHistory
+payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'purchase_reference_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Consume
+payments.mojom.DigitalGoods_Consume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.Consume_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoods.Consume_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+payments.mojom.DigitalGoodsPtr = payments.mojom.DigitalGoodsRemote;
+payments.mojom.DigitalGoodsRequest = payments.mojom.DigitalGoodsPendingReceiver;
+
+
+// Interface: DigitalGoodsFactory
+payments.mojom.DigitalGoodsFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DigitalGoodsFactory
-payments.mojom.DigitalGoodsFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'payments.mojom.DigitalGoodsFactory';
+payments.mojom.DigitalGoodsFactoryRemote = class {
+  static get $interfaceName() {
+    return 'payments.mojom.DigitalGoodsFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      payments.mojom.DigitalGoodsFactoryPendingReceiver,
+      handle);
+    this.$ = new payments.mojom.DigitalGoodsFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createDigitalGoods(payment_method) {
-    // Method: CreateDigitalGoods
-    return new Promise((resolve) => {
-      // Call: CreateDigitalGoods(payment_method)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$,
+      payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$,
+      [payment_method]);
   }
 
 };
 
-payments.mojom.DigitalGoodsFactoryRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+payments.mojom.DigitalGoodsFactory.getRemote = function() {
+  let remote = new payments.mojom.DigitalGoodsFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'payments.mojom.DigitalGoodsFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateDigitalGoods
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'digital_goods', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+payments.mojom.DigitalGoodsFactoryPtr = payments.mojom.DigitalGoodsFactoryRemote;
+payments.mojom.DigitalGoodsFactoryRequest = payments.mojom.DigitalGoodsFactoryPendingReceiver;
+

@@ -22,31 +22,101 @@ mantis.mojom.InitializeResult = {
 };
 
 // Interface: PlatformModelProgressObserver
-mantis.mojom.PlatformModelProgressObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'mantis.mojom.PlatformModelProgressObserver';
-  }
-
-};
-
-mantis.mojom.PlatformModelProgressObserverRequest = class {
+mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+mantis.mojom.PlatformModelProgressObserverRemote = class {
+  static get $interfaceName() {
+    return 'mantis.mojom.PlatformModelProgressObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mantis.mojom.PlatformModelProgressObserverPendingReceiver,
+      handle);
+    this.$ = new mantis.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
+  let remote = new mantis.mojom.PlatformModelProgressObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'mantis.mojom.PlatformModelProgressObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+mantis.mojom.PlatformModelProgressObserverPtr = mantis.mojom.PlatformModelProgressObserverRemote;
+mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelProgressObserverPendingReceiver;
+
 
 // Interface: MantisService
-mantis.mojom.MantisServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'mantis.mojom.MantisService';
-  }
-
-};
-
-mantis.mojom.MantisServiceRequest = class {
+mantis.mojom.MantisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+mantis.mojom.MantisServiceRemote = class {
+  static get $interfaceName() {
+    return 'mantis.mojom.MantisService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mantis.mojom.MantisServicePendingReceiver,
+      handle);
+    this.$ = new mantis.mojom.MantisServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+mantis.mojom.MantisServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+mantis.mojom.MantisService.getRemote = function() {
+  let remote = new mantis.mojom.MantisServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'mantis.mojom.MantisService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+mantis.mojom.MantisServicePtr = mantis.mojom.MantisServiceRemote;
+mantis.mojom.MantisServiceRequest = mantis.mojom.MantisServicePendingReceiver;
+

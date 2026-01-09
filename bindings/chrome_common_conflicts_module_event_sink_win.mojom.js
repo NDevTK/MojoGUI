@@ -9,21 +9,74 @@ var mojom = mojom || {};
 
 
 // Interface: ModuleEventSink
-mojom.ModuleEventSinkPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'mojom.ModuleEventSink';
-  }
-
-  onModuleEvents(module_load_addresses) {
-    // Method: OnModuleEvents
-    // Call: OnModuleEvents(module_load_addresses)
-  }
-
-};
-
-mojom.ModuleEventSinkRequest = class {
+mojom.ModuleEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+mojom.ModuleEventSinkRemote = class {
+  static get $interfaceName() {
+    return 'mojom.ModuleEventSink';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojom.ModuleEventSinkPendingReceiver,
+      handle);
+    this.$ = new mojom.ModuleEventSinkRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+mojom.ModuleEventSinkRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onModuleEvents(module_load_addresses) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      mojom.ModuleEventSink_OnModuleEvents_ParamsSpec.$,
+      null,
+      [module_load_addresses]);
+  }
+
+};
+
+mojom.ModuleEventSink.getRemote = function() {
+  let remote = new mojom.ModuleEventSinkRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'mojom.ModuleEventSink',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnModuleEvents
+mojom.ModuleEventSink_OnModuleEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojom.ModuleEventSink.OnModuleEvents_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'module_load_addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+mojom.ModuleEventSinkPtr = mojom.ModuleEventSinkRemote;
+mojom.ModuleEventSinkRequest = mojom.ModuleEventSinkPendingReceiver;
+

@@ -9,160 +9,512 @@ var on_device_internals = on_device_internals || {};
 on_device_internals.mojom = on_device_internals.mojom || {};
 
 
-// Struct: PageData
-on_device_internals.mojom.PageData = class {
-  constructor(values = {}) {
-    this.min_vram_mb = values.min_vram_mb !== undefined ? values.min_vram_mb : 0;
-  }
-};
-
-// Struct: BaseModelState
-on_device_internals.mojom.BaseModelState = class {
-  constructor(values = {}) {
-    this.info = values.info !== undefined ? values.info : "";
-  }
-};
-
-// Struct: BaseModelInfo
-on_device_internals.mojom.BaseModelInfo = class {
-  constructor(values = {}) {
-    this.backend_type = values.backend_type !== undefined ? values.backend_type : 0;
-  }
-};
-
-// Struct: SupplementaryModelInfo
-on_device_internals.mojom.SupplementaryModelInfo = class {
-  constructor(values = {}) {
-    this.is_ready = values.is_ready !== undefined ? values.is_ready : false;
-  }
-};
-
-// Struct: FeatureAdaptationInfo
-on_device_internals.mojom.FeatureAdaptationInfo = class {
-  constructor(values = {}) {
-    this.is_recently_used = values.is_recently_used !== undefined ? values.is_recently_used : 0;
-  }
-};
-
 // Interface: PageHandlerFactory
-on_device_internals.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_internals.mojom.PageHandlerFactory';
+on_device_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+on_device_internals.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'on_device_internals.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_internals.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new on_device_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-on_device_internals.mojom.PageHandlerFactoryRequest = class {
+on_device_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new on_device_internals.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_internals.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+on_device_internals.mojom.PageHandlerFactoryPtr = on_device_internals.mojom.PageHandlerFactoryRemote;
+on_device_internals.mojom.PageHandlerFactoryRequest = on_device_internals.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+on_device_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-on_device_internals.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_internals.mojom.PageHandler';
+on_device_internals.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'on_device_internals.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_internals.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new on_device_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   loadModel(model_path, performance_hint, model) {
-    // Method: LoadModel
-    return new Promise((resolve) => {
-      // Call: LoadModel(model_path, performance_hint, model)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$,
+      on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$,
+      [model_path, performance_hint, model]);
   }
 
   loadPlatformModel(model_path, model) {
-    // Method: LoadPlatformModel
-    return new Promise((resolve) => {
-      // Call: LoadPlatformModel(model_path, model)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$,
+      on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$,
+      [model_path, model]);
   }
 
   getDeviceAndPerformanceInfo() {
-    // Method: GetDeviceAndPerformanceInfo
-    return new Promise((resolve) => {
-      // Call: GetDeviceAndPerformanceInfo()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$,
+      on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$,
+      []);
   }
 
   getDefaultModelPath() {
-    // Method: GetDefaultModelPath
-    return new Promise((resolve) => {
-      // Call: GetDefaultModelPath()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$,
+      on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$,
+      []);
   }
 
   uninstallDefaultModel() {
-    // Method: UninstallDefaultModel
-    // Call: UninstallDefaultModel()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$,
+      null,
+      []);
   }
 
   getPageData() {
-    // Method: GetPageData
-    return new Promise((resolve) => {
-      // Call: GetPageData()
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$,
+      on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$,
+      []);
   }
 
   setFeatureRecentlyUsedState(feature_key, is_recently_used) {
-    // Method: SetFeatureRecentlyUsedState
-    // Call: SetFeatureRecentlyUsedState(feature_key, is_recently_used)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$,
+      null,
+      [feature_key, is_recently_used]);
   }
 
   decodeBitmap(image_buffer) {
-    // Method: DecodeBitmap
-    return new Promise((resolve) => {
-      // Call: DecodeBitmap(image_buffer)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$,
+      on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$,
+      [image_buffer]);
   }
 
   resetModelCrashCount() {
-    // Method: ResetModelCrashCount
-    // Call: ResetModelCrashCount()
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-on_device_internals.mojom.PageHandlerRequest = class {
+on_device_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new on_device_internals.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_internals.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for LoadModel
+on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.LoadModel_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'performance_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.LoadModel_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LoadPlatformModel
+on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDeviceAndPerformanceInfo
+on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.GetDeviceAndPerformanceInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.GetDeviceAndPerformanceInfo_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'performance_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDefaultModelPath
+on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.GetDefaultModelPath_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.GetDefaultModelPath_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UninstallDefaultModel
+on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.UninstallDefaultModel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetPageData
+on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.GetPageData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.GetPageData_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFeatureRecentlyUsedState
+on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.SetFeatureRecentlyUsedState_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_recently_used', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DecodeBitmap
+on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'image_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResetModelCrashCount
+on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.PageHandler.ResetModelCrashCount_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+on_device_internals.mojom.PageHandlerPtr = on_device_internals.mojom.PageHandlerRemote;
+on_device_internals.mojom.PageHandlerRequest = on_device_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+on_device_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-on_device_internals.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_internals.mojom.Page';
+on_device_internals.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'on_device_internals.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_internals.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new on_device_internals.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_internals.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onLogMessageAdded(event_time, source_file, source_line, message) {
-    // Method: OnLogMessageAdded
-    // Call: OnLogMessageAdded(event_time, source_file, source_line, message)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$,
+      null,
+      [event_time, source_file, source_line, message]);
   }
 
   onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
-    // Method: OnDownloadProgressUpdate
-    // Call: OnDownloadProgressUpdate(downloaded_bytes, total_bytes)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$,
+      null,
+      [downloaded_bytes, total_bytes]);
   }
 
 };
 
-on_device_internals.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+on_device_internals.mojom.Page.getRemote = function() {
+  let remote = new on_device_internals.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_internals.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnLogMessageAdded
+on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.Page.OnLogMessageAdded_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnDownloadProgressUpdate
+on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'on_device_internals.mojom.Page.OnDownloadProgressUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+on_device_internals.mojom.PagePtr = on_device_internals.mojom.PageRemote;
+on_device_internals.mojom.PageRequest = on_device_internals.mojom.PagePendingReceiver;
+

@@ -39,26 +39,43 @@ crosapi.mojom.DiagnosticsRoutineEnum = {
 // Enum: DiagnosticsRoutineStatusEnum
 crosapi.mojom.DiagnosticsRoutineStatusEnum = {
   kReady: 0,
+  kRunning: 1,
+  kWaiting: 2,
+  kPassed: 3,
+  kFailed: 4,
+  kError: 5,
+  kCancelled: 6,
+  kFailedToStart: 7,
+  kRemoved: 8,
+  kCancelling: 9,
+  kUnsupported: 10,
+  kNotRun: 11,
 };
 
 // Enum: DiagnosticsRoutineUserMessageEnum
 crosapi.mojom.DiagnosticsRoutineUserMessageEnum = {
   kUnplugACPower: 0,
+  kPlugInACPower: 1,
 };
 
 // Enum: DiagnosticsRoutineCommandEnum
 crosapi.mojom.DiagnosticsRoutineCommandEnum = {
   kContinue: 0,
+  kCancel: 1,
+  kGetStatus: 2,
+  kRemove: 3,
 };
 
 // Enum: DiagnosticsAcPowerStatusEnum
 crosapi.mojom.DiagnosticsAcPowerStatusEnum = {
   kConnected: 0,
+  kDisconnected: 1,
 };
 
 // Enum: DiagnosticsNvmeSelfTestTypeEnum
 crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnum = {
   kShortSelfTest: 0,
+  kLongSelfTest: 1,
 };
 
 // Enum: DiagnosticsDiskReadRoutineTypeEnum
@@ -67,43 +84,52 @@ crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnum = {
   kRandomRead: 1,
 };
 
-// Struct: DiagnosticsInteractiveRoutineUpdate
-crosapi.mojom.DiagnosticsInteractiveRoutineUpdate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: DiagnosticsNonInteractiveRoutineUpdate
-crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdate = class {
-  constructor(values = {}) {
-    this.kError = values.kError !== undefined ? values.kError : null;
-  }
-};
-
-// Struct: DiagnosticsRoutineUpdate
-crosapi.mojom.DiagnosticsRoutineUpdate = class {
-  constructor(values = {}) {
-    this.logs = values.logs !== undefined ? values.logs : null;
-  }
-};
-
-// Struct: DiagnosticsRunRoutineResponse
-crosapi.mojom.DiagnosticsRunRoutineResponse = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: DiagnosticsService
-crosapi.mojom.DiagnosticsServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.DiagnosticsService';
-  }
-
-};
-
-crosapi.mojom.DiagnosticsServiceRequest = class {
+crosapi.mojom.DiagnosticsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.DiagnosticsServiceRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.DiagnosticsService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.DiagnosticsServicePendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.DiagnosticsServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.DiagnosticsService.getRemote = function() {
+  let remote = new crosapi.mojom.DiagnosticsServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.DiagnosticsService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.DiagnosticsServicePtr = crosapi.mojom.DiagnosticsServiceRemote;
+crosapi.mojom.DiagnosticsServiceRequest = crosapi.mojom.DiagnosticsServicePendingReceiver;
+

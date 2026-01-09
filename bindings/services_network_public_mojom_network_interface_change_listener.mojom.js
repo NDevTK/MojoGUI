@@ -9,58 +9,75 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
-// Struct: IfAddrMsg
-network.mojom.IfAddrMsg = class {
-  constructor(values = {}) {
-    this.ifa_index = values.ifa_index !== undefined ? values.ifa_index : 0;
-  }
-};
-
-// Struct: AddressMap
-network.mojom.AddressMap = class {
-  constructor(values = {}) {
-    this.address_map = values.address_map !== undefined ? values.address_map : {};
-  }
-};
-
-// Struct: OnlineLinks
-network.mojom.OnlineLinks = class {
-  constructor(values = {}) {
-    this.online_links = values.online_links !== undefined ? values.online_links : 0;
-  }
-};
-
-// Struct: InitialAddressMap
-network.mojom.InitialAddressMap = class {
-  constructor(values = {}) {
-    this.online_links = values.online_links !== undefined ? values.online_links : {};
-  }
-};
-
-// Struct: NetworkInterfaceChangeParams
-network.mojom.NetworkInterfaceChangeParams = class {
-  constructor(values = {}) {
-    this.address_map = values.address_map !== undefined ? values.address_map : {};
-    this.online_links = values.online_links !== undefined ? values.online_links : 0;
-  }
-};
-
 // Interface: NetworkInterfaceChangeListener
-network.mojom.NetworkInterfaceChangeListenerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.NetworkInterfaceChangeListener';
-  }
-
-  onNetworkInterfacesChanged(params) {
-    // Method: OnNetworkInterfacesChanged
-    // Call: OnNetworkInterfacesChanged(params)
-  }
-
-};
-
-network.mojom.NetworkInterfaceChangeListenerRequest = class {
+network.mojom.NetworkInterfaceChangeListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+network.mojom.NetworkInterfaceChangeListenerRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.NetworkInterfaceChangeListener';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.NetworkInterfaceChangeListenerPendingReceiver,
+      handle);
+    this.$ = new network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onNetworkInterfacesChanged(params) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+};
+
+network.mojom.NetworkInterfaceChangeListener.getRemote = function() {
+  let remote = new network.mojom.NetworkInterfaceChangeListenerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.NetworkInterfaceChangeListener',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnNetworkInterfacesChanged
+network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkInterfaceChangeListener.OnNetworkInterfacesChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.NetworkInterfaceChangeListenerPtr = network.mojom.NetworkInterfaceChangeListenerRemote;
+network.mojom.NetworkInterfaceChangeListenerRequest = network.mojom.NetworkInterfaceChangeListenerPendingReceiver;
+

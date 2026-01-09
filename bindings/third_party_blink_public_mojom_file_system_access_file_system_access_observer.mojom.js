@@ -9,73 +9,75 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: FileSystemAccessChangeTypeAppeared
-blink.mojom.FileSystemAccessChangeTypeAppeared = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileSystemAccessChangeTypeDisappeared
-blink.mojom.FileSystemAccessChangeTypeDisappeared = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileSystemAccessChangeTypeErrored
-blink.mojom.FileSystemAccessChangeTypeErrored = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileSystemAccessChangeTypeModified
-blink.mojom.FileSystemAccessChangeTypeModified = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileSystemAccessChangeTypeMoved
-blink.mojom.FileSystemAccessChangeTypeMoved = class {
-  constructor(values = {}) {
-    this.former_relative_path = values.former_relative_path !== undefined ? values.former_relative_path : "";
-  }
-};
-
-// Struct: FileSystemAccessChangeTypeUnknown
-blink.mojom.FileSystemAccessChangeTypeUnknown = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileSystemAccessChangeMetadata
-blink.mojom.FileSystemAccessChangeMetadata = class {
-  constructor(values = {}) {
-    this.relative_path = values.relative_path !== undefined ? values.relative_path : "";
-  }
-};
-
-// Struct: FileSystemAccessChange
-blink.mojom.FileSystemAccessChange = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-  }
-};
-
 // Interface: FileSystemAccessObserver
-blink.mojom.FileSystemAccessObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FileSystemAccessObserver';
-  }
-
-  onFileChanges(changes) {
-    // Method: OnFileChanges
-    // Call: OnFileChanges(changes)
-  }
-
-};
-
-blink.mojom.FileSystemAccessObserverRequest = class {
+blink.mojom.FileSystemAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.FileSystemAccessObserverRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FileSystemAccessObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FileSystemAccessObserverPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FileSystemAccessObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onFileChanges(changes) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$,
+      null,
+      [changes]);
+  }
+
+};
+
+blink.mojom.FileSystemAccessObserver.getRemote = function() {
+  let remote = new blink.mojom.FileSystemAccessObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FileSystemAccessObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnFileChanges
+blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileSystemAccessObserver.OnFileChanges_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FileSystemAccessObserverPtr = blink.mojom.FileSystemAccessObserverRemote;
+blink.mojom.FileSystemAccessObserverRequest = blink.mojom.FileSystemAccessObserverPendingReceiver;
+

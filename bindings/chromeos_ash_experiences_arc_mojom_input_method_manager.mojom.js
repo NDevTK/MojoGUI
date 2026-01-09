@@ -9,62 +9,152 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
-// Struct: ImeInfo
-arc.mojom.ImeInfo = class {
-  constructor(values = {}) {
-    this.is_allowed_in_clamshell_mode = values.is_allowed_in_clamshell_mode !== undefined ? values.is_allowed_in_clamshell_mode : false;
-  }
-};
-
-// Struct: TextInputState
-arc.mojom.TextInputState = class {
-  constructor(values = {}) {
-    this.cursor_pos = values.cursor_pos !== undefined ? values.cursor_pos : 0;
-    this.composition_text_range = values.composition_text_range !== undefined ? values.composition_text_range : 0;
-  }
-};
-
 // Interface: InputConnection
-arc.mojom.InputConnectionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.InputConnection';
-  }
-
-};
-
-arc.mojom.InputConnectionRequest = class {
+arc.mojom.InputConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.InputConnectionRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.InputConnection';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.InputConnectionPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.InputConnectionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.InputConnectionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.InputConnection.getRemote = function() {
+  let remote = new arc.mojom.InputConnectionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.InputConnection',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.InputConnectionPtr = arc.mojom.InputConnectionRemote;
+arc.mojom.InputConnectionRequest = arc.mojom.InputConnectionPendingReceiver;
+
 
 // Interface: InputMethodManagerHost
-arc.mojom.InputMethodManagerHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.InputMethodManagerHost';
-  }
-
-};
-
-arc.mojom.InputMethodManagerHostRequest = class {
+arc.mojom.InputMethodManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.InputMethodManagerHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.InputMethodManagerHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.InputMethodManagerHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.InputMethodManagerHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.InputMethodManagerHost.getRemote = function() {
+  let remote = new arc.mojom.InputMethodManagerHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.InputMethodManagerHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.InputMethodManagerHostPtr = arc.mojom.InputMethodManagerHostRemote;
+arc.mojom.InputMethodManagerHostRequest = arc.mojom.InputMethodManagerHostPendingReceiver;
+
 
 // Interface: InputMethodManagerInstance
-arc.mojom.InputMethodManagerInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.InputMethodManagerInstance';
-  }
-
-};
-
-arc.mojom.InputMethodManagerInstanceRequest = class {
+arc.mojom.InputMethodManagerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.InputMethodManagerInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.InputMethodManagerInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.InputMethodManagerInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.InputMethodManagerInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.InputMethodManagerInstance.getRemote = function() {
+  let remote = new arc.mojom.InputMethodManagerInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.InputMethodManagerInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.InputMethodManagerInstancePtr = arc.mojom.InputMethodManagerInstanceRemote;
+arc.mojom.InputMethodManagerInstanceRequest = arc.mojom.InputMethodManagerInstancePendingReceiver;
+

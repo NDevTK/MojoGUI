@@ -13,41 +13,63 @@ arc.mojom = arc.mojom || {};
 arc.mojom.WebApkInstallResult = {
   kSuccess: 0,
   kErrorUnknown: 1,
-  kErrorServiceTimeout: 2,
-  kErrorPolicyViolation: 3,
-  kErrorApiDisabled: 4,
-  kErrorUnknownAccount: 5,
-  kErrorResolveNetworkError: 6,
-  kErrorResolveError: 7,
-  kErrorNotGoogleSigned: 8,
-};
-
-// Struct: WebShareTargetInfo
-arc.mojom.WebShareTargetInfo = class {
-  constructor(values = {}) {
-    this.file_accepts = values.file_accepts !== undefined ? values.file_accepts : "";
-  }
-};
-
-// Struct: WebApkInfo
-arc.mojom.WebApkInfo = class {
-  constructor(values = {}) {
-    this.package_name = values.package_name !== undefined ? values.package_name : "";
-    this.share_info = values.share_info !== undefined ? values.share_info : 0;
-  }
+  kErrorServiceCommunication: 2,
+  kErrorServiceTimeout: 3,
+  kErrorCallerVerificationFailed: 4,
+  kErrorPolicyViolation: 5,
+  kErrorApiDisabled: 6,
+  kErrorUnknownAccount: 7,
+  kErrorResolveNetworkError: 8,
+  kErrorResolveError: 9,
+  kErrorNotGoogleSigned: 10,
 };
 
 // Interface: WebApkInstance
-arc.mojom.WebApkInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.WebApkInstance';
-  }
-
-};
-
-arc.mojom.WebApkInstanceRequest = class {
+arc.mojom.WebApkInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.WebApkInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.WebApkInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.WebApkInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.WebApkInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.WebApkInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.WebApkInstance.getRemote = function() {
+  let remote = new arc.mojom.WebApkInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.WebApkInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.WebApkInstancePtr = arc.mojom.WebApkInstanceRemote;
+arc.mojom.WebApkInstanceRequest = arc.mojom.WebApkInstancePendingReceiver;
+

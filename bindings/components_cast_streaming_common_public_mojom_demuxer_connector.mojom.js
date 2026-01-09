@@ -9,117 +9,338 @@ var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
 
 
-// Struct: AudioStreamInfo
-cast_streaming.mojom.AudioStreamInfo = class {
-  constructor(values = {}) {
-    this.data_pipe = values.data_pipe !== undefined ? values.data_pipe : null;
-  }
-};
-
-// Struct: VideoStreamInfo
-cast_streaming.mojom.VideoStreamInfo = class {
-  constructor(values = {}) {
-    this.data_pipe = values.data_pipe !== undefined ? values.data_pipe : null;
-  }
-};
-
-// Struct: AudioStreamInitializationInfo
-cast_streaming.mojom.AudioStreamInitializationInfo = class {
-  constructor(values = {}) {
-    this.stream_initialization_info = values.stream_initialization_info !== undefined ? values.stream_initialization_info : null;
-  }
-};
-
-// Struct: VideoStreamInitializationInfo
-cast_streaming.mojom.VideoStreamInitializationInfo = class {
-  constructor(values = {}) {
-    this.stream_initialization_info = values.stream_initialization_info !== undefined ? values.stream_initialization_info : null;
-  }
-};
-
 // Interface: AudioBufferRequester
-cast_streaming.mojom.AudioBufferRequesterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cast_streaming.mojom.AudioBufferRequester';
-  }
-
-  getBuffer() {
-    // Method: GetBuffer
-    return new Promise((resolve) => {
-      // Call: GetBuffer()
-      resolve({});
-    });
-  }
-
-  enableBitstreamConverter() {
-    // Method: EnableBitstreamConverter
-    return new Promise((resolve) => {
-      // Call: EnableBitstreamConverter()
-      resolve({});
-    });
-  }
-
-};
-
-cast_streaming.mojom.AudioBufferRequesterRequest = class {
+cast_streaming.mojom.AudioBufferRequesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+cast_streaming.mojom.AudioBufferRequesterRemote = class {
+  static get $interfaceName() {
+    return 'cast_streaming.mojom.AudioBufferRequester';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cast_streaming.mojom.AudioBufferRequesterPendingReceiver,
+      handle);
+    this.$ = new cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getBuffer() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$,
+      cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$,
+      []);
+  }
+
+  enableBitstreamConverter() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$,
+      cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+cast_streaming.mojom.AudioBufferRequester.getRemote = function() {
+  let remote = new cast_streaming.mojom.AudioBufferRequesterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cast_streaming.mojom.AudioBufferRequester',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetBuffer
+cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnableBitstreamConverter
+cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+cast_streaming.mojom.AudioBufferRequesterPtr = cast_streaming.mojom.AudioBufferRequesterRemote;
+cast_streaming.mojom.AudioBufferRequesterRequest = cast_streaming.mojom.AudioBufferRequesterPendingReceiver;
+
 
 // Interface: VideoBufferRequester
-cast_streaming.mojom.VideoBufferRequesterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cast_streaming.mojom.VideoBufferRequester';
-  }
-
-  getBuffer() {
-    // Method: GetBuffer
-    return new Promise((resolve) => {
-      // Call: GetBuffer()
-      resolve({});
-    });
-  }
-
-  enableBitstreamConverter() {
-    // Method: EnableBitstreamConverter
-    return new Promise((resolve) => {
-      // Call: EnableBitstreamConverter()
-      resolve({});
-    });
-  }
-
-};
-
-cast_streaming.mojom.VideoBufferRequesterRequest = class {
+cast_streaming.mojom.VideoBufferRequesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+cast_streaming.mojom.VideoBufferRequesterRemote = class {
+  static get $interfaceName() {
+    return 'cast_streaming.mojom.VideoBufferRequester';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cast_streaming.mojom.VideoBufferRequesterPendingReceiver,
+      handle);
+    this.$ = new cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getBuffer() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$,
+      cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$,
+      []);
+  }
+
+  enableBitstreamConverter() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$,
+      cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+cast_streaming.mojom.VideoBufferRequester.getRemote = function() {
+  let remote = new cast_streaming.mojom.VideoBufferRequesterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cast_streaming.mojom.VideoBufferRequester',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetBuffer
+cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnableBitstreamConverter
+cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+cast_streaming.mojom.VideoBufferRequesterPtr = cast_streaming.mojom.VideoBufferRequesterRemote;
+cast_streaming.mojom.VideoBufferRequesterRequest = cast_streaming.mojom.VideoBufferRequesterPendingReceiver;
+
+
 // Interface: DemuxerConnector
-cast_streaming.mojom.DemuxerConnectorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cast_streaming.mojom.DemuxerConnector';
+cast_streaming.mojom.DemuxerConnectorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+cast_streaming.mojom.DemuxerConnectorRemote = class {
+  static get $interfaceName() {
+    return 'cast_streaming.mojom.DemuxerConnector';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cast_streaming.mojom.DemuxerConnectorPendingReceiver,
+      handle);
+    this.$ = new cast_streaming.mojom.DemuxerConnectorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   enableReceiver() {
-    // Method: EnableReceiver
-    // Call: EnableReceiver()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$,
+      null,
+      []);
   }
 
   onStreamsInitialized(audio_buffer_requester, video_buffer_requester) {
-    // Method: OnStreamsInitialized
-    // Call: OnStreamsInitialized(audio_buffer_requester, video_buffer_requester)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$,
+      null,
+      [audio_buffer_requester, video_buffer_requester]);
   }
 
 };
 
-cast_streaming.mojom.DemuxerConnectorRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+cast_streaming.mojom.DemuxerConnector.getRemote = function() {
+  let remote = new cast_streaming.mojom.DemuxerConnectorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cast_streaming.mojom.DemuxerConnector',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for EnableReceiver
+cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.DemuxerConnector.EnableReceiver_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnStreamsInitialized
+cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cast_streaming.mojom.DemuxerConnector.OnStreamsInitialized_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+cast_streaming.mojom.DemuxerConnectorPtr = cast_streaming.mojom.DemuxerConnectorRemote;
+cast_streaming.mojom.DemuxerConnectorRequest = cast_streaming.mojom.DemuxerConnectorPendingReceiver;
+

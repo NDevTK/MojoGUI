@@ -56,23 +56,52 @@ ash.ime.mojom.JpUnusedEnum6 = {
   kValue2: 1,
 };
 
-// Struct: JpUnusedStruct
-ash.ime.mojom.JpUnusedStruct = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: JpUnused
-ash.ime.mojom.JpUnusedPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.ime.mojom.JpUnused';
-  }
-
-};
-
-ash.ime.mojom.JpUnusedRequest = class {
+ash.ime.mojom.JpUnusedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.ime.mojom.JpUnusedRemote = class {
+  static get $interfaceName() {
+    return 'ash.ime.mojom.JpUnused';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.ime.mojom.JpUnusedPendingReceiver,
+      handle);
+    this.$ = new ash.ime.mojom.JpUnusedRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.ime.mojom.JpUnusedRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ash.ime.mojom.JpUnused.getRemote = function() {
+  let remote = new ash.ime.mojom.JpUnusedRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.ime.mojom.JpUnused',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ash.ime.mojom.JpUnusedPtr = ash.ime.mojom.JpUnusedRemote;
+ash.ime.mojom.JpUnusedRequest = ash.ime.mojom.JpUnusedPendingReceiver;
+

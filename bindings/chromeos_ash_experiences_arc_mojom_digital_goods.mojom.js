@@ -16,24 +16,52 @@ arc.mojom.PurchaseState = {
   kPending: 2,
 };
 
-// Struct: PurchaseDetails
-arc.mojom.PurchaseDetails = class {
-  constructor(values = {}) {
-    this.will_auto_renew = values.will_auto_renew !== undefined ? values.will_auto_renew : false;
-  }
-};
-
 // Interface: DigitalGoodsInstance
-arc.mojom.DigitalGoodsInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.DigitalGoodsInstance';
-  }
-
-};
-
-arc.mojom.DigitalGoodsInstanceRequest = class {
+arc.mojom.DigitalGoodsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.DigitalGoodsInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.DigitalGoodsInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.DigitalGoodsInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.DigitalGoodsInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.DigitalGoodsInstance.getRemote = function() {
+  let remote = new arc.mojom.DigitalGoodsInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.DigitalGoodsInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.DigitalGoodsInstancePtr = arc.mojom.DigitalGoodsInstanceRemote;
+arc.mojom.DigitalGoodsInstanceRequest = arc.mojom.DigitalGoodsInstancePendingReceiver;
+

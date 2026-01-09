@@ -9,40 +9,122 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
-// Struct: FrameRoutingInfo
-content.mojom.FrameRoutingInfo = class {
-  constructor(values = {}) {
-    this.document_token = values.document_token !== undefined ? values.document_token : 0;
-  }
-};
-
 // Interface: RenderMessageFilter
-content.mojom.RenderMessageFilterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'content.mojom.RenderMessageFilter';
-  }
-
-  generateSingleFrameRoutingInfo() {
-    // Method: GenerateSingleFrameRoutingInfo
-    return new Promise((resolve) => {
-      // Call: GenerateSingleFrameRoutingInfo()
-      resolve({});
-    });
-  }
-
-  generateFrameRoutingInfos() {
-    // Method: GenerateFrameRoutingInfos
-    return new Promise((resolve) => {
-      // Call: GenerateFrameRoutingInfos()
-      resolve({});
-    });
-  }
-
-};
-
-content.mojom.RenderMessageFilterRequest = class {
+content.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+content.mojom.RenderMessageFilterRemote = class {
+  static get $interfaceName() {
+    return 'content.mojom.RenderMessageFilter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      content.mojom.RenderMessageFilterPendingReceiver,
+      handle);
+    this.$ = new content.mojom.RenderMessageFilterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+content.mojom.RenderMessageFilterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  generateSingleFrameRoutingInfo() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec.$,
+      content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$,
+      []);
+  }
+
+  generateFrameRoutingInfos() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec.$,
+      content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+content.mojom.RenderMessageFilter.getRemote = function() {
+  let remote = new content.mojom.RenderMessageFilterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'content.mojom.RenderMessageFilter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GenerateSingleFrameRoutingInfo
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GenerateFrameRoutingInfos
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'info_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+content.mojom.RenderMessageFilterPtr = content.mojom.RenderMessageFilterRemote;
+content.mojom.RenderMessageFilterRequest = content.mojom.RenderMessageFilterPendingReceiver;
+

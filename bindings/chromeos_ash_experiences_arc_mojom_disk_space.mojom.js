@@ -9,53 +9,102 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
-// Struct: ApplicationsSize
-arc.mojom.ApplicationsSize = class {
-  constructor(values = {}) {
-    this.total_cache_bytes = values.total_cache_bytes !== undefined ? values.total_cache_bytes : 0;
-  }
-};
-
-// Struct: DiskSpace
-arc.mojom.DiskSpace = class {
-  constructor(values = {}) {
-    this.space_in_bytes = values.space_in_bytes !== undefined ? values.space_in_bytes : 0;
-  }
-};
-
-// Struct: QuotaSpaces
-arc.mojom.QuotaSpaces = class {
-  constructor(values = {}) {
-    this.curspaces_for_project_ids = values.curspaces_for_project_ids !== undefined ? values.curspaces_for_project_ids : 0;
-  }
-};
-
 // Interface: DiskSpaceHost
-arc.mojom.DiskSpaceHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.DiskSpaceHost';
-  }
-
-};
-
-arc.mojom.DiskSpaceHostRequest = class {
+arc.mojom.DiskSpaceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.DiskSpaceHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.DiskSpaceHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.DiskSpaceHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.DiskSpaceHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.DiskSpaceHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.DiskSpaceHost.getRemote = function() {
+  let remote = new arc.mojom.DiskSpaceHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.DiskSpaceHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.DiskSpaceHostPtr = arc.mojom.DiskSpaceHostRemote;
+arc.mojom.DiskSpaceHostRequest = arc.mojom.DiskSpaceHostPendingReceiver;
+
 
 // Interface: DiskSpaceInstance
-arc.mojom.DiskSpaceInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.DiskSpaceInstance';
-  }
-
-};
-
-arc.mojom.DiskSpaceInstanceRequest = class {
+arc.mojom.DiskSpaceInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.DiskSpaceInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.DiskSpaceInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.DiskSpaceInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.DiskSpaceInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.DiskSpaceInstance.getRemote = function() {
+  let remote = new arc.mojom.DiskSpaceInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.DiskSpaceInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.DiskSpaceInstancePtr = arc.mojom.DiskSpaceInstanceRemote;
+arc.mojom.DiskSpaceInstanceRequest = arc.mojom.DiskSpaceInstancePendingReceiver;
+

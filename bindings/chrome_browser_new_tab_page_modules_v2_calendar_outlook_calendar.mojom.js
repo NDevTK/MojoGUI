@@ -11,34 +11,130 @@ ntp.calendar.mojom = ntp.calendar.mojom || {};
 
 
 // Interface: OutlookCalendarPageHandler
-ntp.calendar.mojom.OutlookCalendarPageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ntp.calendar.mojom.OutlookCalendarPageHandler';
-  }
-
-  getEvents() {
-    // Method: GetEvents
-    return new Promise((resolve) => {
-      // Call: GetEvents()
-      resolve({});
-    });
-  }
-
-  dismissModule() {
-    // Method: DismissModule
-    // Call: DismissModule()
-  }
-
-  restoreModule() {
-    // Method: RestoreModule
-    // Call: RestoreModule()
-  }
-
-};
-
-ntp.calendar.mojom.OutlookCalendarPageHandlerRequest = class {
+ntp.calendar.mojom.OutlookCalendarPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ntp.calendar.mojom.OutlookCalendarPageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'ntp.calendar.mojom.OutlookCalendarPageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ntp.calendar.mojom.OutlookCalendarPageHandlerPendingReceiver,
+      handle);
+    this.$ = new ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getEvents() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec.$,
+      ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec.$,
+      []);
+  }
+
+  dismissModule() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  restoreModule() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+ntp.calendar.mojom.OutlookCalendarPageHandler.getRemote = function() {
+  let remote = new ntp.calendar.mojom.OutlookCalendarPageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ntp.calendar.mojom.OutlookCalendarPageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetEvents
+ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.calendar.mojom.OutlookCalendarPageHandler.GetEvents_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.calendar.mojom.OutlookCalendarPageHandler.GetEvents_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DismissModule
+ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.calendar.mojom.OutlookCalendarPageHandler.DismissModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RestoreModule
+ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ntp.calendar.mojom.OutlookCalendarPageHandler.RestoreModule_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ntp.calendar.mojom.OutlookCalendarPageHandlerPtr = ntp.calendar.mojom.OutlookCalendarPageHandlerRemote;
+ntp.calendar.mojom.OutlookCalendarPageHandlerRequest = ntp.calendar.mojom.OutlookCalendarPageHandlerPendingReceiver;
+

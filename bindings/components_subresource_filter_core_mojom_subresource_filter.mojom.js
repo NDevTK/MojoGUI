@@ -26,46 +26,86 @@ subresource_filter.mojom.AdsViolation = {
 
 // Enum: SubresourceFilterDisabledReason
 subresource_filter.mojom.SubresourceFilterDisabledReason = {
-  the: 0,
-  or: 1,
-  chrome: 2,
-  due: 3,
-  e: 4,
-  which: 5,
-};
-
-// Struct: ActivationState
-subresource_filter.mojom.ActivationState = class {
-  constructor(values = {}) {
-    this.document = values.document !== undefined ? values.document : null;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: DocumentLoadStatistics
-subresource_filter.mojom.DocumentLoadStatistics = class {
-  constructor(values = {}) {
-    this.disallowed = values.disallowed !== undefined ? values.disallowed : null;
-    this.evaluation_total_cpu_duration = values.evaluation_total_cpu_duration !== undefined ? values.evaluation_total_cpu_duration : 0;
-  }
+  kUnknown: 0,
+  kNoMatchingConfiguration: 1,
+  kDisabledByConfiguration: 2,
+  kUrlAllowlisted: 3,
+  kWarningMode: 4,
+  kNavigationError: 5,
+  kFilterNeverCreated: 6,
+  kRulesetUnavailableOrCorrupt: 7,
+  kUrlNotHandledByNetworkStack: 8,
 };
 
 // Interface: SubresourceFilterRulesetObserver
-subresource_filter.mojom.SubresourceFilterRulesetObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'subresource_filter.mojom.SubresourceFilterRulesetObserver';
-  }
-
-  setRulesetForProcess(ruleset_file) {
-    // Method: SetRulesetForProcess
-    // Call: SetRulesetForProcess(ruleset_file)
-  }
-
-};
-
-subresource_filter.mojom.SubresourceFilterRulesetObserverRequest = class {
+subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+subresource_filter.mojom.SubresourceFilterRulesetObserverRemote = class {
+  static get $interfaceName() {
+    return 'subresource_filter.mojom.SubresourceFilterRulesetObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver,
+      handle);
+    this.$ = new subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  setRulesetForProcess(ruleset_file) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$,
+      null,
+      [ruleset_file]);
+  }
+
+};
+
+subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function() {
+  let remote = new subresource_filter.mojom.SubresourceFilterRulesetObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'subresource_filter.mojom.SubresourceFilterRulesetObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetRulesetForProcess
+subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'subresource_filter.mojom.SubresourceFilterRulesetObserver.SetRulesetForProcess_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+subresource_filter.mojom.SubresourceFilterRulesetObserverPtr = subresource_filter.mojom.SubresourceFilterRulesetObserverRemote;
+subresource_filter.mojom.SubresourceFilterRulesetObserverRequest = subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver;
+

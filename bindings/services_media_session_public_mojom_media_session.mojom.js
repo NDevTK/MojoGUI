@@ -34,6 +34,8 @@ media_session.mojom.MediaSessionAction = {
 
 // Enum: MediaSessionImageType
 media_session.mojom.MediaSessionImageType = {
+  kArtwork: 0,
+  kSourceIcon: 1,
 };
 
 // Enum: MediaPictureInPictureState
@@ -44,7 +46,7 @@ media_session.mojom.MediaPictureInPictureState = {
 
 // Enum: MediaAudioVideoState
 media_session.mojom.MediaAudioVideoState = {
-  see: 0,
+  kDeprecatedUnknown: 0,
   kAudioOnly: 1,
   kAudioVideo: 2,
 };
@@ -52,7 +54,7 @@ media_session.mojom.MediaAudioVideoState = {
 // Enum: MediaImageBitmapColorType
 media_session.mojom.MediaImageBitmapColorType = {
   kRGBA_8888: 0,
-  this: 1,
+  kBGRA_8888: 1,
 };
 
 // Enum: MicrophoneState
@@ -69,93 +71,115 @@ media_session.mojom.CameraState = {
 
 // Enum: SessionState
 media_session.mojom.SessionState = {
+  kActive: 0,
+  kDucking: 1,
+  kSuspended: 2,
+  kInactive: 3,
 };
 
 // Enum: SuspendType
 media_session.mojom.SuspendType = {
-};
-
-// Struct: MediaImage
-media_session.mojom.MediaImage = class {
-  constructor(values = {}) {
-    this.sizes = values.sizes !== undefined ? values.sizes : "";
-  }
-};
-
-// Struct: ChapterInformation
-media_session.mojom.ChapterInformation = class {
-  constructor(values = {}) {
-    this.artwork = values.artwork !== undefined ? values.artwork : "";
-  }
-};
-
-// Struct: MediaMetadata
-media_session.mojom.MediaMetadata = class {
-  constructor(values = {}) {
-    this.chapters = values.chapters !== undefined ? values.chapters : "";
-  }
-};
-
-// Struct: MediaImageBitmap
-media_session.mojom.MediaImageBitmap = class {
-  constructor(values = {}) {
-    this.color_type = values.color_type !== undefined ? values.color_type : 0;
-  }
-};
-
-// Struct: MediaPosition
-media_session.mojom.MediaPosition = class {
-  constructor(values = {}) {
-    this.end_of_media = values.end_of_media !== undefined ? values.end_of_media : 0;
-  }
-};
-
-// Struct: RemotePlaybackMetadata
-media_session.mojom.RemotePlaybackMetadata = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: MediaSessionInfo
-media_session.mojom.MediaSessionInfo = class {
-  constructor(values = {}) {
-    this.kActive = values.kActive !== undefined ? values.kActive : null;
-  }
-};
-
-// Struct: MediaSessionDebugInfo
-media_session.mojom.MediaSessionDebugInfo = class {
-  constructor(values = {}) {
-    this.state = values.state !== undefined ? values.state : "";
-  }
+  kSystem: 0,
+  kUI: 1,
+  kContent: 2,
 };
 
 // Interface: MediaSessionObserver
-media_session.mojom.MediaSessionObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media_session.mojom.MediaSessionObserver';
-  }
-
-};
-
-media_session.mojom.MediaSessionObserverRequest = class {
+media_session.mojom.MediaSessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+media_session.mojom.MediaSessionObserverRemote = class {
+  static get $interfaceName() {
+    return 'media_session.mojom.MediaSessionObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media_session.mojom.MediaSessionObserverPendingReceiver,
+      handle);
+    this.$ = new media_session.mojom.MediaSessionObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+media_session.mojom.MediaSessionObserver.getRemote = function() {
+  let remote = new media_session.mojom.MediaSessionObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media_session.mojom.MediaSessionObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+media_session.mojom.MediaSessionObserverPtr = media_session.mojom.MediaSessionObserverRemote;
+media_session.mojom.MediaSessionObserverRequest = media_session.mojom.MediaSessionObserverPendingReceiver;
+
 
 // Interface: MediaSession
-media_session.mojom.MediaSessionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media_session.mojom.MediaSession';
-  }
-
-};
-
-media_session.mojom.MediaSessionRequest = class {
+media_session.mojom.MediaSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+media_session.mojom.MediaSessionRemote = class {
+  static get $interfaceName() {
+    return 'media_session.mojom.MediaSession';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media_session.mojom.MediaSessionPendingReceiver,
+      handle);
+    this.$ = new media_session.mojom.MediaSessionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media_session.mojom.MediaSessionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+media_session.mojom.MediaSession.getRemote = function() {
+  let remote = new media_session.mojom.MediaSessionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media_session.mojom.MediaSession',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+media_session.mojom.MediaSessionPtr = media_session.mojom.MediaSessionRemote;
+media_session.mojom.MediaSessionRequest = media_session.mojom.MediaSessionPendingReceiver;
+

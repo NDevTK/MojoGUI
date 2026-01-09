@@ -9,58 +9,163 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
-// Struct: WebrtcPredictionFeatures
-media.mojom.WebrtcPredictionFeatures = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : 0;
-  }
-};
-
-// Struct: WebrtcVideoStats
-media.mojom.WebrtcVideoStats = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: WebrtcVideoPerfRecorder
-media.mojom.WebrtcVideoPerfRecorderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.WebrtcVideoPerfRecorder';
+media.mojom.WebrtcVideoPerfRecorderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.WebrtcVideoPerfRecorderRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.WebrtcVideoPerfRecorder';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.WebrtcVideoPerfRecorderPendingReceiver,
+      handle);
+    this.$ = new media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   updateRecord(features, video_stats) {
-    // Method: UpdateRecord
-    // Call: UpdateRecord(features, video_stats)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec.$,
+      null,
+      [features, video_stats]);
   }
 
 };
 
-media.mojom.WebrtcVideoPerfRecorderRequest = class {
+media.mojom.WebrtcVideoPerfRecorder.getRemote = function() {
+  let remote = new media.mojom.WebrtcVideoPerfRecorderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.WebrtcVideoPerfRecorder',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for UpdateRecord
+media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.WebrtcVideoPerfRecorder.UpdateRecord_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.WebrtcVideoPerfRecorderPtr = media.mojom.WebrtcVideoPerfRecorderRemote;
+media.mojom.WebrtcVideoPerfRecorderRequest = media.mojom.WebrtcVideoPerfRecorderPendingReceiver;
+
+
+// Interface: WebrtcVideoPerfHistory
+media.mojom.WebrtcVideoPerfHistoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: WebrtcVideoPerfHistory
-media.mojom.WebrtcVideoPerfHistoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.WebrtcVideoPerfHistory';
+media.mojom.WebrtcVideoPerfHistoryRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.WebrtcVideoPerfHistory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.WebrtcVideoPerfHistoryPendingReceiver,
+      handle);
+    this.$ = new media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getPerfInfo(features, frames_per_second) {
-    // Method: GetPerfInfo
-    return new Promise((resolve) => {
-      // Call: GetPerfInfo(features, frames_per_second)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec.$,
+      media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec.$,
+      [features, frames_per_second]);
   }
 
 };
 
-media.mojom.WebrtcVideoPerfHistoryRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.WebrtcVideoPerfHistory.getRemote = function() {
+  let remote = new media.mojom.WebrtcVideoPerfHistoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.WebrtcVideoPerfHistory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetPerfInfo
+media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frames_per_second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.WebrtcVideoPerfHistoryPtr = media.mojom.WebrtcVideoPerfHistoryRemote;
+media.mojom.WebrtcVideoPerfHistoryRequest = media.mojom.WebrtcVideoPerfHistoryPendingReceiver;
+

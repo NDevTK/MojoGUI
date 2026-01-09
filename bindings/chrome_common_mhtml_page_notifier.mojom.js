@@ -10,21 +10,76 @@ offline_pages.mojom = offline_pages.mojom || {};
 
 
 // Interface: MhtmlPageNotifier
-offline_pages.mojom.MhtmlPageNotifierPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'offline_pages.mojom.MhtmlPageNotifier';
-  }
-
-  notifyMhtmlPageLoadAttempted(load_result, url, date) {
-    // Method: NotifyMhtmlPageLoadAttempted
-    // Call: NotifyMhtmlPageLoadAttempted(load_result, url, date)
-  }
-
-};
-
-offline_pages.mojom.MhtmlPageNotifierRequest = class {
+offline_pages.mojom.MhtmlPageNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+offline_pages.mojom.MhtmlPageNotifierRemote = class {
+  static get $interfaceName() {
+    return 'offline_pages.mojom.MhtmlPageNotifier';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      offline_pages.mojom.MhtmlPageNotifierPendingReceiver,
+      handle);
+    this.$ = new offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  notifyMhtmlPageLoadAttempted(load_result, url, date) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec.$,
+      null,
+      [load_result, url, date]);
+  }
+
+};
+
+offline_pages.mojom.MhtmlPageNotifier.getRemote = function() {
+  let remote = new offline_pages.mojom.MhtmlPageNotifierRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'offline_pages.mojom.MhtmlPageNotifier',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for NotifyMhtmlPageLoadAttempted
+offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'offline_pages.mojom.MhtmlPageNotifier.NotifyMhtmlPageLoadAttempted_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'load_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'date', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+offline_pages.mojom.MhtmlPageNotifierPtr = offline_pages.mojom.MhtmlPageNotifierRemote;
+offline_pages.mojom.MhtmlPageNotifierRequest = offline_pages.mojom.MhtmlPageNotifierPendingReceiver;
+

@@ -46,90 +46,117 @@ ash.cros_healthd.mojom.DiagnosticRoutineEnum = {
 
 // Enum: DiskReadRoutineTypeEnum
 ash.cros_healthd.mojom.DiskReadRoutineTypeEnum = {
-  should: 0,
-  kLinearRead: 1,
-  kRandomRead: 2,
+  kLinearRead: 0,
+  kRandomRead: 1,
 };
 
 // Enum: DiagnosticRoutineStatusEnum
 ash.cros_healthd.mojom.DiagnosticRoutineStatusEnum = {
+  kReady: 0,
+  kRunning: 1,
+  kWaiting: 2,
+  kPassed: 3,
+  kFailed: 4,
+  kError: 5,
+  kCancelled: 6,
+  kFailedToStart: 7,
+  kRemoved: 8,
+  kCancelling: 9,
+  kUnsupported: 10,
+  kNotRun: 11,
 };
 
 // Enum: DiagnosticRoutineUserMessageEnum
 ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnum = {
+  kUnplugACPower: 0,
+  kPlugInACPower: 1,
 };
 
 // Enum: DiagnosticRoutineCommandEnum
 ash.cros_healthd.mojom.DiagnosticRoutineCommandEnum = {
-  otherwise: 0,
+  kContinue: 0,
+  kCancel: 1,
+  kGetStatus: 2,
+  kRemove: 3,
 };
 
 // Enum: AcPowerStatusEnum
 ash.cros_healthd.mojom.AcPowerStatusEnum = {
+  kConnected: 0,
+  kDisconnected: 1,
 };
 
 // Enum: NvmeSelfTestTypeEnum
 ash.cros_healthd.mojom.NvmeSelfTestTypeEnum = {
+  kShortSelfTest: 0,
+  kLongSelfTest: 1,
 };
 
 // Enum: DEPRECATED_LedName
 ash.cros_healthd.mojom.DEPRECATED_LedName = {
-  should: 0,
-  kBattery: 1,
-  kPower: 2,
-  kAdapter: 3,
-  kLeft: 4,
-  kRight: 5,
+  kBattery: 0,
+  kPower: 1,
+  kAdapter: 2,
+  kLeft: 3,
+  kRight: 4,
 };
 
 // Enum: DEPRECATED_LedColor
 ash.cros_healthd.mojom.DEPRECATED_LedColor = {
-  should: 0,
-  kRed: 1,
-  kGreen: 2,
-  kBlue: 3,
-  kYellow: 4,
-  kWhite: 5,
-  kAmber: 6,
-};
-
-// Struct: RunRoutineResponse
-ash.cros_healthd.mojom.RunRoutineResponse = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: InteractiveRoutineUpdate
-ash.cros_healthd.mojom.InteractiveRoutineUpdate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: NonInteractiveRoutineUpdate
-ash.cros_healthd.mojom.NonInteractiveRoutineUpdate = class {
-  constructor(values = {}) {
-    this.kError = values.kError !== undefined ? values.kError : null;
-  }
-};
-
-// Struct: RoutineUpdate
-ash.cros_healthd.mojom.RoutineUpdate = class {
-  constructor(values = {}) {
-    this.logs = values.logs !== undefined ? values.logs : null;
-  }
+  kRed: 0,
+  kGreen: 1,
+  kBlue: 2,
+  kYellow: 3,
+  kWhite: 4,
+  kAmber: 5,
 };
 
 // Interface: DEPRECATED_LedLitUpRoutineReplier
-ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier';
-  }
-
-};
-
-ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRequest = class {
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote = class {
+  static get $interfaceName() {
+    return 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver,
+      handle);
+    this.$ = new ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.getRemote = function() {
+  let remote = new ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote;
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRequest = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver;
+

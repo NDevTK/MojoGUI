@@ -19,112 +19,483 @@ media.mojom.VideoCaptureState = {
 };
 
 // Interface: VideoCaptureObserver
-media.mojom.VideoCaptureObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.VideoCaptureObserver';
+media.mojom.VideoCaptureObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.VideoCaptureObserverRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.VideoCaptureObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.VideoCaptureObserverPendingReceiver,
+      handle);
+    this.$ = new media.mojom.VideoCaptureObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.VideoCaptureObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onStateChanged(result) {
-    // Method: OnStateChanged
-    // Call: OnStateChanged(result)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$,
+      null,
+      [result]);
   }
 
   onNewBuffer(buffer_id, buffer_handle) {
-    // Method: OnNewBuffer
-    // Call: OnNewBuffer(buffer_id, buffer_handle)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$,
+      null,
+      [buffer_id, buffer_handle]);
   }
 
   onBufferReady(buffer) {
-    // Method: OnBufferReady
-    // Call: OnBufferReady(buffer)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$,
+      null,
+      [buffer]);
   }
 
   onBufferDestroyed(buffer_id) {
-    // Method: OnBufferDestroyed
-    // Call: OnBufferDestroyed(buffer_id)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$,
+      null,
+      [buffer_id]);
   }
 
   onFrameDropped(reason) {
-    // Method: OnFrameDropped
-    // Call: OnFrameDropped(reason)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$,
+      null,
+      [reason]);
   }
 
   onNewCaptureVersion(capture_version) {
-    // Method: OnNewCaptureVersion
-    // Call: OnNewCaptureVersion(capture_version)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$,
+      null,
+      [capture_version]);
   }
 
 };
 
-media.mojom.VideoCaptureObserverRequest = class {
+media.mojom.VideoCaptureObserver.getRemote = function() {
+  let remote = new media.mojom.VideoCaptureObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.VideoCaptureObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnStateChanged
+media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureObserver.OnStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNewBuffer
+media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureObserver.OnNewBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnBufferReady
+media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureObserver.OnBufferReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnBufferDestroyed
+media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureObserver.OnBufferDestroyed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnFrameDropped
+media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureObserver.OnFrameDropped_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNewCaptureVersion
+media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureObserver.OnNewCaptureVersion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'capture_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.VideoCaptureObserverPtr = media.mojom.VideoCaptureObserverRemote;
+media.mojom.VideoCaptureObserverRequest = media.mojom.VideoCaptureObserverPendingReceiver;
+
+
+// Interface: VideoCaptureHost
+media.mojom.VideoCaptureHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: VideoCaptureHost
-media.mojom.VideoCaptureHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.VideoCaptureHost';
+media.mojom.VideoCaptureHostRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.VideoCaptureHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.VideoCaptureHostPendingReceiver,
+      handle);
+    this.$ = new media.mojom.VideoCaptureHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.VideoCaptureHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   start(device_id, session_id, params, observer) {
-    // Method: Start
-    // Call: Start(device_id, session_id, params, observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.VideoCaptureHost_Start_ParamsSpec.$,
+      null,
+      [device_id, session_id, params, observer]);
   }
 
   stop(device_id) {
-    // Method: Stop
-    // Call: Stop(device_id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.VideoCaptureHost_Stop_ParamsSpec.$,
+      null,
+      [device_id]);
   }
 
   pause(device_id) {
-    // Method: Pause
-    // Call: Pause(device_id)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.VideoCaptureHost_Pause_ParamsSpec.$,
+      null,
+      [device_id]);
   }
 
   resume(device_id, session_id, params) {
-    // Method: Resume
-    // Call: Resume(device_id, session_id, params)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.VideoCaptureHost_Resume_ParamsSpec.$,
+      null,
+      [device_id, session_id, params]);
   }
 
   requestRefreshFrame(device_id) {
-    // Method: RequestRefreshFrame
-    // Call: RequestRefreshFrame(device_id)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$,
+      null,
+      [device_id]);
   }
 
   releaseBuffer(device_id, buffer_id, feedback) {
-    // Method: ReleaseBuffer
-    // Call: ReleaseBuffer(device_id, buffer_id, feedback)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$,
+      null,
+      [device_id, buffer_id, feedback]);
   }
 
   getDeviceSupportedFormats(device_id, session_id) {
-    // Method: GetDeviceSupportedFormats
-    return new Promise((resolve) => {
-      // Call: GetDeviceSupportedFormats(device_id, session_id)
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$,
+      [device_id, session_id]);
   }
 
   getDeviceFormatsInUse(device_id, session_id) {
-    // Method: GetDeviceFormatsInUse
-    return new Promise((resolve) => {
-      // Call: GetDeviceFormatsInUse(device_id, session_id)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$,
+      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$,
+      [device_id, session_id]);
   }
 
   onLog(device_id, message) {
-    // Method: OnLog
-    // Call: OnLog(device_id, message)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$,
+      null,
+      [device_id, message]);
   }
 
 };
 
-media.mojom.VideoCaptureHostRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.VideoCaptureHost.getRemote = function() {
+  let remote = new media.mojom.VideoCaptureHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.VideoCaptureHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Start
+media.mojom.VideoCaptureHost_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.Start_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for Stop
+media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.Stop_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Pause
+media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.Pause_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Resume
+media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.Resume_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RequestRefreshFrame
+media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.RequestRefreshFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReleaseBuffer
+media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.ReleaseBuffer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDeviceSupportedFormats
+media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'formats_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDeviceFormatsInUse
+media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'formats_in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnLog
+media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.VideoCaptureHost.OnLog_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.VideoCaptureHostPtr = media.mojom.VideoCaptureHostRemote;
+media.mojom.VideoCaptureHostRequest = media.mojom.VideoCaptureHostPendingReceiver;
+

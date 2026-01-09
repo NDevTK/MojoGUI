@@ -17,61 +17,247 @@ remote_cocoa.mojom.CutCopyPasteCommand = {
 };
 
 // Interface: StubInterface
-remote_cocoa.mojom.StubInterfacePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remote_cocoa.mojom.StubInterface';
-  }
-
-};
-
-remote_cocoa.mojom.StubInterfaceRequest = class {
+remote_cocoa.mojom.StubInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+remote_cocoa.mojom.StubInterfaceRemote = class {
+  static get $interfaceName() {
+    return 'remote_cocoa.mojom.StubInterface';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remote_cocoa.mojom.StubInterfacePendingReceiver,
+      handle);
+    this.$ = new remote_cocoa.mojom.StubInterfaceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remote_cocoa.mojom.StubInterfaceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+remote_cocoa.mojom.StubInterface.getRemote = function() {
+  let remote = new remote_cocoa.mojom.StubInterfaceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remote_cocoa.mojom.StubInterface',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+remote_cocoa.mojom.StubInterfacePtr = remote_cocoa.mojom.StubInterfaceRemote;
+remote_cocoa.mojom.StubInterfaceRequest = remote_cocoa.mojom.StubInterfacePendingReceiver;
+
+
 // Interface: Application
-remote_cocoa.mojom.ApplicationPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remote_cocoa.mojom.Application';
+remote_cocoa.mojom.ApplicationPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+remote_cocoa.mojom.ApplicationRemote = class {
+  static get $interfaceName() {
+    return 'remote_cocoa.mojom.Application';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remote_cocoa.mojom.ApplicationPendingReceiver,
+      handle);
+    this.$ = new remote_cocoa.mojom.ApplicationRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createAlert(alert_bridge_receiver) {
-    // Method: CreateAlert
-    // Call: CreateAlert(alert_bridge_receiver)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$,
+      null,
+      [alert_bridge_receiver]);
   }
 
   createNativeWidgetNSWindow(bridge_id, window_receiver, host, text_input_host) {
-    // Method: CreateNativeWidgetNSWindow
-    // Call: CreateNativeWidgetNSWindow(bridge_id, window_receiver, host, text_input_host)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$,
+      null,
+      [bridge_id, window_receiver, host, text_input_host]);
   }
 
   createRenderWidgetHostNSView(view_id, host, view_receiver) {
-    // Method: CreateRenderWidgetHostNSView
-    // Call: CreateRenderWidgetHostNSView(view_id, host, view_receiver)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$,
+      null,
+      [view_id, host, view_receiver]);
   }
 
   createSystemMediaControlsBridge(receiver, host) {
-    // Method: CreateSystemMediaControlsBridge
-    // Call: CreateSystemMediaControlsBridge(receiver, host)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$,
+      null,
+      [receiver, host]);
   }
 
   createWebContentsNSView(view_id, host, view_receiver) {
-    // Method: CreateWebContentsNSView
-    // Call: CreateWebContentsNSView(view_id, host, view_receiver)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$,
+      null,
+      [view_id, host, view_receiver]);
   }
 
   forwardCutCopyPaste(command) {
-    // Method: ForwardCutCopyPaste
-    // Call: ForwardCutCopyPaste(command)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$,
+      null,
+      [command]);
   }
 
 };
 
-remote_cocoa.mojom.ApplicationRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+remote_cocoa.mojom.Application.getRemote = function() {
+  let remote = new remote_cocoa.mojom.ApplicationRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remote_cocoa.mojom.Application',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateAlert
+remote_cocoa.mojom.Application_CreateAlert_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Application.CreateAlert_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'alert_bridge_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for CreateNativeWidgetNSWindow
+remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Application.CreateNativeWidgetNSWindow_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'bridge_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text_input_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateRenderWidgetHostNSView
+remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Application.CreateRenderWidgetHostNSView_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'view_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateSystemMediaControlsBridge
+remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Application.CreateSystemMediaControlsBridge_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateWebContentsNSView
+remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Application.CreateWebContentsNSView_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'view_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ForwardCutCopyPaste
+remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Application.ForwardCutCopyPaste_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remote_cocoa.mojom.ApplicationPtr = remote_cocoa.mojom.ApplicationRemote;
+remote_cocoa.mojom.ApplicationRequest = remote_cocoa.mojom.ApplicationPendingReceiver;
+

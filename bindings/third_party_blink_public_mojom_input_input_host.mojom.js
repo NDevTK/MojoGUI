@@ -9,46 +9,126 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: SpellCheckSuggestion
-blink.mojom.SpellCheckSuggestion = class {
-  constructor(values = {}) {
-    this.suggestion = values.suggestion !== undefined ? values.suggestion : "";
-  }
-};
-
-// Struct: TextSuggestion
-blink.mojom.TextSuggestion = class {
-  constructor(values = {}) {
-    this.suffix = values.suffix !== undefined ? values.suffix : 0;
-  }
-};
-
 // Interface: TextSuggestionHost
-blink.mojom.TextSuggestionHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.TextSuggestionHost';
-  }
-
-  startSuggestionMenuTimer() {
-    // Method: StartSuggestionMenuTimer
-    // Call: StartSuggestionMenuTimer()
-  }
-
-  showSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
-    // Method: ShowSpellCheckSuggestionMenu
-    // Call: ShowSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions)
-  }
-
-  showTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
-    // Method: ShowTextSuggestionMenu
-    // Call: ShowTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions)
-  }
-
-};
-
-blink.mojom.TextSuggestionHostRequest = class {
+blink.mojom.TextSuggestionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.TextSuggestionHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.TextSuggestionHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.TextSuggestionHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.TextSuggestionHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.TextSuggestionHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  startSuggestionMenuTimer() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  showSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$,
+      null,
+      [caret_x, caret_y, marked_text, suggestions]);
+  }
+
+  showTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$,
+      null,
+      [caret_x, caret_y, marked_text, suggestions]);
+  }
+
+};
+
+blink.mojom.TextSuggestionHost.getRemote = function() {
+  let remote = new blink.mojom.TextSuggestionHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.TextSuggestionHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for StartSuggestionMenuTimer
+blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextSuggestionHost.StartSuggestionMenuTimer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ShowSpellCheckSuggestionMenu
+blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextSuggestionHost.ShowSpellCheckSuggestionMenu_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'caret_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'caret_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ShowTextSuggestionMenu
+blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.TextSuggestionHost.ShowTextSuggestionMenu_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'caret_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'caret_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'marked_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'suggestions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.TextSuggestionHostPtr = blink.mojom.TextSuggestionHostRemote;
+blink.mojom.TextSuggestionHostRequest = blink.mojom.TextSuggestionHostPendingReceiver;
+

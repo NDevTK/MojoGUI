@@ -9,114 +9,406 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
-// Struct: LayerContextSettings
-viz.mojom.LayerContextSettings = class {
-  constructor(values = {}) {
-    this.enable_fluent_overlay_scrollbar = values.enable_fluent_overlay_scrollbar !== undefined ? values.enable_fluent_overlay_scrollbar : 0;
-  }
-};
-
-// Struct: CompositorFrameSinkParams
-viz.mojom.CompositorFrameSinkParams = class {
-  constructor(values = {}) {
-    this.wants_animate_only_begin_frames = values.wants_animate_only_begin_frames !== undefined ? values.wants_animate_only_begin_frames : false;
-    this.to = values.to !== undefined ? values.to : null;
-    this.auto_needs_begin_frame = values.auto_needs_begin_frame !== undefined ? values.auto_needs_begin_frame : false;
-    this.no_compositor_frame_acks = values.no_compositor_frame_acks !== undefined ? values.no_compositor_frame_acks : false;
-  }
-};
-
 // Interface: CompositorFrameSink
-viz.mojom.CompositorFrameSinkPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.CompositorFrameSink';
+viz.mojom.CompositorFrameSinkPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+viz.mojom.CompositorFrameSinkRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.CompositorFrameSink';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.CompositorFrameSinkPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.CompositorFrameSinkRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setParams(params) {
-    // Method: SetParams
-    // Call: SetParams(params)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$,
+      null,
+      [params]);
   }
 
   setNeedsBeginFrame(needs_begin_frame) {
-    // Method: SetNeedsBeginFrame
-    // Call: SetNeedsBeginFrame(needs_begin_frame)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$,
+      null,
+      [needs_begin_frame]);
   }
 
   submitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time) {
-    // Method: SubmitCompositorFrame
-    // Call: SubmitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$,
+      null,
+      [local_surface_id, frame, hit_test_region_list, submit_time]);
   }
 
   didNotProduceFrame(ack) {
-    // Method: DidNotProduceFrame
-    // Call: DidNotProduceFrame(ack)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$,
+      null,
+      [ack]);
   }
 
   notifyNewLocalSurfaceIdExpectedWhilePaused() {
-    // Method: NotifyNewLocalSurfaceIdExpectedWhilePaused
-    // Call: NotifyNewLocalSurfaceIdExpectedWhilePaused()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$,
+      null,
+      []);
   }
 
   bindLayerContext(context, settings) {
-    // Method: BindLayerContext
-    // Call: BindLayerContext(context, settings)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$,
+      null,
+      [context, settings]);
   }
 
   setThreads(threads) {
-    // Method: SetThreads
-    // Call: SetThreads(threads)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec.$,
+      null,
+      [threads]);
   }
 
 };
 
-viz.mojom.CompositorFrameSinkRequest = class {
+viz.mojom.CompositorFrameSink.getRemote = function() {
+  let remote = new viz.mojom.CompositorFrameSinkRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.CompositorFrameSink',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetParams
+viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.SetParams_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetNeedsBeginFrame
+viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.SetNeedsBeginFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'needs_begin_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SubmitCompositorFrame
+viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.SubmitCompositorFrame_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'submit_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DidNotProduceFrame
+viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.DidNotProduceFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for NotifyNewLocalSurfaceIdExpectedWhilePaused
+viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.NotifyNewLocalSurfaceIdExpectedWhilePaused_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BindLayerContext
+viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.BindLayerContext_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetThreads
+viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSink.SetThreads_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.CompositorFrameSinkPtr = viz.mojom.CompositorFrameSinkRemote;
+viz.mojom.CompositorFrameSinkRequest = viz.mojom.CompositorFrameSinkPendingReceiver;
+
+
+// Interface: CompositorFrameSinkClient
+viz.mojom.CompositorFrameSinkClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CompositorFrameSinkClient
-viz.mojom.CompositorFrameSinkClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.CompositorFrameSinkClient';
+viz.mojom.CompositorFrameSinkClientRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.CompositorFrameSinkClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.CompositorFrameSinkClientPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.CompositorFrameSinkClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   didReceiveCompositorFrameAck(resources) {
-    // Method: DidReceiveCompositorFrameAck
-    // Call: DidReceiveCompositorFrameAck(resources)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$,
+      null,
+      [resources]);
   }
 
   onBeginFrame(args, details, resources) {
-    // Method: OnBeginFrame
-    // Call: OnBeginFrame(args, details, resources)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$,
+      null,
+      [args, details, resources]);
   }
 
   onBeginFramePausedChanged(paused) {
-    // Method: OnBeginFramePausedChanged
-    // Call: OnBeginFramePausedChanged(paused)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$,
+      null,
+      [paused]);
   }
 
   reclaimResources(resources) {
-    // Method: ReclaimResources
-    // Call: ReclaimResources(resources)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$,
+      null,
+      [resources]);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(sequence_id) {
-    // Method: OnCompositorFrameTransitionDirectiveProcessed
-    // Call: OnCompositorFrameTransitionDirectiveProcessed(sequence_id)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$,
+      null,
+      [sequence_id]);
   }
 
   onSurfaceEvicted(local_surface_id) {
-    // Method: OnSurfaceEvicted
-    // Call: OnSurfaceEvicted(local_surface_id)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$,
+      null,
+      [local_surface_id]);
   }
 
 };
 
-viz.mojom.CompositorFrameSinkClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+viz.mojom.CompositorFrameSinkClient.getRemote = function() {
+  let remote = new viz.mojom.CompositorFrameSinkClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.CompositorFrameSinkClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DidReceiveCompositorFrameAck
+viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkClient.DidReceiveCompositorFrameAck_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnBeginFrame
+viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFrame_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnBeginFramePausedChanged
+viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFramePausedChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'paused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReclaimResources
+viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkClient.ReclaimResources_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
+viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sequence_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSurfaceEvicted
+viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CompositorFrameSinkClient.OnSurfaceEvicted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.CompositorFrameSinkClientPtr = viz.mojom.CompositorFrameSinkClientRemote;
+viz.mojom.CompositorFrameSinkClientRequest = viz.mojom.CompositorFrameSinkClientPendingReceiver;
+

@@ -10,21 +10,75 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ModelDownloadProgressObserver
-blink.mojom.ModelDownloadProgressObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ModelDownloadProgressObserver';
-  }
-
-  onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
-    // Method: OnDownloadProgressUpdate
-    // Call: OnDownloadProgressUpdate(downloaded_bytes, total_bytes)
-  }
-
-};
-
-blink.mojom.ModelDownloadProgressObserverRequest = class {
+blink.mojom.ModelDownloadProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.ModelDownloadProgressObserverRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ModelDownloadProgressObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ModelDownloadProgressObserverPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ModelDownloadProgressObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec.$,
+      null,
+      [downloaded_bytes, total_bytes]);
+  }
+
+};
+
+blink.mojom.ModelDownloadProgressObserver.getRemote = function() {
+  let remote = new blink.mojom.ModelDownloadProgressObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ModelDownloadProgressObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDownloadProgressUpdate
+blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ModelDownloadProgressObserver.OnDownloadProgressUpdate_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ModelDownloadProgressObserverPtr = blink.mojom.ModelDownloadProgressObserverRemote;
+blink.mojom.ModelDownloadProgressObserverRequest = blink.mojom.ModelDownloadProgressObserverPendingReceiver;
+

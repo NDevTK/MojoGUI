@@ -10,21 +10,74 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: BeginFrameObserver
-viz.mojom.BeginFrameObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.BeginFrameObserver';
-  }
-
-  onStandaloneBeginFrame(args) {
-    // Method: OnStandaloneBeginFrame
-    // Call: OnStandaloneBeginFrame(args)
-  }
-
-};
-
-viz.mojom.BeginFrameObserverRequest = class {
+viz.mojom.BeginFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+viz.mojom.BeginFrameObserverRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.BeginFrameObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.BeginFrameObserverPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.BeginFrameObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.BeginFrameObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onStandaloneBeginFrame(args) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec.$,
+      null,
+      [args]);
+  }
+
+};
+
+viz.mojom.BeginFrameObserver.getRemote = function() {
+  let remote = new viz.mojom.BeginFrameObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.BeginFrameObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnStandaloneBeginFrame
+viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.BeginFrameObserver.OnStandaloneBeginFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.BeginFrameObserverPtr = viz.mojom.BeginFrameObserverRemote;
+viz.mojom.BeginFrameObserverRequest = viz.mojom.BeginFrameObserverPendingReceiver;
+

@@ -12,265 +12,1043 @@ nearby_share.mojom = nearby_share.mojom || {};
 // Enum: DataUsage
 nearby_share.mojom.DataUsage = {
   kUnknown: 0,
+  kOffline: 1,
+  kOnline: 2,
+  kWifiOnly: 3,
 };
 
 // Enum: Visibility
 nearby_share.mojom.Visibility = {
   kUnknown: 0,
+  kNoOne: 1,
+  kAllContacts: 2,
+  kSelectedContacts: 3,
+  kYourDevices: 4,
 };
 
 // Enum: DeviceNameValidationResult
 nearby_share.mojom.DeviceNameValidationResult = {
+  kValid: 0,
+  kErrorEmpty: 1,
+  kErrorTooLong: 2,
+  kErrorNotValidUtf8: 3,
 };
 
 // Enum: FastInitiationNotificationState
 nearby_share.mojom.FastInitiationNotificationState = {
   kEnabled: 0,
-};
-
-// Struct: ContactRecord
-nearby_share.mojom.ContactRecord = class {
-  constructor(values = {}) {
-    this.identifiers = values.identifiers !== undefined ? values.identifiers : "";
-  }
+  kDisabledByUser: 1,
+  kDisabledByFeature: 2,
 };
 
 // Interface: NearbyShareSettingsObserver
-nearby_share.mojom.NearbyShareSettingsObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'nearby_share.mojom.NearbyShareSettingsObserver';
+nearby_share.mojom.NearbyShareSettingsObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+nearby_share.mojom.NearbyShareSettingsObserverRemote = class {
+  static get $interfaceName() {
+    return 'nearby_share.mojom.NearbyShareSettingsObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      nearby_share.mojom.NearbyShareSettingsObserverPendingReceiver,
+      handle);
+    this.$ = new nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onEnabledChanged(enabled) {
-    // Method: OnEnabledChanged
-    // Call: OnEnabledChanged(enabled)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   onFastInitiationNotificationStateChanged(state) {
-    // Method: OnFastInitiationNotificationStateChanged
-    // Call: OnFastInitiationNotificationStateChanged(state)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec.$,
+      null,
+      [state]);
   }
 
   onIsFastInitiationHardwareSupportedChanged(is_supported) {
-    // Method: OnIsFastInitiationHardwareSupportedChanged
-    // Call: OnIsFastInitiationHardwareSupportedChanged(is_supported)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec.$,
+      null,
+      [is_supported]);
   }
 
   onDeviceNameChanged(device_name) {
-    // Method: OnDeviceNameChanged
-    // Call: OnDeviceNameChanged(device_name)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec.$,
+      null,
+      [device_name]);
   }
 
   onDataUsageChanged(data_usage) {
-    // Method: OnDataUsageChanged
-    // Call: OnDataUsageChanged(data_usage)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec.$,
+      null,
+      [data_usage]);
   }
 
   onVisibilityChanged(visibility) {
-    // Method: OnVisibilityChanged
-    // Call: OnVisibilityChanged(visibility)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec.$,
+      null,
+      [visibility]);
   }
 
   onAllowedContactsChanged(visible_contact_ids) {
-    // Method: OnAllowedContactsChanged
-    // Call: OnAllowedContactsChanged(visible_contact_ids)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec.$,
+      null,
+      [visible_contact_ids]);
   }
 
   onIsOnboardingCompleteChanged(is_complete) {
-    // Method: OnIsOnboardingCompleteChanged
-    // Call: OnIsOnboardingCompleteChanged(is_complete)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec.$,
+      null,
+      [is_complete]);
   }
 
 };
 
-nearby_share.mojom.NearbyShareSettingsObserverRequest = class {
+nearby_share.mojom.NearbyShareSettingsObserver.getRemote = function() {
+  let remote = new nearby_share.mojom.NearbyShareSettingsObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'nearby_share.mojom.NearbyShareSettingsObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnEnabledChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnEnabledChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnFastInitiationNotificationStateChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnFastInitiationNotificationStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnIsFastInitiationHardwareSupportedChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnIsFastInitiationHardwareSupportedChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeviceNameChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnDeviceNameChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDataUsageChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnDataUsageChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnVisibilityChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnVisibilityChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnAllowedContactsChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnAllowedContactsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible_contact_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnIsOnboardingCompleteChanged
+nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettingsObserver.OnIsOnboardingCompleteChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_complete', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+nearby_share.mojom.NearbyShareSettingsObserverPtr = nearby_share.mojom.NearbyShareSettingsObserverRemote;
+nearby_share.mojom.NearbyShareSettingsObserverRequest = nearby_share.mojom.NearbyShareSettingsObserverPendingReceiver;
+
+
+// Interface: NearbyShareSettings
+nearby_share.mojom.NearbyShareSettingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NearbyShareSettings
-nearby_share.mojom.NearbyShareSettingsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'nearby_share.mojom.NearbyShareSettings';
+nearby_share.mojom.NearbyShareSettingsRemote = class {
+  static get $interfaceName() {
+    return 'nearby_share.mojom.NearbyShareSettings';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      nearby_share.mojom.NearbyShareSettingsPendingReceiver,
+      handle);
+    this.$ = new nearby_share.mojom.NearbyShareSettingsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addSettingsObserver(observer) {
-    // Method: AddSettingsObserver
-    // Call: AddSettingsObserver(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   getEnabled() {
-    // Method: GetEnabled
-    return new Promise((resolve) => {
-      // Call: GetEnabled()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec.$,
+      []);
   }
 
   setEnabled(enabled) {
-    // Method: SetEnabled
-    // Call: SetEnabled(enabled)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   isOnboardingComplete() {
-    // Method: IsOnboardingComplete
-    return new Promise((resolve) => {
-      // Call: IsOnboardingComplete()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec.$,
+      []);
   }
 
   setIsOnboardingComplete(completed) {
-    // Method: SetIsOnboardingComplete
-    // Call: SetIsOnboardingComplete(completed)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec.$,
+      null,
+      [completed]);
   }
 
   getFastInitiationNotificationState() {
-    // Method: GetFastInitiationNotificationState
-    return new Promise((resolve) => {
-      // Call: GetFastInitiationNotificationState()
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec.$,
+      []);
   }
 
   setFastInitiationNotificationState(state) {
-    // Method: SetFastInitiationNotificationState
-    // Call: SetFastInitiationNotificationState(state)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec.$,
+      null,
+      [state]);
   }
 
   getIsFastInitiationHardwareSupported() {
-    // Method: GetIsFastInitiationHardwareSupported
-    return new Promise((resolve) => {
-      // Call: GetIsFastInitiationHardwareSupported()
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec.$,
+      []);
   }
 
   getDeviceName() {
-    // Method: GetDeviceName
-    return new Promise((resolve) => {
-      // Call: GetDeviceName()
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec.$,
+      []);
   }
 
   validateDeviceName(device_name) {
-    // Method: ValidateDeviceName
-    return new Promise((resolve) => {
-      // Call: ValidateDeviceName(device_name)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec.$,
+      [device_name]);
   }
 
   setDeviceName(device_name) {
-    // Method: SetDeviceName
-    return new Promise((resolve) => {
-      // Call: SetDeviceName(device_name)
-      resolve({});
-    });
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec.$,
+      [device_name]);
   }
 
   getDataUsage() {
-    // Method: GetDataUsage
-    return new Promise((resolve) => {
-      // Call: GetDataUsage()
-      resolve({});
-    });
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec.$,
+      []);
   }
 
   setDataUsage(data_usage) {
-    // Method: SetDataUsage
-    // Call: SetDataUsage(data_usage)
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec.$,
+      null,
+      [data_usage]);
   }
 
   getVisibility() {
-    // Method: GetVisibility
-    return new Promise((resolve) => {
-      // Call: GetVisibility()
-      resolve({});
-    });
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec.$,
+      []);
   }
 
   setVisibility(visibility) {
-    // Method: SetVisibility
-    // Call: SetVisibility(visibility)
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec.$,
+      null,
+      [visibility]);
   }
 
   getAllowedContacts() {
-    // Method: GetAllowedContacts
-    return new Promise((resolve) => {
-      // Call: GetAllowedContacts()
-      resolve({});
-    });
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec.$,
+      nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec.$,
+      []);
   }
 
   setAllowedContacts(allowed_contacts) {
-    // Method: SetAllowedContacts
-    // Call: SetAllowedContacts(allowed_contacts)
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec.$,
+      null,
+      [allowed_contacts]);
   }
 
 };
 
-nearby_share.mojom.NearbyShareSettingsRequest = class {
+nearby_share.mojom.NearbyShareSettings.getRemote = function() {
+  let remote = new nearby_share.mojom.NearbyShareSettingsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'nearby_share.mojom.NearbyShareSettings',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddSettingsObserver
+nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.AddSettingsObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetEnabled
+nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetEnabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetEnabled_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetEnabled
+nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsOnboardingComplete
+nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.IsOnboardingComplete_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.IsOnboardingComplete_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetIsOnboardingComplete
+nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetIsOnboardingComplete_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetFastInitiationNotificationState
+nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetFastInitiationNotificationState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetFastInitiationNotificationState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFastInitiationNotificationState
+nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetFastInitiationNotificationState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetIsFastInitiationHardwareSupported
+nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetIsFastInitiationHardwareSupported_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetIsFastInitiationHardwareSupported_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDeviceName
+nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetDeviceName_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetDeviceName_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ValidateDeviceName
+nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.ValidateDeviceName_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.ValidateDeviceName_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetDeviceName
+nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetDeviceName_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetDeviceName_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDataUsage
+nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetDataUsage_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetDataUsage_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetDataUsage
+nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetDataUsage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetVisibility
+nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetVisibility_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetVisibility_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetVisibility
+nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetVisibility_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAllowedContacts
+nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetAllowedContacts_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.GetAllowedContacts_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetAllowedContacts
+nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.NearbyShareSettings.SetAllowedContacts_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+nearby_share.mojom.NearbyShareSettingsPtr = nearby_share.mojom.NearbyShareSettingsRemote;
+nearby_share.mojom.NearbyShareSettingsRequest = nearby_share.mojom.NearbyShareSettingsPendingReceiver;
+
+
+// Interface: DownloadContactsObserver
+nearby_share.mojom.DownloadContactsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DownloadContactsObserver
-nearby_share.mojom.DownloadContactsObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'nearby_share.mojom.DownloadContactsObserver';
+nearby_share.mojom.DownloadContactsObserverRemote = class {
+  static get $interfaceName() {
+    return 'nearby_share.mojom.DownloadContactsObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      nearby_share.mojom.DownloadContactsObserverPendingReceiver,
+      handle);
+    this.$ = new nearby_share.mojom.DownloadContactsObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onContactsDownloaded(allowed_contacts, contacts, num_unreachable_contacts_filtered_out) {
-    // Method: OnContactsDownloaded
-    // Call: OnContactsDownloaded(allowed_contacts, contacts, num_unreachable_contacts_filtered_out)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec.$,
+      null,
+      [allowed_contacts, contacts, num_unreachable_contacts_filtered_out]);
   }
 
   onContactsDownloadFailed() {
-    // Method: OnContactsDownloadFailed
-    // Call: OnContactsDownloadFailed()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-nearby_share.mojom.DownloadContactsObserverRequest = class {
+nearby_share.mojom.DownloadContactsObserver.getRemote = function() {
+  let remote = new nearby_share.mojom.DownloadContactsObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'nearby_share.mojom.DownloadContactsObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnContactsDownloaded
+nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DownloadContactsObserver.OnContactsDownloaded_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'contacts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'num_unreachable_contacts_filtered_out', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnContactsDownloadFailed
+nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.DownloadContactsObserver.OnContactsDownloadFailed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+nearby_share.mojom.DownloadContactsObserverPtr = nearby_share.mojom.DownloadContactsObserverRemote;
+nearby_share.mojom.DownloadContactsObserverRequest = nearby_share.mojom.DownloadContactsObserverPendingReceiver;
+
+
+// Interface: ContactManager
+nearby_share.mojom.ContactManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ContactManager
-nearby_share.mojom.ContactManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'nearby_share.mojom.ContactManager';
+nearby_share.mojom.ContactManagerRemote = class {
+  static get $interfaceName() {
+    return 'nearby_share.mojom.ContactManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      nearby_share.mojom.ContactManagerPendingReceiver,
+      handle);
+    this.$ = new nearby_share.mojom.ContactManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+nearby_share.mojom.ContactManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addDownloadContactsObserver(observer) {
-    // Method: AddDownloadContactsObserver
-    // Call: AddDownloadContactsObserver(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   downloadContacts() {
-    // Method: DownloadContacts
-    // Call: DownloadContacts()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec.$,
+      null,
+      []);
   }
 
   setAllowedContacts(allowed_contacts) {
-    // Method: SetAllowedContacts
-    // Call: SetAllowedContacts(allowed_contacts)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec.$,
+      null,
+      [allowed_contacts]);
   }
 
 };
 
-nearby_share.mojom.ContactManagerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+nearby_share.mojom.ContactManager.getRemote = function() {
+  let remote = new nearby_share.mojom.ContactManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'nearby_share.mojom.ContactManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddDownloadContactsObserver
+nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ContactManager.AddDownloadContactsObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for DownloadContacts
+nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ContactManager.DownloadContacts_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetAllowedContacts
+nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'nearby_share.mojom.ContactManager.SetAllowedContacts_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'allowed_contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+nearby_share.mojom.ContactManagerPtr = nearby_share.mojom.ContactManagerRemote;
+nearby_share.mojom.ContactManagerRequest = nearby_share.mojom.ContactManagerPendingReceiver;
+

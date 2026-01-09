@@ -41,168 +41,625 @@ ash.settings.mojom.DisplaySettingsOrientationOption = {
   k270Degree: 4,
 };
 
-// Struct: DisplaySettingsValue
-ash.settings.mojom.DisplaySettingsValue = class {
-  constructor(values = {}) {
-    this.is_internal_display = values.is_internal_display !== undefined ? values.is_internal_display : false;
-    this.time = values.time !== undefined ? values.time : null;
-    this.unified_mode_status = values.unified_mode_status !== undefined ? values.unified_mode_status : 0;
+// Interface: TabletModeObserver
+ash.settings.mojom.TabletModeObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: TabletModeObserver
-ash.settings.mojom.TabletModeObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.settings.mojom.TabletModeObserver';
+ash.settings.mojom.TabletModeObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.settings.mojom.TabletModeObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.settings.mojom.TabletModeObserverPendingReceiver,
+      handle);
+    this.$ = new ash.settings.mojom.TabletModeObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onTabletModeChanged(is_tablet_mode) {
-    // Method: OnTabletModeChanged
-    // Call: OnTabletModeChanged(is_tablet_mode)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$,
+      null,
+      [is_tablet_mode]);
   }
 
 };
 
-ash.settings.mojom.TabletModeObserverRequest = class {
+ash.settings.mojom.TabletModeObserver.getRemote = function() {
+  let remote = new ash.settings.mojom.TabletModeObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.settings.mojom.TabletModeObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnTabletModeChanged
+ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.TabletModeObserver.OnTabletModeChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.settings.mojom.TabletModeObserverPtr = ash.settings.mojom.TabletModeObserverRemote;
+ash.settings.mojom.TabletModeObserverRequest = ash.settings.mojom.TabletModeObserverPendingReceiver;
+
+
+// Interface: DisplayConfigurationObserver
+ash.settings.mojom.DisplayConfigurationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DisplayConfigurationObserver
-ash.settings.mojom.DisplayConfigurationObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.settings.mojom.DisplayConfigurationObserver';
+ash.settings.mojom.DisplayConfigurationObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.settings.mojom.DisplayConfigurationObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.settings.mojom.DisplayConfigurationObserverPendingReceiver,
+      handle);
+    this.$ = new ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onDisplayConfigurationChanged() {
-    // Method: OnDisplayConfigurationChanged
-    // Call: OnDisplayConfigurationChanged()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-ash.settings.mojom.DisplayConfigurationObserverRequest = class {
+ash.settings.mojom.DisplayConfigurationObserver.getRemote = function() {
+  let remote = new ash.settings.mojom.DisplayConfigurationObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.settings.mojom.DisplayConfigurationObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDisplayConfigurationChanged
+ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplayConfigurationObserver.OnDisplayConfigurationChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.settings.mojom.DisplayConfigurationObserverPtr = ash.settings.mojom.DisplayConfigurationObserverRemote;
+ash.settings.mojom.DisplayConfigurationObserverRequest = ash.settings.mojom.DisplayConfigurationObserverPendingReceiver;
+
+
+// Interface: DisplayBrightnessSettingsObserver
+ash.settings.mojom.DisplayBrightnessSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DisplayBrightnessSettingsObserver
-ash.settings.mojom.DisplayBrightnessSettingsObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.settings.mojom.DisplayBrightnessSettingsObserver';
+ash.settings.mojom.DisplayBrightnessSettingsObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.settings.mojom.DisplayBrightnessSettingsObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.settings.mojom.DisplayBrightnessSettingsObserverPendingReceiver,
+      handle);
+    this.$ = new ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onDisplayBrightnessChanged(brightness_percent, triggered_by_als) {
-    // Method: OnDisplayBrightnessChanged
-    // Call: OnDisplayBrightnessChanged(brightness_percent, triggered_by_als)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$,
+      null,
+      [brightness_percent, triggered_by_als]);
   }
 
 };
 
-ash.settings.mojom.DisplayBrightnessSettingsObserverRequest = class {
+ash.settings.mojom.DisplayBrightnessSettingsObserver.getRemote = function() {
+  let remote = new ash.settings.mojom.DisplayBrightnessSettingsObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.settings.mojom.DisplayBrightnessSettingsObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDisplayBrightnessChanged
+ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplayBrightnessSettingsObserver.OnDisplayBrightnessChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'triggered_by_als', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.settings.mojom.DisplayBrightnessSettingsObserverPtr = ash.settings.mojom.DisplayBrightnessSettingsObserverRemote;
+ash.settings.mojom.DisplayBrightnessSettingsObserverRequest = ash.settings.mojom.DisplayBrightnessSettingsObserverPendingReceiver;
+
+
+// Interface: AmbientLightSensorObserver
+ash.settings.mojom.AmbientLightSensorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: AmbientLightSensorObserver
-ash.settings.mojom.AmbientLightSensorObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.settings.mojom.AmbientLightSensorObserver';
+ash.settings.mojom.AmbientLightSensorObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.settings.mojom.AmbientLightSensorObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.settings.mojom.AmbientLightSensorObserverPendingReceiver,
+      handle);
+    this.$ = new ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onAmbientLightSensorEnabledChanged(is_ambient_light_sensor_enabled) {
-    // Method: OnAmbientLightSensorEnabledChanged
-    // Call: OnAmbientLightSensorEnabledChanged(is_ambient_light_sensor_enabled)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$,
+      null,
+      [is_ambient_light_sensor_enabled]);
   }
 
 };
 
-ash.settings.mojom.AmbientLightSensorObserverRequest = class {
+ash.settings.mojom.AmbientLightSensorObserver.getRemote = function() {
+  let remote = new ash.settings.mojom.AmbientLightSensorObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.settings.mojom.AmbientLightSensorObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnAmbientLightSensorEnabledChanged
+ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.AmbientLightSensorObserver.OnAmbientLightSensorEnabledChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.settings.mojom.AmbientLightSensorObserverPtr = ash.settings.mojom.AmbientLightSensorObserverRemote;
+ash.settings.mojom.AmbientLightSensorObserverRequest = ash.settings.mojom.AmbientLightSensorObserverPendingReceiver;
+
+
+// Interface: DisplaySettingsProvider
+ash.settings.mojom.DisplaySettingsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DisplaySettingsProvider
-ash.settings.mojom.DisplaySettingsProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.settings.mojom.DisplaySettingsProvider';
+ash.settings.mojom.DisplaySettingsProviderRemote = class {
+  static get $interfaceName() {
+    return 'ash.settings.mojom.DisplaySettingsProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.settings.mojom.DisplaySettingsProviderPendingReceiver,
+      handle);
+    this.$ = new ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   observeTabletMode(observer) {
-    // Method: ObserveTabletMode
-    return new Promise((resolve) => {
-      // Call: ObserveTabletMode(observer)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$,
+      [observer]);
   }
 
   observeDisplayConfiguration(observer) {
-    // Method: ObserveDisplayConfiguration
-    // Call: ObserveDisplayConfiguration(observer)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   observeDisplayBrightnessSettings(observer) {
-    // Method: ObserveDisplayBrightnessSettings
-    return new Promise((resolve) => {
-      // Call: ObserveDisplayBrightnessSettings(observer)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$,
+      [observer]);
   }
 
   observeAmbientLightSensor(observer) {
-    // Method: ObserveAmbientLightSensor
-    return new Promise((resolve) => {
-      // Call: ObserveAmbientLightSensor(observer)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$,
+      [observer]);
   }
 
   recordChangingDisplaySettings(type, value) {
-    // Method: RecordChangingDisplaySettings
-    // Call: RecordChangingDisplaySettings(type, value)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$,
+      null,
+      [type, value]);
   }
 
   setShinyPerformance(enabled) {
-    // Method: SetShinyPerformance
-    // Call: SetShinyPerformance(enabled)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   setInternalDisplayScreenBrightness(percent) {
-    // Method: SetInternalDisplayScreenBrightness
-    // Call: SetInternalDisplayScreenBrightness(percent)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$,
+      null,
+      [percent]);
   }
 
   setInternalDisplayAmbientLightSensorEnabled(enabled) {
-    // Method: SetInternalDisplayAmbientLightSensorEnabled
-    // Call: SetInternalDisplayAmbientLightSensorEnabled(enabled)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   startNativeTouchscreenMappingExperience() {
-    // Method: StartNativeTouchscreenMappingExperience
-    // Call: StartNativeTouchscreenMappingExperience()
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$,
+      null,
+      []);
   }
 
   hasAmbientLightSensor() {
-    // Method: HasAmbientLightSensor
-    return new Promise((resolve) => {
-      // Call: HasAmbientLightSensor()
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$,
+      ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-ash.settings.mojom.DisplaySettingsProviderRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.settings.mojom.DisplaySettingsProvider.getRemote = function() {
+  let remote = new ash.settings.mojom.DisplaySettingsProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.settings.mojom.DisplaySettingsProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ObserveTabletMode
+ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveTabletMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveTabletMode_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ObserveDisplayConfiguration
+ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayConfiguration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ObserveDisplayBrightnessSettings
+ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayBrightnessSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayBrightnessSettings_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ObserveAmbientLightSensor
+ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveAmbientLightSensor_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveAmbientLightSensor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RecordChangingDisplaySettings
+ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.RecordChangingDisplaySettings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetShinyPerformance
+ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.SetShinyPerformance_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetInternalDisplayScreenBrightness
+ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.SetInternalDisplayScreenBrightness_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetInternalDisplayAmbientLightSensorEnabled
+ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.SetInternalDisplayAmbientLightSensorEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartNativeTouchscreenMappingExperience
+ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.StartNativeTouchscreenMappingExperience_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for HasAmbientLightSensor
+ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.HasAmbientLightSensor_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.settings.mojom.DisplaySettingsProvider.HasAmbientLightSensor_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.settings.mojom.DisplaySettingsProviderPtr = ash.settings.mojom.DisplaySettingsProviderRemote;
+ash.settings.mojom.DisplaySettingsProviderRequest = ash.settings.mojom.DisplaySettingsProviderPendingReceiver;
+

@@ -10,46 +10,199 @@ ax.mojom = ax.mojom || {};
 
 
 // Interface: Automation
-ax.mojom.AutomationPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ax.mojom.Automation';
-  }
-
-  dispatchTreeDestroyedEvent(tree_id) {
-    // Method: DispatchTreeDestroyedEvent
-    // Call: DispatchTreeDestroyedEvent(tree_id)
-  }
-
-  dispatchActionResult(data, result) {
-    // Method: DispatchActionResult
-    // Call: DispatchActionResult(data, result)
-  }
-
-  dispatchAccessibilityEvents(tree_id, updates, mouse_location, events) {
-    // Method: DispatchAccessibilityEvents
-    // Call: DispatchAccessibilityEvents(tree_id, updates, mouse_location, events)
-  }
-
-  dispatchAccessibilityLocationChange(tree_id, node_id, bounds) {
-    // Method: DispatchAccessibilityLocationChange
-    // Call: DispatchAccessibilityLocationChange(tree_id, node_id, bounds)
-  }
-
-  dispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y) {
-    // Method: DispatchAccessibilityScrollChange
-    // Call: DispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y)
-  }
-
-  dispatchGetTextLocationResult(data, rect) {
-    // Method: DispatchGetTextLocationResult
-    // Call: DispatchGetTextLocationResult(data, rect)
-  }
-
-};
-
-ax.mojom.AutomationRequest = class {
+ax.mojom.AutomationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ax.mojom.AutomationRemote = class {
+  static get $interfaceName() {
+    return 'ax.mojom.Automation';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ax.mojom.AutomationPendingReceiver,
+      handle);
+    this.$ = new ax.mojom.AutomationRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ax.mojom.AutomationRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  dispatchTreeDestroyedEvent(tree_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$,
+      null,
+      [tree_id]);
+  }
+
+  dispatchActionResult(data, result) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ax.mojom.Automation_DispatchActionResult_ParamsSpec.$,
+      null,
+      [data, result]);
+  }
+
+  dispatchAccessibilityEvents(tree_id, updates, mouse_location, events) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$,
+      null,
+      [tree_id, updates, mouse_location, events]);
+  }
+
+  dispatchAccessibilityLocationChange(tree_id, node_id, bounds) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$,
+      null,
+      [tree_id, node_id, bounds]);
+  }
+
+  dispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$,
+      null,
+      [tree_id, node_id, scroll_x, scroll_y]);
+  }
+
+  dispatchGetTextLocationResult(data, rect) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$,
+      null,
+      [data, rect]);
+  }
+
+};
+
+ax.mojom.Automation.getRemote = function() {
+  let remote = new ax.mojom.AutomationRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ax.mojom.Automation',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DispatchTreeDestroyedEvent
+ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Automation.DispatchTreeDestroyedEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DispatchActionResult
+ax.mojom.Automation_DispatchActionResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Automation.DispatchActionResult_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DispatchAccessibilityEvents
+ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Automation.DispatchAccessibilityEvents_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mouse_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'events', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DispatchAccessibilityLocationChange
+ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Automation.DispatchAccessibilityLocationChange_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DispatchAccessibilityScrollChange
+ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Automation.DispatchAccessibilityScrollChange_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scroll_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scroll_y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DispatchGetTextLocationResult
+ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.Automation.DispatchGetTextLocationResult_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ax.mojom.AutomationPtr = ax.mojom.AutomationRemote;
+ax.mojom.AutomationRequest = ax.mojom.AutomationPendingReceiver;
+

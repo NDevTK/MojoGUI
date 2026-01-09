@@ -17,16 +17,17 @@ arc.mojom.NetworkResult = {
 
 // Enum: GetNetworksRequestType
 arc.mojom.GetNetworksRequestType = {
+  CONFIGURED_ONLY: 0,
+  VISIBLE_ONLY: 1,
 };
 
 // Enum: ConnectionStateType
 arc.mojom.ConnectionStateType = {
-  or: 0,
-  or: 1,
-  but: 2,
-  kStateIdle: 3,
-  but: 4,
-  and: 5,
+  CONNECTED: 0,
+  CONNECTING: 1,
+  NOT_CONNECTED: 2,
+  PORTAL: 3,
+  ONLINE: 4,
 };
 
 // Enum: EapMethod
@@ -67,6 +68,9 @@ arc.mojom.IPAddressType = {
 
 // Enum: TetheringClientState
 arc.mojom.TetheringClientState = {
+  CONFIRMED: 0,
+  NOT_DETECTED: 1,
+  SUSPECTED: 2,
 };
 
 // Enum: NetworkType
@@ -79,11 +83,13 @@ arc.mojom.NetworkType = {
 
 // Enum: MeteredOverride
 arc.mojom.MeteredOverride = {
+  kMetered: 0,
+  kNotmetered: 1,
 };
 
 // Enum: Flag
 arc.mojom.Flag = {
-  b: 0,
+  DEPRECATED_ENABLE_ARC_HOST_VPN: 0,
 };
 
 // Enum: WifiBand
@@ -100,7 +106,6 @@ arc.mojom.LohsStatus = {
   kErrorGeneric: 1,
   kErrorIncompatibleMode: 2,
   kErrorTetheringDisallowed: 3,
-  but: 4,
 };
 
 // Enum: IpProtocol
@@ -121,194 +126,102 @@ arc.mojom.QosCategory = {
   kMultimediaConferencing: 1,
 };
 
-// Struct: VisibleNetworkDetails
-arc.mojom.VisibleNetworkDetails = class {
-  constructor(values = {}) {
-    this.bssid = values.bssid !== undefined ? values.bssid : 0;
-  }
-};
-
-// Struct: ConfiguredNetworkDetails
-arc.mojom.ConfiguredNetworkDetails = class {
-  constructor(values = {}) {
-    this.autoconnect = values.autoconnect !== undefined ? values.autoconnect : false;
-    this.bssid = values.bssid !== undefined ? values.bssid : "";
-  }
-};
-
-// Struct: PasspointCredentials
-arc.mojom.PasspointCredentials = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: PasspointRemovalProperties
-arc.mojom.PasspointRemovalProperties = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: EapCredentials
-arc.mojom.EapCredentials = class {
-  constructor(values = {}) {
-    this.will = values.will !== undefined ? values.will : null;
-  }
-};
-
-// Struct: IPConfiguration
-arc.mojom.IPConfiguration = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : 0;
-  }
-};
-
-// Struct: WiFi
-arc.mojom.WiFi = class {
-  constructor(values = {}) {
-    this.bssid = values.bssid !== undefined ? values.bssid : "";
-    this.rssi = values.rssi !== undefined ? values.rssi : 0;
-  }
-};
-
-// Struct: NetworkConfiguration
-arc.mojom.NetworkConfiguration = class {
-  constructor(values = {}) {
-    this.service_name = values.service_name !== undefined ? values.service_name : 0;
-    this.host_mtu = values.host_mtu !== undefined ? values.host_mtu : 0;
-    this.host_ipv4_prefix_length = values.host_ipv4_prefix_length !== undefined ? values.host_ipv4_prefix_length : 0;
-    this.host_ipv4_address = values.host_ipv4_address !== undefined ? values.host_ipv4_address : "";
-    this.host_ipv4_gateway = values.host_ipv4_gateway !== undefined ? values.host_ipv4_gateway : "";
-    this.host_ipv6_prefix_length = values.host_ipv6_prefix_length !== undefined ? values.host_ipv6_prefix_length : 0;
-    this.host_ipv6_global_addresses = values.host_ipv6_global_addresses !== undefined ? values.host_ipv6_global_addresses : "";
-    this.host_ipv6_gateway = values.host_ipv6_gateway !== undefined ? values.host_ipv6_gateway : "";
-    this.RDNSS = values.RDNSS !== undefined ? values.RDNSS : null;
-    this.host_dns_addresses = values.host_dns_addresses !== undefined ? values.host_dns_addresses : "";
-    this.by = values.by !== undefined ? values.by : null;
-    this.DNSSL = values.DNSSL !== undefined ? values.DNSSL : null;
-    this.host_search_domains = values.host_search_domains !== undefined ? values.host_search_domains : "";
-    this.is_metered = values.is_metered !== undefined ? values.is_metered : 0;
-    this.link_speed = values.link_speed !== undefined ? values.link_speed : "";
-  }
-};
-
-// Struct: LinkSpeed
-arc.mojom.LinkSpeed = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: WifiConfiguration
-arc.mojom.WifiConfiguration = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: StaticIpv4Configuration
-arc.mojom.StaticIpv4Configuration = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: PacUrlProxyConfig
-arc.mojom.PacUrlProxyConfig = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ManualProxyConfig
-arc.mojom.ManualProxyConfig = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: GetNetworksResponseType
-arc.mojom.GetNetworksResponseType = class {
-  constructor(values = {}) {
-    this.networks = values.networks !== undefined ? values.networks : [];
-  }
-};
-
-// Struct: AndroidVpnConfiguration
-arc.mojom.AndroidVpnConfiguration = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ArcDnsResolutionTestResult
-arc.mojom.ArcDnsResolutionTestResult = class {
-  constructor(values = {}) {
-    this.duration_ms = values.duration_ms !== undefined ? values.duration_ms : 0;
-  }
-};
-
-// Struct: ArcHttpTestResult
-arc.mojom.ArcHttpTestResult = class {
-  constructor(values = {}) {
-    this.duration_ms = values.duration_ms !== undefined ? values.duration_ms : 0;
-  }
-};
-
-// Struct: ArcPingTestResult
-arc.mojom.ArcPingTestResult = class {
-  constructor(values = {}) {
-    this.duration_ms = values.duration_ms !== undefined ? values.duration_ms : 0;
-  }
-};
-
-// Struct: LohsConfig
-arc.mojom.LohsConfig = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: PasspointApprovalRequest
-arc.mojom.PasspointApprovalRequest = class {
-  constructor(values = {}) {
-    this.app_name = values.app_name !== undefined ? values.app_name : "";
-    this.friendly_name = values.friendly_name !== undefined ? values.friendly_name : "";
-    this.subscription_expiration_time_ms = values.subscription_expiration_time_ms !== undefined ? values.subscription_expiration_time_ms : 0;
-  }
-};
-
-// Struct: PasspointApprovalResponse
-arc.mojom.PasspointApprovalResponse = class {
-  constructor(values = {}) {
-    this.allowed = values.allowed !== undefined ? values.allowed : false;
-  }
-};
-
-// Struct: SocketConnectionEvent
-arc.mojom.SocketConnectionEvent = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: NetHost
-arc.mojom.NetHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.NetHost';
-  }
-
-};
-
-arc.mojom.NetHostRequest = class {
+arc.mojom.NetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.NetHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.NetHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.NetHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.NetHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.NetHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.NetHost.getRemote = function() {
+  let remote = new arc.mojom.NetHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.NetHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.NetHostPtr = arc.mojom.NetHostRemote;
+arc.mojom.NetHostRequest = arc.mojom.NetHostPendingReceiver;
+
 
 // Interface: NetInstance
-arc.mojom.NetInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.NetInstance';
-  }
-
-};
-
-arc.mojom.NetInstanceRequest = class {
+arc.mojom.NetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.NetInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.NetInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.NetInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.NetInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.NetInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.NetInstance.getRemote = function() {
+  let remote = new arc.mojom.NetInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.NetInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.NetInstancePtr = arc.mojom.NetInstanceRemote;
+arc.mojom.NetInstanceRequest = arc.mojom.NetInstancePendingReceiver;
+

@@ -31,10 +31,17 @@ chromeos.network_diagnostics.mojom.RoutineType = {
 
 // Enum: RoutineVerdict
 chromeos.network_diagnostics.mojom.RoutineVerdict = {
+  kProblem: 0,
+  kNotRun: 1,
 };
 
 // Enum: RoutineCallSource
 chromeos.network_diagnostics.mojom.RoutineCallSource = {
+  kDiagnosticsUI: 0,
+  kChromeNetworkPage: 1,
+  kCrosHealthd: 2,
+  kMetricsReporting: 3,
+  kNetworkHealthSource: 4,
 };
 
 // Enum: LanConnectivityProblem
@@ -47,7 +54,10 @@ chromeos.network_diagnostics.mojom.SignalStrengthProblem = {
 
 // Enum: GatewayCanBePingedProblem
 chromeos.network_diagnostics.mojom.GatewayCanBePingedProblem = {
-  hence: 0,
+  kFailedToPingDefaultNetwork: 0,
+  kDefaultNetworkAboveLatencyThreshold: 1,
+  kUnsuccessfulNonDefaultNetworksPings: 2,
+  kNonDefaultNetworksAboveLatencyThreshold: 3,
 };
 
 // Enum: HasSecureWiFiConnectionProblem
@@ -65,6 +75,8 @@ chromeos.network_diagnostics.mojom.DnsResolverPresentProblem = {
 
 // Enum: DnsLatencyProblem
 chromeos.network_diagnostics.mojom.DnsLatencyProblem = {
+  kSlightlyAboveThreshold: 0,
+  kSignificantlyAboveThreshold: 1,
 };
 
 // Enum: DnsResolutionProblem
@@ -73,109 +85,128 @@ chromeos.network_diagnostics.mojom.DnsResolutionProblem = {
 
 // Enum: CaptivePortalProblem
 chromeos.network_diagnostics.mojom.CaptivePortalProblem = {
+  kUnknownPortalState: 0,
+  kPortalSuspected: 1,
+  kPortal: 2,
+  kProxyAuthRequired: 3,
+  kNoInternet: 4,
 };
 
 // Enum: HttpFirewallProblem
 chromeos.network_diagnostics.mojom.HttpFirewallProblem = {
+  kFirewallDetected: 0,
+  kPotentialFirewall: 1,
 };
 
 // Enum: HttpsFirewallProblem
 chromeos.network_diagnostics.mojom.HttpsFirewallProblem = {
+  kFirewallDetected: 0,
+  kPotentialFirewall: 1,
 };
 
 // Enum: HttpsLatencyProblem
 chromeos.network_diagnostics.mojom.HttpsLatencyProblem = {
+  kFailedHttpsRequests: 0,
+  kHighLatency: 1,
+  kVeryHighLatency: 2,
 };
 
 // Enum: VideoConferencingProblem
 chromeos.network_diagnostics.mojom.VideoConferencingProblem = {
+  kTcpFailure: 0,
+  kMediaFailure: 1,
 };
 
 // Enum: ArcHttpProblem
 chromeos.network_diagnostics.mojom.ArcHttpProblem = {
+  kFailedToGetNetInstanceForHttpTest: 0,
+  kHighLatency: 1,
+  kVeryHighLatency: 2,
+  kFailedHttpRequests: 3,
 };
 
 // Enum: ArcDnsResolutionProblem
 chromeos.network_diagnostics.mojom.ArcDnsResolutionProblem = {
+  kFailedToGetNetInstanceForDnsResolutionTest: 0,
+  kHighLatency: 1,
+  kVeryHighLatency: 2,
+  kFailedDnsQueries: 3,
 };
 
 // Enum: ArcPingProblem
 chromeos.network_diagnostics.mojom.ArcPingProblem = {
-  hence: 0,
+  kFailedToGetNetInstanceForPingTest: 0,
+  kGetManagedPropertiesTimeoutFailure: 1,
+  kUnreachableGateway: 2,
+  kFailedToPingDefaultNetwork: 3,
+  kDefaultNetworkAboveLatencyThreshold: 4,
+  kUnsuccessfulNonDefaultNetworksPings: 5,
+  kNonDefaultNetworksAboveLatencyThreshold: 6,
 };
 
 // Enum: GoogleServicesConnectivityProblemType
 chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemType = {
-  when: 0,
+  kUnknownError: 0,
+  kConnectionFailure: 1,
+  kConnectionTimeout: 2,
+  kDnsResolutionError: 3,
+  kSSLConnectionError: 4,
+  kPeerCertificateError: 5,
+  kHttpError: 6,
+  kNoNetworkError: 7,
 };
 
 // Enum: GoogleServicesConnectivityProxyProblemType
 chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemType = {
-};
-
-// Struct: GoogleServicesConnectivityErrorDetails
-chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetails = class {
-  constructor(values = {}) {
-    this.error_message = values.error_message !== undefined ? values.error_message : "";
-    this.enterprise = values.enterprise !== undefined ? values.enterprise : 0;
-    this.resolution_message = values.resolution_message !== undefined ? values.resolution_message : "";
-  }
-};
-
-// Struct: GoogleServicesConnectivityConnectionErrorInfo
-chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo = class {
-  constructor(values = {}) {
-    this.timestamp_end = values.timestamp_end !== undefined ? values.timestamp_end : "";
-  }
-};
-
-// Struct: GoogleServicesConnectivityConnectionError
-chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError = class {
-  constructor(values = {}) {
-    this.connection_info = values.connection_info !== undefined ? values.connection_info : "";
-  }
-};
-
-// Struct: GoogleServicesConnectivityProxyConnectionError
-chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError = class {
-  constructor(values = {}) {
-    this.connection_info = values.connection_info !== undefined ? values.connection_info : "";
-  }
-};
-
-// Struct: GoogleServicesConnectivityNoValidProxyError
-chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyError = class {
-  constructor(values = {}) {
-    this.error_details = values.error_details !== undefined ? values.error_details : "";
-  }
-};
-
-// Struct: HttpsLatencyResultValue
-chromeos.network_diagnostics.mojom.HttpsLatencyResultValue = class {
-  constructor(values = {}) {
-    this.latency = values.latency !== undefined ? values.latency : null;
-  }
-};
-
-// Struct: RoutineResult
-chromeos.network_diagnostics.mojom.RoutineResult = class {
-  constructor(values = {}) {
-    this.verdict = values.verdict !== undefined ? values.verdict : null;
-    this.source = values.source !== undefined ? values.source : null;
-  }
+  kProxyConnectionFailure: 0,
 };
 
 // Interface: NetworkDiagnosticsRoutines
-chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines';
-  }
-
-};
-
-chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRequest = class {
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver,
+      handle);
+    this.$ = new chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.getRemote = function() {
+  let remote = new chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPtr = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote;
+chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRequest = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver;
+

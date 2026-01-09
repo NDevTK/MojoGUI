@@ -26,63 +26,148 @@ media.mojom.CdmCapabilityQueryStatus = {
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
 
-// Struct: VideoCodecInfo
-media.mojom.VideoCodecInfo = class {
-  constructor(values = {}) {
-    this.true = values.true !== undefined ? values.true : false;
-  }
-};
-
-// Struct: CdmCapability
-media.mojom.CdmCapability = class {
-  constructor(values = {}) {
-    this.version = values.version !== undefined ? values.version : [];
-  }
-};
-
-// Struct: KeySystemCapability
-media.mojom.KeySystemCapability = class {
-  constructor(values = {}) {
-    this.hw_secure_capability_query_status = values.hw_secure_capability_query_status !== undefined ? values.hw_secure_capability_query_status : null;
-  }
-};
-
 // Interface: KeySystemSupportObserver
-media.mojom.KeySystemSupportObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.KeySystemSupportObserver';
+media.mojom.KeySystemSupportObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.KeySystemSupportObserverRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.KeySystemSupportObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.KeySystemSupportObserverPendingReceiver,
+      handle);
+    this.$ = new media.mojom.KeySystemSupportObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onKeySystemSupportUpdated(key_systems) {
-    // Method: OnKeySystemSupportUpdated
-    // Call: OnKeySystemSupportUpdated(key_systems)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$,
+      null,
+      [key_systems]);
   }
 
 };
 
-media.mojom.KeySystemSupportObserverRequest = class {
+media.mojom.KeySystemSupportObserver.getRemote = function() {
+  let remote = new media.mojom.KeySystemSupportObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.KeySystemSupportObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnKeySystemSupportUpdated
+media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.KeySystemSupportObserver.OnKeySystemSupportUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_systems', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.KeySystemSupportObserverPtr = media.mojom.KeySystemSupportObserverRemote;
+media.mojom.KeySystemSupportObserverRequest = media.mojom.KeySystemSupportObserverPendingReceiver;
+
+
+// Interface: KeySystemSupport
+media.mojom.KeySystemSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: KeySystemSupport
-media.mojom.KeySystemSupportPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.KeySystemSupport';
+media.mojom.KeySystemSupportRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.KeySystemSupport';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.KeySystemSupportPendingReceiver,
+      handle);
+    this.$ = new media.mojom.KeySystemSupportRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.KeySystemSupportRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setObserver(observer) {
-    // Method: SetObserver
-    // Call: SetObserver(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
 };
 
-media.mojom.KeySystemSupportRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.KeySystemSupport.getRemote = function() {
+  let remote = new media.mojom.KeySystemSupportRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.KeySystemSupport',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetObserver
+media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.KeySystemSupport.SetObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+media.mojom.KeySystemSupportPtr = media.mojom.KeySystemSupportRemote;
+media.mojom.KeySystemSupportRequest = media.mojom.KeySystemSupportPendingReceiver;
+

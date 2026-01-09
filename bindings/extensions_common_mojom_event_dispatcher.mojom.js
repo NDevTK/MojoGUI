@@ -9,40 +9,89 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
 
-// Struct: EventFilteringInfo
-extensions.mojom.EventFilteringInfo = class {
-  constructor(values = {}) {
-    this.window_exposed_by_default = values.window_exposed_by_default !== undefined ? values.window_exposed_by_default : 0;
-  }
-};
-
-// Struct: DispatchEventParams
-extensions.mojom.DispatchEventParams = class {
-  constructor(values = {}) {
-    this.thread = values.thread !== undefined ? values.thread : null;
-    this.filtering_info = values.filtering_info !== undefined ? values.filtering_info : 0;
-  }
-};
-
 // Interface: EventDispatcher
-extensions.mojom.EventDispatcherPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'extensions.mojom.EventDispatcher';
-  }
-
-  dispatchEvent(params, event_args) {
-    // Method: DispatchEvent
-    return new Promise((resolve) => {
-      // Call: DispatchEvent(params, event_args)
-      resolve({});
-    });
-  }
-
-};
-
-extensions.mojom.EventDispatcherRequest = class {
+extensions.mojom.EventDispatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+extensions.mojom.EventDispatcherRemote = class {
+  static get $interfaceName() {
+    return 'extensions.mojom.EventDispatcher';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      extensions.mojom.EventDispatcherPendingReceiver,
+      handle);
+    this.$ = new extensions.mojom.EventDispatcherRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+extensions.mojom.EventDispatcherRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  dispatchEvent(params, event_args) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec.$,
+      extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec.$,
+      [params, event_args]);
+  }
+
+};
+
+extensions.mojom.EventDispatcher.getRemote = function() {
+  let remote = new extensions.mojom.EventDispatcherRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'extensions.mojom.EventDispatcher',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DispatchEvent
+extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventDispatcher.DispatchEvent_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_args', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'extensions.mojom.EventDispatcher.DispatchEvent_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'event_will_run_in_lazy_background_page_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+extensions.mojom.EventDispatcherPtr = extensions.mojom.EventDispatcherRemote;
+extensions.mojom.EventDispatcherRequest = extensions.mojom.EventDispatcherPendingReceiver;
+

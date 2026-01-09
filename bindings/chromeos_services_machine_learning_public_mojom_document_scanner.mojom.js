@@ -16,35 +16,52 @@ chromeos.machine_learning.mojom.DocumentScannerResultStatus = {
   ERROR: 1,
 };
 
-// Struct: DocumentScannerConfig
-chromeos.machine_learning.mojom.DocumentScannerConfig = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: DetectCornersResult
-chromeos.machine_learning.mojom.DetectCornersResult = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: DoPostProcessingResult
-chromeos.machine_learning.mojom.DoPostProcessingResult = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: DocumentScanner
-chromeos.machine_learning.mojom.DocumentScannerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.DocumentScanner';
-  }
-
-};
-
-chromeos.machine_learning.mojom.DocumentScannerRequest = class {
+chromeos.machine_learning.mojom.DocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.DocumentScannerRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.DocumentScanner';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.DocumentScannerPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.DocumentScanner.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.DocumentScannerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.DocumentScanner',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.DocumentScannerPtr = chromeos.machine_learning.mojom.DocumentScannerRemote;
+chromeos.machine_learning.mojom.DocumentScannerRequest = chromeos.machine_learning.mojom.DocumentScannerPendingReceiver;
+

@@ -28,31 +28,101 @@ arc.mojom.TimedCloudDpcOp = {
 };
 
 // Interface: EnterpriseReportingHost
-arc.mojom.EnterpriseReportingHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.EnterpriseReportingHost';
-  }
-
-};
-
-arc.mojom.EnterpriseReportingHostRequest = class {
+arc.mojom.EnterpriseReportingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.EnterpriseReportingHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.EnterpriseReportingHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.EnterpriseReportingHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.EnterpriseReportingHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.EnterpriseReportingHost.getRemote = function() {
+  let remote = new arc.mojom.EnterpriseReportingHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.EnterpriseReportingHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.EnterpriseReportingHostPtr = arc.mojom.EnterpriseReportingHostRemote;
+arc.mojom.EnterpriseReportingHostRequest = arc.mojom.EnterpriseReportingHostPendingReceiver;
+
 
 // Interface: EnterpriseReportingInstance
-arc.mojom.EnterpriseReportingInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.EnterpriseReportingInstance';
-  }
-
-};
-
-arc.mojom.EnterpriseReportingInstanceRequest = class {
+arc.mojom.EnterpriseReportingInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.EnterpriseReportingInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.EnterpriseReportingInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.EnterpriseReportingInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.EnterpriseReportingInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.EnterpriseReportingInstance.getRemote = function() {
+  let remote = new arc.mojom.EnterpriseReportingInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.EnterpriseReportingInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.EnterpriseReportingInstancePtr = arc.mojom.EnterpriseReportingInstanceRemote;
+arc.mojom.EnterpriseReportingInstanceRequest = arc.mojom.EnterpriseReportingInstancePendingReceiver;
+

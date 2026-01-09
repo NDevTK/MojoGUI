@@ -25,16 +25,51 @@ chromeos.machine_learning.mojom.ExecuteResult = {
 };
 
 // Interface: GraphExecutor
-chromeos.machine_learning.mojom.GraphExecutorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.GraphExecutor';
-  }
-
-};
-
-chromeos.machine_learning.mojom.GraphExecutorRequest = class {
+chromeos.machine_learning.mojom.GraphExecutorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.GraphExecutorRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.GraphExecutor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.GraphExecutorPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.GraphExecutorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.GraphExecutor',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.GraphExecutorPtr = chromeos.machine_learning.mojom.GraphExecutorRemote;
+chromeos.machine_learning.mojom.GraphExecutorRequest = chromeos.machine_learning.mojom.GraphExecutorPendingReceiver;
+

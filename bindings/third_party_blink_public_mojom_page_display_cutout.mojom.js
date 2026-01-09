@@ -11,49 +11,177 @@ blink.mojom = blink.mojom || {};
 
 // Enum: ViewportFit
 blink.mojom.ViewportFit = {
+  kAuto: 0,
+  kContain: 1,
+  kCover: 2,
+  kCoverForcedByUserAgent: 3,
 };
 
 // Interface: DisplayCutoutHost
-blink.mojom.DisplayCutoutHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.DisplayCutoutHost';
+blink.mojom.DisplayCutoutHostPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+blink.mojom.DisplayCutoutHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.DisplayCutoutHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.DisplayCutoutHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.DisplayCutoutHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   notifyViewportFitChanged(value) {
-    // Method: NotifyViewportFitChanged
-    // Call: NotifyViewportFitChanged(value)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$,
+      null,
+      [value]);
   }
 
   notifyComplexSafeAreaConstraintChanged(value) {
-    // Method: NotifyComplexSafeAreaConstraintChanged
-    // Call: NotifyComplexSafeAreaConstraintChanged(value)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$,
+      null,
+      [value]);
   }
 
 };
 
-blink.mojom.DisplayCutoutHostRequest = class {
+blink.mojom.DisplayCutoutHost.getRemote = function() {
+  let remote = new blink.mojom.DisplayCutoutHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.DisplayCutoutHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for NotifyViewportFitChanged
+blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DisplayCutoutHost.NotifyViewportFitChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for NotifyComplexSafeAreaConstraintChanged
+blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DisplayCutoutHost.NotifyComplexSafeAreaConstraintChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.DisplayCutoutHostPtr = blink.mojom.DisplayCutoutHostRemote;
+blink.mojom.DisplayCutoutHostRequest = blink.mojom.DisplayCutoutHostPendingReceiver;
+
+
+// Interface: DisplayCutoutClient
+blink.mojom.DisplayCutoutClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DisplayCutoutClient
-blink.mojom.DisplayCutoutClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.DisplayCutoutClient';
+blink.mojom.DisplayCutoutClientRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.DisplayCutoutClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.DisplayCutoutClientPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.DisplayCutoutClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.DisplayCutoutClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setSafeArea(safe_area) {
-    // Method: SetSafeArea
-    // Call: SetSafeArea(safe_area)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$,
+      null,
+      [safe_area]);
   }
 
 };
 
-blink.mojom.DisplayCutoutClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+blink.mojom.DisplayCutoutClient.getRemote = function() {
+  let remote = new blink.mojom.DisplayCutoutClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.DisplayCutoutClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetSafeArea
+blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DisplayCutoutClient.SetSafeArea_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'safe_area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+blink.mojom.DisplayCutoutClientPtr = blink.mojom.DisplayCutoutClientRemote;
+blink.mojom.DisplayCutoutClientRequest = blink.mojom.DisplayCutoutClientPendingReceiver;
+

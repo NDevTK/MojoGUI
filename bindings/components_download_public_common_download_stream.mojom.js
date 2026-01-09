@@ -23,29 +23,75 @@ download.mojom.NetworkRequestStatus = {
   NETWORK_FAILED: 9,
 };
 
-// Struct: DownloadStreamHandle
-download.mojom.DownloadStreamHandle = class {
-  constructor(values = {}) {
-    this.client_receiver = values.client_receiver !== undefined ? values.client_receiver : null;
-  }
-};
-
 // Interface: DownloadStreamClient
-download.mojom.DownloadStreamClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'download.mojom.DownloadStreamClient';
-  }
-
-  onStreamCompleted(status) {
-    // Method: OnStreamCompleted
-    // Call: OnStreamCompleted(status)
-  }
-
-};
-
-download.mojom.DownloadStreamClientRequest = class {
+download.mojom.DownloadStreamClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+download.mojom.DownloadStreamClientRemote = class {
+  static get $interfaceName() {
+    return 'download.mojom.DownloadStreamClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      download.mojom.DownloadStreamClientPendingReceiver,
+      handle);
+    this.$ = new download.mojom.DownloadStreamClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+download.mojom.DownloadStreamClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onStreamCompleted(status) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$,
+      null,
+      [status]);
+  }
+
+};
+
+download.mojom.DownloadStreamClient.getRemote = function() {
+  let remote = new download.mojom.DownloadStreamClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'download.mojom.DownloadStreamClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnStreamCompleted
+download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'download.mojom.DownloadStreamClient.OnStreamCompleted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+download.mojom.DownloadStreamClientPtr = download.mojom.DownloadStreamClientRemote;
+download.mojom.DownloadStreamClientRequest = download.mojom.DownloadStreamClientPendingReceiver;
+

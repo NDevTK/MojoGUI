@@ -30,37 +30,114 @@ blink.mojom.AIRewriterLength = {
   kLonger: 2,
 };
 
-// Struct: AIRewriterCreateOptions
-blink.mojom.AIRewriterCreateOptions = class {
-  constructor(values = {}) {
-    this.output_language = values.output_language !== undefined ? values.output_language : "";
-  }
-};
-
 // Interface: AIRewriter
-blink.mojom.AIRewriterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.AIRewriter';
-  }
-
-  rewrite(input, context, pending_responder) {
-    // Method: Rewrite
-    // Call: Rewrite(input, context, pending_responder)
-  }
-
-  measureUsage(input, context) {
-    // Method: MeasureUsage
-    return new Promise((resolve) => {
-      // Call: MeasureUsage(input, context)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.AIRewriterRequest = class {
+blink.mojom.AIRewriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.AIRewriterRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.AIRewriter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.AIRewriterPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.AIRewriterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.AIRewriterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  rewrite(input, context, pending_responder) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.AIRewriter_Rewrite_ParamsSpec.$,
+      null,
+      [input, context, pending_responder]);
+  }
+
+  measureUsage(input, context) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.AIRewriter_MeasureUsage_ParamsSpec.$,
+      blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec.$,
+      [input, context]);
+  }
+
+};
+
+blink.mojom.AIRewriter.getRemote = function() {
+  let remote = new blink.mojom.AIRewriterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.AIRewriter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Rewrite
+blink.mojom.AIRewriter_Rewrite_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIRewriter.Rewrite_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MeasureUsage
+blink.mojom.AIRewriter_MeasureUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIRewriter.MeasureUsage_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AIRewriter.MeasureUsage_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.AIRewriterPtr = blink.mojom.AIRewriterRemote;
+blink.mojom.AIRewriterRequest = blink.mojom.AIRewriterPendingReceiver;
+

@@ -9,49 +9,98 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: PolicyContainerPolicies
-blink.mojom.PolicyContainerPolicies = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : 0;
-  }
-};
-
-// Struct: PolicyContainer
-blink.mojom.PolicyContainer = class {
-  constructor(values = {}) {
-    this.policies = values.policies !== undefined ? values.policies : null;
-    this.remote = values.remote !== undefined ? values.remote : null;
-  }
-};
-
-// Struct: PolicyContainerBindParams
-blink.mojom.PolicyContainerBindParams = class {
-  constructor(values = {}) {
-    this.receiver = values.receiver !== undefined ? values.receiver : null;
-  }
-};
-
 // Interface: PolicyContainerHost
-blink.mojom.PolicyContainerHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.PolicyContainerHost';
-  }
-
-  setReferrerPolicy(referrer_policy) {
-    // Method: SetReferrerPolicy
-    // Call: SetReferrerPolicy(referrer_policy)
-  }
-
-  addContentSecurityPolicies(content_security_policies) {
-    // Method: AddContentSecurityPolicies
-    // Call: AddContentSecurityPolicies(content_security_policies)
-  }
-
-};
-
-blink.mojom.PolicyContainerHostRequest = class {
+blink.mojom.PolicyContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.PolicyContainerHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.PolicyContainerHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.PolicyContainerHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.PolicyContainerHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.PolicyContainerHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  setReferrerPolicy(referrer_policy) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$,
+      null,
+      [referrer_policy]);
+  }
+
+  addContentSecurityPolicies(content_security_policies) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$,
+      null,
+      [content_security_policies]);
+  }
+
+};
+
+blink.mojom.PolicyContainerHost.getRemote = function() {
+  let remote = new blink.mojom.PolicyContainerHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.PolicyContainerHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetReferrerPolicy
+blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PolicyContainerHost.SetReferrerPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AddContentSecurityPolicies
+blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.PolicyContainerHost.AddContentSecurityPolicies_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.PolicyContainerHostPtr = blink.mojom.PolicyContainerHostRemote;
+blink.mojom.PolicyContainerHostRequest = blink.mojom.PolicyContainerHostPendingReceiver;
+

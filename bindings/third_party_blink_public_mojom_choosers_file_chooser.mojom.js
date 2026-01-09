@@ -11,73 +11,131 @@ blink.mojom = blink.mojom || {};
 
 // Enum: Mode
 blink.mojom.Mode = {
-  but: 0,
-  but: 1,
-  rather: 2,
-  and: 3,
-};
-
-// Struct: FileChooserParams
-blink.mojom.FileChooserParams = class {
-  constructor(values = {}) {
-    this.kOpen = values.kOpen !== undefined ? values.kOpen : null;
-    this.kOpenMultiple = values.kOpenMultiple !== undefined ? values.kOpenMultiple : null;
-    this.multiple = values.multiple !== undefined ? values.multiple : null;
-    this.kUploadFolder = values.kUploadFolder !== undefined ? values.kUploadFolder : null;
-    this.kSave = values.kSave !== undefined ? values.kSave : null;
-  }
-};
-
-// Struct: NativeFileInfo
-blink.mojom.NativeFileInfo = class {
-  constructor(values = {}) {
-    this.such = values.such !== undefined ? values.such : null;
-    this.file_path = values.file_path !== undefined ? values.file_path : null;
-    this.base_subdirs = values.base_subdirs !== undefined ? values.base_subdirs : "";
-  }
-};
-
-// Struct: FileSystemFileInfo
-blink.mojom.FileSystemFileInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileChooserResult
-blink.mojom.FileChooserResult = class {
-  constructor(values = {}) {
-    this.files = values.files !== undefined ? values.files : [];
-    this.base_directory = values.base_directory !== undefined ? values.base_directory : null;
-  }
+  kOpen: 0,
+  kOpenMultiple: 1,
+  kUploadFolder: 2,
+  kOpenDirectory: 3,
+  kSave: 4,
 };
 
 // Interface: FileChooser
-blink.mojom.FileChooserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.FileChooser';
-  }
-
-  openFileChooser(params) {
-    // Method: OpenFileChooser
-    return new Promise((resolve) => {
-      // Call: OpenFileChooser(params)
-      resolve({});
-    });
-  }
-
-  enumerateChosenDirectory(directory_path) {
-    // Method: EnumerateChosenDirectory
-    return new Promise((resolve) => {
-      // Call: EnumerateChosenDirectory(directory_path)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.FileChooserRequest = class {
+blink.mojom.FileChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.FileChooserRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.FileChooser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.FileChooserPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.FileChooserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.FileChooserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  openFileChooser(params) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$,
+      blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$,
+      [params]);
+  }
+
+  enumerateChosenDirectory(directory_path) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$,
+      blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$,
+      [directory_path]);
+  }
+
+};
+
+blink.mojom.FileChooser.getRemote = function() {
+  let remote = new blink.mojom.FileChooserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.FileChooser',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OpenFileChooser
+blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileChooser.OpenFileChooser_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileChooser.OpenFileChooser_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnumerateChosenDirectory
+blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.FileChooserPtr = blink.mojom.FileChooserRemote;
+blink.mojom.FileChooserRequest = blink.mojom.FileChooserPendingReceiver;
+

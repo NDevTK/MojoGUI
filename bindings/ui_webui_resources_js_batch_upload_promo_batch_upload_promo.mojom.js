@@ -10,69 +10,255 @@ batch_upload_promo.mojom = batch_upload_promo.mojom || {};
 
 
 // Interface: PageHandlerFactory
-batch_upload_promo.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'batch_upload_promo.mojom.PageHandlerFactory';
+batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+batch_upload_promo.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'batch_upload_promo.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createBatchUploadPromoHandler(page, handler) {
-    // Method: CreateBatchUploadPromoHandler
-    // Call: CreateBatchUploadPromoHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-batch_upload_promo.mojom.PageHandlerFactoryRequest = class {
+batch_upload_promo.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new batch_upload_promo.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'batch_upload_promo.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateBatchUploadPromoHandler
+batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload_promo.mojom.PageHandlerFactory.CreateBatchUploadPromoHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+batch_upload_promo.mojom.PageHandlerFactoryPtr = batch_upload_promo.mojom.PageHandlerFactoryRemote;
+batch_upload_promo.mojom.PageHandlerFactoryRequest = batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+batch_upload_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-batch_upload_promo.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'batch_upload_promo.mojom.PageHandler';
+batch_upload_promo.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'batch_upload_promo.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      batch_upload_promo.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new batch_upload_promo.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+batch_upload_promo.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getBatchUploadPromoLocalDataCount() {
-    // Method: GetBatchUploadPromoLocalDataCount
-    return new Promise((resolve) => {
-      // Call: GetBatchUploadPromoLocalDataCount()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$,
+      batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$,
+      []);
   }
 
   onBatchUploadPromoClicked() {
-    // Method: OnBatchUploadPromoClicked
-    // Call: OnBatchUploadPromoClicked()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-batch_upload_promo.mojom.PageHandlerRequest = class {
+batch_upload_promo.mojom.PageHandler.getRemote = function() {
+  let remote = new batch_upload_promo.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'batch_upload_promo.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetBatchUploadPromoLocalDataCount
+batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload_promo.mojom.PageHandler.GetBatchUploadPromoLocalDataCount_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload_promo.mojom.PageHandler.GetBatchUploadPromoLocalDataCount_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnBatchUploadPromoClicked
+batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload_promo.mojom.PageHandler.OnBatchUploadPromoClicked_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+batch_upload_promo.mojom.PageHandlerPtr = batch_upload_promo.mojom.PageHandlerRemote;
+batch_upload_promo.mojom.PageHandlerRequest = batch_upload_promo.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+batch_upload_promo.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-batch_upload_promo.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'batch_upload_promo.mojom.Page';
+batch_upload_promo.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'batch_upload_promo.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      batch_upload_promo.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new batch_upload_promo.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+batch_upload_promo.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onLocalDataCountChanged(local_data_count) {
-    // Method: OnLocalDataCountChanged
-    // Call: OnLocalDataCountChanged(local_data_count)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$,
+      null,
+      [local_data_count]);
   }
 
 };
 
-batch_upload_promo.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+batch_upload_promo.mojom.Page.getRemote = function() {
+  let remote = new batch_upload_promo.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'batch_upload_promo.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnLocalDataCountChanged
+batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload_promo.mojom.Page.OnLocalDataCountChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+batch_upload_promo.mojom.PagePtr = batch_upload_promo.mojom.PageRemote;
+batch_upload_promo.mojom.PageRequest = batch_upload_promo.mojom.PagePendingReceiver;
+

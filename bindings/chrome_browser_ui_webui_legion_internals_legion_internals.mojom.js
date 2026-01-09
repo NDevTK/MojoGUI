@@ -9,42 +9,135 @@ var legion_internals = legion_internals || {};
 legion_internals.mojom = legion_internals.mojom || {};
 
 
-// Struct: LegionResponse
-legion_internals.mojom.LegionResponse = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : "";
-  }
-};
-
 // Interface: LegionInternalsPageHandler
-legion_internals.mojom.LegionInternalsPageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'legion_internals.mojom.LegionInternalsPageHandler';
-  }
-
-  connect(url, api_key) {
-    // Method: Connect
-    // Call: Connect(url, api_key)
-  }
-
-  close() {
-    // Method: Close
-    // Call: Close()
-  }
-
-  sendRequest(feature_name, request) {
-    // Method: SendRequest
-    return new Promise((resolve) => {
-      // Call: SendRequest(feature_name, request)
-      resolve({});
-    });
-  }
-
-};
-
-legion_internals.mojom.LegionInternalsPageHandlerRequest = class {
+legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+legion_internals.mojom.LegionInternalsPageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'legion_internals.mojom.LegionInternalsPageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver,
+      handle);
+    this.$ = new legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  connect(url, api_key) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$,
+      null,
+      [url, api_key]);
+  }
+
+  close() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  sendRequest(feature_name, request) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$,
+      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$,
+      [feature_name, request]);
+  }
+
+};
+
+legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
+  let remote = new legion_internals.mojom.LegionInternalsPageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'legion_internals.mojom.LegionInternalsPageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Connect
+legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion_internals.mojom.LegionInternalsPageHandler.Connect_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'api_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Close
+legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion_internals.mojom.LegionInternalsPageHandler.Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendRequest
+legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+legion_internals.mojom.LegionInternalsPageHandlerPtr = legion_internals.mojom.LegionInternalsPageHandlerRemote;
+legion_internals.mojom.LegionInternalsPageHandlerRequest = legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver;
+

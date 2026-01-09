@@ -11,20 +11,59 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ArcResizeLockState
 arc.mojom.ArcResizeLockState = {
-  and: 0,
+  UNDEFINED: 0,
+  READY: 1,
+  ON: 2,
+  OFF: 3,
+  FULLY_LOCKED: 4,
 };
 
 // Interface: CompatibilityModeInstance
-arc.mojom.CompatibilityModeInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.CompatibilityModeInstance';
-  }
-
-};
-
-arc.mojom.CompatibilityModeInstanceRequest = class {
+arc.mojom.CompatibilityModeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.CompatibilityModeInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.CompatibilityModeInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.CompatibilityModeInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.CompatibilityModeInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.CompatibilityModeInstance.getRemote = function() {
+  let remote = new arc.mojom.CompatibilityModeInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.CompatibilityModeInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.CompatibilityModeInstancePtr = arc.mojom.CompatibilityModeInstanceRemote;
+arc.mojom.CompatibilityModeInstanceRequest = arc.mojom.CompatibilityModeInstancePendingReceiver;
+

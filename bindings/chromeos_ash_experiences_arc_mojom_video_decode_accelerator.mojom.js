@@ -20,67 +20,102 @@ arc.mojom.Result = {
   CANCELLED: 6,
 };
 
-// Struct: BitstreamBuffer
-arc.mojom.BitstreamBuffer = class {
-  constructor(values = {}) {
-    this.bytes_used = values.bytes_used !== undefined ? values.bytes_used : 0;
-  }
-};
-
-// Struct: Picture
-arc.mojom.Picture = class {
-  constructor(values = {}) {
-    this.crop_rect = values.crop_rect !== undefined ? values.crop_rect : 0;
-  }
-};
-
-// Struct: PictureBufferFormat
-arc.mojom.PictureBufferFormat = class {
-  constructor(values = {}) {
-    this.coded_size = values.coded_size !== undefined ? values.coded_size : 0;
-  }
-};
-
-// Struct: VideoDecodeAcceleratorConfig
-arc.mojom.VideoDecodeAcceleratorConfig = class {
-  constructor(values = {}) {
-    this.secure_mode = values.secure_mode !== undefined ? values.secure_mode : false;
-  }
-};
-
-// Struct: BufferModifier
-arc.mojom.BufferModifier = class {
-  constructor(values = {}) {
-    this.val = values.val !== undefined ? values.val : 0;
-  }
-};
-
 // Interface: VideoDecodeAccelerator
-arc.mojom.VideoDecodeAcceleratorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.VideoDecodeAccelerator';
-  }
-
-};
-
-arc.mojom.VideoDecodeAcceleratorRequest = class {
+arc.mojom.VideoDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.VideoDecodeAcceleratorRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.VideoDecodeAccelerator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.VideoDecodeAcceleratorPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.VideoDecodeAcceleratorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.VideoDecodeAccelerator.getRemote = function() {
+  let remote = new arc.mojom.VideoDecodeAcceleratorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.VideoDecodeAccelerator',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.VideoDecodeAcceleratorPtr = arc.mojom.VideoDecodeAcceleratorRemote;
+arc.mojom.VideoDecodeAcceleratorRequest = arc.mojom.VideoDecodeAcceleratorPendingReceiver;
+
 
 // Interface: VideoDecodeClient
-arc.mojom.VideoDecodeClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.VideoDecodeClient';
-  }
-
-};
-
-arc.mojom.VideoDecodeClientRequest = class {
+arc.mojom.VideoDecodeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.VideoDecodeClientRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.VideoDecodeClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.VideoDecodeClientPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.VideoDecodeClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.VideoDecodeClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.VideoDecodeClient.getRemote = function() {
+  let remote = new arc.mojom.VideoDecodeClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.VideoDecodeClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.VideoDecodeClientPtr = arc.mojom.VideoDecodeClientRemote;
+arc.mojom.VideoDecodeClientRequest = arc.mojom.VideoDecodeClientPendingReceiver;
+

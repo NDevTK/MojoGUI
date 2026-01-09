@@ -10,21 +10,74 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SubresourceLoaderUpdater
-blink.mojom.SubresourceLoaderUpdaterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.SubresourceLoaderUpdater';
-  }
-
-  updateSubresourceLoaderFactories(subresource_loader_factories) {
-    // Method: UpdateSubresourceLoaderFactories
-    // Call: UpdateSubresourceLoaderFactories(subresource_loader_factories)
-  }
-
-};
-
-blink.mojom.SubresourceLoaderUpdaterRequest = class {
+blink.mojom.SubresourceLoaderUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.SubresourceLoaderUpdaterRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.SubresourceLoaderUpdater';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.SubresourceLoaderUpdaterPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  updateSubresourceLoaderFactories(subresource_loader_factories) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec.$,
+      null,
+      [subresource_loader_factories]);
+  }
+
+};
+
+blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
+  let remote = new blink.mojom.SubresourceLoaderUpdaterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.SubresourceLoaderUpdater',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for UpdateSubresourceLoaderFactories
+blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.SubresourceLoaderUpdater.UpdateSubresourceLoaderFactories_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.SubresourceLoaderUpdaterPtr = blink.mojom.SubresourceLoaderUpdaterRemote;
+blink.mojom.SubresourceLoaderUpdaterRequest = blink.mojom.SubresourceLoaderUpdaterPendingReceiver;
+

@@ -25,63 +25,190 @@ translate.mojom.TranslateError = {
   TRANSLATE_ERROR_MAX: 11,
 };
 
-// Struct: LanguageDetectionDetails
-translate.mojom.LanguageDetectionDetails = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : null;
-    this.language = values.language !== undefined ? values.language : null;
-    this.adopted_language = values.adopted_language !== undefined ? values.adopted_language : "";
-    this.has_notranslate = values.has_notranslate !== undefined ? values.has_notranslate : false;
-    this.model_detected_language = values.model_detected_language !== undefined ? values.model_detected_language : 0;
-    this.contents = values.contents !== undefined ? values.contents : false;
-    this.detection_model_version = values.detection_model_version !== undefined ? values.detection_model_version : 0;
+// Interface: TranslateAgent
+translate.mojom.TranslateAgentPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: TranslateAgent
-translate.mojom.TranslateAgentPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'translate.mojom.TranslateAgent';
+translate.mojom.TranslateAgentRemote = class {
+  static get $interfaceName() {
+    return 'translate.mojom.TranslateAgent';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      translate.mojom.TranslateAgentPendingReceiver,
+      handle);
+    this.$ = new translate.mojom.TranslateAgentRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+translate.mojom.TranslateAgentRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   translateFrame(translate_script, source_lang, target_lang) {
-    // Method: TranslateFrame
-    return new Promise((resolve) => {
-      // Call: TranslateFrame(translate_script, source_lang, target_lang)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$,
+      translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$,
+      [translate_script, source_lang, target_lang]);
   }
 
   revertTranslation() {
-    // Method: RevertTranslation
-    // Call: RevertTranslation()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-translate.mojom.TranslateAgentRequest = class {
+translate.mojom.TranslateAgent.getRemote = function() {
+  let remote = new translate.mojom.TranslateAgentRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'translate.mojom.TranslateAgent',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for TranslateFrame
+translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'translate.mojom.TranslateAgent.TranslateFrame_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'translate_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'target_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'translate.mojom.TranslateAgent.TranslateFrame_ResponseParams',
+      packedSize: 40,
+      fields: [
+        { name: 'cancelled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'original_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'translated_lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RevertTranslation
+translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'translate.mojom.TranslateAgent.RevertTranslation_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+translate.mojom.TranslateAgentPtr = translate.mojom.TranslateAgentRemote;
+translate.mojom.TranslateAgentRequest = translate.mojom.TranslateAgentPendingReceiver;
+
+
+// Interface: ContentTranslateDriver
+translate.mojom.ContentTranslateDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ContentTranslateDriver
-translate.mojom.ContentTranslateDriverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'translate.mojom.ContentTranslateDriver';
+translate.mojom.ContentTranslateDriverRemote = class {
+  static get $interfaceName() {
+    return 'translate.mojom.ContentTranslateDriver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      translate.mojom.ContentTranslateDriverPendingReceiver,
+      handle);
+    this.$ = new translate.mojom.ContentTranslateDriverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   registerPage(translate_agent, details, translation_critiera_met) {
-    // Method: RegisterPage
-    // Call: RegisterPage(translate_agent, details, translation_critiera_met)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$,
+      null,
+      [translate_agent, details, translation_critiera_met]);
   }
 
 };
 
-translate.mojom.ContentTranslateDriverRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+translate.mojom.ContentTranslateDriver.getRemote = function() {
+  let remote = new translate.mojom.ContentTranslateDriverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'translate.mojom.ContentTranslateDriver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RegisterPage
+translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'translate.mojom.ContentTranslateDriver.RegisterPage_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'translate_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'translation_critiera_met', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+translate.mojom.ContentTranslateDriverPtr = translate.mojom.ContentTranslateDriverRemote;
+translate.mojom.ContentTranslateDriverRequest = translate.mojom.ContentTranslateDriverPendingReceiver;
+

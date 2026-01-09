@@ -10,61 +10,240 @@ network.mojom = network.mojom || {};
 
 
 // Interface: P2PTrustedSocketManagerClient
-network.mojom.P2PTrustedSocketManagerClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.P2PTrustedSocketManagerClient';
+network.mojom.P2PTrustedSocketManagerClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerClientRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.P2PTrustedSocketManagerClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.P2PTrustedSocketManagerClientPendingReceiver,
+      handle);
+    this.$ = new network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   invalidSocketPortRangeRequested() {
-    // Method: InvalidSocketPortRangeRequested
-    // Call: InvalidSocketPortRangeRequested()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$,
+      null,
+      []);
   }
 
   dumpPacket(packet_header, packet_length, incoming) {
-    // Method: DumpPacket
-    // Call: DumpPacket(packet_header, packet_length, incoming)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$,
+      null,
+      [packet_header, packet_length, incoming]);
   }
 
 };
 
-network.mojom.P2PTrustedSocketManagerClientRequest = class {
+network.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
+  let remote = new network.mojom.P2PTrustedSocketManagerClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.P2PTrustedSocketManagerClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for InvalidSocketPortRangeRequested
+network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManagerClient.InvalidSocketPortRangeRequested_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DumpPacket
+network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManagerClient.DumpPacket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'packet_header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'packet_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'incoming', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.P2PTrustedSocketManagerClientPtr = network.mojom.P2PTrustedSocketManagerClientRemote;
+network.mojom.P2PTrustedSocketManagerClientRequest = network.mojom.P2PTrustedSocketManagerClientPendingReceiver;
+
+
+// Interface: P2PTrustedSocketManager
+network.mojom.P2PTrustedSocketManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: P2PTrustedSocketManager
-network.mojom.P2PTrustedSocketManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.P2PTrustedSocketManager';
+network.mojom.P2PTrustedSocketManagerRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.P2PTrustedSocketManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.P2PTrustedSocketManagerPendingReceiver,
+      handle);
+    this.$ = new network.mojom.P2PTrustedSocketManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   startRtpDump(incoming, outgoing) {
-    // Method: StartRtpDump
-    // Call: StartRtpDump(incoming, outgoing)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$,
+      null,
+      [incoming, outgoing]);
   }
 
   stopRtpDump(incoming, outgoing) {
-    // Method: StopRtpDump
-    // Call: StopRtpDump(incoming, outgoing)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$,
+      null,
+      [incoming, outgoing]);
   }
 
   pauseNetworkChangeNotifications() {
-    // Method: PauseNetworkChangeNotifications
-    // Call: PauseNetworkChangeNotifications()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$,
+      null,
+      []);
   }
 
   resumeNetworkChangeNotifications() {
-    // Method: ResumeNetworkChangeNotifications
-    // Call: ResumeNetworkChangeNotifications()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-network.mojom.P2PTrustedSocketManagerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+network.mojom.P2PTrustedSocketManager.getRemote = function() {
+  let remote = new network.mojom.P2PTrustedSocketManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.P2PTrustedSocketManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for StartRtpDump
+network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager.StartRtpDump_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outgoing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for StopRtpDump
+network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager.StopRtpDump_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'incoming', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outgoing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PauseNetworkChangeNotifications
+network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager.PauseNetworkChangeNotifications_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResumeNetworkChangeNotifications
+network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.P2PTrustedSocketManager.ResumeNetworkChangeNotifications_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.P2PTrustedSocketManagerPtr = network.mojom.P2PTrustedSocketManagerRemote;
+network.mojom.P2PTrustedSocketManagerRequest = network.mojom.P2PTrustedSocketManagerPendingReceiver;
+

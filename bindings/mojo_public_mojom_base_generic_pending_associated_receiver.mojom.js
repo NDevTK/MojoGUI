@@ -9,24 +9,52 @@ var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
 
-// Struct: GenericPendingAssociatedReceiver
-mojo_base.mojom.GenericPendingAssociatedReceiver = class {
-  constructor(values = {}) {
-    this.receiver = values.receiver !== undefined ? values.receiver : 0;
-  }
-};
-
 // Interface: GenericAssociatedInterface
-mojo_base.mojom.GenericAssociatedInterfacePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'mojo_base.mojom.GenericAssociatedInterface';
-  }
-
-};
-
-mojo_base.mojom.GenericAssociatedInterfaceRequest = class {
+mojo_base.mojom.GenericAssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+mojo_base.mojom.GenericAssociatedInterfaceRemote = class {
+  static get $interfaceName() {
+    return 'mojo_base.mojom.GenericAssociatedInterface';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo_base.mojom.GenericAssociatedInterfacePendingReceiver,
+      handle);
+    this.$ = new mojo_base.mojom.GenericAssociatedInterfaceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+mojo_base.mojom.GenericAssociatedInterfaceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+mojo_base.mojom.GenericAssociatedInterface.getRemote = function() {
+  let remote = new mojo_base.mojom.GenericAssociatedInterfaceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'mojo_base.mojom.GenericAssociatedInterface',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+mojo_base.mojom.GenericAssociatedInterfacePtr = mojo_base.mojom.GenericAssociatedInterfaceRemote;
+mojo_base.mojom.GenericAssociatedInterfaceRequest = mojo_base.mojom.GenericAssociatedInterfacePendingReceiver;
+

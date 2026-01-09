@@ -21,6 +21,7 @@ arc.mojom.TextInputType = {
   DATE: 7,
   TIME: 8,
   DATETIME: 9,
+  ANDROID_NULL: 10,
 };
 
 // Enum: SegmentStyle
@@ -32,49 +33,107 @@ arc.mojom.SegmentStyle = {
 
 // Enum: CursorCoordinateSpace
 arc.mojom.CursorCoordinateSpace = {
-};
-
-// Struct: CompositionSegment
-arc.mojom.CompositionSegment = class {
-  constructor(values = {}) {
-    this.end_offset = values.end_offset !== undefined ? values.end_offset : 0;
-    this.style = values.style !== undefined ? values.style : false;
-  }
-};
-
-// Struct: KeyEventData
-arc.mojom.KeyEventData = class {
-  constructor(values = {}) {
-    this.is_repeat = values.is_repeat !== undefined ? values.is_repeat : 0;
-  }
+  SCREEN: 0,
+  DISPLAY: 1,
+  NOTIFICATION: 2,
 };
 
 // Interface: ImeHost
-arc.mojom.ImeHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.ImeHost';
-  }
-
-};
-
-arc.mojom.ImeHostRequest = class {
+arc.mojom.ImeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.ImeHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.ImeHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.ImeHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.ImeHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.ImeHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.ImeHost.getRemote = function() {
+  let remote = new arc.mojom.ImeHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.ImeHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.ImeHostPtr = arc.mojom.ImeHostRemote;
+arc.mojom.ImeHostRequest = arc.mojom.ImeHostPendingReceiver;
+
 
 // Interface: ImeInstance
-arc.mojom.ImeInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.ImeInstance';
-  }
-
-};
-
-arc.mojom.ImeInstanceRequest = class {
+arc.mojom.ImeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.ImeInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.ImeInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.ImeInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.ImeInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.ImeInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.ImeInstance.getRemote = function() {
+  let remote = new arc.mojom.ImeInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.ImeInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.ImeInstancePtr = arc.mojom.ImeInstanceRemote;
+arc.mojom.ImeInstanceRequest = arc.mojom.ImeInstancePendingReceiver;
+

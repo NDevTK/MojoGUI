@@ -44,76 +44,161 @@ media.mojom.FillLightMode = {
   FLASH: 2,
 };
 
-// Struct: Range
-media.mojom.Range = class {
-  constructor(values = {}) {
-    this.step = values.step !== undefined ? values.step : 0;
-  }
-};
-
-// Struct: PhotoState
-media.mojom.PhotoState = class {
-  constructor(values = {}) {
-    this.current_background_segmentation_mask_state = values.current_background_segmentation_mask_state !== undefined ? values.current_background_segmentation_mask_state : 0;
-  }
-};
-
-// Struct: Point2D
-media.mojom.Point2D = class {
-  constructor(values = {}) {
-    this.y = values.y !== undefined ? values.y : 0;
-  }
-};
-
-// Struct: PhotoSettings
-media.mojom.PhotoSettings = class {
-  constructor(values = {}) {
-    this.background_segmentation_mask_state = values.background_segmentation_mask_state !== undefined ? values.background_segmentation_mask_state : 0;
-  }
-};
-
-// Struct: Blob
-media.mojom.Blob = class {
-  constructor(values = {}) {
-    this.data = values.data !== undefined ? values.data : 0;
-  }
-};
-
 // Interface: ImageCapture
-media.mojom.ImageCapturePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.ImageCapture';
-  }
-
-  getPhotoState(source_id) {
-    // Method: GetPhotoState
-    return new Promise((resolve) => {
-      // Call: GetPhotoState(source_id)
-      resolve({});
-    });
-  }
-
-  setPhotoOptions(source_id, settings) {
-    // Method: SetPhotoOptions
-    return new Promise((resolve) => {
-      // Call: SetPhotoOptions(source_id, settings)
-      resolve({});
-    });
-  }
-
-  takePhoto(source_id) {
-    // Method: TakePhoto
-    return new Promise((resolve) => {
-      // Call: TakePhoto(source_id)
-      resolve({});
-    });
-  }
-
-};
-
-media.mojom.ImageCaptureRequest = class {
+media.mojom.ImageCapturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+media.mojom.ImageCaptureRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.ImageCapture';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.ImageCapturePendingReceiver,
+      handle);
+    this.$ = new media.mojom.ImageCaptureRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.ImageCaptureRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getPhotoState(source_id) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$,
+      media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$,
+      [source_id]);
+  }
+
+  setPhotoOptions(source_id, settings) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$,
+      media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$,
+      [source_id, settings]);
+  }
+
+  takePhoto(source_id) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.ImageCapture_TakePhoto_ParamsSpec.$,
+      media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$,
+      [source_id]);
+  }
+
+};
+
+media.mojom.ImageCapture.getRemote = function() {
+  let remote = new media.mojom.ImageCaptureRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.ImageCapture',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetPhotoState
+media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture.GetPhotoState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture.GetPhotoState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPhotoOptions
+media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture.SetPhotoOptions_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture.SetPhotoOptions_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for TakePhoto
+media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture.TakePhoto_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.ImageCapture.TakePhoto_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.ImageCapturePtr = media.mojom.ImageCaptureRemote;
+media.mojom.ImageCaptureRequest = media.mojom.ImageCapturePendingReceiver;
+

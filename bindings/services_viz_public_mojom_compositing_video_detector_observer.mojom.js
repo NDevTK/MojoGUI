@@ -10,26 +10,95 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VideoDetectorObserver
-viz.mojom.VideoDetectorObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.VideoDetectorObserver';
-  }
-
-  onVideoActivityStarted() {
-    // Method: OnVideoActivityStarted
-    // Call: OnVideoActivityStarted()
-  }
-
-  onVideoActivityEnded() {
-    // Method: OnVideoActivityEnded
-    // Call: OnVideoActivityEnded()
-  }
-
-};
-
-viz.mojom.VideoDetectorObserverRequest = class {
+viz.mojom.VideoDetectorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+viz.mojom.VideoDetectorObserverRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.VideoDetectorObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.VideoDetectorObserverPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.VideoDetectorObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onVideoActivityStarted() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  onVideoActivityEnded() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+viz.mojom.VideoDetectorObserver.getRemote = function() {
+  let remote = new viz.mojom.VideoDetectorObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.VideoDetectorObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnVideoActivityStarted
+viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.VideoDetectorObserver.OnVideoActivityStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnVideoActivityEnded
+viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.VideoDetectorObserver.OnVideoActivityEnded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.VideoDetectorObserverPtr = viz.mojom.VideoDetectorObserverRemote;
+viz.mojom.VideoDetectorObserverRequest = viz.mojom.VideoDetectorObserverPendingReceiver;
+

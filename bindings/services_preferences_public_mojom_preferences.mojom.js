@@ -17,43 +17,84 @@ prefs.mojom.EnforcementLevel = {
 
 // Enum: PrefTrackingStrategy
 prefs.mojom.PrefTrackingStrategy = {
+  ATOMIC: 0,
+  SPLIT: 1,
 };
 
 // Enum: ValueType
 prefs.mojom.ValueType = {
   IMPERSONAL: 0,
-};
-
-// Struct: TrackedPersistentPrefStoreConfiguration
-prefs.mojom.TrackedPersistentPrefStoreConfiguration = class {
-  constructor(values = {}) {
-    this.reset_on_load_observer = values.reset_on_load_observer !== undefined ? values.reset_on_load_observer : 0;
-  }
-};
-
-// Struct: TrackedPreferenceMetadata
-prefs.mojom.TrackedPreferenceMetadata = class {
-  constructor(values = {}) {
-    this.NO_ENFORCEMENT = values.NO_ENFORCEMENT !== undefined ? values.NO_ENFORCEMENT : null;
-  }
+  PERSONAL: 1,
 };
 
 // Interface: ResetOnLoadObserver
-prefs.mojom.ResetOnLoadObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'prefs.mojom.ResetOnLoadObserver';
-  }
-
-  onResetOnLoad() {
-    // Method: OnResetOnLoad
-    // Call: OnResetOnLoad()
-  }
-
-};
-
-prefs.mojom.ResetOnLoadObserverRequest = class {
+prefs.mojom.ResetOnLoadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+prefs.mojom.ResetOnLoadObserverRemote = class {
+  static get $interfaceName() {
+    return 'prefs.mojom.ResetOnLoadObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      prefs.mojom.ResetOnLoadObserverPendingReceiver,
+      handle);
+    this.$ = new prefs.mojom.ResetOnLoadObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onResetOnLoad() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+prefs.mojom.ResetOnLoadObserver.getRemote = function() {
+  let remote = new prefs.mojom.ResetOnLoadObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'prefs.mojom.ResetOnLoadObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnResetOnLoad
+prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'prefs.mojom.ResetOnLoadObserver.OnResetOnLoad_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+prefs.mojom.ResetOnLoadObserverPtr = prefs.mojom.ResetOnLoadObserverRemote;
+prefs.mojom.ResetOnLoadObserverRequest = prefs.mojom.ResetOnLoadObserverPendingReceiver;
+

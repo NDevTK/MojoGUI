@@ -16,38 +16,88 @@ password_manager.mojom.Status = {
   kSemanticError: 2,
 };
 
-// Struct: CSVPasswordSequence
-password_manager.mojom.CSVPasswordSequence = class {
-  constructor(values = {}) {
-    this.csv_passwords = values.csv_passwords !== undefined ? values.csv_passwords : [];
-  }
-};
-
-// Struct: CSVPassword
-password_manager.mojom.CSVPassword = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: CSVPasswordParser
-password_manager.mojom.CSVPasswordParserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'password_manager.mojom.CSVPasswordParser';
-  }
-
-  parseCSV(raw_csv) {
-    // Method: ParseCSV
-    return new Promise((resolve) => {
-      // Call: ParseCSV(raw_csv)
-      resolve({});
-    });
-  }
-
-};
-
-password_manager.mojom.CSVPasswordParserRequest = class {
+password_manager.mojom.CSVPasswordParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+password_manager.mojom.CSVPasswordParserRemote = class {
+  static get $interfaceName() {
+    return 'password_manager.mojom.CSVPasswordParser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      password_manager.mojom.CSVPasswordParserPendingReceiver,
+      handle);
+    this.$ = new password_manager.mojom.CSVPasswordParserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  parseCSV(raw_csv) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec.$,
+      password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$,
+      [raw_csv]);
+  }
+
+};
+
+password_manager.mojom.CSVPasswordParser.getRemote = function() {
+  let remote = new password_manager.mojom.CSVPasswordParserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'password_manager.mojom.CSVPasswordParser',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ParseCSV
+password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'raw_csv', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+password_manager.mojom.CSVPasswordParserPtr = password_manager.mojom.CSVPasswordParserRemote;
+password_manager.mojom.CSVPasswordParserRequest = password_manager.mojom.CSVPasswordParserPendingReceiver;
+

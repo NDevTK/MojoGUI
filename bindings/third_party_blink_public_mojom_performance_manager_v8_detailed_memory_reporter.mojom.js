@@ -12,57 +12,92 @@ blink.mojom = blink.mojom || {};
 // Enum: Mode
 blink.mojom.Mode = {
   DEFAULT: 0,
-};
-
-// Struct: PerContextV8MemoryUsage
-blink.mojom.PerContextV8MemoryUsage = class {
-  constructor(values = {}) {
-    this.memory_used = values.memory_used !== undefined ? values.memory_used : null;
-    this.workers = values.workers !== undefined ? values.workers : null;
-    this.url = values.url !== undefined ? values.url : "";
-  }
-};
-
-// Struct: PerContextCanvasMemoryUsage
-blink.mojom.PerContextCanvasMemoryUsage = class {
-  constructor(values = {}) {
-    this.memory_used = values.memory_used !== undefined ? values.memory_used : null;
-  }
-};
-
-// Struct: PerIsolateV8MemoryUsage
-blink.mojom.PerIsolateV8MemoryUsage = class {
-  constructor(values = {}) {
-    this.canvas_contexts = values.canvas_contexts !== undefined ? values.canvas_contexts : 0;
-  }
-};
-
-// Struct: PerProcessV8MemoryUsage
-blink.mojom.PerProcessV8MemoryUsage = class {
-  constructor(values = {}) {
-    this.isolates = values.isolates !== undefined ? values.isolates : [];
-  }
+  EAGER: 1,
+  LAZY: 2,
 };
 
 // Interface: V8DetailedMemoryReporter
-blink.mojom.V8DetailedMemoryReporterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.V8DetailedMemoryReporter';
-  }
-
-  getV8MemoryUsage(mode) {
-    // Method: GetV8MemoryUsage
-    return new Promise((resolve) => {
-      // Call: GetV8MemoryUsage(mode)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.V8DetailedMemoryReporterRequest = class {
+blink.mojom.V8DetailedMemoryReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.V8DetailedMemoryReporterRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.V8DetailedMemoryReporter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.V8DetailedMemoryReporterPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.V8DetailedMemoryReporterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getV8MemoryUsage(mode) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec.$,
+      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$,
+      [mode]);
+  }
+
+};
+
+blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
+  let remote = new blink.mojom.V8DetailedMemoryReporterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.V8DetailedMemoryReporter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetV8MemoryUsage
+blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.V8DetailedMemoryReporterPtr = blink.mojom.V8DetailedMemoryReporterRemote;
+blink.mojom.V8DetailedMemoryReporterRequest = blink.mojom.V8DetailedMemoryReporterPendingReceiver;
+

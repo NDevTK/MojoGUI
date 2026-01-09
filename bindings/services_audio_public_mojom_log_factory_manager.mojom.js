@@ -10,21 +10,74 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: LogFactoryManager
-audio.mojom.LogFactoryManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'audio.mojom.LogFactoryManager';
-  }
-
-  setLogFactory(factory) {
-    // Method: SetLogFactory
-    // Call: SetLogFactory(factory)
-  }
-
-};
-
-audio.mojom.LogFactoryManagerRequest = class {
+audio.mojom.LogFactoryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+audio.mojom.LogFactoryManagerRemote = class {
+  static get $interfaceName() {
+    return 'audio.mojom.LogFactoryManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      audio.mojom.LogFactoryManagerPendingReceiver,
+      handle);
+    this.$ = new audio.mojom.LogFactoryManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+audio.mojom.LogFactoryManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  setLogFactory(factory) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec.$,
+      null,
+      [factory]);
+  }
+
+};
+
+audio.mojom.LogFactoryManager.getRemote = function() {
+  let remote = new audio.mojom.LogFactoryManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'audio.mojom.LogFactoryManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetLogFactory
+audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'audio.mojom.LogFactoryManager.SetLogFactory_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+audio.mojom.LogFactoryManagerPtr = audio.mojom.LogFactoryManagerRemote;
+audio.mojom.LogFactoryManagerRequest = audio.mojom.LogFactoryManagerPendingReceiver;
+

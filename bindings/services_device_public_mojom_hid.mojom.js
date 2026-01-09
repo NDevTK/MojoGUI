@@ -15,109 +15,252 @@ device.mojom.HidBusType = {
   kHIDBusTypeBluetooth: 1,
 };
 
-// Struct: HidUsageAndPage
-device.mojom.HidUsageAndPage = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: HidReportItem
-device.mojom.HidReportItem = class {
-  constructor(values = {}) {
-    this.of = values.of !== undefined ? values.of : null;
-  }
-};
-
-// Struct: HidReportDescription
-device.mojom.HidReportDescription = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: HidCollectionInfo
-device.mojom.HidCollectionInfo = class {
-  constructor(values = {}) {
-    this.the = values.the !== undefined ? values.the : null;
-  }
-};
-
-// Struct: HidDeviceInfo
-device.mojom.HidDeviceInfo = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: HidManagerClient
-device.mojom.HidManagerClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.HidManagerClient';
-  }
-
-};
-
-device.mojom.HidManagerClientRequest = class {
+device.mojom.HidManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+device.mojom.HidManagerClientRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.HidManagerClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.HidManagerClientPendingReceiver,
+      handle);
+    this.$ = new device.mojom.HidManagerClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.HidManagerClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+device.mojom.HidManagerClient.getRemote = function() {
+  let remote = new device.mojom.HidManagerClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.HidManagerClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+device.mojom.HidManagerClientPtr = device.mojom.HidManagerClientRemote;
+device.mojom.HidManagerClientRequest = device.mojom.HidManagerClientPendingReceiver;
+
 
 // Interface: HidManager
-device.mojom.HidManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.HidManager';
-  }
-
-};
-
-device.mojom.HidManagerRequest = class {
+device.mojom.HidManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+device.mojom.HidManagerRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.HidManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.HidManagerPendingReceiver,
+      handle);
+    this.$ = new device.mojom.HidManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.HidManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+device.mojom.HidManager.getRemote = function() {
+  let remote = new device.mojom.HidManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.HidManager',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+device.mojom.HidManagerPtr = device.mojom.HidManagerRemote;
+device.mojom.HidManagerRequest = device.mojom.HidManagerPendingReceiver;
+
 
 // Interface: HidConnection
-device.mojom.HidConnectionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.HidConnection';
-  }
-
-};
-
-device.mojom.HidConnectionRequest = class {
+device.mojom.HidConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+device.mojom.HidConnectionRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.HidConnection';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.HidConnectionPendingReceiver,
+      handle);
+    this.$ = new device.mojom.HidConnectionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.HidConnectionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+device.mojom.HidConnection.getRemote = function() {
+  let remote = new device.mojom.HidConnectionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.HidConnection',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+device.mojom.HidConnectionPtr = device.mojom.HidConnectionRemote;
+device.mojom.HidConnectionRequest = device.mojom.HidConnectionPendingReceiver;
+
 
 // Interface: HidConnectionClient
-device.mojom.HidConnectionClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.HidConnectionClient';
-  }
-
-};
-
-device.mojom.HidConnectionClientRequest = class {
+device.mojom.HidConnectionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+device.mojom.HidConnectionClientRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.HidConnectionClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.HidConnectionClientPendingReceiver,
+      handle);
+    this.$ = new device.mojom.HidConnectionClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.HidConnectionClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+device.mojom.HidConnectionClient.getRemote = function() {
+  let remote = new device.mojom.HidConnectionClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.HidConnectionClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+device.mojom.HidConnectionClientPtr = device.mojom.HidConnectionClientRemote;
+device.mojom.HidConnectionClientRequest = device.mojom.HidConnectionClientPendingReceiver;
+
 
 // Interface: HidConnectionWatcher
-device.mojom.HidConnectionWatcherPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.HidConnectionWatcher';
-  }
-
-};
-
-device.mojom.HidConnectionWatcherRequest = class {
+device.mojom.HidConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+device.mojom.HidConnectionWatcherRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.HidConnectionWatcher';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.HidConnectionWatcherPendingReceiver,
+      handle);
+    this.$ = new device.mojom.HidConnectionWatcherRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.HidConnectionWatcherRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+device.mojom.HidConnectionWatcher.getRemote = function() {
+  let remote = new device.mojom.HidConnectionWatcherRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.HidConnectionWatcher',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+device.mojom.HidConnectionWatcherPtr = device.mojom.HidConnectionWatcherRemote;
+device.mojom.HidConnectionWatcherRequest = device.mojom.HidConnectionWatcherPendingReceiver;
+

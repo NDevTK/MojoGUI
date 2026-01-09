@@ -15,97 +15,218 @@ viz.mojom.Type = {
   kDelete: 1,
 };
 
-// Struct: TransferableUIResourceRequest
-viz.mojom.TransferableUIResourceRequest = class {
-  constructor(values = {}) {
-    this.kCreate = values.kCreate !== undefined ? values.kCreate : null;
-  }
-};
-
-// Struct: LayerTreeUpdate
-viz.mojom.LayerTreeUpdate = class {
-  constructor(values = {}) {
-    this.trace_id = values.trace_id !== undefined ? values.trace_id : 0;
-    this.selection = values.selection !== undefined ? values.selection : 0;
-    this.external_page_scale_factor = values.external_page_scale_factor !== undefined ? values.external_page_scale_factor : 0;
-    this.painted_device_scale_factor = values.painted_device_scale_factor !== undefined ? values.painted_device_scale_factor : 0;
-    this.display_color_spaces = values.display_color_spaces !== undefined ? values.display_color_spaces : null;
-    this.current_local_surface_id = values.current_local_surface_id !== undefined ? values.current_local_surface_id : null;
-    this.could = values.could !== undefined ? values.could : null;
-    this.next_frame_token = values.next_frame_token !== undefined ? values.next_frame_token : 0;
-    this.process = values.process !== undefined ? values.process : null;
-    this.ui_resource_requests = values.ui_resource_requests !== undefined ? values.ui_resource_requests : 0;
-    this.in = values.in !== undefined ? values.in : null;
-    this.layers = values.layers !== undefined ? values.layers : [];
-    this.null = values.null !== undefined ? values.null : null;
-    this.ID = values.ID !== undefined ? values.ID : null;
-    this.layer_order = values.layer_order !== undefined ? values.layer_order : 0;
-    this.transform_tree_update = values.transform_tree_update !== undefined ? values.transform_tree_update : null;
-    this.tilings = values.tilings !== undefined ? values.tilings : 0;
-    this.surface_ranges = values.surface_ranges !== undefined ? values.surface_ranges : [];
-    this.removed_animation_timelines = values.removed_animation_timelines !== undefined ? values.removed_animation_timelines : 0;
-    this.is_viewport_mobile_optimized = values.is_viewport_mobile_optimized !== undefined ? values.is_viewport_mobile_optimized : 0;
-  }
-};
-
-// Struct: PendingLayerContext
-viz.mojom.PendingLayerContext = class {
-  constructor(values = {}) {
-    this.client = values.client !== undefined ? values.client : null;
-  }
-};
-
 // Interface: LayerContext
-viz.mojom.LayerContextPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.LayerContext';
+viz.mojom.LayerContextPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+viz.mojom.LayerContextRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.LayerContext';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.LayerContextPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.LayerContextRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.LayerContextRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setVisible(visible) {
-    // Method: SetVisible
-    // Call: SetVisible(visible)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.LayerContext_SetVisible_ParamsSpec.$,
+      null,
+      [visible]);
   }
 
   updateDisplayTree(update) {
-    // Method: UpdateDisplayTree
-    // Call: UpdateDisplayTree(update)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$,
+      null,
+      [update]);
   }
 
   updateDisplayTiling(tiling) {
-    // Method: UpdateDisplayTiling
-    // Call: UpdateDisplayTiling(tiling)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$,
+      null,
+      [tiling]);
   }
 
 };
 
-viz.mojom.LayerContextRequest = class {
+viz.mojom.LayerContext.getRemote = function() {
+  let remote = new viz.mojom.LayerContextRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.LayerContext',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetVisible
+viz.mojom.LayerContext_SetVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContext.SetVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateDisplayTree
+viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContext.UpdateDisplayTree_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateDisplayTiling
+viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContext.UpdateDisplayTiling_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.LayerContextPtr = viz.mojom.LayerContextRemote;
+viz.mojom.LayerContextRequest = viz.mojom.LayerContextPendingReceiver;
+
+
+// Interface: LayerContextClient
+viz.mojom.LayerContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: LayerContextClient
-viz.mojom.LayerContextClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.LayerContextClient';
+viz.mojom.LayerContextClientRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.LayerContextClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.LayerContextClientPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.LayerContextClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.LayerContextClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onRequestCommitForFrame(args) {
-    // Method: OnRequestCommitForFrame
-    // Call: OnRequestCommitForFrame(args)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$,
+      null,
+      [args]);
   }
 
   onTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up) {
-    // Method: OnTilingsReadyForCleanup
-    // Call: OnTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$,
+      null,
+      [layer_id, tiling_scales_to_clean_up]);
   }
 
 };
 
-viz.mojom.LayerContextClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+viz.mojom.LayerContextClient.getRemote = function() {
+  let remote = new viz.mojom.LayerContextClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.LayerContextClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnRequestCommitForFrame
+viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContextClient.OnRequestCommitForFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnTilingsReadyForCleanup
+viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.LayerContextClient.OnTilingsReadyForCleanup_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tiling_scales_to_clean_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.LayerContextClientPtr = viz.mojom.LayerContextClientRemote;
+viz.mojom.LayerContextClientRequest = viz.mojom.LayerContextClientPendingReceiver;
+

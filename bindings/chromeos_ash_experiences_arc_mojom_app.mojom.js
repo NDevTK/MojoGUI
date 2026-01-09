@@ -11,6 +11,9 @@ arc.mojom = arc.mojom || {};
 
 // Enum: WindowSizeType
 arc.mojom.WindowSizeType = {
+  kPhoneSize: 0,
+  kTabletSize: 1,
+  kMaximize: 2,
 };
 
 // Enum: InstallPriority
@@ -21,20 +24,49 @@ arc.mojom.InstallPriority = {
 
 // Enum: ShowPackageInfoPage
 arc.mojom.ShowPackageInfoPage = {
+  MAIN: 0,
+  MANAGE_LINKS: 1,
 };
 
 // Enum: AppDiscoveryRequestState
 arc.mojom.AppDiscoveryRequestState = {
+  SUCCESS: 0,
+  CANCELED: 1,
+  ERROR_DEPRECATED: 2,
+  PLAY_STORE_PROXY_NOT_AVAILABLE: 3,
+  FAILED_TO_CALL_CANCEL: 4,
+  FAILED_TO_CALL_FINDAPPS: 5,
+  REQUEST_HAS_INVALID_PARAMS: 6,
+  REQUEST_TIMEOUT: 7,
+  PHONESKY_RESULT_REQUEST_CODE_UNMATCHED: 8,
+  PHONESKY_RESULT_SESSION_ID_UNMATCHED: 9,
+  PHONESKY_REQUEST_REQUEST_CODE_UNMATCHED: 10,
+  PHONESKY_APP_DISCOVERY_NOT_AVAILABLE: 11,
+  PHONESKY_VERSION_NOT_SUPPORTED: 12,
+  PHONESKY_UNEXPECTED_EXCEPTION: 13,
+  PHONESKY_MALFORMED_QUERY: 14,
+  PHONESKY_INTERNAL_ERROR: 15,
+  PHONESKY_RESULT_INVALID_DATA: 16,
 };
 
 // Enum: AppShortcutItemType
 arc.mojom.AppShortcutItemType = {
-  which: 0,
-  which: 1,
+  kStatic: 0,
+  kDynamic: 1,
 };
 
 // Enum: PaiFlowState
 arc.mojom.PaiFlowState = {
+  SUCCEEDED: 0,
+  UNKNOWN: 1,
+  NO_ACCOUNT: 2,
+  NO_APPS: 3,
+  INTERRUPTED: 4,
+  PLAY_STORE_NOT_RESPONDED: 5,
+  PLAY_STORE_NO_ACCESS: 6,
+  PROXY_NOT_FOUND: 7,
+  PROXY_NO_ACCESS: 8,
+  TIMEOUT: 9,
 };
 
 // Enum: AppCategory
@@ -50,126 +82,102 @@ arc.mojom.AppCategory = {
   kAccessibility: 8,
 };
 
-// Struct: InstallationResult
-arc.mojom.InstallationResult = class {
-  constructor(values = {}) {
-    this.is_launchable_app = values.is_launchable_app !== undefined ? values.is_launchable_app : false;
-  }
-};
-
-// Struct: AppStorage
-arc.mojom.AppStorage = class {
-  constructor(values = {}) {
-    this.data_size_in_bytes = values.data_size_in_bytes !== undefined ? values.data_size_in_bytes : 0;
-  }
-};
-
-// Struct: AppInfo
-arc.mojom.AppInfo = class {
-  constructor(values = {}) {
-    this.initial_layout = values.initial_layout !== undefined ? values.initial_layout : false;
-    this.app_storage = values.app_storage !== undefined ? values.app_storage : "";
-    this.app_category = values.app_category !== undefined ? values.app_category : false;
-  }
-};
-
-// Struct: WebAppInfo
-arc.mojom.WebAppInfo = class {
-  constructor(values = {}) {
-    this.certificate_sha256_fingerprint = values.certificate_sha256_fingerprint !== undefined ? values.certificate_sha256_fingerprint : 0;
-  }
-};
-
-// Struct: WindowLayout
-arc.mojom.WindowLayout = class {
-  constructor(values = {}) {
-    this.bounds = values.bounds !== undefined ? values.bounds : false;
-  }
-};
-
-// Struct: PackageLocaleInfo
-arc.mojom.PackageLocaleInfo = class {
-  constructor(values = {}) {
-    this.supported_locales = values.supported_locales !== undefined ? values.supported_locales : "";
-    this.selected_locale = values.selected_locale !== undefined ? values.selected_locale : "";
-  }
-};
-
-// Struct: ArcPackageInfo
-arc.mojom.ArcPackageInfo = class {
-  constructor(values = {}) {
-    this.vpn_provider = values.vpn_provider !== undefined ? values.vpn_provider : 0;
-    this.permission_states = values.permission_states !== undefined ? values.permission_states : false;
-    this.priority = values.priority !== undefined ? values.priority : false;
-    this.game_controls_opt_out = values.game_controls_opt_out !== undefined ? values.game_controls_opt_out : false;
-  }
-};
-
-// Struct: ShortcutInfo
-arc.mojom.ShortcutInfo = class {
-  constructor(values = {}) {
-    this.intent_uri = values.intent_uri !== undefined ? values.intent_uri : "";
-  }
-};
-
-// Struct: RawIconPngData
-arc.mojom.RawIconPngData = class {
-  constructor(values = {}) {
-    this.is_adaptive_icon = values.is_adaptive_icon !== undefined ? values.is_adaptive_icon : false;
-    this.background_icon_png_data = values.background_icon_png_data !== undefined ? values.background_icon_png_data : 0;
-  }
-};
-
-// Struct: WindowInfo
-arc.mojom.WindowInfo = class {
-  constructor(values = {}) {
-    this.bounds = values.bounds !== undefined ? values.bounds : 0;
-  }
-};
-
-// Struct: AppDiscoveryResult
-arc.mojom.AppDiscoveryResult = class {
-  constructor(values = {}) {
-    this.icon = values.icon !== undefined ? values.icon : 0;
-  }
-};
-
-// Struct: AppShortcutItem
-arc.mojom.AppShortcutItem = class {
-  constructor(values = {}) {
-    this.short_label = values.short_label !== undefined ? values.short_label : "";
-    this.type = values.type !== undefined ? values.type : 0;
-    this.rank = values.rank !== undefined ? values.rank : 0;
-    this.icon = values.icon !== undefined ? values.icon : null;
-  }
-};
-
 // Interface: AppHost
-arc.mojom.AppHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.AppHost';
-  }
-
-};
-
-arc.mojom.AppHostRequest = class {
+arc.mojom.AppHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.AppHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.AppHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.AppHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.AppHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.AppHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.AppHost.getRemote = function() {
+  let remote = new arc.mojom.AppHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.AppHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.AppHostPtr = arc.mojom.AppHostRemote;
+arc.mojom.AppHostRequest = arc.mojom.AppHostPendingReceiver;
+
 
 // Interface: AppInstance
-arc.mojom.AppInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.AppInstance';
-  }
-
-};
-
-arc.mojom.AppInstanceRequest = class {
+arc.mojom.AppInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.AppInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.AppInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.AppInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.AppInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.AppInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.AppInstance.getRemote = function() {
+  let remote = new arc.mojom.AppInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.AppInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.AppInstancePtr = arc.mojom.AppInstanceRemote;
+arc.mojom.AppInstanceRequest = arc.mojom.AppInstancePendingReceiver;
+

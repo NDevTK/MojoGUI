@@ -30,13 +30,14 @@ crosapi.mojom.KeystoreKeyAttributeType = {
 // Enum: KeystoreSigningScheme
 crosapi.mojom.KeystoreSigningScheme = {
   kRsassaPkcs1V15None: 0,
-  kRsassaPkcs1V15Sha256: 1,
-  kRsassaPkcs1V15Sha384: 2,
-  kRsassaPkcs1V15Sha512: 3,
-  kEcdsaSha1: 4,
-  kEcdsaSha256: 5,
-  kEcdsaSha384: 6,
-  kEcdsaSha512: 7,
+  kRsassaPkcs1V15Sha1: 1,
+  kRsassaPkcs1V15Sha256: 2,
+  kRsassaPkcs1V15Sha384: 3,
+  kRsassaPkcs1V15Sha512: 4,
+  kEcdsaSha1: 5,
+  kEcdsaSha256: 6,
+  kEcdsaSha384: 7,
+  kEcdsaSha512: 8,
 };
 
 // Enum: KeyTag
@@ -45,37 +46,52 @@ crosapi.mojom.KeyTag = {
   kCorporate: 1,
 };
 
-// Struct: KeystoreRsaParams
-crosapi.mojom.KeystoreRsaParams = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: KeystoreEcdsaParams
-crosapi.mojom.KeystoreEcdsaParams = class {
-  constructor(values = {}) {
-    this.named_curve = values.named_curve !== undefined ? values.named_curve : "";
-  }
-};
-
-// Struct: GetPublicKeySuccessResult
-crosapi.mojom.GetPublicKeySuccessResult = class {
-  constructor(values = {}) {
-    this.algorithm_properties = values.algorithm_properties !== undefined ? values.algorithm_properties : 0;
-  }
-};
-
 // Interface: KeystoreService
-crosapi.mojom.KeystoreServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.KeystoreService';
-  }
-
-};
-
-crosapi.mojom.KeystoreServiceRequest = class {
+crosapi.mojom.KeystoreServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.KeystoreServiceRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.KeystoreService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.KeystoreServicePendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.KeystoreServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.KeystoreService.getRemote = function() {
+  let remote = new crosapi.mojom.KeystoreServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.KeystoreService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.KeystoreServicePtr = crosapi.mojom.KeystoreServiceRemote;
+crosapi.mojom.KeystoreServiceRequest = crosapi.mojom.KeystoreServicePendingReceiver;
+

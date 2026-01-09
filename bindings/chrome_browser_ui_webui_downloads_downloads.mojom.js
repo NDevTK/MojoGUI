@@ -11,24 +11,25 @@ downloads.mojom = downloads.mojom || {};
 
 // Enum: DangerType
 downloads.mojom.DangerType = {
-  kDangerousFile: 0,
-  kDangerousUrl: 1,
-  kDangerousContent: 2,
-  kCookieTheft: 3,
-  kUncommonContent: 4,
-  kDangerousHost: 5,
-  kPotentiallyUnwanted: 6,
-  kAsyncScanning: 7,
-  kAsyncLocalPasswordScanning: 8,
-  kBlockedPasswordProtected: 9,
-  kBlockedTooLarge: 10,
-  kSensitiveContentWarning: 11,
-  kSensitiveContentBlock: 12,
-  kDeepScannedFailed: 13,
-  kDeepScannedSafe: 14,
-  kDeepScannedOpenedDangerous: 15,
-  kBlockedScanFailed: 16,
-  kForcedSaveToGdrive: 17,
+  kNoApplicableDangerType: 0,
+  kDangerousFile: 1,
+  kDangerousUrl: 2,
+  kDangerousContent: 3,
+  kCookieTheft: 4,
+  kUncommonContent: 5,
+  kDangerousHost: 6,
+  kPotentiallyUnwanted: 7,
+  kAsyncScanning: 8,
+  kAsyncLocalPasswordScanning: 9,
+  kBlockedPasswordProtected: 10,
+  kBlockedTooLarge: 11,
+  kSensitiveContentWarning: 12,
+  kSensitiveContentBlock: 13,
+  kDeepScannedFailed: 14,
+  kDeepScannedSafe: 15,
+  kDeepScannedOpenedDangerous: 16,
+  kBlockedScanFailed: 17,
+  kForcedSaveToGdrive: 18,
 };
 
 // Enum: TailoredWarningType
@@ -47,8 +48,9 @@ downloads.mojom.State = {
   kDangerous: 4,
   kInterrupted: 5,
   kInsecure: 6,
-  kPromptForScanning: 7,
-  kPromptForLocalPasswordScanning: 8,
+  kAsyncScanning: 7,
+  kPromptForScanning: 8,
+  kPromptForLocalPasswordScanning: 9,
 };
 
 // Enum: SafeBrowsingState
@@ -58,206 +60,828 @@ downloads.mojom.SafeBrowsingState = {
   kEnhancedProtection: 2,
 };
 
-// Struct: Data
-downloads.mojom.Data = class {
-  constructor(values = {}) {
-    this.since_string = values.since_string !== undefined ? values.since_string : 0;
-    this.progress = values.progress !== undefined ? values.progress : null;
-    this.state = values.state !== undefined ? values.state : null;
-    this.display_initiator_origin = values.display_initiator_origin !== undefined ? values.display_initiator_origin : "";
-    this.has_safe_browsing_verdict = values.has_safe_browsing_verdict !== undefined ? values.has_safe_browsing_verdict : false;
+// Interface: PageHandlerFactory
+downloads.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: PageHandlerFactory
-downloads.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'downloads.mojom.PageHandlerFactory';
+downloads.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'downloads.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      downloads.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new downloads.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-downloads.mojom.PageHandlerFactoryRequest = class {
+downloads.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new downloads.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'downloads.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+downloads.mojom.PageHandlerFactoryPtr = downloads.mojom.PageHandlerFactoryRemote;
+downloads.mojom.PageHandlerFactoryRequest = downloads.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+downloads.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-downloads.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'downloads.mojom.PageHandler';
+downloads.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'downloads.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      downloads.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new downloads.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+downloads.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getDownloads(search_terms) {
-    // Method: GetDownloads
-    // Call: GetDownloads(search_terms)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$,
+      null,
+      [search_terms]);
   }
 
   openFileRequiringGesture(id) {
-    // Method: OpenFileRequiringGesture
-    // Call: OpenFileRequiringGesture(id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   drag(id) {
-    // Method: Drag
-    // Call: Drag(id)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      downloads.mojom.PageHandler_Drag_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   saveSuspiciousRequiringGesture(id) {
-    // Method: SaveSuspiciousRequiringGesture
-    // Call: SaveSuspiciousRequiringGesture(id)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   recordOpenBypassWarningDialog(id) {
-    // Method: RecordOpenBypassWarningDialog
-    // Call: RecordOpenBypassWarningDialog(id)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   saveDangerousFromDialogRequiringGesture(id) {
-    // Method: SaveDangerousFromDialogRequiringGesture
-    // Call: SaveDangerousFromDialogRequiringGesture(id)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   recordCancelBypassWarningDialog(id) {
-    // Method: RecordCancelBypassWarningDialog
-    // Call: RecordCancelBypassWarningDialog(id)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   discardDangerous(id) {
-    // Method: DiscardDangerous
-    // Call: DiscardDangerous(id)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   retryDownload(id) {
-    // Method: RetryDownload
-    // Call: RetryDownload(id)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   show(id) {
-    // Method: Show
-    // Call: Show(id)
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      downloads.mojom.PageHandler_Show_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   pause(id) {
-    // Method: Pause
-    // Call: Pause(id)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      downloads.mojom.PageHandler_Pause_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   resume(id) {
-    // Method: Resume
-    // Call: Resume(id)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      downloads.mojom.PageHandler_Resume_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   remove(id) {
-    // Method: Remove
-    // Call: Remove(id)
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      downloads.mojom.PageHandler_Remove_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   undo() {
-    // Method: Undo
-    // Call: Undo()
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      downloads.mojom.PageHandler_Undo_ParamsSpec.$,
+      null,
+      []);
   }
 
   cancel(id) {
-    // Method: Cancel
-    // Call: Cancel(id)
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      downloads.mojom.PageHandler_Cancel_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   clearAll() {
-    // Method: ClearAll
-    // Call: ClearAll()
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      downloads.mojom.PageHandler_ClearAll_ParamsSpec.$,
+      null,
+      []);
   }
 
   openDownloadsFolderRequiringGesture() {
-    // Method: OpenDownloadsFolderRequiringGesture
-    // Call: OpenDownloadsFolderRequiringGesture()
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$,
+      null,
+      []);
   }
 
   openEsbSettings() {
-    // Method: OpenEsbSettings
-    // Call: OpenEsbSettings()
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$,
+      null,
+      []);
   }
 
   logEsbPromotionRowViewed() {
-    // Method: LogEsbPromotionRowViewed
-    // Call: LogEsbPromotionRowViewed()
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$,
+      null,
+      []);
   }
 
   openDuringScanningRequiringGesture(id) {
-    // Method: OpenDuringScanningRequiringGesture
-    // Call: OpenDuringScanningRequiringGesture(id)
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   reviewDangerousRequiringGesture(id) {
-    // Method: ReviewDangerousRequiringGesture
-    // Call: ReviewDangerousRequiringGesture(id)
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   deepScan(id) {
-    // Method: DeepScan
-    // Call: DeepScan(id)
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      downloads.mojom.PageHandler_DeepScan_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   bypassDeepScanRequiringGesture(id) {
-    // Method: BypassDeepScanRequiringGesture
-    // Call: BypassDeepScanRequiringGesture(id)
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   isEligibleForEsbPromo() {
-    // Method: IsEligibleForEsbPromo
-    return new Promise((resolve) => {
-      // Call: IsEligibleForEsbPromo()
-      resolve({});
-    });
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$,
+      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-downloads.mojom.PageHandlerRequest = class {
+downloads.mojom.PageHandler.getRemote = function() {
+  let remote = new downloads.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'downloads.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetDownloads
+downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.GetDownloads_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'search_terms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenFileRequiringGesture
+downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.OpenFileRequiringGesture_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Drag
+downloads.mojom.PageHandler_Drag_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Drag_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SaveSuspiciousRequiringGesture
+downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.SaveSuspiciousRequiringGesture_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RecordOpenBypassWarningDialog
+downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.RecordOpenBypassWarningDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SaveDangerousFromDialogRequiringGesture
+downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.SaveDangerousFromDialogRequiringGesture_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RecordCancelBypassWarningDialog
+downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.RecordCancelBypassWarningDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DiscardDangerous
+downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.DiscardDangerous_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RetryDownload
+downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.RetryDownload_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Show
+downloads.mojom.PageHandler_Show_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Show_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Pause
+downloads.mojom.PageHandler_Pause_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Pause_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Resume
+downloads.mojom.PageHandler_Resume_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Resume_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Remove
+downloads.mojom.PageHandler_Remove_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Remove_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Undo
+downloads.mojom.PageHandler_Undo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Undo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Cancel
+downloads.mojom.PageHandler_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.Cancel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ClearAll
+downloads.mojom.PageHandler_ClearAll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.ClearAll_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenDownloadsFolderRequiringGesture
+downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.OpenDownloadsFolderRequiringGesture_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenEsbSettings
+downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.OpenEsbSettings_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LogEsbPromotionRowViewed
+downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.LogEsbPromotionRowViewed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenDuringScanningRequiringGesture
+downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.OpenDuringScanningRequiringGesture_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReviewDangerousRequiringGesture
+downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.ReviewDangerousRequiringGesture_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DeepScan
+downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.DeepScan_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BypassDeepScanRequiringGesture
+downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.BypassDeepScanRequiringGesture_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsEligibleForEsbPromo
+downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.IsEligibleForEsbPromo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.PageHandler.IsEligibleForEsbPromo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+downloads.mojom.PageHandlerPtr = downloads.mojom.PageHandlerRemote;
+downloads.mojom.PageHandlerRequest = downloads.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+downloads.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-downloads.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'downloads.mojom.Page';
+downloads.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'downloads.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      downloads.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new downloads.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+downloads.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   removeItem(index) {
-    // Method: RemoveItem
-    // Call: RemoveItem(index)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      downloads.mojom.Page_RemoveItem_ParamsSpec.$,
+      null,
+      [index]);
   }
 
   updateItem(index, data) {
-    // Method: UpdateItem
-    // Call: UpdateItem(index, data)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      downloads.mojom.Page_UpdateItem_ParamsSpec.$,
+      null,
+      [index, data]);
   }
 
   insertItems(index, items) {
-    // Method: InsertItems
-    // Call: InsertItems(index, items)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      downloads.mojom.Page_InsertItems_ParamsSpec.$,
+      null,
+      [index, items]);
   }
 
   clearAll() {
-    // Method: ClearAll
-    // Call: ClearAll()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      downloads.mojom.Page_ClearAll_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-downloads.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+downloads.mojom.Page.getRemote = function() {
+  let remote = new downloads.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'downloads.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RemoveItem
+downloads.mojom.Page_RemoveItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.Page.RemoveItem_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for UpdateItem
+downloads.mojom.Page_UpdateItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.Page.UpdateItem_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InsertItems
+downloads.mojom.Page_InsertItems_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.Page.InsertItems_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ClearAll
+downloads.mojom.Page_ClearAll_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'downloads.mojom.Page.ClearAll_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+downloads.mojom.PagePtr = downloads.mojom.PageRemote;
+downloads.mojom.PageRequest = downloads.mojom.PagePendingReceiver;
+

@@ -9,89 +9,211 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: DirectTCPSocketOptions
-blink.mojom.DirectTCPSocketOptions = class {
-  constructor(values = {}) {
-    this.remote_addr = values.remote_addr !== undefined ? values.remote_addr : null;
-    this.send_buffer_size = values.send_buffer_size !== undefined ? values.send_buffer_size : 0;
-    this.dns_query_type = values.dns_query_type !== undefined ? values.dns_query_type : 0;
-  }
-};
-
-// Struct: DirectConnectedUDPSocketOptions
-blink.mojom.DirectConnectedUDPSocketOptions = class {
-  constructor(values = {}) {
-    this.remote_addr = values.remote_addr !== undefined ? values.remote_addr : null;
-    this.send_buffer_size = values.send_buffer_size !== undefined ? values.send_buffer_size : 0;
-    this.dns_query_type = values.dns_query_type !== undefined ? values.dns_query_type : 0;
-    this.multicast_time_to_live = values.multicast_time_to_live !== undefined ? values.multicast_time_to_live : 0;
-    this.multicast_loopback = values.multicast_loopback !== undefined ? values.multicast_loopback : false;
-  }
-};
-
-// Struct: DirectBoundUDPSocketOptions
-blink.mojom.DirectBoundUDPSocketOptions = class {
-  constructor(values = {}) {
-    this.local_addr = values.local_addr !== undefined ? values.local_addr : 0;
-    this.send_buffer_size = values.send_buffer_size !== undefined ? values.send_buffer_size : 0;
-    this.ipv6_only = values.ipv6_only !== undefined ? values.ipv6_only : 0;
-    this.multicast_allow_address_sharing = values.multicast_allow_address_sharing !== undefined ? values.multicast_allow_address_sharing : false;
-    this.multicast_time_to_live = values.multicast_time_to_live !== undefined ? values.multicast_time_to_live : 0;
-    this.multicast_loopback = values.multicast_loopback !== undefined ? values.multicast_loopback : false;
-  }
-};
-
-// Struct: DirectTCPServerSocketOptions
-blink.mojom.DirectTCPServerSocketOptions = class {
-  constructor(values = {}) {
-    this.ipv6_only = values.ipv6_only !== undefined ? values.ipv6_only : 0;
-    this.backlog = values.backlog !== undefined ? values.backlog : 0;
-  }
-};
-
 // Interface: DirectSocketsService
-blink.mojom.DirectSocketsServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.DirectSocketsService';
-  }
-
-  openTCPSocket(options, receiver, observer) {
-    // Method: OpenTCPSocket
-    return new Promise((resolve) => {
-      // Call: OpenTCPSocket(options, receiver, observer)
-      resolve({});
-    });
-  }
-
-  openConnectedUDPSocket(options, receiver, listener) {
-    // Method: OpenConnectedUDPSocket
-    return new Promise((resolve) => {
-      // Call: OpenConnectedUDPSocket(options, receiver, listener)
-      resolve({});
-    });
-  }
-
-  openBoundUDPSocket(options, receiver, listener) {
-    // Method: OpenBoundUDPSocket
-    return new Promise((resolve) => {
-      // Call: OpenBoundUDPSocket(options, receiver, listener)
-      resolve({});
-    });
-  }
-
-  openTCPServerSocket(options, receiver) {
-    // Method: OpenTCPServerSocket
-    return new Promise((resolve) => {
-      // Call: OpenTCPServerSocket(options, receiver)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.DirectSocketsServiceRequest = class {
+blink.mojom.DirectSocketsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.DirectSocketsServiceRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.DirectSocketsService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.DirectSocketsServicePendingReceiver,
+      handle);
+    this.$ = new blink.mojom.DirectSocketsServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  openTCPSocket(options, receiver, observer) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$,
+      [options, receiver, observer]);
+  }
+
+  openConnectedUDPSocket(options, receiver, listener) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$,
+      [options, receiver, listener]);
+  }
+
+  openBoundUDPSocket(options, receiver, listener) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$,
+      [options, receiver, listener]);
+  }
+
+  openTCPServerSocket(options, receiver) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$,
+      blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$,
+      [options, receiver]);
+  }
+
+};
+
+blink.mojom.DirectSocketsService.getRemote = function() {
+  let remote = new blink.mojom.DirectSocketsServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.DirectSocketsService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OpenTCPSocket
+blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenTCPSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenTCPSocket_ResponseParams',
+      packedSize: 48,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_addr', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receive_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenConnectedUDPSocket
+blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenConnectedUDPSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenConnectedUDPSocket_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_addr', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenBoundUDPSocket
+blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenBoundUDPSocket_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenBoundUDPSocket_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenTCPServerSocket
+blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenTCPServerSocket_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.DirectSocketsService.OpenTCPServerSocket_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.DirectSocketsServicePtr = blink.mojom.DirectSocketsServiceRemote;
+blink.mojom.DirectSocketsServiceRequest = blink.mojom.DirectSocketsServicePendingReceiver;
+

@@ -10,21 +10,74 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: KeepAliveHandleFactory
-blink.mojom.KeepAliveHandleFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.KeepAliveHandleFactory';
-  }
-
-  issueKeepAliveHandle(keep_alive_handle) {
-    // Method: IssueKeepAliveHandle
-    // Call: IssueKeepAliveHandle(keep_alive_handle)
-  }
-
-};
-
-blink.mojom.KeepAliveHandleFactoryRequest = class {
+blink.mojom.KeepAliveHandleFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.KeepAliveHandleFactoryRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.KeepAliveHandleFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.KeepAliveHandleFactoryPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.KeepAliveHandleFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.KeepAliveHandleFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  issueKeepAliveHandle(keep_alive_handle) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec.$,
+      null,
+      [keep_alive_handle]);
+  }
+
+};
+
+blink.mojom.KeepAliveHandleFactory.getRemote = function() {
+  let remote = new blink.mojom.KeepAliveHandleFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.KeepAliveHandleFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for IssueKeepAliveHandle
+blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.KeepAliveHandleFactory.IssueKeepAliveHandle_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'keep_alive_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.KeepAliveHandleFactoryPtr = blink.mojom.KeepAliveHandleFactoryRemote;
+blink.mojom.KeepAliveHandleFactoryRequest = blink.mojom.KeepAliveHandleFactoryPendingReceiver;
+

@@ -31,59 +31,184 @@ ash.personalization_app.mojom.SearchConceptId = {
   kKeyboardBacklight: 16,
 };
 
-// Struct: SearchResult
-ash.personalization_app.mojom.SearchResult = class {
-  constructor(values = {}) {
-    this.text = values.text !== undefined ? values.text : "";
-    this.parameters = values.parameters !== undefined ? values.parameters : null;
-    this.relevance_score = values.relevance_score !== undefined ? values.relevance_score : 0;
+// Interface: SearchResultsObserver
+ash.personalization_app.mojom.SearchResultsObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: SearchResultsObserver
-ash.personalization_app.mojom.SearchResultsObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.personalization_app.mojom.SearchResultsObserver';
+ash.personalization_app.mojom.SearchResultsObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.personalization_app.mojom.SearchResultsObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.personalization_app.mojom.SearchResultsObserverPendingReceiver,
+      handle);
+    this.$ = new ash.personalization_app.mojom.SearchResultsObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.personalization_app.mojom.SearchResultsObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onSearchResultsChanged() {
-    // Method: OnSearchResultsChanged
-    // Call: OnSearchResultsChanged()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-ash.personalization_app.mojom.SearchResultsObserverRequest = class {
+ash.personalization_app.mojom.SearchResultsObserver.getRemote = function() {
+  let remote = new ash.personalization_app.mojom.SearchResultsObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.personalization_app.mojom.SearchResultsObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnSearchResultsChanged
+ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SearchResultsObserver.OnSearchResultsChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.personalization_app.mojom.SearchResultsObserverPtr = ash.personalization_app.mojom.SearchResultsObserverRemote;
+ash.personalization_app.mojom.SearchResultsObserverRequest = ash.personalization_app.mojom.SearchResultsObserverPendingReceiver;
+
+
+// Interface: SearchHandler
+ash.personalization_app.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: SearchHandler
-ash.personalization_app.mojom.SearchHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.personalization_app.mojom.SearchHandler';
+ash.personalization_app.mojom.SearchHandlerRemote = class {
+  static get $interfaceName() {
+    return 'ash.personalization_app.mojom.SearchHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.personalization_app.mojom.SearchHandlerPendingReceiver,
+      handle);
+    this.$ = new ash.personalization_app.mojom.SearchHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.personalization_app.mojom.SearchHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   search(query, max_num_results) {
-    // Method: Search
-    return new Promise((resolve) => {
-      // Call: Search(query, max_num_results)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec.$,
+      ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec.$,
+      [query, max_num_results]);
   }
 
   addObserver(observer) {
-    // Method: AddObserver
-    // Call: AddObserver(observer)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
 };
 
-ash.personalization_app.mojom.SearchHandlerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.personalization_app.mojom.SearchHandler.getRemote = function() {
+  let remote = new ash.personalization_app.mojom.SearchHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.personalization_app.mojom.SearchHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Search
+ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SearchHandler.Search_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SearchHandler.Search_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AddObserver
+ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.personalization_app.mojom.SearchHandler.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.personalization_app.mojom.SearchHandlerPtr = ash.personalization_app.mojom.SearchHandlerRemote;
+ash.personalization_app.mojom.SearchHandlerRequest = ash.personalization_app.mojom.SearchHandlerPendingReceiver;
+

@@ -10,21 +10,74 @@ test.mojom = test.mojom || {};
 
 
 // Interface: MojoFileSystemAccessTest
-test.mojom.MojoFileSystemAccessTestPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'test.mojom.MojoFileSystemAccessTest';
-  }
-
-  resolveTransferToken(h) {
-    // Method: ResolveTransferToken
-    // Call: ResolveTransferToken(h)
-  }
-
-};
-
-test.mojom.MojoFileSystemAccessTestRequest = class {
+test.mojom.MojoFileSystemAccessTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+test.mojom.MojoFileSystemAccessTestRemote = class {
+  static get $interfaceName() {
+    return 'test.mojom.MojoFileSystemAccessTest';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      test.mojom.MojoFileSystemAccessTestPendingReceiver,
+      handle);
+    this.$ = new test.mojom.MojoFileSystemAccessTestRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  resolveTransferToken(h) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec.$,
+      null,
+      [h]);
+  }
+
+};
+
+test.mojom.MojoFileSystemAccessTest.getRemote = function() {
+  let remote = new test.mojom.MojoFileSystemAccessTestRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'test.mojom.MojoFileSystemAccessTest',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ResolveTransferToken
+test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'test.mojom.MojoFileSystemAccessTest.ResolveTransferToken_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'h', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+test.mojom.MojoFileSystemAccessTestPtr = test.mojom.MojoFileSystemAccessTestRemote;
+test.mojom.MojoFileSystemAccessTestRequest = test.mojom.MojoFileSystemAccessTestPendingReceiver;
+

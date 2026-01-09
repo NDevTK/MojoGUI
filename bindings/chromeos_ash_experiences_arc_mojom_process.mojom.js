@@ -11,33 +11,49 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ProcessState
 arc.mojom.ProcessState = {
-  R_UNKNOWN: 0,
-  R_PERSISTENT: 1,
-  R_PERSISTENT_UI: 2,
-  R_TOP: 3,
-  R_FOREGROUND_SERVICE: 4,
-  R_BOUND_FOREGROUND_SERVICE: 5,
-  and: 6,
-  R_IMPORTANT_FOREGROUND: 7,
-  but: 8,
-  R_IMPORTANT_BACKGROUND: 9,
-  R_TRANSIENT_BACKGROUND: 10,
-  R_BACKUP: 11,
-  this: 12,
-  R_SERVICE: 13,
-  receivers: 14,
-  but: 15,
-  R_RECEIVER: 16,
-  R_TOP_SLEEPING: 17,
-  but: 18,
-  R_HEAVY_WEIGHT: 19,
-  R_HOME: 20,
-  R_LAST_ACTIVITY: 21,
-  R_CACHED_ACTIVITY: 22,
-  R_CACHED_ACTIVITY_CLIENT: 23,
-  R_CACHED_RECENT: 24,
-  R_CACHED_EMPTY: 25,
-  R_NONEXISTENT: 26,
+  UNKNOWN: 0,
+  R_UNKNOWN: 1,
+  PERSISTENT: 2,
+  R_PERSISTENT: 3,
+  PERSISTENT_UI: 4,
+  R_PERSISTENT_UI: 5,
+  TOP: 6,
+  R_TOP: 7,
+  R_BOUND_TOP: 8,
+  FOREGROUND_SERVICE: 9,
+  R_FOREGROUND_SERVICE: 10,
+  BOUND_FOREGROUND_SERVICE: 11,
+  R_BOUND_FOREGROUND_SERVICE: 12,
+  IMPORTANT_FOREGROUND: 13,
+  R_IMPORTANT_FOREGROUND: 14,
+  IMPORTANT_BACKGROUND: 15,
+  R_IMPORTANT_BACKGROUND: 16,
+  TRANSIENT_BACKGROUND: 17,
+  R_TRANSIENT_BACKGROUND: 18,
+  BACKUP: 19,
+  R_BACKUP: 20,
+  SERVICE: 21,
+  R_SERVICE: 22,
+  RECEIVER: 23,
+  R_RECEIVER: 24,
+  TOP_SLEEPING: 25,
+  R_TOP_SLEEPING: 26,
+  HEAVY_WEIGHT: 27,
+  R_HEAVY_WEIGHT: 28,
+  HOME: 29,
+  R_HOME: 30,
+  LAST_ACTIVITY: 31,
+  R_LAST_ACTIVITY: 32,
+  CACHED_ACTIVITY: 33,
+  R_CACHED_ACTIVITY: 34,
+  CACHED_ACTIVITY_CLIENT: 35,
+  R_CACHED_ACTIVITY_CLIENT: 36,
+  CACHED_RECENT: 37,
+  R_CACHED_RECENT: 38,
+  CACHED_EMPTY: 39,
+  R_CACHED_EMPTY: 40,
+  NONEXISTENT: 41,
+  R_NONEXISTENT: 42,
 };
 
 // Enum: PressureLevel
@@ -47,37 +63,52 @@ arc.mojom.PressureLevel = {
   kCached: 2,
 };
 
-// Struct: RunningAppProcessInfo
-arc.mojom.RunningAppProcessInfo = class {
-  constructor(values = {}) {
-    this.last_activity_time = values.last_activity_time !== undefined ? values.last_activity_time : 0;
-  }
-};
-
-// Struct: ArcMemoryDump
-arc.mojom.ArcMemoryDump = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: LowMemoryKillCounts
-arc.mojom.LowMemoryKillCounts = class {
-  constructor(values = {}) {
-    this.pressure_cached = values.pressure_cached !== undefined ? values.pressure_cached : 0;
-  }
-};
-
 // Interface: ProcessInstance
-arc.mojom.ProcessInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.ProcessInstance';
-  }
-
-};
-
-arc.mojom.ProcessInstanceRequest = class {
+arc.mojom.ProcessInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.ProcessInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.ProcessInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.ProcessInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.ProcessInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.ProcessInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.ProcessInstance.getRemote = function() {
+  let remote = new arc.mojom.ProcessInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.ProcessInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.ProcessInstancePtr = arc.mojom.ProcessInstanceRemote;
+arc.mojom.ProcessInstanceRequest = arc.mojom.ProcessInstancePendingReceiver;
+

@@ -10,26 +10,97 @@ heap_profiling.mojom = heap_profiling.mojom || {};
 
 
 // Interface: SnapshotController
-heap_profiling.mojom.SnapshotControllerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'heap_profiling.mojom.SnapshotController';
-  }
-
-  takeSnapshot(process_probability_pct, process_index) {
-    // Method: TakeSnapshot
-    // Call: TakeSnapshot(process_probability_pct, process_index)
-  }
-
-  logMetricsWithoutSnapshot() {
-    // Method: LogMetricsWithoutSnapshot
-    // Call: LogMetricsWithoutSnapshot()
-  }
-
-};
-
-heap_profiling.mojom.SnapshotControllerRequest = class {
+heap_profiling.mojom.SnapshotControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+heap_profiling.mojom.SnapshotControllerRemote = class {
+  static get $interfaceName() {
+    return 'heap_profiling.mojom.SnapshotController';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      heap_profiling.mojom.SnapshotControllerPendingReceiver,
+      handle);
+    this.$ = new heap_profiling.mojom.SnapshotControllerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+heap_profiling.mojom.SnapshotControllerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  takeSnapshot(process_probability_pct, process_index) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$,
+      null,
+      [process_probability_pct, process_index]);
+  }
+
+  logMetricsWithoutSnapshot() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+heap_profiling.mojom.SnapshotController.getRemote = function() {
+  let remote = new heap_profiling.mojom.SnapshotControllerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'heap_profiling.mojom.SnapshotController',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for TakeSnapshot
+heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.SnapshotController.TakeSnapshot_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'process_probability_pct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'process_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LogMetricsWithoutSnapshot
+heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'heap_profiling.mojom.SnapshotController.LogMetricsWithoutSnapshot_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+heap_profiling.mojom.SnapshotControllerPtr = heap_profiling.mojom.SnapshotControllerRemote;
+heap_profiling.mojom.SnapshotControllerRequest = heap_profiling.mojom.SnapshotControllerPendingReceiver;
+

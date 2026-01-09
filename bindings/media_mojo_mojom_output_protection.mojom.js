@@ -28,32 +28,124 @@ media.mojom.LinkType = {
 };
 
 // Interface: OutputProtection
-media.mojom.OutputProtectionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.OutputProtection';
-  }
-
-  queryStatus() {
-    // Method: QueryStatus
-    return new Promise((resolve) => {
-      // Call: QueryStatus()
-      resolve({});
-    });
-  }
-
-  enableProtection(desired_protection_mask) {
-    // Method: EnableProtection
-    return new Promise((resolve) => {
-      // Call: EnableProtection(desired_protection_mask)
-      resolve({});
-    });
-  }
-
-};
-
-media.mojom.OutputProtectionRequest = class {
+media.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+media.mojom.OutputProtectionRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.OutputProtection';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.OutputProtectionPendingReceiver,
+      handle);
+    this.$ = new media.mojom.OutputProtectionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.OutputProtectionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  queryStatus() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.OutputProtection_QueryStatus_ParamsSpec.$,
+      media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$,
+      []);
+  }
+
+  enableProtection(desired_protection_mask) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.OutputProtection_EnableProtection_ParamsSpec.$,
+      media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$,
+      [desired_protection_mask]);
+  }
+
+};
+
+media.mojom.OutputProtection.getRemote = function() {
+  let remote = new media.mojom.OutputProtectionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.OutputProtection',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for QueryStatus
+media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.OutputProtection.QueryStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'link_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'protection_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnableProtection
+media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.OutputProtection.EnableProtection_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.OutputProtection.EnableProtection_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.OutputProtectionPtr = media.mojom.OutputProtectionRemote;
+media.mojom.OutputProtectionRequest = media.mojom.OutputProtectionPendingReceiver;
+

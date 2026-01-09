@@ -9,34 +9,98 @@ var content = content || {};
 content.mojom = content.mojom || {};
 
 
-// Struct: SyntheticTrialGroup
-content.mojom.SyntheticTrialGroup = class {
-  constructor(values = {}) {
-    this.group_name = values.group_name !== undefined ? values.group_name : "";
-  }
-};
-
 // Interface: SyntheticTrialConfiguration
-content.mojom.SyntheticTrialConfigurationPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'content.mojom.SyntheticTrialConfiguration';
-  }
-
-  addOrUpdateSyntheticTrialGroups(groups) {
-    // Method: AddOrUpdateSyntheticTrialGroups
-    // Call: AddOrUpdateSyntheticTrialGroups(groups)
-  }
-
-  removeSyntheticTrialGroups(groups) {
-    // Method: RemoveSyntheticTrialGroups
-    // Call: RemoveSyntheticTrialGroups(groups)
-  }
-
-};
-
-content.mojom.SyntheticTrialConfigurationRequest = class {
+content.mojom.SyntheticTrialConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+content.mojom.SyntheticTrialConfigurationRemote = class {
+  static get $interfaceName() {
+    return 'content.mojom.SyntheticTrialConfiguration';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      content.mojom.SyntheticTrialConfigurationPendingReceiver,
+      handle);
+    this.$ = new content.mojom.SyntheticTrialConfigurationRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  addOrUpdateSyntheticTrialGroups(groups) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec.$,
+      null,
+      [groups]);
+  }
+
+  removeSyntheticTrialGroups(groups) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec.$,
+      null,
+      [groups]);
+  }
+
+};
+
+content.mojom.SyntheticTrialConfiguration.getRemote = function() {
+  let remote = new content.mojom.SyntheticTrialConfigurationRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'content.mojom.SyntheticTrialConfiguration',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddOrUpdateSyntheticTrialGroups
+content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticTrialConfiguration.AddOrUpdateSyntheticTrialGroups_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RemoveSyntheticTrialGroups
+content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'content.mojom.SyntheticTrialConfiguration.RemoveSyntheticTrialGroups_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+content.mojom.SyntheticTrialConfigurationPtr = content.mojom.SyntheticTrialConfigurationRemote;
+content.mojom.SyntheticTrialConfigurationRequest = content.mojom.SyntheticTrialConfigurationPendingReceiver;
+

@@ -21,41 +21,85 @@ network.mojom.CoopAccessReportType = {
 
 // Enum: CrossOriginOpenerPolicyValue
 network.mojom.CrossOriginOpenerPolicyValue = {
-  the: 0,
-  provided: 1,
-};
-
-// Struct: CrossOriginOpenerPolicyReporterParams
-network.mojom.CrossOriginOpenerPolicyReporterParams = class {
-  constructor(values = {}) {
-    this.reporter = values.reporter !== undefined ? values.reporter : null;
-    this.endpoint_defined = values.endpoint_defined !== undefined ? values.endpoint_defined : false;
-    this.reported_window_url = values.reported_window_url !== undefined ? values.reported_window_url : "";
-  }
-};
-
-// Struct: CrossOriginOpenerPolicy
-network.mojom.CrossOriginOpenerPolicy = class {
-  constructor(values = {}) {
-  }
+  kUnsafeNone: 0,
+  kSameOriginAllowPopups: 1,
+  kSameOrigin: 2,
+  kSameOriginPlusCoep: 3,
+  kNoopenerAllowPopups: 4,
 };
 
 // Interface: CrossOriginOpenerPolicyReporter
-network.mojom.CrossOriginOpenerPolicyReporterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.CrossOriginOpenerPolicyReporter';
-  }
-
-  queueAccessReport(report_type, property, source_location, reported_window_url) {
-    // Method: QueueAccessReport
-    // Call: QueueAccessReport(report_type, property, source_location, reported_window_url)
-  }
-
-};
-
-network.mojom.CrossOriginOpenerPolicyReporterRequest = class {
+network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+network.mojom.CrossOriginOpenerPolicyReporterRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.CrossOriginOpenerPolicyReporter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver,
+      handle);
+    this.$ = new network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  queueAccessReport(report_type, property, source_location, reported_window_url) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$,
+      null,
+      [report_type, property, source_location, reported_window_url]);
+  }
+
+};
+
+network.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
+  let remote = new network.mojom.CrossOriginOpenerPolicyReporterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.CrossOriginOpenerPolicyReporter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for QueueAccessReport
+network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CrossOriginOpenerPolicyReporter.QueueAccessReport_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'report_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'property', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reported_window_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.CrossOriginOpenerPolicyReporterPtr = network.mojom.CrossOriginOpenerPolicyReporterRemote;
+network.mojom.CrossOriginOpenerPolicyReporterRequest = network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver;
+

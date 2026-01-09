@@ -40,111 +40,179 @@ connectors_internals.mojom.KeyManagerPermanentFailure = {
   INVALID_INSTALLATION: 4,
 };
 
-// Struct: Int32Value
-connectors_internals.mojom.Int32Value = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: LoadedKeyInfo
-connectors_internals.mojom.LoadedKeyInfo = class {
-  constructor(values = {}) {
-    this.has_ssl_key = values.has_ssl_key !== undefined ? values.has_ssl_key : false;
-  }
-};
-
-// Struct: KeyInfo
-connectors_internals.mojom.KeyInfo = class {
-  constructor(values = {}) {
-    this.loaded_key_info = values.loaded_key_info !== undefined ? values.loaded_key_info : null;
-    this.permanent_failure = values.permanent_failure !== undefined ? values.permanent_failure : null;
-  }
-};
-
-// Struct: ConsentMetadata
-connectors_internals.mojom.ConsentMetadata = class {
-  constructor(values = {}) {
-    this.consent_received = values.consent_received !== undefined ? values.consent_received : false;
-  }
-};
-
-// Struct: DeviceTrustState
-connectors_internals.mojom.DeviceTrustState = class {
-  constructor(values = {}) {
-    this.signals_json = values.signals_json !== undefined ? values.signals_json : false;
-    this.consent_metadata = values.consent_metadata !== undefined ? values.consent_metadata : null;
-  }
-};
-
-// Struct: CertificateMetadata
-connectors_internals.mojom.CertificateMetadata = class {
-  constructor(values = {}) {
-    this.issuer_display_name = values.issuer_display_name !== undefined ? values.issuer_display_name : 0;
-  }
-};
-
-// Struct: ClientIdentity
-connectors_internals.mojom.ClientIdentity = class {
-  constructor(values = {}) {
-    this.certificate_metadata = values.certificate_metadata !== undefined ? values.certificate_metadata : "";
-  }
-};
-
-// Struct: ClientCertificateState
-connectors_internals.mojom.ClientCertificateState = class {
-  constructor(values = {}) {
-    this.managed_browser_identity = values.managed_browser_identity !== undefined ? values.managed_browser_identity : "";
-  }
-};
-
-// Struct: SignalsReportingState
-connectors_internals.mojom.SignalsReportingState = class {
-  constructor(values = {}) {
-    this.can_collect_all_fields = values.can_collect_all_fields !== undefined ? values.can_collect_all_fields : false;
-  }
-};
-
 // Interface: PageHandler
-connectors_internals.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'connectors_internals.mojom.PageHandler';
-  }
-
-  getDeviceTrustState() {
-    // Method: GetDeviceTrustState
-    return new Promise((resolve) => {
-      // Call: GetDeviceTrustState()
-      resolve({});
-    });
-  }
-
-  deleteDeviceTrustKey() {
-    // Method: DeleteDeviceTrustKey
-    // Call: DeleteDeviceTrustKey()
-  }
-
-  getClientCertificateState() {
-    // Method: GetClientCertificateState
-    return new Promise((resolve) => {
-      // Call: GetClientCertificateState()
-      resolve({});
-    });
-  }
-
-  getSignalsReportingState() {
-    // Method: GetSignalsReportingState
-    return new Promise((resolve) => {
-      // Call: GetSignalsReportingState()
-      resolve({});
-    });
-  }
-
-};
-
-connectors_internals.mojom.PageHandlerRequest = class {
+connectors_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+connectors_internals.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'connectors_internals.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      connectors_internals.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new connectors_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getDeviceTrustState() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$,
+      connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$,
+      []);
+  }
+
+  deleteDeviceTrustKey() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  getClientCertificateState() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$,
+      connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$,
+      []);
+  }
+
+  getSignalsReportingState() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$,
+      connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+connectors_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new connectors_internals.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'connectors_internals.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetDeviceTrustState
+connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.GetDeviceTrustState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.GetDeviceTrustState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DeleteDeviceTrustKey
+connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.DeleteDeviceTrustKey_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetClientCertificateState
+connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.GetClientCertificateState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.GetClientCertificateState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSignalsReportingState
+connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.GetSignalsReportingState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'connectors_internals.mojom.PageHandler.GetSignalsReportingState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+connectors_internals.mojom.PageHandlerPtr = connectors_internals.mojom.PageHandlerRemote;
+connectors_internals.mojom.PageHandlerRequest = connectors_internals.mojom.PageHandlerPendingReceiver;
+

@@ -45,152 +45,378 @@ device.mojom.GamepadHapticsResult = {
   GamepadHapticsResultNotSupported: 4,
 };
 
-// Struct: GamepadQuaternion
-device.mojom.GamepadQuaternion = class {
-  constructor(values = {}) {
-    this.w = values.w !== undefined ? values.w : 0;
-  }
-};
-
-// Struct: GamepadVector
-device.mojom.GamepadVector = class {
-  constructor(values = {}) {
-    this.z = values.z !== undefined ? values.z : 0;
-  }
-};
-
-// Struct: GamepadButton
-device.mojom.GamepadButton = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: GamepadTouch
-device.mojom.GamepadTouch = class {
-  constructor(values = {}) {
-    this.has_surface_dimensions = values.has_surface_dimensions !== undefined ? values.has_surface_dimensions : 0;
-  }
-};
-
-// Struct: GamepadPose
-device.mojom.GamepadPose = class {
-  constructor(values = {}) {
-    this.linear_acceleration = values.linear_acceleration !== undefined ? values.linear_acceleration : null;
-  }
-};
-
-// Struct: GamepadHapticActuator
-device.mojom.GamepadHapticActuator = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-  }
-};
-
-// Struct: Gamepad
-device.mojom.Gamepad = class {
-  constructor(values = {}) {
-    this.display_id = values.display_id !== undefined ? values.display_id : 0;
-  }
-};
-
-// Struct: GamepadEffectParameters
-device.mojom.GamepadEffectParameters = class {
-  constructor(values = {}) {
-    this.right_trigger = values.right_trigger !== undefined ? values.right_trigger : 0;
-  }
-};
-
 // Interface: GamepadObserver
-device.mojom.GamepadObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.GamepadObserver';
+device.mojom.GamepadObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+device.mojom.GamepadObserverRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.GamepadObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.GamepadObserverPendingReceiver,
+      handle);
+    this.$ = new device.mojom.GamepadObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.GamepadObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   gamepadConnected(index, gamepad) {
-    // Method: GamepadConnected
-    // Call: GamepadConnected(index, gamepad)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$,
+      null,
+      [index, gamepad]);
   }
 
   gamepadDisconnected(index, gamepad) {
-    // Method: GamepadDisconnected
-    // Call: GamepadDisconnected(index, gamepad)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$,
+      null,
+      [index, gamepad]);
   }
 
   gamepadRawInputChanged(index, gamepad) {
-    // Method: GamepadRawInputChanged
-    // Call: GamepadRawInputChanged(index, gamepad)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$,
+      null,
+      [index, gamepad]);
   }
 
 };
 
-device.mojom.GamepadObserverRequest = class {
+device.mojom.GamepadObserver.getRemote = function() {
+  let remote = new device.mojom.GamepadObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.GamepadObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GamepadConnected
+device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadObserver.GamepadConnected_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GamepadDisconnected
+device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadObserver.GamepadDisconnected_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GamepadRawInputChanged
+device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadObserver.GamepadRawInputChanged_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device.mojom.GamepadObserverPtr = device.mojom.GamepadObserverRemote;
+device.mojom.GamepadObserverRequest = device.mojom.GamepadObserverPendingReceiver;
+
+
+// Interface: GamepadMonitor
+device.mojom.GamepadMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: GamepadMonitor
-device.mojom.GamepadMonitorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.GamepadMonitor';
+device.mojom.GamepadMonitorRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.GamepadMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.GamepadMonitorPendingReceiver,
+      handle);
+    this.$ = new device.mojom.GamepadMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.GamepadMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   gamepadStartPolling() {
-    // Method: GamepadStartPolling
-    return new Promise((resolve) => {
-      // Call: GamepadStartPolling()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$,
+      device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$,
+      []);
   }
 
   gamepadStopPolling() {
-    // Method: GamepadStopPolling
-    // Call: GamepadStopPolling()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$,
+      null,
+      []);
   }
 
   setObserver(gamepad_observer) {
-    // Method: SetObserver
-    // Call: SetObserver(gamepad_observer)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$,
+      null,
+      [gamepad_observer]);
   }
 
 };
 
-device.mojom.GamepadMonitorRequest = class {
+device.mojom.GamepadMonitor.getRemote = function() {
+  let remote = new device.mojom.GamepadMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.GamepadMonitor',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GamepadStartPolling
+device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadMonitor.GamepadStartPolling_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadMonitor.GamepadStartPolling_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'memory_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GamepadStopPolling
+device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadMonitor.GamepadStopPolling_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetObserver
+device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadMonitor.SetObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'gamepad_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device.mojom.GamepadMonitorPtr = device.mojom.GamepadMonitorRemote;
+device.mojom.GamepadMonitorRequest = device.mojom.GamepadMonitorPendingReceiver;
+
+
+// Interface: GamepadHapticsManager
+device.mojom.GamepadHapticsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: GamepadHapticsManager
-device.mojom.GamepadHapticsManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.GamepadHapticsManager';
+device.mojom.GamepadHapticsManagerRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.GamepadHapticsManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.GamepadHapticsManagerPendingReceiver,
+      handle);
+    this.$ = new device.mojom.GamepadHapticsManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   playVibrationEffectOnce(pad_index, type, params) {
-    // Method: PlayVibrationEffectOnce
-    return new Promise((resolve) => {
-      // Call: PlayVibrationEffectOnce(pad_index, type, params)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$,
+      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$,
+      [pad_index, type, params]);
   }
 
   resetVibrationActuator(pad_index) {
-    // Method: ResetVibrationActuator
-    return new Promise((resolve) => {
-      // Call: ResetVibrationActuator(pad_index)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$,
+      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$,
+      [pad_index]);
   }
 
 };
 
-device.mojom.GamepadHapticsManagerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+device.mojom.GamepadHapticsManager.getRemote = function() {
+  let remote = new device.mojom.GamepadHapticsManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.GamepadHapticsManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for PlayVibrationEffectOnce
+device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'pad_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResetVibrationActuator
+device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pad_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device.mojom.GamepadHapticsManagerPtr = device.mojom.GamepadHapticsManagerRemote;
+device.mojom.GamepadHapticsManagerRequest = device.mojom.GamepadHapticsManagerPendingReceiver;
+

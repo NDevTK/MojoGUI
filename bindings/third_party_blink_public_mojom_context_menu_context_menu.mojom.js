@@ -11,6 +11,13 @@ blink.mojom = blink.mojom || {};
 
 // Enum: ContextMenuDataMediaType
 blink.mojom.ContextMenuDataMediaType = {
+  kNone: 0,
+  kImage: 1,
+  kVideo: 2,
+  kAudio: 3,
+  kCanvas: 4,
+  kFile: 5,
+  kPlugin: 6,
 };
 
 // Enum: CustomContextMenuItemType
@@ -22,76 +29,99 @@ blink.mojom.CustomContextMenuItemType = {
   kSubMenu: 4,
 };
 
-// Struct: Accelerator
-blink.mojom.Accelerator = class {
-  constructor(values = {}) {
-    this.modifiers = values.modifiers !== undefined ? values.modifiers : 0;
-  }
-};
-
-// Struct: FormRendererId
-blink.mojom.FormRendererId = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : 0;
-  }
-};
-
-// Struct: FieldRendererId
-blink.mojom.FieldRendererId = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : 0;
-  }
-};
-
-// Struct: CustomContextMenuItem
-blink.mojom.CustomContextMenuItem = class {
-  constructor(values = {}) {
-    this.submenu = values.submenu !== undefined ? values.submenu : 0;
-  }
-};
-
-// Struct: UntrustworthyContextMenuParams
-blink.mojom.UntrustworthyContextMenuParams = class {
-  constructor(values = {}) {
-    this.unfiltered_link_url = values.unfiltered_link_url !== undefined ? values.unfiltered_link_url : 0;
-    this.has_image_contents = values.has_image_contents !== undefined ? values.has_image_contents : false;
-    this.plugin = values.plugin !== undefined ? values.plugin : null;
-    this.suggested_filename = values.suggested_filename !== undefined ? values.suggested_filename : 0;
-    this.dictionary_suggestions = values.dictionary_suggestions !== undefined ? values.dictionary_suggestions : "";
-    this.referrer_policy = values.referrer_policy !== undefined ? values.referrer_policy : 0;
-    this.url = values.url !== undefined ? values.url : null;
-    this.example = values.example !== undefined ? values.example : null;
-    this.window = values.window !== undefined ? values.window : null;
-    this.selection_start_offset = values.selection_start_offset !== undefined ? values.selection_start_offset : 0;
-    this.type = values.type !== undefined ? values.type : null;
-    this.opened_from_interest_for = values.opened_from_interest_for !== undefined ? values.opened_from_interest_for : false;
-    this.interest_for_node_id = values.interest_for_node_id !== undefined ? values.interest_for_node_id : 0;
-    this.form_control_type = values.form_control_type !== undefined ? values.form_control_type : null;
-    this.form_renderer_id = values.form_renderer_id !== undefined ? values.form_renderer_id : false;
-  }
-};
-
 // Interface: ContextMenuClient
-blink.mojom.ContextMenuClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ContextMenuClient';
-  }
-
-  customContextMenuAction(action) {
-    // Method: CustomContextMenuAction
-    // Call: CustomContextMenuAction(action)
-  }
-
-  contextMenuClosed(link_followed, impression) {
-    // Method: ContextMenuClosed
-    // Call: ContextMenuClosed(link_followed, impression)
-  }
-
-};
-
-blink.mojom.ContextMenuClientRequest = class {
+blink.mojom.ContextMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.ContextMenuClientRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ContextMenuClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ContextMenuClientPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ContextMenuClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ContextMenuClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  customContextMenuAction(action) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$,
+      null,
+      [action]);
+  }
+
+  contextMenuClosed(link_followed, impression) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$,
+      null,
+      [link_followed, impression]);
+  }
+
+};
+
+blink.mojom.ContextMenuClient.getRemote = function() {
+  let remote = new blink.mojom.ContextMenuClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ContextMenuClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CustomContextMenuAction
+blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContextMenuClient.CustomContextMenuAction_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ContextMenuClosed
+blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ContextMenuClient.ContextMenuClosed_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'link_followed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'impression', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ContextMenuClientPtr = blink.mojom.ContextMenuClientRemote;
+blink.mojom.ContextMenuClientRequest = blink.mojom.ContextMenuClientPendingReceiver;
+

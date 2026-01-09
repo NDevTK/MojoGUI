@@ -9,16 +9,51 @@ var extensions = extensions || {};
 
 
 // Interface: KeepAlive
-extensions.KeepAlivePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'extensions.KeepAlive';
-  }
-
-};
-
-extensions.KeepAliveRequest = class {
+extensions.KeepAlivePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+extensions.KeepAliveRemote = class {
+  static get $interfaceName() {
+    return 'extensions.KeepAlive';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      extensions.KeepAlivePendingReceiver,
+      handle);
+    this.$ = new extensions.KeepAliveRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+extensions.KeepAliveRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+extensions.KeepAlive.getRemote = function() {
+  let remote = new extensions.KeepAliveRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'extensions.KeepAlive',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+extensions.KeepAlivePtr = extensions.KeepAliveRemote;
+extensions.KeepAliveRequest = extensions.KeepAlivePendingReceiver;
+

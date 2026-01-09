@@ -9,53 +9,88 @@ var user_data_importer = user_data_importer || {};
 user_data_importer.mojom = user_data_importer.mojom || {};
 
 
-// Struct: ImportedBookmarkEntry
-user_data_importer.mojom.ImportedBookmarkEntry = class {
-  constructor(values = {}) {
-    this.in_toolbar = values.in_toolbar !== undefined ? values.in_toolbar : false;
-  }
-};
-
-// Struct: SearchEngineInfo
-user_data_importer.mojom.SearchEngineInfo = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : "";
-  }
-};
-
-// Struct: FaviconUsageData
-user_data_importer.mojom.FaviconUsageData = class {
-  constructor(values = {}) {
-    this.urls = values.urls !== undefined ? values.urls : 0;
-  }
-};
-
-// Struct: ParsedBookmarks
-user_data_importer.mojom.ParsedBookmarks = class {
-  constructor(values = {}) {
-    this.favicons = values.favicons !== undefined ? values.favicons : [];
-  }
-};
-
 // Interface: BookmarkHtmlParser
-user_data_importer.mojom.BookmarkHtmlParserPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'user_data_importer.mojom.BookmarkHtmlParser';
-  }
-
-  parse(raw_html) {
-    // Method: Parse
-    return new Promise((resolve) => {
-      // Call: Parse(raw_html)
-      resolve({});
-    });
-  }
-
-};
-
-user_data_importer.mojom.BookmarkHtmlParserRequest = class {
+user_data_importer.mojom.BookmarkHtmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+user_data_importer.mojom.BookmarkHtmlParserRemote = class {
+  static get $interfaceName() {
+    return 'user_data_importer.mojom.BookmarkHtmlParser';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      user_data_importer.mojom.BookmarkHtmlParserPendingReceiver,
+      handle);
+    this.$ = new user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  parse(raw_html) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$,
+      user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$,
+      [raw_html]);
+  }
+
+};
+
+user_data_importer.mojom.BookmarkHtmlParser.getRemote = function() {
+  let remote = new user_data_importer.mojom.BookmarkHtmlParserRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'user_data_importer.mojom.BookmarkHtmlParser',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Parse
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+user_data_importer.mojom.BookmarkHtmlParserPtr = user_data_importer.mojom.BookmarkHtmlParserRemote;
+user_data_importer.mojom.BookmarkHtmlParserRequest = user_data_importer.mojom.BookmarkHtmlParserPendingReceiver;
+

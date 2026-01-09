@@ -22,60 +22,207 @@ ax.mojom.FocusRingStackingOrder = {
   kBelowAccessibilityBubbles: 1,
 };
 
-// Struct: FocusRingInfo
-ax.mojom.FocusRingInfo = class {
-  constructor(values = {}) {
-    this.color = values.color !== undefined ? values.color : [];
-    this.secondary_color = values.secondary_color !== undefined ? values.secondary_color : null;
-    this.stacking_order = values.stacking_order !== undefined ? values.stacking_order : null;
-    this.id = values.id !== undefined ? values.id : "";
-  }
-};
-
 // Interface: UserInterface
-ax.mojom.UserInterfacePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ax.mojom.UserInterface';
-  }
-
-  darkenScreen(darken) {
-    // Method: DarkenScreen
-    // Call: DarkenScreen(darken)
-  }
-
-  openSettingsSubpage(subpage) {
-    // Method: OpenSettingsSubpage
-    // Call: OpenSettingsSubpage(subpage)
-  }
-
-  showConfirmationDialog(title, description, cancelName) {
-    // Method: ShowConfirmationDialog
-    return new Promise((resolve) => {
-      // Call: ShowConfirmationDialog(title, description, cancelName)
-      resolve({});
-    });
-  }
-
-  setFocusRings(focus_rings, at_type) {
-    // Method: SetFocusRings
-    // Call: SetFocusRings(focus_rings, at_type)
-  }
-
-  setHighlights(rects, color) {
-    // Method: SetHighlights
-    // Call: SetHighlights(rects, color)
-  }
-
-  setVirtualKeyboardVisible(is_visible) {
-    // Method: SetVirtualKeyboardVisible
-    // Call: SetVirtualKeyboardVisible(is_visible)
-  }
-
-};
-
-ax.mojom.UserInterfaceRequest = class {
+ax.mojom.UserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ax.mojom.UserInterfaceRemote = class {
+  static get $interfaceName() {
+    return 'ax.mojom.UserInterface';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ax.mojom.UserInterfacePendingReceiver,
+      handle);
+    this.$ = new ax.mojom.UserInterfaceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ax.mojom.UserInterfaceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  darkenScreen(darken) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$,
+      null,
+      [darken]);
+  }
+
+  openSettingsSubpage(subpage) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$,
+      null,
+      [subpage]);
+  }
+
+  showConfirmationDialog(title, description, cancelName) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$,
+      ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$,
+      [title, description, cancelName]);
+  }
+
+  setFocusRings(focus_rings, at_type) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$,
+      null,
+      [focus_rings, at_type]);
+  }
+
+  setHighlights(rects, color) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ax.mojom.UserInterface_SetHighlights_ParamsSpec.$,
+      null,
+      [rects, color]);
+  }
+
+  setVirtualKeyboardVisible(is_visible) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$,
+      null,
+      [is_visible]);
+  }
+
+};
+
+ax.mojom.UserInterface.getRemote = function() {
+  let remote = new ax.mojom.UserInterfaceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ax.mojom.UserInterface',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DarkenScreen
+ax.mojom.UserInterface_DarkenScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.DarkenScreen_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'darken', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenSettingsSubpage
+ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.OpenSettingsSubpage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'subpage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ShowConfirmationDialog
+ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.ShowConfirmationDialog_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cancelName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.ShowConfirmationDialog_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFocusRings
+ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.SetFocusRings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'focus_rings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'at_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetHighlights
+ax.mojom.UserInterface_SetHighlights_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.SetHighlights_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetVirtualKeyboardVisible
+ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ax.mojom.UserInterface.SetVirtualKeyboardVisible_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ax.mojom.UserInterfacePtr = ax.mojom.UserInterfaceRemote;
+ax.mojom.UserInterfaceRequest = ax.mojom.UserInterfacePendingReceiver;
+

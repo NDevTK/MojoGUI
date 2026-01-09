@@ -11,116 +11,222 @@ device.mojom = device.mojom || {};
 
 // Enum: ProviderState
 device.mojom.ProviderState = {
+  kHighAccuracy: 0,
+  kLowAccuracy: 1,
+  kBlockedBySystemPermission: 2,
 };
 
 // Enum: LocationProviderManagerMode
 device.mojom.LocationProviderManagerMode = {
-  regardless: 0,
-  regardless: 1,
-  regardless: 2,
-  fall: 3,
-  fall: 4,
-  also: 5,
-};
-
-// Struct: AccessPointData
-device.mojom.AccessPointData = class {
-  constructor(values = {}) {
-    this.mac_address = values.mac_address !== undefined ? values.mac_address : "";
-    this.kInvalidRadioSignalStrength = values.kInvalidRadioSignalStrength !== undefined ? values.kInvalidRadioSignalStrength : 0;
-    this.kInvalidChannel = values.kInvalidChannel !== undefined ? values.kInvalidChannel : 0;
-    this.kInvalidSignalToNoise = values.kInvalidSignalToNoise !== undefined ? values.kInvalidSignalToNoise : 0;
-    this.timestamp = values.timestamp !== undefined ? values.timestamp : null;
-  }
-};
-
-// Struct: NetworkLocationDiagnostics
-device.mojom.NetworkLocationDiagnostics = class {
-  constructor(values = {}) {
-    this.access_point_data = values.access_point_data !== undefined ? values.access_point_data : 0;
-    this.wifi_timestamp = values.wifi_timestamp !== undefined ? values.wifi_timestamp : null;
-  }
-};
-
-// Struct: PositionCacheDiagnostics
-device.mojom.PositionCacheDiagnostics = class {
-  constructor(values = {}) {
-    this.hit_rate = values.hit_rate !== undefined ? values.hit_rate : 0;
-    this.last_network_result = values.last_network_result !== undefined ? values.last_network_result : null;
-  }
-};
-
-// Struct: WifiPollingPolicyDiagnostics
-device.mojom.WifiPollingPolicyDiagnostics = class {
-  constructor(values = {}) {
-    this.no_wifi_interval = values.no_wifi_interval !== undefined ? values.no_wifi_interval : 0;
-  }
-};
-
-// Struct: GeolocationDiagnostics
-device.mojom.GeolocationDiagnostics = class {
-  constructor(values = {}) {
-    this.kStopped = values.kStopped !== undefined ? values.kStopped : null;
-  }
-};
-
-// Struct: NetworkLocationResponse
-device.mojom.NetworkLocationResponse = class {
-  constructor(values = {}) {
-    this.longitude = values.longitude !== undefined ? values.longitude : 0;
-    this.accuracy = values.accuracy !== undefined ? values.accuracy : 0;
-  }
+  kNetworkOnly: 0,
+  kPlatformOnly: 1,
+  kCustomOnly: 2,
+  kHybridPlatform: 3,
+  kHybridFallbackNetwork: 4,
+  kHybridPlatform2: 5,
 };
 
 // Interface: GeolocationInternalsObserver
-device.mojom.GeolocationInternalsObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.GeolocationInternalsObserver';
+device.mojom.GeolocationInternalsObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+device.mojom.GeolocationInternalsObserverRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.GeolocationInternalsObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.GeolocationInternalsObserverPendingReceiver,
+      handle);
+    this.$ = new device.mojom.GeolocationInternalsObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onDiagnosticsChanged(diagnostics) {
-    // Method: OnDiagnosticsChanged
-    // Call: OnDiagnosticsChanged(diagnostics)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$,
+      null,
+      [diagnostics]);
   }
 
   onNetworkLocationRequested(access_point_data) {
-    // Method: OnNetworkLocationRequested
-    // Call: OnNetworkLocationRequested(access_point_data)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$,
+      null,
+      [access_point_data]);
   }
 
   onNetworkLocationReceived(response) {
-    // Method: OnNetworkLocationReceived
-    // Call: OnNetworkLocationReceived(response)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$,
+      null,
+      [response]);
   }
 
 };
 
-device.mojom.GeolocationInternalsObserverRequest = class {
+device.mojom.GeolocationInternalsObserver.getRemote = function() {
+  let remote = new device.mojom.GeolocationInternalsObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.GeolocationInternalsObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDiagnosticsChanged
+device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GeolocationInternalsObserver.OnDiagnosticsChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNetworkLocationRequested
+device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GeolocationInternalsObserver.OnNetworkLocationRequested_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNetworkLocationReceived
+device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GeolocationInternalsObserver.OnNetworkLocationReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device.mojom.GeolocationInternalsObserverPtr = device.mojom.GeolocationInternalsObserverRemote;
+device.mojom.GeolocationInternalsObserverRequest = device.mojom.GeolocationInternalsObserverPendingReceiver;
+
+
+// Interface: GeolocationInternals
+device.mojom.GeolocationInternalsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: GeolocationInternals
-device.mojom.GeolocationInternalsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'device.mojom.GeolocationInternals';
+device.mojom.GeolocationInternalsRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.GeolocationInternals';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      device.mojom.GeolocationInternalsPendingReceiver,
+      handle);
+    this.$ = new device.mojom.GeolocationInternalsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+device.mojom.GeolocationInternalsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addInternalsObserver(observer) {
-    // Method: AddInternalsObserver
-    return new Promise((resolve) => {
-      // Call: AddInternalsObserver(observer)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$,
+      device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$,
+      [observer]);
   }
 
 };
 
-device.mojom.GeolocationInternalsRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+device.mojom.GeolocationInternals.getRemote = function() {
+  let remote = new device.mojom.GeolocationInternalsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.GeolocationInternals',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddInternalsObserver
+device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GeolocationInternals.AddInternalsObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'device.mojom.GeolocationInternals.AddInternalsObserver_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+device.mojom.GeolocationInternalsPtr = device.mojom.GeolocationInternalsRemote;
+device.mojom.GeolocationInternalsRequest = device.mojom.GeolocationInternalsPendingReceiver;
+

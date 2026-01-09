@@ -12,14 +12,23 @@ ash.device_sync.mojom = ash.device_sync.mojom || {};
 
 // Enum: NetworkRequestResult
 ash.device_sync.mojom.NetworkRequestResult = {
-  but: 0,
-  called: 1,
-  but: 2,
-  but: 3,
+  kSuccess: 0,
+  kRequestSucceededButUnexpectedResult: 1,
+  kServiceNotYetInitialized: 2,
+  kOffline: 3,
+  kEndpointNotFound: 4,
+  kAuthenticationError: 5,
+  kBadRequest: 6,
+  kResponseMalformed: 7,
+  kInternalServerError: 8,
+  kUnknown: 9,
 };
 
 // Enum: FeatureStatusChange
 ash.device_sync.mojom.FeatureStatusChange = {
+  kEnableExclusively: 0,
+  kEnableNonExclusively: 1,
+  kDisable: 2,
 };
 
 // Enum: CryptAuthService
@@ -37,178 +46,622 @@ ash.device_sync.mojom.ConnectivityStatus = {
 
 // Enum: GroupPrivateKeyStatus
 ash.device_sync.mojom.GroupPrivateKeyStatus = {
-  it: 0,
-  it: 1,
-  but: 2,
-  but: 3,
-  so: 4,
+  kStatusUnavailableBecauseDeviceSyncIsNotInitialized: 0,
+  kStatusUnavailableBecauseNoDeviceSyncerSet: 1,
+  kWaitingForGroupPrivateKey: 2,
+  kNoEncryptedGroupPrivateKeyReceived: 3,
+  kEncryptedGroupPrivateKeyEmpty: 4,
+  kLocalDeviceSyncBetterTogetherKeyMissing: 5,
+  kGroupPrivateKeyDecryptionFailed: 6,
+  kGroupPrivateKeySuccessfullyDecrypted: 7,
 };
 
 // Enum: BetterTogetherMetadataStatus
 ash.device_sync.mojom.BetterTogetherMetadataStatus = {
-  it: 0,
-  it: 1,
-  clients: 2,
-};
-
-// Struct: FindEligibleDevicesResponse
-ash.device_sync.mojom.FindEligibleDevicesResponse = class {
-  constructor(values = {}) {
-    this.ineligible_devices = values.ineligible_devices !== undefined ? values.ineligible_devices : [];
-  }
-};
-
-// Struct: DeviceActivityStatus
-ash.device_sync.mojom.DeviceActivityStatus = class {
-  constructor(values = {}) {
-    this.last_update_time = values.last_update_time !== undefined ? values.last_update_time : "";
-  }
-};
-
-// Struct: DebugInfo
-ash.device_sync.mojom.DebugInfo = class {
-  constructor(values = {}) {
-    this.is_sync_in_progress = values.is_sync_in_progress !== undefined ? values.is_sync_in_progress : false;
-  }
+  kStatusUnavailableBecauseDeviceSyncIsNotInitialized: 0,
+  kStatusUnavailableBecauseNoDeviceSyncerSet: 1,
+  kWaitingToProcessDeviceMetadata: 2,
+  kGroupPrivateKeyMissing: 3,
+  kEncryptedMetadataEmpty: 4,
+  kMetadataDecrypted: 5,
 };
 
 // Interface: DeviceSyncObserver
-ash.device_sync.mojom.DeviceSyncObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.device_sync.mojom.DeviceSyncObserver';
+ash.device_sync.mojom.DeviceSyncObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.device_sync.mojom.DeviceSyncObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.device_sync.mojom.DeviceSyncObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.device_sync.mojom.DeviceSyncObserverPendingReceiver,
+      handle);
+    this.$ = new ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onEnrollmentFinished() {
-    // Method: OnEnrollmentFinished
-    // Call: OnEnrollmentFinished()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$,
+      null,
+      []);
   }
 
   onNewDevicesSynced() {
-    // Method: OnNewDevicesSynced
-    // Call: OnNewDevicesSynced()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-ash.device_sync.mojom.DeviceSyncObserverRequest = class {
+ash.device_sync.mojom.DeviceSyncObserver.getRemote = function() {
+  let remote = new ash.device_sync.mojom.DeviceSyncObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.device_sync.mojom.DeviceSyncObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnEnrollmentFinished
+ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSyncObserver.OnEnrollmentFinished_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNewDevicesSynced
+ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSyncObserver.OnNewDevicesSynced_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.device_sync.mojom.DeviceSyncObserverPtr = ash.device_sync.mojom.DeviceSyncObserverRemote;
+ash.device_sync.mojom.DeviceSyncObserverRequest = ash.device_sync.mojom.DeviceSyncObserverPendingReceiver;
+
+
+// Interface: DeviceSync
+ash.device_sync.mojom.DeviceSyncPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DeviceSync
-ash.device_sync.mojom.DeviceSyncPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.device_sync.mojom.DeviceSync';
+ash.device_sync.mojom.DeviceSyncRemote = class {
+  static get $interfaceName() {
+    return 'ash.device_sync.mojom.DeviceSync';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.device_sync.mojom.DeviceSyncPendingReceiver,
+      handle);
+    this.$ = new ash.device_sync.mojom.DeviceSyncRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addObserver(observer) {
-    // Method: AddObserver
-    // Call: AddObserver(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   forceEnrollmentNow() {
-    // Method: ForceEnrollmentNow
-    return new Promise((resolve) => {
-      // Call: ForceEnrollmentNow()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec.$,
+      []);
   }
 
   forceSyncNow() {
-    // Method: ForceSyncNow
-    return new Promise((resolve) => {
-      // Call: ForceSyncNow()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec.$,
+      []);
   }
 
   getGroupPrivateKeyStatus() {
-    // Method: GetGroupPrivateKeyStatus
-    return new Promise((resolve) => {
-      // Call: GetGroupPrivateKeyStatus()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec.$,
+      []);
   }
 
   getBetterTogetherMetadataStatus() {
-    // Method: GetBetterTogetherMetadataStatus
-    return new Promise((resolve) => {
-      // Call: GetBetterTogetherMetadataStatus()
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec.$,
+      []);
   }
 
   getSyncedDevices() {
-    // Method: GetSyncedDevices
-    return new Promise((resolve) => {
-      // Call: GetSyncedDevices()
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec.$,
+      []);
   }
 
   getLocalDeviceMetadata() {
-    // Method: GetLocalDeviceMetadata
-    return new Promise((resolve) => {
-      // Call: GetLocalDeviceMetadata()
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec.$,
+      []);
   }
 
   setSoftwareFeatureState(device_public_key, software_feature, enabled, is_exclusive) {
-    // Method: SetSoftwareFeatureState
-    return new Promise((resolve) => {
-      // Call: SetSoftwareFeatureState(device_public_key, software_feature, enabled, is_exclusive)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec.$,
+      [device_public_key, software_feature, enabled, is_exclusive]);
   }
 
   setFeatureStatus(device_instance_id, feature, status_change) {
-    // Method: SetFeatureStatus
-    return new Promise((resolve) => {
-      // Call: SetFeatureStatus(device_instance_id, feature, status_change)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec.$,
+      [device_instance_id, feature, status_change]);
   }
 
   findEligibleDevices(software_feature) {
-    // Method: FindEligibleDevices
-    return new Promise((resolve) => {
-      // Call: FindEligibleDevices(software_feature)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec.$,
+      [software_feature]);
   }
 
   notifyDevices(device_instance_ids, cryptauth_service, feature) {
-    // Method: NotifyDevices
-    return new Promise((resolve) => {
-      // Call: NotifyDevices(device_instance_ids, cryptauth_service, feature)
-      resolve({});
-    });
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec.$,
+      [device_instance_ids, cryptauth_service, feature]);
   }
 
   getDevicesActivityStatus() {
-    // Method: GetDevicesActivityStatus
-    return new Promise((resolve) => {
-      // Call: GetDevicesActivityStatus()
-      resolve({});
-    });
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec.$,
+      []);
   }
 
   getDebugInfo() {
-    // Method: GetDebugInfo
-    return new Promise((resolve) => {
-      // Call: GetDebugInfo()
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$,
+      ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-ash.device_sync.mojom.DeviceSyncRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.device_sync.mojom.DeviceSync.getRemote = function() {
+  let remote = new ash.device_sync.mojom.DeviceSyncRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.device_sync.mojom.DeviceSync',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddObserver
+ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ForceEnrollmentNow
+ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.ForceEnrollmentNow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.ForceEnrollmentNow_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ForceSyncNow
+ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.ForceSyncNow_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.ForceSyncNow_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetGroupPrivateKeyStatus
+ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetGroupPrivateKeyStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetGroupPrivateKeyStatus_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetBetterTogetherMetadataStatus
+ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetBetterTogetherMetadataStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetBetterTogetherMetadataStatus_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSyncedDevices
+ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetSyncedDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetSyncedDevices_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetLocalDeviceMetadata
+ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetLocalDeviceMetadata_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetLocalDeviceMetadata_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'local_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSoftwareFeatureState
+ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.SetSoftwareFeatureState_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'device_public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'software_feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_exclusive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.SetSoftwareFeatureState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFeatureStatus
+ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.SetFeatureStatus_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'device_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status_change', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.SetFeatureStatus_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for FindEligibleDevices
+ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.FindEligibleDevices_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'software_feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.FindEligibleDevices_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for NotifyDevices
+ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.NotifyDevices_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'device_instance_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cryptauth_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.NotifyDevices_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDevicesActivityStatus
+ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetDevicesActivityStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetDevicesActivityStatus_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_activity_statuses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDebugInfo
+ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetDebugInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.device_sync.mojom.DeviceSync.GetDebugInfo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.device_sync.mojom.DeviceSyncPtr = ash.device_sync.mojom.DeviceSyncRemote;
+ash.device_sync.mojom.DeviceSyncRequest = ash.device_sync.mojom.DeviceSyncPendingReceiver;
+

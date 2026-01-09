@@ -14,52 +14,205 @@ ui.ozone.mojom = ui.ozone.mojom || {};
 ui.ozone.mojom.SetGesturePropErrorCode = {
   SUCCESS: 0,
   UNKNOWN_ERROR: 1,
-  or: 2,
+  NOT_FOUND: 2,
+  READ_ONLY: 3,
+  TYPE_MISMATCH: 4,
+  SIZE_MISMATCH: 5,
 };
 
 // Interface: GesturePropertiesService
-ui.ozone.mojom.GesturePropertiesServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ui.ozone.mojom.GesturePropertiesService';
-  }
-
-  listDevices() {
-    // Method: ListDevices
-    return new Promise((resolve) => {
-      // Call: ListDevices()
-      resolve({});
-    });
-  }
-
-  listProperties(device_id) {
-    // Method: ListProperties
-    return new Promise((resolve) => {
-      // Call: ListProperties(device_id)
-      resolve({});
-    });
-  }
-
-  getProperty(device_id, name) {
-    // Method: GetProperty
-    return new Promise((resolve) => {
-      // Call: GetProperty(device_id, name)
-      resolve({});
-    });
-  }
-
-  setProperty(device_id, name, value) {
-    // Method: SetProperty
-    return new Promise((resolve) => {
-      // Call: SetProperty(device_id, name, value)
-      resolve({});
-    });
-  }
-
-};
-
-ui.ozone.mojom.GesturePropertiesServiceRequest = class {
+ui.ozone.mojom.GesturePropertiesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ui.ozone.mojom.GesturePropertiesServiceRemote = class {
+  static get $interfaceName() {
+    return 'ui.ozone.mojom.GesturePropertiesService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ui.ozone.mojom.GesturePropertiesServicePendingReceiver,
+      handle);
+    this.$ = new ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  listDevices() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$,
+      []);
+  }
+
+  listProperties(device_id) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$,
+      [device_id]);
+  }
+
+  getProperty(device_id, name) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$,
+      [device_id, name]);
+  }
+
+  setProperty(device_id, name, value) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$,
+      ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$,
+      [device_id, name, value]);
+  }
+
+};
+
+ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
+  let remote = new ui.ozone.mojom.GesturePropertiesServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ui.ozone.mojom.GesturePropertiesService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ListDevices
+ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.ListDevices_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.ListDevices_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListProperties
+ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetProperty
+ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'is_read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetProperty
+ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ui.ozone.mojom.GesturePropertiesServicePtr = ui.ozone.mojom.GesturePropertiesServiceRemote;
+ui.ozone.mojom.GesturePropertiesServiceRequest = ui.ozone.mojom.GesturePropertiesServicePendingReceiver;
+

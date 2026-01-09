@@ -62,25 +62,31 @@ ax.android.mojom.AccessibilityActionType = {
   ACCESSIBILITY_FOCUS: 6,
   CLEAR_ACCESSIBILITY_FOCUS: 7,
   NEXT_AT_MOVEMENT_GRANULARITY: 8,
-  SCROLL_BACKWARD: 9,
-  COPY: 10,
-  PASTE: 11,
-  CUT: 12,
-  SET_SELECTION: 13,
-  EXPAND: 14,
-  COLLAPSE: 15,
-  DISMISS: 16,
-  SET_TEXT: 17,
-  CONTEXT_CLICK: 18,
-  SCROLL_DOWN: 19,
-  SCROLL_LEFT: 20,
-  SCROLL_RIGHT: 21,
-  SCROLL_TO_POSITION: 22,
-  SCROLL_UP: 23,
-  SET_PROGRESS: 24,
-  SHOW_ON_SCREEN: 25,
-  CUSTOM_ACTION: 26,
-  HIDE_TOOLTIP: 27,
+  PREVIOUS_AT_MOVEMENT_GRANULARITY: 9,
+  NEXT_HTML_ELEMENT: 10,
+  PREVIOUS_HTML_ELEMENT: 11,
+  SCROLL_FORWARD: 12,
+  SCROLL_BACKWARD: 13,
+  COPY: 14,
+  PASTE: 15,
+  CUT: 16,
+  SET_SELECTION: 17,
+  EXPAND: 18,
+  COLLAPSE: 19,
+  DISMISS: 20,
+  SET_TEXT: 21,
+  CONTEXT_CLICK: 22,
+  SCROLL_DOWN: 23,
+  SCROLL_LEFT: 24,
+  SCROLL_RIGHT: 25,
+  SCROLL_TO_POSITION: 26,
+  SCROLL_UP: 27,
+  SET_PROGRESS: 28,
+  SHOW_ON_SCREEN: 29,
+  CUSTOM_ACTION: 30,
+  GET_TEXT_LOCATION: 31,
+  SHOW_TOOLTIP: 32,
+  HIDE_TOOLTIP: 33,
 };
 
 // Enum: AccessibilityBooleanProperty
@@ -118,9 +124,11 @@ ax.android.mojom.AccessibilityStringProperty = {
   CONTENT_DESCRIPTION: 3,
   VIEW_ID_RESOURCE_NAME: 4,
   CHROME_ROLE: 5,
-  PANE_TITLE: 6,
-  HINT_TEXT: 7,
-  STATE_DESCRIPTION: 8,
+  ROLE_DESCRIPTION: 6,
+  TOOLTIP: 7,
+  PANE_TITLE: 8,
+  HINT_TEXT: 9,
+  STATE_DESCRIPTION: 10,
 };
 
 // Enum: AccessibilityIntProperty
@@ -211,10 +219,15 @@ ax.android.mojom.AccessibilityWindowType = {
 
 // Enum: AccessibilityFilterType
 ax.android.mojom.AccessibilityFilterType = {
+  OFF: 0,
+  FOCUS: 1,
+  ALL: 2,
 };
 
 // Enum: AccessibilityNotificationStateType
 ax.android.mojom.AccessibilityNotificationStateType = {
+  SURFACE_CREATED: 0,
+  SURFACE_REMOVED: 1,
 };
 
 // Enum: AccessibilityEventIntProperty
@@ -278,106 +291,105 @@ ax.android.mojom.SetNativeChromeVoxResponse = {
   WINDOW_NOT_FOUND: 1,
   TALKBACK_NOT_INSTALLED: 2,
   FAILURE: 3,
-};
-
-// Struct: Rect
-ax.android.mojom.Rect = class {
-  constructor(values = {}) {
-    this.bottom = values.bottom !== undefined ? values.bottom : 0;
-  }
-};
-
-// Struct: SpanEntry
-ax.android.mojom.SpanEntry = class {
-  constructor(values = {}) {
-    this.span_type = values.span_type !== undefined ? values.span_type : 0;
-  }
-};
-
-// Struct: AccessibilityCollectionInfoData
-ax.android.mojom.AccessibilityCollectionInfoData = class {
-  constructor(values = {}) {
-    this.selection_mode = values.selection_mode !== undefined ? values.selection_mode : 0;
-  }
-};
-
-// Struct: AccessibilityCollectionItemInfoData
-ax.android.mojom.AccessibilityCollectionItemInfoData = class {
-  constructor(values = {}) {
-    this.is_selected = values.is_selected !== undefined ? values.is_selected : 0;
-  }
-};
-
-// Struct: AccessibilityRangeInfoData
-ax.android.mojom.AccessibilityRangeInfoData = class {
-  constructor(values = {}) {
-    this.current = values.current !== undefined ? values.current : 0;
-  }
-};
-
-// Struct: AccessibilityActionInAndroid
-ax.android.mojom.AccessibilityActionInAndroid = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: AccessibilityNodeInfoData
-ax.android.mojom.AccessibilityNodeInfoData = class {
-  constructor(values = {}) {
-    this.custom_actions = values.custom_actions !== undefined ? values.custom_actions : 0;
-  }
-};
-
-// Struct: AccessibilityWindowInfoData
-ax.android.mojom.AccessibilityWindowInfoData = class {
-  constructor(values = {}) {
-    this.int_list_properties = values.int_list_properties !== undefined ? values.int_list_properties : 0;
-  }
-};
-
-// Struct: AccessibilityEventData
-ax.android.mojom.AccessibilityEventData = class {
-  constructor(values = {}) {
-    this.notification_key = values.notification_key !== undefined ? values.notification_key : 0;
-    this.task_id = values.task_id !== undefined ? values.task_id : 0;
-    this.int_list_properties = values.int_list_properties !== undefined ? values.int_list_properties : 0;
-  }
-};
-
-// Struct: AccessibilityActionData
-ax.android.mojom.AccessibilityActionData = class {
-  constructor(values = {}) {
-    this.float_parameters = values.float_parameters !== undefined ? values.float_parameters : 0;
-  }
+  NEED_DEPRECATION_CONFIRMATION: 4,
 };
 
 // Interface: AccessibilityHelperHost
-ax.android.mojom.AccessibilityHelperHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ax.android.mojom.AccessibilityHelperHost';
-  }
-
-};
-
-ax.android.mojom.AccessibilityHelperHostRequest = class {
+ax.android.mojom.AccessibilityHelperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ax.android.mojom.AccessibilityHelperHostRemote = class {
+  static get $interfaceName() {
+    return 'ax.android.mojom.AccessibilityHelperHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ax.android.mojom.AccessibilityHelperHostPendingReceiver,
+      handle);
+    this.$ = new ax.android.mojom.AccessibilityHelperHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ax.android.mojom.AccessibilityHelperHost.getRemote = function() {
+  let remote = new ax.android.mojom.AccessibilityHelperHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ax.android.mojom.AccessibilityHelperHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ax.android.mojom.AccessibilityHelperHostPtr = ax.android.mojom.AccessibilityHelperHostRemote;
+ax.android.mojom.AccessibilityHelperHostRequest = ax.android.mojom.AccessibilityHelperHostPendingReceiver;
+
 
 // Interface: AccessibilityHelperInstance
-ax.android.mojom.AccessibilityHelperInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ax.android.mojom.AccessibilityHelperInstance';
-  }
-
-};
-
-ax.android.mojom.AccessibilityHelperInstanceRequest = class {
+ax.android.mojom.AccessibilityHelperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ax.android.mojom.AccessibilityHelperInstanceRemote = class {
+  static get $interfaceName() {
+    return 'ax.android.mojom.AccessibilityHelperInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ax.android.mojom.AccessibilityHelperInstancePendingReceiver,
+      handle);
+    this.$ = new ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+ax.android.mojom.AccessibilityHelperInstance.getRemote = function() {
+  let remote = new ax.android.mojom.AccessibilityHelperInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ax.android.mojom.AccessibilityHelperInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+ax.android.mojom.AccessibilityHelperInstancePtr = ax.android.mojom.AccessibilityHelperInstanceRemote;
+ax.android.mojom.AccessibilityHelperInstanceRequest = ax.android.mojom.AccessibilityHelperInstancePendingReceiver;
+

@@ -10,46 +10,170 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetworkDiagnostics
-chrome.mojom.NetworkDiagnosticsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chrome.mojom.NetworkDiagnostics';
+chrome.mojom.NetworkDiagnosticsPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+chrome.mojom.NetworkDiagnosticsRemote = class {
+  static get $interfaceName() {
+    return 'chrome.mojom.NetworkDiagnostics';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chrome.mojom.NetworkDiagnosticsPendingReceiver,
+      handle);
+    this.$ = new chrome.mojom.NetworkDiagnosticsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   runNetworkDiagnostics(failed_url) {
-    // Method: RunNetworkDiagnostics
-    // Call: RunNetworkDiagnostics(failed_url)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$,
+      null,
+      [failed_url]);
   }
 
 };
 
-chrome.mojom.NetworkDiagnosticsRequest = class {
+chrome.mojom.NetworkDiagnostics.getRemote = function() {
+  let remote = new chrome.mojom.NetworkDiagnosticsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chrome.mojom.NetworkDiagnostics',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RunNetworkDiagnostics
+chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.NetworkDiagnostics.RunNetworkDiagnostics_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+chrome.mojom.NetworkDiagnosticsPtr = chrome.mojom.NetworkDiagnosticsRemote;
+chrome.mojom.NetworkDiagnosticsRequest = chrome.mojom.NetworkDiagnosticsPendingReceiver;
+
+
+// Interface: NetworkDiagnosticsClient
+chrome.mojom.NetworkDiagnosticsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NetworkDiagnosticsClient
-chrome.mojom.NetworkDiagnosticsClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chrome.mojom.NetworkDiagnosticsClient';
+chrome.mojom.NetworkDiagnosticsClientRemote = class {
+  static get $interfaceName() {
+    return 'chrome.mojom.NetworkDiagnosticsClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chrome.mojom.NetworkDiagnosticsClientPendingReceiver,
+      handle);
+    this.$ = new chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setCanShowNetworkDiagnosticsDialog(can_show) {
-    // Method: SetCanShowNetworkDiagnosticsDialog
-    // Call: SetCanShowNetworkDiagnosticsDialog(can_show)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$,
+      null,
+      [can_show]);
   }
 
   dNSProbeStatus(status) {
-    // Method: DNSProbeStatus
-    // Call: DNSProbeStatus(status)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$,
+      null,
+      [status]);
   }
 
 };
 
-chrome.mojom.NetworkDiagnosticsClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+chrome.mojom.NetworkDiagnosticsClient.getRemote = function() {
+  let remote = new chrome.mojom.NetworkDiagnosticsClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chrome.mojom.NetworkDiagnosticsClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetCanShowNetworkDiagnosticsDialog
+chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.NetworkDiagnosticsClient.SetCanShowNetworkDiagnosticsDialog_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for DNSProbeStatus
+chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chrome.mojom.NetworkDiagnosticsClient.DNSProbeStatus_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+chrome.mojom.NetworkDiagnosticsClientPtr = chrome.mojom.NetworkDiagnosticsClientRemote;
+chrome.mojom.NetworkDiagnosticsClientRequest = chrome.mojom.NetworkDiagnosticsClientPendingReceiver;
+

@@ -14,6 +14,7 @@ chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 chromeos.cdm.mojom.ProtectionType = {
   NONE: 0,
   HDCP_TYPE_0: 1,
+  HDCP_TYPE_1: 2,
 };
 
 // Enum: LinkType
@@ -29,16 +30,51 @@ chromeos.cdm.mojom.LinkType = {
 };
 
 // Interface: OutputProtection
-chromeos.cdm.mojom.OutputProtectionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.cdm.mojom.OutputProtection';
-  }
-
-};
-
-chromeos.cdm.mojom.OutputProtectionRequest = class {
+chromeos.cdm.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.cdm.mojom.OutputProtectionRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.cdm.mojom.OutputProtection';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.cdm.mojom.OutputProtectionPendingReceiver,
+      handle);
+    this.$ = new chromeos.cdm.mojom.OutputProtectionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.cdm.mojom.OutputProtection.getRemote = function() {
+  let remote = new chromeos.cdm.mojom.OutputProtectionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.cdm.mojom.OutputProtection',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.cdm.mojom.OutputProtectionPtr = chromeos.cdm.mojom.OutputProtectionRemote;
+chromeos.cdm.mojom.OutputProtectionRequest = chromeos.cdm.mojom.OutputProtectionPendingReceiver;
+

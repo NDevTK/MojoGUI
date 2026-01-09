@@ -9,51 +9,110 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
-// Struct: AudioProcessingStats
-media.mojom.AudioProcessingStats = class {
-  constructor(values = {}) {
-    this.echo_return_loss_enhancement = values.echo_return_loss_enhancement !== undefined ? values.echo_return_loss_enhancement : 0;
-  }
-};
-
-// Struct: AudioProcessingSettings
-media.mojom.AudioProcessingSettings = class {
-  constructor(values = {}) {
-    this.use_loopback_aec_reference = values.use_loopback_aec_reference !== undefined ? values.use_loopback_aec_reference : false;
-  }
-};
-
-// Struct: AudioProcessingConfig
-media.mojom.AudioProcessingConfig = class {
-  constructor(values = {}) {
-    this.settings = values.settings !== undefined ? values.settings : null;
-  }
-};
-
 // Interface: AudioProcessorControls
-media.mojom.AudioProcessorControlsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.AudioProcessorControls';
-  }
-
-  getStats() {
-    // Method: GetStats
-    return new Promise((resolve) => {
-      // Call: GetStats()
-      resolve({});
-    });
-  }
-
-  setPreferredNumCaptureChannels(num_preferred_channels) {
-    // Method: SetPreferredNumCaptureChannels
-    // Call: SetPreferredNumCaptureChannels(num_preferred_channels)
-  }
-
-};
-
-media.mojom.AudioProcessorControlsRequest = class {
+media.mojom.AudioProcessorControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+media.mojom.AudioProcessorControlsRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.AudioProcessorControls';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.AudioProcessorControlsPendingReceiver,
+      handle);
+    this.$ = new media.mojom.AudioProcessorControlsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.AudioProcessorControlsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getStats() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$,
+      media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$,
+      []);
+  }
+
+  setPreferredNumCaptureChannels(num_preferred_channels) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$,
+      null,
+      [num_preferred_channels]);
+  }
+
+};
+
+media.mojom.AudioProcessorControls.getRemote = function() {
+  let remote = new media.mojom.AudioProcessorControlsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.AudioProcessorControls',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetStats
+media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessorControls.GetStats_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessorControls.GetStats_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPreferredNumCaptureChannels
+media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AudioProcessorControls.SetPreferredNumCaptureChannels_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_preferred_channels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.AudioProcessorControlsPtr = media.mojom.AudioProcessorControlsRemote;
+media.mojom.AudioProcessorControlsRequest = media.mojom.AudioProcessorControlsPendingReceiver;
+

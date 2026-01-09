@@ -16,31 +16,117 @@ new_tab_page.mojom.AuthType = {
 };
 
 // Interface: MicrosoftAuthUntrustedDocument
-new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument';
-  }
-
-  acquireTokenPopup() {
-    // Method: AcquireTokenPopup
-    // Call: AcquireTokenPopup()
-  }
-
-  acquireTokenSilent() {
-    // Method: AcquireTokenSilent
-    // Call: AcquireTokenSilent()
-  }
-
-  signOut() {
-    // Method: SignOut
-    // Call: SignOut()
-  }
-
-};
-
-new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRequest = class {
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = class {
+  static get $interfaceName() {
+    return 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver,
+      handle);
+    this.$ = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  acquireTokenPopup() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  acquireTokenSilent() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  signOut() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument.getRemote = function() {
+  let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'new_tab_page.mojom.MicrosoftAuthUntrustedDocument',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AcquireTokenPopup
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument.AcquireTokenPopup_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AcquireTokenSilent
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument.AcquireTokenSilent_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SignOut
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument.SignOut_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote;
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRequest = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver;
+

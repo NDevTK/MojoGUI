@@ -9,82 +9,196 @@ var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 
 
-// Struct: MenuItemCommonFields
-remote_cocoa.mojom.MenuItemCommonFields = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : 0;
-  }
-};
-
-// Struct: SubmenuMenuItem
-remote_cocoa.mojom.SubmenuMenuItem = class {
-  constructor(values = {}) {
-    this.children = values.children !== undefined ? values.children : [];
-  }
-};
-
-// Struct: MenuControllerParams
-remote_cocoa.mojom.MenuControllerParams = class {
-  constructor(values = {}) {
-    this.iph_dot_color = values.iph_dot_color !== undefined ? values.iph_dot_color : 0;
-  }
-};
-
-// Struct: ContextMenu
-remote_cocoa.mojom.ContextMenu = class {
-  constructor(values = {}) {
-    this.items = values.items !== undefined ? values.items : [];
-    this.anchor = values.anchor !== undefined ? values.anchor : 0;
-    this.params = values.params !== undefined ? values.params : 0;
-  }
-};
-
 // Interface: MenuHost
-remote_cocoa.mojom.MenuHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remote_cocoa.mojom.MenuHost';
+remote_cocoa.mojom.MenuHostPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+remote_cocoa.mojom.MenuHostRemote = class {
+  static get $interfaceName() {
+    return 'remote_cocoa.mojom.MenuHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remote_cocoa.mojom.MenuHostPendingReceiver,
+      handle);
+    this.$ = new remote_cocoa.mojom.MenuHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   commandActivated(command_id, event_flags) {
-    // Method: CommandActivated
-    // Call: CommandActivated(command_id, event_flags)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$,
+      null,
+      [command_id, event_flags]);
   }
 
   menuClosed() {
-    // Method: MenuClosed
-    // Call: MenuClosed()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-remote_cocoa.mojom.MenuHostRequest = class {
+remote_cocoa.mojom.MenuHost.getRemote = function() {
+  let remote = new remote_cocoa.mojom.MenuHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remote_cocoa.mojom.MenuHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CommandActivated
+remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.MenuHost.CommandActivated_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MenuClosed
+remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.MenuHost.MenuClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remote_cocoa.mojom.MenuHostPtr = remote_cocoa.mojom.MenuHostRemote;
+remote_cocoa.mojom.MenuHostRequest = remote_cocoa.mojom.MenuHostPendingReceiver;
+
+
+// Interface: Menu
+remote_cocoa.mojom.MenuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Menu
-remote_cocoa.mojom.MenuPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remote_cocoa.mojom.Menu';
+remote_cocoa.mojom.MenuRemote = class {
+  static get $interfaceName() {
+    return 'remote_cocoa.mojom.Menu';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remote_cocoa.mojom.MenuPendingReceiver,
+      handle);
+    this.$ = new remote_cocoa.mojom.MenuRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remote_cocoa.mojom.MenuRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   cancel() {
-    // Method: Cancel
-    // Call: Cancel()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$,
+      null,
+      []);
   }
 
   updateMenuItem(command_id, enabled, visible, label) {
-    // Method: UpdateMenuItem
-    // Call: UpdateMenuItem(command_id, enabled, visible, label)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$,
+      null,
+      [command_id, enabled, visible, label]);
   }
 
 };
 
-remote_cocoa.mojom.MenuRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+remote_cocoa.mojom.Menu.getRemote = function() {
+  let remote = new remote_cocoa.mojom.MenuRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remote_cocoa.mojom.Menu',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Cancel
+remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Menu.Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for UpdateMenuItem
+remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remote_cocoa.mojom.Menu.UpdateMenuItem_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remote_cocoa.mojom.MenuPtr = remote_cocoa.mojom.MenuRemote;
+remote_cocoa.mojom.MenuRequest = remote_cocoa.mojom.MenuPendingReceiver;
+

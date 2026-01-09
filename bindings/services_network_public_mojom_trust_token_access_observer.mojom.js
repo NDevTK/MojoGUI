@@ -9,51 +9,98 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
-// Struct: TrustTokenIssuanceDetails
-network.mojom.TrustTokenIssuanceDetails = class {
-  constructor(values = {}) {
-    this.the = values.the !== undefined ? values.the : null;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: TrustTokenRedemptionDetails
-network.mojom.TrustTokenRedemptionDetails = class {
-  constructor(values = {}) {
-    this.the = values.the !== undefined ? values.the : null;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: TrustTokenSigningDetails
-network.mojom.TrustTokenSigningDetails = class {
-  constructor(values = {}) {
-    this.the = values.the !== undefined ? values.the : null;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
 // Interface: TrustTokenAccessObserver
-network.mojom.TrustTokenAccessObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.TrustTokenAccessObserver';
-  }
-
-  onTrustTokensAccessed(details) {
-    // Method: OnTrustTokensAccessed
-    // Call: OnTrustTokensAccessed(details)
-  }
-
-  clone(listener) {
-    // Method: Clone
-    // Call: Clone(listener)
-  }
-
-};
-
-network.mojom.TrustTokenAccessObserverRequest = class {
+network.mojom.TrustTokenAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+network.mojom.TrustTokenAccessObserverRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.TrustTokenAccessObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.TrustTokenAccessObserverPendingReceiver,
+      handle);
+    this.$ = new network.mojom.TrustTokenAccessObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onTrustTokensAccessed(details) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec.$,
+      null,
+      [details]);
+  }
+
+  clone(listener) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec.$,
+      null,
+      [listener]);
+  }
+
+};
+
+network.mojom.TrustTokenAccessObserver.getRemote = function() {
+  let remote = new network.mojom.TrustTokenAccessObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.TrustTokenAccessObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnTrustTokensAccessed
+network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenAccessObserver.OnTrustTokensAccessed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Clone
+network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenAccessObserver.Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.TrustTokenAccessObserverPtr = network.mojom.TrustTokenAccessObserverRemote;
+network.mojom.TrustTokenAccessObserverRequest = network.mojom.TrustTokenAccessObserverPendingReceiver;
+

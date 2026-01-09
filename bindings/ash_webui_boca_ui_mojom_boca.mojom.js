@@ -67,12 +67,25 @@ ash.boca.mojom.JoinMethod = {
 
 // Enum: BocaValidPref
 ash.boca.mojom.BocaValidPref = {
+  kNavigationSetting: 0,
+  kCaptionEnablementSetting: 1,
+  kDefaultMediaStreamSetting: 2,
+  kOOBEAccessCount: 3,
+  kKioskReceiverCodes: 4,
 };
 
 // Enum: StudentStatusDetail
 ash.boca.mojom.StudentStatusDetail = {
   kUnknown: 0,
-  hasn: 1,
+  kNotFound: 1,
+  kAdded: 2,
+  kActive: 3,
+  kRemovedByOtherSession: 4,
+  kRemovedByBeingTeacher: 5,
+  kRemovedByTeacher: 6,
+  kNotAddedConfiguredAsTeacher: 7,
+  kNotAddedNotConfigured: 8,
+  kMultipleDeviceSignedIn: 9,
 };
 
 // Enum: GetSessionError
@@ -90,18 +103,26 @@ ash.boca.mojom.UpdateSessionError = {
 
 // Enum: RemoveStudentError
 ash.boca.mojom.RemoveStudentError = {
+  kInvalid: 0,
+  kHTTPError: 1,
 };
 
 // Enum: RenotifyStudentError
 ash.boca.mojom.RenotifyStudentError = {
+  kInvalid: 0,
+  kHTTPError: 1,
 };
 
 // Enum: AddStudentsError
 ash.boca.mojom.AddStudentsError = {
+  kInvalid: 0,
+  kHTTPError: 1,
 };
 
 // Enum: SubmitAccessCodeError
 ash.boca.mojom.SubmitAccessCodeError = {
+  kInvalid: 0,
+  kNetworkRestriction: 1,
 };
 
 // Enum: ViewStudentScreenError
@@ -130,6 +151,8 @@ ash.boca.mojom.SpeechRecognitionInstallState = {
 
 // Enum: CreateSessionError
 ash.boca.mojom.CreateSessionError = {
+  kHTTPError: 0,
+  kNetworkRestriction: 1,
 };
 
 // Enum: CrdConnectionState
@@ -141,436 +164,1461 @@ ash.boca.mojom.CrdConnectionState = {
   kFailed: 4,
 };
 
-// Struct: TabInfo
-ash.boca.mojom.TabInfo = class {
-  constructor(values = {}) {
-    this.favicon = values.favicon !== undefined ? values.favicon : 0;
-  }
-};
-
-// Struct: Identity
-ash.boca.mojom.Identity = class {
-  constructor(values = {}) {
-    this.photo_url = values.photo_url !== undefined ? values.photo_url : "";
-  }
-};
-
-// Struct: Course
-ash.boca.mojom.Course = class {
-  constructor(values = {}) {
-    this.section = values.section !== undefined ? values.section : "";
-  }
-};
-
-// Struct: Material
-ash.boca.mojom.Material = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : "";
-  }
-};
-
-// Struct: Assignment
-ash.boca.mojom.Assignment = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : "";
-  }
-};
-
-// Struct: Window
-ash.boca.mojom.Window = class {
-  constructor(values = {}) {
-    this.tab_list = values.tab_list !== undefined ? values.tab_list : "";
-  }
-};
-
-// Struct: NetworkInfo
-ash.boca.mojom.NetworkInfo = class {
-  constructor(values = {}) {
-    this.signal_strength = values.signal_strength !== undefined ? values.signal_strength : 0;
-  }
-};
-
-// Struct: Config
-ash.boca.mojom.Config = class {
-  constructor(values = {}) {
-    this.access_code = values.access_code !== undefined ? values.access_code : "";
-  }
-};
-
-// Struct: CaptionConfig
-ash.boca.mojom.CaptionConfig = class {
-  constructor(values = {}) {
-    this.session_translation_enabled = values.session_translation_enabled !== undefined ? values.session_translation_enabled : false;
-  }
-};
-
-// Struct: ControlledTab
-ash.boca.mojom.ControlledTab = class {
-  constructor(values = {}) {
-    this.navigation_type = values.navigation_type !== undefined ? values.navigation_type : null;
-  }
-};
-
-// Struct: OnTaskConfig
-ash.boca.mojom.OnTaskConfig = class {
-  constructor(values = {}) {
-    this.tabs = values.tabs !== undefined ? values.tabs : false;
-  }
-};
-
-// Struct: Session
-ash.boca.mojom.Session = class {
-  constructor(values = {}) {
-    this.activities = values.activities !== undefined ? values.activities : [];
-  }
-};
-
-// Struct: StudentActivity
-ash.boca.mojom.StudentActivity = class {
-  constructor(values = {}) {
-    this.view_screen_session_code = values.view_screen_session_code !== undefined ? values.view_screen_session_code : false;
-  }
-};
-
-// Struct: IdentifiedActivity
-ash.boca.mojom.IdentifiedActivity = class {
-  constructor(values = {}) {
-    this.activity = values.activity !== undefined ? values.activity : "";
-  }
-};
-
 // Interface: PageHandler
-ash.boca.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.boca.mojom.PageHandler';
+ash.boca.mojom.PageHandlerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.boca.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'ash.boca.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.boca.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new ash.boca.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.boca.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   authenticateWebview() {
-    // Method: AuthenticateWebview
-    return new Promise((resolve) => {
-      // Call: AuthenticateWebview()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec.$,
+      []);
   }
 
   getWindowsTabsList() {
-    // Method: GetWindowsTabsList
-    return new Promise((resolve) => {
-      // Call: GetWindowsTabsList()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec.$,
+      []);
   }
 
   listCourses() {
-    // Method: ListCourses
-    return new Promise((resolve) => {
-      // Call: ListCourses()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec.$,
+      []);
   }
 
   listStudents(course_id) {
-    // Method: ListStudents
-    return new Promise((resolve) => {
-      // Call: ListStudents(course_id)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec.$,
+      [course_id]);
   }
 
   listAssignments(course_id) {
-    // Method: ListAssignments
-    return new Promise((resolve) => {
-      // Call: ListAssignments(course_id)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec.$,
+      [course_id]);
   }
 
   createSession(config) {
-    // Method: CreateSession
-    return new Promise((resolve) => {
-      // Call: CreateSession(config)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec.$,
+      [config]);
   }
 
   getSession() {
-    // Method: GetSession
-    return new Promise((resolve) => {
-      // Call: GetSession()
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec.$,
+      []);
   }
 
   endSession() {
-    // Method: EndSession
-    return new Promise((resolve) => {
-      // Call: EndSession()
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec.$,
+      []);
   }
 
   extendSessionDuration(extended_duration) {
-    // Method: ExtendSessionDuration
-    return new Promise((resolve) => {
-      // Call: ExtendSessionDuration(extended_duration)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec.$,
+      [extended_duration]);
   }
 
   removeStudent(student_id) {
-    // Method: RemoveStudent
-    return new Promise((resolve) => {
-      // Call: RemoveStudent(student_id)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec.$,
+      [student_id]);
   }
 
   renotifyStudent(student_id) {
-    // Method: RenotifyStudent
-    return new Promise((resolve) => {
-      // Call: RenotifyStudent(student_id)
-      resolve({});
-    });
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec.$,
+      [student_id]);
   }
 
   addStudents(students) {
-    // Method: AddStudents
-    return new Promise((resolve) => {
-      // Call: AddStudents(students)
-      resolve({});
-    });
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec.$,
+      [students]);
   }
 
   updateOnTaskConfig(on_task_config) {
-    // Method: UpdateOnTaskConfig
-    return new Promise((resolve) => {
-      // Call: UpdateOnTaskConfig(on_task_config)
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec.$,
+      [on_task_config]);
   }
 
   updateCaptionConfig(caption_config) {
-    // Method: UpdateCaptionConfig
-    return new Promise((resolve) => {
-      // Call: UpdateCaptionConfig(caption_config)
-      resolve({});
-    });
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec.$,
+      [caption_config]);
   }
 
   setFloatMode(is_float_mode) {
-    // Method: SetFloatMode
-    return new Promise((resolve) => {
-      // Call: SetFloatMode(is_float_mode)
-      resolve({});
-    });
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec.$,
+      [is_float_mode]);
   }
 
   submitAccessCode(access_code) {
-    // Method: SubmitAccessCode
-    return new Promise((resolve) => {
-      // Call: SubmitAccessCode(access_code)
-      resolve({});
-    });
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec.$,
+      [access_code]);
   }
 
   viewStudentScreen(id) {
-    // Method: ViewStudentScreen
-    return new Promise((resolve) => {
-      // Call: ViewStudentScreen(id)
-      resolve({});
-    });
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec.$,
+      [id]);
   }
 
   endViewScreenSession(id) {
-    // Method: EndViewScreenSession
-    return new Promise((resolve) => {
-      // Call: EndViewScreenSession(id)
-      resolve({});
-    });
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec.$,
+      [id]);
   }
 
   setViewScreenSessionActive(id) {
-    // Method: SetViewScreenSessionActive
-    return new Promise((resolve) => {
-      // Call: SetViewScreenSessionActive(id)
-      resolve({});
-    });
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec.$,
+      [id]);
   }
 
   getUserPref(pref) {
-    // Method: GetUserPref
-    return new Promise((resolve) => {
-      // Call: GetUserPref(pref)
-      resolve({});
-    });
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec.$,
+      [pref]);
   }
 
   setUserPref(pref, value) {
-    // Method: SetUserPref
-    // Call: SetUserPref(pref, value)
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$,
+      null,
+      [pref, value]);
   }
 
   setSitePermission(url, permission, setting) {
-    // Method: SetSitePermission
-    return new Promise((resolve) => {
-      // Call: SetSitePermission(url, permission, setting)
-      resolve({});
-    });
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec.$,
+      [url, permission, setting]);
   }
 
   closeTab(tab_id) {
-    // Method: CloseTab
-    return new Promise((resolve) => {
-      // Call: CloseTab(tab_id)
-      resolve({});
-    });
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec.$,
+      [tab_id]);
   }
 
   openFeedbackDialog() {
-    // Method: OpenFeedbackDialog
-    // Call: OpenFeedbackDialog()
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$,
+      null,
+      []);
   }
 
   refreshWorkbook() {
-    // Method: RefreshWorkbook
-    // Call: RefreshWorkbook()
+    // Ordinal: 24
+    return this.proxy.sendMessage(
+      24,  // ordinal
+      ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$,
+      null,
+      []);
   }
 
   getSpeechRecognitionInstallationStatus() {
-    // Method: GetSpeechRecognitionInstallationStatus
-    return new Promise((resolve) => {
-      // Call: GetSpeechRecognitionInstallationStatus()
-      resolve({});
-    });
+    // Ordinal: 25
+    return this.proxy.sendMessage(
+      25,  // ordinal
+      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec.$,
+      []);
   }
 
   startSpotlight(crd_connection_code) {
-    // Method: StartSpotlight
-    // Call: StartSpotlight(crd_connection_code)
+    // Ordinal: 26
+    return this.proxy.sendMessage(
+      26,  // ordinal
+      ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$,
+      null,
+      [crd_connection_code]);
   }
 
   presentStudentScreen(student, receiver_id) {
-    // Method: PresentStudentScreen
-    return new Promise((resolve) => {
-      // Call: PresentStudentScreen(student, receiver_id)
-      resolve({});
-    });
+    // Ordinal: 27
+    return this.proxy.sendMessage(
+      27,  // ordinal
+      ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec.$,
+      [student, receiver_id]);
   }
 
   stopPresentingStudentScreen() {
-    // Method: StopPresentingStudentScreen
-    return new Promise((resolve) => {
-      // Call: StopPresentingStudentScreen()
-      resolve({});
-    });
+    // Ordinal: 28
+    return this.proxy.sendMessage(
+      28,  // ordinal
+      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec.$,
+      []);
   }
 
   presentOwnScreen(receiver_id) {
-    // Method: PresentOwnScreen
-    return new Promise((resolve) => {
-      // Call: PresentOwnScreen(receiver_id)
-      resolve({});
-    });
+    // Ordinal: 29
+    return this.proxy.sendMessage(
+      29,  // ordinal
+      ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec.$,
+      [receiver_id]);
   }
 
   stopPresentingOwnScreen() {
-    // Method: StopPresentingOwnScreen
-    return new Promise((resolve) => {
-      // Call: StopPresentingOwnScreen()
-      resolve({});
-    });
+    // Ordinal: 30
+    return this.proxy.sendMessage(
+      30,  // ordinal
+      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$,
+      ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-ash.boca.mojom.PageHandlerRequest = class {
+ash.boca.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.boca.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.boca.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AuthenticateWebview
+ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.AuthenticateWebview_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.AuthenticateWebview_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetWindowsTabsList
+ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetWindowsTabsList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetWindowsTabsList_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'window_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListCourses
+ash.boca.mojom.PageHandler_ListCourses_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ListCourses_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ListCourses_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'courses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListStudents
+ash.boca.mojom.PageHandler_ListStudents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ListStudents_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'course_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ListStudents_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'students', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListAssignments
+ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ListAssignments_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'course_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ListAssignments_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'assignments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateSession
+ash.boca.mojom.PageHandler_CreateSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.CreateSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.CreateSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSession
+ash.boca.mojom.PageHandler_GetSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EndSession
+ash.boca.mojom.PageHandler_EndSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.EndSession_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.EndSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ExtendSessionDuration
+ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ExtendSessionDuration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extended_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ExtendSessionDuration_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RemoveStudent
+ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.RemoveStudent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'student_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.RemoveStudent_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RenotifyStudent
+ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.RenotifyStudent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'student_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.RenotifyStudent_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AddStudents
+ash.boca.mojom.PageHandler_AddStudents_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.AddStudents_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'students', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.AddStudents_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateOnTaskConfig
+ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.UpdateOnTaskConfig_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'on_task_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.UpdateOnTaskConfig_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateCaptionConfig
+ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.UpdateCaptionConfig_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'caption_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.UpdateCaptionConfig_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFloatMode
+ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetFloatMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_float_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetFloatMode_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SubmitAccessCode
+ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SubmitAccessCode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SubmitAccessCode_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ViewStudentScreen
+ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ViewStudentScreen_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.ViewStudentScreen_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EndViewScreenSession
+ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.EndViewScreenSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.EndViewScreenSession_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetViewScreenSessionActive
+ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetViewScreenSessionActive_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetViewScreenSessionActive_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetUserPref
+ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetUserPref_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetUserPref_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetUserPref
+ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetUserPref_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSitePermission
+ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetSitePermission_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.SetSitePermission_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseTab
+ash.boca.mojom.PageHandler_CloseTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.CloseTab_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.CloseTab_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenFeedbackDialog
+ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.OpenFeedbackDialog_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RefreshWorkbook
+ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.RefreshWorkbook_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSpeechRecognitionInstallationStatus
+ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetSpeechRecognitionInstallationStatus_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.GetSpeechRecognitionInstallationStatus_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartSpotlight
+ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.StartSpotlight_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'crd_connection_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PresentStudentScreen
+ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.PresentStudentScreen_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'student', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.PresentStudentScreen_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StopPresentingStudentScreen
+ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.StopPresentingStudentScreen_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.StopPresentingStudentScreen_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PresentOwnScreen
+ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.PresentOwnScreen_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.PresentOwnScreen_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StopPresentingOwnScreen
+ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.StopPresentingOwnScreen_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.PageHandler.StopPresentingOwnScreen_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.boca.mojom.PageHandlerPtr = ash.boca.mojom.PageHandlerRemote;
+ash.boca.mojom.PageHandlerRequest = ash.boca.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+ash.boca.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-ash.boca.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.boca.mojom.Page';
+ash.boca.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'ash.boca.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.boca.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new ash.boca.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.boca.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onStudentActivityUpdated(activities) {
-    // Method: OnStudentActivityUpdated
-    // Call: OnStudentActivityUpdated(activities)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$,
+      null,
+      [activities]);
   }
 
   onSessionConfigUpdated(config) {
-    // Method: OnSessionConfigUpdated
-    // Call: OnSessionConfigUpdated(config)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$,
+      null,
+      [config]);
   }
 
   onActiveNetworkStateChanged(active_networks) {
-    // Method: OnActiveNetworkStateChanged
-    // Call: OnActiveNetworkStateChanged(active_networks)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$,
+      null,
+      [active_networks]);
   }
 
   onLocalCaptionDisabled() {
-    // Method: OnLocalCaptionDisabled
-    // Call: OnLocalCaptionDisabled()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$,
+      null,
+      []);
   }
 
   onSpeechRecognitionInstallStateUpdated(state) {
-    // Method: OnSpeechRecognitionInstallStateUpdated
-    // Call: OnSpeechRecognitionInstallStateUpdated(state)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$,
+      null,
+      [state]);
   }
 
   onSessionCaptionDisabled(is_error) {
-    // Method: OnSessionCaptionDisabled
-    // Call: OnSessionCaptionDisabled(is_error)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$,
+      null,
+      [is_error]);
   }
 
   onFrameDataReceived(frame_data) {
-    // Method: OnFrameDataReceived
-    // Call: OnFrameDataReceived(frame_data)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$,
+      null,
+      [frame_data]);
   }
 
   onSpotlightCrdSessionStatusUpdated(state) {
-    // Method: OnSpotlightCrdSessionStatusUpdated
-    // Call: OnSpotlightCrdSessionStatusUpdated(state)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$,
+      null,
+      [state]);
   }
 
   onPresentStudentScreenEnded() {
-    // Method: OnPresentStudentScreenEnded
-    // Call: OnPresentStudentScreenEnded()
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$,
+      null,
+      []);
   }
 
   onPresentOwnScreenEnded() {
-    // Method: OnPresentOwnScreenEnded
-    // Call: OnPresentOwnScreenEnded()
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-ash.boca.mojom.PageRequest = class {
+ash.boca.mojom.Page.getRemote = function() {
+  let remote = new ash.boca.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.boca.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnStudentActivityUpdated
+ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnStudentActivityUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'activities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSessionConfigUpdated
+ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnSessionConfigUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnActiveNetworkStateChanged
+ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnActiveNetworkStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'active_networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnLocalCaptionDisabled
+ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnLocalCaptionDisabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSpeechRecognitionInstallStateUpdated
+ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnSpeechRecognitionInstallStateUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSessionCaptionDisabled
+ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnSessionCaptionDisabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnFrameDataReceived
+ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnFrameDataReceived_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSpotlightCrdSessionStatusUpdated
+ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnSpotlightCrdSessionStatusUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnPresentStudentScreenEnded
+ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnPresentStudentScreenEnded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnPresentOwnScreenEnded
+ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.Page.OnPresentOwnScreenEnded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.boca.mojom.PagePtr = ash.boca.mojom.PageRemote;
+ash.boca.mojom.PageRequest = ash.boca.mojom.PagePendingReceiver;
+
+
+// Interface: BocaPageHandlerFactory
+ash.boca.mojom.BocaPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: BocaPageHandlerFactory
-ash.boca.mojom.BocaPageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.boca.mojom.BocaPageHandlerFactory';
+ash.boca.mojom.BocaPageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'ash.boca.mojom.BocaPageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.boca.mojom.BocaPageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   create(handler, page) {
-    // Method: Create
-    // Call: Create(handler, page)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$,
+      null,
+      [handler, page]);
   }
 
 };
 
-ash.boca.mojom.BocaPageHandlerFactoryRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.boca.mojom.BocaPageHandlerFactory.getRemote = function() {
+  let remote = new ash.boca.mojom.BocaPageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.boca.mojom.BocaPageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Create
+ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.boca.mojom.BocaPageHandlerFactory.Create_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+ash.boca.mojom.BocaPageHandlerFactoryPtr = ash.boca.mojom.BocaPageHandlerFactoryRemote;
+ash.boca.mojom.BocaPageHandlerFactoryRequest = ash.boca.mojom.BocaPageHandlerFactoryPendingReceiver;
+

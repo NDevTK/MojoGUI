@@ -12,14 +12,15 @@ network.mojom = network.mojom || {};
 // Enum: ConnectionType
 network.mojom.ConnectionType = {
   CONNECTION_UNKNOWN: 0,
-  but: 1,
+  CONNECTION_ETHERNET: 1,
   CONNECTION_WIFI: 2,
   CONNECTION_2G: 3,
   CONNECTION_3G: 4,
   CONNECTION_4G: 5,
   CONNECTION_NONE: 6,
-  CONNECTION_5G: 7,
-  CONNECTION_LAST: 8,
+  CONNECTION_BLUETOOTH: 7,
+  CONNECTION_5G: 8,
+  CONNECTION_LAST: 9,
 };
 
 // Enum: ConnectionSubtype
@@ -69,56 +70,221 @@ network.mojom.IPAddressChangeType = {
 };
 
 // Interface: NetworkChangeManagerClient
-network.mojom.NetworkChangeManagerClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.NetworkChangeManagerClient';
+network.mojom.NetworkChangeManagerClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+network.mojom.NetworkChangeManagerClientRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.NetworkChangeManagerClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.NetworkChangeManagerClientPendingReceiver,
+      handle);
+    this.$ = new network.mojom.NetworkChangeManagerClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onInitialConnectionType(type) {
-    // Method: OnInitialConnectionType
-    // Call: OnInitialConnectionType(type)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$,
+      null,
+      [type]);
   }
 
   onNetworkChanged(type) {
-    // Method: OnNetworkChanged
-    // Call: OnNetworkChanged(type)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$,
+      null,
+      [type]);
   }
 
 };
 
-network.mojom.NetworkChangeManagerClientRequest = class {
+network.mojom.NetworkChangeManagerClient.getRemote = function() {
+  let remote = new network.mojom.NetworkChangeManagerClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.NetworkChangeManagerClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnInitialConnectionType
+network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkChangeManagerClient.OnInitialConnectionType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNetworkChanged
+network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkChangeManagerClient.OnNetworkChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.NetworkChangeManagerClientPtr = network.mojom.NetworkChangeManagerClientRemote;
+network.mojom.NetworkChangeManagerClientRequest = network.mojom.NetworkChangeManagerClientPendingReceiver;
+
+
+// Interface: NetworkChangeManager
+network.mojom.NetworkChangeManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NetworkChangeManager
-network.mojom.NetworkChangeManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.NetworkChangeManager';
+network.mojom.NetworkChangeManagerRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.NetworkChangeManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.NetworkChangeManagerPendingReceiver,
+      handle);
+    this.$ = new network.mojom.NetworkChangeManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.NetworkChangeManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   requestNotifications(client_remote) {
-    // Method: RequestNotifications
-    // Call: RequestNotifications(client_remote)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$,
+      null,
+      [client_remote]);
   }
 
   onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype) {
-    // Method: OnNetworkChanged
-    // Call: OnNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$,
+      null,
+      [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype]);
   }
 
   bindNetworkInterfaceChangeListener(notifier) {
-    // Method: BindNetworkInterfaceChangeListener
-    // Call: BindNetworkInterfaceChangeListener(notifier)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$,
+      null,
+      [notifier]);
   }
 
 };
 
-network.mojom.NetworkChangeManagerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+network.mojom.NetworkChangeManager.getRemote = function() {
+  let remote = new network.mojom.NetworkChangeManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.NetworkChangeManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RequestNotifications
+network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkChangeManager.RequestNotifications_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnNetworkChanged
+network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkChangeManager.OnNetworkChanged_Params',
+      packedSize: 56,
+      fields: [
+        { name: 'dns_changed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ip_address_change_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection_type_changed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_connection_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection_subtype_changed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_connection_subtype', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BindNetworkInterfaceChangeListener
+network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkChangeManager.BindNetworkInterfaceChangeListener_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.NetworkChangeManagerPtr = network.mojom.NetworkChangeManagerRemote;
+network.mojom.NetworkChangeManagerRequest = network.mojom.NetworkChangeManagerPendingReceiver;
+

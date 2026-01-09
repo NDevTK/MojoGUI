@@ -12,6 +12,8 @@ ash.camera_app.mojom = ash.camera_app.mojom || {};
 
 // Enum: LaunchType
 ash.camera_app.mojom.LaunchType = {
+  kDefault: 0,
+  kAssistant: 1,
 };
 
 // Enum: Mode
@@ -153,13 +155,14 @@ ash.camera_app.mojom.PerfEventType = {
   kModeSwitching: 5,
   kPhotoCapturePostProcessingSaving: 6,
   kPhotoCaptureShutter: 7,
-  kTimelapseCapturePostProcessingSaving: 8,
-  kVideoCapturePostProcessingSaving: 9,
-  kSnapshotTaking: 10,
-  kDocumentCapturePostProcessing: 11,
-  kDocumentPdfSaving: 12,
-  kOcrScanning: 13,
-  kGifCaptureSaving: 14,
+  kPortraitModeCapturePostProcessingSaving: 8,
+  kTimelapseCapturePostProcessingSaving: 9,
+  kVideoCapturePostProcessingSaving: 10,
+  kSnapshotTaking: 11,
+  kDocumentCapturePostProcessing: 12,
+  kDocumentPdfSaving: 13,
+  kOcrScanning: 14,
+  kGifCaptureSaving: 15,
 };
 
 // Enum: UserBehavior
@@ -179,213 +182,350 @@ ash.camera_app.mojom.OcrEventType = {
   kTextDetected: 1,
 };
 
-// Struct: StartSessionEventParams
-ash.camera_app.mojom.StartSessionEventParams = class {
-  constructor(values = {}) {
-    this.launch_type = values.launch_type !== undefined ? values.launch_type : null;
-  }
-};
-
-// Struct: PhotoDetails
-ash.camera_app.mojom.PhotoDetails = class {
-  constructor(values = {}) {
-    this.is_video_snapshot = values.is_video_snapshot !== undefined ? values.is_video_snapshot : false;
-  }
-};
-
-// Struct: NormalVideoDetails
-ash.camera_app.mojom.NormalVideoDetails = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: GifVideoDetails
-ash.camera_app.mojom.GifVideoDetails = class {
-  constructor(values = {}) {
-    this.gif_result_type = values.gif_result_type !== undefined ? values.gif_result_type : null;
-  }
-};
-
-// Struct: TimelapseVideoDetails
-ash.camera_app.mojom.TimelapseVideoDetails = class {
-  constructor(values = {}) {
-    this.timelapse_speed = values.timelapse_speed !== undefined ? values.timelapse_speed : 0;
-  }
-};
-
-// Struct: VideoDetails
-ash.camera_app.mojom.VideoDetails = class {
-  constructor(values = {}) {
-    this.record_type_details = values.record_type_details !== undefined ? values.record_type_details : 0;
-  }
-};
-
-// Struct: CaptureEventParams
-ash.camera_app.mojom.CaptureEventParams = class {
-  constructor(values = {}) {
-    this.zoom_ratio = values.zoom_ratio !== undefined ? values.zoom_ratio : 0;
-  }
-};
-
-// Struct: AndroidIntentEventParams
-ash.camera_app.mojom.AndroidIntentEventParams = class {
-  constructor(values = {}) {
-    this.is_secure = values.is_secure !== undefined ? values.is_secure : false;
-  }
-};
-
-// Struct: OpenPTZPanelEventParams
-ash.camera_app.mojom.OpenPTZPanelEventParams = class {
-  constructor(values = {}) {
-    this.support_zoom = values.support_zoom !== undefined ? values.support_zoom : false;
-  }
-};
-
-// Struct: DocScanActionEventParams
-ash.camera_app.mojom.DocScanActionEventParams = class {
-  constructor(values = {}) {
-    this.action_type = values.action_type !== undefined ? values.action_type : null;
-  }
-};
-
-// Struct: DocScanResultEventParams
-ash.camera_app.mojom.DocScanResultEventParams = class {
-  constructor(values = {}) {
-    this.page_count = values.page_count !== undefined ? values.page_count : 0;
-  }
-};
-
-// Struct: MipiCameraModule
-ash.camera_app.mojom.MipiCameraModule = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: UsbCameraModule
-ash.camera_app.mojom.UsbCameraModule = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : "";
-  }
-};
-
-// Struct: OpenCameraEventParams
-ash.camera_app.mojom.OpenCameraEventParams = class {
-  constructor(values = {}) {
-    this.camera_module = values.camera_module !== undefined ? values.camera_module : null;
-  }
-};
-
-// Struct: LowStorageActionEventParams
-ash.camera_app.mojom.LowStorageActionEventParams = class {
-  constructor(values = {}) {
-    this.action_type = values.action_type !== undefined ? values.action_type : null;
-  }
-};
-
-// Struct: BarcodeDetectedEventParams
-ash.camera_app.mojom.BarcodeDetectedEventParams = class {
-  constructor(values = {}) {
-    this.wifi_security_type = values.wifi_security_type !== undefined ? values.wifi_security_type : null;
-  }
-};
-
-// Struct: PerfEventParams
-ash.camera_app.mojom.PerfEventParams = class {
-  constructor(values = {}) {
-    this.pressure = values.pressure !== undefined ? values.pressure : 0;
-  }
-};
-
-// Struct: MemoryUsageEventParams
-ash.camera_app.mojom.MemoryUsageEventParams = class {
-  constructor(values = {}) {
-    this.memory_usage = values.memory_usage !== undefined ? values.memory_usage : 0;
-  }
-};
-
-// Struct: OcrEventParams
-ash.camera_app.mojom.OcrEventParams = class {
-  constructor(values = {}) {
-    this.word_count = values.word_count !== undefined ? values.word_count : 0;
-  }
-};
-
 // Interface: EventsSender
-ash.camera_app.mojom.EventsSenderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.camera_app.mojom.EventsSender';
-  }
-
-  sendStartSessionEvent(params) {
-    // Method: SendStartSessionEvent
-    // Call: SendStartSessionEvent(params)
-  }
-
-  sendCaptureEvent(params) {
-    // Method: SendCaptureEvent
-    // Call: SendCaptureEvent(params)
-  }
-
-  sendAndroidIntentEvent(params) {
-    // Method: SendAndroidIntentEvent
-    // Call: SendAndroidIntentEvent(params)
-  }
-
-  sendOpenPTZPanelEvent(params) {
-    // Method: SendOpenPTZPanelEvent
-    // Call: SendOpenPTZPanelEvent(params)
-  }
-
-  sendDocScanActionEvent(params) {
-    // Method: SendDocScanActionEvent
-    // Call: SendDocScanActionEvent(params)
-  }
-
-  sendDocScanResultEvent(params) {
-    // Method: SendDocScanResultEvent
-    // Call: SendDocScanResultEvent(params)
-  }
-
-  sendOpenCameraEvent(params) {
-    // Method: SendOpenCameraEvent
-    // Call: SendOpenCameraEvent(params)
-  }
-
-  sendLowStorageActionEvent(params) {
-    // Method: SendLowStorageActionEvent
-    // Call: SendLowStorageActionEvent(params)
-  }
-
-  sendBarcodeDetectedEvent(params) {
-    // Method: SendBarcodeDetectedEvent
-    // Call: SendBarcodeDetectedEvent(params)
-  }
-
-  sendPerfEvent(params) {
-    // Method: SendPerfEvent
-    // Call: SendPerfEvent(params)
-  }
-
-  sendUnsupportedProtocolEvent() {
-    // Method: SendUnsupportedProtocolEvent
-    // Call: SendUnsupportedProtocolEvent()
-  }
-
-  updateMemoryUsageEventParams(params) {
-    // Method: UpdateMemoryUsageEventParams
-    // Call: UpdateMemoryUsageEventParams(params)
-  }
-
-  sendOcrEvent(params) {
-    // Method: SendOcrEvent
-    // Call: SendOcrEvent(params)
-  }
-
-};
-
-ash.camera_app.mojom.EventsSenderRequest = class {
+ash.camera_app.mojom.EventsSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.camera_app.mojom.EventsSenderRemote = class {
+  static get $interfaceName() {
+    return 'ash.camera_app.mojom.EventsSender';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.camera_app.mojom.EventsSenderPendingReceiver,
+      handle);
+    this.$ = new ash.camera_app.mojom.EventsSenderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  sendStartSessionEvent(params) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendCaptureEvent(params) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendAndroidIntentEvent(params) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendOpenPTZPanelEvent(params) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendDocScanActionEvent(params) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendDocScanResultEvent(params) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendOpenCameraEvent(params) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendLowStorageActionEvent(params) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendBarcodeDetectedEvent(params) {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendPerfEvent(params) {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendUnsupportedProtocolEvent() {
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec.$,
+      null,
+      []);
+  }
+
+  updateMemoryUsageEventParams(params) {
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+  sendOcrEvent(params) {
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec.$,
+      null,
+      [params]);
+  }
+
+};
+
+ash.camera_app.mojom.EventsSender.getRemote = function() {
+  let remote = new ash.camera_app.mojom.EventsSenderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.camera_app.mojom.EventsSender',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SendStartSessionEvent
+ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendStartSessionEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendCaptureEvent
+ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendCaptureEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendAndroidIntentEvent
+ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendAndroidIntentEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendOpenPTZPanelEvent
+ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendOpenPTZPanelEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendDocScanActionEvent
+ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendDocScanActionEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendDocScanResultEvent
+ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendDocScanResultEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendOpenCameraEvent
+ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendOpenCameraEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendLowStorageActionEvent
+ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendLowStorageActionEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendBarcodeDetectedEvent
+ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendBarcodeDetectedEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendPerfEvent
+ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendPerfEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendUnsupportedProtocolEvent
+ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendUnsupportedProtocolEvent_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateMemoryUsageEventParams
+ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.UpdateMemoryUsageEventParams_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendOcrEvent
+ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.camera_app.mojom.EventsSender.SendOcrEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.camera_app.mojom.EventsSenderPtr = ash.camera_app.mojom.EventsSenderRemote;
+ash.camera_app.mojom.EventsSenderRequest = ash.camera_app.mojom.EventsSenderPendingReceiver;
+

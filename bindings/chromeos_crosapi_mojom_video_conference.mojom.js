@@ -23,52 +23,60 @@ crosapi.mojom.VideoConferenceMediaDevice = {
 
 // Enum: VideoConferenceAppType
 crosapi.mojom.VideoConferenceAppType = {
-  but: 0,
-  kChromeTab: 1,
-  kChromeExtension: 2,
-  kChromeApp: 3,
-  kWebApp: 4,
-  kArcApp: 5,
-  but: 6,
-  but: 7,
-};
-
-// Struct: TitleChangeInfo
-crosapi.mojom.TitleChangeInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: VideoConferenceClientUpdate
-crosapi.mojom.VideoConferenceClientUpdate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: VideoConferenceMediaUsageStatus
-crosapi.mojom.VideoConferenceMediaUsageStatus = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: VideoConferenceMediaAppInfo
-crosapi.mojom.VideoConferenceMediaAppInfo = class {
-  constructor(values = {}) {
-    this.is = values.is !== undefined ? values.is : null;
-  }
+  kChromeTab: 0,
+  kChromeExtension: 1,
+  kChromeApp: 2,
+  kWebApp: 3,
+  kArcApp: 4,
+  kAppServiceUnknown: 5,
 };
 
 // Interface: VideoConferenceManagerClient
-crosapi.mojom.VideoConferenceManagerClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
-  }
-
-};
-
-crosapi.mojom.VideoConferenceManagerClientRequest = class {
+crosapi.mojom.VideoConferenceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.VideoConferenceManagerClientRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.VideoConferenceManagerClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.VideoConferenceManagerClientPendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
+  let remote = new crosapi.mojom.VideoConferenceManagerClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.VideoConferenceManagerClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.VideoConferenceManagerClientPtr = crosapi.mojom.VideoConferenceManagerClientRemote;
+crosapi.mojom.VideoConferenceManagerClientRequest = crosapi.mojom.VideoConferenceManagerClientPendingReceiver;
+

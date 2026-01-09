@@ -11,33 +11,56 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ReclaimType
 arc.mojom.ReclaimType = {
-};
-
-// Struct: ReclaimRequest
-arc.mojom.ReclaimRequest = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-  }
-};
-
-// Struct: ReclaimResult
-arc.mojom.ReclaimResult = class {
-  constructor(values = {}) {
-    this.unreclaimed = values.unreclaimed !== undefined ? values.unreclaimed : 0;
-  }
+  ANON: 0,
+  ALL: 1,
 };
 
 // Interface: MemoryInstance
-arc.mojom.MemoryInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.MemoryInstance';
-  }
-
-};
-
-arc.mojom.MemoryInstanceRequest = class {
+arc.mojom.MemoryInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.MemoryInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.MemoryInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.MemoryInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.MemoryInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.MemoryInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.MemoryInstance.getRemote = function() {
+  let remote = new arc.mojom.MemoryInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.MemoryInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.MemoryInstancePtr = arc.mojom.MemoryInstanceRemote;
+arc.mojom.MemoryInstanceRequest = arc.mojom.MemoryInstancePendingReceiver;
+

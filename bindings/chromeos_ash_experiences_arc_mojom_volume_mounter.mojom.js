@@ -11,48 +11,113 @@ arc.mojom = arc.mojom || {};
 
 // Enum: MountEvent
 arc.mojom.MountEvent = {
+  MOUNTING: 0,
+  UNMOUNTING: 1,
 };
 
 // Enum: DeviceType
 arc.mojom.DeviceType = {
-};
-
-// Struct: MountPointInfo
-arc.mojom.MountPointInfo = class {
-  constructor(values = {}) {
-    this.mount_path = values.mount_path !== undefined ? values.mount_path : "";
-    this.label = values.label !== undefined ? values.label : "";
-    this.device_type = values.device_type !== undefined ? values.device_type : null;
-    this.visible = values.visible !== undefined ? values.visible : false;
-  }
+  DEVICE_TYPE_UNKNOWN: 0,
+  DEVICE_TYPE_USB: 1,
+  DEVICE_TYPE_SD: 2,
 };
 
 // Interface: VolumeMounterHost
-arc.mojom.VolumeMounterHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.VolumeMounterHost';
-  }
-
-};
-
-arc.mojom.VolumeMounterHostRequest = class {
+arc.mojom.VolumeMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.VolumeMounterHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.VolumeMounterHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.VolumeMounterHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.VolumeMounterHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.VolumeMounterHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.VolumeMounterHost.getRemote = function() {
+  let remote = new arc.mojom.VolumeMounterHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.VolumeMounterHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.VolumeMounterHostPtr = arc.mojom.VolumeMounterHostRemote;
+arc.mojom.VolumeMounterHostRequest = arc.mojom.VolumeMounterHostPendingReceiver;
+
 
 // Interface: VolumeMounterInstance
-arc.mojom.VolumeMounterInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.VolumeMounterInstance';
-  }
-
-};
-
-arc.mojom.VolumeMounterInstanceRequest = class {
+arc.mojom.VolumeMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.VolumeMounterInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.VolumeMounterInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.VolumeMounterInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.VolumeMounterInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.VolumeMounterInstance.getRemote = function() {
+  let remote = new arc.mojom.VolumeMounterInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.VolumeMounterInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.VolumeMounterInstancePtr = arc.mojom.VolumeMounterInstanceRemote;
+arc.mojom.VolumeMounterInstanceRequest = arc.mojom.VolumeMounterInstancePendingReceiver;
+

@@ -47,111 +47,373 @@ side_panel.customize_chrome.mojom.CategoryId = {
   kTools: 2,
 };
 
-// Struct: Action
-side_panel.customize_chrome.mojom.Action = class {
-  constructor(values = {}) {
-    this.category = values.category !== undefined ? values.category : false;
-    this.icon_url = values.icon_url !== undefined ? values.icon_url : null;
-  }
-};
-
-// Struct: Category
-side_panel.customize_chrome.mojom.Category = class {
-  constructor(values = {}) {
-    this.display_name = values.display_name !== undefined ? values.display_name : "";
-  }
-};
-
 // Interface: CustomizeToolbarHandlerFactory
-side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory';
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createCustomizeToolbarHandler(client, handler) {
-    // Method: CreateCustomizeToolbarHandler
-    // Call: CreateCustomizeToolbarHandler(client, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$,
+      null,
+      [client, handler]);
   }
 
 };
 
-side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRequest = class {
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.getRemote = function() {
+  let remote = new side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateCustomizeToolbarHandler
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.CreateCustomizeToolbarHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPtr = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote;
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRequest = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPendingReceiver;
+
+
+// Interface: CustomizeToolbarHandler
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CustomizeToolbarHandler
-side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler';
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote = class {
+  static get $interfaceName() {
+    return 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPendingReceiver,
+      handle);
+    this.$ = new side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   listActions() {
-    // Method: ListActions
-    return new Promise((resolve) => {
-      // Call: ListActions()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$,
+      []);
   }
 
   listCategories() {
-    // Method: ListCategories
-    return new Promise((resolve) => {
-      // Call: ListCategories()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$,
+      []);
   }
 
   pinAction(action_id, pinned) {
-    // Method: PinAction
-    // Call: PinAction(action_id, pinned)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$,
+      null,
+      [action_id, pinned]);
   }
 
   getIsCustomized() {
-    // Method: GetIsCustomized
-    return new Promise((resolve) => {
-      // Call: GetIsCustomized()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$,
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$,
+      []);
   }
 
   resetToDefault() {
-    // Method: ResetToDefault
-    // Call: ResetToDefault()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRequest = class {
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler.getRemote = function() {
+  let remote = new side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'side_panel.customize_chrome.mojom.CustomizeToolbarHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ListActions
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListActions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListActions_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ListCategories
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListCategories_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListCategories_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PinAction
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.PinAction_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetIsCustomized
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.GetIsCustomized_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.GetIsCustomized_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResetToDefault
+side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ResetToDefault_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPtr = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote;
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRequest = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPendingReceiver;
+
+
+// Interface: CustomizeToolbarClient
+side_panel.customize_chrome.mojom.CustomizeToolbarClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CustomizeToolbarClient
-side_panel.customize_chrome.mojom.CustomizeToolbarClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarClient';
+side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote = class {
+  static get $interfaceName() {
+    return 'side_panel.customize_chrome.mojom.CustomizeToolbarClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      side_panel.customize_chrome.mojom.CustomizeToolbarClientPendingReceiver,
+      handle);
+    this.$ = new side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setActionPinned(action_id, pinned) {
-    // Method: SetActionPinned
-    // Call: SetActionPinned(action_id, pinned)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$,
+      null,
+      [action_id, pinned]);
   }
 
   notifyActionsUpdated() {
-    // Method: NotifyActionsUpdated
-    // Call: NotifyActionsUpdated()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-side_panel.customize_chrome.mojom.CustomizeToolbarClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+side_panel.customize_chrome.mojom.CustomizeToolbarClient.getRemote = function() {
+  let remote = new side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'side_panel.customize_chrome.mojom.CustomizeToolbarClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetActionPinned
+side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarClient.SetActionPinned_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for NotifyActionsUpdated
+side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarClient.NotifyActionsUpdated_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+side_panel.customize_chrome.mojom.CustomizeToolbarClientPtr = side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote;
+side_panel.customize_chrome.mojom.CustomizeToolbarClientRequest = side_panel.customize_chrome.mojom.CustomizeToolbarClientPendingReceiver;
+

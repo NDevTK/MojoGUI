@@ -12,61 +12,56 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: AnnotationUsecase
 chromeos.machine_learning.mojom.AnnotationUsecase = {
-  Share: 0,
-  Linkify: 1,
-};
-
-// Struct: TextEntity
-chromeos.machine_learning.mojom.TextEntity = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextAnnotation
-chromeos.machine_learning.mojom.TextAnnotation = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextAnnotationRequest
-chromeos.machine_learning.mojom.TextAnnotationRequest = class {
-  constructor(values = {}) {
-    this.ANNOTATION_USECASE_SMART = values.ANNOTATION_USECASE_SMART !== undefined ? values.ANNOTATION_USECASE_SMART : "";
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: CodepointSpan
-chromeos.machine_learning.mojom.CodepointSpan = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextLanguage
-chromeos.machine_learning.mojom.TextLanguage = class {
-  constructor(values = {}) {
-    this.confidence = values.confidence !== undefined ? values.confidence : 0;
-  }
-};
-
-// Struct: REMOVED_TextSuggestSelectionRequest
-chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequest = class {
-  constructor(values = {}) {
-    this.ANNOTATION_USECASE_SMART = values.ANNOTATION_USECASE_SMART !== undefined ? values.ANNOTATION_USECASE_SMART : 0;
-  }
+  ANNOTATION_USECASE_SMART: 0,
+  ANNOTATION_USECASE_RAW: 1,
 };
 
 // Interface: TextClassifier
-chromeos.machine_learning.mojom.TextClassifierPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.TextClassifier';
-  }
-
-};
-
-chromeos.machine_learning.mojom.TextClassifierRequest = class {
+chromeos.machine_learning.mojom.TextClassifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.TextClassifierRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.TextClassifier';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.TextClassifierPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.TextClassifier.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.TextClassifierRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.TextClassifier',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.TextClassifierPtr = chromeos.machine_learning.mojom.TextClassifierRemote;
+chromeos.machine_learning.mojom.TextClassifierRequest = chromeos.machine_learning.mojom.TextClassifierPendingReceiver;
+

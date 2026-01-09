@@ -10,229 +10,917 @@ media.mojom = media.mojom || {};
 
 
 // Interface: RemoterFactory
-media.mojom.RemoterFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.RemoterFactory';
+media.mojom.RemoterFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.RemoterFactoryRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.RemoterFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemoterFactoryPendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemoterFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemoterFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   create(source, remoter) {
-    // Method: Create
-    // Call: Create(source, remoter)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.RemoterFactory_Create_ParamsSpec.$,
+      null,
+      [source, remoter]);
   }
 
 };
 
-media.mojom.RemoterFactoryRequest = class {
+media.mojom.RemoterFactory.getRemote = function() {
+  let remote = new media.mojom.RemoterFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.RemoterFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Create
+media.mojom.RemoterFactory_Create_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemoterFactory.Create_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemoterFactoryPtr = media.mojom.RemoterFactoryRemote;
+media.mojom.RemoterFactoryRequest = media.mojom.RemoterFactoryPendingReceiver;
+
+
+// Interface: RemotingDataStreamSender
+media.mojom.RemotingDataStreamSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: RemotingDataStreamSender
-media.mojom.RemotingDataStreamSenderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.RemotingDataStreamSender';
+media.mojom.RemotingDataStreamSenderRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.RemotingDataStreamSender';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemotingDataStreamSenderPendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemotingDataStreamSenderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   sendFrame(frame) {
-    // Method: SendFrame
-    // Call: SendFrame(frame)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$,
+      null,
+      [frame]);
   }
 
   cancelInFlightData() {
-    // Method: CancelInFlightData
-    // Call: CancelInFlightData()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-media.mojom.RemotingDataStreamSenderRequest = class {
+media.mojom.RemotingDataStreamSender.getRemote = function() {
+  let remote = new media.mojom.RemotingDataStreamSenderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.RemotingDataStreamSender',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SendFrame
+media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingDataStreamSender.SendFrame_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CancelInFlightData
+media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingDataStreamSender.CancelInFlightData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemotingDataStreamSenderPtr = media.mojom.RemotingDataStreamSenderRemote;
+media.mojom.RemotingDataStreamSenderRequest = media.mojom.RemotingDataStreamSenderPendingReceiver;
+
+
+// Interface: Remoter
+media.mojom.RemoterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Remoter
-media.mojom.RemoterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.Remoter';
+media.mojom.RemoterRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.Remoter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemoterPendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemoterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemoterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   start() {
-    // Method: Start
-    // Call: Start()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.Remoter_Start_ParamsSpec.$,
+      null,
+      []);
   }
 
   startWithPermissionAlreadyGranted() {
-    // Method: StartWithPermissionAlreadyGranted
-    // Call: StartWithPermissionAlreadyGranted()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec.$,
+      null,
+      []);
   }
 
   startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender) {
-    // Method: StartDataStreams
-    // Call: StartDataStreams(audio_pipe, video_pipe, audio_sender, video_sender)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.Remoter_StartDataStreams_ParamsSpec.$,
+      null,
+      [audio_pipe, video_pipe, audio_sender, video_sender]);
   }
 
   stop(reason) {
-    // Method: Stop
-    // Call: Stop(reason)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.Remoter_Stop_ParamsSpec.$,
+      null,
+      [reason]);
   }
 
   sendMessageToSink(message) {
-    // Method: SendMessageToSink
-    // Call: SendMessageToSink(message)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.Remoter_SendMessageToSink_ParamsSpec.$,
+      null,
+      [message]);
   }
 
   estimateTransmissionCapacity() {
-    // Method: EstimateTransmissionCapacity
-    return new Promise((resolve) => {
-      // Call: EstimateTransmissionCapacity()
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec.$,
+      media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-media.mojom.RemoterRequest = class {
+media.mojom.Remoter.getRemote = function() {
+  let remote = new media.mojom.RemoterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.Remoter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Start
+media.mojom.Remoter_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.Start_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartWithPermissionAlreadyGranted
+media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.StartWithPermissionAlreadyGranted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartDataStreams
+media.mojom.Remoter_StartDataStreams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.StartDataStreams_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Stop
+media.mojom.Remoter_Stop_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.Stop_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendMessageToSink
+media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.SendMessageToSink_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EstimateTransmissionCapacity
+media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.EstimateTransmissionCapacity_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remoter.EstimateTransmissionCapacity_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemoterPtr = media.mojom.RemoterRemote;
+media.mojom.RemoterRequest = media.mojom.RemoterPendingReceiver;
+
+
+// Interface: RemotingSource
+media.mojom.RemotingSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: RemotingSource
-media.mojom.RemotingSourcePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.RemotingSource';
+media.mojom.RemotingSourceRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.RemotingSource';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemotingSourcePendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemotingSourceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemotingSourceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onSinkAvailable(metadata) {
-    // Method: OnSinkAvailable
-    // Call: OnSinkAvailable(metadata)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$,
+      null,
+      [metadata]);
   }
 
   onSinkGone() {
-    // Method: OnSinkGone
-    // Call: OnSinkGone()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.RemotingSource_OnSinkGone_ParamsSpec.$,
+      null,
+      []);
   }
 
   onStarted() {
-    // Method: OnStarted
-    // Call: OnStarted()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.RemotingSource_OnStarted_ParamsSpec.$,
+      null,
+      []);
   }
 
   onStartFailed(reason) {
-    // Method: OnStartFailed
-    // Call: OnStartFailed(reason)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$,
+      null,
+      [reason]);
   }
 
   onMessageFromSink(message) {
-    // Method: OnMessageFromSink
-    // Call: OnMessageFromSink(message)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$,
+      null,
+      [message]);
   }
 
   onStopped(reason) {
-    // Method: OnStopped
-    // Call: OnStopped(reason)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.RemotingSource_OnStopped_ParamsSpec.$,
+      null,
+      [reason]);
   }
 
 };
 
-media.mojom.RemotingSourceRequest = class {
+media.mojom.RemotingSource.getRemote = function() {
+  let remote = new media.mojom.RemotingSourceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.RemotingSource',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnSinkAvailable
+media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSource.OnSinkAvailable_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSinkGone
+media.mojom.RemotingSource_OnSinkGone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSource.OnSinkGone_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnStarted
+media.mojom.RemotingSource_OnStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSource.OnStarted_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnStartFailed
+media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSource.OnStartFailed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnMessageFromSink
+media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSource.OnMessageFromSink_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnStopped
+media.mojom.RemotingSource_OnStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSource.OnStopped_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemotingSourcePtr = media.mojom.RemotingSourceRemote;
+media.mojom.RemotingSourceRequest = media.mojom.RemotingSourcePendingReceiver;
+
+
+// Interface: Remotee
+media.mojom.RemoteePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Remotee
-media.mojom.RemoteePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.Remotee';
+media.mojom.RemoteeRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.Remotee';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemoteePendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemoteeRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemoteeRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onRemotingSinkReady(sink) {
-    // Method: OnRemotingSinkReady
-    // Call: OnRemotingSinkReady(sink)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$,
+      null,
+      [sink]);
   }
 
   sendMessageToSource(message) {
-    // Method: SendMessageToSource
-    // Call: SendMessageToSource(message)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.Remotee_SendMessageToSource_ParamsSpec.$,
+      null,
+      [message]);
   }
 
   startDataStreams(audio_stream, video_stream) {
-    // Method: StartDataStreams
-    // Call: StartDataStreams(audio_stream, video_stream)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.Remotee_StartDataStreams_ParamsSpec.$,
+      null,
+      [audio_stream, video_stream]);
   }
 
   onFlushUntil(audio_frame_count, video_frame_count) {
-    // Method: OnFlushUntil
-    // Call: OnFlushUntil(audio_frame_count, video_frame_count)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.Remotee_OnFlushUntil_ParamsSpec.$,
+      null,
+      [audio_frame_count, video_frame_count]);
   }
 
   onVideoNaturalSizeChange(size) {
-    // Method: OnVideoNaturalSizeChange
-    // Call: OnVideoNaturalSizeChange(size)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$,
+      null,
+      [size]);
   }
 
 };
 
-media.mojom.RemoteeRequest = class {
+media.mojom.Remotee.getRemote = function() {
+  let remote = new media.mojom.RemoteeRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.Remotee',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnRemotingSinkReady
+media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remotee.OnRemotingSinkReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SendMessageToSource
+media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remotee.SendMessageToSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartDataStreams
+media.mojom.Remotee_StartDataStreams_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remotee.StartDataStreams_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnFlushUntil
+media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remotee.OnFlushUntil_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'audio_frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'video_frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnVideoNaturalSizeChange
+media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.Remotee.OnVideoNaturalSizeChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemoteePtr = media.mojom.RemoteeRemote;
+media.mojom.RemoteeRequest = media.mojom.RemoteePendingReceiver;
+
+
+// Interface: RemotingSink
+media.mojom.RemotingSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: RemotingSink
-media.mojom.RemotingSinkPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.RemotingSink';
+media.mojom.RemotingSinkRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.RemotingSink';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemotingSinkPendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemotingSinkRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemotingSinkRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onMessageFromSource(message) {
-    // Method: OnMessageFromSource
-    // Call: OnMessageFromSource(message)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$,
+      null,
+      [message]);
   }
 
 };
 
-media.mojom.RemotingSinkRequest = class {
+media.mojom.RemotingSink.getRemote = function() {
+  let remote = new media.mojom.RemotingSinkRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.RemotingSink',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnMessageFromSource
+media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingSink.OnMessageFromSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemotingSinkPtr = media.mojom.RemotingSinkRemote;
+media.mojom.RemotingSinkRequest = media.mojom.RemotingSinkPendingReceiver;
+
+
+// Interface: RemotingDataStreamReceiver
+media.mojom.RemotingDataStreamReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: RemotingDataStreamReceiver
-media.mojom.RemotingDataStreamReceiverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.RemotingDataStreamReceiver';
+media.mojom.RemotingDataStreamReceiverRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.RemotingDataStreamReceiver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.RemotingDataStreamReceiverPendingReceiver,
+      handle);
+    this.$ = new media.mojom.RemotingDataStreamReceiverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   initializeDataPipe(data_pipe) {
-    // Method: InitializeDataPipe
-    // Call: InitializeDataPipe(data_pipe)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$,
+      null,
+      [data_pipe]);
   }
 
   receiveFrame(frame_count, buffer) {
-    // Method: ReceiveFrame
-    // Call: ReceiveFrame(frame_count, buffer)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$,
+      null,
+      [frame_count, buffer]);
   }
 
   flushUntil(frame_count) {
-    // Method: FlushUntil
-    // Call: FlushUntil(frame_count)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$,
+      null,
+      [frame_count]);
   }
 
 };
 
-media.mojom.RemotingDataStreamReceiverRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.RemotingDataStreamReceiver.getRemote = function() {
+  let remote = new media.mojom.RemotingDataStreamReceiverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.RemotingDataStreamReceiver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for InitializeDataPipe
+media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingDataStreamReceiver.InitializeDataPipe_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ReceiveFrame
+media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingDataStreamReceiver.ReceiveFrame_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for FlushUntil
+media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.RemotingDataStreamReceiver.FlushUntil_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.RemotingDataStreamReceiverPtr = media.mojom.RemotingDataStreamReceiverRemote;
+media.mojom.RemotingDataStreamReceiverRequest = media.mojom.RemotingDataStreamReceiverPendingReceiver;
+

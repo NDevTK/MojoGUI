@@ -39,7 +39,9 @@ blink.mojom.AuthenticatorStatus = {
   REMOTE_DESKTOP_CLIENT_OVERRIDE_NOT_AUTHORIZED: 25,
   DEVICE_PUBLIC_KEY_ATTESTATION_REJECTED: 26,
   CERTIFICATE_ERROR: 27,
-  UNKNOWN_ERROR: 28,
+  ERROR_WITH_DOM_EXCEPTION_DETAILS: 28,
+  IMMEDIATE_NOT_FOUND: 29,
+  UNKNOWN_ERROR: 30,
 };
 
 // Enum: AuthenticatorTransport
@@ -68,6 +70,8 @@ blink.mojom.UserVerificationRequirement = {
 // Enum: Mediation
 blink.mojom.Mediation = {
   MODAL: 0,
+  CONDITIONAL: 1,
+  IMMEDIATE: 2,
 };
 
 // Enum: ResidentKeyRequirement
@@ -86,9 +90,10 @@ blink.mojom.AuthenticatorAttachment = {
 
 // Enum: ProtectionPolicy
 blink.mojom.ProtectionPolicy = {
-  NONE: 0,
-  UV_OR_CRED_ID_REQUIRED: 1,
-  UV_REQUIRED: 2,
+  UNSPECIFIED: 0,
+  NONE: 1,
+  UV_OR_CRED_ID_REQUIRED: 2,
+  UV_REQUIRED: 3,
 };
 
 // Enum: LargeBlobSupport
@@ -103,6 +108,7 @@ blink.mojom.AttestationConveyancePreference = {
   NONE: 0,
   INDIRECT: 1,
   DIRECT: 2,
+  ENTERPRISE: 3,
 };
 
 // Enum: PublicKeyCredentialType
@@ -110,306 +116,290 @@ blink.mojom.PublicKeyCredentialType = {
   PUBLIC_KEY: 0,
 };
 
-// Struct: CommonCredentialInfo
-blink.mojom.CommonCredentialInfo = class {
-  constructor(values = {}) {
-    this.authenticator_data = values.authenticator_data !== undefined ? values.authenticator_data : 0;
-  }
-};
-
-// Struct: UvmEntry
-blink.mojom.UvmEntry = class {
-  constructor(values = {}) {
-    this.matcher_protection_type = values.matcher_protection_type !== undefined ? values.matcher_protection_type : 0;
-  }
-};
-
-// Struct: SupplementalPubKeysResponse
-blink.mojom.SupplementalPubKeysResponse = class {
-  constructor(values = {}) {
-    this.signatures = values.signatures !== undefined ? values.signatures : 0;
-  }
-};
-
-// Struct: AuthenticationExtensionsPaymentResponse
-blink.mojom.AuthenticationExtensionsPaymentResponse = class {
-  constructor(values = {}) {
-    this.browser_bound_signature = values.browser_bound_signature !== undefined ? values.browser_bound_signature : 0;
-  }
-};
-
-// Struct: MakeCredentialAuthenticatorResponse
-blink.mojom.MakeCredentialAuthenticatorResponse = class {
-  constructor(values = {}) {
-    this.attestation_object = values.attestation_object !== undefined ? values.attestation_object : 0;
-    this.transports = values.transports !== undefined ? values.transports : [];
-    this.hmac_create_secret = values.hmac_create_secret !== undefined ? values.hmac_create_secret : false;
-    this.prf_results = values.prf_results !== undefined ? values.prf_results : false;
-    this.cred_blob = values.cred_blob !== undefined ? values.cred_blob : false;
-    this.payment = values.payment !== undefined ? values.payment : 0;
-  }
-};
-
-// Struct: GetAssertionAuthenticatorResponse
-blink.mojom.GetAssertionAuthenticatorResponse = class {
-  constructor(values = {}) {
-    this.signature = values.signature !== undefined ? values.signature : 0;
-    this.extensions = values.extensions !== undefined ? values.extensions : 0;
-  }
-};
-
-// Struct: AuthenticationExtensionsClientOutputs
-blink.mojom.AuthenticationExtensionsClientOutputs = class {
-  constructor(values = {}) {
-    this.appid_extension = values.appid_extension !== undefined ? values.appid_extension : false;
-    this.by = values.by !== undefined ? values.by : null;
-    this.echo_prf = values.echo_prf !== undefined ? values.echo_prf : false;
-    this.large_blob_written = values.large_blob_written !== undefined ? values.large_blob_written : 0;
-    this.empty = values.empty !== undefined ? values.empty : null;
-    this.payment = values.payment !== undefined ? values.payment : 0;
-  }
-};
-
-// Struct: PublicKeyCredentialRpEntity
-blink.mojom.PublicKeyCredentialRpEntity = class {
-  constructor(values = {}) {
-    this.name = values.name !== undefined ? values.name : "";
-  }
-};
-
-// Struct: PublicKeyCredentialUserEntity
-blink.mojom.PublicKeyCredentialUserEntity = class {
-  constructor(values = {}) {
-    this.display_name = values.display_name !== undefined ? values.display_name : 0;
-  }
-};
-
-// Struct: PublicKeyCredentialParameters
-blink.mojom.PublicKeyCredentialParameters = class {
-  constructor(values = {}) {
-    this.algorithm_identifier = values.algorithm_identifier !== undefined ? values.algorithm_identifier : 0;
-  }
-};
-
-// Struct: CableAuthentication
-blink.mojom.CableAuthentication = class {
-  constructor(values = {}) {
-    this.session_pre_key = values.session_pre_key !== undefined ? values.session_pre_key : 0;
-    this.experiments = values.experiments !== undefined ? values.experiments : 0;
-  }
-};
-
-// Struct: PRFValues
-blink.mojom.PRFValues = class {
-  constructor(values = {}) {
-    this.these = values.these !== undefined ? values.these : null;
-    this.second = values.second !== undefined ? values.second : 0;
-  }
-};
-
-// Struct: PaymentOptions
-blink.mojom.PaymentOptions = class {
-  constructor(values = {}) {
-    this.browser_bound_public_key = values.browser_bound_public_key !== undefined ? values.browser_bound_public_key : 0;
-  }
-};
-
-// Struct: PaymentCredentialInstrument
-blink.mojom.PaymentCredentialInstrument = class {
-  constructor(values = {}) {
-    this.display_name = values.display_name !== undefined ? values.display_name : "";
-    this.iconMustBeShown = values.iconMustBeShown !== undefined ? values.iconMustBeShown : false;
-    this.details = values.details !== undefined ? values.details : "";
-  }
-};
-
-// Struct: ShownPaymentEntityLogo
-blink.mojom.ShownPaymentEntityLogo = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: RemoteDesktopClientOverride
-blink.mojom.RemoteDesktopClientOverride = class {
-  constructor(values = {}) {
-    this.same_origin_with_ancestors = values.same_origin_with_ancestors !== undefined ? values.same_origin_with_ancestors : false;
-  }
-};
-
-// Struct: SupplementalPubKeysRequest
-blink.mojom.SupplementalPubKeysRequest = class {
-  constructor(values = {}) {
-    this.attestation_formats = values.attestation_formats !== undefined ? values.attestation_formats : false;
-  }
-};
-
-// Struct: PublicKeyCredentialRequestOptions
-blink.mojom.PublicKeyCredentialRequestOptions = class {
-  constructor(values = {}) {
-    this.extensions = values.extensions !== undefined ? values.extensions : 0;
-  }
-};
-
-// Struct: AuthenticationExtensionsClientInputs
-blink.mojom.AuthenticationExtensionsClientInputs = class {
-  constructor(values = {}) {
-    this.appid = values.appid !== undefined ? values.appid : "";
-    this.cable_authentication_data = values.cable_authentication_data !== undefined ? values.cable_authentication_data : [];
-    this.prf = values.prf !== undefined ? values.prf : false;
-    this.prf_inputs = values.prf_inputs !== undefined ? values.prf_inputs : [];
-    this.large_blob_read = values.large_blob_read !== undefined ? values.large_blob_read : false;
-    this.large_blob_write = values.large_blob_write !== undefined ? values.large_blob_write : 0;
-    this.remote_desktop_client_override = values.remote_desktop_client_override !== undefined ? values.remote_desktop_client_override : false;
-    this.payment_browser_bound_key_parameters = values.payment_browser_bound_key_parameters !== undefined ? values.payment_browser_bound_key_parameters : [];
-  }
-};
-
-// Struct: GetCredentialOptions
-blink.mojom.GetCredentialOptions = class {
-  constructor(values = {}) {
-    this.mediation = values.mediation !== undefined ? values.mediation : null;
-    this.public_key = values.public_key !== undefined ? values.public_key : null;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: AuthenticatorSelectionCriteria
-blink.mojom.AuthenticatorSelectionCriteria = class {
-  constructor(values = {}) {
-    this.authenticator_attachment = values.authenticator_attachment !== undefined ? values.authenticator_attachment : null;
-    this.user_verification = values.user_verification !== undefined ? values.user_verification : null;
-  }
-};
-
-// Struct: PublicKeyCredentialCreationOptions
-blink.mojom.PublicKeyCredentialCreationOptions = class {
-  constructor(values = {}) {
-    this.user = values.user !== undefined ? values.user : null;
-    this.timeout = values.timeout !== undefined ? values.timeout : 0;
-    this.attestation = values.attestation !== undefined ? values.attestation : 0;
-    this.prf_input = values.prf_input !== undefined ? values.prf_input : false;
-    this.protection_policy = values.protection_policy !== undefined ? values.protection_policy : null;
-    this.enforce_protection_policy = values.enforce_protection_policy !== undefined ? values.enforce_protection_policy : false;
-    this.is_payment_credential_creation = values.is_payment_credential_creation !== undefined ? values.is_payment_credential_creation : false;
-    this.remote_desktop_client_override = values.remote_desktop_client_override !== undefined ? values.remote_desktop_client_override : 0;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: PublicKeyCredentialDescriptor
-blink.mojom.PublicKeyCredentialDescriptor = class {
-  constructor(values = {}) {
-    this.transports = values.transports !== undefined ? values.transports : 0;
-  }
-};
-
-// Struct: WebAuthnDOMExceptionDetails
-blink.mojom.WebAuthnDOMExceptionDetails = class {
-  constructor(values = {}) {
-    this.message = values.message !== undefined ? values.message : "";
-  }
-};
-
-// Struct: PublicKeyCredentialReportOptions
-blink.mojom.PublicKeyCredentialReportOptions = class {
-  constructor(values = {}) {
-    this.current_user_details = values.current_user_details !== undefined ? values.current_user_details : 0;
-  }
-};
-
-// Struct: AllAcceptedCredentialsOptions
-blink.mojom.AllAcceptedCredentialsOptions = class {
-  constructor(values = {}) {
-    this.all_accepted_credentials_ids = values.all_accepted_credentials_ids !== undefined ? values.all_accepted_credentials_ids : 0;
-  }
-};
-
-// Struct: CurrentUserDetailsOptions
-blink.mojom.CurrentUserDetailsOptions = class {
-  constructor(values = {}) {
-    this.display_name = values.display_name !== undefined ? values.display_name : 0;
-  }
-};
-
-// Struct: WebAuthnClientCapability
-blink.mojom.WebAuthnClientCapability = class {
-  constructor(values = {}) {
-    this.supported = values.supported !== undefined ? values.supported : false;
-  }
-};
-
-// Struct: GetAssertionResponse
-blink.mojom.GetAssertionResponse = class {
-  constructor(values = {}) {
-    this.dom_exception_details = values.dom_exception_details !== undefined ? values.dom_exception_details : null;
-  }
-};
-
 // Interface: Authenticator
-blink.mojom.AuthenticatorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.Authenticator';
-  }
-
-  makeCredential(options) {
-    // Method: MakeCredential
-    return new Promise((resolve) => {
-      // Call: MakeCredential(options)
-      resolve({});
-    });
-  }
-
-  getCredential(options) {
-    // Method: GetCredential
-    return new Promise((resolve) => {
-      // Call: GetCredential(options)
-      resolve({});
-    });
-  }
-
-  isUserVerifyingPlatformAuthenticatorAvailable() {
-    // Method: IsUserVerifyingPlatformAuthenticatorAvailable
-    return new Promise((resolve) => {
-      // Call: IsUserVerifyingPlatformAuthenticatorAvailable()
-      resolve({});
-    });
-  }
-
-  isConditionalMediationAvailable() {
-    // Method: IsConditionalMediationAvailable
-    return new Promise((resolve) => {
-      // Call: IsConditionalMediationAvailable()
-      resolve({});
-    });
-  }
-
-  report(options) {
-    // Method: Report
-    return new Promise((resolve) => {
-      // Call: Report(options)
-      resolve({});
-    });
-  }
-
-  getClientCapabilities() {
-    // Method: GetClientCapabilities
-    return new Promise((resolve) => {
-      // Call: GetClientCapabilities()
-      resolve({});
-    });
-  }
-
-  cancel() {
-    // Method: Cancel
-    // Call: Cancel()
-  }
-
-};
-
-blink.mojom.AuthenticatorRequest = class {
+blink.mojom.AuthenticatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.AuthenticatorRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.Authenticator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.AuthenticatorPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.AuthenticatorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.AuthenticatorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  makeCredential(options) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.Authenticator_MakeCredential_ParamsSpec.$,
+      blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec.$,
+      [options]);
+  }
+
+  getCredential(options) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.Authenticator_GetCredential_ParamsSpec.$,
+      blink.mojom.Authenticator_GetCredential_ResponseParamsSpec.$,
+      [options]);
+  }
+
+  isUserVerifyingPlatformAuthenticatorAvailable() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$,
+      blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$,
+      []);
+  }
+
+  isConditionalMediationAvailable() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$,
+      blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec.$,
+      []);
+  }
+
+  report(options) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      blink.mojom.Authenticator_Report_ParamsSpec.$,
+      blink.mojom.Authenticator_Report_ResponseParamsSpec.$,
+      [options]);
+  }
+
+  getClientCapabilities() {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$,
+      blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec.$,
+      []);
+  }
+
+  cancel() {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      blink.mojom.Authenticator_Cancel_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+blink.mojom.Authenticator.getRemote = function() {
+  let remote = new blink.mojom.AuthenticatorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.Authenticator',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for MakeCredential
+blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.MakeCredential_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.MakeCredential_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetCredential
+blink.mojom.Authenticator_GetCredential_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.GetCredential_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.GetCredential_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsUserVerifyingPlatformAuthenticatorAvailable
+blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsConditionalMediationAvailable
+blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Report
+blink.mojom.Authenticator_Report_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.Report_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.Authenticator_Report_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.Report_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dom_exception_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetClientCapabilities
+blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.GetClientCapabilities_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.GetClientCapabilities_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Cancel
+blink.mojom.Authenticator_Cancel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.Authenticator.Cancel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.AuthenticatorPtr = blink.mojom.AuthenticatorRemote;
+blink.mojom.AuthenticatorRequest = blink.mojom.AuthenticatorPendingReceiver;
+

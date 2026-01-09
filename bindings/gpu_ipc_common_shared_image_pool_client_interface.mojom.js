@@ -10,21 +10,73 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Interface: SharedImagePoolClientInterface
-gpu.mojom.SharedImagePoolClientInterfacePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'gpu.mojom.SharedImagePoolClientInterface';
-  }
-
-  onClearPool() {
-    // Method: OnClearPool
-    // Call: OnClearPool()
-  }
-
-};
-
-gpu.mojom.SharedImagePoolClientInterfaceRequest = class {
+gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+gpu.mojom.SharedImagePoolClientInterfaceRemote = class {
+  static get $interfaceName() {
+    return 'gpu.mojom.SharedImagePoolClientInterface';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      gpu.mojom.SharedImagePoolClientInterfacePendingReceiver,
+      handle);
+    this.$ = new gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onClearPool() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+gpu.mojom.SharedImagePoolClientInterface.getRemote = function() {
+  let remote = new gpu.mojom.SharedImagePoolClientInterfaceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'gpu.mojom.SharedImagePoolClientInterface',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnClearPool
+gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'gpu.mojom.SharedImagePoolClientInterface.OnClearPool_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+gpu.mojom.SharedImagePoolClientInterfacePtr = gpu.mojom.SharedImagePoolClientInterfaceRemote;
+gpu.mojom.SharedImagePoolClientInterfaceRequest = gpu.mojom.SharedImagePoolClientInterfacePendingReceiver;
+

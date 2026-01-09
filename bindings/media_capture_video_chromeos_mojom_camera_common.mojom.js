@@ -33,61 +33,152 @@ cros.mojom.TorchModeStatus = {
   TORCH_MODE_STATUS_AVAILABLE_ON: 2,
 };
 
-// Struct: CameraResourceCost
-cros.mojom.CameraResourceCost = class {
-  constructor(values = {}) {
-    this.resource_cost = values.resource_cost !== undefined ? values.resource_cost : 0;
-  }
-};
-
-// Struct: CameraInfo
-cros.mojom.CameraInfo = class {
-  constructor(values = {}) {
-    this.conflicting_devices = values.conflicting_devices !== undefined ? values.conflicting_devices : 0;
-  }
-};
-
 // Interface: CameraModuleCallbacks
-cros.mojom.CameraModuleCallbacksPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cros.mojom.CameraModuleCallbacks';
-  }
-
-};
-
-cros.mojom.CameraModuleCallbacksRequest = class {
+cros.mojom.CameraModuleCallbacksPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+cros.mojom.CameraModuleCallbacksRemote = class {
+  static get $interfaceName() {
+    return 'cros.mojom.CameraModuleCallbacks';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cros.mojom.CameraModuleCallbacksPendingReceiver,
+      handle);
+    this.$ = new cros.mojom.CameraModuleCallbacksRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+cros.mojom.CameraModuleCallbacks.getRemote = function() {
+  let remote = new cros.mojom.CameraModuleCallbacksRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cros.mojom.CameraModuleCallbacks',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+cros.mojom.CameraModuleCallbacksPtr = cros.mojom.CameraModuleCallbacksRemote;
+cros.mojom.CameraModuleCallbacksRequest = cros.mojom.CameraModuleCallbacksPendingReceiver;
+
 
 // Interface: VendorTagOps
-cros.mojom.VendorTagOpsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cros.mojom.VendorTagOps';
-  }
-
-};
-
-cros.mojom.VendorTagOpsRequest = class {
+cros.mojom.VendorTagOpsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+cros.mojom.VendorTagOpsRemote = class {
+  static get $interfaceName() {
+    return 'cros.mojom.VendorTagOps';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cros.mojom.VendorTagOpsPendingReceiver,
+      handle);
+    this.$ = new cros.mojom.VendorTagOpsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cros.mojom.VendorTagOpsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+cros.mojom.VendorTagOps.getRemote = function() {
+  let remote = new cros.mojom.VendorTagOpsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cros.mojom.VendorTagOps',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+cros.mojom.VendorTagOpsPtr = cros.mojom.VendorTagOpsRemote;
+cros.mojom.VendorTagOpsRequest = cros.mojom.VendorTagOpsPendingReceiver;
+
 
 // Interface: CameraModule
-cros.mojom.CameraModulePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cros.mojom.CameraModule';
-  }
-
-};
-
-cros.mojom.CameraModuleRequest = class {
+cros.mojom.CameraModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+cros.mojom.CameraModuleRemote = class {
+  static get $interfaceName() {
+    return 'cros.mojom.CameraModule';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cros.mojom.CameraModulePendingReceiver,
+      handle);
+    this.$ = new cros.mojom.CameraModuleRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cros.mojom.CameraModuleRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+cros.mojom.CameraModule.getRemote = function() {
+  let remote = new cros.mojom.CameraModuleRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cros.mojom.CameraModule',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+cros.mojom.CameraModulePtr = cros.mojom.CameraModuleRemote;
+cros.mojom.CameraModuleRequest = cros.mojom.CameraModulePendingReceiver;
+

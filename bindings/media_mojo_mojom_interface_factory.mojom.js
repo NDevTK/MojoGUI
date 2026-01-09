@@ -10,79 +10,331 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecoderTracker
-media.mojom.VideoDecoderTrackerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.VideoDecoderTracker';
-  }
-
-};
-
-media.mojom.VideoDecoderTrackerRequest = class {
+media.mojom.VideoDecoderTrackerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+media.mojom.VideoDecoderTrackerRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.VideoDecoderTracker';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.VideoDecoderTrackerPendingReceiver,
+      handle);
+    this.$ = new media.mojom.VideoDecoderTrackerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.VideoDecoderTrackerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+media.mojom.VideoDecoderTracker.getRemote = function() {
+  let remote = new media.mojom.VideoDecoderTrackerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.VideoDecoderTracker',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+media.mojom.VideoDecoderTrackerPtr = media.mojom.VideoDecoderTrackerRemote;
+media.mojom.VideoDecoderTrackerRequest = media.mojom.VideoDecoderTrackerPendingReceiver;
+
+
 // Interface: InterfaceFactory
-media.mojom.InterfaceFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.InterfaceFactory';
+media.mojom.InterfaceFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.InterfaceFactoryRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.InterfaceFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.InterfaceFactoryPendingReceiver,
+      handle);
+    this.$ = new media.mojom.InterfaceFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.InterfaceFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createAudioDecoder(audio_decoder) {
-    // Method: CreateAudioDecoder
-    // Call: CreateAudioDecoder(audio_decoder)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$,
+      null,
+      [audio_decoder]);
   }
 
   createVideoDecoder(video_decoder, dst_video_decoder) {
-    // Method: CreateVideoDecoder
-    // Call: CreateVideoDecoder(video_decoder, dst_video_decoder)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$,
+      null,
+      [video_decoder, dst_video_decoder]);
   }
 
   createVideoDecoderWithTracker(receiver, tracker) {
-    // Method: CreateVideoDecoderWithTracker
-    // Call: CreateVideoDecoderWithTracker(receiver, tracker)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$,
+      null,
+      [receiver, tracker]);
   }
 
   createAudioEncoder(audio_encoder) {
-    // Method: CreateAudioEncoder
-    // Call: CreateAudioEncoder(audio_encoder)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$,
+      null,
+      [audio_encoder]);
   }
 
   createDefaultRenderer(audio_device_id, renderer) {
-    // Method: CreateDefaultRenderer
-    // Call: CreateDefaultRenderer(audio_device_id, renderer)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$,
+      null,
+      [audio_device_id, renderer]);
   }
 
   createCastRenderer(overlay_plane_id, renderer) {
-    // Method: CreateCastRenderer
-    // Call: CreateCastRenderer(overlay_plane_id, renderer)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$,
+      null,
+      [overlay_plane_id, renderer]);
   }
 
   createMediaFoundationRenderer(media_log, renderer, renderer_extension) {
-    // Method: CreateMediaFoundationRenderer
-    // Call: CreateMediaFoundationRenderer(media_log, renderer, renderer_extension)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$,
+      null,
+      [media_log, renderer, renderer_extension]);
   }
 
   createFlingingRenderer(presentation_id, client_extension, renderer) {
-    // Method: CreateFlingingRenderer
-    // Call: CreateFlingingRenderer(presentation_id, client_extension, renderer)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$,
+      null,
+      [presentation_id, client_extension, renderer]);
   }
 
   createCdm(cdm_config) {
-    // Method: CreateCdm
-    return new Promise((resolve) => {
-      // Call: CreateCdm(cdm_config)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$,
+      media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec.$,
+      [cdm_config]);
   }
 
 };
 
-media.mojom.InterfaceFactoryRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.InterfaceFactory.getRemote = function() {
+  let remote = new media.mojom.InterfaceFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.InterfaceFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateAudioDecoder
+media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateAudioDecoder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'audio_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for CreateVideoDecoder
+media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateVideoDecoder_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dst_video_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateVideoDecoderWithTracker
+media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateVideoDecoderWithTracker_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateAudioEncoder
+media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateAudioEncoder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'audio_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateDefaultRenderer
+media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateDefaultRenderer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'audio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateCastRenderer
+media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateCastRenderer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateMediaFoundationRenderer
+media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateMediaFoundationRenderer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'media_log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'renderer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'renderer_extension', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateFlingingRenderer
+media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateFlingingRenderer_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'presentation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateCdm
+media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateCdm_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.InterfaceFactory.CreateCdm_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.InterfaceFactoryPtr = media.mojom.InterfaceFactoryRemote;
+media.mojom.InterfaceFactoryRequest = media.mojom.InterfaceFactoryPendingReceiver;
+

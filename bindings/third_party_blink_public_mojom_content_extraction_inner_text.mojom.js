@@ -14,47 +14,88 @@ blink.mojom.NodeLocationType = {
   kStart: 0,
 };
 
-// Struct: InnerTextFrame
-blink.mojom.InnerTextFrame = class {
-  constructor(values = {}) {
-    this.segments = values.segments !== undefined ? values.segments : [];
-  }
-};
-
-// Struct: InnerTextParams
-blink.mojom.InnerTextParams = class {
-  constructor(values = {}) {
-    this.node_id = values.node_id !== undefined ? values.node_id : 0;
-    this.collecting = values.collecting !== undefined ? values.collecting : null;
-    this.max_words_per_aggregate_passage = values.max_words_per_aggregate_passage !== undefined ? values.max_words_per_aggregate_passage : 0;
-    this.collecting = values.collecting !== undefined ? values.collecting : null;
-    this.under = values.under !== undefined ? values.under : 0;
-    this.greedily_aggregate_sibling_nodes = values.greedily_aggregate_sibling_nodes !== undefined ? values.greedily_aggregate_sibling_nodes : false;
-    this.extraction = values.extraction !== undefined ? values.extraction : null;
-    this.max_passages = values.max_passages !== undefined ? values.max_passages : 0;
-    this.min_words_per_passage = values.min_words_per_passage !== undefined ? values.min_words_per_passage : 0;
-  }
-};
-
 // Interface: InnerTextAgent
-blink.mojom.InnerTextAgentPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.InnerTextAgent';
-  }
-
-  getInnerText(params) {
-    // Method: GetInnerText
-    return new Promise((resolve) => {
-      // Call: GetInnerText(params)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.InnerTextAgentRequest = class {
+blink.mojom.InnerTextAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.InnerTextAgentRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.InnerTextAgent';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.InnerTextAgentPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.InnerTextAgentRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.InnerTextAgentRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getInnerText(params) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec.$,
+      blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec.$,
+      [params]);
+  }
+
+};
+
+blink.mojom.InnerTextAgent.getRemote = function() {
+  let remote = new blink.mojom.InnerTextAgentRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.InnerTextAgent',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetInnerText
+blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InnerTextAgent.GetInnerText_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.InnerTextAgent.GetInnerText_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.InnerTextAgentPtr = blink.mojom.InnerTextAgentRemote;
+blink.mojom.InnerTextAgentRequest = blink.mojom.InnerTextAgentPendingReceiver;
+

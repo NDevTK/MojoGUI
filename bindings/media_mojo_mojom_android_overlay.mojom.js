@@ -9,89 +9,290 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
-// Struct: AndroidOverlayConfig
-media.mojom.AndroidOverlayConfig = class {
-  constructor(values = {}) {
-    this.frame = values.frame !== undefined ? values.frame : null;
-    this.token = values.token !== undefined ? values.token : null;
-    this.pipe = values.pipe !== undefined ? values.pipe : null;
-    this.construct = values.construct !== undefined ? values.construct : null;
-    this.rect = values.rect !== undefined ? values.rect : null;
-    this.power_efficient = values.power_efficient !== undefined ? values.power_efficient : false;
+// Interface: AndroidOverlayProvider
+media.mojom.AndroidOverlayProviderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: AndroidOverlayProvider
-media.mojom.AndroidOverlayProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.AndroidOverlayProvider';
+media.mojom.AndroidOverlayProviderRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.AndroidOverlayProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.AndroidOverlayProviderPendingReceiver,
+      handle);
+    this.$ = new media.mojom.AndroidOverlayProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createOverlay(overlay, client, config) {
-    // Method: CreateOverlay
-    // Call: CreateOverlay(overlay, client, config)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$,
+      null,
+      [overlay, client, config]);
   }
 
 };
 
-media.mojom.AndroidOverlayProviderRequest = class {
+media.mojom.AndroidOverlayProvider.getRemote = function() {
+  let remote = new media.mojom.AndroidOverlayProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.AndroidOverlayProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateOverlay
+media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlayProvider.CreateOverlay_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.AndroidOverlayProviderPtr = media.mojom.AndroidOverlayProviderRemote;
+media.mojom.AndroidOverlayProviderRequest = media.mojom.AndroidOverlayProviderPendingReceiver;
+
+
+// Interface: AndroidOverlay
+media.mojom.AndroidOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: AndroidOverlay
-media.mojom.AndroidOverlayPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.AndroidOverlay';
+media.mojom.AndroidOverlayRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.AndroidOverlay';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.AndroidOverlayPendingReceiver,
+      handle);
+    this.$ = new media.mojom.AndroidOverlayRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.AndroidOverlayRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   scheduleLayout(rect) {
-    // Method: ScheduleLayout
-    // Call: ScheduleLayout(rect)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$,
+      null,
+      [rect]);
   }
 
 };
 
-media.mojom.AndroidOverlayRequest = class {
+media.mojom.AndroidOverlay.getRemote = function() {
+  let remote = new media.mojom.AndroidOverlayRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.AndroidOverlay',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ScheduleLayout
+media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlay.ScheduleLayout_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.AndroidOverlayPtr = media.mojom.AndroidOverlayRemote;
+media.mojom.AndroidOverlayRequest = media.mojom.AndroidOverlayPendingReceiver;
+
+
+// Interface: AndroidOverlayClient
+media.mojom.AndroidOverlayClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: AndroidOverlayClient
-media.mojom.AndroidOverlayClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.AndroidOverlayClient';
+media.mojom.AndroidOverlayClientRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.AndroidOverlayClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.AndroidOverlayClientPendingReceiver,
+      handle);
+    this.$ = new media.mojom.AndroidOverlayClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.AndroidOverlayClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onSurfaceReady(surface_key) {
-    // Method: OnSurfaceReady
-    // Call: OnSurfaceReady(surface_key)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$,
+      null,
+      [surface_key]);
   }
 
   onDestroyed() {
-    // Method: OnDestroyed
-    // Call: OnDestroyed()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$,
+      null,
+      []);
   }
 
   onSynchronouslyDestroyed() {
-    // Method: OnSynchronouslyDestroyed
-    // Call: OnSynchronouslyDestroyed()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$,
+      null,
+      []);
   }
 
   onPowerEfficientState(is_power_efficient) {
-    // Method: OnPowerEfficientState
-    // Call: OnPowerEfficientState(is_power_efficient)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$,
+      null,
+      [is_power_efficient]);
   }
 
 };
 
-media.mojom.AndroidOverlayClientRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.AndroidOverlayClient.getRemote = function() {
+  let remote = new media.mojom.AndroidOverlayClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.AndroidOverlayClient',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnSurfaceReady
+media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlayClient.OnSurfaceReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnDestroyed
+media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlayClient.OnDestroyed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSynchronouslyDestroyed
+media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlayClient.OnSynchronouslyDestroyed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnPowerEfficientState
+media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.AndroidOverlayClient.OnPowerEfficientState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.AndroidOverlayClientPtr = media.mojom.AndroidOverlayClientRemote;
+media.mojom.AndroidOverlayClientRequest = media.mojom.AndroidOverlayClientPendingReceiver;
+

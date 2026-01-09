@@ -12,87 +12,302 @@ storage.mojom = storage.mojom || {};
 // Enum: BlobDataItemType
 storage.mojom.BlobDataItemType = {
   kUnknown: 0,
+  kCacheStorage: 1,
+  kIndexedDB: 2,
 };
 
 // Enum: WriteBlobToFileResult
 storage.mojom.WriteBlobToFileResult = {
   kError: 0,
-};
-
-// Struct: BlobDataItem
-storage.mojom.BlobDataItem = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-    this.size = values.size !== undefined ? values.size : 0;
-    this.reader = values.reader !== undefined ? values.reader : 0;
-  }
+  kBadPath: 1,
+  kInvalidBlob: 2,
+  kIOError: 3,
+  kTimestampError: 4,
+  kSuccess: 5,
 };
 
 // Interface: BlobDataItemReader
-storage.mojom.BlobDataItemReaderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'storage.mojom.BlobDataItemReader';
+storage.mojom.BlobDataItemReaderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+storage.mojom.BlobDataItemReaderRemote = class {
+  static get $interfaceName() {
+    return 'storage.mojom.BlobDataItemReader';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      storage.mojom.BlobDataItemReaderPendingReceiver,
+      handle);
+    this.$ = new storage.mojom.BlobDataItemReaderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   read(offset, length, pipe) {
-    // Method: Read
-    return new Promise((resolve) => {
-      // Call: Read(offset, length, pipe)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      storage.mojom.BlobDataItemReader_Read_ParamsSpec.$,
+      storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$,
+      [offset, length, pipe]);
   }
 
   readSideData() {
-    // Method: ReadSideData
-    return new Promise((resolve) => {
-      // Call: ReadSideData()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$,
+      storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-storage.mojom.BlobDataItemReaderRequest = class {
+storage.mojom.BlobDataItemReader.getRemote = function() {
+  let remote = new storage.mojom.BlobDataItemReaderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'storage.mojom.BlobDataItemReader',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Read
+storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItemReader.Read_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItemReader.Read_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReadSideData
+storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItemReader.ReadSideData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobDataItemReader.ReadSideData_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+storage.mojom.BlobDataItemReaderPtr = storage.mojom.BlobDataItemReaderRemote;
+storage.mojom.BlobDataItemReaderRequest = storage.mojom.BlobDataItemReaderPendingReceiver;
+
+
+// Interface: BlobStorageContext
+storage.mojom.BlobStorageContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: BlobStorageContext
-storage.mojom.BlobStorageContextPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'storage.mojom.BlobStorageContext';
+storage.mojom.BlobStorageContextRemote = class {
+  static get $interfaceName() {
+    return 'storage.mojom.BlobStorageContext';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      storage.mojom.BlobStorageContextPendingReceiver,
+      handle);
+    this.$ = new storage.mojom.BlobStorageContextRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+storage.mojom.BlobStorageContextRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   registerFromDataItem(blob, uuid, item) {
-    // Method: RegisterFromDataItem
-    // Call: RegisterFromDataItem(blob, uuid, item)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$,
+      null,
+      [blob, uuid, item]);
   }
 
   registerFromMemory(blob, uuid, data) {
-    // Method: RegisterFromMemory
-    // Call: RegisterFromMemory(blob, uuid, data)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$,
+      null,
+      [blob, uuid, data]);
   }
 
   writeBlobToFile(blob, path, flush_on_write, last_modified) {
-    // Method: WriteBlobToFile
-    return new Promise((resolve) => {
-      // Call: WriteBlobToFile(blob, path, flush_on_write, last_modified)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$,
+      storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$,
+      [blob, path, flush_on_write, last_modified]);
   }
 
   clone(receiver) {
-    // Method: Clone
-    // Call: Clone(receiver)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      storage.mojom.BlobStorageContext_Clone_ParamsSpec.$,
+      null,
+      [receiver]);
   }
 
 };
 
-storage.mojom.BlobStorageContextRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+storage.mojom.BlobStorageContext.getRemote = function() {
+  let remote = new storage.mojom.BlobStorageContextRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'storage.mojom.BlobStorageContext',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RegisterFromDataItem
+storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext.RegisterFromDataItem_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'item', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for RegisterFromMemory
+storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext.RegisterFromMemory_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WriteBlobToFile
+storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'flush_on_write', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'last_modified', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Clone
+storage.mojom.BlobStorageContext_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.BlobStorageContext.Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+storage.mojom.BlobStorageContextPtr = storage.mojom.BlobStorageContextRemote;
+storage.mojom.BlobStorageContextRequest = storage.mojom.BlobStorageContextPendingReceiver;
+

@@ -10,32 +10,124 @@ ai.mojom = ai.mojom || {};
 
 
 // Interface: AIPrototypingService
-ai.mojom.AIPrototypingServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ai.mojom.AIPrototypingService';
-  }
-
-  executeServerQuery(request) {
-    // Method: ExecuteServerQuery
-    return new Promise((resolve) => {
-      // Call: ExecuteServerQuery(request)
-      resolve({});
-    });
-  }
-
-  executeOnDeviceQuery(request) {
-    // Method: ExecuteOnDeviceQuery
-    return new Promise((resolve) => {
-      // Call: ExecuteOnDeviceQuery(request)
-      resolve({});
-    });
-  }
-
-};
-
-ai.mojom.AIPrototypingServiceRequest = class {
+ai.mojom.AIPrototypingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ai.mojom.AIPrototypingServiceRemote = class {
+  static get $interfaceName() {
+    return 'ai.mojom.AIPrototypingService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ai.mojom.AIPrototypingServicePendingReceiver,
+      handle);
+    this.$ = new ai.mojom.AIPrototypingServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  executeServerQuery(request) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$,
+      ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$,
+      [request]);
+  }
+
+  executeOnDeviceQuery(request) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$,
+      ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$,
+      [request]);
+  }
+
+};
+
+ai.mojom.AIPrototypingService.getRemote = function() {
+  let remote = new ai.mojom.AIPrototypingServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ai.mojom.AIPrototypingService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ExecuteServerQuery
+ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.AIPrototypingService.ExecuteServerQuery_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.AIPrototypingService.ExecuteServerQuery_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'logging_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ExecuteOnDeviceQuery
+ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.AIPrototypingService.ExecuteOnDeviceQuery_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ai.mojom.AIPrototypingService.ExecuteOnDeviceQuery_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ai.mojom.AIPrototypingServicePtr = ai.mojom.AIPrototypingServiceRemote;
+ai.mojom.AIPrototypingServiceRequest = ai.mojom.AIPrototypingServicePendingReceiver;
+

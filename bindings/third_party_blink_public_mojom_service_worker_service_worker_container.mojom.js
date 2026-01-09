@@ -14,111 +14,437 @@ blink.mojom.ControllerServiceWorkerPurpose = {
   FETCH_SUB_RESOURCE: 0,
 };
 
-// Struct: ServiceWorkerContainerInfoForClient
-blink.mojom.ServiceWorkerContainerInfoForClient = class {
-  constructor(values = {}) {
-    this.client_receiver = values.client_receiver !== undefined ? values.client_receiver : null;
+// Interface: ServiceWorkerContainerHost
+blink.mojom.ServiceWorkerContainerHostPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
   }
 };
 
-// Interface: ServiceWorkerContainerHost
-blink.mojom.ServiceWorkerContainerHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ServiceWorkerContainerHost';
+blink.mojom.ServiceWorkerContainerHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ServiceWorkerContainerHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ServiceWorkerContainerHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ServiceWorkerContainerHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ServiceWorkerContainerHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   register(script_url, options, outside_fetch_client_settings_object) {
-    // Method: Register
-    return new Promise((resolve) => {
-      // Call: Register(script_url, options, outside_fetch_client_settings_object)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$,
+      [script_url, options, outside_fetch_client_settings_object]);
   }
 
   getRegistration(client_url) {
-    // Method: GetRegistration
-    return new Promise((resolve) => {
-      // Call: GetRegistration(client_url)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$,
+      [client_url]);
   }
 
   getRegistrations() {
-    // Method: GetRegistrations
-    return new Promise((resolve) => {
-      // Call: GetRegistrations()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$,
+      []);
   }
 
   getRegistrationForReady() {
-    // Method: GetRegistrationForReady
-    return new Promise((resolve) => {
-      // Call: GetRegistrationForReady()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$,
+      blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$,
+      []);
   }
 
   ensureControllerServiceWorker(receiver, purpose) {
-    // Method: EnsureControllerServiceWorker
-    // Call: EnsureControllerServiceWorker(receiver, purpose)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$,
+      null,
+      [receiver, purpose]);
   }
 
   cloneContainerHost(container_host) {
-    // Method: CloneContainerHost
-    // Call: CloneContainerHost(container_host)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$,
+      null,
+      [container_host]);
   }
 
   hintToUpdateServiceWorker() {
-    // Method: HintToUpdateServiceWorker
-    // Call: HintToUpdateServiceWorker()
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$,
+      null,
+      []);
   }
 
   ensureFileAccess(files) {
-    // Method: EnsureFileAccess
-    // Call: EnsureFileAccess(files)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$,
+      null,
+      [files]);
   }
 
   onExecutionReady() {
-    // Method: OnExecutionReady
-    // Call: OnExecutionReady()
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-blink.mojom.ServiceWorkerContainerHostRequest = class {
+blink.mojom.ServiceWorkerContainerHost.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerContainerHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ServiceWorkerContainerHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Register
+blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.Register_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outside_fetch_client_settings_object', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.Register_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'registration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetRegistration
+blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistration_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistration_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'registration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetRegistrations
+blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrations_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrations_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'infos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetRegistrationForReady
+blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrationForReady_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrationForReady_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnsureControllerServiceWorker
+blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.EnsureControllerServiceWorker_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'purpose', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloneContainerHost
+blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.CloneContainerHost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'container_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for HintToUpdateServiceWorker
+blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.HintToUpdateServiceWorker_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnsureFileAccess
+blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.EnsureFileAccess_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnExecutionReady
+blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainerHost.OnExecutionReady_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ServiceWorkerContainerHostPtr = blink.mojom.ServiceWorkerContainerHostRemote;
+blink.mojom.ServiceWorkerContainerHostRequest = blink.mojom.ServiceWorkerContainerHostPendingReceiver;
+
+
+// Interface: ServiceWorkerContainer
+blink.mojom.ServiceWorkerContainerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ServiceWorkerContainer
-blink.mojom.ServiceWorkerContainerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ServiceWorkerContainer';
+blink.mojom.ServiceWorkerContainerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ServiceWorkerContainer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ServiceWorkerContainerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ServiceWorkerContainerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ServiceWorkerContainerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setController(controller_info, should_notify_controllerchange) {
-    // Method: SetController
-    // Call: SetController(controller_info, should_notify_controllerchange)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$,
+      null,
+      [controller_info, should_notify_controllerchange]);
   }
 
   postMessageToClient(source, message) {
-    // Method: PostMessageToClient
-    // Call: PostMessageToClient(source, message)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$,
+      null,
+      [source, message]);
   }
 
   countFeature(feature) {
-    // Method: CountFeature
-    // Call: CountFeature(feature)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$,
+      null,
+      [feature]);
   }
 
 };
 
-blink.mojom.ServiceWorkerContainerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+blink.mojom.ServiceWorkerContainer.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerContainerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ServiceWorkerContainer',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetController
+blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainer.SetController_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'controller_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_notify_controllerchange', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for PostMessageToClient
+blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainer.PostMessageToClient_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CountFeature
+blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerContainer.CountFeature_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ServiceWorkerContainerPtr = blink.mojom.ServiceWorkerContainerRemote;
+blink.mojom.ServiceWorkerContainerRequest = blink.mojom.ServiceWorkerContainerPendingReceiver;
+

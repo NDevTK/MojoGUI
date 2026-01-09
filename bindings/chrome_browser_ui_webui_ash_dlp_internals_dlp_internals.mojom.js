@@ -77,122 +77,289 @@ dlp_internals.mojom.UserType = {
   kKiosk: 3,
 };
 
-// Struct: DataTransferEndpoint
-dlp_internals.mojom.DataTransferEndpoint = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : 0;
-    this.url = values.url !== undefined ? values.url : null;
-  }
-};
-
-// Struct: ContentRestrictionInfo
-dlp_internals.mojom.ContentRestrictionInfo = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : null;
-  }
-};
-
-// Struct: RenderFrameHostInfo
-dlp_internals.mojom.RenderFrameHostInfo = class {
-  constructor(values = {}) {
-    this.restrictions_info = values.restrictions_info !== undefined ? values.restrictions_info : [];
-  }
-};
-
-// Struct: WebContentsInfo
-dlp_internals.mojom.WebContentsInfo = class {
-  constructor(values = {}) {
-    this.frames_info = values.frames_info !== undefined ? values.frames_info : [];
-  }
-};
-
-// Struct: EventDestination
-dlp_internals.mojom.EventDestination = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: DlpEvent
-dlp_internals.mojom.DlpEvent = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: FileDatabaseEntry
-dlp_internals.mojom.FileDatabaseEntry = class {
-  constructor(values = {}) {
-    this.referrer_url = values.referrer_url !== undefined ? values.referrer_url : 0;
-  }
-};
-
 // Interface: ReportingObserver
-dlp_internals.mojom.ReportingObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'dlp_internals.mojom.ReportingObserver';
+dlp_internals.mojom.ReportingObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+dlp_internals.mojom.ReportingObserverRemote = class {
+  static get $interfaceName() {
+    return 'dlp_internals.mojom.ReportingObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      dlp_internals.mojom.ReportingObserverPendingReceiver,
+      handle);
+    this.$ = new dlp_internals.mojom.ReportingObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onReportEvent(event) {
-    // Method: OnReportEvent
-    // Call: OnReportEvent(event)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
 };
 
-dlp_internals.mojom.ReportingObserverRequest = class {
+dlp_internals.mojom.ReportingObserver.getRemote = function() {
+  let remote = new dlp_internals.mojom.ReportingObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'dlp_internals.mojom.ReportingObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnReportEvent
+dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.ReportingObserver.OnReportEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+dlp_internals.mojom.ReportingObserverPtr = dlp_internals.mojom.ReportingObserverRemote;
+dlp_internals.mojom.ReportingObserverRequest = dlp_internals.mojom.ReportingObserverPendingReceiver;
+
+
+// Interface: PageHandler
+dlp_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-dlp_internals.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'dlp_internals.mojom.PageHandler';
+dlp_internals.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'dlp_internals.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      dlp_internals.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new dlp_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getClipboardDataSource() {
-    // Method: GetClipboardDataSource
-    return new Promise((resolve) => {
-      // Call: GetClipboardDataSource()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$,
+      []);
   }
 
   getContentRestrictionsInfo() {
-    // Method: GetContentRestrictionsInfo
-    return new Promise((resolve) => {
-      // Call: GetContentRestrictionsInfo()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$,
+      []);
   }
 
   observeReporting(observer) {
-    // Method: ObserveReporting
-    // Call: ObserveReporting(observer)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   getFilesDatabaseEntries() {
-    // Method: GetFilesDatabaseEntries
-    return new Promise((resolve) => {
-      // Call: GetFilesDatabaseEntries()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$,
+      []);
   }
 
   getFileInode(file_name) {
-    // Method: GetFileInode
-    return new Promise((resolve) => {
-      // Call: GetFileInode(file_name)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$,
+      dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$,
+      [file_name]);
   }
 
 };
 
-dlp_internals.mojom.PageHandlerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+dlp_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new dlp_internals.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'dlp_internals.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetClipboardDataSource
+dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetContentRestrictionsInfo
+dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'web_contents_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ObserveReporting
+dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.ObserveReporting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetFilesDatabaseEntries
+dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'db_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetFileInode
+dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetFileInode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'dlp_internals.mojom.PageHandler.GetFileInode_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'inode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+dlp_internals.mojom.PageHandlerPtr = dlp_internals.mojom.PageHandlerRemote;
+dlp_internals.mojom.PageHandlerRequest = dlp_internals.mojom.PageHandlerPendingReceiver;
+

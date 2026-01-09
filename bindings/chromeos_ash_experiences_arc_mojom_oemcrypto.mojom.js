@@ -51,8 +51,6 @@ arc.mojom.OemCryptoResult = {
   ERROR_INSUFFICIENT_RESOURCES: 37,
   ERROR_INSUFFICIENT_HDCP: 38,
   ERROR_BUFFER_TOO_LARGE: 39,
-  not: 40,
-  not: 41,
 };
 
 // Enum: OemCryptoCipherMode
@@ -113,124 +111,152 @@ arc.mojom.OemCryptoPrivateKey = {
   ECC_PRIVATE_KEY: 1,
 };
 
-// Struct: OemCryptoSecureBuffer
-arc.mojom.OemCryptoSecureBuffer = class {
-  constructor(values = {}) {
-    this.offset = values.offset !== undefined ? values.offset : 0;
-  }
-};
-
-// Struct: OemCryptoSubstring
-arc.mojom.OemCryptoSubstring = class {
-  constructor(values = {}) {
-    this.length = values.length !== undefined ? values.length : 0;
-  }
-};
-
-// Struct: OemCryptoKeyObjectV14
-arc.mojom.OemCryptoKeyObjectV14 = class {
-  constructor(values = {}) {
-    this.cipher_mode = values.cipher_mode !== undefined ? values.cipher_mode : 0;
-  }
-};
-
-// Struct: OemCryptoKeyObject
-arc.mojom.OemCryptoKeyObject = class {
-  constructor(values = {}) {
-    this.key_control = values.key_control !== undefined ? values.key_control : "";
-  }
-};
-
-// Struct: OemCryptoEntitledContentKeyObjectV14
-arc.mojom.OemCryptoEntitledContentKeyObjectV14 = class {
-  constructor(values = {}) {
-    this.content_key_data = values.content_key_data !== undefined ? values.content_key_data : 0;
-  }
-};
-
-// Struct: OemCryptoEntitledContentKeyObject
-arc.mojom.OemCryptoEntitledContentKeyObject = class {
-  constructor(values = {}) {
-    this.content_key_data = values.content_key_data !== undefined ? values.content_key_data : "";
-  }
-};
-
-// Struct: OemCryptoKeyRefreshObjectV14
-arc.mojom.OemCryptoKeyRefreshObjectV14 = class {
-  constructor(values = {}) {
-    this.key_control_offset = values.key_control_offset !== undefined ? values.key_control_offset : 0;
-  }
-};
-
-// Struct: OemCryptoKeyRefreshObject
-arc.mojom.OemCryptoKeyRefreshObject = class {
-  constructor(values = {}) {
-    this.key_control = values.key_control !== undefined ? values.key_control : "";
-  }
-};
-
-// Struct: OemCryptoCencEncryptPatternDesc
-arc.mojom.OemCryptoCencEncryptPatternDesc = class {
-  constructor(values = {}) {
-    this.offset = values.offset !== undefined ? values.offset : 0;
-  }
-};
-
-// Struct: OemCryptoPstReport
-arc.mojom.OemCryptoPstReport = class {
-  constructor(values = {}) {
-    this.seconds_since_last_decrypt = values.seconds_since_last_decrypt !== undefined ? values.seconds_since_last_decrypt : 0;
-  }
-};
-
-// Struct: SubSampleDescription
-arc.mojom.SubSampleDescription = class {
-  constructor(values = {}) {
-    this.block_offset = values.block_offset !== undefined ? values.block_offset : 0;
-  }
-};
-
 // Interface: OemCryptoService
-arc.mojom.OemCryptoServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.OemCryptoService';
-  }
-
-};
-
-arc.mojom.OemCryptoServiceRequest = class {
+arc.mojom.OemCryptoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.OemCryptoServiceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.OemCryptoService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.OemCryptoServicePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.OemCryptoServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.OemCryptoServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.OemCryptoService.getRemote = function() {
+  let remote = new arc.mojom.OemCryptoServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.OemCryptoService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.OemCryptoServicePtr = arc.mojom.OemCryptoServiceRemote;
+arc.mojom.OemCryptoServiceRequest = arc.mojom.OemCryptoServicePendingReceiver;
+
 
 // Interface: OemCryptoHost
-arc.mojom.OemCryptoHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.OemCryptoHost';
-  }
-
-};
-
-arc.mojom.OemCryptoHostRequest = class {
+arc.mojom.OemCryptoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.OemCryptoHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.OemCryptoHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.OemCryptoHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.OemCryptoHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.OemCryptoHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.OemCryptoHost.getRemote = function() {
+  let remote = new arc.mojom.OemCryptoHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.OemCryptoHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.OemCryptoHostPtr = arc.mojom.OemCryptoHostRemote;
+arc.mojom.OemCryptoHostRequest = arc.mojom.OemCryptoHostPendingReceiver;
+
 
 // Interface: OemCryptoInstance
-arc.mojom.OemCryptoInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.OemCryptoInstance';
-  }
-
-};
-
-arc.mojom.OemCryptoInstanceRequest = class {
+arc.mojom.OemCryptoInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.OemCryptoInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.OemCryptoInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.OemCryptoInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.OemCryptoInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.OemCryptoInstance.getRemote = function() {
+  let remote = new arc.mojom.OemCryptoInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.OemCryptoInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.OemCryptoInstancePtr = arc.mojom.OemCryptoInstanceRemote;
+arc.mojom.OemCryptoInstanceRequest = arc.mojom.OemCryptoInstancePendingReceiver;
+

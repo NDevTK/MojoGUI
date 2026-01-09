@@ -64,6 +64,10 @@ remoting.mojom.TouchEventType = {
 // Enum: UrlForwarderState
 remoting.mojom.UrlForwarderState = {
   kUnknown: 0,
+  kSetUp: 1,
+  kNotSetUp: 2,
+  kFailed: 3,
+  kSetupPendingUserIntervention: 4,
 };
 
 // Enum: Type
@@ -112,509 +116,1564 @@ remoting.mojom.ProtocolErrorCode = {
   kOperationTimeout: 29,
 };
 
-// Struct: AudioPacket
-remoting.mojom.AudioPacket = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ClipboardEvent
-remoting.mojom.ClipboardEvent = class {
-  constructor(values = {}) {
-    this.data = values.data !== undefined ? values.data : "";
-  }
-};
-
-// Struct: KeyEvent
-remoting.mojom.KeyEvent = class {
-  constructor(values = {}) {
-    this.lock_states = values.lock_states !== undefined ? values.lock_states : 0;
-    this.lock = values.lock !== undefined ? values.lock : null;
-    this.num_lock_state = values.num_lock_state !== undefined ? values.num_lock_state : false;
-  }
-};
-
-// Struct: MouseEvent
-remoting.mojom.MouseEvent = class {
-  constructor(values = {}) {
-    this.delta_y = values.delta_y !== undefined ? values.delta_y : 0;
-  }
-};
-
-// Struct: TextEvent
-remoting.mojom.TextEvent = class {
-  constructor(values = {}) {
-    this.text = values.text !== undefined ? values.text : "";
-  }
-};
-
-// Struct: TouchEventPoint
-remoting.mojom.TouchEventPoint = class {
-  constructor(values = {}) {
-    this.position = values.position !== undefined ? values.position : 0;
-    this.pressure = values.pressure !== undefined ? values.pressure : 0;
-  }
-};
-
-// Struct: TouchEvent
-remoting.mojom.TouchEvent = class {
-  constructor(values = {}) {
-    this.touch_points = values.touch_points !== undefined ? values.touch_points : 0;
-  }
-};
-
-// Struct: FractionalCoordinate
-remoting.mojom.FractionalCoordinate = class {
-  constructor(values = {}) {
-    this.screen_id = values.screen_id !== undefined ? values.screen_id : 0;
-  }
-};
-
-// Struct: DesktopEnvironmentOptions
-remoting.mojom.DesktopEnvironmentOptions = class {
-  constructor(values = {}) {
-    this.desktop_capture_options = values.desktop_capture_options !== undefined ? values.desktop_capture_options : 0;
-  }
-};
-
-// Struct: ScreenResolution
-remoting.mojom.ScreenResolution = class {
-  constructor(values = {}) {
-    this.dpi = values.dpi !== undefined ? values.dpi : null;
-  }
-};
-
-// Struct: FileTransferError
-remoting.mojom.FileTransferError = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: BeginFileReadSuccess
-remoting.mojom.BeginFileReadSuccess = class {
-  constructor(values = {}) {
-    this.size = values.size !== undefined ? values.size : 0;
-  }
-};
-
-// Struct: BeginFileWriteSuccess
-remoting.mojom.BeginFileWriteSuccess = class {
-  constructor(values = {}) {
-    this.file_writer = values.file_writer !== undefined ? values.file_writer : null;
-  }
-};
-
-// Struct: CreateVideoCapturerResult
-remoting.mojom.CreateVideoCapturerResult = class {
-  constructor(values = {}) {
-    this.video_capturer_event_handler = values.video_capturer_event_handler !== undefined ? values.video_capturer_event_handler : null;
-  }
-};
-
-// Struct: VideoTrackLayout
-remoting.mojom.VideoTrackLayout = class {
-  constructor(values = {}) {
-    this.screen_id = values.screen_id !== undefined ? values.screen_id : 0;
-    this.display_name = values.display_name !== undefined ? values.display_name : 0;
-  }
-};
-
-// Struct: VideoLayout
-remoting.mojom.VideoLayout = class {
-  constructor(values = {}) {
-    this.primary_screen_id = values.primary_screen_id !== undefined ? values.primary_screen_id : 0;
-  }
-};
-
-// Struct: SourceLocation
-remoting.mojom.SourceLocation = class {
-  constructor(values = {}) {
-    this.line_number = values.line_number !== undefined ? values.line_number : 0;
-  }
-};
-
 // Interface: DesktopSessionRequestHandler
-remoting.mojom.DesktopSessionRequestHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.DesktopSessionRequestHandler';
+remoting.mojom.DesktopSessionRequestHandlerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+remoting.mojom.DesktopSessionRequestHandlerRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.DesktopSessionRequestHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.DesktopSessionRequestHandlerPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   connectDesktopChannel(desktop_pipe) {
-    // Method: ConnectDesktopChannel
-    // Call: ConnectDesktopChannel(desktop_pipe)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$,
+      null,
+      [desktop_pipe]);
   }
 
   injectSecureAttentionSequence() {
-    // Method: InjectSecureAttentionSequence
-    // Call: InjectSecureAttentionSequence()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$,
+      null,
+      []);
   }
 
   crashNetworkProcess() {
-    // Method: CrashNetworkProcess
-    // Call: CrashNetworkProcess()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-remoting.mojom.DesktopSessionRequestHandlerRequest = class {
+remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
+  let remote = new remoting.mojom.DesktopSessionRequestHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.DesktopSessionRequestHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ConnectDesktopChannel
+remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionRequestHandler.ConnectDesktopChannel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'desktop_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectSecureAttentionSequence
+remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionRequestHandler.InjectSecureAttentionSequence_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CrashNetworkProcess
+remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionRequestHandler.CrashNetworkProcess_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.DesktopSessionRequestHandlerPtr = remoting.mojom.DesktopSessionRequestHandlerRemote;
+remoting.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.DesktopSessionRequestHandlerPendingReceiver;
+
+
+// Interface: DesktopSessionManager
+remoting.mojom.DesktopSessionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DesktopSessionManager
-remoting.mojom.DesktopSessionManagerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.DesktopSessionManager';
+remoting.mojom.DesktopSessionManagerRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.DesktopSessionManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.DesktopSessionManagerPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.DesktopSessionManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createDesktopSession(terminal_id, screen_resolution, is_virtual_terminal) {
-    // Method: CreateDesktopSession
-    // Call: CreateDesktopSession(terminal_id, screen_resolution, is_virtual_terminal)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$,
+      null,
+      [terminal_id, screen_resolution, is_virtual_terminal]);
   }
 
   closeDesktopSession(terminal_id) {
-    // Method: CloseDesktopSession
-    // Call: CloseDesktopSession(terminal_id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$,
+      null,
+      [terminal_id]);
   }
 
   setScreenResolution(terminal_id, screen_resolution) {
-    // Method: SetScreenResolution
-    // Call: SetScreenResolution(terminal_id, screen_resolution)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$,
+      null,
+      [terminal_id, screen_resolution]);
   }
 
 };
 
-remoting.mojom.DesktopSessionManagerRequest = class {
+remoting.mojom.DesktopSessionManager.getRemote = function() {
+  let remote = new remoting.mojom.DesktopSessionManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.DesktopSessionManager',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateDesktopSession
+remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionManager.CreateDesktopSession_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_virtual_terminal', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseDesktopSession
+remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionManager.CloseDesktopSession_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetScreenResolution
+remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionManager.SetScreenResolution_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.DesktopSessionManagerPtr = remoting.mojom.DesktopSessionManagerRemote;
+remoting.mojom.DesktopSessionManagerRequest = remoting.mojom.DesktopSessionManagerPendingReceiver;
+
+
+// Interface: DesktopSessionAgent
+remoting.mojom.DesktopSessionAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DesktopSessionAgent
-remoting.mojom.DesktopSessionAgentPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.DesktopSessionAgent';
+remoting.mojom.DesktopSessionAgentRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.DesktopSessionAgent';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.DesktopSessionAgentPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.DesktopSessionAgentRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   start(authenticated_jid, resolution, options) {
-    // Method: Start
-    return new Promise((resolve) => {
-      // Call: Start(authenticated_jid, resolution, options)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$,
+      remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec.$,
+      [authenticated_jid, resolution, options]);
   }
 
 };
 
-remoting.mojom.DesktopSessionAgentRequest = class {
+remoting.mojom.DesktopSessionAgent.getRemote = function() {
+  let remote = new remoting.mojom.DesktopSessionAgentRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.DesktopSessionAgent',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Start
+remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionAgent.Start_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'authenticated_jid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionAgent.Start_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'desktop_session_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.DesktopSessionAgentPtr = remoting.mojom.DesktopSessionAgentRemote;
+remoting.mojom.DesktopSessionAgentRequest = remoting.mojom.DesktopSessionAgentPendingReceiver;
+
+
+// Interface: FileWriter
+remoting.mojom.FileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: FileWriter
-remoting.mojom.FileWriterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.FileWriter';
+remoting.mojom.FileWriterRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.FileWriter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.FileWriterPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.FileWriterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.FileWriterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   writeChunk(data) {
-    // Method: WriteChunk
-    return new Promise((resolve) => {
-      // Call: WriteChunk(data)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$,
+      remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec.$,
+      [data]);
   }
 
   closeFile() {
-    // Method: CloseFile
-    return new Promise((resolve) => {
-      // Call: CloseFile()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.FileWriter_CloseFile_ParamsSpec.$,
+      remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-remoting.mojom.FileWriterRequest = class {
+remoting.mojom.FileWriter.getRemote = function() {
+  let remote = new remoting.mojom.FileWriterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.FileWriter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for WriteChunk
+remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileWriter.WriteChunk_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileWriter.WriteChunk_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloseFile
+remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileWriter.CloseFile_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileWriter.CloseFile_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.FileWriterPtr = remoting.mojom.FileWriterRemote;
+remoting.mojom.FileWriterRequest = remoting.mojom.FileWriterPendingReceiver;
+
+
+// Interface: FileReader
+remoting.mojom.FileReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: FileReader
-remoting.mojom.FileReaderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.FileReader';
+remoting.mojom.FileReaderRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.FileReader';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.FileReaderPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.FileReaderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.FileReaderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   readChunk(bytes_to_read) {
-    // Method: ReadChunk
-    return new Promise((resolve) => {
-      // Call: ReadChunk(bytes_to_read)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.FileReader_ReadChunk_ParamsSpec.$,
+      remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec.$,
+      [bytes_to_read]);
   }
 
 };
 
-remoting.mojom.FileReaderRequest = class {
+remoting.mojom.FileReader.getRemote = function() {
+  let remote = new remoting.mojom.FileReaderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.FileReader',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ReadChunk
+remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileReader.ReadChunk_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bytes_to_read', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.FileReader.ReadChunk_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.FileReaderPtr = remoting.mojom.FileReaderRemote;
+remoting.mojom.FileReaderRequest = remoting.mojom.FileReaderPendingReceiver;
+
+
+// Interface: DesktopSessionControl
+remoting.mojom.DesktopSessionControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DesktopSessionControl
-remoting.mojom.DesktopSessionControlPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.DesktopSessionControl';
+remoting.mojom.DesktopSessionControlRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.DesktopSessionControl';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.DesktopSessionControlPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.DesktopSessionControlRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createVideoCapturer(desktop_display_id) {
-    // Method: CreateVideoCapturer
-    return new Promise((resolve) => {
-      // Call: CreateVideoCapturer(desktop_display_id)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec.$,
+      [desktop_display_id]);
   }
 
   setScreenResolution(new_resolution) {
-    // Method: SetScreenResolution
-    // Call: SetScreenResolution(new_resolution)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$,
+      null,
+      [new_resolution]);
   }
 
   lockWorkstation() {
-    // Method: LockWorkstation
-    // Call: LockWorkstation()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$,
+      null,
+      []);
   }
 
   injectSendAttentionSequence() {
-    // Method: InjectSendAttentionSequence
-    // Call: InjectSendAttentionSequence()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$,
+      null,
+      []);
   }
 
   injectClipboardEvent(event) {
-    // Method: InjectClipboardEvent
-    // Call: InjectClipboardEvent(event)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   injectKeyEvent(event) {
-    // Method: InjectKeyEvent
-    // Call: InjectKeyEvent(event)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   injectMouseEvent(event) {
-    // Method: InjectMouseEvent
-    // Call: InjectMouseEvent(event)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   injectTextEvent(event) {
-    // Method: InjectTextEvent
-    // Call: InjectTextEvent(event)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   injectTouchEvent(event) {
-    // Method: InjectTouchEvent
-    // Call: InjectTouchEvent(event)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   setUpUrlForwarder() {
-    // Method: SetUpUrlForwarder
-    // Call: SetUpUrlForwarder()
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$,
+      null,
+      []);
   }
 
   signalWebAuthnExtension() {
-    // Method: SignalWebAuthnExtension
-    // Call: SignalWebAuthnExtension()
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$,
+      null,
+      []);
   }
 
   beginFileRead() {
-    // Method: BeginFileRead
-    return new Promise((resolve) => {
-      // Call: BeginFileRead()
-      resolve({});
-    });
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec.$,
+      []);
   }
 
   beginFileWrite(file_path) {
-    // Method: BeginFileWrite
-    return new Promise((resolve) => {
-      // Call: BeginFileWrite(file_path)
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$,
+      remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec.$,
+      [file_path]);
   }
 
   setHostCursorRenderedByClient() {
-    // Method: SetHostCursorRenderedByClient
-    // Call: SetHostCursorRenderedByClient()
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-remoting.mojom.DesktopSessionControlRequest = class {
+remoting.mojom.DesktopSessionControl.getRemote = function() {
+  let remote = new remoting.mojom.DesktopSessionControlRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.DesktopSessionControl',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateVideoCapturer
+remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'desktop_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetScreenResolution
+remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.SetScreenResolution_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_resolution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for LockWorkstation
+remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.LockWorkstation_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectSendAttentionSequence
+remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.InjectSendAttentionSequence_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectClipboardEvent
+remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.InjectClipboardEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectKeyEvent
+remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.InjectKeyEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectMouseEvent
+remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.InjectMouseEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectTextEvent
+remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.InjectTextEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for InjectTouchEvent
+remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.InjectTouchEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetUpUrlForwarder
+remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.SetUpUrlForwarder_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SignalWebAuthnExtension
+remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.SignalWebAuthnExtension_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BeginFileRead
+remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BeginFileWrite
+remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetHostCursorRenderedByClient
+remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionControl.SetHostCursorRenderedByClient_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.DesktopSessionControlPtr = remoting.mojom.DesktopSessionControlRemote;
+remoting.mojom.DesktopSessionControlRequest = remoting.mojom.DesktopSessionControlPendingReceiver;
+
+
+// Interface: VideoCapturer
+remoting.mojom.VideoCapturerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: VideoCapturer
-remoting.mojom.VideoCapturerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.VideoCapturer';
+remoting.mojom.VideoCapturerRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.VideoCapturer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.VideoCapturerPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.VideoCapturerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.VideoCapturerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   captureFrame() {
-    // Method: CaptureFrame
-    // Call: CaptureFrame()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$,
+      null,
+      []);
   }
 
   setComposeEnabled(enabled) {
-    // Method: SetComposeEnabled
-    // Call: SetComposeEnabled(enabled)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
 };
 
-remoting.mojom.VideoCapturerRequest = class {
+remoting.mojom.VideoCapturer.getRemote = function() {
+  let remote = new remoting.mojom.VideoCapturerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.VideoCapturer',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CaptureFrame
+remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoCapturer.CaptureFrame_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetComposeEnabled
+remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoCapturer.SetComposeEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.VideoCapturerPtr = remoting.mojom.VideoCapturerRemote;
+remoting.mojom.VideoCapturerRequest = remoting.mojom.VideoCapturerPendingReceiver;
+
+
+// Interface: VideoCapturerEventHandler
+remoting.mojom.VideoCapturerEventHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: VideoCapturerEventHandler
-remoting.mojom.VideoCapturerEventHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.VideoCapturerEventHandler';
+remoting.mojom.VideoCapturerEventHandlerRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.VideoCapturerEventHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.VideoCapturerEventHandlerPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onSharedMemoryRegionCreated(id, region, size) {
-    // Method: OnSharedMemoryRegionCreated
-    // Call: OnSharedMemoryRegionCreated(id, region, size)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$,
+      null,
+      [id, region, size]);
   }
 
   onSharedMemoryRegionReleased(id) {
-    // Method: OnSharedMemoryRegionReleased
-    // Call: OnSharedMemoryRegionReleased(id)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$,
+      null,
+      [id]);
   }
 
   onCaptureResult(result) {
-    // Method: OnCaptureResult
-    // Call: OnCaptureResult(result)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$,
+      null,
+      [result]);
   }
 
 };
 
-remoting.mojom.VideoCapturerEventHandlerRequest = class {
+remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
+  let remote = new remoting.mojom.VideoCapturerEventHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.VideoCapturerEventHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnSharedMemoryRegionCreated
+remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionCreated_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnSharedMemoryRegionReleased
+remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionReleased_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnCaptureResult
+remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.VideoCapturerEventHandler.OnCaptureResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.VideoCapturerEventHandlerPtr = remoting.mojom.VideoCapturerEventHandlerRemote;
+remoting.mojom.VideoCapturerEventHandlerRequest = remoting.mojom.VideoCapturerEventHandlerPendingReceiver;
+
+
+// Interface: DesktopSessionEventHandler
+remoting.mojom.DesktopSessionEventHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DesktopSessionEventHandler
-remoting.mojom.DesktopSessionEventHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.DesktopSessionEventHandler';
+remoting.mojom.DesktopSessionEventHandlerRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.DesktopSessionEventHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.DesktopSessionEventHandlerPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onClipboardEvent(event) {
-    // Method: OnClipboardEvent
-    // Call: OnClipboardEvent(event)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$,
+      null,
+      [event]);
   }
 
   onUrlForwarderStateChange(state) {
-    // Method: OnUrlForwarderStateChange
-    // Call: OnUrlForwarderStateChange(state)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$,
+      null,
+      [state]);
   }
 
   onAudioPacket(audio_packet) {
-    // Method: OnAudioPacket
-    // Call: OnAudioPacket(audio_packet)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$,
+      null,
+      [audio_packet]);
   }
 
   onDesktopDisplayChanged(layout) {
-    // Method: OnDesktopDisplayChanged
-    // Call: OnDesktopDisplayChanged(layout)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$,
+      null,
+      [layout]);
   }
 
   onMouseCursorChanged(mouse_cursor) {
-    // Method: OnMouseCursorChanged
-    // Call: OnMouseCursorChanged(mouse_cursor)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$,
+      null,
+      [mouse_cursor]);
   }
 
   onMouseCursorFractionalPositionChanged(position) {
-    // Method: OnMouseCursorFractionalPositionChanged
-    // Call: OnMouseCursorFractionalPositionChanged(position)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$,
+      null,
+      [position]);
   }
 
   onKeyboardLayoutChanged(keyboard_layout) {
-    // Method: OnKeyboardLayoutChanged
-    // Call: OnKeyboardLayoutChanged(keyboard_layout)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$,
+      null,
+      [keyboard_layout]);
   }
 
   onLocalMouseMoveDetected(new_position) {
-    // Method: OnLocalMouseMoveDetected
-    // Call: OnLocalMouseMoveDetected(new_position)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$,
+      null,
+      [new_position]);
   }
 
   onLocalKeyboardInputDetected(usb_keycode) {
-    // Method: OnLocalKeyboardInputDetected
-    // Call: OnLocalKeyboardInputDetected(usb_keycode)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$,
+      null,
+      [usb_keycode]);
   }
 
 };
 
-remoting.mojom.DesktopSessionEventHandlerRequest = class {
+remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
+  let remote = new remoting.mojom.DesktopSessionEventHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.DesktopSessionEventHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnClipboardEvent
+remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnClipboardEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnUrlForwarderStateChange
+remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnUrlForwarderStateChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnAudioPacket
+remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnAudioPacket_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'audio_packet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDesktopDisplayChanged
+remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnDesktopDisplayChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnMouseCursorChanged
+remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'mouse_cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnMouseCursorFractionalPositionChanged
+remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorFractionalPositionChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnKeyboardLayoutChanged
+remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnKeyboardLayoutChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'keyboard_layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnLocalMouseMoveDetected
+remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnLocalMouseMoveDetected_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'new_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnLocalKeyboardInputDetected
+remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionEventHandler.OnLocalKeyboardInputDetected_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'usb_keycode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.DesktopSessionEventHandlerPtr = remoting.mojom.DesktopSessionEventHandlerRemote;
+remoting.mojom.DesktopSessionEventHandlerRequest = remoting.mojom.DesktopSessionEventHandlerPendingReceiver;
+
+
+// Interface: DesktopSessionStateHandler
+remoting.mojom.DesktopSessionStateHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DesktopSessionStateHandler
-remoting.mojom.DesktopSessionStateHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.DesktopSessionStateHandler';
+remoting.mojom.DesktopSessionStateHandlerRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.DesktopSessionStateHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.DesktopSessionStateHandlerPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   disconnectSession(error_code, error_details, error_location) {
-    // Method: DisconnectSession
-    // Call: DisconnectSession(error_code, error_details, error_location)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$,
+      null,
+      [error_code, error_details, error_location]);
   }
 
 };
 
-remoting.mojom.DesktopSessionStateHandlerRequest = class {
+remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
+  let remote = new remoting.mojom.DesktopSessionStateHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.DesktopSessionStateHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DisconnectSession
+remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.DesktopSessionStateHandler.DisconnectSession_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_location', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+remoting.mojom.DesktopSessionStateHandlerPtr = remoting.mojom.DesktopSessionStateHandlerRemote;
+remoting.mojom.DesktopSessionStateHandlerRequest = remoting.mojom.DesktopSessionStateHandlerPendingReceiver;
+
+
+// Interface: WorkerProcessControl
+remoting.mojom.WorkerProcessControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: WorkerProcessControl
-remoting.mojom.WorkerProcessControlPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.WorkerProcessControl';
+remoting.mojom.WorkerProcessControlRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.WorkerProcessControl';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.WorkerProcessControlPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.WorkerProcessControlRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   crashProcess(function_name, file_name, line_number) {
-    // Method: CrashProcess
-    // Call: CrashProcess(function_name, file_name, line_number)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$,
+      null,
+      [function_name, file_name, line_number]);
   }
 
 };
 
-remoting.mojom.WorkerProcessControlRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+remoting.mojom.WorkerProcessControl.getRemote = function() {
+  let remote = new remoting.mojom.WorkerProcessControlRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.WorkerProcessControl',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CrashProcess
+remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'remoting.mojom.WorkerProcessControl.CrashProcess_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'function_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+remoting.mojom.WorkerProcessControlPtr = remoting.mojom.WorkerProcessControlRemote;
+remoting.mojom.WorkerProcessControlRequest = remoting.mojom.WorkerProcessControlPendingReceiver;
+

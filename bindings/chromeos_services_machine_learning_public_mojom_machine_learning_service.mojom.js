@@ -20,16 +20,51 @@ chromeos.machine_learning.mojom.LoadModelResult = {
 };
 
 // Interface: MachineLearningService
-chromeos.machine_learning.mojom.MachineLearningServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.MachineLearningService';
-  }
-
-};
-
-chromeos.machine_learning.mojom.MachineLearningServiceRequest = class {
+chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.MachineLearningServiceRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.MachineLearningService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.MachineLearningServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.MachineLearningService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.MachineLearningServicePtr = chromeos.machine_learning.mojom.MachineLearningServiceRemote;
+chromeos.machine_learning.mojom.MachineLearningServiceRequest = chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver;
+

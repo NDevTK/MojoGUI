@@ -9,39 +9,112 @@ var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
 
 
-// Struct: ThumbParams
-pdf.mojom.ThumbParams = class {
-  constructor(values = {}) {
-    this.size_px = values.size_px !== undefined ? values.size_px : null;
-    this.inch = values.inch !== undefined ? values.inch : null;
-    this.keep_aspect = values.keep_aspect !== undefined ? values.keep_aspect : false;
-  }
-};
-
 // Interface: PdfThumbnailer
-pdf.mojom.PdfThumbnailerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'pdf.mojom.PdfThumbnailer';
-  }
-
-  getThumbnail(params, pdf_region) {
-    // Method: GetThumbnail
-    return new Promise((resolve) => {
-      // Call: GetThumbnail(params, pdf_region)
-      resolve({});
-    });
-  }
-
-  setUseSkiaRendererPolicy(use_skia) {
-    // Method: SetUseSkiaRendererPolicy
-    // Call: SetUseSkiaRendererPolicy(use_skia)
-  }
-
-};
-
-pdf.mojom.PdfThumbnailerRequest = class {
+pdf.mojom.PdfThumbnailerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+pdf.mojom.PdfThumbnailerRemote = class {
+  static get $interfaceName() {
+    return 'pdf.mojom.PdfThumbnailer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      pdf.mojom.PdfThumbnailerPendingReceiver,
+      handle);
+    this.$ = new pdf.mojom.PdfThumbnailerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getThumbnail(params, pdf_region) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec.$,
+      pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$,
+      [params, pdf_region]);
+  }
+
+  setUseSkiaRendererPolicy(use_skia) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      null,
+      [use_skia]);
+  }
+
+};
+
+pdf.mojom.PdfThumbnailer.getRemote = function() {
+  let remote = new pdf.mojom.PdfThumbnailerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'pdf.mojom.PdfThumbnailer',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetThumbnail
+pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetUseSkiaRendererPolicy
+pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'pdf.mojom.PdfThumbnailer.SetUseSkiaRendererPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+pdf.mojom.PdfThumbnailerPtr = pdf.mojom.PdfThumbnailerRemote;
+pdf.mojom.PdfThumbnailerRequest = pdf.mojom.PdfThumbnailerPendingReceiver;
+

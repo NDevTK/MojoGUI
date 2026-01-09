@@ -9,29 +9,75 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
-// Struct: CopyOutputRequest
-viz.mojom.CopyOutputRequest = class {
-  constructor(values = {}) {
-    this.result_sender = values.result_sender !== undefined ? values.result_sender : null;
-  }
-};
-
 // Interface: CopyOutputResultSender
-viz.mojom.CopyOutputResultSenderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'viz.mojom.CopyOutputResultSender';
-  }
-
-  sendResult(result) {
-    // Method: SendResult
-    // Call: SendResult(result)
-  }
-
-};
-
-viz.mojom.CopyOutputResultSenderRequest = class {
+viz.mojom.CopyOutputResultSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+viz.mojom.CopyOutputResultSenderRemote = class {
+  static get $interfaceName() {
+    return 'viz.mojom.CopyOutputResultSender';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      viz.mojom.CopyOutputResultSenderPendingReceiver,
+      handle);
+    this.$ = new viz.mojom.CopyOutputResultSenderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  sendResult(result) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec.$,
+      null,
+      [result]);
+  }
+
+};
+
+viz.mojom.CopyOutputResultSender.getRemote = function() {
+  let remote = new viz.mojom.CopyOutputResultSenderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'viz.mojom.CopyOutputResultSender',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SendResult
+viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'viz.mojom.CopyOutputResultSender.SendResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+viz.mojom.CopyOutputResultSenderPtr = viz.mojom.CopyOutputResultSenderRemote;
+viz.mojom.CopyOutputResultSenderRequest = viz.mojom.CopyOutputResultSenderPendingReceiver;
+

@@ -17,100 +17,423 @@ storage.mojom.ForceCloseReason = {
 };
 
 // Interface: IndexedDBObserver
-storage.mojom.IndexedDBObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'storage.mojom.IndexedDBObserver';
+storage.mojom.IndexedDBObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+storage.mojom.IndexedDBObserverRemote = class {
+  static get $interfaceName() {
+    return 'storage.mojom.IndexedDBObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      storage.mojom.IndexedDBObserverPendingReceiver,
+      handle);
+    this.$ = new storage.mojom.IndexedDBObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+storage.mojom.IndexedDBObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onIndexedDBListChanged(bucket_locator) {
-    // Method: OnIndexedDBListChanged
-    // Call: OnIndexedDBListChanged(bucket_locator)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$,
+      null,
+      [bucket_locator]);
   }
 
   onIndexedDBContentChanged(bucket_locator, database_name, object_store_name) {
-    // Method: OnIndexedDBContentChanged
-    // Call: OnIndexedDBContentChanged(bucket_locator, database_name, object_store_name)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$,
+      null,
+      [bucket_locator, database_name, object_store_name]);
   }
 
 };
 
-storage.mojom.IndexedDBObserverRequest = class {
+storage.mojom.IndexedDBObserver.getRemote = function() {
+  let remote = new storage.mojom.IndexedDBObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'storage.mojom.IndexedDBObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnIndexedDBListChanged
+storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBObserver.OnIndexedDBListChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnIndexedDBContentChanged
+storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBObserver.OnIndexedDBContentChanged_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'database_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'object_store_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+storage.mojom.IndexedDBObserverPtr = storage.mojom.IndexedDBObserverRemote;
+storage.mojom.IndexedDBObserverRequest = storage.mojom.IndexedDBObserverPendingReceiver;
+
+
+// Interface: IndexedDBControl
+storage.mojom.IndexedDBControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: IndexedDBControl
-storage.mojom.IndexedDBControlPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'storage.mojom.IndexedDBControl';
+storage.mojom.IndexedDBControlRemote = class {
+  static get $interfaceName() {
+    return 'storage.mojom.IndexedDBControl';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      storage.mojom.IndexedDBControlPendingReceiver,
+      handle);
+    this.$ = new storage.mojom.IndexedDBControlRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+storage.mojom.IndexedDBControlRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   bindIndexedDB(bucket_locator, client_info, client_state_checker_remote, receiver) {
-    // Method: BindIndexedDB
-    // Call: BindIndexedDB(bucket_locator, client_info, client_state_checker_remote, receiver)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$,
+      null,
+      [bucket_locator, client_info, client_state_checker_remote, receiver]);
   }
 
   forceClose(bucket_id, reason) {
-    // Method: ForceClose
-    // Call: ForceClose(bucket_id, reason)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$,
+      null,
+      [bucket_id, reason]);
   }
 
   downloadBucketData(bucket_id) {
-    // Method: DownloadBucketData
-    return new Promise((resolve) => {
-      // Call: DownloadBucketData(bucket_id)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$,
+      [bucket_id]);
   }
 
   getAllBucketsDetails() {
-    // Method: GetAllBucketsDetails
-    return new Promise((resolve) => {
-      // Call: GetAllBucketsDetails()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$,
+      []);
   }
 
   startMetadataRecording(bucket_id) {
-    // Method: StartMetadataRecording
-    // Call: StartMetadataRecording(bucket_id)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$,
+      null,
+      [bucket_id]);
   }
 
   stopMetadataRecording(bucket_id) {
-    // Method: StopMetadataRecording
-    return new Promise((resolve) => {
-      // Call: StopMetadataRecording(bucket_id)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$,
+      storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$,
+      [bucket_id]);
   }
 
   setForceKeepSessionState() {
-    // Method: SetForceKeepSessionState
-    // Call: SetForceKeepSessionState()
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$,
+      null,
+      []);
   }
 
   addObserver(observer) {
-    // Method: AddObserver
-    // Call: AddObserver(observer)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   applyPolicyUpdates(policy_updates) {
-    // Method: ApplyPolicyUpdates
-    // Call: ApplyPolicyUpdates(policy_updates)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$,
+      null,
+      [policy_updates]);
   }
 
   bindTestInterfaceForTesting(receiver) {
-    // Method: BindTestInterfaceForTesting
-    // Call: BindTestInterfaceForTesting(receiver)
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$,
+      null,
+      [receiver]);
   }
 
 };
 
-storage.mojom.IndexedDBControlRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+storage.mojom.IndexedDBControl.getRemote = function() {
+  let remote = new storage.mojom.IndexedDBControlRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'storage.mojom.IndexedDBControl',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for BindIndexedDB
+storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.BindIndexedDB_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_state_checker_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ForceClose
+storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.ForceClose_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DownloadBucketData
+storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.DownloadBucketData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.DownloadBucketData_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'temp_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'zip_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAllBucketsDetails
+storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.GetAllBucketsDetails_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.GetAllBucketsDetails_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartMetadataRecording
+storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.StartMetadataRecording_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StopMetadataRecording
+storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetForceKeepSessionState
+storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.SetForceKeepSessionState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AddObserver
+storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ApplyPolicyUpdates
+storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.ApplyPolicyUpdates_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for BindTestInterfaceForTesting
+storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'storage.mojom.IndexedDBControl.BindTestInterfaceForTesting_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+storage.mojom.IndexedDBControlPtr = storage.mojom.IndexedDBControlRemote;
+storage.mojom.IndexedDBControlRequest = storage.mojom.IndexedDBControlPendingReceiver;
+

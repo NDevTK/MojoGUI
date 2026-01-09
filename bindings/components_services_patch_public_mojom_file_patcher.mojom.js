@@ -25,32 +25,127 @@ patch.mojom.ZucchiniStatus = {
 };
 
 // Interface: FilePatcher
-patch.mojom.FilePatcherPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'patch.mojom.FilePatcher';
-  }
-
-  patchFilePuffPatch(input_file, patch_file, output_file) {
-    // Method: PatchFilePuffPatch
-    return new Promise((resolve) => {
-      // Call: PatchFilePuffPatch(input_file, patch_file, output_file)
-      resolve({});
-    });
-  }
-
-  patchFileZucchini(input_file, patch_file, output_file) {
-    // Method: PatchFileZucchini
-    return new Promise((resolve) => {
-      // Call: PatchFileZucchini(input_file, patch_file, output_file)
-      resolve({});
-    });
-  }
-
-};
-
-patch.mojom.FilePatcherRequest = class {
+patch.mojom.FilePatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+patch.mojom.FilePatcherRemote = class {
+  static get $interfaceName() {
+    return 'patch.mojom.FilePatcher';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      patch.mojom.FilePatcherPendingReceiver,
+      handle);
+    this.$ = new patch.mojom.FilePatcherRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+patch.mojom.FilePatcherRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  patchFilePuffPatch(input_file, patch_file, output_file) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec.$,
+      patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec.$,
+      [input_file, patch_file, output_file]);
+  }
+
+  patchFileZucchini(input_file, patch_file, output_file) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec.$,
+      patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec.$,
+      [input_file, patch_file, output_file]);
+  }
+
+};
+
+patch.mojom.FilePatcher.getRemote = function() {
+  let remote = new patch.mojom.FilePatcherRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'patch.mojom.FilePatcher',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for PatchFilePuffPatch
+patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for PatchFileZucchini
+patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'patch.mojom.FilePatcher.PatchFileZucchini_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'patch.mojom.FilePatcher.PatchFileZucchini_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+patch.mojom.FilePatcherPtr = patch.mojom.FilePatcherRemote;
+patch.mojom.FilePatcherRequest = patch.mojom.FilePatcherPendingReceiver;
+

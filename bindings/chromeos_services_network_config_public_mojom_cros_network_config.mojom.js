@@ -17,7 +17,7 @@ chromeos.network_config.mojom.ActivationStateType = {
   kActivating: 2,
   kPartiallyActivated: 3,
   kActivated: 4,
-  but: 5,
+  kNoService: 5,
 };
 
 // Enum: AuthenticationType
@@ -28,10 +28,18 @@ chromeos.network_config.mojom.AuthenticationType = {
 
 // Enum: HiddenSsidMode
 chromeos.network_config.mojom.HiddenSsidMode = {
+  kAutomatic: 0,
+  kDisabled: 1,
+  kEnabled: 2,
 };
 
 // Enum: ProxyMode
 chromeos.network_config.mojom.ProxyMode = {
+  kDirect: 0,
+  kAutoDetect: 1,
+  kPacScript: 2,
+  kFixedServers: 3,
+  kSystem: 4,
 };
 
 // Enum: SecurityType
@@ -45,25 +53,39 @@ chromeos.network_config.mojom.SecurityType = {
 
 // Enum: MatchType
 chromeos.network_config.mojom.MatchType = {
+  kNoMatch: 0,
+  kHome: 1,
+  kRoaming: 2,
+  kUnknown: 3,
 };
 
 // Enum: VpnType
 chromeos.network_config.mojom.VpnType = {
-  kL2TPIPsec: 0,
-  kOpenVPN: 1,
-  kWireGuard: 2,
+  kIKEv2: 0,
+  kL2TPIPsec: 1,
+  kOpenVPN: 2,
+  kWireGuard: 3,
+  kExtension: 4,
+  kArc: 5,
 };
 
 // Enum: FilterType
 chromeos.network_config.mojom.FilterType = {
-  physically: 0,
+  kActive: 0,
+  kVisible: 1,
+  kConfigured: 2,
+  kAll: 3,
 };
 
 // Enum: StartConnectResult
 chromeos.network_config.mojom.StartConnectResult = {
-  or: 0,
-  e: 1,
-  e: 2,
+  kSuccess: 0,
+  kInvalidGuid: 1,
+  kInvalidState: 2,
+  kCanceled: 3,
+  kNotConfigured: 4,
+  kBlocked: 5,
+  kUnknown: 6,
 };
 
 // Enum: CertificateType
@@ -74,23 +96,35 @@ chromeos.network_config.mojom.CertificateType = {
 
 // Enum: InhibitReason
 chromeos.network_config.mojom.InhibitReason = {
+  kNotInhibited: 0,
+  kInstallingProfile: 1,
+  kRenamingProfile: 2,
+  kRemovingProfile: 3,
+  kConnectingToProfile: 4,
+  kRefreshingProfileList: 5,
+  kResettingEuiccMemory: 6,
+  kDisablingProfile: 7,
+  kRequestingAvailableProfiles: 8,
 };
 
 // Enum: AlwaysOnVpnMode
 chromeos.network_config.mojom.AlwaysOnVpnMode = {
-  traffic: 0,
-  otherwise: 1,
+  kOff: 0,
+  kBestEffort: 1,
+  kStrict: 2,
 };
 
 // Enum: ApnState
 chromeos.network_config.mojom.ApnState = {
-  it: 0,
-  it: 1,
+  kEnabled: 0,
+  kDisabled: 1,
 };
 
 // Enum: ApnAuthenticationType
 chromeos.network_config.mojom.ApnAuthenticationType = {
   kAutomatic: 0,
+  kPap: 1,
+  kChap: 2,
 };
 
 // Enum: ApnIpType
@@ -142,786 +176,1183 @@ chromeos.network_config.mojom.TrafficCounterSource = {
   kSystem: 8,
 };
 
-// Struct: SIMLockStatus
-chromeos.network_config.mojom.SIMLockStatus = class {
-  constructor(values = {}) {
-    this.retries_left = values.retries_left !== undefined ? values.retries_left : 0;
-  }
-};
-
-// Struct: SIMInfo
-chromeos.network_config.mojom.SIMInfo = class {
-  constructor(values = {}) {
-    this.is_primary = values.is_primary !== undefined ? values.is_primary : 0;
-  }
-};
-
-// Struct: CellularStateProperties
-chromeos.network_config.mojom.CellularStateProperties = class {
-  constructor(values = {}) {
-    this.payment_portal = values.payment_portal !== undefined ? values.payment_portal : 0;
-  }
-};
-
-// Struct: EthernetStateProperties
-chromeos.network_config.mojom.EthernetStateProperties = class {
-  constructor(values = {}) {
-    this.authentication = values.authentication !== undefined ? values.authentication : null;
-  }
-};
-
-// Struct: TetherStateProperties
-chromeos.network_config.mojom.TetherStateProperties = class {
-  constructor(values = {}) {
-    this.signal_strength = values.signal_strength !== undefined ? values.signal_strength : 0;
-  }
-};
-
-// Struct: VPNStateProperties
-chromeos.network_config.mojom.VPNStateProperties = class {
-  constructor(values = {}) {
-    this.provider_name = values.provider_name !== undefined ? values.provider_name : "";
-  }
-};
-
-// Struct: WiFiStateProperties
-chromeos.network_config.mojom.WiFiStateProperties = class {
-  constructor(values = {}) {
-    this.bssid = values.bssid !== undefined ? values.bssid : "";
-    this.passpoint_id = values.passpoint_id !== undefined ? values.passpoint_id : 0;
-  }
-};
-
-// Struct: NetworkStateProperties
-chromeos.network_config.mojom.NetworkStateProperties = class {
-  constructor(values = {}) {
-    this.guid = values.guid !== undefined ? values.guid : false;
-    this.kUnknown = values.kUnknown !== undefined ? values.kUnknown : "";
-    this.source = values.source !== undefined ? values.source : 0;
-    this.type_state = values.type_state !== undefined ? values.type_state : null;
-  }
-};
-
-// Struct: DeviceStateProperties
-chromeos.network_config.mojom.DeviceStateProperties = class {
-  constructor(values = {}) {
-    this.available = values.available !== undefined ? values.available : null;
-    this.false = values.false !== undefined ? values.false : false;
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: NetworkFilter
-chromeos.network_config.mojom.NetworkFilter = class {
-  constructor(values = {}) {
-    this.kNoLimit = values.kNoLimit !== undefined ? values.kNoLimit : 0;
-  }
-};
-
-// Struct: ApnProperties
-chromeos.network_config.mojom.ApnProperties = class {
-  constructor(values = {}) {
-    this.source = values.source !== undefined ? values.source : 0;
-  }
-};
-
-// Struct: RoamingProperties
-chromeos.network_config.mojom.RoamingProperties = class {
-  constructor(values = {}) {
-    this.allow_roaming = values.allow_roaming !== undefined ? values.allow_roaming : false;
-  }
-};
-
-// Struct: CellularProviderProperties
-chromeos.network_config.mojom.CellularProviderProperties = class {
-  constructor(values = {}) {
-    this.country = values.country !== undefined ? values.country : "";
-  }
-};
-
-// Struct: FoundNetworkProperties
-chromeos.network_config.mojom.FoundNetworkProperties = class {
-  constructor(values = {}) {
-    this.long_name = values.long_name !== undefined ? values.long_name : "";
-  }
-};
-
-// Struct: IPConfigProperties
-chromeos.network_config.mojom.IPConfigProperties = class {
-  constructor(values = {}) {
-    this.gateway = values.gateway !== undefined ? values.gateway : "";
-    this.web_proxy_auto_discovery_url = values.web_proxy_auto_discovery_url !== undefined ? values.web_proxy_auto_discovery_url : 0;
-  }
-};
-
-// Struct: PaymentPortalProperties
-chromeos.network_config.mojom.PaymentPortalProperties = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : "";
-  }
-};
-
-// Struct: WireGuardPeerProperties
-chromeos.network_config.mojom.WireGuardPeerProperties = class {
-  constructor(values = {}) {
-    this.public_key = values.public_key !== undefined ? values.public_key : "";
-    this.persistent_keepalive_interval = values.persistent_keepalive_interval !== undefined ? values.persistent_keepalive_interval : 0;
-  }
-};
-
-// Struct: ManagedBoolean
-chromeos.network_config.mojom.ManagedBoolean = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: ManagedInt32
-chromeos.network_config.mojom.ManagedInt32 = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ManagedString
-chromeos.network_config.mojom.ManagedString = class {
-  constructor(values = {}) {
-    this.policy_value = values.policy_value !== undefined ? values.policy_value : "";
-  }
-};
-
-// Struct: ManagedStringList
-chromeos.network_config.mojom.ManagedStringList = class {
-  constructor(values = {}) {
-    this.policy_value = values.policy_value !== undefined ? values.policy_value : "";
-  }
-};
-
-// Struct: ManagedApnProperties
-chromeos.network_config.mojom.ManagedApnProperties = class {
-  constructor(values = {}) {
-    this.attach = values.attach !== undefined ? values.attach : 0;
-  }
-};
-
-// Struct: ManagedApnList
-chromeos.network_config.mojom.ManagedApnList = class {
-  constructor(values = {}) {
-    this.policy_value = values.policy_value !== undefined ? values.policy_value : [];
-  }
-};
-
-// Struct: ManagedIssuerSubjectPattern
-chromeos.network_config.mojom.ManagedIssuerSubjectPattern = class {
-  constructor(values = {}) {
-    this.organizational_unit = values.organizational_unit !== undefined ? values.organizational_unit : "";
-  }
-};
-
-// Struct: ManagedCertificatePattern
-chromeos.network_config.mojom.ManagedCertificatePattern = class {
-  constructor(values = {}) {
-    this.subject = values.subject !== undefined ? values.subject : "";
-  }
-};
-
-// Struct: ManagedEAPProperties
-chromeos.network_config.mojom.ManagedEAPProperties = class {
-  constructor(values = {}) {
-    this.use_system_cas = values.use_system_cas !== undefined ? values.use_system_cas : false;
-  }
-};
-
-// Struct: ManagedSubjectAltNameMatchList
-chromeos.network_config.mojom.ManagedSubjectAltNameMatchList = class {
-  constructor(values = {}) {
-    this.policy_value = values.policy_value !== undefined ? values.policy_value : [];
-  }
-};
-
-// Struct: ManagedIPConfigProperties
-chromeos.network_config.mojom.ManagedIPConfigProperties = class {
-  constructor(values = {}) {
-    this.web_proxy_auto_discovery_url = values.web_proxy_auto_discovery_url !== undefined ? values.web_proxy_auto_discovery_url : 0;
-  }
-};
-
-// Struct: ManagedIPSecProperties
-chromeos.network_config.mojom.ManagedIPSecProperties = class {
-  constructor(values = {}) {
-    this.server_ca_refs = values.server_ca_refs !== undefined ? values.server_ca_refs : 0;
-  }
-};
-
-// Struct: ManagedL2TPProperties
-chromeos.network_config.mojom.ManagedL2TPProperties = class {
-  constructor(values = {}) {
-    this.username = values.username !== undefined ? values.username : false;
-  }
-};
-
-// Struct: ManagedProxyLocation
-chromeos.network_config.mojom.ManagedProxyLocation = class {
-  constructor(values = {}) {
-    this.port = values.port !== undefined ? values.port : 0;
-  }
-};
-
-// Struct: ManagedManualProxySettings
-chromeos.network_config.mojom.ManagedManualProxySettings = class {
-  constructor(values = {}) {
-    this.socks = values.socks !== undefined ? values.socks : null;
-  }
-};
-
-// Struct: ManagedProxySettings
-chromeos.network_config.mojom.ManagedProxySettings = class {
-  constructor(values = {}) {
-    this.pac = values.pac !== undefined ? values.pac : "";
-  }
-};
-
-// Struct: ManagedVerifyX509Properties
-chromeos.network_config.mojom.ManagedVerifyX509Properties = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : "";
-  }
-};
-
-// Struct: ManagedOpenVPNProperties
-chromeos.network_config.mojom.ManagedOpenVPNProperties = class {
-  constructor(values = {}) {
-    this.verify_x509 = values.verify_x509 !== undefined ? values.verify_x509 : 0;
-  }
-};
-
-// Struct: ManagedWireGuardPeerList
-chromeos.network_config.mojom.ManagedWireGuardPeerList = class {
-  constructor(values = {}) {
-    this.policy_value = values.policy_value !== undefined ? values.policy_value : [];
-  }
-};
-
-// Struct: ManagedWireGuardProperties
-chromeos.network_config.mojom.ManagedWireGuardProperties = class {
-  constructor(values = {}) {
-    this.peers = values.peers !== undefined ? values.peers : "";
-  }
-};
-
-// Struct: ManagedCellularProperties
-chromeos.network_config.mojom.ManagedCellularProperties = class {
-  constructor(values = {}) {
-    this.last_good_apn = values.last_good_apn !== undefined ? values.last_good_apn : false;
-    this.false = values.false !== undefined ? values.false : 0;
-  }
-};
-
-// Struct: ManagedEthernetProperties
-chromeos.network_config.mojom.ManagedEthernetProperties = class {
-  constructor(values = {}) {
-    this.eap = values.eap !== undefined ? values.eap : "";
-  }
-};
-
-// Struct: ManagedVPNProperties
-chromeos.network_config.mojom.ManagedVPNProperties = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : false;
-  }
-};
-
-// Struct: ManagedWiFiProperties
-chromeos.network_config.mojom.ManagedWiFiProperties = class {
-  constructor(values = {}) {
-    this.passpoint_match_type = values.passpoint_match_type !== undefined ? values.passpoint_match_type : 0;
-  }
-};
-
-// Struct: UInt32Value
-chromeos.network_config.mojom.UInt32Value = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: TrafficCounterProperties
-chromeos.network_config.mojom.TrafficCounterProperties = class {
-  constructor(values = {}) {
-    this.last_reset_time = values.last_reset_time !== undefined ? values.last_reset_time : null;
-    this.user_specified_reset_day = values.user_specified_reset_day !== undefined ? values.user_specified_reset_day : 0;
-  }
-};
-
-// Struct: ManagedProperties
-chromeos.network_config.mojom.ManagedProperties = class {
-  constructor(values = {}) {
-    this.saved_ip_config = values.saved_ip_config !== undefined ? values.saved_ip_config : 0;
-    this.type_properties = values.type_properties !== undefined ? values.type_properties : null;
-    this.traffic_counter_properties = values.traffic_counter_properties !== undefined ? values.traffic_counter_properties : null;
-  }
-};
-
-// Struct: AutoConnectConfig
-chromeos.network_config.mojom.AutoConnectConfig = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : false;
-  }
-};
-
-// Struct: MeteredConfig
-chromeos.network_config.mojom.MeteredConfig = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : false;
-  }
-};
-
-// Struct: PriorityConfig
-chromeos.network_config.mojom.PriorityConfig = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: VpnTypeConfig
-chromeos.network_config.mojom.VpnTypeConfig = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : null;
-  }
-};
-
-// Struct: ProxyLocation
-chromeos.network_config.mojom.ProxyLocation = class {
-  constructor(values = {}) {
-    this.port = values.port !== undefined ? values.port : 0;
-  }
-};
-
-// Struct: ManualProxySettings
-chromeos.network_config.mojom.ManualProxySettings = class {
-  constructor(values = {}) {
-    this.socks = values.socks !== undefined ? values.socks : null;
-  }
-};
-
-// Struct: ProxySettings
-chromeos.network_config.mojom.ProxySettings = class {
-  constructor(values = {}) {
-    this.pac = values.pac !== undefined ? values.pac : "";
-  }
-};
-
-// Struct: EAPConfigProperties
-chromeos.network_config.mojom.EAPConfigProperties = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: SubjectAltName
-chromeos.network_config.mojom.SubjectAltName = class {
-  constructor(values = {}) {
-    this.kEmail = values.kEmail !== undefined ? values.kEmail : null;
-  }
-};
-
-// Struct: IPSecConfigProperties
-chromeos.network_config.mojom.IPSecConfigProperties = class {
-  constructor(values = {}) {
-    this.server_ca_refs = values.server_ca_refs !== undefined ? values.server_ca_refs : 0;
-  }
-};
-
-// Struct: L2TPConfigProperties
-chromeos.network_config.mojom.L2TPConfigProperties = class {
-  constructor(values = {}) {
-    this.username = values.username !== undefined ? values.username : false;
-  }
-};
-
-// Struct: OpenVPNConfigProperties
-chromeos.network_config.mojom.OpenVPNConfigProperties = class {
-  constructor(values = {}) {
-    this.user_authentication_type = values.user_authentication_type !== undefined ? values.user_authentication_type : false;
-  }
-};
-
-// Struct: WireGuardConfigProperties
-chromeos.network_config.mojom.WireGuardConfigProperties = class {
-  constructor(values = {}) {
-    this.ip_addresses = values.ip_addresses !== undefined ? values.ip_addresses : "";
-    this.be = values.be !== undefined ? values.be : "";
-    this.peers = values.peers !== undefined ? values.peers : "";
-  }
-};
-
-// Struct: TextMessagesAllowState
-chromeos.network_config.mojom.TextMessagesAllowState = class {
-  constructor(values = {}) {
-    this.allow_text_messages = values.allow_text_messages !== undefined ? values.allow_text_messages : false;
-  }
-};
-
-// Struct: CellularConfigProperties
-chromeos.network_config.mojom.CellularConfigProperties = class {
-  constructor(values = {}) {
-    this.text_message_allow_state = values.text_message_allow_state !== undefined ? values.text_message_allow_state : null;
-  }
-};
-
-// Struct: EthernetConfigProperties
-chromeos.network_config.mojom.EthernetConfigProperties = class {
-  constructor(values = {}) {
-    this.eap = values.eap !== undefined ? values.eap : "";
-  }
-};
-
-// Struct: VPNConfigProperties
-chromeos.network_config.mojom.VPNConfigProperties = class {
-  constructor(values = {}) {
-    this.wireguard = values.wireguard !== undefined ? values.wireguard : "";
-    this.type = values.type !== undefined ? values.type : null;
-  }
-};
-
-// Struct: WiFiConfigProperties
-chromeos.network_config.mojom.WiFiConfigProperties = class {
-  constructor(values = {}) {
-    this.passphrase = values.passphrase !== undefined ? values.passphrase : "";
-    this.kAutomatic = values.kAutomatic !== undefined ? values.kAutomatic : "";
-  }
-};
-
-// Struct: ConfigProperties
-chromeos.network_config.mojom.ConfigProperties = class {
-  constructor(values = {}) {
-    this.type_config = values.type_config !== undefined ? values.type_config : "";
-  }
-};
-
-// Struct: CellularSimState
-chromeos.network_config.mojom.CellularSimState = class {
-  constructor(values = {}) {
-    this.require_pin = values.require_pin !== undefined ? values.require_pin : false;
-  }
-};
-
-// Struct: GlobalPolicy
-chromeos.network_config.mojom.GlobalPolicy = class {
-  constructor(values = {}) {
-    this.true = values.true !== undefined ? values.true : false;
-    this.true = values.true !== undefined ? values.true : false;
-    this.true = values.true !== undefined ? values.true : false;
-    this.false = values.false !== undefined ? values.false : false;
-    this.false = values.false !== undefined ? values.false : false;
-    this.false = values.false !== undefined ? values.false : false;
-    this.blocked_hex_ssids = values.blocked_hex_ssids !== undefined ? values.blocked_hex_ssids : false;
-    this.false = values.false !== undefined ? values.false : false;
-    this.false = values.false !== undefined ? values.false : false;
-    this.notifications = values.notifications !== undefined ? values.notifications : null;
-    this.shown = values.shown !== undefined ? values.shown : null;
-    this.kUnset = values.kUnset !== undefined ? values.kUnset : null;
-  }
-};
-
-// Struct: VpnProvider
-chromeos.network_config.mojom.VpnProvider = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-    this.provider_id = values.provider_id !== undefined ? values.provider_id : "";
-    this.provider_name = values.provider_name !== undefined ? values.provider_name : "";
-    this.last_launch_time = values.last_launch_time !== undefined ? values.last_launch_time : "";
-  }
-};
-
-// Struct: NetworkCertificate
-chromeos.network_config.mojom.NetworkCertificate = class {
-  constructor(values = {}) {
-    this.type = values.type !== undefined ? values.type : null;
-    this.issued_to = values.issued_to !== undefined ? values.issued_to : "";
-    this.the = values.the !== undefined ? values.the : null;
-    this.device_wide = values.device_wide !== undefined ? values.device_wide : false;
-  }
-};
-
-// Struct: AlwaysOnVpnProperties
-chromeos.network_config.mojom.AlwaysOnVpnProperties = class {
-  constructor(values = {}) {
-    this.mode = values.mode !== undefined ? values.mode : null;
-    this.service_guid = values.service_guid !== undefined ? values.service_guid : "";
-  }
-};
-
-// Struct: TrafficCounter
-chromeos.network_config.mojom.TrafficCounter = class {
-  constructor(values = {}) {
-    this.tx_bytes = values.tx_bytes !== undefined ? values.tx_bytes : 0;
-  }
-};
-
 // Interface: CrosNetworkConfig
-chromeos.network_config.mojom.CrosNetworkConfigPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.network_config.mojom.CrosNetworkConfig';
+chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+chromeos.network_config.mojom.CrosNetworkConfigRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.network_config.mojom.CrosNetworkConfig';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver,
+      handle);
+    this.$ = new chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addObserver(observer) {
-    // Method: AddObserver
-    // Call: AddObserver(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   getNetworkState(guid) {
-    // Method: GetNetworkState
-    return new Promise((resolve) => {
-      // Call: GetNetworkState(guid)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec.$,
+      [guid]);
   }
 
   getNetworkStateList(filter) {
-    // Method: GetNetworkStateList
-    return new Promise((resolve) => {
-      // Call: GetNetworkStateList(filter)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec.$,
+      [filter]);
   }
 
   getDeviceStateList() {
-    // Method: GetDeviceStateList
-    return new Promise((resolve) => {
-      // Call: GetDeviceStateList()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec.$,
+      []);
   }
 
   getManagedProperties(guid) {
-    // Method: GetManagedProperties
-    return new Promise((resolve) => {
-      // Call: GetManagedProperties(guid)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec.$,
+      [guid]);
   }
 
   setProperties(guid, properties) {
-    // Method: SetProperties
-    return new Promise((resolve) => {
-      // Call: SetProperties(guid, properties)
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec.$,
+      [guid, properties]);
   }
 
   configureNetwork(properties, shared) {
-    // Method: ConfigureNetwork
-    return new Promise((resolve) => {
-      // Call: ConfigureNetwork(properties, shared)
-      resolve({});
-    });
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec.$,
+      [properties, shared]);
   }
 
   forgetNetwork(guid) {
-    // Method: ForgetNetwork
-    return new Promise((resolve) => {
-      // Call: ForgetNetwork(guid)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec.$,
+      [guid]);
   }
 
   setNetworkTypeEnabledState(type, enabled) {
-    // Method: SetNetworkTypeEnabledState
-    return new Promise((resolve) => {
-      // Call: SetNetworkTypeEnabledState(type, enabled)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec.$,
+      [type, enabled]);
   }
 
   setCellularSimState(state) {
-    // Method: SetCellularSimState
-    return new Promise((resolve) => {
-      // Call: SetCellularSimState(state)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec.$,
+      [state]);
   }
 
   selectCellularMobileNetwork(guid, network_id) {
-    // Method: SelectCellularMobileNetwork
-    return new Promise((resolve) => {
-      // Call: SelectCellularMobileNetwork(guid, network_id)
-      resolve({});
-    });
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec.$,
+      [guid, network_id]);
   }
 
   requestNetworkScan(type) {
-    // Method: RequestNetworkScan
-    // Call: RequestNetworkScan(type)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec.$,
+      null,
+      [type]);
   }
 
   getGlobalPolicy() {
-    // Method: GetGlobalPolicy
-    return new Promise((resolve) => {
-      // Call: GetGlobalPolicy()
-      resolve({});
-    });
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec.$,
+      []);
   }
 
   startConnect(guid) {
-    // Method: StartConnect
-    return new Promise((resolve) => {
-      // Call: StartConnect(guid)
-      resolve({});
-    });
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec.$,
+      [guid]);
   }
 
   startDisconnect(guid) {
-    // Method: StartDisconnect
-    return new Promise((resolve) => {
-      // Call: StartDisconnect(guid)
-      resolve({});
-    });
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec.$,
+      [guid]);
   }
 
   setVpnProviders(providers) {
-    // Method: SetVpnProviders
-    // Call: SetVpnProviders(providers)
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec.$,
+      null,
+      [providers]);
   }
 
   getVpnProviders() {
-    // Method: GetVpnProviders
-    return new Promise((resolve) => {
-      // Call: GetVpnProviders()
-      resolve({});
-    });
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec.$,
+      []);
   }
 
   getNetworkCertificates() {
-    // Method: GetNetworkCertificates
-    return new Promise((resolve) => {
-      // Call: GetNetworkCertificates()
-      resolve({});
-    });
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec.$,
+      []);
   }
 
   getAlwaysOnVpn() {
-    // Method: GetAlwaysOnVpn
-    return new Promise((resolve) => {
-      // Call: GetAlwaysOnVpn()
-      resolve({});
-    });
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec.$,
+      []);
   }
 
   setAlwaysOnVpn(properties) {
-    // Method: SetAlwaysOnVpn
-    // Call: SetAlwaysOnVpn(properties)
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec.$,
+      null,
+      [properties]);
   }
 
   getSupportedVpnTypes() {
-    // Method: GetSupportedVpnTypes
-    return new Promise((resolve) => {
-      // Call: GetSupportedVpnTypes()
-      resolve({});
-    });
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec.$,
+      []);
   }
 
   requestTrafficCounters(guid) {
-    // Method: RequestTrafficCounters
-    return new Promise((resolve) => {
-      // Call: RequestTrafficCounters(guid)
-      resolve({});
-    });
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec.$,
+      [guid]);
   }
 
   resetTrafficCounters(guid) {
-    // Method: ResetTrafficCounters
-    // Call: ResetTrafficCounters(guid)
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec.$,
+      null,
+      [guid]);
   }
 
   setTrafficCountersResetDay(guid, day) {
-    // Method: SetTrafficCountersResetDay
-    return new Promise((resolve) => {
-      // Call: SetTrafficCountersResetDay(guid, day)
-      resolve({});
-    });
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec.$,
+      [guid, day]);
   }
 
   createCustomApn(network_guid, apn) {
-    // Method: CreateCustomApn
-    return new Promise((resolve) => {
-      // Call: CreateCustomApn(network_guid, apn)
-      resolve({});
-    });
+    // Ordinal: 24
+    return this.proxy.sendMessage(
+      24,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec.$,
+      [network_guid, apn]);
   }
 
   createExclusivelyEnabledCustomApn(network_guid, apn) {
-    // Method: CreateExclusivelyEnabledCustomApn
-    return new Promise((resolve) => {
-      // Call: CreateExclusivelyEnabledCustomApn(network_guid, apn)
-      resolve({});
-    });
+    // Ordinal: 25
+    return this.proxy.sendMessage(
+      25,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec.$,
+      chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec.$,
+      [network_guid, apn]);
   }
 
   removeCustomApn(network_guid, apn_id) {
-    // Method: RemoveCustomApn
-    // Call: RemoveCustomApn(network_guid, apn_id)
+    // Ordinal: 26
+    return this.proxy.sendMessage(
+      26,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec.$,
+      null,
+      [network_guid, apn_id]);
   }
 
   modifyCustomApn(network_guid, apn) {
-    // Method: ModifyCustomApn
-    // Call: ModifyCustomApn(network_guid, apn)
+    // Ordinal: 27
+    return this.proxy.sendMessage(
+      27,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec.$,
+      null,
+      [network_guid, apn]);
   }
 
 };
 
-chromeos.network_config.mojom.CrosNetworkConfigRequest = class {
+chromeos.network_config.mojom.CrosNetworkConfig.getRemote = function() {
+  let remote = new chromeos.network_config.mojom.CrosNetworkConfigRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.network_config.mojom.CrosNetworkConfig',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddObserver
+chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.AddObserver_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetNetworkState
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetNetworkStateList
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkStateList_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkStateList_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetDeviceStateList
+chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetDeviceStateList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetDeviceStateList_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetManagedProperties
+chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetManagedProperties_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetManagedProperties_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetProperties
+chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetProperties_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetProperties_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ConfigureNetwork
+chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ConfigureNetwork_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shared', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ConfigureNetwork_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ForgetNetwork
+chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ForgetNetwork_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ForgetNetwork_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetNetworkTypeEnabledState
+chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetNetworkTypeEnabledState_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetNetworkTypeEnabledState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetCellularSimState
+chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetCellularSimState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetCellularSimState_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SelectCellularMobileNetwork
+chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SelectCellularMobileNetwork_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SelectCellularMobileNetwork_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RequestNetworkScan
+chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestNetworkScan_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetGlobalPolicy
+chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetGlobalPolicy_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetGlobalPolicy_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartConnect
+chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartConnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartConnect_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartDisconnect
+chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartDisconnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.StartDisconnect_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetVpnProviders
+chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetVpnProviders_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetVpnProviders
+chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetVpnProviders_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetVpnProviders_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetNetworkCertificates
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkCertificates_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetNetworkCertificates_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'server_cas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_certs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAlwaysOnVpn
+chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetAlwaysOnVpn_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetAlwaysOnVpn_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetAlwaysOnVpn
+chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetAlwaysOnVpn_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSupportedVpnTypes
+chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetSupportedVpnTypes_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.GetSupportedVpnTypes_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'vpn_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RequestTrafficCounters
+chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestTrafficCounters_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RequestTrafficCounters_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'traffic_counters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResetTrafficCounters
+chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ResetTrafficCounters_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetTrafficCountersResetDay
+chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetTrafficCountersResetDay_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'day', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.SetTrafficCountersResetDay_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateCustomApn
+chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateCustomApn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateCustomApn_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateExclusivelyEnabledCustomApn
+chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateExclusivelyEnabledCustomApn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.CreateExclusivelyEnabledCustomApn_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RemoveCustomApn
+chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.RemoveCustomApn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apn_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ModifyCustomApn
+chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfig.ModifyCustomApn_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'network_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apn', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+chromeos.network_config.mojom.CrosNetworkConfigPtr = chromeos.network_config.mojom.CrosNetworkConfigRemote;
+chromeos.network_config.mojom.CrosNetworkConfigRequest = chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver;
+
+
+// Interface: CrosNetworkConfigObserver
+chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CrosNetworkConfigObserver
-chromeos.network_config.mojom.CrosNetworkConfigObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.network_config.mojom.CrosNetworkConfigObserver';
+chromeos.network_config.mojom.CrosNetworkConfigObserverRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.network_config.mojom.CrosNetworkConfigObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver,
+      handle);
+    this.$ = new chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onActiveNetworksChanged(networks) {
-    // Method: OnActiveNetworksChanged
-    // Call: OnActiveNetworksChanged(networks)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec.$,
+      null,
+      [networks]);
   }
 
   onNetworkStateChanged(network) {
-    // Method: OnNetworkStateChanged
-    // Call: OnNetworkStateChanged(network)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec.$,
+      null,
+      [network]);
   }
 
   onNetworkStateListChanged() {
-    // Method: OnNetworkStateListChanged
-    // Call: OnNetworkStateListChanged()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
   onDeviceStateListChanged() {
-    // Method: OnDeviceStateListChanged
-    // Call: OnDeviceStateListChanged()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
   onVpnProvidersChanged() {
-    // Method: OnVpnProvidersChanged
-    // Call: OnVpnProvidersChanged()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
   onNetworkCertificatesChanged() {
-    // Method: OnNetworkCertificatesChanged
-    // Call: OnNetworkCertificatesChanged()
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec.$,
+      null,
+      []);
   }
 
   onPoliciesApplied(userhash) {
-    // Method: OnPoliciesApplied
-    // Call: OnPoliciesApplied(userhash)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec.$,
+      null,
+      [userhash]);
   }
 
 };
 
-chromeos.network_config.mojom.CrosNetworkConfigObserverRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+chromeos.network_config.mojom.CrosNetworkConfigObserver.getRemote = function() {
+  let remote = new chromeos.network_config.mojom.CrosNetworkConfigObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.network_config.mojom.CrosNetworkConfigObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnActiveNetworksChanged
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnActiveNetworksChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnNetworkStateChanged
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnNetworkStateChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNetworkStateListChanged
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnNetworkStateListChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeviceStateListChanged
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnDeviceStateListChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnVpnProvidersChanged
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnVpnProvidersChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnNetworkCertificatesChanged
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnNetworkCertificatesChanged_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnPoliciesApplied
+chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.network_config.mojom.CrosNetworkConfigObserver.OnPoliciesApplied_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'userhash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+chromeos.network_config.mojom.CrosNetworkConfigObserverPtr = chromeos.network_config.mojom.CrosNetworkConfigObserverRemote;
+chromeos.network_config.mojom.CrosNetworkConfigObserverRequest = chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver;
+

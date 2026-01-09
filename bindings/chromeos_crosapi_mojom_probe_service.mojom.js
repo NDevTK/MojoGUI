@@ -30,18 +30,43 @@ crosapi.mojom.ProbeCategoryEnum = {
 
 // Enum: ProbeErrorType
 crosapi.mojom.ProbeErrorType = {
+  kFileReadError: 0,
+  kParseError: 1,
+  kSystemUtilityError: 2,
+  kServiceUnavailable: 3,
 };
 
 // Enum: ProbeFwupdVersionFormat
 crosapi.mojom.ProbeFwupdVersionFormat = {
+  kPlain: 0,
+  kNumber: 1,
+  kPair: 2,
+  kTriplet: 3,
+  kQuad: 4,
+  kBcd: 5,
+  kIntelMe: 6,
+  kIntelMe2: 7,
+  kSurfaceLegacy: 8,
+  kSurface: 9,
+  kDellBios: 10,
+  kHex: 11,
 };
 
 // Enum: ProbeUsbVersion
 crosapi.mojom.ProbeUsbVersion = {
+  kUsb1: 0,
+  kUsb2: 1,
+  kUsb3: 2,
 };
 
 // Enum: ProbeUsbSpecSpeed
 crosapi.mojom.ProbeUsbSpecSpeed = {
+  k1_5Mbps: 0,
+  k12Mbps: 1,
+  k480Mbps: 2,
+  k5Gbps: 3,
+  k10Gbps: 4,
+  k20Gbps: 5,
 };
 
 // Enum: ProbeCpuArchitectureEnum
@@ -53,234 +78,68 @@ crosapi.mojom.ProbeCpuArchitectureEnum = {
 
 // Enum: ProbeTpmGSCVersion
 crosapi.mojom.ProbeTpmGSCVersion = {
+  kCr50: 0,
+  kTi50: 1,
 };
 
 // Enum: ProbeDisplayInputType
 crosapi.mojom.ProbeDisplayInputType = {
+  kDigital: 0,
+  kAnalog: 1,
 };
 
 // Enum: ProbeThermalSensorSource
 crosapi.mojom.ProbeThermalSensorSource = {
-  should: 0,
-};
-
-// Struct: ProbeError
-crosapi.mojom.ProbeError = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeBatteryInfo
-crosapi.mojom.ProbeBatteryInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeUsbBusInterfaceInfo
-crosapi.mojom.ProbeUsbBusInterfaceInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeFwupdFirmwareVersionInfo
-crosapi.mojom.ProbeFwupdFirmwareVersionInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeUsbBusInfo
-crosapi.mojom.ProbeUsbBusInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeNonRemovableBlockDeviceInfo
-crosapi.mojom.ProbeNonRemovableBlockDeviceInfo = class {
-  constructor(values = {}) {
-    this.ATA = values.ATA !== undefined ? values.ATA : null;
-    this.above = values.above !== undefined ? values.above : null;
-  }
-};
-
-// Struct: ProbeCachedVpdInfo
-crosapi.mojom.ProbeCachedVpdInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeCpuCStateInfo
-crosapi.mojom.ProbeCpuCStateInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeLogicalCpuInfo
-crosapi.mojom.ProbeLogicalCpuInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbePhysicalCpuInfo
-crosapi.mojom.ProbePhysicalCpuInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeCpuInfo
-crosapi.mojom.ProbeCpuInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeTimezoneInfo
-crosapi.mojom.ProbeTimezoneInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeMemoryInfo
-crosapi.mojom.ProbeMemoryInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeBacklightInfo
-crosapi.mojom.ProbeBacklightInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeFanInfo
-crosapi.mojom.ProbeFanInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeStatefulPartitionInfo
-crosapi.mojom.ProbeStatefulPartitionInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeTpmVersion
-crosapi.mojom.ProbeTpmVersion = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeTpmStatus
-crosapi.mojom.ProbeTpmStatus = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeTpmDictionaryAttack
-crosapi.mojom.ProbeTpmDictionaryAttack = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeTpmInfo
-crosapi.mojom.ProbeTpmInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeBluetoothAdapterInfo
-crosapi.mojom.ProbeBluetoothAdapterInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeOsVersion
-crosapi.mojom.ProbeOsVersion = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeOsInfo
-crosapi.mojom.ProbeOsInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeSystemInfo
-crosapi.mojom.ProbeSystemInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeAudioInputNodeInfo
-crosapi.mojom.ProbeAudioInputNodeInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeAudioOutputNodeInfo
-crosapi.mojom.ProbeAudioOutputNodeInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeAudioInfo
-crosapi.mojom.ProbeAudioInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeEmbeddedDisplayInfo
-crosapi.mojom.ProbeEmbeddedDisplayInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeExternalDisplayInfo
-crosapi.mojom.ProbeExternalDisplayInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeDisplayInfo
-crosapi.mojom.ProbeDisplayInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeThermalSensorInfo
-crosapi.mojom.ProbeThermalSensorInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeThermalInfo
-crosapi.mojom.ProbeThermalInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeTelemetryInfo
-crosapi.mojom.ProbeTelemetryInfo = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ProbeOemData
-crosapi.mojom.ProbeOemData = class {
-  constructor(values = {}) {
-  }
+  kEc: 0,
+  kSysFs: 1,
 };
 
 // Interface: TelemetryProbeService
-crosapi.mojom.TelemetryProbeServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'crosapi.mojom.TelemetryProbeService';
-  }
-
-};
-
-crosapi.mojom.TelemetryProbeServiceRequest = class {
+crosapi.mojom.TelemetryProbeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+crosapi.mojom.TelemetryProbeServiceRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.TelemetryProbeService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      crosapi.mojom.TelemetryProbeServicePendingReceiver,
+      handle);
+    this.$ = new crosapi.mojom.TelemetryProbeServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+crosapi.mojom.TelemetryProbeService.getRemote = function() {
+  let remote = new crosapi.mojom.TelemetryProbeServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.TelemetryProbeService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+crosapi.mojom.TelemetryProbeServicePtr = crosapi.mojom.TelemetryProbeServiceRemote;
+crosapi.mojom.TelemetryProbeServiceRequest = crosapi.mojom.TelemetryProbeServicePendingReceiver;
+

@@ -36,31 +36,101 @@ arc.mojom.AudioDeviceType = {
 };
 
 // Interface: AudioHost
-arc.mojom.AudioHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.AudioHost';
-  }
-
-};
-
-arc.mojom.AudioHostRequest = class {
+arc.mojom.AudioHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.AudioHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.AudioHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.AudioHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.AudioHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.AudioHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.AudioHost.getRemote = function() {
+  let remote = new arc.mojom.AudioHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.AudioHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.AudioHostPtr = arc.mojom.AudioHostRemote;
+arc.mojom.AudioHostRequest = arc.mojom.AudioHostPendingReceiver;
+
 
 // Interface: AudioInstance
-arc.mojom.AudioInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.AudioInstance';
-  }
-
-};
-
-arc.mojom.AudioInstanceRequest = class {
+arc.mojom.AudioInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.AudioInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.AudioInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.AudioInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.AudioInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.AudioInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.AudioInstance.getRemote = function() {
+  let remote = new arc.mojom.AudioInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.AudioInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.AudioInstancePtr = arc.mojom.AudioInstanceRemote;
+arc.mojom.AudioInstanceRequest = arc.mojom.AudioInstancePendingReceiver;
+

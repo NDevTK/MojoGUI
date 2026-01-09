@@ -15,34 +15,98 @@ network.mojom.Type = {
   kChange: 1,
 };
 
-// Struct: CookieAccessDetails
-network.mojom.CookieAccessDetails = class {
-  constructor(values = {}) {
-    this.kRead = values.kRead !== undefined ? values.kRead : null;
-  }
-};
-
 // Interface: CookieAccessObserver
-network.mojom.CookieAccessObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.CookieAccessObserver';
-  }
-
-  onCookiesAccessed(details) {
-    // Method: OnCookiesAccessed
-    // Call: OnCookiesAccessed(details)
-  }
-
-  clone(listener) {
-    // Method: Clone
-    // Call: Clone(listener)
-  }
-
-};
-
-network.mojom.CookieAccessObserverRequest = class {
+network.mojom.CookieAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+network.mojom.CookieAccessObserverRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.CookieAccessObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.CookieAccessObserverPendingReceiver,
+      handle);
+    this.$ = new network.mojom.CookieAccessObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.CookieAccessObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  onCookiesAccessed(details) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec.$,
+      null,
+      [details]);
+  }
+
+  clone(listener) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.CookieAccessObserver_Clone_ParamsSpec.$,
+      null,
+      [listener]);
+  }
+
+};
+
+network.mojom.CookieAccessObserver.getRemote = function() {
+  let remote = new network.mojom.CookieAccessObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.CookieAccessObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnCookiesAccessed
+network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieAccessObserver.OnCookiesAccessed_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Clone
+network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.CookieAccessObserver.Clone_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.CookieAccessObserverPtr = network.mojom.CookieAccessObserverRemote;
+network.mojom.CookieAccessObserverRequest = network.mojom.CookieAccessObserverPendingReceiver;
+

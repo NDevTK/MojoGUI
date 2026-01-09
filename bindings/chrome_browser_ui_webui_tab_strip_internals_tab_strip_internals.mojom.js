@@ -11,6 +11,12 @@ tab_strip_internals.mojom = tab_strip_internals.mojom || {};
 
 // Enum: Type
 tab_strip_internals.mojom.Type = {
+  kTab: 0,
+  kCollection: 1,
+  kWindow: 2,
+  kTabRestoreTab: 3,
+  kTabRestoreGroup: 4,
+  kTabRestoreWindow: 5,
 };
 
 // Enum: Layout
@@ -19,207 +25,234 @@ tab_strip_internals.mojom.Layout = {
   kHorizontal: 1,
 };
 
-// Struct: Container
-tab_strip_internals.mojom.Container = class {
-  constructor(values = {}) {
-    this.tab_restore = values.tab_restore !== undefined ? values.tab_restore : null;
-  }
-};
-
-// Struct: TabStripTree
-tab_strip_internals.mojom.TabStripTree = class {
-  constructor(values = {}) {
-    this.windows = values.windows !== undefined ? values.windows : [];
-  }
-};
-
-// Struct: WindowNode
-tab_strip_internals.mojom.WindowNode = class {
-  constructor(values = {}) {
-    this.selection_model = values.selection_model !== undefined ? values.selection_model : null;
-  }
-};
-
-// Struct: NodeId
-tab_strip_internals.mojom.NodeId = class {
-  constructor(values = {}) {
-    this.kTab = values.kTab !== undefined ? values.kTab : null;
-  }
-};
-
-// Struct: TabStripModel
-tab_strip_internals.mojom.TabStripModel = class {
-  constructor(values = {}) {
-    this.example = values.example !== undefined ? values.example : null;
-    this.created = values.created !== undefined ? values.created : null;
-    this.root = values.root !== undefined ? values.root : null;
-  }
-};
-
-// Struct: Node
-tab_strip_internals.mojom.Node = class {
-  constructor(values = {}) {
-    this.children = values.children !== undefined ? values.children : [];
-  }
-};
-
-// Struct: Tab
-tab_strip_internals.mojom.Tab = class {
-  constructor(values = {}) {
-    this.alert_states = values.alert_states !== undefined ? values.alert_states : false;
-  }
-};
-
-// Struct: TabStripCollection
-tab_strip_internals.mojom.TabStripCollection = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : null;
-  }
-};
-
-// Struct: PinnedCollection
-tab_strip_internals.mojom.PinnedCollection = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : null;
-  }
-};
-
-// Struct: UnpinnedCollection
-tab_strip_internals.mojom.UnpinnedCollection = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : null;
-  }
-};
-
-// Struct: GroupCollection
-tab_strip_internals.mojom.GroupCollection = class {
-  constructor(values = {}) {
-    this.visualData = values.visualData !== undefined ? values.visualData : null;
-  }
-};
-
-// Struct: TabGroupVisualData
-tab_strip_internals.mojom.TabGroupVisualData = class {
-  constructor(values = {}) {
-    this.is_collapsed = values.is_collapsed !== undefined ? values.is_collapsed : false;
-  }
-};
-
-// Struct: SplitCollection
-tab_strip_internals.mojom.SplitCollection = class {
-  constructor(values = {}) {
-    this.visualData = values.visualData !== undefined ? values.visualData : null;
-  }
-};
-
-// Struct: SplitTabVisualData
-tab_strip_internals.mojom.SplitTabVisualData = class {
-  constructor(values = {}) {
-    this.kVertical = values.kVertical !== undefined ? values.kVertical : null;
-  }
-};
-
-// Struct: SelectionModel
-tab_strip_internals.mojom.SelectionModel = class {
-  constructor(values = {}) {
-    this.selected_indices = values.selected_indices !== undefined ? values.selected_indices : 0;
-  }
-};
-
-// Struct: TabRestoreData
-tab_strip_internals.mojom.TabRestoreData = class {
-  constructor(values = {}) {
-    this.entries = values.entries !== undefined ? values.entries : [];
-  }
-};
-
-// Struct: TabRestoreEntryBase
-tab_strip_internals.mojom.TabRestoreEntryBase = class {
-  constructor(values = {}) {
-    this.timestamp = values.timestamp !== undefined ? values.timestamp : 0;
-  }
-};
-
-// Struct: TabRestoreTab
-tab_strip_internals.mojom.TabRestoreTab = class {
-  constructor(values = {}) {
-    this.url = values.url !== undefined ? values.url : 0;
-  }
-};
-
-// Struct: TabRestoreGroup
-tab_strip_internals.mojom.TabRestoreGroup = class {
-  constructor(values = {}) {
-    this.tabs = values.tabs !== undefined ? values.tabs : 0;
-  }
-};
-
-// Struct: TabRestoreWindow
-tab_strip_internals.mojom.TabRestoreWindow = class {
-  constructor(values = {}) {
-    this.tabs = values.tabs !== undefined ? values.tabs : 0;
-  }
-};
-
 // Interface: PageHandlerFactory
-tab_strip_internals.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'tab_strip_internals.mojom.PageHandlerFactory';
+tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'tab_strip_internals.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-tab_strip_internals.mojom.PageHandlerFactoryRequest = class {
+tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new tab_strip_internals.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'tab_strip_internals.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_strip_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+tab_strip_internals.mojom.PageHandlerFactoryPtr = tab_strip_internals.mojom.PageHandlerFactoryRemote;
+tab_strip_internals.mojom.PageHandlerFactoryRequest = tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+tab_strip_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-tab_strip_internals.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'tab_strip_internals.mojom.PageHandler';
+tab_strip_internals.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'tab_strip_internals.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      tab_strip_internals.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new tab_strip_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getTabStripData() {
-    // Method: GetTabStripData
-    return new Promise((resolve) => {
-      // Call: GetTabStripData()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$,
+      tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-tab_strip_internals.mojom.PageHandlerRequest = class {
+tab_strip_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new tab_strip_internals.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'tab_strip_internals.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetTabStripData
+tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_strip_internals.mojom.PageHandler.GetTabStripData_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_strip_internals.mojom.PageHandler.GetTabStripData_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+tab_strip_internals.mojom.PageHandlerPtr = tab_strip_internals.mojom.PageHandlerRemote;
+tab_strip_internals.mojom.PageHandlerRequest = tab_strip_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+tab_strip_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-tab_strip_internals.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'tab_strip_internals.mojom.Page';
+tab_strip_internals.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'tab_strip_internals.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      tab_strip_internals.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new tab_strip_internals.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+tab_strip_internals.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onTabStripUpdated(data) {
-    // Method: OnTabStripUpdated
-    // Call: OnTabStripUpdated(data)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$,
+      null,
+      [data]);
   }
 
 };
 
-tab_strip_internals.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+tab_strip_internals.mojom.Page.getRemote = function() {
+  let remote = new tab_strip_internals.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'tab_strip_internals.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnTabStripUpdated
+tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'tab_strip_internals.mojom.Page.OnTabStripUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+tab_strip_internals.mojom.PagePtr = tab_strip_internals.mojom.PageRemote;
+tab_strip_internals.mojom.PageRequest = tab_strip_internals.mojom.PagePendingReceiver;
+

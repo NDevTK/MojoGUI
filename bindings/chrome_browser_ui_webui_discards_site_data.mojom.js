@@ -9,77 +9,123 @@ var discards = discards || {};
 discards.mojom = discards.mojom || {};
 
 
-// Struct: SiteDataFeature
-discards.mojom.SiteDataFeature = class {
-  constructor(values = {}) {
-    this.observation_duration = values.observation_duration !== undefined ? values.observation_duration : 0;
-    this.use_timestamp = values.use_timestamp !== undefined ? values.use_timestamp : 0;
-  }
-};
-
-// Struct: SiteDataPerformanceMeasurement
-discards.mojom.SiteDataPerformanceMeasurement = class {
-  constructor(values = {}) {
-    this.avg_load_duration_us = values.avg_load_duration_us !== undefined ? values.avg_load_duration_us : 0;
-  }
-};
-
-// Struct: SiteDataDatabaseSize
-discards.mojom.SiteDataDatabaseSize = class {
-  constructor(values = {}) {
-    this.num_rows = values.num_rows !== undefined ? values.num_rows : 0;
-    this.on_disk_size_kb = values.on_disk_size_kb !== undefined ? values.on_disk_size_kb : 0;
-  }
-};
-
-// Struct: SiteDataValue
-discards.mojom.SiteDataValue = class {
-  constructor(values = {}) {
-    this.load_time_estimates = values.load_time_estimates !== undefined ? values.load_time_estimates : 0;
-  }
-};
-
-// Struct: SiteDataEntry
-discards.mojom.SiteDataEntry = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : false;
-  }
-};
-
-// Struct: SiteDataArray
-discards.mojom.SiteDataArray = class {
-  constructor(values = {}) {
-    this.db_rows = values.db_rows !== undefined ? values.db_rows : [];
-  }
-};
-
 // Interface: SiteDataProvider
-discards.mojom.SiteDataProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'discards.mojom.SiteDataProvider';
-  }
-
-  getSiteDataArray(explicitly_requested_origins) {
-    // Method: GetSiteDataArray
-    return new Promise((resolve) => {
-      // Call: GetSiteDataArray(explicitly_requested_origins)
-      resolve({});
-    });
-  }
-
-  getSiteDataDatabaseSize() {
-    // Method: GetSiteDataDatabaseSize
-    return new Promise((resolve) => {
-      // Call: GetSiteDataDatabaseSize()
-      resolve({});
-    });
-  }
-
-};
-
-discards.mojom.SiteDataProviderRequest = class {
+discards.mojom.SiteDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+discards.mojom.SiteDataProviderRemote = class {
+  static get $interfaceName() {
+    return 'discards.mojom.SiteDataProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      discards.mojom.SiteDataProviderPendingReceiver,
+      handle);
+    this.$ = new discards.mojom.SiteDataProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+discards.mojom.SiteDataProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  getSiteDataArray(explicitly_requested_origins) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$,
+      discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$,
+      [explicitly_requested_origins]);
+  }
+
+  getSiteDataDatabaseSize() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec.$,
+      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$,
+      []);
+  }
+
+};
+
+discards.mojom.SiteDataProvider.getRemote = function() {
+  let remote = new discards.mojom.SiteDataProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'discards.mojom.SiteDataProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetSiteDataArray
+discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSiteDataDatabaseSize
+discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+discards.mojom.SiteDataProviderPtr = discards.mojom.SiteDataProviderRemote;
+discards.mojom.SiteDataProviderRequest = discards.mojom.SiteDataProviderPendingReceiver;
+

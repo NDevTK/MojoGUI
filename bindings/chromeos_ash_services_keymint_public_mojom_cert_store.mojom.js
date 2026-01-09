@@ -10,31 +10,52 @@ arc.keymint = arc.keymint || {};
 arc.keymint.mojom = arc.keymint.mojom || {};
 
 
-// Struct: ChapsKeyData
-arc.keymint.mojom.ChapsKeyData = class {
-  constructor(values = {}) {
-    this.slot = values.slot !== undefined ? values.slot : "";
-  }
-};
-
-// Struct: ChromeOsKey
-arc.keymint.mojom.ChromeOsKey = class {
-  constructor(values = {}) {
-    this.key_data = values.key_data !== undefined ? values.key_data : "";
-  }
-};
-
 // Interface: CertStoreInstance
-arc.keymint.mojom.CertStoreInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.keymint.mojom.CertStoreInstance';
-  }
-
-};
-
-arc.keymint.mojom.CertStoreInstanceRequest = class {
+arc.keymint.mojom.CertStoreInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.keymint.mojom.CertStoreInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.keymint.mojom.CertStoreInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.keymint.mojom.CertStoreInstancePendingReceiver,
+      handle);
+    this.$ = new arc.keymint.mojom.CertStoreInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.keymint.mojom.CertStoreInstance.getRemote = function() {
+  let remote = new arc.keymint.mojom.CertStoreInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.keymint.mojom.CertStoreInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.keymint.mojom.CertStoreInstancePtr = arc.keymint.mojom.CertStoreInstanceRemote;
+arc.keymint.mojom.CertStoreInstanceRequest = arc.keymint.mojom.CertStoreInstancePendingReceiver;
+

@@ -12,14 +12,12 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: TextSuggestionMode
 chromeos.machine_learning.mojom.TextSuggestionMode = {
-  and: 0,
-  however: 1,
-  and: 2,
+  kCompletion: 0,
 };
 
 // Enum: Status
 chromeos.machine_learning.mojom.Status = {
-  no: 0,
+  OK: 0,
 };
 
 // Enum: MultiWordExperimentGroup
@@ -27,47 +25,52 @@ chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
   kGboard: 0,
 };
 
-// Struct: NextWordCompletionCandidate
-chromeos.machine_learning.mojom.NextWordCompletionCandidate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextSuggesterQuery
-chromeos.machine_learning.mojom.TextSuggesterQuery = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: MultiWordSuggestionCandidate
-chromeos.machine_learning.mojom.MultiWordSuggestionCandidate = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextSuggesterResult
-chromeos.machine_learning.mojom.TextSuggesterResult = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: TextSuggesterSpec
-chromeos.machine_learning.mojom.TextSuggesterSpec = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: TextSuggester
-chromeos.machine_learning.mojom.TextSuggesterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.TextSuggester';
-  }
-
-};
-
-chromeos.machine_learning.mojom.TextSuggesterRequest = class {
+chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.TextSuggesterRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.TextSuggester';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.TextSuggesterPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.TextSuggesterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.TextSuggester',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.TextSuggesterPtr = chromeos.machine_learning.mojom.TextSuggesterRemote;
+chromeos.machine_learning.mojom.TextSuggesterRequest = chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
+

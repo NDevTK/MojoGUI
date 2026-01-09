@@ -11,66 +11,52 @@ chromeos.machine_learning.web_platform = chromeos.machine_learning.web_platform 
 chromeos.machine_learning.web_platform.mojom = chromeos.machine_learning.web_platform.mojom || {};
 
 
-// Struct: HandwritingPoint
-chromeos.machine_learning.web_platform.mojom.HandwritingPoint = class {
-  constructor(values = {}) {
-    this.t = values.t !== undefined ? values.t : 0;
-  }
-};
-
-// Struct: HandwritingStroke
-chromeos.machine_learning.web_platform.mojom.HandwritingStroke = class {
-  constructor(values = {}) {
-    this.points = values.points !== undefined ? values.points : 0;
-  }
-};
-
-// Struct: HandwritingDrawingSegment
-chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegment = class {
-  constructor(values = {}) {
-    this.end_point_index = values.end_point_index !== undefined ? values.end_point_index : 0;
-  }
-};
-
-// Struct: HandwritingSegment
-chromeos.machine_learning.web_platform.mojom.HandwritingSegment = class {
-  constructor(values = {}) {
-    this.grapheme = values.grapheme !== undefined ? values.grapheme : "";
-    this.drawing_segments = values.drawing_segments !== undefined ? values.drawing_segments : 0;
-  }
-};
-
-// Struct: HandwritingPrediction
-chromeos.machine_learning.web_platform.mojom.HandwritingPrediction = class {
-  constructor(values = {}) {
-    this.segmentation_result = values.segmentation_result !== undefined ? values.segmentation_result : "";
-  }
-};
-
-// Struct: HandwritingHints
-chromeos.machine_learning.web_platform.mojom.HandwritingHints = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: HandwritingModelConstraint
-chromeos.machine_learning.web_platform.mojom.HandwritingModelConstraint = class {
-  constructor(values = {}) {
-    this.languages = values.languages !== undefined ? values.languages : "";
-  }
-};
-
 // Interface: HandwritingRecognizer
-chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer';
-  }
-
-};
-
-chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRequest = class {
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer.getRemote = function() {
+  let remote = new chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPtr = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote;
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRequest = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver;
+

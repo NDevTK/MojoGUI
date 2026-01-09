@@ -20,34 +20,38 @@ network.mojom.TrustTokenProtocolVersion = {
 // Enum: TrustTokenOperationStatus
 network.mojom.TrustTokenOperationStatus = {
   kOk: 0,
-  there: 1,
-  a: 2,
-  usually: 3,
-  internal: 4,
-  so: 5,
+  kInvalidArgument: 1,
+  kMissingIssuerKeys: 2,
+  kFailedPrecondition: 3,
+  kResourceExhausted: 4,
+  kAlreadyExists: 5,
+  kResourceLimited: 6,
+  kUnauthorized: 7,
+  kBadResponse: 8,
+  kInternalError: 9,
+  kUnknownError: 10,
+  kOperationSuccessfullyFulfilledLocally: 11,
+  kSiteIssuerLimit: 12,
 };
 
 // Enum: TrustTokenOperationType
 network.mojom.TrustTokenOperationType = {
-  clients: 0,
-  and: 1,
-  to: 2,
+  kIssuance: 0,
+  kRedemption: 1,
+  kSigning: 2,
 };
 
 // Enum: TrustTokenRefreshPolicy
 network.mojom.TrustTokenRefreshPolicy = {
-  return: 0,
-  attempt: 1,
-  overwriting: 2,
+  kUseCached: 0,
+  kRefresh: 1,
 };
 
 // Enum: TrustTokenSignRequestData
 network.mojom.TrustTokenSignRequestData = {
-  not: 0,
-  attach: 1,
-  attach: 2,
-  some: 3,
-  and: 4,
+  kOmit: 0,
+  kHeadersOnly: 1,
+  kInclude: 2,
 };
 
 // Enum: Os
@@ -57,13 +61,15 @@ network.mojom.Os = {
 
 // Enum: UnavailableLocalOperationFallback
 network.mojom.UnavailableLocalOperationFallback = {
-  instead: 0,
-  just: 1,
+  kWebIssuance: 0,
+  kReturnWithError: 1,
 };
 
 // Enum: Status
 network.mojom.Status = {
   kOk: 0,
+  kNotFound: 1,
+  kUnknownError: 2,
 };
 
 // Enum: DeleteStoredTrustTokensStatus
@@ -74,105 +80,124 @@ network.mojom.DeleteStoredTrustTokensStatus = {
   kFailureInvalidOrigin: 3,
 };
 
-// Struct: TrustTokenParams
-network.mojom.TrustTokenParams = class {
-  constructor(values = {}) {
-    this.operation = values.operation !== undefined ? values.operation : null;
-    this.custom_issuer = values.custom_issuer !== undefined ? values.custom_issuer : "";
-    this.additional_signed_headers = values.additional_signed_headers !== undefined ? values.additional_signed_headers : false;
-    this.possibly_unsafe_additional_signing_data = values.possibly_unsafe_additional_signing_data !== undefined ? values.possibly_unsafe_additional_signing_data : "";
-  }
-};
-
-// Struct: HasTrustTokensResult
-network.mojom.HasTrustTokensResult = class {
-  constructor(values = {}) {
-    this.has_trust_tokens = values.has_trust_tokens !== undefined ? values.has_trust_tokens : false;
-  }
-};
-
-// Struct: HasRedemptionRecordResult
-network.mojom.HasRedemptionRecordResult = class {
-  constructor(values = {}) {
-    this.has_redemption_record = values.has_redemption_record !== undefined ? values.has_redemption_record : false;
-  }
-};
-
-// Struct: TrustTokenVerificationKey
-network.mojom.TrustTokenVerificationKey = class {
-  constructor(values = {}) {
-    this.expiry = values.expiry !== undefined ? values.expiry : "";
-  }
-};
-
-// Struct: TrustTokenKeyCommitmentResult
-network.mojom.TrustTokenKeyCommitmentResult = class {
-  constructor(values = {}) {
-    this.kAndroid = values.kAndroid !== undefined ? values.kAndroid : 0;
-  }
-};
-
-// Struct: FulfillTrustTokenIssuanceRequest
-network.mojom.FulfillTrustTokenIssuanceRequest = class {
-  constructor(values = {}) {
-    this.request = values.request !== undefined ? values.request : "";
-  }
-};
-
-// Struct: FulfillTrustTokenIssuanceAnswer
-network.mojom.FulfillTrustTokenIssuanceAnswer = class {
-  constructor(values = {}) {
-    this.kOk = values.kOk !== undefined ? values.kOk : null;
-  }
-};
-
-// Struct: TrustTokenOperationResult
-network.mojom.TrustTokenOperationResult = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: StoredTrustTokensForIssuer
-network.mojom.StoredTrustTokensForIssuer = class {
-  constructor(values = {}) {
-    this.count = values.count !== undefined ? values.count : 0;
-  }
-};
-
-// Struct: ToplevelRedemptionRecord
-network.mojom.ToplevelRedemptionRecord = class {
-  constructor(values = {}) {
-    this.last_redemption = values.last_redemption !== undefined ? values.last_redemption : null;
-  }
-};
-
 // Interface: TrustTokenQueryAnswerer
-network.mojom.TrustTokenQueryAnswererPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.TrustTokenQueryAnswerer';
-  }
-
-  hasTrustTokens(issuer) {
-    // Method: HasTrustTokens
-    return new Promise((resolve) => {
-      // Call: HasTrustTokens(issuer)
-      resolve({});
-    });
-  }
-
-  hasRedemptionRecord(issuer) {
-    // Method: HasRedemptionRecord
-    return new Promise((resolve) => {
-      // Call: HasRedemptionRecord(issuer)
-      resolve({});
-    });
-  }
-
-};
-
-network.mojom.TrustTokenQueryAnswererRequest = class {
+network.mojom.TrustTokenQueryAnswererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+network.mojom.TrustTokenQueryAnswererRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.TrustTokenQueryAnswerer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.TrustTokenQueryAnswererPendingReceiver,
+      handle);
+    this.$ = new network.mojom.TrustTokenQueryAnswererRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  hasTrustTokens(issuer) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$,
+      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$,
+      [issuer]);
+  }
+
+  hasRedemptionRecord(issuer) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$,
+      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$,
+      [issuer]);
+  }
+
+};
+
+network.mojom.TrustTokenQueryAnswerer.getRemote = function() {
+  let remote = new network.mojom.TrustTokenQueryAnswererRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.TrustTokenQueryAnswerer',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for HasTrustTokens
+network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenQueryAnswerer.HasTrustTokens_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenQueryAnswerer.HasTrustTokens_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for HasRedemptionRecord
+network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenQueryAnswerer.HasRedemptionRecord_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'issuer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.TrustTokenQueryAnswerer.HasRedemptionRecord_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.TrustTokenQueryAnswererPtr = network.mojom.TrustTokenQueryAnswererRemote;
+network.mojom.TrustTokenQueryAnswererRequest = network.mojom.TrustTokenQueryAnswererPendingReceiver;
+

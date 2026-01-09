@@ -11,19 +11,25 @@ on_device_model.mojom = on_device_model.mojom || {};
 
 // Enum: Token
 on_device_model.mojom.Token = {
+  kSystem: 0,
+  kModel: 1,
+  kUser: 2,
 };
 
 // Enum: Priority
 on_device_model.mojom.Priority = {
-  the: 0,
+  kBackground: 0,
 };
 
 // Enum: PerformanceClass
 on_device_model.mojom.PerformanceClass = {
-  kLow: 0,
-  kMedium: 1,
-  kHigh: 2,
-  kVeryHigh: 3,
+  kGpuBlocked: 0,
+  kFailedToLoadLibrary: 1,
+  kVeryLow: 2,
+  kLow: 3,
+  kMedium: 4,
+  kHigh: 5,
+  kVeryHigh: 6,
 };
 
 // Enum: LoadModelResult
@@ -33,238 +39,402 @@ on_device_model.mojom.LoadModelResult = {
   EnableIf: 2,
 };
 
-// Struct: AdaptationAssets
-on_device_model.mojom.AdaptationAssets = class {
-  constructor(values = {}) {
-    this.weights_path = values.weights_path !== undefined ? values.weights_path : null;
-  }
-};
-
-// Struct: LanguageDetectionResult
-on_device_model.mojom.LanguageDetectionResult = class {
-  constructor(values = {}) {
-    this.code = values.code !== undefined ? values.code : "";
-    this.reliability = values.reliability !== undefined ? values.reliability : 0;
-  }
-};
-
-// Struct: SafetyInfo
-on_device_model.mojom.SafetyInfo = class {
-  constructor(values = {}) {
-    this.language = values.language !== undefined ? values.language : 0;
-  }
-};
-
-// Struct: ResponseChunk
-on_device_model.mojom.ResponseChunk = class {
-  constructor(values = {}) {
-    this.text = values.text !== undefined ? values.text : "";
-    this.safety_info = values.safety_info !== undefined ? values.safety_info : null;
-  }
-};
-
-// Struct: ResponseSummary
-on_device_model.mojom.ResponseSummary = class {
-  constructor(values = {}) {
-    this.output_token_count = values.output_token_count !== undefined ? values.output_token_count : 0;
-  }
-};
-
-// Struct: LoadAdaptationParams
-on_device_model.mojom.LoadAdaptationParams = class {
-  constructor(values = {}) {
-    this.assets = values.assets !== undefined ? values.assets : null;
-  }
-};
-
-// Struct: Capabilities
-on_device_model.mojom.Capabilities = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : false;
-  }
-};
-
-// Struct: SessionParams
-on_device_model.mojom.SessionParams = class {
-  constructor(values = {}) {
-    this.capabilities = values.capabilities !== undefined ? values.capabilities : 0;
-    this.temperature = values.temperature !== undefined ? values.temperature : 0;
-  }
-};
-
-// Struct: Input
-on_device_model.mojom.Input = class {
-  constructor(values = {}) {
-    this.pieces = values.pieces !== undefined ? values.pieces : [];
-  }
-};
-
-// Struct: AppendOptions
-on_device_model.mojom.AppendOptions = class {
-  constructor(values = {}) {
-    this.input = values.input !== undefined ? values.input : null;
-  }
-};
-
-// Struct: GenerateOptions
-on_device_model.mojom.GenerateOptions = class {
-  constructor(values = {}) {
-    this.constraint = values.constraint !== undefined ? values.constraint : 0;
-  }
-};
-
-// Struct: AudioData
-on_device_model.mojom.AudioData = class {
-  constructor(values = {}) {
-    this.data = values.data !== undefined ? values.data : 0;
-  }
-};
-
-// Struct: SpeechRecognitionResult
-on_device_model.mojom.SpeechRecognitionResult = class {
-  constructor(values = {}) {
-    this.is_final = values.is_final !== undefined ? values.is_final : false;
-  }
-};
-
-// Struct: AsrStreamOptions
-on_device_model.mojom.AsrStreamOptions = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: DevicePerformanceInfo
-on_device_model.mojom.DevicePerformanceInfo = class {
-  constructor(values = {}) {
-    this.performance_class = values.performance_class !== undefined ? values.performance_class : null;
-    this.vram_mb = values.vram_mb !== undefined ? values.vram_mb : 0;
-  }
-};
-
-// Struct: DeviceInfo
-on_device_model.mojom.DeviceInfo = class {
-  constructor(values = {}) {
-    this.device_id = values.device_id !== undefined ? values.device_id : 0;
-    this.supports_fp16 = values.supports_fp16 !== undefined ? values.supports_fp16 : false;
-  }
-};
-
 // Interface: StreamingResponder
-on_device_model.mojom.StreamingResponderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.StreamingResponder';
-  }
-
-};
-
-on_device_model.mojom.StreamingResponderRequest = class {
+on_device_model.mojom.StreamingResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.StreamingResponderRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.StreamingResponder';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.StreamingResponderPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.StreamingResponderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.StreamingResponderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.StreamingResponder.getRemote = function() {
+  let remote = new on_device_model.mojom.StreamingResponderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.StreamingResponder',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.StreamingResponderPtr = on_device_model.mojom.StreamingResponderRemote;
+on_device_model.mojom.StreamingResponderRequest = on_device_model.mojom.StreamingResponderPendingReceiver;
+
 
 // Interface: ContextClient
-on_device_model.mojom.ContextClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.ContextClient';
-  }
-
-};
-
-on_device_model.mojom.ContextClientRequest = class {
+on_device_model.mojom.ContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.ContextClientRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.ContextClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.ContextClientPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.ContextClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.ContextClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.ContextClient.getRemote = function() {
+  let remote = new on_device_model.mojom.ContextClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.ContextClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.ContextClientPtr = on_device_model.mojom.ContextClientRemote;
+on_device_model.mojom.ContextClientRequest = on_device_model.mojom.ContextClientPendingReceiver;
+
 
 // Interface: Session
-on_device_model.mojom.SessionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.Session';
-  }
-
-};
-
-on_device_model.mojom.SessionRequest = class {
+on_device_model.mojom.SessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.SessionRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.Session';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.SessionPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.SessionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.SessionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.Session.getRemote = function() {
+  let remote = new on_device_model.mojom.SessionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.Session',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.SessionPtr = on_device_model.mojom.SessionRemote;
+on_device_model.mojom.SessionRequest = on_device_model.mojom.SessionPendingReceiver;
+
 
 // Interface: OnDeviceModel
-on_device_model.mojom.OnDeviceModelPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.OnDeviceModel';
-  }
-
-};
-
-on_device_model.mojom.OnDeviceModelRequest = class {
+on_device_model.mojom.OnDeviceModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.OnDeviceModelRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.OnDeviceModel';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.OnDeviceModelPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.OnDeviceModelRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.OnDeviceModel.getRemote = function() {
+  let remote = new on_device_model.mojom.OnDeviceModelRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.OnDeviceModel',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.OnDeviceModelPtr = on_device_model.mojom.OnDeviceModelRemote;
+on_device_model.mojom.OnDeviceModelRequest = on_device_model.mojom.OnDeviceModelPendingReceiver;
+
 
 // Interface: TextSafetySession
-on_device_model.mojom.TextSafetySessionPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.TextSafetySession';
-  }
-
-};
-
-on_device_model.mojom.TextSafetySessionRequest = class {
+on_device_model.mojom.TextSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.TextSafetySessionRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.TextSafetySession';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.TextSafetySessionPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.TextSafetySessionRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.TextSafetySession.getRemote = function() {
+  let remote = new on_device_model.mojom.TextSafetySessionRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.TextSafetySession',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.TextSafetySessionPtr = on_device_model.mojom.TextSafetySessionRemote;
+on_device_model.mojom.TextSafetySessionRequest = on_device_model.mojom.TextSafetySessionPendingReceiver;
+
 
 // Interface: TextSafetyModel
-on_device_model.mojom.TextSafetyModelPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.TextSafetyModel';
-  }
-
-};
-
-on_device_model.mojom.TextSafetyModelRequest = class {
+on_device_model.mojom.TextSafetyModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.TextSafetyModelRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.TextSafetyModel';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.TextSafetyModelPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.TextSafetyModelRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.TextSafetyModelRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.TextSafetyModel.getRemote = function() {
+  let remote = new on_device_model.mojom.TextSafetyModelRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.TextSafetyModel',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.TextSafetyModelPtr = on_device_model.mojom.TextSafetyModelRemote;
+on_device_model.mojom.TextSafetyModelRequest = on_device_model.mojom.TextSafetyModelPendingReceiver;
+
 
 // Interface: AsrStreamResponder
-on_device_model.mojom.AsrStreamResponderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.AsrStreamResponder';
-  }
-
-};
-
-on_device_model.mojom.AsrStreamResponderRequest = class {
+on_device_model.mojom.AsrStreamResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.AsrStreamResponderRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.AsrStreamResponder';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.AsrStreamResponderPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.AsrStreamResponderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.AsrStreamResponderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.AsrStreamResponder.getRemote = function() {
+  let remote = new on_device_model.mojom.AsrStreamResponderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.AsrStreamResponder',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.AsrStreamResponderPtr = on_device_model.mojom.AsrStreamResponderRemote;
+on_device_model.mojom.AsrStreamResponderRequest = on_device_model.mojom.AsrStreamResponderPendingReceiver;
+
 
 // Interface: AsrStreamInput
-on_device_model.mojom.AsrStreamInputPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'on_device_model.mojom.AsrStreamInput';
-  }
-
-};
-
-on_device_model.mojom.AsrStreamInputRequest = class {
+on_device_model.mojom.AsrStreamInputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+on_device_model.mojom.AsrStreamInputRemote = class {
+  static get $interfaceName() {
+    return 'on_device_model.mojom.AsrStreamInput';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      on_device_model.mojom.AsrStreamInputPendingReceiver,
+      handle);
+    this.$ = new on_device_model.mojom.AsrStreamInputRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+on_device_model.mojom.AsrStreamInputRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+on_device_model.mojom.AsrStreamInput.getRemote = function() {
+  let remote = new on_device_model.mojom.AsrStreamInputRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'on_device_model.mojom.AsrStreamInput',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+on_device_model.mojom.AsrStreamInputPtr = on_device_model.mojom.AsrStreamInputRemote;
+on_device_model.mojom.AsrStreamInputRequest = on_device_model.mojom.AsrStreamInputPendingReceiver;
+

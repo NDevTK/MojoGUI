@@ -11,31 +11,43 @@ updater.mojom = updater.mojom || {};
 
 // Enum: State
 updater.mojom.State = {
-  but: 0,
+  kNotStarted: 0,
+  kCheckingForUpdates: 1,
+  kUpdateAvailable: 2,
+  kDownloading: 3,
+  kInstalling: 4,
+  kUpdated: 5,
+  kNoUpdate: 6,
+  kUpdateError: 7,
 };
 
 // Enum: PolicySource
 updater.mojom.PolicySource = {
-  if: 0,
-  Group: 1,
-  Managed: 2,
+  kSourceDefault: 0,
+  kSourceExternalConstants: 1,
+  kSourcePlatform: 2,
+  kSourceCloud: 3,
 };
 
 // Enum: PolicySameVersionUpdate
 updater.mojom.PolicySameVersionUpdate = {
-  the: 0,
-  and: 1,
+  kAllowed: 0,
 };
 
 // Enum: Result
 updater.mojom.Result = {
-  such: 0,
-  kUpdateCanceled: 1,
-  or: 2,
-  because: 3,
-  or: 4,
-  either: 5,
-  or: 6,
+  kSuccess: 0,
+  kUpdateInProgress: 1,
+  kUpdateCanceled: 2,
+  kRetryLater: 3,
+  kServiceFailed: 4,
+  kUpdateCheckFailed: 5,
+  kAppNotFound: 6,
+  kInvalidArgument: 7,
+  kInactive: 8,
+  kIPCConnectionFailed: 9,
+  kInstallFailed: 10,
+  kPermissionDenied: 11,
 };
 
 // Enum: ErrorCategory
@@ -50,80 +62,106 @@ updater.mojom.ErrorCategory = {
 
 // Enum: Priority
 updater.mojom.Priority = {
-};
-
-// Struct: RegistrationRequest
-updater.mojom.RegistrationRequest = class {
-  constructor(values = {}) {
-    this.app_id = values.app_id !== undefined ? values.app_id : "";
-    this.brand_code = values.brand_code !== undefined ? values.brand_code : "";
-    this.brand_path = values.brand_path !== undefined ? values.brand_path : "";
-    this.version = values.version !== undefined ? values.version : "";
-    this.existence_checker_path = values.existence_checker_path !== undefined ? values.existence_checker_path : null;
-    this.ap_key = values.ap_key !== undefined ? values.ap_key : "";
-    this.lang = values.lang !== undefined ? values.lang : "";
-    this.dla = values.dla !== undefined ? values.dla : 0;
-    this.dlrc = values.dlrc !== undefined ? values.dlrc : 0;
-    this.cohort_hint = values.cohort_hint !== undefined ? values.cohort_hint : 0;
-  }
-};
-
-// Struct: UpdateState
-updater.mojom.UpdateState = class {
-  constructor(values = {}) {
-    this.kNotStarted = values.kNotStarted !== undefined ? values.kNotStarted : null;
-    this.kDecompressing = values.kDecompressing !== undefined ? values.kDecompressing : null;
-    this.kPatching = values.kPatching !== undefined ? values.kPatching : null;
-  }
-};
-
-// Struct: AppState
-updater.mojom.AppState = class {
-  constructor(values = {}) {
-    this.cohort = values.cohort !== undefined ? values.cohort : "";
-  }
-};
-
-// Struct: PolicyValue
-updater.mojom.PolicyValue = class {
-  constructor(values = {}) {
-    this.kSourceDefault = values.kSourceDefault !== undefined ? values.kSourceDefault : null;
-  }
-};
-
-// Struct: UpdaterState
-updater.mojom.UpdaterState = class {
-  constructor(values = {}) {
-    this.last_started = values.last_started !== undefined ? values.last_started : "";
-  }
+  kBackground: 0,
+  kForeground: 1,
 };
 
 // Interface: UpdateService
-updater.mojom.UpdateServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'updater.mojom.UpdateService';
-  }
-
-};
-
-updater.mojom.UpdateServiceRequest = class {
+updater.mojom.UpdateServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+updater.mojom.UpdateServiceRemote = class {
+  static get $interfaceName() {
+    return 'updater.mojom.UpdateService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      updater.mojom.UpdateServicePendingReceiver,
+      handle);
+    this.$ = new updater.mojom.UpdateServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+updater.mojom.UpdateServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+updater.mojom.UpdateService.getRemote = function() {
+  let remote = new updater.mojom.UpdateServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'updater.mojom.UpdateService',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+updater.mojom.UpdateServicePtr = updater.mojom.UpdateServiceRemote;
+updater.mojom.UpdateServiceRequest = updater.mojom.UpdateServicePendingReceiver;
+
 
 // Interface: StateChangeObserver
-updater.mojom.StateChangeObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'updater.mojom.StateChangeObserver';
-  }
-
-};
-
-updater.mojom.StateChangeObserverRequest = class {
+updater.mojom.StateChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+updater.mojom.StateChangeObserverRemote = class {
+  static get $interfaceName() {
+    return 'updater.mojom.StateChangeObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      updater.mojom.StateChangeObserverPendingReceiver,
+      handle);
+    this.$ = new updater.mojom.StateChangeObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+updater.mojom.StateChangeObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+updater.mojom.StateChangeObserver.getRemote = function() {
+  let remote = new updater.mojom.StateChangeObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'updater.mojom.StateChangeObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+updater.mojom.StateChangeObserverPtr = updater.mojom.StateChangeObserverRemote;
+updater.mojom.StateChangeObserverRequest = updater.mojom.StateChangeObserverPendingReceiver;
+

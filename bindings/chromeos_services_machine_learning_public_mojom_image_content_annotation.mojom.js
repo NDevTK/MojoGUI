@@ -15,35 +15,52 @@ chromeos.machine_learning.mojom.Status = {
   ERROR: 0,
 };
 
-// Struct: ImageAnnotatorConfig
-chromeos.machine_learning.mojom.ImageAnnotatorConfig = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ImageAnnotationScore
-chromeos.machine_learning.mojom.ImageAnnotationScore = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ImageAnnotationResult
-chromeos.machine_learning.mojom.ImageAnnotationResult = class {
-  constructor(values = {}) {
-  }
-};
-
 // Interface: ImageContentAnnotator
-chromeos.machine_learning.mojom.ImageContentAnnotatorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.ImageContentAnnotator';
-  }
-
-};
-
-chromeos.machine_learning.mojom.ImageContentAnnotatorRequest = class {
+chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.ImageContentAnnotatorRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.ImageContentAnnotator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.ImageContentAnnotatorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.ImageContentAnnotator',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.ImageContentAnnotatorPtr = chromeos.machine_learning.mojom.ImageContentAnnotatorRemote;
+chromeos.machine_learning.mojom.ImageContentAnnotatorRequest = chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver;
+

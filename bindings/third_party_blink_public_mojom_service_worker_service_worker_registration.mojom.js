@@ -9,102 +9,357 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-// Struct: ChangedServiceWorkerObjectsMask
-blink.mojom.ChangedServiceWorkerObjectsMask = class {
-  constructor(values = {}) {
-    this.active = values.active !== undefined ? values.active : false;
-  }
-};
-
-// Struct: ServiceWorkerRegistrationObjectInfo
-blink.mojom.ServiceWorkerRegistrationObjectInfo = class {
-  constructor(values = {}) {
-    this.update_via_cache = values.update_via_cache !== undefined ? values.update_via_cache : 0;
-    this.receiver = values.receiver !== undefined ? values.receiver : null;
-  }
-};
-
 // Interface: ServiceWorkerRegistrationObjectHost
-blink.mojom.ServiceWorkerRegistrationObjectHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ServiceWorkerRegistrationObjectHost';
+blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHostRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ServiceWorkerRegistrationObjectHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   update(outside_fetch_client_settings_object) {
-    // Method: Update
-    return new Promise((resolve) => {
-      // Call: Update(outside_fetch_client_settings_object)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec.$,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec.$,
+      [outside_fetch_client_settings_object]);
   }
 
   unregister() {
-    // Method: Unregister
-    return new Promise((resolve) => {
-      // Call: Unregister()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec.$,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec.$,
+      []);
   }
 
   enableNavigationPreload(enable) {
-    // Method: EnableNavigationPreload
-    return new Promise((resolve) => {
-      // Call: EnableNavigationPreload(enable)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec.$,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec.$,
+      [enable]);
   }
 
   getNavigationPreloadState() {
-    // Method: GetNavigationPreloadState
-    return new Promise((resolve) => {
-      // Call: GetNavigationPreloadState()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec.$,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec.$,
+      []);
   }
 
   setNavigationPreloadHeader(value) {
-    // Method: SetNavigationPreloadHeader
-    return new Promise((resolve) => {
-      // Call: SetNavigationPreloadHeader(value)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec.$,
+      blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec.$,
+      [value]);
   }
 
 };
 
-blink.mojom.ServiceWorkerRegistrationObjectHostRequest = class {
+blink.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerRegistrationObjectHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ServiceWorkerRegistrationObjectHost',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Update
+blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'outside_fetch_client_settings_object', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Update_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Unregister
+blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Unregister_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Unregister_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnableNavigationPreload
+blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.EnableNavigationPreload_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.EnableNavigationPreload_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetNavigationPreloadState
+blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.GetNavigationPreloadState_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.GetNavigationPreloadState_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetNavigationPreloadHeader
+blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.SetNavigationPreloadHeader_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.SetNavigationPreloadHeader_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ServiceWorkerRegistrationObjectHostPtr = blink.mojom.ServiceWorkerRegistrationObjectHostRemote;
+blink.mojom.ServiceWorkerRegistrationObjectHostRequest = blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver;
+
+
+// Interface: ServiceWorkerRegistrationObject
+blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: ServiceWorkerRegistrationObject
-blink.mojom.ServiceWorkerRegistrationObjectPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ServiceWorkerRegistrationObject';
+blink.mojom.ServiceWorkerRegistrationObjectRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ServiceWorkerRegistrationObject';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   setServiceWorkerObjects(changed_mask, installing, waiting, active) {
-    // Method: SetServiceWorkerObjects
-    // Call: SetServiceWorkerObjects(changed_mask, installing, waiting, active)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec.$,
+      null,
+      [changed_mask, installing, waiting, active]);
   }
 
   setUpdateViaCache(update_via_cache) {
-    // Method: SetUpdateViaCache
-    // Call: SetUpdateViaCache(update_via_cache)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec.$,
+      null,
+      [update_via_cache]);
   }
 
   updateFound() {
-    // Method: UpdateFound
-    // Call: UpdateFound()
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-blink.mojom.ServiceWorkerRegistrationObjectRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+blink.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerRegistrationObjectRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ServiceWorkerRegistrationObject',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SetServiceWorkerObjects
+blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObject.SetServiceWorkerObjects_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'changed_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'installing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'waiting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for SetUpdateViaCache
+blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObject.SetUpdateViaCache_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update_via_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateFound
+blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerRegistrationObject.UpdateFound_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ServiceWorkerRegistrationObjectPtr = blink.mojom.ServiceWorkerRegistrationObjectRemote;
+blink.mojom.ServiceWorkerRegistrationObjectRequest = blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver;
+

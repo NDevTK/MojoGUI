@@ -40,6 +40,10 @@ ash.audio_config.mojom.AudioEffectState = {
 
 // Enum: MuteState
 ash.audio_config.mojom.MuteState = {
+  kNotMuted: 0,
+  kMutedByUser: 1,
+  kMutedByPolicy: 2,
+  kMutedExternally: 3,
 };
 
 // Enum: AudioEffectType
@@ -51,127 +55,423 @@ ash.audio_config.mojom.AudioEffectType = {
   kBeamforming: 4,
 };
 
-// Struct: VoiceIsolationUIAppearance
-ash.audio_config.mojom.VoiceIsolationUIAppearance = class {
-  constructor(values = {}) {
-    this.toggle_type = values.toggle_type !== undefined ? values.toggle_type : null;
-    this.show_effect_fallback_message = values.show_effect_fallback_message !== undefined ? values.show_effect_fallback_message : 0;
-  }
-};
-
-// Struct: AudioDevice
-ash.audio_config.mojom.AudioDevice = class {
-  constructor(values = {}) {
-    this.display_name = values.display_name !== undefined ? values.display_name : 0;
-    this.one = values.one !== undefined ? values.one : null;
-    this.style_transfer_state = values.style_transfer_state !== undefined ? values.style_transfer_state : false;
-    this.spatial_audio_state = values.spatial_audio_state !== undefined ? values.spatial_audio_state : null;
-  }
-};
-
-// Struct: AudioSystemProperties
-ash.audio_config.mojom.AudioSystemProperties = class {
-  constructor(values = {}) {
-    this.voice_isolation_ui_appearance = values.voice_isolation_ui_appearance !== undefined ? values.voice_isolation_ui_appearance : 0;
-  }
-};
-
 // Interface: AudioSystemPropertiesObserver
-ash.audio_config.mojom.AudioSystemPropertiesObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.audio_config.mojom.AudioSystemPropertiesObserver';
+ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.audio_config.mojom.AudioSystemPropertiesObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.audio_config.mojom.AudioSystemPropertiesObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver,
+      handle);
+    this.$ = new ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onPropertiesUpdated(properties) {
-    // Method: OnPropertiesUpdated
-    // Call: OnPropertiesUpdated(properties)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$,
+      null,
+      [properties]);
   }
 
 };
 
-ash.audio_config.mojom.AudioSystemPropertiesObserverRequest = class {
+ash.audio_config.mojom.AudioSystemPropertiesObserver.getRemote = function() {
+  let remote = new ash.audio_config.mojom.AudioSystemPropertiesObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.audio_config.mojom.AudioSystemPropertiesObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnPropertiesUpdated
+ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.AudioSystemPropertiesObserver.OnPropertiesUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.audio_config.mojom.AudioSystemPropertiesObserverPtr = ash.audio_config.mojom.AudioSystemPropertiesObserverRemote;
+ash.audio_config.mojom.AudioSystemPropertiesObserverRequest = ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver;
+
+
+// Interface: CrosAudioConfig
+ash.audio_config.mojom.CrosAudioConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CrosAudioConfig
-ash.audio_config.mojom.CrosAudioConfigPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.audio_config.mojom.CrosAudioConfig';
+ash.audio_config.mojom.CrosAudioConfigRemote = class {
+  static get $interfaceName() {
+    return 'ash.audio_config.mojom.CrosAudioConfig';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.audio_config.mojom.CrosAudioConfigPendingReceiver,
+      handle);
+    this.$ = new ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   observeAudioSystemProperties(observer) {
-    // Method: ObserveAudioSystemProperties
-    // Call: ObserveAudioSystemProperties(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   setOutputMuted(muted) {
-    // Method: SetOutputMuted
-    // Call: SetOutputMuted(muted)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$,
+      null,
+      [muted]);
   }
 
   setOutputVolumePercent(volume) {
-    // Method: SetOutputVolumePercent
-    // Call: SetOutputVolumePercent(volume)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$,
+      null,
+      [volume]);
   }
 
   setInputGainPercent(gain) {
-    // Method: SetInputGainPercent
-    // Call: SetInputGainPercent(gain)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$,
+      null,
+      [gain]);
   }
 
   setActiveDevice(device) {
-    // Method: SetActiveDevice
-    // Call: SetActiveDevice(device)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$,
+      null,
+      [device]);
   }
 
   setInputMuted(muted) {
-    // Method: SetInputMuted
-    // Call: SetInputMuted(muted)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$,
+      null,
+      [muted]);
   }
 
   recordVoiceIsolationEnabledChange() {
-    // Method: RecordVoiceIsolationEnabledChange
-    // Call: RecordVoiceIsolationEnabledChange()
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$,
+      null,
+      []);
   }
 
   recordVoiceIsolationPreferredEffectChange(preferred_effect) {
-    // Method: RecordVoiceIsolationPreferredEffectChange
-    // Call: RecordVoiceIsolationPreferredEffectChange(preferred_effect)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$,
+      null,
+      [preferred_effect]);
   }
 
   setNoiseCancellationEnabled(enabled) {
-    // Method: SetNoiseCancellationEnabled
-    // Call: SetNoiseCancellationEnabled(enabled)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   setStyleTransferEnabled(enabled) {
-    // Method: SetStyleTransferEnabled
-    // Call: SetStyleTransferEnabled(enabled)
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   setForceRespectUiGainsEnabled(enabled) {
-    // Method: SetForceRespectUiGainsEnabled
-    // Call: SetForceRespectUiGainsEnabled(enabled)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   setHfpMicSrEnabled(enabled) {
-    // Method: SetHfpMicSrEnabled
-    // Call: SetHfpMicSrEnabled(enabled)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   setSpatialAudioEnabled(enabled) {
-    // Method: SetSpatialAudioEnabled
-    // Call: SetSpatialAudioEnabled(enabled)
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
 };
 
-ash.audio_config.mojom.CrosAudioConfigRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.audio_config.mojom.CrosAudioConfig.getRemote = function() {
+  let remote = new ash.audio_config.mojom.CrosAudioConfigRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.audio_config.mojom.CrosAudioConfig',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ObserveAudioSystemProperties
+ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.ObserveAudioSystemProperties_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for SetOutputMuted
+ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputMuted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetOutputVolumePercent
+ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputVolumePercent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetInputGainPercent
+ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputGainPercent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetActiveDevice
+ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetActiveDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetInputMuted
+ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputMuted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RecordVoiceIsolationEnabledChange
+ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.RecordVoiceIsolationEnabledChange_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RecordVoiceIsolationPreferredEffectChange
+ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.RecordVoiceIsolationPreferredEffectChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetNoiseCancellationEnabled
+ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetNoiseCancellationEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetStyleTransferEnabled
+ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetStyleTransferEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetForceRespectUiGainsEnabled
+ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetForceRespectUiGainsEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetHfpMicSrEnabled
+ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetHfpMicSrEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSpatialAudioEnabled
+ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.audio_config.mojom.CrosAudioConfig.SetSpatialAudioEnabled_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.audio_config.mojom.CrosAudioConfigPtr = ash.audio_config.mojom.CrosAudioConfigRemote;
+ash.audio_config.mojom.CrosAudioConfigRequest = ash.audio_config.mojom.CrosAudioConfigPendingReceiver;
+

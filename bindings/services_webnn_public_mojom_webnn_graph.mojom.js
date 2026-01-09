@@ -38,6 +38,8 @@ webnn.mojom.Kind = {
 
 // Enum: Kind
 webnn.mojom.Kind = {
+  kDirect: 0,
+  kTransposed: 1,
 };
 
 // Enum: Kind
@@ -136,446 +138,76 @@ webnn.mojom.InterpolationMode = {
   kLinear: 1,
 };
 
-// Struct: OperandDescriptor
-webnn.mojom.OperandDescriptor = class {
-  constructor(values = {}) {
-    this.pending_permutation = values.pending_permutation !== undefined ? values.pending_permutation : 0;
-  }
-};
-
-// Struct: OperandId
-webnn.mojom.OperandId = class {
-  constructor(values = {}) {
-    this.id = values.id !== undefined ? values.id : 0;
-  }
-};
-
-// Struct: Operand
-webnn.mojom.Operand = class {
-  constructor(values = {}) {
-    this.kInput = values.kInput !== undefined ? values.kInput : null;
-  }
-};
-
-// Struct: ArgMinMax
-webnn.mojom.ArgMinMax = class {
-  constructor(values = {}) {
-    this.kMin = values.kMin !== undefined ? values.kMin : null;
-  }
-};
-
-// Struct: BatchNormalization
-webnn.mojom.BatchNormalization = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Clamp
-webnn.mojom.Clamp = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Concat
-webnn.mojom.Concat = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Size2d
-webnn.mojom.Size2d = class {
-  constructor(values = {}) {
-    this.width = values.width !== undefined ? values.width : 0;
-  }
-};
-
-// Struct: Padding2d
-webnn.mojom.Padding2d = class {
-  constructor(values = {}) {
-    this.ending = values.ending !== undefined ? values.ending : null;
-  }
-};
-
-// Struct: Conv2d
-webnn.mojom.Conv2d = class {
-  constructor(values = {}) {
-    this.kDirect = values.kDirect !== undefined ? values.kDirect : null;
-  }
-};
-
-// Struct: CumulativeSum
-webnn.mojom.CumulativeSum = class {
-  constructor(values = {}) {
-    this.axis = values.axis !== undefined ? values.axis : 0;
-    this.would = values.would !== undefined ? values.would : null;
-    this.yields = values.yields !== undefined ? values.yields : null;
-    this.output = values.output !== undefined ? values.output : null;
-    this.label = values.label !== undefined ? values.label : false;
-  }
-};
-
-// Struct: DequantizeLinear
-webnn.mojom.DequantizeLinear = class {
-  constructor(values = {}) {
-    this.input_operand_id = values.input_operand_id !== undefined ? values.input_operand_id : null;
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: ElementWiseBinary
-webnn.mojom.ElementWiseBinary = class {
-  constructor(values = {}) {
-    this.kAdd = values.kAdd !== undefined ? values.kAdd : null;
-  }
-};
-
-// Struct: ElementWiseUnary
-webnn.mojom.ElementWiseUnary = class {
-  constructor(values = {}) {
-    this.kAbs = values.kAbs !== undefined ? values.kAbs : null;
-  }
-};
-
-// Struct: Expand
-webnn.mojom.Expand = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: ConstantPadding
-webnn.mojom.ConstantPadding = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : null;
-  }
-};
-
-// Struct: EdgePadding
-webnn.mojom.EdgePadding = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: ReflectionPadding
-webnn.mojom.ReflectionPadding = class {
-  constructor(values = {}) {
-  }
-};
-
-// Struct: InstanceNormalization
-webnn.mojom.InstanceNormalization = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Matmul
-webnn.mojom.Matmul = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Pad
-webnn.mojom.Pad = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Reduce
-webnn.mojom.Reduce = class {
-  constructor(values = {}) {
-    this.kL1 = values.kL1 !== undefined ? values.kL1 : null;
-  }
-};
-
-// Struct: Pool2d
-webnn.mojom.Pool2d = class {
-  constructor(values = {}) {
-    this.kAveragePool2d = values.kAveragePool2d !== undefined ? values.kAveragePool2d : null;
-  }
-};
-
-// Struct: Range
-webnn.mojom.Range = class {
-  constructor(values = {}) {
-    this.stride = values.stride !== undefined ? values.stride : 0;
-  }
-};
-
-// Struct: Slice
-webnn.mojom.Slice = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Elu
-webnn.mojom.Elu = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Gather
-webnn.mojom.Gather = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: GatherElements
-webnn.mojom.GatherElements = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: GatherND
-webnn.mojom.GatherND = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Gelu
-webnn.mojom.Gelu = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Gru
-webnn.mojom.Gru = class {
-  constructor(values = {}) {
-    this.layout = values.layout !== undefined ? values.layout : 0;
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: GruCell
-webnn.mojom.GruCell = class {
-  constructor(values = {}) {
-    this.layout = values.layout !== undefined ? values.layout : 0;
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Gemm
-webnn.mojom.Gemm = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: HardSigmoid
-webnn.mojom.HardSigmoid = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: HardSwish
-webnn.mojom.HardSwish = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: LayerNormalization
-webnn.mojom.LayerNormalization = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: LeakyRelu
-webnn.mojom.LeakyRelu = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Linear
-webnn.mojom.Linear = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Lstm
-webnn.mojom.Lstm = class {
-  constructor(values = {}) {
-    this.layout = values.layout !== undefined ? values.layout : 0;
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: LstmCell
-webnn.mojom.LstmCell = class {
-  constructor(values = {}) {
-    this.layout = values.layout !== undefined ? values.layout : 0;
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Prelu
-webnn.mojom.Prelu = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: QuantizeLinear
-webnn.mojom.QuantizeLinear = class {
-  constructor(values = {}) {
-    this.input_operand_id = values.input_operand_id !== undefined ? values.input_operand_id : null;
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Relu
-webnn.mojom.Relu = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Reshape
-webnn.mojom.Reshape = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Reverse
-webnn.mojom.Reverse = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: ScatterElements
-webnn.mojom.ScatterElements = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: ScatterND
-webnn.mojom.ScatterND = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Sigmoid
-webnn.mojom.Sigmoid = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Softmax
-webnn.mojom.Softmax = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Softplus
-webnn.mojom.Softplus = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Softsign
-webnn.mojom.Softsign = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Split
-webnn.mojom.Split = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Tanh
-webnn.mojom.Tanh = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: Tile
-webnn.mojom.Tile = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Transpose
-webnn.mojom.Transpose = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Triangular
-webnn.mojom.Triangular = class {
-  constructor(values = {}) {
-    this.label = values.label !== undefined ? values.label : 0;
-  }
-};
-
-// Struct: Resample2d
-webnn.mojom.Resample2d = class {
-  constructor(values = {}) {
-    this.kNearestNeighbor = values.kNearestNeighbor !== undefined ? values.kNearestNeighbor : 0;
-  }
-};
-
-// Struct: Where
-webnn.mojom.Where = class {
-  constructor(values = {}) {
-    this.be = values.be !== undefined ? values.be : null;
-    this.label = values.label !== undefined ? values.label : "";
-  }
-};
-
-// Struct: GraphInfo
-webnn.mojom.GraphInfo = class {
-  constructor(values = {}) {
-    this.operations = values.operations !== undefined ? values.operations : [];
-    this.constant_operand_ids_to_handles = values.constant_operand_ids_to_handles !== undefined ? values.constant_operand_ids_to_handles : {};
-    this.id_to_constant_tensor_operand_map = values.id_to_constant_tensor_operand_map !== undefined ? values.id_to_constant_tensor_operand_map : {};
-  }
-};
-
 // Interface: WebNNGraph
-webnn.mojom.WebNNGraphPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'webnn.mojom.WebNNGraph';
-  }
-
-  dispatch(named_inputs, named_outputs) {
-    // Method: Dispatch
-    // Call: Dispatch(named_inputs, named_outputs)
-  }
-
-};
-
-webnn.mojom.WebNNGraphRequest = class {
+webnn.mojom.WebNNGraphPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+webnn.mojom.WebNNGraphRemote = class {
+  static get $interfaceName() {
+    return 'webnn.mojom.WebNNGraph';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      webnn.mojom.WebNNGraphPendingReceiver,
+      handle);
+    this.$ = new webnn.mojom.WebNNGraphRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+webnn.mojom.WebNNGraphRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  dispatch(named_inputs, named_outputs) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      webnn.mojom.WebNNGraph_Dispatch_ParamsSpec.$,
+      null,
+      [named_inputs, named_outputs]);
+  }
+
+};
+
+webnn.mojom.WebNNGraph.getRemote = function() {
+  let remote = new webnn.mojom.WebNNGraphRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'webnn.mojom.WebNNGraph',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Dispatch
+webnn.mojom.WebNNGraph_Dispatch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'webnn.mojom.WebNNGraph.Dispatch_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'named_inputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'named_outputs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+webnn.mojom.WebNNGraphPtr = webnn.mojom.WebNNGraphRemote;
+webnn.mojom.WebNNGraphRequest = webnn.mojom.WebNNGraphPendingReceiver;
+

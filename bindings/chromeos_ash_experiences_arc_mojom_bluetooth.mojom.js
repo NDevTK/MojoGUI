@@ -142,211 +142,302 @@ arc.mojom.BluetoothSocketType = {
   TYPE_L2CAP_LE: 1,
 };
 
-// Struct: BluetoothAddress
-arc.mojom.BluetoothAddress = class {
-  constructor(values = {}) {
-    this.address = values.address !== undefined ? values.address : 0;
-  }
-};
-
-// Struct: BluetoothUUID
-arc.mojom.BluetoothUUID = class {
-  constructor(values = {}) {
-    this.uuid = values.uuid !== undefined ? values.uuid : 0;
-  }
-};
-
-// Struct: BluetoothServiceRecord
-arc.mojom.BluetoothServiceRecord = class {
-  constructor(values = {}) {
-    this.name = values.name !== undefined ? values.name : 0;
-  }
-};
-
-// Struct: BluetoothLocalLEFeatures
-arc.mojom.BluetoothLocalLEFeatures = class {
-  constructor(values = {}) {
-    this.debug_logging_supported = values.debug_logging_supported !== undefined ? values.debug_logging_supported : 0;
-  }
-};
-
-// Struct: BluetoothRemoteVersion
-arc.mojom.BluetoothRemoteVersion = class {
-  constructor(values = {}) {
-    this.manufacturer = values.manufacturer !== undefined ? values.manufacturer : 0;
-  }
-};
-
-// Struct: BluetoothGattID
-arc.mojom.BluetoothGattID = class {
-  constructor(values = {}) {
-    this.instance_id = values.instance_id !== undefined ? values.instance_id : 0;
-  }
-};
-
-// Struct: BluetoothGattServiceID
-arc.mojom.BluetoothGattServiceID = class {
-  constructor(values = {}) {
-    this.is_primary = values.is_primary !== undefined ? values.is_primary : 0;
-  }
-};
-
-// Struct: BluetoothGattValue
-arc.mojom.BluetoothGattValue = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: BluetoothServiceData
-arc.mojom.BluetoothServiceData = class {
-  constructor(values = {}) {
-    this.data = values.data !== undefined ? values.data : 0;
-  }
-};
-
-// Struct: BluetoothAdvertisement
-arc.mojom.BluetoothAdvertisement = class {
-  constructor(values = {}) {
-    this.data = values.data !== undefined ? values.data : false;
-  }
-};
-
-// Struct: BluetoothGattDBElement
-arc.mojom.BluetoothGattDBElement = class {
-  constructor(values = {}) {
-    this.element_id = values.element_id !== undefined ? values.element_id : 0;
-  }
-};
-
-// Struct: BluetoothSdpAttribute
-arc.mojom.BluetoothSdpAttribute = class {
-  constructor(values = {}) {
-    this.value = values.value !== undefined ? values.value : 0;
-  }
-};
-
-// Struct: BluetoothSdpRecord
-arc.mojom.BluetoothSdpRecord = class {
-  constructor(values = {}) {
-    this.attrs = values.attrs !== undefined ? values.attrs : 0;
-  }
-};
-
-// Struct: BluetoothCreateSdpRecordResult
-arc.mojom.BluetoothCreateSdpRecordResult = class {
-  constructor(values = {}) {
-    this.service_handle = values.service_handle !== undefined ? values.service_handle : 0;
-  }
-};
-
-// Struct: BluetoothRfcommConnection
-arc.mojom.BluetoothRfcommConnection = class {
-  constructor(values = {}) {
-    this.channel = values.channel !== undefined ? values.channel : 0;
-  }
-};
-
-// Struct: BluetoothSocketFlags
-arc.mojom.BluetoothSocketFlags = class {
-  constructor(values = {}) {
-    this.auth_16_digit = values.auth_16_digit !== undefined ? values.auth_16_digit : false;
-  }
-};
-
-// Struct: BluetoothSocketConnection
-arc.mojom.BluetoothSocketConnection = class {
-  constructor(values = {}) {
-    this.port = values.port !== undefined ? values.port : 0;
-  }
-};
-
 // Interface: RfcommListeningSocketClient
-arc.mojom.RfcommListeningSocketClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.RfcommListeningSocketClient';
-  }
-
-};
-
-arc.mojom.RfcommListeningSocketClientRequest = class {
+arc.mojom.RfcommListeningSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.RfcommListeningSocketClientRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.RfcommListeningSocketClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.RfcommListeningSocketClientPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.RfcommListeningSocketClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.RfcommListeningSocketClient.getRemote = function() {
+  let remote = new arc.mojom.RfcommListeningSocketClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.RfcommListeningSocketClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.RfcommListeningSocketClientPtr = arc.mojom.RfcommListeningSocketClientRemote;
+arc.mojom.RfcommListeningSocketClientRequest = arc.mojom.RfcommListeningSocketClientPendingReceiver;
+
 
 // Interface: RfcommConnectingSocketClient
-arc.mojom.RfcommConnectingSocketClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.RfcommConnectingSocketClient';
-  }
-
-};
-
-arc.mojom.RfcommConnectingSocketClientRequest = class {
+arc.mojom.RfcommConnectingSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.RfcommConnectingSocketClientRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.RfcommConnectingSocketClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.RfcommConnectingSocketClientPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.RfcommConnectingSocketClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.RfcommConnectingSocketClient.getRemote = function() {
+  let remote = new arc.mojom.RfcommConnectingSocketClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.RfcommConnectingSocketClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.RfcommConnectingSocketClientPtr = arc.mojom.RfcommConnectingSocketClientRemote;
+arc.mojom.RfcommConnectingSocketClientRequest = arc.mojom.RfcommConnectingSocketClientPendingReceiver;
+
 
 // Interface: BluetoothListenSocketClient
-arc.mojom.BluetoothListenSocketClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.BluetoothListenSocketClient';
-  }
-
-};
-
-arc.mojom.BluetoothListenSocketClientRequest = class {
+arc.mojom.BluetoothListenSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.BluetoothListenSocketClientRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.BluetoothListenSocketClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.BluetoothListenSocketClientPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.BluetoothListenSocketClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.BluetoothListenSocketClient.getRemote = function() {
+  let remote = new arc.mojom.BluetoothListenSocketClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.BluetoothListenSocketClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.BluetoothListenSocketClientPtr = arc.mojom.BluetoothListenSocketClientRemote;
+arc.mojom.BluetoothListenSocketClientRequest = arc.mojom.BluetoothListenSocketClientPendingReceiver;
+
 
 // Interface: BluetoothConnectSocketClient
-arc.mojom.BluetoothConnectSocketClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.BluetoothConnectSocketClient';
-  }
-
-};
-
-arc.mojom.BluetoothConnectSocketClientRequest = class {
+arc.mojom.BluetoothConnectSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.BluetoothConnectSocketClientRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.BluetoothConnectSocketClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.BluetoothConnectSocketClientPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.BluetoothConnectSocketClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.BluetoothConnectSocketClient.getRemote = function() {
+  let remote = new arc.mojom.BluetoothConnectSocketClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.BluetoothConnectSocketClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.BluetoothConnectSocketClientPtr = arc.mojom.BluetoothConnectSocketClientRemote;
+arc.mojom.BluetoothConnectSocketClientRequest = arc.mojom.BluetoothConnectSocketClientPendingReceiver;
+
 
 // Interface: BluetoothHost
-arc.mojom.BluetoothHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.BluetoothHost';
-  }
-
-};
-
-arc.mojom.BluetoothHostRequest = class {
+arc.mojom.BluetoothHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.BluetoothHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.BluetoothHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.BluetoothHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.BluetoothHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.BluetoothHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.BluetoothHost.getRemote = function() {
+  let remote = new arc.mojom.BluetoothHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.BluetoothHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.BluetoothHostPtr = arc.mojom.BluetoothHostRemote;
+arc.mojom.BluetoothHostRequest = arc.mojom.BluetoothHostPendingReceiver;
+
 
 // Interface: BluetoothInstance
-arc.mojom.BluetoothInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.BluetoothInstance';
-  }
-
-};
-
-arc.mojom.BluetoothInstanceRequest = class {
+arc.mojom.BluetoothInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.BluetoothInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.BluetoothInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.BluetoothInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.BluetoothInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.BluetoothInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.BluetoothInstance.getRemote = function() {
+  let remote = new arc.mojom.BluetoothInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.BluetoothInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.BluetoothInstancePtr = arc.mojom.BluetoothInstanceRemote;
+arc.mojom.BluetoothInstanceRequest = arc.mojom.BluetoothInstancePendingReceiver;
+

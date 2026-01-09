@@ -11,66 +11,191 @@ media.mojom = media.mojom || {};
 
 // Enum: VideoDecoderSecureMemoryMode
 media.mojom.VideoDecoderSecureMemoryMode = {
-};
-
-// Struct: CdmRequest
-media.mojom.CdmRequest = class {
-  constructor(values = {}) {
-    this.request = values.request !== undefined ? values.request : null;
-  }
-};
-
-// Struct: StreamProcessorRequest
-media.mojom.StreamProcessorRequest = class {
-  constructor(values = {}) {
-    this.request = values.request !== undefined ? values.request : null;
-  }
+  CLEAR: 0,
+  SECURE: 1,
+  SECURE_OUTPUT: 2,
 };
 
 // Interface: FuchsiaMediaCdmProvider
-media.mojom.FuchsiaMediaCdmProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.FuchsiaMediaCdmProvider';
+media.mojom.FuchsiaMediaCdmProviderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+media.mojom.FuchsiaMediaCdmProviderRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.FuchsiaMediaCdmProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.FuchsiaMediaCdmProviderPendingReceiver,
+      handle);
+    this.$ = new media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createCdm(key_system, cdm_request) {
-    // Method: CreateCdm
-    // Call: CreateCdm(key_system, cdm_request)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$,
+      null,
+      [key_system, cdm_request]);
   }
 
 };
 
-media.mojom.FuchsiaMediaCdmProviderRequest = class {
+media.mojom.FuchsiaMediaCdmProvider.getRemote = function() {
+  let remote = new media.mojom.FuchsiaMediaCdmProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.FuchsiaMediaCdmProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateCdm
+media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.FuchsiaMediaCdmProvider.CreateCdm_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.FuchsiaMediaCdmProviderPtr = media.mojom.FuchsiaMediaCdmProviderRemote;
+media.mojom.FuchsiaMediaCdmProviderRequest = media.mojom.FuchsiaMediaCdmProviderPendingReceiver;
+
+
+// Interface: FuchsiaMediaCodecProvider
+media.mojom.FuchsiaMediaCodecProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: FuchsiaMediaCodecProvider
-media.mojom.FuchsiaMediaCodecProviderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'media.mojom.FuchsiaMediaCodecProvider';
+media.mojom.FuchsiaMediaCodecProviderRemote = class {
+  static get $interfaceName() {
+    return 'media.mojom.FuchsiaMediaCodecProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      media.mojom.FuchsiaMediaCodecProviderPendingReceiver,
+      handle);
+    this.$ = new media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createVideoDecoder(codec, secure_mode, stream_processor_request) {
-    // Method: CreateVideoDecoder
-    // Call: CreateVideoDecoder(codec, secure_mode, stream_processor_request)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$,
+      null,
+      [codec, secure_mode, stream_processor_request]);
   }
 
   getSupportedVideoDecoderConfigs() {
-    // Method: GetSupportedVideoDecoderConfigs
-    return new Promise((resolve) => {
-      // Call: GetSupportedVideoDecoderConfigs()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$,
+      media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-media.mojom.FuchsiaMediaCodecProviderRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+media.mojom.FuchsiaMediaCodecProvider.getRemote = function() {
+  let remote = new media.mojom.FuchsiaMediaCodecProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'media.mojom.FuchsiaMediaCodecProvider',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateVideoDecoder
+media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.FuchsiaMediaCodecProvider.CreateVideoDecoder_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for GetSupportedVideoDecoderConfigs
+media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.FuchsiaMediaCodecProvider.GetSupportedVideoDecoderConfigs_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'media.mojom.FuchsiaMediaCodecProvider.GetSupportedVideoDecoderConfigs_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+media.mojom.FuchsiaMediaCodecProviderPtr = media.mojom.FuchsiaMediaCodecProviderRemote;
+media.mojom.FuchsiaMediaCodecProviderRequest = media.mojom.FuchsiaMediaCodecProviderPendingReceiver;
+

@@ -12,12 +12,17 @@ ash.bluetooth_config.mojom = ash.bluetooth_config.mojom || {};
 
 // Enum: BluetoothSystemState
 ash.bluetooth_config.mojom.BluetoothSystemState = {
+  kUnavailable: 0,
+  kDisabled: 1,
+  kDisabling: 2,
+  kEnabled: 3,
+  kEnabling: 4,
 };
 
 // Enum: BluetoothModificationState
 ash.bluetooth_config.mojom.BluetoothModificationState = {
-  and: 0,
-  or: 1,
+  kCannotModifyBluetooth: 0,
+  kCanModifyBluetooth: 1,
 };
 
 // Enum: DeviceType
@@ -36,7 +41,8 @@ ash.bluetooth_config.mojom.DeviceType = {
 
 // Enum: AudioOutputCapability
 ash.bluetooth_config.mojom.AudioOutputCapability = {
-  Bluetooth: 0,
+  kNotCapableOfAudioOutput: 0,
+  kCapableOfAudioOutput: 1,
 };
 
 // Enum: DeviceConnectionState
@@ -48,343 +54,1167 @@ ash.bluetooth_config.mojom.DeviceConnectionState = {
 
 // Enum: PairingResult
 ash.bluetooth_config.mojom.PairingResult = {
-  either: 0,
-};
-
-// Struct: BatteryProperties
-ash.bluetooth_config.mojom.BatteryProperties = class {
-  constructor(values = {}) {
-    this.battery_percentage = values.battery_percentage !== undefined ? values.battery_percentage : 0;
-  }
-};
-
-// Struct: DeviceBatteryInfo
-ash.bluetooth_config.mojom.DeviceBatteryInfo = class {
-  constructor(values = {}) {
-    this.case_info = values.case_info !== undefined ? values.case_info : null;
-  }
-};
-
-// Struct: TrueWirelessImageInfo
-ash.bluetooth_config.mojom.TrueWirelessImageInfo = class {
-  constructor(values = {}) {
-    this.case_image_url = values.case_image_url !== undefined ? values.case_image_url : null;
-  }
-};
-
-// Struct: DeviceImageInfo
-ash.bluetooth_config.mojom.DeviceImageInfo = class {
-  constructor(values = {}) {
-    this.true_wireless_images = values.true_wireless_images !== undefined ? values.true_wireless_images : null;
-  }
-};
-
-// Struct: BluetoothDeviceProperties
-ash.bluetooth_config.mojom.BluetoothDeviceProperties = class {
-  constructor(values = {}) {
-    this.address = values.address !== undefined ? values.address : "";
-    this.public_name = values.public_name !== undefined ? values.public_name : "";
-    this.is_blocked_by_policy = values.is_blocked_by_policy !== undefined ? values.is_blocked_by_policy : false;
-  }
-};
-
-// Struct: PairedBluetoothDeviceProperties
-ash.bluetooth_config.mojom.PairedBluetoothDeviceProperties = class {
-  constructor(values = {}) {
-    this.nickname = values.nickname !== undefined ? values.nickname : "";
-  }
-};
-
-// Struct: BluetoothSystemProperties
-ash.bluetooth_config.mojom.BluetoothSystemProperties = class {
-  constructor(values = {}) {
-    this.paired_devices = values.paired_devices !== undefined ? values.paired_devices : [];
-  }
+  kSuccess: 0,
+  kAuthFailed: 1,
+  kNonAuthFailure: 2,
 };
 
 // Interface: SystemPropertiesObserver
-ash.bluetooth_config.mojom.SystemPropertiesObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.SystemPropertiesObserver';
+ash.bluetooth_config.mojom.SystemPropertiesObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+ash.bluetooth_config.mojom.SystemPropertiesObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.SystemPropertiesObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.SystemPropertiesObserverPendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onPropertiesUpdated(properties) {
-    // Method: OnPropertiesUpdated
-    // Call: OnPropertiesUpdated(properties)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$,
+      null,
+      [properties]);
   }
 
 };
 
-ash.bluetooth_config.mojom.SystemPropertiesObserverRequest = class {
+ash.bluetooth_config.mojom.SystemPropertiesObserver.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.SystemPropertiesObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.SystemPropertiesObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnPropertiesUpdated
+ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.SystemPropertiesObserver.OnPropertiesUpdated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.SystemPropertiesObserverPtr = ash.bluetooth_config.mojom.SystemPropertiesObserverRemote;
+ash.bluetooth_config.mojom.SystemPropertiesObserverRequest = ash.bluetooth_config.mojom.SystemPropertiesObserverPendingReceiver;
+
+
+// Interface: BluetoothDeviceStatusObserver
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: BluetoothDeviceStatusObserver
-ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver';
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onDevicePaired(device) {
-    // Method: OnDevicePaired
-    // Call: OnDevicePaired(device)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec.$,
+      null,
+      [device]);
   }
 
   onDeviceConnected(device) {
-    // Method: OnDeviceConnected
-    // Call: OnDeviceConnected(device)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec.$,
+      null,
+      [device]);
   }
 
   onDeviceDisconnected(device) {
-    // Method: OnDeviceDisconnected
-    // Call: OnDeviceDisconnected(device)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec.$,
+      null,
+      [device]);
   }
 
 };
 
-ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRequest = class {
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnDevicePaired
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.OnDevicePaired_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeviceConnected
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.OnDeviceConnected_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDeviceDisconnected
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.OnDeviceDisconnected_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPtr = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote;
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRequest = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPendingReceiver;
+
+
+// Interface: DiscoverySessionStatusObserver
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DiscoverySessionStatusObserver
-ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver';
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onHasAtLeastOneDiscoverySessionChanged(has_at_least_one_discovery_session) {
-    // Method: OnHasAtLeastOneDiscoverySessionChanged
-    // Call: OnHasAtLeastOneDiscoverySessionChanged(has_at_least_one_discovery_session)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec.$,
+      null,
+      [has_at_least_one_discovery_session]);
   }
 
 };
 
-ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRequest = class {
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserver.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnHasAtLeastOneDiscoverySessionChanged
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DiscoverySessionStatusObserver.OnHasAtLeastOneDiscoverySessionChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'has_at_least_one_discovery_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPtr = ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote;
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRequest = ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPendingReceiver;
+
+
+// Interface: KeyEnteredHandler
+ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: KeyEnteredHandler
-ash.bluetooth_config.mojom.KeyEnteredHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.KeyEnteredHandler';
+ash.bluetooth_config.mojom.KeyEnteredHandlerRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.KeyEnteredHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   handleKeyEntered(num_keys_entered) {
-    // Method: HandleKeyEntered
-    // Call: HandleKeyEntered(num_keys_entered)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec.$,
+      null,
+      [num_keys_entered]);
   }
 
 };
 
-ash.bluetooth_config.mojom.KeyEnteredHandlerRequest = class {
+ash.bluetooth_config.mojom.KeyEnteredHandler.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.KeyEnteredHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.KeyEnteredHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for HandleKeyEntered
+ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.KeyEnteredHandler.HandleKeyEntered_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'num_keys_entered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.KeyEnteredHandlerPtr = ash.bluetooth_config.mojom.KeyEnteredHandlerRemote;
+ash.bluetooth_config.mojom.KeyEnteredHandlerRequest = ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver;
+
+
+// Interface: DevicePairingDelegate
+ash.bluetooth_config.mojom.DevicePairingDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DevicePairingDelegate
-ash.bluetooth_config.mojom.DevicePairingDelegatePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.DevicePairingDelegate';
+ash.bluetooth_config.mojom.DevicePairingDelegateRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.DevicePairingDelegate';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.DevicePairingDelegatePendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   requestPinCode() {
-    // Method: RequestPinCode
-    return new Promise((resolve) => {
-      // Call: RequestPinCode()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec.$,
+      []);
   }
 
   requestPasskey() {
-    // Method: RequestPasskey
-    return new Promise((resolve) => {
-      // Call: RequestPasskey()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec.$,
+      []);
   }
 
   displayPinCode(pin_code, handler) {
-    // Method: DisplayPinCode
-    // Call: DisplayPinCode(pin_code, handler)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec.$,
+      null,
+      [pin_code, handler]);
   }
 
   displayPasskey(passkey, handler) {
-    // Method: DisplayPasskey
-    // Call: DisplayPasskey(passkey, handler)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec.$,
+      null,
+      [passkey, handler]);
   }
 
   confirmPasskey(passkey) {
-    // Method: ConfirmPasskey
-    return new Promise((resolve) => {
-      // Call: ConfirmPasskey(passkey)
-      resolve({});
-    });
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec.$,
+      [passkey]);
   }
 
   authorizePairing() {
-    // Method: AuthorizePairing
-    return new Promise((resolve) => {
-      // Call: AuthorizePairing()
-      resolve({});
-    });
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-ash.bluetooth_config.mojom.DevicePairingDelegateRequest = class {
+ash.bluetooth_config.mojom.DevicePairingDelegate.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.DevicePairingDelegateRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.DevicePairingDelegate',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RequestPinCode
+ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.RequestPinCode_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.RequestPinCode_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'pin_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for RequestPasskey
+ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.RequestPasskey_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.RequestPasskey_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DisplayPinCode
+ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.DisplayPinCode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'pin_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DisplayPasskey
+ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.DisplayPasskey_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ConfirmPasskey
+ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.ConfirmPasskey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.ConfirmPasskey_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AuthorizePairing
+ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.AuthorizePairing_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.AuthorizePairing_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.DevicePairingDelegatePtr = ash.bluetooth_config.mojom.DevicePairingDelegateRemote;
+ash.bluetooth_config.mojom.DevicePairingDelegateRequest = ash.bluetooth_config.mojom.DevicePairingDelegatePendingReceiver;
+
+
+// Interface: DevicePairingHandler
+ash.bluetooth_config.mojom.DevicePairingHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: DevicePairingHandler
-ash.bluetooth_config.mojom.DevicePairingHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.DevicePairingHandler';
+ash.bluetooth_config.mojom.DevicePairingHandlerRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.DevicePairingHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.DevicePairingHandlerPendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   pairDevice(device_id, delegate) {
-    // Method: PairDevice
-    return new Promise((resolve) => {
-      // Call: PairDevice(device_id, delegate)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec.$,
+      [device_id, delegate]);
   }
 
   fetchDevice(device_address) {
-    // Method: FetchDevice
-    return new Promise((resolve) => {
-      // Call: FetchDevice(device_address)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec.$,
+      ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec.$,
+      [device_address]);
   }
 
 };
 
-ash.bluetooth_config.mojom.DevicePairingHandlerRequest = class {
+ash.bluetooth_config.mojom.DevicePairingHandler.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.DevicePairingHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.DevicePairingHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for PairDevice
+ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingHandler.PairDevice_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingHandler.PairDevice_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for FetchDevice
+ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingHandler.FetchDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.DevicePairingHandler.FetchDevice_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.DevicePairingHandlerPtr = ash.bluetooth_config.mojom.DevicePairingHandlerRemote;
+ash.bluetooth_config.mojom.DevicePairingHandlerRequest = ash.bluetooth_config.mojom.DevicePairingHandlerPendingReceiver;
+
+
+// Interface: BluetoothDiscoveryDelegate
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: BluetoothDiscoveryDelegate
-ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate';
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onBluetoothDiscoveryStarted(handler) {
-    // Method: OnBluetoothDiscoveryStarted
-    // Call: OnBluetoothDiscoveryStarted(handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec.$,
+      null,
+      [handler]);
   }
 
   onBluetoothDiscoveryStopped() {
-    // Method: OnBluetoothDiscoveryStopped
-    // Call: OnBluetoothDiscoveryStopped()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec.$,
+      null,
+      []);
   }
 
   onDiscoveredDevicesListChanged(discovered_devices) {
-    // Method: OnDiscoveredDevicesListChanged
-    // Call: OnDiscoveredDevicesListChanged(discovered_devices)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec.$,
+      null,
+      [discovered_devices]);
   }
 
 };
 
-ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRequest = class {
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnBluetoothDiscoveryStarted
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.OnBluetoothDiscoveryStarted_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnBluetoothDiscoveryStopped
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.OnBluetoothDiscoveryStopped_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnDiscoveredDevicesListChanged
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.OnDiscoveredDevicesListChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'discovered_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePtr = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote;
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRequest = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePendingReceiver;
+
+
+// Interface: CrosBluetoothConfig
+ash.bluetooth_config.mojom.CrosBluetoothConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: CrosBluetoothConfig
-ash.bluetooth_config.mojom.CrosBluetoothConfigPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.bluetooth_config.mojom.CrosBluetoothConfig';
+ash.bluetooth_config.mojom.CrosBluetoothConfigRemote = class {
+  static get $interfaceName() {
+    return 'ash.bluetooth_config.mojom.CrosBluetoothConfig';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.bluetooth_config.mojom.CrosBluetoothConfigPendingReceiver,
+      handle);
+    this.$ = new ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   observeSystemProperties(observer) {
-    // Method: ObserveSystemProperties
-    // Call: ObserveSystemProperties(observer)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   observeDeviceStatusChanges(observer) {
-    // Method: ObserveDeviceStatusChanges
-    // Call: ObserveDeviceStatusChanges(observer)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   observeDiscoverySessionStatusChanges(observer) {
-    // Method: ObserveDiscoverySessionStatusChanges
-    // Call: ObserveDiscoverySessionStatusChanges(observer)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec.$,
+      null,
+      [observer]);
   }
 
   setBluetoothEnabledState(enabled) {
-    // Method: SetBluetoothEnabledState
-    // Call: SetBluetoothEnabledState(enabled)
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec.$,
+      null,
+      [enabled]);
   }
 
   setBluetoothEnabledWithoutPersistence() {
-    // Method: SetBluetoothEnabledWithoutPersistence
-    // Call: SetBluetoothEnabledWithoutPersistence()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec.$,
+      null,
+      []);
   }
 
   setBluetoothHidDetectionInactive(is_using_bluetooth) {
-    // Method: SetBluetoothHidDetectionInactive
-    // Call: SetBluetoothHidDetectionInactive(is_using_bluetooth)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec.$,
+      null,
+      [is_using_bluetooth]);
   }
 
   startDiscovery(delegate) {
-    // Method: StartDiscovery
-    // Call: StartDiscovery(delegate)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec.$,
+      null,
+      [delegate]);
   }
 
   connect(device_id) {
-    // Method: Connect
-    return new Promise((resolve) => {
-      // Call: Connect(device_id)
-      resolve({});
-    });
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec.$,
+      [device_id]);
   }
 
   disconnect(device_id) {
-    // Method: Disconnect
-    return new Promise((resolve) => {
-      // Call: Disconnect(device_id)
-      resolve({});
-    });
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec.$,
+      [device_id]);
   }
 
   forget(device_id) {
-    // Method: Forget
-    return new Promise((resolve) => {
-      // Call: Forget(device_id)
-      resolve({});
-    });
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec.$,
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec.$,
+      [device_id]);
   }
 
   setDeviceNickname(device_id, nickname) {
-    // Method: SetDeviceNickname
-    // Call: SetDeviceNickname(device_id, nickname)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec.$,
+      null,
+      [device_id, nickname]);
   }
 
 };
 
-ash.bluetooth_config.mojom.CrosBluetoothConfigRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+ash.bluetooth_config.mojom.CrosBluetoothConfig.getRemote = function() {
+  let remote = new ash.bluetooth_config.mojom.CrosBluetoothConfigRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.bluetooth_config.mojom.CrosBluetoothConfig',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ObserveSystemProperties
+ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.ObserveSystemProperties_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for ObserveDeviceStatusChanges
+ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.ObserveDeviceStatusChanges_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ObserveDiscoverySessionStatusChanges
+ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.ObserveDiscoverySessionStatusChanges_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetBluetoothEnabledState
+ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.SetBluetoothEnabledState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetBluetoothEnabledWithoutPersistence
+ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.SetBluetoothEnabledWithoutPersistence_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetBluetoothHidDetectionInactive
+ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.SetBluetoothHidDetectionInactive_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'is_using_bluetooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for StartDiscovery
+ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.StartDiscovery_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Connect
+ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Connect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Connect_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Disconnect
+ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Disconnect_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Disconnect_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Forget
+ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Forget_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Forget_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetDeviceNickname
+ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.SetDeviceNickname_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'nickname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.bluetooth_config.mojom.CrosBluetoothConfigPtr = ash.bluetooth_config.mojom.CrosBluetoothConfigRemote;
+ash.bluetooth_config.mojom.CrosBluetoothConfigRequest = ash.bluetooth_config.mojom.CrosBluetoothConfigPendingReceiver;
+

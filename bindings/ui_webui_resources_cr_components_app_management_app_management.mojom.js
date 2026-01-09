@@ -13,9 +13,15 @@ app_management.mojom = app_management.mojom || {};
 app_management.mojom.AppType = {
   kUnknown: 0,
   kArc: 1,
-  see: 2,
-  see: 3,
-  see: 4,
+  kCrostini: 2,
+  kChromeApp: 3,
+  kWeb: 4,
+  kPluginVm: 5,
+  kRemote: 6,
+  kBorealis: 7,
+  kSystemWeb: 8,
+  kExtension: 9,
+  kBruschetta: 10,
 };
 
 // Enum: PermissionType
@@ -42,246 +48,787 @@ app_management.mojom.TriState = {
 app_management.mojom.InstallReason = {
   kUnknown: 0,
   kSystem: 1,
-  but: 2,
-  no: 3,
+  kPolicy: 2,
+  kOem: 3,
+  kDefault: 4,
+  kSync: 5,
+  kUser: 6,
+  kSubApp: 7,
+  kKiosk: 8,
+  kCommandLine: 9,
 };
 
 // Enum: InstallSource
 app_management.mojom.InstallSource = {
   kUnknown: 0,
   kSystem: 1,
+  kSync: 2,
+  kPlayStore: 3,
+  kChromeWebStore: 4,
+  kBrowser: 5,
 };
 
 // Enum: WindowMode
 app_management.mojom.WindowMode = {
   kUnknown: 0,
+  kWindow: 1,
+  kBrowser: 2,
+  kTabbedWindow: 3,
 };
 
 // Enum: RunOnOsLoginMode
 app_management.mojom.RunOnOsLoginMode = {
   kUnknown: 0,
-};
-
-// Struct: Permission
-app_management.mojom.Permission = class {
-  constructor(values = {}) {
-    this.details = values.details !== undefined ? values.details : false;
-  }
-};
-
-// Struct: RunOnOsLogin
-app_management.mojom.RunOnOsLogin = class {
-  constructor(values = {}) {
-    this.is_managed = values.is_managed !== undefined ? values.is_managed : false;
-  }
-};
-
-// Struct: Locale
-app_management.mojom.Locale = class {
-  constructor(values = {}) {
-    this.to = values.to !== undefined ? values.to : null;
-    this.locale_tag = values.locale_tag !== undefined ? values.locale_tag : "";
-    this.display_name = values.display_name !== undefined ? values.display_name : "";
-    this.native_display_name = values.native_display_name !== undefined ? values.native_display_name : "";
-  }
-};
-
-// Struct: App
-app_management.mojom.App = class {
-  constructor(values = {}) {
-    this.publisher_id = values.publisher_id !== undefined ? values.publisher_id : false;
-    this.formatted_origin = values.formatted_origin !== undefined ? values.formatted_origin : "";
-    this.disable_user_choice_navigation_capturing = values.disable_user_choice_navigation_capturing !== undefined ? values.disable_user_choice_navigation_capturing : false;
-  }
-};
-
-// Struct: ExtensionAppPermissionMessage
-app_management.mojom.ExtensionAppPermissionMessage = class {
-  constructor(values = {}) {
-    this.submessages = values.submessages !== undefined ? values.submessages : "";
-  }
-};
-
-// Struct: FileHandlingState
-app_management.mojom.FileHandlingState = class {
-  constructor(values = {}) {
-    this.is_managed = values.is_managed !== undefined ? values.is_managed : false;
-    this.user_visible_types_label = values.user_visible_types_label !== undefined ? values.user_visible_types_label : "";
-    this.learn_more_url = values.learn_more_url !== undefined ? values.learn_more_url : null;
-  }
+  kNotRun: 1,
+  kWindowed: 2,
 };
 
 // Interface: PageHandlerFactory
-app_management.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'app_management.mojom.PageHandlerFactory';
+app_management.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+app_management.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'app_management.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      app_management.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new app_management.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+app_management.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-app_management.mojom.PageHandlerFactoryRequest = class {
+app_management.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new app_management.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'app_management.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+app_management.mojom.PageHandlerFactoryPtr = app_management.mojom.PageHandlerFactoryRemote;
+app_management.mojom.PageHandlerFactoryRequest = app_management.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+app_management.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-app_management.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'app_management.mojom.PageHandler';
+app_management.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'app_management.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      app_management.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new app_management.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+app_management.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getApps() {
-    // Method: GetApps
-    return new Promise((resolve) => {
-      // Call: GetApps()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      app_management.mojom.PageHandler_GetApps_ParamsSpec.$,
+      app_management.mojom.PageHandler_GetApps_ResponseParamsSpec.$,
+      []);
   }
 
   getApp(app_id) {
-    // Method: GetApp
-    return new Promise((resolve) => {
-      // Call: GetApp(app_id)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      app_management.mojom.PageHandler_GetApp_ParamsSpec.$,
+      app_management.mojom.PageHandler_GetApp_ResponseParamsSpec.$,
+      [app_id]);
   }
 
   getSubAppToParentMap() {
-    // Method: GetSubAppToParentMap
-    return new Promise((resolve) => {
-      // Call: GetSubAppToParentMap()
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec.$,
+      app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec.$,
+      []);
   }
 
   getExtensionAppPermissionMessages(app_id) {
-    // Method: GetExtensionAppPermissionMessages
-    return new Promise((resolve) => {
-      // Call: GetExtensionAppPermissionMessages(app_id)
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec.$,
+      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec.$,
+      [app_id]);
   }
 
   setPinned(app_id, pinned) {
-    // Method: SetPinned
-    // Call: SetPinned(app_id, pinned)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      app_management.mojom.PageHandler_SetPinned_ParamsSpec.$,
+      null,
+      [app_id, pinned]);
   }
 
   setPermission(app_id, permission) {
-    // Method: SetPermission
-    // Call: SetPermission(app_id, permission)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      app_management.mojom.PageHandler_SetPermission_ParamsSpec.$,
+      null,
+      [app_id, permission]);
   }
 
   setResizeLocked(app_id, locked) {
-    // Method: SetResizeLocked
-    // Call: SetResizeLocked(app_id, locked)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec.$,
+      null,
+      [app_id, locked]);
   }
 
   uninstall(app_id) {
-    // Method: Uninstall
-    // Call: Uninstall(app_id)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      app_management.mojom.PageHandler_Uninstall_ParamsSpec.$,
+      null,
+      [app_id]);
   }
 
   openNativeSettings(app_id) {
-    // Method: OpenNativeSettings
-    // Call: OpenNativeSettings(app_id)
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec.$,
+      null,
+      [app_id]);
   }
 
   setPreferredApp(app_id, is_preferred_app) {
-    // Method: SetPreferredApp
-    // Call: SetPreferredApp(app_id, is_preferred_app)
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec.$,
+      null,
+      [app_id, is_preferred_app]);
   }
 
   getOverlappingPreferredApps(app_id) {
-    // Method: GetOverlappingPreferredApps
-    return new Promise((resolve) => {
-      // Call: GetOverlappingPreferredApps(app_id)
-      resolve({});
-    });
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec.$,
+      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec.$,
+      [app_id]);
   }
 
   updateAppSize(app_id) {
-    // Method: UpdateAppSize
-    // Call: UpdateAppSize(app_id)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec.$,
+      null,
+      [app_id]);
   }
 
   setWindowMode(app_id, window_mode) {
-    // Method: SetWindowMode
-    // Call: SetWindowMode(app_id, window_mode)
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      app_management.mojom.PageHandler_SetWindowMode_ParamsSpec.$,
+      null,
+      [app_id, window_mode]);
   }
 
   setRunOnOsLoginMode(app_id, run_on_os_login_mode) {
-    // Method: SetRunOnOsLoginMode
-    // Call: SetRunOnOsLoginMode(app_id, run_on_os_login_mode)
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$,
+      null,
+      [app_id, run_on_os_login_mode]);
   }
 
   setFileHandlingEnabled(app_id, enabled) {
-    // Method: SetFileHandlingEnabled
-    // Call: SetFileHandlingEnabled(app_id, enabled)
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec.$,
+      null,
+      [app_id, enabled]);
   }
 
   showDefaultAppAssociationsUi() {
-    // Method: ShowDefaultAppAssociationsUi
-    // Call: ShowDefaultAppAssociationsUi()
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec.$,
+      null,
+      []);
   }
 
   openStorePage(app_id) {
-    // Method: OpenStorePage
-    // Call: OpenStorePage(app_id)
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      app_management.mojom.PageHandler_OpenStorePage_ParamsSpec.$,
+      null,
+      [app_id]);
   }
 
   setAppLocale(app_id, locale_tag) {
-    // Method: SetAppLocale
-    // Call: SetAppLocale(app_id, locale_tag)
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      app_management.mojom.PageHandler_SetAppLocale_ParamsSpec.$,
+      null,
+      [app_id, locale_tag]);
   }
 
   openSystemNotificationSettings(app_id) {
-    // Method: OpenSystemNotificationSettings
-    // Call: OpenSystemNotificationSettings(app_id)
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec.$,
+      null,
+      [app_id]);
   }
 
 };
 
-app_management.mojom.PageHandlerRequest = class {
+app_management.mojom.PageHandler.getRemote = function() {
+  let remote = new app_management.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'app_management.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetApps
+app_management.mojom.PageHandler_GetApps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetApps_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetApps_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetApp
+app_management.mojom.PageHandler_GetApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetApp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+app_management.mojom.PageHandler_GetApp_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetApp_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetSubAppToParentMap
+app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetSubAppToParentMap_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetSubAppToParentMap_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'sub_app_to_parent_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetExtensionAppPermissionMessages
+app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetExtensionAppPermissionMessages_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetExtensionAppPermissionMessages_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPinned
+app_management.mojom.PageHandler_SetPinned_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetPinned_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPermission
+app_management.mojom.PageHandler_SetPermission_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetPermission_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetResizeLocked
+app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetResizeLocked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Uninstall
+app_management.mojom.PageHandler_Uninstall_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.Uninstall_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenNativeSettings
+app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.OpenNativeSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetPreferredApp
+app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetPreferredApp_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_preferred_app', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetOverlappingPreferredApps
+app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetOverlappingPreferredApps_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.GetOverlappingPreferredApps_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'app_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for UpdateAppSize
+app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.UpdateAppSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetWindowMode
+app_management.mojom.PageHandler_SetWindowMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetWindowMode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetRunOnOsLoginMode
+app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetRunOnOsLoginMode_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'run_on_os_login_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetFileHandlingEnabled
+app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetFileHandlingEnabled_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ShowDefaultAppAssociationsUi
+app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.ShowDefaultAppAssociationsUi_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenStorePage
+app_management.mojom.PageHandler_OpenStorePage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.OpenStorePage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetAppLocale
+app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.SetAppLocale_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'locale_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenSystemNotificationSettings
+app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.PageHandler.OpenSystemNotificationSettings_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+app_management.mojom.PageHandlerPtr = app_management.mojom.PageHandlerRemote;
+app_management.mojom.PageHandlerRequest = app_management.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+app_management.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: Page
-app_management.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'app_management.mojom.Page';
+app_management.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'app_management.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      app_management.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new app_management.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+app_management.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   onAppAdded(app) {
-    // Method: OnAppAdded
-    // Call: OnAppAdded(app)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      app_management.mojom.Page_OnAppAdded_ParamsSpec.$,
+      null,
+      [app]);
   }
 
   onAppChanged(update) {
-    // Method: OnAppChanged
-    // Call: OnAppChanged(update)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      app_management.mojom.Page_OnAppChanged_ParamsSpec.$,
+      null,
+      [update]);
   }
 
   onAppRemoved(app_id) {
-    // Method: OnAppRemoved
-    // Call: OnAppRemoved(app_id)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      app_management.mojom.Page_OnAppRemoved_ParamsSpec.$,
+      null,
+      [app_id]);
   }
 
 };
 
-app_management.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+app_management.mojom.Page.getRemote = function() {
+  let remote = new app_management.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'app_management.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for OnAppAdded
+app_management.mojom.Page_OnAppAdded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.Page.OnAppAdded_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for OnAppChanged
+app_management.mojom.Page_OnAppChanged_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.Page.OnAppChanged_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OnAppRemoved
+app_management.mojom.Page_OnAppRemoved_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'app_management.mojom.Page.OnAppRemoved_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+app_management.mojom.PagePtr = app_management.mojom.PageRemote;
+app_management.mojom.PageRequest = app_management.mojom.PagePendingReceiver;
+

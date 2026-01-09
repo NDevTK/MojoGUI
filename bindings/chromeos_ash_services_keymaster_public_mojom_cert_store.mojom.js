@@ -10,31 +10,52 @@ arc.keymaster = arc.keymaster || {};
 arc.keymaster.mojom = arc.keymaster.mojom || {};
 
 
-// Struct: ChapsKeyData
-arc.keymaster.mojom.ChapsKeyData = class {
-  constructor(values = {}) {
-    this.slot = values.slot !== undefined ? values.slot : "";
-  }
-};
-
-// Struct: ChromeOsKey
-arc.keymaster.mojom.ChromeOsKey = class {
-  constructor(values = {}) {
-    this.key_data = values.key_data !== undefined ? values.key_data : "";
-  }
-};
-
 // Interface: CertStoreInstance
-arc.keymaster.mojom.CertStoreInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.keymaster.mojom.CertStoreInstance';
-  }
-
-};
-
-arc.keymaster.mojom.CertStoreInstanceRequest = class {
+arc.keymaster.mojom.CertStoreInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.keymaster.mojom.CertStoreInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.keymaster.mojom.CertStoreInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.keymaster.mojom.CertStoreInstancePendingReceiver,
+      handle);
+    this.$ = new arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.keymaster.mojom.CertStoreInstance.getRemote = function() {
+  let remote = new arc.keymaster.mojom.CertStoreInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.keymaster.mojom.CertStoreInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.keymaster.mojom.CertStoreInstancePtr = arc.keymaster.mojom.CertStoreInstanceRemote;
+arc.keymaster.mojom.CertStoreInstanceRequest = arc.keymaster.mojom.CertStoreInstancePendingReceiver;
+

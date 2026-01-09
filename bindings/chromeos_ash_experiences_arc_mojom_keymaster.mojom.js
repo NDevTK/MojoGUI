@@ -12,191 +12,166 @@ arc.mojom = arc.mojom || {};
 // Enum: KeyPurpose
 arc.mojom.KeyPurpose = {
   ENCRYPT: 0,
-  EC: 1,
-  EC: 2,
-  EC: 3,
-  EC: 4,
+  DECRYPT: 1,
+  SIGN: 2,
+  VERIFY: 3,
+  DERIVE_KEY: 4,
+  WRAP_KEY: 5,
 };
 
 // Enum: KeyFormat
 arc.mojom.KeyFormat = {
   X509: 0,
-};
-
-// Struct: KeyParameter
-arc.mojom.KeyParameter = class {
-  constructor(values = {}) {
-    this.param = values.param !== undefined ? values.param : 0;
-  }
-};
-
-// Struct: KeyCharacteristics
-arc.mojom.KeyCharacteristics = class {
-  constructor(values = {}) {
-    this.tee_enforced = values.tee_enforced !== undefined ? values.tee_enforced : [];
-  }
-};
-
-// Struct: GetKeyCharacteristicsRequest
-arc.mojom.GetKeyCharacteristicsRequest = class {
-  constructor(values = {}) {
-    this.app_data = values.app_data !== undefined ? values.app_data : 0;
-  }
-};
-
-// Struct: GetKeyCharacteristicsResult
-arc.mojom.GetKeyCharacteristicsResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: GenerateKeyResult
-arc.mojom.GenerateKeyResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: ImportKeyRequest
-arc.mojom.ImportKeyRequest = class {
-  constructor(values = {}) {
-    this.key_data = values.key_data !== undefined ? values.key_data : 0;
-  }
-};
-
-// Struct: ImportKeyResult
-arc.mojom.ImportKeyResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: ExportKeyRequest
-arc.mojom.ExportKeyRequest = class {
-  constructor(values = {}) {
-    this.app_data = values.app_data !== undefined ? values.app_data : 0;
-  }
-};
-
-// Struct: ExportKeyResult
-arc.mojom.ExportKeyResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: AttestKeyRequest
-arc.mojom.AttestKeyRequest = class {
-  constructor(values = {}) {
-    this.attest_params = values.attest_params !== undefined ? values.attest_params : 0;
-  }
-};
-
-// Struct: AttestKeyResult
-arc.mojom.AttestKeyResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: UpgradeKeyRequest
-arc.mojom.UpgradeKeyRequest = class {
-  constructor(values = {}) {
-    this.upgrade_params = values.upgrade_params !== undefined ? values.upgrade_params : 0;
-  }
-};
-
-// Struct: UpgradeKeyResult
-arc.mojom.UpgradeKeyResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: BeginRequest
-arc.mojom.BeginRequest = class {
-  constructor(values = {}) {
-    this.in_params = values.in_params !== undefined ? values.in_params : 0;
-  }
-};
-
-// Struct: BeginResult
-arc.mojom.BeginResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: UpdateRequest
-arc.mojom.UpdateRequest = class {
-  constructor(values = {}) {
-    this.input = values.input !== undefined ? values.input : 0;
-  }
-};
-
-// Struct: UpdateResult
-arc.mojom.UpdateResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
-};
-
-// Struct: FinishRequest
-arc.mojom.FinishRequest = class {
-  constructor(values = {}) {
-    this.signature = values.signature !== undefined ? values.signature : 0;
-  }
-};
-
-// Struct: FinishResult
-arc.mojom.FinishResult = class {
-  constructor(values = {}) {
-    this.error = values.error !== undefined ? values.error : 0;
-  }
+  PKCS8: 1,
+  RAW: 2,
 };
 
 // Interface: KeymasterHost
-arc.mojom.KeymasterHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.KeymasterHost';
-  }
-
-};
-
-arc.mojom.KeymasterHostRequest = class {
+arc.mojom.KeymasterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.KeymasterHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.KeymasterHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.KeymasterHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.KeymasterHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.KeymasterHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.KeymasterHost.getRemote = function() {
+  let remote = new arc.mojom.KeymasterHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.KeymasterHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.KeymasterHostPtr = arc.mojom.KeymasterHostRemote;
+arc.mojom.KeymasterHostRequest = arc.mojom.KeymasterHostPendingReceiver;
+
 
 // Interface: KeymasterInstance
-arc.mojom.KeymasterInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.KeymasterInstance';
-  }
-
-};
-
-arc.mojom.KeymasterInstanceRequest = class {
+arc.mojom.KeymasterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.KeymasterInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.KeymasterInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.KeymasterInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.KeymasterInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.KeymasterInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.KeymasterInstance.getRemote = function() {
+  let remote = new arc.mojom.KeymasterInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.KeymasterInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.KeymasterInstancePtr = arc.mojom.KeymasterInstanceRemote;
+arc.mojom.KeymasterInstanceRequest = arc.mojom.KeymasterInstancePendingReceiver;
+
 
 // Interface: KeymasterServer
-arc.mojom.KeymasterServerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.KeymasterServer';
-  }
-
-};
-
-arc.mojom.KeymasterServerRequest = class {
+arc.mojom.KeymasterServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.KeymasterServerRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.KeymasterServer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.KeymasterServerPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.KeymasterServerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.KeymasterServerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.KeymasterServer.getRemote = function() {
+  let remote = new arc.mojom.KeymasterServerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.KeymasterServer',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.KeymasterServerPtr = arc.mojom.KeymasterServerRemote;
+arc.mojom.KeymasterServerRequest = arc.mojom.KeymasterServerPendingReceiver;
+

@@ -9,100 +9,267 @@ var batch_upload = batch_upload || {};
 batch_upload.mojom = batch_upload.mojom || {};
 
 
-// Struct: DataItem
-batch_upload.mojom.DataItem = class {
-  constructor(values = {}) {
-    this.subtitle = values.subtitle !== undefined ? values.subtitle : 0;
-  }
-};
-
-// Struct: DataContainer
-batch_upload.mojom.DataContainer = class {
-  constructor(values = {}) {
-    this.is_theme = values.is_theme !== undefined ? values.is_theme : false;
-  }
-};
-
-// Struct: BatchUploadAccountInfo
-batch_upload.mojom.BatchUploadAccountInfo = class {
-  constructor(values = {}) {
-    this.data_picture_url = values.data_picture_url !== undefined ? values.data_picture_url : "";
-  }
-};
-
-// Struct: BatchUploadData
-batch_upload.mojom.BatchUploadData = class {
-  constructor(values = {}) {
-    this.data_containers = values.data_containers !== undefined ? values.data_containers : "";
-  }
-};
-
 // Interface: PageHandlerFactory
-batch_upload.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'batch_upload.mojom.PageHandlerFactory';
-  }
-
-  createBatchUploadHandler(page, handler) {
-    // Method: CreateBatchUploadHandler
-    // Call: CreateBatchUploadHandler(page, handler)
-  }
-
-};
-
-batch_upload.mojom.PageHandlerFactoryRequest = class {
+batch_upload.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-batch_upload.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'batch_upload.mojom.PageHandler';
+batch_upload.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'batch_upload.mojom.PageHandlerFactory';
   }
 
-  updateViewHeight(height) {
-    // Method: UpdateViewHeight
-    // Call: UpdateViewHeight(height)
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      batch_upload.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new batch_upload.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
-  saveToAccount(idsToMove) {
-    // Method: SaveToAccount
-    // Call: SaveToAccount(idsToMove)
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
   }
 
   close() {
-    // Method: Close
-    // Call: Close()
+    this.proxy.close();
+  }
+};
+
+batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  createBatchUploadHandler(page, handler) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-batch_upload.mojom.PageHandlerRequest = class {
+batch_upload.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new batch_upload.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'batch_upload.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateBatchUploadHandler
+batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.PageHandlerFactory.CreateBatchUploadHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+batch_upload.mojom.PageHandlerFactoryPtr = batch_upload.mojom.PageHandlerFactoryRemote;
+batch_upload.mojom.PageHandlerFactoryRequest = batch_upload.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+batch_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
+batch_upload.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'batch_upload.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      batch_upload.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new batch_upload.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+batch_upload.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  updateViewHeight(height) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$,
+      null,
+      [height]);
+  }
+
+  saveToAccount(idsToMove) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec.$,
+      null,
+      [idsToMove]);
+  }
+
+  close() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      batch_upload.mojom.PageHandler_Close_ParamsSpec.$,
+      null,
+      []);
+  }
+
+};
+
+batch_upload.mojom.PageHandler.getRemote = function() {
+  let remote = new batch_upload.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'batch_upload.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for UpdateViewHeight
+batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.PageHandler.UpdateViewHeight_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SaveToAccount
+batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.PageHandler.SaveToAccount_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Close
+batch_upload.mojom.PageHandler_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.PageHandler.Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+batch_upload.mojom.PageHandlerPtr = batch_upload.mojom.PageHandlerRemote;
+batch_upload.mojom.PageHandlerRequest = batch_upload.mojom.PageHandlerPendingReceiver;
+
+
 // Interface: Page
-batch_upload.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'batch_upload.mojom.Page';
+batch_upload.mojom.PagePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+batch_upload.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'batch_upload.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      batch_upload.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new batch_upload.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+batch_upload.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   sendBatchUploadData(data) {
-    // Method: SendBatchUploadData
-    // Call: SendBatchUploadData(data)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec.$,
+      null,
+      [data]);
   }
 
 };
 
-batch_upload.mojom.PageRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+batch_upload.mojom.Page.getRemote = function() {
+  let remote = new batch_upload.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'batch_upload.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for SendBatchUploadData
+batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'batch_upload.mojom.Page.SendBatchUploadData_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// Legacy compatibility
+batch_upload.mojom.PagePtr = batch_upload.mojom.PageRemote;
+batch_upload.mojom.PageRequest = batch_upload.mojom.PagePendingReceiver;
+

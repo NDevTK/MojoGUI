@@ -35,67 +35,247 @@ access_code_cast.mojom.CastDiscoveryMethod = {
 };
 
 // Interface: PageHandlerFactory
-access_code_cast.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'access_code_cast.mojom.PageHandlerFactory';
+access_code_cast.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+access_code_cast.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'access_code_cast.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      access_code_cast.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new access_code_cast.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+access_code_cast.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(page, handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(page, handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [page, handler]);
   }
 
 };
 
-access_code_cast.mojom.PageHandlerFactoryRequest = class {
+access_code_cast.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new access_code_cast.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'access_code_cast.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+access_code_cast.mojom.PageHandlerFactoryPtr = access_code_cast.mojom.PageHandlerFactoryRemote;
+access_code_cast.mojom.PageHandlerFactoryRequest = access_code_cast.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+access_code_cast.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-access_code_cast.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'access_code_cast.mojom.PageHandler';
+access_code_cast.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'access_code_cast.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      access_code_cast.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new access_code_cast.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+access_code_cast.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addSink(access_code, discovery_method) {
-    // Method: AddSink
-    return new Promise((resolve) => {
-      // Call: AddSink(access_code, discovery_method)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$,
+      access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$,
+      [access_code, discovery_method]);
   }
 
   castToSink() {
-    // Method: CastToSink
-    return new Promise((resolve) => {
-      // Call: CastToSink()
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec.$,
+      access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-access_code_cast.mojom.PageHandlerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+access_code_cast.mojom.PageHandler.getRemote = function() {
+  let remote = new access_code_cast.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'access_code_cast.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddSink
+access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandler.AddSink_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'access_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'discovery_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandler.AddSink_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CastToSink
+access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandler.CastToSink_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'access_code_cast.mojom.PageHandler.CastToSink_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+access_code_cast.mojom.PageHandlerPtr = access_code_cast.mojom.PageHandlerRemote;
+access_code_cast.mojom.PageHandlerRequest = access_code_cast.mojom.PageHandlerPendingReceiver;
+
 
 // Interface: Page
-access_code_cast.mojom.PagePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'access_code_cast.mojom.Page';
-  }
-
-};
-
-access_code_cast.mojom.PageRequest = class {
+access_code_cast.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+access_code_cast.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'access_code_cast.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      access_code_cast.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new access_code_cast.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+access_code_cast.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+access_code_cast.mojom.Page.getRemote = function() {
+  let remote = new access_code_cast.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'access_code_cast.mojom.Page',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+access_code_cast.mojom.PagePtr = access_code_cast.mojom.PageRemote;
+access_code_cast.mojom.PageRequest = access_code_cast.mojom.PagePendingReceiver;
+

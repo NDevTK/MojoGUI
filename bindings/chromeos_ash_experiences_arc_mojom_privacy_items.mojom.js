@@ -9,46 +9,102 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
-// Struct: PrivacyApplication
-arc.mojom.PrivacyApplication = class {
-  constructor(values = {}) {
-    this.uid = values.uid !== undefined ? values.uid : 0;
-  }
-};
-
-// Struct: PrivacyItem
-arc.mojom.PrivacyItem = class {
-  constructor(values = {}) {
-    this.privacy_application = values.privacy_application !== undefined ? values.privacy_application : null;
-  }
-};
-
 // Interface: PrivacyItemsHost
-arc.mojom.PrivacyItemsHostPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.PrivacyItemsHost';
-  }
-
-};
-
-arc.mojom.PrivacyItemsHostRequest = class {
+arc.mojom.PrivacyItemsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.PrivacyItemsHostRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.PrivacyItemsHost';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.PrivacyItemsHostPendingReceiver,
+      handle);
+    this.$ = new arc.mojom.PrivacyItemsHostRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.PrivacyItemsHost.getRemote = function() {
+  let remote = new arc.mojom.PrivacyItemsHostRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.PrivacyItemsHost',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.PrivacyItemsHostPtr = arc.mojom.PrivacyItemsHostRemote;
+arc.mojom.PrivacyItemsHostRequest = arc.mojom.PrivacyItemsHostPendingReceiver;
+
 
 // Interface: PrivacyItemsInstance
-arc.mojom.PrivacyItemsInstancePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'arc.mojom.PrivacyItemsInstance';
-  }
-
-};
-
-arc.mojom.PrivacyItemsInstanceRequest = class {
+arc.mojom.PrivacyItemsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+arc.mojom.PrivacyItemsInstanceRemote = class {
+  static get $interfaceName() {
+    return 'arc.mojom.PrivacyItemsInstance';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      arc.mojom.PrivacyItemsInstancePendingReceiver,
+      handle);
+    this.$ = new arc.mojom.PrivacyItemsInstanceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+arc.mojom.PrivacyItemsInstance.getRemote = function() {
+  let remote = new arc.mojom.PrivacyItemsInstanceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'arc.mojom.PrivacyItemsInstance',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+arc.mojom.PrivacyItemsInstancePtr = arc.mojom.PrivacyItemsInstanceRemote;
+arc.mojom.PrivacyItemsInstanceRequest = arc.mojom.PrivacyItemsInstancePendingReceiver;
+

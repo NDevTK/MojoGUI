@@ -23,124 +23,130 @@ chromeos.machine_learning.mojom.SodaRecognitionMode = {
 
 // Enum: SpeakerDiarizationMode
 chromeos.machine_learning.mojom.SpeakerDiarizationMode = {
+  kDiarizationUnspecified: 0,
+  kSpeakerChangeDetection: 1,
+  kSpeakerLabelDetection: 2,
 };
 
 // Enum: EndpointerType
 chromeos.machine_learning.mojom.EndpointerType = {
-  but: 0,
+  START_OF_SPEECH: 0,
+  END_OF_SPEECH: 1,
+  END_OF_AUDIO: 2,
+  END_OF_UTTERANCE: 3,
 };
 
 // Enum: EndpointReason
 chromeos.machine_learning.mojom.EndpointReason = {
-  unknown: 0,
+  ENDPOINT_UNKNOWN: 0,
+  ENDPOINT_END_OF_SPEECH: 1,
+  ENDPOINT_END_OF_UTTERANCE: 2,
+  ENDPOINT_END_OF_AUDIO: 3,
 };
 
 // Enum: AsrSwitchResult
 chromeos.machine_learning.mojom.AsrSwitchResult = {
-  but: 0,
-};
-
-// Struct: SodaMultilangConfig
-chromeos.machine_learning.mojom.SodaMultilangConfig = class {
-  constructor(values = {}) {
-    this.locale_to_language_pack_map = values.locale_to_language_pack_map !== undefined ? values.locale_to_language_pack_map : false;
-  }
-};
-
-// Struct: SodaConfig
-chromeos.machine_learning.mojom.SodaConfig = class {
-  constructor(values = {}) {
-    this.kSpeakerDiarizationModeOffDefault = values.kSpeakerDiarizationModeOffDefault !== undefined ? values.kSpeakerDiarizationModeOffDefault : 0;
-  }
-};
-
-// Struct: TimingInfo
-chromeos.machine_learning.mojom.TimingInfo = class {
-  constructor(values = {}) {
-    this.word_alignments = values.word_alignments !== undefined ? values.word_alignments : 0;
-  }
-};
-
-// Struct: EndpointerEvent
-chromeos.machine_learning.mojom.EndpointerEvent = class {
-  constructor(values = {}) {
-    this.timing_event = values.timing_event !== undefined ? values.timing_event : 0;
-  }
-};
-
-// Struct: HypothesisPartInResult
-chromeos.machine_learning.mojom.HypothesisPartInResult = class {
-  constructor(values = {}) {
-    this.speaker_label = values.speaker_label !== undefined ? values.speaker_label : false;
-  }
-};
-
-// Struct: PartialResult
-chromeos.machine_learning.mojom.PartialResult = class {
-  constructor(values = {}) {
-    this.timing_event = values.timing_event !== undefined ? values.timing_event : "";
-    this.hypothesis_part = values.hypothesis_part !== undefined ? values.hypothesis_part : [];
-  }
-};
-
-// Struct: FinalResult
-chromeos.machine_learning.mojom.FinalResult = class {
-  constructor(values = {}) {
-    this.timing_event = values.timing_event !== undefined ? values.timing_event : 0;
-    this.hypothesis_part = values.hypothesis_part !== undefined ? values.hypothesis_part : [];
-  }
-};
-
-// Struct: AudioLevelEvent
-chromeos.machine_learning.mojom.AudioLevelEvent = class {
-  constructor(values = {}) {
-    this.rms = values.rms !== undefined ? values.rms : 0;
-    this.audio_level = values.audio_level !== undefined ? values.audio_level : 0;
-  }
-};
-
-// Struct: LangIdEvent
-chromeos.machine_learning.mojom.LangIdEvent = class {
-  constructor(values = {}) {
-    this.language = values.language !== undefined ? values.language : "";
-    this.confidence_level = values.confidence_level !== undefined ? values.confidence_level : 0;
-    this.asr_switch_result = values.asr_switch_result !== undefined ? values.asr_switch_result : null;
-  }
-};
-
-// Struct: LabelCorrectionEvent
-chromeos.machine_learning.mojom.LabelCorrectionEvent = class {
-  constructor(values = {}) {
-    this.hypothesis_parts = values.hypothesis_parts !== undefined ? values.hypothesis_parts : [];
-  }
+  SWITCH_SUCCEEDED: 0,
+  SWITCH_FAILED: 1,
+  SWITCH_SKIPPED_NO_LP: 2,
 };
 
 // Interface: SodaClient
-chromeos.machine_learning.mojom.SodaClientPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.SodaClient';
-  }
-
-};
-
-chromeos.machine_learning.mojom.SodaClientRequest = class {
+chromeos.machine_learning.mojom.SodaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.SodaClientRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.SodaClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.SodaClientPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.SodaClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.SodaClient.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.SodaClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.SodaClient',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.SodaClientPtr = chromeos.machine_learning.mojom.SodaClientRemote;
+chromeos.machine_learning.mojom.SodaClientRequest = chromeos.machine_learning.mojom.SodaClientPendingReceiver;
+
 
 // Interface: SodaRecognizer
-chromeos.machine_learning.mojom.SodaRecognizerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'chromeos.machine_learning.mojom.SodaRecognizer';
-  }
-
-};
-
-chromeos.machine_learning.mojom.SodaRecognizerRequest = class {
+chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+chromeos.machine_learning.mojom.SodaRecognizerRemote = class {
+  static get $interfaceName() {
+    return 'chromeos.machine_learning.mojom.SodaRecognizer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver,
+      handle);
+    this.$ = new chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+chromeos.machine_learning.mojom.SodaRecognizer.getRemote = function() {
+  let remote = new chromeos.machine_learning.mojom.SodaRecognizerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'chromeos.machine_learning.mojom.SodaRecognizer',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+chromeos.machine_learning.mojom.SodaRecognizerPtr = chromeos.machine_learning.mojom.SodaRecognizerRemote;
+chromeos.machine_learning.mojom.SodaRecognizerRequest = chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver;
+

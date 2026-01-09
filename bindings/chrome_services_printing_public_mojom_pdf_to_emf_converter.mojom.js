@@ -10,57 +10,222 @@ printing.mojom = printing.mojom || {};
 
 
 // Interface: PdfToEmfConverter
-printing.mojom.PdfToEmfConverterPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'printing.mojom.PdfToEmfConverter';
+printing.mojom.PdfToEmfConverterPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+printing.mojom.PdfToEmfConverterRemote = class {
+  static get $interfaceName() {
+    return 'printing.mojom.PdfToEmfConverter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      printing.mojom.PdfToEmfConverterPendingReceiver,
+      handle);
+    this.$ = new printing.mojom.PdfToEmfConverterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   convertPage(page_index) {
-    // Method: ConvertPage
-    return new Promise((resolve) => {
-      // Call: ConvertPage(page_index)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$,
+      printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$,
+      [page_index]);
   }
 
   setWebContentsURL(url) {
-    // Method: SetWebContentsURL
-    // Call: SetWebContentsURL(url)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$,
+      null,
+      [url]);
   }
 
   setUseSkiaRendererPolicy(use_skia) {
-    // Method: SetUseSkiaRendererPolicy
-    // Call: SetUseSkiaRendererPolicy(use_skia)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$,
+      null,
+      [use_skia]);
   }
 
 };
 
-printing.mojom.PdfToEmfConverterRequest = class {
+printing.mojom.PdfToEmfConverter.getRemote = function() {
+  let remote = new printing.mojom.PdfToEmfConverterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'printing.mojom.PdfToEmfConverter',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for ConvertPage
+printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToEmfConverter.ConvertPage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToEmfConverter.ConvertPage_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetWebContentsURL
+printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToEmfConverter.SetWebContentsURL_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetUseSkiaRendererPolicy
+printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToEmfConverter.SetUseSkiaRendererPolicy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+printing.mojom.PdfToEmfConverterPtr = printing.mojom.PdfToEmfConverterRemote;
+printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendingReceiver;
+
+
+// Interface: PdfToEmfConverterFactory
+printing.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PdfToEmfConverterFactory
-printing.mojom.PdfToEmfConverterFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'printing.mojom.PdfToEmfConverterFactory';
+printing.mojom.PdfToEmfConverterFactoryRemote = class {
+  static get $interfaceName() {
+    return 'printing.mojom.PdfToEmfConverterFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      printing.mojom.PdfToEmfConverterFactoryPendingReceiver,
+      handle);
+    this.$ = new printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createConverter(pdf_region, render_settings) {
-    // Method: CreateConverter
-    return new Promise((resolve) => {
-      // Call: CreateConverter(pdf_region, render_settings)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$,
+      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$,
+      [pdf_region, render_settings]);
   }
 
 };
 
-printing.mojom.PdfToEmfConverterFactoryRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
+  let remote = new printing.mojom.PdfToEmfConverterFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'printing.mojom.PdfToEmfConverterFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateConverter
+printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'converter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+printing.mojom.PdfToEmfConverterFactoryPtr = printing.mojom.PdfToEmfConverterFactoryRemote;
+printing.mojom.PdfToEmfConverterFactoryRequest = printing.mojom.PdfToEmfConverterFactoryPendingReceiver;
+

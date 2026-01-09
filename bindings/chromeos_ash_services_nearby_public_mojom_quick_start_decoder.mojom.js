@@ -11,24 +11,88 @@ ash.quick_start.mojom = ash.quick_start.mojom || {};
 
 
 // Interface: QuickStartDecoder
-ash.quick_start.mojom.QuickStartDecoderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'ash.quick_start.mojom.QuickStartDecoder';
-  }
-
-  decodeQuickStartMessage(data) {
-    // Method: DecodeQuickStartMessage
-    return new Promise((resolve) => {
-      // Call: DecodeQuickStartMessage(data)
-      resolve({});
-    });
-  }
-
-};
-
-ash.quick_start.mojom.QuickStartDecoderRequest = class {
+ash.quick_start.mojom.QuickStartDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+ash.quick_start.mojom.QuickStartDecoderRemote = class {
+  static get $interfaceName() {
+    return 'ash.quick_start.mojom.QuickStartDecoder';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      ash.quick_start.mojom.QuickStartDecoderPendingReceiver,
+      handle);
+    this.$ = new ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  decodeQuickStartMessage(data) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec.$,
+      ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec.$,
+      [data]);
+  }
+
+};
+
+ash.quick_start.mojom.QuickStartDecoder.getRemote = function() {
+  let remote = new ash.quick_start.mojom.QuickStartDecoderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.quick_start.mojom.QuickStartDecoder',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for DecodeQuickStartMessage
+ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_start.mojom.QuickStartDecoder.DecodeQuickStartMessage_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.quick_start.mojom.QuickStartDecoder.DecodeQuickStartMessage_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+ash.quick_start.mojom.QuickStartDecoderPtr = ash.quick_start.mojom.QuickStartDecoderRemote;
+ash.quick_start.mojom.QuickStartDecoderRequest = ash.quick_start.mojom.QuickStartDecoderPendingReceiver;
+

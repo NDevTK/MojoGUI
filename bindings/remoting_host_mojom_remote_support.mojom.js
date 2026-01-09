@@ -11,42 +11,55 @@ remoting.mojom = remoting.mojom || {};
 
 // Enum: StartSupportSessionError
 remoting.mojom.StartSupportSessionError = {
-};
-
-// Struct: SupportHostDetails
-remoting.mojom.SupportHostDetails = class {
-  constructor(values = {}) {
-    this.supported_features = values.supported_features !== undefined ? values.supported_features : "";
-  }
-};
-
-// Struct: SupportSessionParams
-remoting.mojom.SupportSessionParams = class {
-  constructor(values = {}) {
-    this.false = values.false !== undefined ? values.false : false;
-    this.from = values.from !== undefined ? values.from : null;
-    this.authorized_helper = values.authorized_helper !== undefined ? values.authorized_helper : "";
-  }
-};
-
-// Struct: NatPolicyState
-remoting.mojom.NatPolicyState = class {
-  constructor(values = {}) {
-    this.relay_enabled = values.relay_enabled !== undefined ? values.relay_enabled : false;
-  }
+  kExistingAdminSession: 0,
 };
 
 // Interface: SupportHostObserver
-remoting.mojom.SupportHostObserverPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'remoting.mojom.SupportHostObserver';
-  }
-
-};
-
-remoting.mojom.SupportHostObserverRequest = class {
+remoting.mojom.SupportHostObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+remoting.mojom.SupportHostObserverRemote = class {
+  static get $interfaceName() {
+    return 'remoting.mojom.SupportHostObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      remoting.mojom.SupportHostObserverPendingReceiver,
+      handle);
+    this.$ = new remoting.mojom.SupportHostObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+remoting.mojom.SupportHostObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+remoting.mojom.SupportHostObserver.getRemote = function() {
+  let remote = new remoting.mojom.SupportHostObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'remoting.mojom.SupportHostObserver',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+remoting.mojom.SupportHostObserverPtr = remoting.mojom.SupportHostObserverRemote;
+remoting.mojom.SupportHostObserverRequest = remoting.mojom.SupportHostObserverPendingReceiver;
+

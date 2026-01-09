@@ -17,70 +17,177 @@ passage_embeddings.mojom.PassagePriority = {
   kPassive: 3,
 };
 
-// Struct: PassageEmbeddingsResult
-passage_embeddings.mojom.PassageEmbeddingsResult = class {
-  constructor(values = {}) {
-    this.embeddings = values.embeddings !== undefined ? values.embeddings : 0;
-  }
-};
-
-// Struct: PassageEmbeddingsLoadModelsParams
-passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams = class {
-  constructor(values = {}) {
-    this.input_window_size = values.input_window_size !== undefined ? values.input_window_size : 0;
-  }
-};
-
-// Struct: PassageEmbedderParams
-passage_embeddings.mojom.PassageEmbedderParams = class {
-  constructor(values = {}) {
-    this.embedder_cache_size = values.embedder_cache_size !== undefined ? values.embedder_cache_size : 0;
-    this.allow_gpu_execution = values.allow_gpu_execution !== undefined ? values.allow_gpu_execution : false;
-  }
-};
-
 // Interface: PassageEmbedder
-passage_embeddings.mojom.PassageEmbedderPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'passage_embeddings.mojom.PassageEmbedder';
+passage_embeddings.mojom.PassageEmbedderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+passage_embeddings.mojom.PassageEmbedderRemote = class {
+  static get $interfaceName() {
+    return 'passage_embeddings.mojom.PassageEmbedder';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      passage_embeddings.mojom.PassageEmbedderPendingReceiver,
+      handle);
+    this.$ = new passage_embeddings.mojom.PassageEmbedderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   generateEmbeddings(passages, priority) {
-    // Method: GenerateEmbeddings
-    return new Promise((resolve) => {
-      // Call: GenerateEmbeddings(passages, priority)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$,
+      passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$,
+      [passages, priority]);
   }
 
 };
 
-passage_embeddings.mojom.PassageEmbedderRequest = class {
+passage_embeddings.mojom.PassageEmbedder.getRemote = function() {
+  let remote = new passage_embeddings.mojom.PassageEmbedderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'passage_embeddings.mojom.PassageEmbedder',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GenerateEmbeddings
+passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'passages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+passage_embeddings.mojom.PassageEmbedderPtr = passage_embeddings.mojom.PassageEmbedderRemote;
+passage_embeddings.mojom.PassageEmbedderRequest = passage_embeddings.mojom.PassageEmbedderPendingReceiver;
+
+
+// Interface: PassageEmbeddingsService
+passage_embeddings.mojom.PassageEmbeddingsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PassageEmbeddingsService
-passage_embeddings.mojom.PassageEmbeddingsServicePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'passage_embeddings.mojom.PassageEmbeddingsService';
+passage_embeddings.mojom.PassageEmbeddingsServiceRemote = class {
+  static get $interfaceName() {
+    return 'passage_embeddings.mojom.PassageEmbeddingsService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      passage_embeddings.mojom.PassageEmbeddingsServicePendingReceiver,
+      handle);
+    this.$ = new passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   loadModels(model_params, params, model) {
-    // Method: LoadModels
-    return new Promise((resolve) => {
-      // Call: LoadModels(model_params, params, model)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$,
+      passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$,
+      [model_params, params, model]);
   }
 
 };
 
-passage_embeddings.mojom.PassageEmbeddingsServiceRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+passage_embeddings.mojom.PassageEmbeddingsService.getRemote = function() {
+  let remote = new passage_embeddings.mojom.PassageEmbeddingsServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'passage_embeddings.mojom.PassageEmbeddingsService',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for LoadModels
+passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'model_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+passage_embeddings.mojom.PassageEmbeddingsServicePtr = passage_embeddings.mojom.PassageEmbeddingsServiceRemote;
+passage_embeddings.mojom.PassageEmbeddingsServiceRequest = passage_embeddings.mojom.PassageEmbeddingsServicePendingReceiver;
+

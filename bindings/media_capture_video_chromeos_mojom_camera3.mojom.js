@@ -95,126 +95,105 @@ cros.mojom.Camera3RequestTemplate = {
 // Enum: BufferType
 cros.mojom.BufferType = {
   DMABUF: 0,
-};
-
-// Struct: CropRotateScaleInfo
-cros.mojom.CropRotateScaleInfo = class {
-  constructor(values = {}) {
-    this.crop_rotate_scale_degrees = values.crop_rotate_scale_degrees !== undefined ? values.crop_rotate_scale_degrees : null;
-  }
-};
-
-// Struct: Camera3Stream
-cros.mojom.Camera3Stream = class {
-  constructor(values = {}) {
-    this.format = values.format !== undefined ? values.format : 0;
-    this.effects = values.effects !== undefined ? values.effects : 0;
-  }
-};
-
-// Struct: Camera3StreamConfiguration
-cros.mojom.Camera3StreamConfiguration = class {
-  constructor(values = {}) {
-    this.session_parameters = values.session_parameters !== undefined ? values.session_parameters : [];
-  }
-};
-
-// Struct: CameraBufferHandle
-cros.mojom.CameraBufferHandle = class {
-  constructor(values = {}) {
-    this.modifier = values.modifier !== undefined ? values.modifier : 0;
-  }
-};
-
-// Struct: Camera3StreamBuffer
-cros.mojom.Camera3StreamBuffer = class {
-  constructor(values = {}) {
-    this.buffer_handle = values.buffer_handle !== undefined ? values.buffer_handle : 0;
-  }
-};
-
-// Struct: Camera3ErrorMsg
-cros.mojom.Camera3ErrorMsg = class {
-  constructor(values = {}) {
-    this.error_code = values.error_code !== undefined ? values.error_code : 0;
-  }
-};
-
-// Struct: Camera3ShutterMsg
-cros.mojom.Camera3ShutterMsg = class {
-  constructor(values = {}) {
-    this.timestamp = values.timestamp !== undefined ? values.timestamp : 0;
-  }
-};
-
-// Struct: Camera3NotifyMsg
-cros.mojom.Camera3NotifyMsg = class {
-  constructor(values = {}) {
-    this.message = values.message !== undefined ? values.message : null;
-  }
-};
-
-// Struct: Camera3BufferRequest
-cros.mojom.Camera3BufferRequest = class {
-  constructor(values = {}) {
-    this.num_buffers_requested = values.num_buffers_requested !== undefined ? values.num_buffers_requested : 0;
-  }
-};
-
-// Struct: Camera3StreamBufferRet
-cros.mojom.Camera3StreamBufferRet = class {
-  constructor(values = {}) {
-    this.output_buffers = values.output_buffers !== undefined ? values.output_buffers : 0;
-  }
-};
-
-// Struct: Camera3PhyscamMetadata
-cros.mojom.Camera3PhyscamMetadata = class {
-  constructor(values = {}) {
-    this.metadata = values.metadata !== undefined ? values.metadata : 0;
-  }
-};
-
-// Struct: Camera3CaptureRequest
-cros.mojom.Camera3CaptureRequest = class {
-  constructor(values = {}) {
-    this.physcam_settings = values.physcam_settings !== undefined ? values.physcam_settings : 0;
-  }
-};
-
-// Struct: Camera3CaptureResult
-cros.mojom.Camera3CaptureResult = class {
-  constructor(values = {}) {
-    this.physcam_metadata = values.physcam_metadata !== undefined ? values.physcam_metadata : 0;
-  }
+  SHM: 1,
 };
 
 // Interface: Camera3CallbackOps
-cros.mojom.Camera3CallbackOpsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cros.mojom.Camera3CallbackOps';
-  }
-
-};
-
-cros.mojom.Camera3CallbackOpsRequest = class {
+cros.mojom.Camera3CallbackOpsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+cros.mojom.Camera3CallbackOpsRemote = class {
+  static get $interfaceName() {
+    return 'cros.mojom.Camera3CallbackOps';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cros.mojom.Camera3CallbackOpsPendingReceiver,
+      handle);
+    this.$ = new cros.mojom.Camera3CallbackOpsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+cros.mojom.Camera3CallbackOps.getRemote = function() {
+  let remote = new cros.mojom.Camera3CallbackOpsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cros.mojom.Camera3CallbackOps',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+cros.mojom.Camera3CallbackOpsPtr = cros.mojom.Camera3CallbackOpsRemote;
+cros.mojom.Camera3CallbackOpsRequest = cros.mojom.Camera3CallbackOpsPendingReceiver;
+
 
 // Interface: Camera3DeviceOps
-cros.mojom.Camera3DeviceOpsPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'cros.mojom.Camera3DeviceOps';
-  }
-
-};
-
-cros.mojom.Camera3DeviceOpsRequest = class {
+cros.mojom.Camera3DeviceOpsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+cros.mojom.Camera3DeviceOpsRemote = class {
+  static get $interfaceName() {
+    return 'cros.mojom.Camera3DeviceOps';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      cros.mojom.Camera3DeviceOpsPendingReceiver,
+      handle);
+    this.$ = new cros.mojom.Camera3DeviceOpsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+};
+
+cros.mojom.Camera3DeviceOps.getRemote = function() {
+  let remote = new cros.mojom.Camera3DeviceOpsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'cros.mojom.Camera3DeviceOps',
+    'context');
+  return remote.$;
+}};
+
+// Legacy compatibility
+cros.mojom.Camera3DeviceOpsPtr = cros.mojom.Camera3DeviceOpsRemote;
+cros.mojom.Camera3DeviceOpsRequest = cros.mojom.Camera3DeviceOpsPendingReceiver;
+

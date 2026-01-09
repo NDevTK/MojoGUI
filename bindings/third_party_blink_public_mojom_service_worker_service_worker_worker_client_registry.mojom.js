@@ -10,26 +10,97 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: ServiceWorkerWorkerClientRegistry
-blink.mojom.ServiceWorkerWorkerClientRegistryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.ServiceWorkerWorkerClientRegistry';
-  }
-
-  registerWorkerClient(client) {
-    // Method: RegisterWorkerClient
-    // Call: RegisterWorkerClient(client)
-  }
-
-  cloneWorkerClientRegistry(host) {
-    // Method: CloneWorkerClientRegistry
-    // Call: CloneWorkerClientRegistry(host)
-  }
-
-};
-
-blink.mojom.ServiceWorkerWorkerClientRegistryRequest = class {
+blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.ServiceWorkerWorkerClientRegistryRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.ServiceWorkerWorkerClientRegistry';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  registerWorkerClient(client) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec.$,
+      null,
+      [client]);
+  }
+
+  cloneWorkerClientRegistry(host) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec.$,
+      null,
+      [host]);
+  }
+
+};
+
+blink.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
+  let remote = new blink.mojom.ServiceWorkerWorkerClientRegistryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.ServiceWorkerWorkerClientRegistry',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for RegisterWorkerClient
+blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerWorkerClientRegistry.RegisterWorkerClient_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CloneWorkerClientRegistry
+blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.ServiceWorkerWorkerClientRegistry.CloneWorkerClientRegistry_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.ServiceWorkerWorkerClientRegistryPtr = blink.mojom.ServiceWorkerWorkerClientRegistryRemote;
+blink.mojom.ServiceWorkerWorkerClientRegistryRequest = blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver;
+

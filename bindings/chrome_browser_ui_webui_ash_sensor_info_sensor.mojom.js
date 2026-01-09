@@ -19,61 +19,169 @@ sensor.mojom.SensorType = {
   kSensorTypeCount: 5,
 };
 
-// Struct: NonLidAngleUpdateInfo
-sensor.mojom.NonLidAngleUpdateInfo = class {
-  constructor(values = {}) {
-    this.z = values.z !== undefined ? values.z : 0;
-  }
-};
-
-// Struct: LidAngleUpdateInfo
-sensor.mojom.LidAngleUpdateInfo = class {
-  constructor(values = {}) {
-    this.x = values.x !== undefined ? values.x : 0;
-  }
-};
-
 // Interface: PageHandlerFactory
-sensor.mojom.PageHandlerFactoryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'sensor.mojom.PageHandlerFactory';
+sensor.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+sensor.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'sensor.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      sensor.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new sensor.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createPageHandler(handler) {
-    // Method: CreatePageHandler
-    // Call: CreatePageHandler(handler)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$,
+      null,
+      [handler]);
   }
 
 };
 
-sensor.mojom.PageHandlerFactoryRequest = class {
+sensor.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new sensor.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'sensor.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreatePageHandler
+sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sensor.mojom.PageHandlerFactory.CreatePageHandler_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+sensor.mojom.PageHandlerFactoryPtr = sensor.mojom.PageHandlerFactoryRemote;
+sensor.mojom.PageHandlerFactoryRequest = sensor.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+sensor.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: PageHandler
-sensor.mojom.PageHandlerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'sensor.mojom.PageHandler';
+sensor.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'sensor.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      sensor.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new sensor.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+sensor.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   startRecordingUpdate() {
-    // Method: StartRecordingUpdate
-    // Call: StartRecordingUpdate()
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec.$,
+      null,
+      []);
   }
 
   stopRecordingUpdate() {
-    // Method: StopRecordingUpdate
-    // Call: StopRecordingUpdate()
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-sensor.mojom.PageHandlerRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+sensor.mojom.PageHandler.getRemote = function() {
+  let remote = new sensor.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'sensor.mojom.PageHandler',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for StartRecordingUpdate
+sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sensor.mojom.PageHandler.StartRecordingUpdate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for StopRecordingUpdate
+sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'sensor.mojom.PageHandler.StopRecordingUpdate_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+sensor.mojom.PageHandlerPtr = sensor.mojom.PageHandlerRemote;
+sensor.mojom.PageHandlerRequest = sensor.mojom.PageHandlerPendingReceiver;
+

@@ -18,341 +18,1412 @@ network.mojom.ResolverType = {
   kResolverTypeDirectLookup: 4,
 };
 
-// Struct: Rule
-network.mojom.Rule = class {
-  constructor(values = {}) {
-    this.dns_aliases = values.dns_aliases !== undefined ? values.dns_aliases : 0;
-  }
-};
-
-// Struct: SimpleCacheOpenEntryResult
-network.mojom.SimpleCacheOpenEntryResult = class {
-  constructor(values = {}) {
-    this.entry = values.entry !== undefined ? values.entry : 0;
-  }
-};
-
 // Interface: SimpleCacheEntry
-network.mojom.SimpleCacheEntryPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.SimpleCacheEntry';
+network.mojom.SimpleCacheEntryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+network.mojom.SimpleCacheEntryRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.SimpleCacheEntry';
   }
 
-  writeData(index, offset, data, truncate) {
-    // Method: WriteData
-    return new Promise((resolve) => {
-      // Call: WriteData(index, offset, data, truncate)
-      resolve({});
-    });
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.SimpleCacheEntryPendingReceiver,
+      handle);
+    this.$ = new network.mojom.SimpleCacheEntryRemoteCallHandler(this.proxy);
   }
 
-  readData(index, offset, length) {
-    // Method: ReadData
-    return new Promise((resolve) => {
-      // Call: ReadData(index, offset, length)
-      resolve({});
-    });
-  }
-
-  writeSparseData(offset, data) {
-    // Method: WriteSparseData
-    return new Promise((resolve) => {
-      // Call: WriteSparseData(offset, data)
-      resolve({});
-    });
-  }
-
-  readSparseData(offset, length) {
-    // Method: ReadSparseData
-    return new Promise((resolve) => {
-      // Call: ReadSparseData(offset, length)
-      resolve({});
-    });
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
   }
 
   close() {
-    // Method: Close
-    // Call: Close()
+    this.proxy.close();
+  }
+};
+
+network.mojom.SimpleCacheEntryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  writeData(index, offset, data, truncate) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$,
+      network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec.$,
+      [index, offset, data, truncate]);
+  }
+
+  readData(index, offset, length) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.SimpleCacheEntry_ReadData_ParamsSpec.$,
+      network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec.$,
+      [index, offset, length]);
+  }
+
+  writeSparseData(offset, data) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec.$,
+      network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec.$,
+      [offset, data]);
+  }
+
+  readSparseData(offset, length) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec.$,
+      network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec.$,
+      [offset, length]);
+  }
+
+  close() {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      network.mojom.SimpleCacheEntry_Close_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-network.mojom.SimpleCacheEntryRequest = class {
+network.mojom.SimpleCacheEntry.getRemote = function() {
+  let remote = new network.mojom.SimpleCacheEntryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.SimpleCacheEntry',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for WriteData
+network.mojom.SimpleCacheEntry_WriteData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.WriteData_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'truncate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.WriteData_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReadData
+network.mojom.SimpleCacheEntry_ReadData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.ReadData_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.ReadData_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for WriteSparseData
+network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.WriteSparseData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.WriteSparseData_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReadSparseData
+network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.ReadSparseData_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.ReadSparseData_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Close
+network.mojom.SimpleCacheEntry_Close_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntry.Close_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.SimpleCacheEntryPtr = network.mojom.SimpleCacheEntryRemote;
+network.mojom.SimpleCacheEntryRequest = network.mojom.SimpleCacheEntryPendingReceiver;
+
+
+// Interface: SimpleCacheEntryEnumerator
+network.mojom.SimpleCacheEntryEnumeratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: SimpleCacheEntryEnumerator
-network.mojom.SimpleCacheEntryEnumeratorPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.SimpleCacheEntryEnumerator';
+network.mojom.SimpleCacheEntryEnumeratorRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.SimpleCacheEntryEnumerator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.SimpleCacheEntryEnumeratorPendingReceiver,
+      handle);
+    this.$ = new network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   getNext() {
-    // Method: GetNext
-    return new Promise((resolve) => {
-      // Call: GetNext()
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec.$,
+      network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-network.mojom.SimpleCacheEntryEnumeratorRequest = class {
+network.mojom.SimpleCacheEntryEnumerator.getRemote = function() {
+  let remote = new network.mojom.SimpleCacheEntryEnumeratorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.SimpleCacheEntryEnumerator',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for GetNext
+network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntryEnumerator.GetNext_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCacheEntryEnumerator.GetNext_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.SimpleCacheEntryEnumeratorPtr = network.mojom.SimpleCacheEntryEnumeratorRemote;
+network.mojom.SimpleCacheEntryEnumeratorRequest = network.mojom.SimpleCacheEntryEnumeratorPendingReceiver;
+
+
+// Interface: SimpleCache
+network.mojom.SimpleCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: SimpleCache
-network.mojom.SimpleCachePtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.SimpleCache';
+network.mojom.SimpleCacheRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.SimpleCache';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.SimpleCachePendingReceiver,
+      handle);
+    this.$ = new network.mojom.SimpleCacheRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.SimpleCacheRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   createEntry(key) {
-    // Method: CreateEntry
-    return new Promise((resolve) => {
-      // Call: CreateEntry(key)
-      resolve({});
-    });
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.SimpleCache_CreateEntry_ParamsSpec.$,
+      network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec.$,
+      [key]);
   }
 
   openEntry(key) {
-    // Method: OpenEntry
-    return new Promise((resolve) => {
-      // Call: OpenEntry(key)
-      resolve({});
-    });
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.SimpleCache_OpenEntry_ParamsSpec.$,
+      network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec.$,
+      [key]);
   }
 
   doomEntry(key) {
-    // Method: DoomEntry
-    return new Promise((resolve) => {
-      // Call: DoomEntry(key)
-      resolve({});
-    });
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      network.mojom.SimpleCache_DoomEntry_ParamsSpec.$,
+      network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec.$,
+      [key]);
   }
 
   doomAllEntries() {
-    // Method: DoomAllEntries
-    return new Promise((resolve) => {
-      // Call: DoomAllEntries()
-      resolve({});
-    });
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      network.mojom.SimpleCache_DoomAllEntries_ParamsSpec.$,
+      network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec.$,
+      []);
   }
 
   enumerateEntries(receiver) {
-    // Method: EnumerateEntries
-    // Call: EnumerateEntries(receiver)
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      network.mojom.SimpleCache_EnumerateEntries_ParamsSpec.$,
+      null,
+      [receiver]);
   }
 
   detach() {
-    // Method: Detach
-    // Call: Detach()
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      network.mojom.SimpleCache_Detach_ParamsSpec.$,
+      null,
+      []);
   }
 
 };
 
-network.mojom.SimpleCacheRequest = class {
+network.mojom.SimpleCache.getRemote = function() {
+  let remote = new network.mojom.SimpleCacheRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.SimpleCache',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for CreateEntry
+network.mojom.SimpleCache_CreateEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.CreateEntry_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.CreateEntry_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenEntry
+network.mojom.SimpleCache_OpenEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.OpenEntry_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.OpenEntry_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DoomEntry
+network.mojom.SimpleCache_DoomEntry_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.DoomEntry_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.DoomEntry_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DoomAllEntries
+network.mojom.SimpleCache_DoomAllEntries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.DoomAllEntries_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.DoomAllEntries_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnumerateEntries
+network.mojom.SimpleCache_EnumerateEntries_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.EnumerateEntries_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Detach
+network.mojom.SimpleCache_Detach_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.SimpleCache.Detach_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.SimpleCachePtr = network.mojom.SimpleCacheRemote;
+network.mojom.SimpleCacheRequest = network.mojom.SimpleCachePendingReceiver;
+
+
+// Interface: NetworkServiceTest
+network.mojom.NetworkServiceTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-// Interface: NetworkServiceTest
-network.mojom.NetworkServiceTestPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'network.mojom.NetworkServiceTest';
+network.mojom.NetworkServiceTestRemote = class {
+  static get $interfaceName() {
+    return 'network.mojom.NetworkServiceTest';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      network.mojom.NetworkServiceTestPendingReceiver,
+      handle);
+    this.$ = new network.mojom.NetworkServiceTestRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+network.mojom.NetworkServiceTestRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
   }
 
   addRules(rules) {
-    // Method: AddRules
-    // Call: AddRules(rules)
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$,
+      null,
+      [rules]);
   }
 
   simulateNetworkChange(type) {
-    // Method: SimulateNetworkChange
-    // Call: SimulateNetworkChange(type)
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec.$,
+      null,
+      [type]);
   }
 
   simulateNetworkQualityChange(type) {
-    // Method: SimulateNetworkQualityChange
-    // Call: SimulateNetworkQualityChange(type)
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec.$,
+      null,
+      [type]);
   }
 
   forceNetworkQualityEstimatorReportWifiAsSlow2G() {
-    // Method: ForceNetworkQualityEstimatorReportWifiAsSlow2G
-    // Call: ForceNetworkQualityEstimatorReportWifiAsSlow2G()
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec.$,
+      null,
+      []);
   }
 
   simulateCrash() {
-    // Method: SimulateCrash
-    // Call: SimulateCrash()
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec.$,
+      null,
+      []);
   }
 
   mockCertVerifierSetDefaultResult(default_result) {
-    // Method: MockCertVerifierSetDefaultResult
-    // Call: MockCertVerifierSetDefaultResult(default_result)
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec.$,
+      null,
+      [default_result]);
   }
 
   mockCertVerifierAddResultForCertAndHost(cert, host_pattern, verify_result, rv) {
-    // Method: MockCertVerifierAddResultForCertAndHost
-    // Call: MockCertVerifierAddResultForCertAndHost(cert, host_pattern, verify_result, rv)
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec.$,
+      null,
+      [cert, host_pattern, verify_result, rv]);
   }
 
   setTransportSecurityStateTestSource(enable_unittest_source) {
-    // Method: SetTransportSecurityStateTestSource
-    // Call: SetTransportSecurityStateTestSource(enable_unittest_source)
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec.$,
+      null,
+      [enable_unittest_source]);
   }
 
   setAllowNetworkAccessToHostResolutions() {
-    // Method: SetAllowNetworkAccessToHostResolutions
-    // Call: SetAllowNetworkAccessToHostResolutions()
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec.$,
+      null,
+      []);
   }
 
   replaceSystemDnsConfig() {
-    // Method: ReplaceSystemDnsConfig
-    // Call: ReplaceSystemDnsConfig()
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec.$,
+      null,
+      []);
   }
 
   setTestDohConfig(secure_dns_mode, doh_config) {
-    // Method: SetTestDohConfig
-    // Call: SetTestDohConfig(secure_dns_mode, doh_config)
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec.$,
+      null,
+      [secure_dns_mode, doh_config]);
   }
 
   crashOnResolveHost(host) {
-    // Method: CrashOnResolveHost
-    // Call: CrashOnResolveHost(host)
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec.$,
+      null,
+      [host]);
   }
 
   crashOnGetCookieList() {
-    // Method: CrashOnGetCookieList
-    // Call: CrashOnGetCookieList()
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec.$,
+      null,
+      []);
   }
 
   getLatestMemoryPressureLevel() {
-    // Method: GetLatestMemoryPressureLevel
-    return new Promise((resolve) => {
-      // Call: GetLatestMemoryPressureLevel()
-      resolve({});
-    });
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec.$,
+      []);
   }
 
   getPeerToPeerConnectionsCountChange() {
-    // Method: GetPeerToPeerConnectionsCountChange
-    return new Promise((resolve) => {
-      // Call: GetPeerToPeerConnectionsCountChange()
-      resolve({});
-    });
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec.$,
+      []);
   }
 
   getEnvironmentVariableValue(name) {
-    // Method: GetEnvironmentVariableValue
-    return new Promise((resolve) => {
-      // Call: GetEnvironmentVariableValue(name)
-      resolve({});
-    });
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec.$,
+      [name]);
   }
 
   log(message) {
-    // Method: Log
-    // Call: Log(message)
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      network.mojom.NetworkServiceTest_Log_ParamsSpec.$,
+      null,
+      [message]);
   }
 
   activateFieldTrial(field_trial_name) {
-    // Method: ActivateFieldTrial
-    // Call: ActivateFieldTrial(field_trial_name)
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec.$,
+      null,
+      [field_trial_name]);
   }
 
   setSCTAuditingRetryDelay(delay) {
-    // Method: SetSCTAuditingRetryDelay
-    // Call: SetSCTAuditingRetryDelay(delay)
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec.$,
+      null,
+      [delay]);
   }
 
   openFile(path) {
-    // Method: OpenFile
-    return new Promise((resolve) => {
-      // Call: OpenFile(path)
-      resolve({});
-    });
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      network.mojom.NetworkServiceTest_OpenFile_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec.$,
+      [path]);
   }
 
   enumerateFiles(path, factory) {
-    // Method: EnumerateFiles
-    return new Promise((resolve) => {
-      // Call: EnumerateFiles(path, factory)
-      resolve({});
-    });
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec.$,
+      [path, factory]);
   }
 
   createSimpleCache(factory, path, reset) {
-    // Method: CreateSimpleCache
-    return new Promise((resolve) => {
-      // Call: CreateSimpleCache(factory, path, reset)
-      resolve({});
-    });
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec.$,
+      [factory, path, reset]);
   }
 
   makeRequestToServer(s, endpoint) {
-    // Method: MakeRequestToServer
-    return new Promise((resolve) => {
-      // Call: MakeRequestToServer(s, endpoint)
-      resolve({});
-    });
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec.$,
+      [s, endpoint]);
   }
 
   resolveOwnHostnameWithSystemDns() {
-    // Method: ResolveOwnHostnameWithSystemDns
-    return new Promise((resolve) => {
-      // Call: ResolveOwnHostnameWithSystemDns()
-      resolve({});
-    });
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec.$,
+      []);
   }
 
   setIPv6ProbeResult(success) {
-    // Method: SetIPv6ProbeResult
-    // Call: SetIPv6ProbeResult(success)
+    // Ordinal: 24
+    return this.proxy.sendMessage(
+      24,  // ordinal
+      network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec.$,
+      null,
+      [success]);
   }
 
   getAddressMapCacheLinux() {
-    // Method: GetAddressMapCacheLinux
-    return new Promise((resolve) => {
-      // Call: GetAddressMapCacheLinux()
-      resolve({});
-    });
+    // Ordinal: 25
+    return this.proxy.sendMessage(
+      25,  // ordinal
+      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec.$,
+      []);
   }
 
   allowsGSSAPILibraryLoad() {
-    // Method: AllowsGSSAPILibraryLoad
-    return new Promise((resolve) => {
-      // Call: AllowsGSSAPILibraryLoad()
-      resolve({});
-    });
+    // Ordinal: 26
+    return this.proxy.sendMessage(
+      26,  // ordinal
+      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec.$,
+      []);
   }
 
   disableExclusiveCookieDatabaseLockingForTesting() {
-    // Method: DisableExclusiveCookieDatabaseLockingForTesting
-    // Call: DisableExclusiveCookieDatabaseLockingForTesting()
+    // Ordinal: 27
+    return this.proxy.sendMessage(
+      27,  // ordinal
+      network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec.$,
+      null,
+      []);
   }
 
   isHappyEyeballsV3Enabled() {
-    // Method: IsHappyEyeballsV3Enabled
-    return new Promise((resolve) => {
-      // Call: IsHappyEyeballsV3Enabled()
-      resolve({});
-    });
+    // Ordinal: 28
+    return this.proxy.sendMessage(
+      28,  // ordinal
+      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec.$,
+      network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec.$,
+      []);
   }
 
 };
 
-network.mojom.NetworkServiceTestRequest = class {
-  constructor(handle) {
-    this.handle = handle;
+network.mojom.NetworkServiceTest.getRemote = function() {
+  let remote = new network.mojom.NetworkServiceTestRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'network.mojom.NetworkServiceTest',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for AddRules
+network.mojom.NetworkServiceTest_AddRules_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.AddRules_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
   }
-};
+}};
+
+// ParamsSpec for SimulateNetworkChange
+network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SimulateNetworkChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SimulateNetworkQualityChange
+network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SimulateNetworkQualityChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ForceNetworkQualityEstimatorReportWifiAsSlow2G
+network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.ForceNetworkQualityEstimatorReportWifiAsSlow2G_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SimulateCrash
+network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SimulateCrash_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MockCertVerifierSetDefaultResult
+network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.MockCertVerifierSetDefaultResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'default_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MockCertVerifierAddResultForCertAndHost
+network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.MockCertVerifierAddResultForCertAndHost_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'verify_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rv', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetTransportSecurityStateTestSource
+network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SetTransportSecurityStateTestSource_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enable_unittest_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetAllowNetworkAccessToHostResolutions
+network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SetAllowNetworkAccessToHostResolutions_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ReplaceSystemDnsConfig
+network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.ReplaceSystemDnsConfig_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetTestDohConfig
+network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SetTestDohConfig_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'secure_dns_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'doh_config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CrashOnResolveHost
+network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.CrashOnResolveHost_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CrashOnGetCookieList
+network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.CrashOnGetCookieList_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetLatestMemoryPressureLevel
+network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetLatestMemoryPressureLevel_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetLatestMemoryPressureLevel_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetPeerToPeerConnectionsCountChange
+network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetPeerToPeerConnectionsCountChange_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetPeerToPeerConnectionsCountChange_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'connection_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetEnvironmentVariableValue
+network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetEnvironmentVariableValue_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetEnvironmentVariableValue_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for Log
+network.mojom.NetworkServiceTest_Log_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.Log_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ActivateFieldTrial
+network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.ActivateFieldTrial_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'field_trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetSCTAuditingRetryDelay
+network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SetSCTAuditingRetryDelay_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for OpenFile
+network.mojom.NetworkServiceTest_OpenFile_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.OpenFile_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.OpenFile_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for EnumerateFiles
+network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.EnumerateFiles_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.EnumerateFiles_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for CreateSimpleCache
+network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.CreateSimpleCache_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.CreateSimpleCache_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'backend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MakeRequestToServer
+network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.MakeRequestToServer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.MakeRequestToServer_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for ResolveOwnHostnameWithSystemDns
+network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.ResolveOwnHostnameWithSystemDns_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.ResolveOwnHostnameWithSystemDns_ResponseParams',
+      packedSize: 32,
+      fields: [
+        { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for SetIPv6ProbeResult
+network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.SetIPv6ProbeResult_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for GetAddressMapCacheLinux
+network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetAddressMapCacheLinux_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.GetAddressMapCacheLinux_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'addr_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for AllowsGSSAPILibraryLoad
+network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.AllowsGSSAPILibraryLoad_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.AllowsGSSAPILibraryLoad_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'allow_gssapi_library_load', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for DisableExclusiveCookieDatabaseLockingForTesting
+network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.DisableExclusiveCookieDatabaseLockingForTesting_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for IsHappyEyeballsV3Enabled
+network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.IsHappyEyeballsV3Enabled_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'network.mojom.NetworkServiceTest.IsHappyEyeballsV3Enabled_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'is_happy_eyeballs_v3_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+network.mojom.NetworkServiceTestPtr = network.mojom.NetworkServiceTestRemote;
+network.mojom.NetworkServiceTestRequest = network.mojom.NetworkServiceTestPendingReceiver;
+

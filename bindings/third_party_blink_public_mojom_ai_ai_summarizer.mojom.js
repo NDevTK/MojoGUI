@@ -30,37 +30,114 @@ blink.mojom.AISummarizerLength = {
   kLong: 2,
 };
 
-// Struct: AISummarizerCreateOptions
-blink.mojom.AISummarizerCreateOptions = class {
-  constructor(values = {}) {
-    this.output_language = values.output_language !== undefined ? values.output_language : "";
-  }
-};
-
 // Interface: AISummarizer
-blink.mojom.AISummarizerPtr = class {
-  constructor() {
-    this.ptr = null;
-    this.interfaceName = 'blink.mojom.AISummarizer';
-  }
-
-  summarize(input, context, pending_responder) {
-    // Method: Summarize
-    // Call: Summarize(input, context, pending_responder)
-  }
-
-  measureUsage(input, context) {
-    // Method: MeasureUsage
-    return new Promise((resolve) => {
-      // Call: MeasureUsage(input, context)
-      resolve({});
-    });
-  }
-
-};
-
-blink.mojom.AISummarizerRequest = class {
+blink.mojom.AISummarizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
+
+blink.mojom.AISummarizerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.AISummarizer';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      blink.mojom.AISummarizerPendingReceiver,
+      handle);
+    this.$ = new blink.mojom.AISummarizerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+};
+
+blink.mojom.AISummarizerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+  }
+
+  summarize(input, context, pending_responder) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      blink.mojom.AISummarizer_Summarize_ParamsSpec.$,
+      null,
+      [input, context, pending_responder]);
+  }
+
+  measureUsage(input, context) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$,
+      blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec.$,
+      [input, context]);
+  }
+
+};
+
+blink.mojom.AISummarizer.getRemote = function() {
+  let remote = new blink.mojom.AISummarizerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.AISummarizer',
+    'context');
+  return remote.$;
+}};
+
+// ParamsSpec for Summarize
+blink.mojom.AISummarizer_Summarize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AISummarizer.Summarize_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// ParamsSpec for MeasureUsage
+blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AISummarizer.MeasureUsage_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'blink.mojom.AISummarizer.MeasureUsage_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+      ],
+      versions: [{version: 0}]
+    }
+  }
+}};
+
+// Legacy compatibility
+blink.mojom.AISummarizerPtr = blink.mojom.AISummarizerRemote;
+blink.mojom.AISummarizerRequest = blink.mojom.AISummarizerPendingReceiver;
+
