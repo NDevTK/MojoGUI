@@ -358,7 +358,7 @@ jobs:
                   js_code += f"    '{interface_string}',\n"
                   js_code += "    'context');\n"
                   js_code += "  return remote.$;\n"
-                  js_code += "}};\n\n"
+                  js_code += "};\n\n"
                   
                   # Generate ParamsSpec placeholders for each method
                   for idx, method in enumerate(interface.get('methods', [])):
@@ -376,7 +376,7 @@ jobs:
                       js_code += "      versions: [{version: 0}]\n"
                       js_code += "    }\n"
                       js_code += "  }\n"
-                      js_code += "}};\n\n"
+                      js_code += "};\n\n"
                       
                       if method.get('returns'):
                           js_code += f"{full_name}_{method['name']}_ResponseParamsSpec = {{\n"
@@ -392,7 +392,7 @@ jobs:
                           js_code += "      versions: [{version: 0}]\n"
                           js_code += "    }\n"
                           js_code += "  }\n"
-                          js_code += "}};\n\n"
+                          js_code += "};\n\n"
                   
                   # Also add legacy-style Ptr class for compatibility
                   js_code += f"// Legacy compatibility\n"
