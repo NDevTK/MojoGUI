@@ -157,7 +157,7 @@ network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
       name: 'network.mojom.TCPBoundSocket.Connect_Params',
       packedSize: 32,
       fields: [
-        { name: 'remote_addr_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false },
         { name: 'tcp_connected_socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true },
         { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
@@ -173,8 +173,8 @@ network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = {
       name: 'network.mojom.TCPBoundSocket.Connect_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'peer_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'local_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
+        { name: 'peer_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
         { name: 'receive_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'send_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'net_error', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -288,9 +288,9 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
       name: 'network.mojom.TCPConnectedSocket.UpgradeToTLS_Params',
       packedSize: 40,
       fields: [
-        { name: 'host_port_pair', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_port_pair', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TLSClientSocketOptionsSpec, nullable: true },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
         { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
@@ -307,7 +307,7 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = {
       fields: [
         { name: 'receive_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'send_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'ssl_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'ssl_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true },
         { name: 'net_error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -603,7 +603,7 @@ network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = {
       name: 'network.mojom.TCPServerSocket.Accept_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
         { name: 'send_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'receive_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'net_error', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

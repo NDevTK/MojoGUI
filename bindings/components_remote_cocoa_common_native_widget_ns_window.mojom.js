@@ -1341,7 +1341,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec = {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindow.DisplayContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'menu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'menu', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.ContextMenuSpec, nullable: false },
         { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],

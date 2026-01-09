@@ -72,7 +72,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
       name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_Params',
       packedSize: 16,
       fields: [
-        { name: 't', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 't', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
       name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

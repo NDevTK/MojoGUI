@@ -84,7 +84,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
       name: 'device.mojom.BatteryMonitor.QueryNextStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BatteryStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

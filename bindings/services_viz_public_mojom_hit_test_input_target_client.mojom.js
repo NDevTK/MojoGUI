@@ -86,7 +86,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
       name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
         { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
       ],
       versions: [{version: 0}]

@@ -318,7 +318,7 @@ network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
       name: 'network.mojom.AuthChallengeResponder.OnAuthCredentials_Params',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -493,7 +493,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec =
       packedSize: 40,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'ssl_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ssl_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: false },
         { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'fatal', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -540,8 +540,8 @@ network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
       fields: [
         { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'auth_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'head_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'auth_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AuthChallengeInfoSpec, nullable: false },
+        { name: 'head_headers', packedOffset: 24, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: true },
         { name: 'request_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'auth_challenge_responder', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'first_auth_attempt', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -559,7 +559,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequ
       packedSize: 24,
       fields: [
         { name: 'transport_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransportTypeSpec, nullable: false },
-        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -588,7 +588,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'header_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cookie_partition_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cookie_partition_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true },
         { name: 'load_flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'partitioned_state_allowed_only', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -650,7 +650,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceiv
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnAdAuctionEventRecordHeaderReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'ad_auction_event_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ad_auction_event_record', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AdAuctionEventRecordSpec, nullable: false },
         { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -680,7 +680,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwo
       packedSize: 24,
       fields: [
         { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -695,9 +695,9 @@ network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwo
       packedSize: 40,
       fields: [
         { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'response_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'client_address_space', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'target_address_space', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_address_space', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'client_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
+        { name: 'target_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

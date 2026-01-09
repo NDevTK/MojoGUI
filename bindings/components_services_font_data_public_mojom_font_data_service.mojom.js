@@ -84,7 +84,7 @@ font_data_service.mojom.MatchFamilyNameResultSpec = {
       name: 'font_data_service.mojom.MatchFamilyNameResult',
       packedSize: 32,
       fields: [
-        { name: 'typeface_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'typeface_data', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.TypefaceDataSpec, nullable: false },
         { name: 'variation_position', packedOffset: 8, packedBitOffset: 0, type: font_data_service.mojom.VariationPositionSpec, nullable: true },
         { name: 'ttc_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],

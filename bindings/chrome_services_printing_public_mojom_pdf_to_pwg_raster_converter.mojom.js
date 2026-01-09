@@ -111,7 +111,7 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false },
         { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]

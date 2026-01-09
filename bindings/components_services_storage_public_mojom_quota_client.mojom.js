@@ -99,7 +99,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
       name: 'storage.mojom.QuotaClient.GetBucketUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
       name: 'storage.mojom.QuotaClient.DeleteBucketData_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

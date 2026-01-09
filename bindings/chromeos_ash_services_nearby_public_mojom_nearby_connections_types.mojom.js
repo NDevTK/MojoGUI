@@ -231,7 +231,7 @@ nearby.connections.mojom.PayloadSpec = {
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadContentSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

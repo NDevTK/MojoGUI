@@ -101,7 +101,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSp
       name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarResponseResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

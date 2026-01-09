@@ -189,7 +189,7 @@ media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
       name: 'media.mojom.AudioInputStreamClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.InputStreamErrorCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -469,8 +469,8 @@ ash.mojom.ButtonRemappingSpec = {
       packedSize: 32,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'remapping_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'button', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.ButtonSpec, nullable: false },
+        { name: 'remapping_action', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.RemappingActionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

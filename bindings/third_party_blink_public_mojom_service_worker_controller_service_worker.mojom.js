@@ -16,8 +16,8 @@ blink.mojom.ServiceWorkerRouterDataSpec = {
       name: 'blink.mojom.ServiceWorkerRouterData',
       packedSize: 32,
       fields: [
-        { name: 'router_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'initial_running_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'router_rules', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false },
+        { name: 'initial_running_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: true },
         { name: 'running_status_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
         { name: 'remote_cache_storage', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
@@ -33,7 +33,7 @@ blink.mojom.ControllerServiceWorkerInfoSpec = {
       name: 'blink.mojom.ControllerServiceWorkerInfo',
       packedSize: 80,
       fields: [
-        { name: 'fetch_handler_bypass_option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fetch_handler_bypass_option', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, nullable: false },
         { name: 'sha256_script_checksum', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'router_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true },
         { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },

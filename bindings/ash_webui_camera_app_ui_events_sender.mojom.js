@@ -258,7 +258,7 @@ ash.camera_app.mojom.VideoDetailsSpec = {
       name: 'ash.camera_app.mojom.VideoDetails',
       packedSize: 32,
       fields: [
-        { name: 'record_type_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'record_type_details', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.RecordTypeDetailsSpec, nullable: false },
         { name: 'fps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'duration', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'is_muted', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -284,7 +284,7 @@ ash.camera_app.mojom.CaptureEventParamsSpec = {
         { name: 'android_intent_result_type', packedOffset: 40, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentResultTypeSpec, nullable: false },
         { name: 'resolution_level', packedOffset: 48, packedBitOffset: 0, type: ash.camera_app.mojom.ResolutionLevelSpec, nullable: false },
         { name: 'aspect_ratio_set', packedOffset: 56, packedBitOffset: 0, type: ash.camera_app.mojom.AspectRatioSetSpec, nullable: false },
-        { name: 'capture_details', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'capture_details', packedOffset: 64, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDetailsSpec, nullable: true },
         { name: 'zoom_ratio', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'resolution_width', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'resolution_height', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -395,7 +395,7 @@ ash.camera_app.mojom.OpenCameraEventParamsSpec = {
       name: 'ash.camera_app.mojom.OpenCameraEventParams',
       packedSize: 16,
       fields: [
-        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CameraModuleSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -424,7 +424,7 @@ ash.camera_app.mojom.BarcodeDetectedEventParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeContentTypeSpec, nullable: false },
-        { name: 'wifi_security_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'wifi_security_type', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

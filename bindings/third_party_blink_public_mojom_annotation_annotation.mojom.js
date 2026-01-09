@@ -274,7 +274,7 @@ blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnnotationTypeSpec, nullable: false },
-        { name: 'selector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selector', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SelectorSpec, nullable: false },
         { name: 'host_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'agent_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'search_range_start_node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
@@ -305,8 +305,8 @@ blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectorCreationResultSpec, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false },
+        { name: 'ready_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

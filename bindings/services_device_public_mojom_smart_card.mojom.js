@@ -264,7 +264,7 @@ device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardTransaction.EndTransaction_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -406,7 +406,7 @@ device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.Disconnect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -434,7 +434,7 @@ device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.Transmit_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDataResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -462,7 +462,7 @@ device.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.Control_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDataResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -489,7 +489,7 @@ device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.GetAttrib_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDataResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -517,7 +517,7 @@ device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.SetAttrib_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -543,7 +543,7 @@ device.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.Status_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardStatusResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -569,7 +569,7 @@ device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardConnection.BeginTransaction_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardTransactionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -757,7 +757,7 @@ device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardContext.ListReaders_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardListReadersResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -785,7 +785,7 @@ device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardContext.GetStatusChange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardStatusChangeResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -811,7 +811,7 @@ device.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardContext.Cancel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -841,7 +841,7 @@ device.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardContext.Connect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardConnectResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -928,7 +928,7 @@ device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
       name: 'device.mojom.SmartCardContextFactory.CreateContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

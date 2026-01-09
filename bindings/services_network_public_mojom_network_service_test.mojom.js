@@ -937,7 +937,7 @@ network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.SimulateNetworkChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -951,7 +951,7 @@ network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.SimulateNetworkQualityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1005,9 +1005,9 @@ network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsS
       name: 'network.mojom.NetworkServiceTest.MockCertVerifierAddResultForCertAndHost_Params',
       packedSize: 40,
       fields: [
-        { name: 'cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cert', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
         { name: 'host_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'verify_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'verify_result', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CertVerifyResultSpec, nullable: false },
         { name: 'rv', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1062,8 +1062,8 @@ network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.SetTestDohConfig_Params',
       packedSize: 24,
       fields: [
-        { name: 'secure_dns_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'doh_config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'secure_dns_mode', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SecureDnsModeSpec, nullable: false },
+        { name: 'doh_config', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsOverHttpsConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1310,8 +1310,8 @@ network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec = {
       name: 'network.mojom.NetworkServiceTest.MakeRequestToServer_Params',
       packedSize: 24,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false },
+        { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

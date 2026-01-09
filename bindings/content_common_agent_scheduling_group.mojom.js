@@ -189,7 +189,7 @@ content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.CreateView_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateViewParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.CreateFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateFrameParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

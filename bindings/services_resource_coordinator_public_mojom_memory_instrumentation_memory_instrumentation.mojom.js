@@ -111,7 +111,7 @@ memory_instrumentation.mojom.RawAllocatorDumpEntrySpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'units', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

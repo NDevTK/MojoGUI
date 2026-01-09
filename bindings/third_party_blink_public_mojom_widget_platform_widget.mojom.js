@@ -468,7 +468,7 @@ blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
       name: 'blink.mojom.Widget.UpdateVisualProperties_Params',
       packedSize: 16,
       fields: [
-        { name: 'visual_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visual_properties', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.VisualPropertiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -510,7 +510,7 @@ blink.mojom.Widget_WasShown_ParamsSpec = {
       name: 'blink.mojom.Widget.WasShown_Params',
       packedSize: 24,
       fields: [
-        { name: 'record_tab_switch_time_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'record_tab_switch_time_request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RecordContentToVisibleTimeRequestSpec, nullable: true },
         { name: 'was_evicted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -525,7 +525,7 @@ blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
       name: 'blink.mojom.Widget.RequestSuccessfulPresentationTimeForNextFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible_time_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visible_time_request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RecordContentToVisibleTimeRequestSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

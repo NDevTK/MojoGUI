@@ -72,7 +72,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
       name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSp
       name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

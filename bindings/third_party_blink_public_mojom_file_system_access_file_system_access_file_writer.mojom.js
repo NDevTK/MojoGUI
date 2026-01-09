@@ -113,7 +113,7 @@ blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileWriter.Write_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'bytes_written', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
@@ -141,7 +141,7 @@ blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileWriter.Truncate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,7 +167,7 @@ blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileWriter.Close_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileWriter.Abort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

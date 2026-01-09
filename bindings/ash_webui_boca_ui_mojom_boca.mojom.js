@@ -901,7 +901,7 @@ ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec = {
       name: 'ash.boca.mojom.PageHandler.GetSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.SessionResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1665,7 +1665,7 @@ ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec = {
       name: 'ash.boca.mojom.Page.OnSessionConfigUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: ash.boca.mojom.ConfigResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

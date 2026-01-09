@@ -49,7 +49,7 @@ network.mojom.ReportingApiEndpointSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'group_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'network_anonymization_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'network_anonymization_key', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
         { name: 'reporting_source', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'attempted_uploads', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'successful_uploads', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

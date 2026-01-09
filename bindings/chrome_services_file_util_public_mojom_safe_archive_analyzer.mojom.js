@@ -147,7 +147,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -292,7 +292,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

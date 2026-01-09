@@ -87,7 +87,7 @@ blink.mojom.DirectoryPickerOptionsSpec = {
       name: 'blink.mojom.DirectoryPickerOptions',
       packedSize: 16,
       fields: [
-        { name: 'permission_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'permission_mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,9 +101,9 @@ blink.mojom.FilePickerOptionsSpec = {
       name: 'blink.mojom.FilePickerOptions',
       packedSize: 32,
       fields: [
-        { name: 'type_specific_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type_specific_options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, nullable: false },
         { name: 'starting_directory_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_in_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'start_in_options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FilePickerStartInOptionsUnionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec = 
       name: 'blink.mojom.FileSystemAccessManager.GetSandboxedFileSystem_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -267,7 +267,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponsePa
       name: 'blink.mojom.FileSystemAccessManager.GetSandboxedFileSystemForDevtools_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
@@ -295,7 +295,7 @@ blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.ChooseEntries_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
         { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -353,8 +353,8 @@ blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParams
       name: 'blink.mojom.FileSystemAccessManager.GetEntryFromDataTransferToken_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

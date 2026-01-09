@@ -46,7 +46,7 @@ blink.mojom.ServiceWorkerClientInfoSpec = {
       packedSize: 72,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'frame_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestContextFrameTypeSpec, nullable: false },
         { name: 'client_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'client_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientTypeSpec, nullable: false },
         { name: 'lifecycle_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientLifecycleStateSpec, nullable: false },

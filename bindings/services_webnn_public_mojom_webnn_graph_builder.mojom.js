@@ -106,7 +106,7 @@ webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'constant_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebNNPendingConstantTokenSpec, nullable: false },
-        { name: 'data_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_type', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.DataTypeSpec, nullable: false },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -121,7 +121,7 @@ webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
       name: 'webnn.mojom.WebNNGraphBuilder.CreateGraph_Params',
       packedSize: 16,
       fields: [
-        { name: 'graph_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'graph_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.GraphInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,8 +135,8 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
       name: 'webnn.mojom.WebNNGraphBuilder.IsValidGraphForTesting_Params',
       packedSize: 24,
       fields: [
-        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'graph_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false },
+        { name: 'graph_info', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.GraphInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

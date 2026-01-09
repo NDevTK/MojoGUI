@@ -157,9 +157,9 @@ printing.mojom.PrinterSemanticCapsAndDefaultsSpec = {
       packedSize: 152,
       fields: [
         { name: 'duplex_modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'duplex_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'color_model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'bw_model', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'duplex_default', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.DuplexModeSpec, nullable: false },
+        { name: 'color_model', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.ColorModelSpec, nullable: false },
+        { name: 'bw_model', packedOffset: 24, packedBitOffset: 0, type: printing.mojom.ColorModelSpec, nullable: false },
         { name: 'papers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'user_defined_papers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'default_paper', packedOffset: 48, packedBitOffset: 0, type: printing.mojom.PaperSpec, nullable: false },

@@ -363,7 +363,7 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false },
         { name: 'settings_source_was_opened_with', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]

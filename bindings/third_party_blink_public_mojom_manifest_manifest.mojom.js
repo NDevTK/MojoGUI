@@ -356,7 +356,7 @@ blink.mojom.ManifestTabStripSpec = {
       name: 'blink.mojom.ManifestTabStrip',
       packedSize: 24,
       fields: [
-        { name: 'home_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'home_tab', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HomeTabUnionSpec, nullable: false },
         { name: 'new_tab_button', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NewTabButtonParamsSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -432,7 +432,7 @@ blink.mojom.DisplayOverrideItemSpec = {
       name: 'blink.mojom.DisplayOverrideItem',
       packedSize: 24,
       fields: [
-        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false },
         { name: 'url_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

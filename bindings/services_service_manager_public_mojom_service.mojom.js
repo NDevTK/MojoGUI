@@ -16,8 +16,8 @@ service_manager.mojom.BindSourceInfoSpec = {
       name: 'service_manager.mojom.BindSourceInfo',
       packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'required_capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
+        { name: 'required_capabilities', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.CapabilitySetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,7 +105,7 @@ service_manager.mojom.Service_OnStart_ParamsSpec = {
       name: 'service_manager.mojom.Service.OnStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
       name: 'service_manager.mojom.Service.CreatePackagedServiceInstance_Params',
       packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
         { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'metadata', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],

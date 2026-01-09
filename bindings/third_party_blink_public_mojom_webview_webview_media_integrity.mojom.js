@@ -183,7 +183,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
       name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityTokenResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

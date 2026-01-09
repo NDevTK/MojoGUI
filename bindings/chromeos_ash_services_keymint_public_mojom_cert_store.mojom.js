@@ -33,7 +33,7 @@ arc.keymint.mojom.ChromeOsKeySpec = {
       packedSize: 24,
       fields: [
         { name: 'base64_subject_public_key_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: arc.keymint.mojom.KeyDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

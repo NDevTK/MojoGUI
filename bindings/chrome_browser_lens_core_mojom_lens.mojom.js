@@ -576,7 +576,7 @@ lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueLensRegionRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false },
         { name: 'is_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -591,7 +591,7 @@ lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.IssueLensObjectRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false },
         { name: 'is_mask_click', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -699,7 +699,7 @@ lens.mojom.LensPageHandler_CopyImage_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.CopyImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -713,7 +713,7 @@ lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec = {
       name: 'lens.mojom.LensPageHandler.SaveAsImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1153,7 +1153,7 @@ lens.mojom.LensPage_TextReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.TextReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1167,7 +1167,7 @@ lens.mojom.LensPage_RegionTextReceived_ParamsSpec = {
       name: 'lens.mojom.LensPage.RegionTextReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextSpec, nullable: false },
         { name: 'is_injected_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1210,7 +1210,7 @@ lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec = {
       name: 'lens.mojom.LensPage.PageContentTypeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.PageContentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1224,7 +1224,7 @@ lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec = {
       name: 'lens.mojom.LensPage.SetPostRegionSelection_Params',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

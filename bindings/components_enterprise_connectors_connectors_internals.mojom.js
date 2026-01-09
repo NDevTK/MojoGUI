@@ -64,7 +64,7 @@ connectors_internals.mojom.LoadedKeyInfoSpec = {
         { name: 'trust_level', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.KeyTrustLevelSpec, nullable: false },
         { name: 'key_type', packedOffset: 8, packedBitOffset: 0, type: connectors_internals.mojom.KeyTypeSpec, nullable: false },
         { name: 'encoded_spki_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_upload_status', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'key_upload_status', packedOffset: 24, packedBitOffset: 0, type: connectors_internals.mojom.KeyUploadStatusSpec, nullable: true },
         { name: 'has_ssl_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

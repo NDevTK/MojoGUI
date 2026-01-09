@@ -188,7 +188,7 @@ device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = {
       name: 'device.mojom.FingerprintObserver.OnAuthScanDone_Params',
       packedSize: 24,
       fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: device.mojom.FingerprintMessageSpec, nullable: false },
         { name: 'matches', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]

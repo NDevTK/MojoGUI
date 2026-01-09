@@ -146,7 +146,7 @@ content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

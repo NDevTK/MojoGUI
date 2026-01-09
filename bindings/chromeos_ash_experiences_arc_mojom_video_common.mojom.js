@@ -136,7 +136,7 @@ arc.mojom.VideoFrameLayoutSpec = {
       packedSize: 56,
       fields: [
         { name: 'format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
         { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
         { name: 'buffer_addr_align', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

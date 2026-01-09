@@ -103,7 +103,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Params
       fields: [
         { name: 'local_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'shared_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'public_credential_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'public_credential_type', packedOffset: 16, packedBitOffset: 0, type: ash.nearby.presence.mojom.PublicCredentialTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -130,7 +130,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_P
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPublicCredentials_Params',
       packedSize: 16,
       fields: [
-        { name: 'public_credential_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'public_credential_type', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.PublicCredentialTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,7 +185,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.UpdateLocalCredential_Params',
       packedSize: 16,
       fields: [
-        { name: 'local_credential', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'local_credential', packedOffset: 0, packedBitOffset: 0, type: ash.nearby.presence.mojom.LocalCredentialSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

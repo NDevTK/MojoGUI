@@ -93,7 +93,7 @@ data_sharing.mojom.ReadGroupWithTokenResultSpec = {
       name: 'data_sharing.mojom.ReadGroupWithTokenResult',
       packedSize: 24,
       fields: [
-        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupDataSpec, nullable: true },
         { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

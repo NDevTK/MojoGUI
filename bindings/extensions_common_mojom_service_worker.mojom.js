@@ -81,8 +81,8 @@ extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
       name: 'extensions.mojom.ServiceWorker.UpdatePermissions_Params',
       packedSize: 24,
       fields: [
-        { name: 'active_permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'withheld_permissions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'active_permissions', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
+        { name: 'withheld_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

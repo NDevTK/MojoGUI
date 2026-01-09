@@ -233,7 +233,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -259,7 +259,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
       name: 'browsing_topics.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetModelInfoResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

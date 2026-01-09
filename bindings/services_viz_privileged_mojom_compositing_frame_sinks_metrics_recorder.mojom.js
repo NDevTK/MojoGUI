@@ -185,7 +185,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StartOverdrawTracking_Params',
       packedSize: 24,
       fields: [
-        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
         { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -200,7 +200,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_Params',
       packedSize: 16,
       fields: [
-        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

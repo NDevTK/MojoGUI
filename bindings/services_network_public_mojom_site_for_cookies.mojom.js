@@ -16,7 +16,7 @@ network.mojom.SiteForCookiesSpec = {
       name: 'network.mojom.SiteForCookies',
       packedSize: 24,
       fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
         { name: 'schemefully_same', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

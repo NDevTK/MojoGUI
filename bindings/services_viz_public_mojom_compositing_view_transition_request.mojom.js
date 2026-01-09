@@ -16,7 +16,7 @@ viz.mojom.ViewTransitionRequestSpec = {
       name: 'viz.mojom.ViewTransitionRequest',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false },
         { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
         { name: 'capture_resource_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'sequence_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

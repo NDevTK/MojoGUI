@@ -148,7 +148,7 @@ blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelStreamingResponseStatusSpec, nullable: false },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

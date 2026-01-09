@@ -46,7 +46,7 @@ viz.mojom.OffsetTagDefinitionSpec = {
       packedSize: 40,
       fields: [
         { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
-        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceRangeSpec, nullable: false },
         { name: 'min_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
         { name: 'max_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
       ],

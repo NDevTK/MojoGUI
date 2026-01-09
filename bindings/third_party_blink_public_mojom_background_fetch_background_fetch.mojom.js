@@ -48,8 +48,8 @@ blink.mojom.BackgroundFetchSettledFetchSpec = {
       name: 'blink.mojom.BackgroundFetchSettledFetch',
       packedSize: 24,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -233,8 +233,8 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = 
       name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnRequestCompleted_Params',
       packedSize: 24,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -594,8 +594,8 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
       name: 'blink.mojom.BackgroundFetchRegistrationService.MatchRequests_Params',
       packedSize: 32,
       fields: [
-        { name: 'request_to_match', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'cache_query_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request_to_match', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true },
+        { name: 'cache_query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: true },
         { name: 'match_all', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

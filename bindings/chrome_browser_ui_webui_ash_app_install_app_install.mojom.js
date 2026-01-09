@@ -414,7 +414,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
       name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.DialogArgsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

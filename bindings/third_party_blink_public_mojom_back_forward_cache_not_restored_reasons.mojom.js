@@ -32,7 +32,7 @@ blink.mojom.BFCacheBlockingDetailedReasonSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

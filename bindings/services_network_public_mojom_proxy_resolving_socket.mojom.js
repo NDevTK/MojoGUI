@@ -86,8 +86,8 @@ network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec = {
       name: 'network.mojom.ProxyResolvingSocket.UpgradeToTLS_Params',
       packedSize: 32,
       fields: [
-        { name: 'host_port_pair', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'host_port_pair', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
         { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
@@ -180,9 +180,9 @@ network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec 
       packedSize: 48,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'network_anonymization_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'network_anonymization_key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false },
         { name: 'options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ProxyResolvingSocketOptionsSpec, nullable: true },
-        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
         { name: 'socket', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
         { name: 'observer', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],

@@ -77,7 +77,7 @@ blink.mojom.SafeUrlPatternPartSpec = {
       name: 'blink.mojom.SafeUrlPatternPart',
       packedSize: 24,
       fields: [
-        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PatternTemplateSpec, nullable: false },
         { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ModifierSpec, nullable: false },
       ],
       versions: [{version: 0}]

@@ -373,7 +373,7 @@ printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = {
       name: 'printing.mojom.PrintCompositor.SetGenerateDocumentOutline_Params',
       packedSize: 16,
       fields: [
-        { name: 'generate_document_outline', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'generate_document_outline', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

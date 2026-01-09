@@ -175,7 +175,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_R
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetNewScreencastPrecondition_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_Params',
       packedSize: 16,
       fields: [
-        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SetUserPref_Params',
       packedSize: 24,
       fields: [
-        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pref', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.PrefsThatProjectorCanAskForSpec, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -350,7 +350,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
       packedSize: 56,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.RequestTypeSpec, nullable: false },
         { name: 'request_body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
         { name: 'account_email', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
@@ -368,7 +368,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -422,7 +422,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = 
       name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetVideo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.GetVideoResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,7 +533,7 @@ ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Pa
       name: 'ash.projector.mojom.UntrustedProjectorPage.OnNewScreencastPreconditionChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

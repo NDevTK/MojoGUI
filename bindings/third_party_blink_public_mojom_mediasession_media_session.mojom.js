@@ -134,7 +134,7 @@ blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaSessionActionDetailsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -105,7 +105,7 @@ tab_strip_internals.mojom.NodeSpec = {
       name: 'tab_strip_internals.mojom.Node',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: tab_strip_internals.mojom.DataSpec, nullable: false },
         { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

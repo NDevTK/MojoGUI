@@ -17,7 +17,7 @@ network.mojom.HostResolverEndpointResultSpec = {
       packedSize: 24,
       fields: [
         { name: 'ip_endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionEndpointMetadataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

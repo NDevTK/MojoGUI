@@ -191,7 +191,7 @@ blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
       name: 'blink.mojom.BlobRegistry.RegisterFromStream_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

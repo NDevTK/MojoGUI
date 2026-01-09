@@ -17,7 +17,7 @@ blink.mojom.ServiceWorkerObjectInfoSpec = {
       packedSize: 40,
       fields: [
         { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false },
         { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
         { name: 'host_remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
         { name: 'receiver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
@@ -99,7 +99,7 @@ blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerObjectHost.PostMessageToServiceWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,7 +187,7 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerObject.StateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

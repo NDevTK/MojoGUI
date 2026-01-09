@@ -24,7 +24,7 @@ blink.mojom.VisualPropertiesSpec = {
         { name: 'compositor_viewport_pixel_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'browser_controls_params', packedOffset: 48, packedBitOffset: 0, type: cc.mojom.BrowserControlsParamsSpec, nullable: false },
         { name: 'local_surface_id', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
-        { name: 'display_mode', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'display_mode', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false },
         { name: 'window_show_state', packedOffset: 72, packedBitOffset: 0, type: ui.mojom.WindowShowStateSpec, nullable: false },
         { name: 'zoom_level', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
         { name: 'css_zoom_factor', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },

@@ -223,7 +223,7 @@ arc.mojom.WiFiSpec = {
       fields: [
         { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'hex_ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false },
         { name: 'frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'signal_strength', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'hidden_ssid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

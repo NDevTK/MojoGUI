@@ -61,7 +61,7 @@ arc.mojom.RootSpec = {
         { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'summary', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -90,8 +90,8 @@ arc.mojom.OpenUrlsRequestSpec = {
       name: 'arc.mojom.OpenUrlsRequest',
       packedSize: 32,
       fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'activity_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false },
+        { name: 'activity_name', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false },
         { name: 'urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

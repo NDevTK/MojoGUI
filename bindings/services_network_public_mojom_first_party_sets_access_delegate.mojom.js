@@ -30,8 +30,8 @@ network.mojom.FirstPartySetsReadyEventSpec = {
       name: 'network.mojom.FirstPartySetsReadyEvent',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'cache_filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false },
+        { name: 'cache_filter', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetsCacheFilterSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

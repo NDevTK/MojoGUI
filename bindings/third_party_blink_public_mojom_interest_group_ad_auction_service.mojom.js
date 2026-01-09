@@ -175,7 +175,7 @@ blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedPromiseParam_Params',
       packedSize: 32,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'field', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigFieldSpec, nullable: false },
         { name: 'json_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
@@ -191,7 +191,7 @@ blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedPerBuyerSignalsPromise_Params',
       packedSize: 24,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'per_buyer_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
@@ -206,7 +206,7 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedBuyerTkvSignalsPromise_Params',
       packedSize: 32,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'buyer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
         { name: 'json_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
@@ -222,9 +222,9 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedBuyerTimeoutsPromise_Params',
       packedSize: 32,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'field', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, nullable: false },
-        { name: 'buyer_timeouts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buyer_timeouts', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,8 +238,8 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedBuyerCurrenciesPromise_Params',
       packedSize: 24,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'per_buyer_currencies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
+        { name: 'per_buyer_currencies', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerCurrenciesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,8 +253,8 @@ blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec
       name: 'blink.mojom.AbortableAdAuction.ResolvedDirectFromSellerSignalsPromise_Params',
       packedSize: 24,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'direct_from_seller_signals', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
+        { name: 'direct_from_seller_signals', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DirectFromSellerSignalsSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromis
       name: 'blink.mojom.AbortableAdAuction.ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_Params',
       packedSize: 24,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'direct_from_seller_signals_header_ad_slot', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -283,7 +283,7 @@ blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_Pa
       name: 'blink.mojom.AbortableAdAuction.ResolvedDeprecatedRenderURLReplacementsPromise_Params',
       packedSize: 24,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'deprecated_render_url_replacements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -298,7 +298,7 @@ blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedAuctionAdResponsePromise_Params',
       packedSize: 24,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -313,7 +313,7 @@ blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec = {
       name: 'blink.mojom.AbortableAdAuction.ResolvedAdditionalBids_Params',
       packedSize: 16,
       fields: [
-        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,7 +491,7 @@ blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
       name: 'blink.mojom.AdAuctionService.CreateAdRequest_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AdRequestConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -519,7 +519,7 @@ blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'ads_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -546,7 +546,7 @@ blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
       name: 'blink.mojom.AdAuctionService.RunAdAuction_Params',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigSpec, nullable: false },
         { name: 'abort_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
@@ -560,7 +560,7 @@ blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
       name: 'blink.mojom.AdAuctionService.RunAdAuction_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true },
         { name: 'aborted_by_script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
@@ -575,7 +575,7 @@ blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
       name: 'blink.mojom.AdAuctionService.JoinInterestGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InterestGroupSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -728,7 +728,7 @@ blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'sellers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionDataConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

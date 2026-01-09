@@ -139,7 +139,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerTestApi.GetForceEnableZoomState_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerTestApi.WaitForSurfaceAnimationManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

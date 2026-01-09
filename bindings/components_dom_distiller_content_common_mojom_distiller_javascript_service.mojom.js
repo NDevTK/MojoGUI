@@ -112,7 +112,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec =
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreThemePref_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.ThemeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsS
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontFamilyPref_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.FontFamilySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

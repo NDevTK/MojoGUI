@@ -512,7 +512,7 @@ filesystem.mojom.Directory_StatFile_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'file_information', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'file_information', packedOffset: 8, packedBitOffset: 0, type: filesystem.mojom.FileInformationSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

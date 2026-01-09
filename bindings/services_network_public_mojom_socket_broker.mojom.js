@@ -81,7 +81,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
       name: 'network.mojom.SocketBroker.CreateTcpSocket_Params',
       packedSize: 16,
       fields: [
-        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
       name: 'network.mojom.SocketBroker.CreateTcpSocket_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false },
         { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -109,7 +109,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
       name: 'network.mojom.SocketBroker.CreateUdpSocket_Params',
       packedSize: 16,
       fields: [
-        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,7 +122,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
       name: 'network.mojom.SocketBroker.CreateUdpSocket_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false },
         { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]

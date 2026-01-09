@@ -975,7 +975,7 @@ blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec = {
       name: 'blink.mojom.FileSystemManager.RegisterBlob_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

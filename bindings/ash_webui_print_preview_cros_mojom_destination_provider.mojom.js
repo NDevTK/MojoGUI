@@ -88,7 +88,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseP
       name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CapabilitiesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

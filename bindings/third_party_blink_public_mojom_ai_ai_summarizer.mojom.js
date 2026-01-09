@@ -43,7 +43,7 @@ blink.mojom.AISummarizerCreateOptionsSpec = {
         { name: 'length', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AISummarizerLengthSpec, nullable: false },
         { name: 'expected_input_languages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'expected_context_languages', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'output_language', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'output_language', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

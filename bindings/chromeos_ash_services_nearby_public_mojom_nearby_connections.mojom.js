@@ -83,7 +83,7 @@ nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = 
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.DiscoveredEndpointInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_Param
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_Params
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSp
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'medium', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'medium', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.MediumSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,7 +367,7 @@ nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadTransferUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.InitialConnectionInfoV3Spec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -485,7 +485,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = 
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -514,7 +514,7 @@ nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = 
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bandwidth_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bandwidth_info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.BandwidthInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -599,7 +599,7 @@ nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -614,7 +614,7 @@ nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec 
       packedSize: 24,
       fields: [
         { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadTransferUpdateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -853,7 +853,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'endpoint_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.AdvertisingOptionsSpec, nullable: false },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -867,7 +867,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec =
       name: 'nearby.connections.mojom.NearbyConnections.StartAdvertising_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -894,7 +894,7 @@ nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = 
       name: 'nearby.connections.mojom.NearbyConnections.StopAdvertising_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -909,7 +909,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.DiscoveryOptionsSpec, nullable: false },
         { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -923,7 +923,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = {
       name: 'nearby.connections.mojom.NearbyConnections.StartDiscovery_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -950,7 +950,7 @@ nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = {
       name: 'nearby.connections.mojom.NearbyConnections.StopDiscovery_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -980,7 +980,7 @@ nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParam
       name: 'nearby.connections.mojom.NearbyConnections.InjectBluetoothEndpoint_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -997,7 +997,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'endpoint_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'endpoint_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionOptionsSpec, nullable: false },
         { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1011,7 +1011,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec 
       name: 'nearby.connections.mojom.NearbyConnections.RequestConnection_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1040,7 +1040,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec =
       name: 'nearby.connections.mojom.NearbyConnections.AcceptConnection_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1068,7 +1068,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec =
       name: 'nearby.connections.mojom.NearbyConnections.RejectConnection_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1096,7 +1096,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParams
       name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromEndpoint_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1112,7 +1112,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'endpoint_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'payload', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1125,7 +1125,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = {
       name: 'nearby.connections.mojom.NearbyConnections.SendPayload_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1153,7 +1153,7 @@ nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = {
       name: 'nearby.connections.mojom.NearbyConnections.CancelPayload_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1180,7 +1180,7 @@ nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec =
       name: 'nearby.connections.mojom.NearbyConnections.StopAllEndpoints_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1208,7 +1208,7 @@ nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponsePara
       name: 'nearby.connections.mojom.NearbyConnections.InitiateBandwidthUpgrade_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1238,7 +1238,7 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpe
       name: 'nearby.connections.mojom.NearbyConnections.RegisterPayloadFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1254,7 +1254,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
       fields: [
         { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false },
-        { name: 'connection_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_options', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionOptionsSpec, nullable: false },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -1268,7 +1268,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpe
       name: 'nearby.connections.mojom.NearbyConnections.RequestConnectionV3_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1297,7 +1297,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec
       name: 'nearby.connections.mojom.NearbyConnections.AcceptConnectionV3_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1325,7 +1325,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec
       name: 'nearby.connections.mojom.NearbyConnections.RejectConnectionV3_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1353,7 +1353,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParams
       name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromDeviceV3_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

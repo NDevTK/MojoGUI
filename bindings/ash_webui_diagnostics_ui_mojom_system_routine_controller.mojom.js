@@ -67,7 +67,7 @@ ash.diagnostics.mojom.RoutineResultInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

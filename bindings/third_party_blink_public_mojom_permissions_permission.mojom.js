@@ -139,7 +139,7 @@ blink.mojom.PermissionDescriptorSpec = {
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionNameSpec, nullable: false },
-        { name: 'extension', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'extension', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorExtensionSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
       name: 'blink.mojom.PermissionObserver.OnPermissionStatusChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -474,7 +474,7 @@ blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
       name: 'blink.mojom.PermissionService.HasPermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -546,7 +546,7 @@ blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
       name: 'blink.mojom.PermissionService.RequestPermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -601,7 +601,7 @@ blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
       name: 'blink.mojom.PermissionService.RevokePermission_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -616,7 +616,7 @@ blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false },
-        { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -632,7 +632,7 @@ blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false },
-        { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]

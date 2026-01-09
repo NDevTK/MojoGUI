@@ -173,7 +173,7 @@ blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnReportException_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedWorkerExceptionDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,7 +187,7 @@ blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = {
       name: 'blink.mojom.SharedWorkerHost.OnFeatureUsed_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebFeatureSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

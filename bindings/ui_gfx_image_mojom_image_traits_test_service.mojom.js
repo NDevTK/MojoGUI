@@ -81,7 +81,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

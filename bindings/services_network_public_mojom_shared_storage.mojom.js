@@ -116,7 +116,7 @@ network.mojom.SharedStorageModifierMethodWithOptionsSpec = {
       name: 'network.mojom.SharedStorageModifierMethodWithOptions',
       packedSize: 24,
       fields: [
-        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodSpec, nullable: false },
         { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true },
       ],
       versions: [{version: 0}]

@@ -108,7 +108,7 @@ extensions.mojom.MessageSpec = {
       name: 'extensions.mojom.Message',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessageDataSpec, nullable: false },
         { name: 'format', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false },
         { name: 'user_gesture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'from_privileged_context', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },

@@ -90,7 +90,7 @@ mirroring.mojom.MirroringService_Start_ParamsSpec = {
       name: 'mirroring.mojom.MirroringService.Start_Params',
       packedSize: 40,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionParametersSpec, nullable: false },
         { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
         { name: 'resource_provider', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },

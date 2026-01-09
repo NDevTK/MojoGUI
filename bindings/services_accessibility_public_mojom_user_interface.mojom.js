@@ -208,7 +208,7 @@ ax.mojom.UserInterface_SetFocusRings_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'focus_rings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'at_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'at_type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistiveTechnologyTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -47,8 +47,8 @@ media_router.mojom.MediaSinkSpec = {
         { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'icon_type', packedOffset: 16, packedBitOffset: 0, type: media_router.mojom.SinkIconTypeSpec, nullable: false },
-        { name: 'provider_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'extra_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'provider_id', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false },
+        { name: 'extra_data', packedOffset: 32, packedBitOffset: 0, type: media_router.mojom.MediaSinkExtraDataSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -368,7 +368,7 @@ media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = {
         { name: 'route', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteSpec, nullable: true },
         { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RoutePresentationConnectionSpec, nullable: true },
         { name: 'error_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -402,7 +402,7 @@ media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = {
         { name: 'route', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteSpec, nullable: true },
         { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RoutePresentationConnectionSpec, nullable: true },
         { name: 'error_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -430,7 +430,7 @@ media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'error_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -583,7 +583,7 @@ media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = {
       name: 'media_router.mojom.MediaRouteProvider.GetState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.ProviderStateSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -757,7 +757,7 @@ media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
       name: 'media_router.mojom.MediaRouter.RegisterMediaRouteProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false },
         { name: 'media_router_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -772,7 +772,7 @@ media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = {
       name: 'media_router.mojom.MediaRouter.OnSinksReceived_Params',
       packedSize: 40,
       fields: [
-        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false },
         { name: 'media_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'sinks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
         { name: 'origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -817,7 +817,7 @@ media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = {
       name: 'media_router.mojom.MediaRouter.OnRoutesUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false },
         { name: 'routes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

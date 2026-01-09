@@ -220,7 +220,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec 
       name: 'ash.enhanced_network_tts.mojom.AudioDataObserver.OnAudioDataReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsResponseSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

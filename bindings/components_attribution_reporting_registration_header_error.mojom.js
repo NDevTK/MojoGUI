@@ -17,7 +17,7 @@ attribution_reporting.mojom.RegistrationHeaderErrorSpec = {
       packedSize: 24,
       fields: [
         { name: 'header_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

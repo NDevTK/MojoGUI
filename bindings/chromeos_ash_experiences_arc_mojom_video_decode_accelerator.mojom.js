@@ -44,7 +44,7 @@ arc.mojom.PictureSpec = {
       name: 'arc.mojom.Picture',
       packedSize: 24,
       fields: [
-        { name: 'crop_rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'crop_rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false },
         { name: 'picture_buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'bitstream_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -60,7 +60,7 @@ arc.mojom.PictureBufferFormatSpec = {
       name: 'arc.mojom.PictureBufferFormat',
       packedSize: 24,
       fields: [
-        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
         { name: 'min_num_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -75,7 +75,7 @@ arc.mojom.VideoDecodeAcceleratorConfigSpec = {
       name: 'arc.mojom.VideoDecodeAcceleratorConfig',
       packedSize: 24,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false },
         { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

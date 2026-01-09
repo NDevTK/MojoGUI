@@ -558,7 +558,7 @@ lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = {
       name: 'lens.mojom.LensSidePanelPage.PageContentTypeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_page_content_type', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.PageContentTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

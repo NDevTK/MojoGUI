@@ -59,7 +59,7 @@ blink.mojom.RemoteInvocationResultSpec = {
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteInvocationErrorSpec, nullable: false },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteInvocationResultValueSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

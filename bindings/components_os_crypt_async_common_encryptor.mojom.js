@@ -16,7 +16,7 @@ os_crypt_async.mojom.KeySpec = {
       name: 'os_crypt_async.mojom.Key',
       packedSize: 24,
       fields: [
-        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.AlgorithmSpec, nullable: false },
         { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
       ],
       versions: [{version: 0}]

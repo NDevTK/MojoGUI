@@ -229,7 +229,7 @@ glic.mojom.GetContextResultWithActionResultCodeSpec = {
       name: 'glic.mojom.GetContextResultWithActionResultCode',
       packedSize: 24,
       fields: [
-        { name: 'get_context_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'get_context_result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
         { name: 'action_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
@@ -264,7 +264,7 @@ glic.mojom.WebClientInitialStateSpec = {
       packedSize: 72,
       fields: [
         { name: 'panel_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PanelStateSpec, nullable: false },
-        { name: 'focused_tab_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focused_tab_data', packedOffset: 8, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false },
         { name: 'hotkey', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'chrome_version', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false },
         { name: 'platform', packedOffset: 32, packedBitOffset: 0, type: glic.mojom.PlatformSpec, nullable: false },
@@ -351,7 +351,7 @@ glic.mojom.ScrollToParamsSpec = {
       name: 'glic.mojom.ScrollToParams',
       packedSize: 40,
       fields: [
-        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ScrollToSelectorSpec, nullable: false },
         { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'highlight', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
@@ -835,7 +835,7 @@ glic.mojom.CaptureRegionResultSpec = {
       name: 'glic.mojom.CaptureRegionResult',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CapturedRegionSpec, nullable: false },
         { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -908,7 +908,7 @@ glic.mojom.ViewChangeRequestSpec = {
       name: 'glic.mojom.ViewChangeRequest',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ViewChangeRequestDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2835,7 +2835,7 @@ glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetContextFromFocusedTab_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2863,7 +2863,7 @@ glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetContextFromTab_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2891,7 +2891,7 @@ glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec = {
       name: 'glic.mojom.WebClientHandler.GetContextForActorFromTab_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3311,7 +3311,7 @@ glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec = {
       name: 'glic.mojom.WebClientHandler.CaptureScreenshot_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CaptureScreenshotResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -4752,7 +4752,7 @@ glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec = {
       name: 'glic.mojom.WebClient.NotifyFocusedTabChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'focused_tab_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'focused_tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.FocusedTabDataSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

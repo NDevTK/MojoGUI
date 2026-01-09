@@ -149,7 +149,7 @@ blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
       name: 'blink.mojom.PushMessaging.Subscribe_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushRegistrationStatusSpec, nullable: false },
         { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
       ],
       versions: [{version: 0}]
@@ -206,7 +206,7 @@ blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
       name: 'blink.mojom.PushMessaging.GetSubscription_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushGetRegistrationStatusSpec, nullable: false },
         { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PushSubscriptionSpec, nullable: true },
       ],
       versions: [{version: 0}]

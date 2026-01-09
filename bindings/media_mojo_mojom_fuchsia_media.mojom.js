@@ -192,7 +192,7 @@ media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = {
       name: 'media.mojom.FuchsiaMediaCodecProvider.CreateVideoDecoder_Params',
       packedSize: 32,
       fields: [
-        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false },
         { name: 'secure_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoDecoderSecureMemoryModeSpec, nullable: false },
         { name: 'stream_processor_request', packedOffset: 16, packedBitOffset: 0, type: media.mojom.StreamProcessorRequestSpec, nullable: false },
       ],

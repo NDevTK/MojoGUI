@@ -225,7 +225,7 @@ arc.mojom.ArcNotificationMessageSpec = {
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'sender_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sender_icon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'sender_icon', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

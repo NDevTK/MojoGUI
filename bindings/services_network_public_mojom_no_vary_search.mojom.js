@@ -28,7 +28,7 @@ network.mojom.NoVarySearchSpec = {
       name: 'network.mojom.NoVarySearch',
       packedSize: 24,
       fields: [
-        { name: 'search_variance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'search_variance', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SearchParamsVarianceSpec, nullable: false },
         { name: 'vary_on_key_order', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

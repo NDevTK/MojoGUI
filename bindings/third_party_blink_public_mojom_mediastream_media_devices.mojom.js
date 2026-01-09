@@ -420,7 +420,7 @@ blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec = {
       name: 'blink.mojom.MediaDevicesDispatcherHost.SetCaptureHandleConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CaptureHandleConfigSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

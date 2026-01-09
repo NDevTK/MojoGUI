@@ -94,7 +94,7 @@ content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Para
       name: 'content_settings.mojom.ContentSettingsAgent.SendRendererContentSettingRules_Params',
       packedSize: 16,
       fields: [
-        { name: 'renderer_settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'renderer_settings', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.RendererContentSettingRulesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

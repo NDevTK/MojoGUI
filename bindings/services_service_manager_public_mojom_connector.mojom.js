@@ -227,7 +227,7 @@ service_manager.mojom.Connector_BindInterface_ParamsSpec = {
       name: 'service_manager.mojom.Connector.BindInterface_Params',
       packedSize: 40,
       fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false },
         { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: service_manager.mojom.BindInterfacePrioritySpec, nullable: false },
@@ -285,7 +285,7 @@ service_manager.mojom.Connector_WarmService_ParamsSpec = {
       name: 'service_manager.mojom.Connector.WarmService_Params',
       packedSize: 16,
       fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

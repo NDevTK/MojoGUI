@@ -16,15 +16,15 @@ viz.mojom.CopyOutputRequestSpec = {
       name: 'viz.mojom.CopyOutputRequest',
       packedSize: 88,
       fields: [
-        { name: 'result_format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'result_destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result_format', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false },
+        { name: 'result_destination', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false },
         { name: 'send_result_delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
         { name: 'scale_from', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
         { name: 'scale_to', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
         { name: 'source', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'area', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
         { name: 'result_selection', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
-        { name: 'blit_request', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'blit_request', packedOffset: 64, packedBitOffset: 0, type: viz.mojom.BlitRequestSpec, nullable: true },
         { name: 'result_sender', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -95,7 +95,7 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
       name: 'viz.mojom.CopyOutputResultSender.SendResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CopyOutputResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

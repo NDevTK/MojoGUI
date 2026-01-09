@@ -21,7 +21,7 @@ viz.mojom.SharedQuadStateSpec = {
         { name: 'visible_quad_layer_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'mask_filter_info', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.MaskFilterInfoSpec, nullable: true },
         { name: 'clip_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
-        { name: 'offset_tag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'offset_tag', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.OffsetTagSpec, nullable: false },
         { name: 'opacity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
         { name: 'blend_mode', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'sorting_context_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

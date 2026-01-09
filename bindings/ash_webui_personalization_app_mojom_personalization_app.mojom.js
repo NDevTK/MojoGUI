@@ -2111,7 +2111,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = 
       name: 'ash.personalization_app.mojom.UserImageObserver.OnUserImageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'user_image', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.UserImageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -3242,7 +3242,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_
       name: 'ash.personalization_app.mojom.KeyboardBacklightObserver.OnBacklightStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'currentBacklightState', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'currentBacklightState', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.CurrentBacklightStateSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

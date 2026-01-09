@@ -348,7 +348,7 @@ blink.mojom.AuctionAdConfigSpec = {
         { name: 'decision_logic_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'trusted_scoring_signals_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
         { name: 'auction_ad_config_non_shared_params', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigNonSharedParamsSpec, nullable: false },
-        { name: 'direct_from_seller_signals', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'direct_from_seller_signals', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec, nullable: false },
         { name: 'per_buyer_experiment_group_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
         { name: 'aggregation_coordinator_origin', packedOffset: 56, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true },
         { name: 'seller_experiment_group_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
@@ -399,7 +399,7 @@ blink.mojom.AdAuctionPerSellerRequestSpec = {
       packedSize: 24,
       fields: [
         { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdAuctionRequestOrErrorSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

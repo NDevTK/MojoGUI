@@ -23,8 +23,8 @@ viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
       name: 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement',
       packedSize: 24,
       fields: [
-        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'view_transition_element_resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false },
+        { name: 'view_transition_element_resource_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

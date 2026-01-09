@@ -16,8 +16,8 @@ network.mojom.ProxyConfigWithAnnotationSpec = {
       name: 'network.mojom.ProxyConfigWithAnnotation',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyConfigSpec, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -1014,7 +1014,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerification
       name: 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver.OnHardwareVerificationResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.HardwareVerificationResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1936,7 +1936,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetStateProperties_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_property_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state_property_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StatePropertyResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

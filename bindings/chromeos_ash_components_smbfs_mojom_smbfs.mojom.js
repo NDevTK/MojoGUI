@@ -91,7 +91,7 @@ smbfs.mojom.MountOptionsSpec = {
       packedSize: 64,
       fields: [
         { name: 'share_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'resolved_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'resolved_host', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.IPAddressSpec, nullable: true },
         { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'workgroup', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'password', packedOffset: 32, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true },
@@ -308,7 +308,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.FilePathSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

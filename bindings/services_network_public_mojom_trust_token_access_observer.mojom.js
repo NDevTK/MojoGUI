@@ -128,7 +128,7 @@ network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
       name: 'network.mojom.TrustTokenAccessObserver.OnTrustTokensAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TrustTokenAccessDetailsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -376,7 +376,7 @@ blink.mojom.AIPageContentIframeDataSpec = {
       packedSize: 24,
       fields: [
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: false },
-        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AIPageContentIframeContentSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -450,7 +450,7 @@ blink.mojom.AIPageContentFormControlDataSpec = {
       name: 'blink.mojom.AIPageContentFormControlData',
       packedSize: 64,
       fields: [
-        { name: 'form_control_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'form_control_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FormControlTypeSpec, nullable: false },
         { name: 'field_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'field_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'select_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },

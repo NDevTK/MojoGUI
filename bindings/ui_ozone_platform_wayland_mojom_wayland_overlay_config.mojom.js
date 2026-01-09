@@ -18,7 +18,7 @@ wl.mojom.WaylandOverlayConfigSpec = {
       fields: [
         { name: 'color_space', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true },
         { name: 'hdr_metadata', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false },
-        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false },
         { name: 'bounds_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'crop_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'damage_region', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },

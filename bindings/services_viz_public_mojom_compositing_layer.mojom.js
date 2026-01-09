@@ -18,7 +18,7 @@ viz.mojom.RarePropertiesSpec = {
       fields: [
         { name: 'filter_quality', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.FilterQualitySpec, nullable: false },
         { name: 'dynamic_range_limit', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.DynamicRangeLimitSpec, nullable: false },
-        { name: 'capture_bounds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capture_bounds', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.RegionCaptureBoundsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -46,7 +46,7 @@ viz.mojom.SurfaceLayerExtraSpec = {
       name: 'viz.mojom.SurfaceLayerExtra',
       packedSize: 32,
       fields: [
-        { name: 'surface_range', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'surface_range', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceRangeSpec, nullable: false },
         { name: 'deadline_in_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
         { name: 'stretch_content_to_fill_bounds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'surface_hit_testable', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
@@ -69,7 +69,7 @@ viz.mojom.TextureLayerExtraSpec = {
       fields: [
         { name: 'uv_top_left', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
         { name: 'uv_bottom_right', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'transferable_resource', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'transferable_resource', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.TransferableResourceSpec, nullable: true },
         { name: 'blend_background_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'force_texture_to_opaque', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
         { name: 'update_transferable_resource', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
@@ -216,7 +216,7 @@ viz.mojom.ViewTransitionContentLayerExtraSpec = {
       name: 'viz.mojom.ViewTransitionContentLayerExtra',
       packedSize: 32,
       fields: [
-        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
         { name: 'max_extents_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
         { name: 'is_live_content_layer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
@@ -263,7 +263,7 @@ viz.mojom.LayerSpec = {
         { name: 'update_rect', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
         { name: 'offset_to_transform_parent', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
         { name: 'rare_properties', packedOffset: 72, packedBitOffset: 0, type: viz.mojom.RarePropertiesSpec, nullable: true },
-        { name: 'layer_extra', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'layer_extra', packedOffset: 80, packedBitOffset: 0, type: viz.mojom.LayerExtraSpec, nullable: true },
         { name: 'transform_tree_index', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'clip_tree_index', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'effect_tree_index', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
@@ -422,11 +422,11 @@ viz.mojom.EffectNodeSpec = {
         { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false },
         { name: 'render_surface_reason', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.RenderSurfaceReasonSpec, nullable: false },
         { name: 'surface_contents_scale', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
-        { name: 'subtree_capture_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subtree_capture_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.SubtreeCaptureIdSpec, nullable: false },
         { name: 'subtree_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'view_transition_element_resource_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'filters', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'backdrop_filters', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'view_transition_element_resource_id', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
+        { name: 'filters', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.FilterOperationsSpec, nullable: false },
+        { name: 'backdrop_filters', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.FilterOperationsSpec, nullable: false },
         { name: 'backdrop_filter_bounds', packedOffset: 64, packedBitOffset: 0, type: skia.mojom.SkPathSpec, nullable: true },
         { name: 'backdrop_mask_element_id', packedOffset: 72, packedBitOffset: 0, type: cc.mojom.ElementIdSpec, nullable: false },
         { name: 'mask_filter_info', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.MaskFilterInfoSpec, nullable: false },

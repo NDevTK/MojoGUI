@@ -23,7 +23,7 @@ network.mojom.FirstPartySetEntrySpec = {
       name: 'network.mojom.FirstPartySetEntry',
       packedSize: 24,
       fields: [
-        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
         { name: 'site_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SiteTypeSpec, nullable: false },
       ],
       versions: [{version: 0}]

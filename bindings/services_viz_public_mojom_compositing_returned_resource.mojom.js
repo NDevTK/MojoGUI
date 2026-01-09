@@ -16,7 +16,7 @@ viz.mojom.ReturnedResourceSpec = {
       name: 'viz.mojom.ReturnedResource',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false },
         { name: 'shared_image_export_result', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SharedImageExportResultSpec, nullable: false },
         { name: 'release_fence', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true },
         { name: 'count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },

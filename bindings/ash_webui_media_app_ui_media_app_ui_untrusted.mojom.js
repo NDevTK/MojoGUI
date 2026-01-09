@@ -186,7 +186,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Resp
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -35,7 +35,7 @@ js_injection.mojom.JavaScriptExecutableSpec = {
       fields: [
         { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
         { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false },
-        { name: 'injection_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'injection_time', packedOffset: 16, packedBitOffset: 0, type: js_injection.mojom.DocumentInjectionTimeSpec, nullable: false },
         { name: 'script_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
         { name: 'js_world', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
@@ -132,7 +132,7 @@ js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = {
       name: 'js_injection.mojom.JsToBrowserMessaging.PostMessage_Params',
       packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: js_injection.mojom.JsWebMessageSpec, nullable: false },
         { name: 'ports', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
@@ -371,7 +371,7 @@ js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = {
       name: 'js_injection.mojom.BrowserToJsMessaging.OnPostMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: js_injection.mojom.JsWebMessageSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

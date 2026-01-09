@@ -254,7 +254,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
       name: 'blink.mojom.NotificationService.GetPermissionStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,8 +269,8 @@ blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
+        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false },
         { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -300,8 +300,8 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false },
+        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

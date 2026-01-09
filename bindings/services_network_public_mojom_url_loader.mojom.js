@@ -113,7 +113,7 @@ network.mojom.URLLoader_SetPriority_ParamsSpec = {
       name: 'network.mojom.URLLoader.SetPriority_Params',
       packedSize: 24,
       fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false },
         { name: 'intra_priority_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
@@ -234,7 +234,7 @@ network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnReceiveEarlyHints_Params',
       packedSize: 16,
       fields: [
-        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EarlyHintsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnReceiveResponse_Params',
       packedSize: 32,
       fields: [
-        { name: 'head', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'head', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
         { name: 'body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'cached_metadata', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
       ],
@@ -264,8 +264,8 @@ network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnReceiveRedirect_Params',
       packedSize: 24,
       fields: [
-        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false },
+        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,7 +308,7 @@ network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
       name: 'network.mojom.URLLoaderClient.OnComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

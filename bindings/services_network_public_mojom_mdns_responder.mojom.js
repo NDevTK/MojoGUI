@@ -81,7 +81,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
       name: 'network.mojom.MdnsResponder.CreateNameForAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

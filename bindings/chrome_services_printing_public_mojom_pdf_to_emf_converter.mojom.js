@@ -208,7 +208,7 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

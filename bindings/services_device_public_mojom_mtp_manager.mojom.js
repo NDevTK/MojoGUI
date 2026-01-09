@@ -81,7 +81,7 @@ device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
       name: 'device.mojom.MtpManagerClient.StorageAttached_Params',
       packedSize: 16,
       fields: [
-        { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.MtpStorageInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,7 +309,7 @@ device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
       name: 'device.mojom.MtpManager.GetStorageInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.MtpStorageInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -336,7 +336,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
       name: 'device.mojom.MtpManager.GetStorageInfoFromDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'storage_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.MtpStorageInfoSpec, nullable: false },
         { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

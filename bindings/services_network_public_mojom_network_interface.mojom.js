@@ -18,8 +18,8 @@ network.mojom.NetworkInterfaceSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'friendly_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false },
+        { name: 'address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
         { name: 'mac_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
         { name: 'interface_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
         { name: 'prefix_length', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },

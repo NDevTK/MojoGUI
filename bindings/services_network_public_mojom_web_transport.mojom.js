@@ -702,7 +702,7 @@ network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = {
       name: 'network.mojom.WebTransportHandshakeClient.OnBeforeConnect_Params',
       packedSize: 16,
       fields: [
-        { name: 'server_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'server_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -716,7 +716,7 @@ network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = {
       name: 'network.mojom.WebTransportHandshakeClient.OnConnectionEstablished_Params',
       packedSize: 40,
       fields: [
-        { name: 'response_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false },
         { name: 'selected_application_protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
         { name: 'initial_stats', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false },
         { name: 'transport', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },

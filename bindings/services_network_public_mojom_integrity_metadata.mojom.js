@@ -16,7 +16,7 @@ network.mojom.IntegrityMetadataSpec = {
       name: 'network.mojom.IntegrityMetadata',
       packedSize: 24,
       fields: [
-        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IntegrityAlgorithmSpec, nullable: false },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]

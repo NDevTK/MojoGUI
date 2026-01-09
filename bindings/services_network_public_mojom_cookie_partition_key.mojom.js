@@ -22,7 +22,7 @@ network.mojom.CookiePartitionKeySpec = {
       name: 'network.mojom.CookiePartitionKey',
       packedSize: 40,
       fields: [
-        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
         { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
         { name: 'ancestor_chain_bit', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AncestorChainBitSpec, nullable: false },
         { name: 'from_script', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },

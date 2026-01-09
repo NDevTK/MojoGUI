@@ -47,7 +47,7 @@ ash.diagnostics.mojom.TouchDeviceInfoSpec = {
       name: 'ash.diagnostics.mojom.TouchDeviceInfo',
       packedSize: 48,
       fields: [
-        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectionTypeSpec, nullable: false },
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceTypeSpec, nullable: false },
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
@@ -507,7 +507,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = 
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnKeyboardConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_keyboard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_keyboard', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyboardInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

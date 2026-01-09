@@ -139,7 +139,7 @@ ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPage.SetTool_Params',
       packedSize: 16,
       fields: [
-        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tool', packedOffset: 0, packedBitOffset: 0, type: ash.annotator.mojom.AnnotatorToolSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

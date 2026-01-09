@@ -367,7 +367,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Respon
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -394,7 +394,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -423,7 +423,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Respon
       name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true },
       ],
       versions: [{version: 0}]
     }

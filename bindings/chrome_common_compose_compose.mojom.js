@@ -49,7 +49,7 @@ compose.mojom.ComposeResponseSpec = {
       name: 'compose.mojom.ComposeResponse',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStatusSpec, nullable: false },
         { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'undo_available', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'redo_available', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },

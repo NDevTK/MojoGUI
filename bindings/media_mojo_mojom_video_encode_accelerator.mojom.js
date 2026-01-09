@@ -43,7 +43,7 @@ media.mojom.VideoEncodeAcceleratorSupportedProfileSpec = {
       name: 'media.mojom.VideoEncodeAcceleratorSupportedProfile',
       packedSize: 72,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false },
         { name: 'min_resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'max_resolution', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
         { name: 'rate_control_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
@@ -291,7 +291,7 @@ media.mojom.BitstreamBufferMetadataSpec = {
       packedSize: 64,
       fields: [
         { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'optional_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'optional_metadata', packedOffset: 8, packedBitOffset: 0, type: media.mojom.OptionalMetadataSpec, nullable: true },
         { name: 'svc_generic', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SVCGenericMetadataSpec, nullable: true },
         { name: 'encoded_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true },
         { name: 'encoded_color_space', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true },
@@ -622,7 +622,7 @@ media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.VideoEncodeAccelerator.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -636,7 +636,7 @@ media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec = {
       name: 'media.mojom.VideoEncodeAccelerator.Encode_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameSpec, nullable: false },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoEncodeOptionsSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -682,7 +682,7 @@ media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_Pa
       name: 'media.mojom.VideoEncodeAccelerator.RequestEncodingParametersChangeWithBitrate_Params',
       packedSize: 32,
       fields: [
-        { name: 'bitrate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bitrate', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BitrateSpec, nullable: false },
         { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true },
         { name: 'framerate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
@@ -869,7 +869,7 @@ media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec = {
       name: 'media.mojom.VideoEncodeAcceleratorClient.NotifyErrorStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -883,7 +883,7 @@ media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec = {
       name: 'media.mojom.VideoEncodeAcceleratorClient.NotifyEncoderInfoChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoEncoderInfoSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

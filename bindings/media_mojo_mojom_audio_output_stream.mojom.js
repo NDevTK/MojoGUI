@@ -341,7 +341,7 @@ media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
       name: 'media.mojom.AudioOutputStreamProvider.Acquire_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
         { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
@@ -417,7 +417,7 @@ media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
       name: 'media.mojom.AudioOutputStreamProviderClient.Created_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false },
         { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]

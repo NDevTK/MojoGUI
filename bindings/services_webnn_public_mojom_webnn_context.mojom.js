@@ -119,7 +119,7 @@ webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateTensor_Params',
       packedSize: 24,
       fields: [
-        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false },
         { name: 'tensor_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
       ],
       versions: [{version: 0}]
@@ -133,7 +133,7 @@ webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateTensor_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_Params',
       packedSize: 32,
       fields: [
-        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'tensor_info', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.TensorInfoSpec, nullable: false },
         { name: 'mailbox', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false },
         { name: 'fence', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
       ],
@@ -162,7 +162,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false },
       ],
       versions: [{version: 0}]
     }

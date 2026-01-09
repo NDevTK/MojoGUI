@@ -27,7 +27,7 @@ paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewCaptureParams',
       packedSize: 64,
       fields: [
-        { name: 'persistence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'persistence', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.RecordingPersistenceSpec, nullable: false },
         { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
         { name: 'geometry_metadata_params', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false },
         { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
@@ -85,8 +85,8 @@ paint_preview.mojom.GeometryMetadataParamsSpec = {
       packedSize: 40,
       fields: [
         { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'clip_x_coord_override', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'clip_y_coord_override', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'clip_x_coord_override', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.ClipCoordOverrideSpec, nullable: false },
+        { name: 'clip_y_coord_override', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.ClipCoordOverrideSpec, nullable: false },
         { name: 'clip_rect_is_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]

@@ -33,7 +33,7 @@ arc.mojom.KeyParameterSpec = {
       name: 'arc.mojom.KeyParameter',
       packedSize: 24,
       fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntegerKeyParamSpec, nullable: false },
         { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]

@@ -258,7 +258,7 @@ media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
       name: 'media.mojom.CdmDocumentService.OnCdmEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmEventSpec, nullable: false },
         { name: 'hresult', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
