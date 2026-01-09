@@ -13,7 +13,7 @@ actor.ui.mojom = actor.ui.mojom || {};
 // Struct: Theme
 actor.ui.mojom.Theme = class {
   constructor(values = {}) {
-    this.scrim_colors = values.scrim_colors !== undefined ? values.scrim_colors : [];
+    this.magic_cursor_color = values.magic_cursor_color !== undefined ? values.magic_cursor_color : [];
   }
 };
 

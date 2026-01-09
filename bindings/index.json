@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-09T03:41:33.315732Z",
+  "generated_at": "2026-01-09T04:01:26.947894Z",
   "interfaces": [
     {
       "name": "GpuChannel",
@@ -3440,7 +3440,6 @@
         "OnBackgroundCleanup",
         "OnBackgrounded",
         "OnForegrounded",
-        "OnMemoryPressure",
         "BeginCATransaction",
         "CommitCATransaction",
         "WriteClangProfilingProfile",
@@ -4734,7 +4733,6 @@
         "OnTrustStoreChanged",
         "OnClientCertStoreChanged",
         "SetEncryptionKey",
-        "OnMemoryPressure",
         "OnPeerToPeerConnectionsCountChange",
         "OnApplicationStateChange",
         "SetTrustTokenKeyCommitments",
@@ -6730,22 +6728,6 @@
       "methods": [
         "Show",
         "Hide"
-      ]
-    },
-    {
-      "name": "MemoryPressureController",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_memory_pressure.mojom.js",
-      "methods": [
-        "AddObserver"
-      ]
-    },
-    {
-      "name": "MemoryPressureObserver",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_memory_pressure.mojom.js",
-      "methods": [
-        "MemoryPressureLevelChanged"
       ]
     },
     {
@@ -23866,11 +23848,6 @@
     {
       "filename": "chromecast_common_mojom_activity_window.mojom.js",
       "source": "chromecast/common/mojom/activity_window.mojom",
-      "module": "chromecast.mojom"
-    },
-    {
-      "filename": "chromecast_common_mojom_memory_pressure.mojom.js",
-      "source": "chromecast/common/mojom/memory_pressure.mojom",
       "module": "chromecast.mojom"
     },
     {

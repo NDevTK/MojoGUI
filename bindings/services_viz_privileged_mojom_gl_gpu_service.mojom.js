@@ -161,11 +161,6 @@ viz.mojom.GpuServicePtr = class {
     // Call: OnForegrounded()
   }
 
-  onMemoryPressure(level) {
-    // Method: OnMemoryPressure
-    // Call: OnMemoryPressure(level)
-  }
-
   beginCATransaction() {
     // Method: BeginCATransaction
     // Call: BeginCATransaction()

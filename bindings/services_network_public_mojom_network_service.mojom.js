@@ -174,11 +174,6 @@ network.mojom.NetworkServicePtr = class {
     // Call: SetEncryptionKey(encryption_key)
   }
 
-  onMemoryPressure(memory_pressure_level) {
-    // Method: OnMemoryPressure
-    // Call: OnMemoryPressure(memory_pressure_level)
-  }
-
   onPeerToPeerConnectionsCountChange(count) {
     // Method: OnPeerToPeerConnectionsCountChange
     // Call: OnPeerToPeerConnectionsCountChange(count)
