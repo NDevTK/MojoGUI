@@ -314,10 +314,17 @@ jobs:
                   '--use_bundled_pylibs',
                   'generate',
                   '-g', 'javascript',
-                  '--output_dir', 'chromium_src', 
+                  '--output_dir', '.', 
+                  # Ensure path starts with ./ if depth is .
+                  # The generator's RelativePath check is strict.
+                  if mojom_path.startswith('chromium_src') and not mojom_path.startswith('./'):
+                      mojom_path_arg = './' + mojom_path
+                  else:
+                      mojom_path_arg = mojom_path
+
                   '--depth', '.', 
                   '--bytecode_path', 'bindings', 
-                  mojom_path 
+                  mojom_path_arg
               ]
               try:
                   subprocess.run(cmd, check=True, capture_output=True)
