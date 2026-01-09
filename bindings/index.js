@@ -1,7 +1,7 @@
 // MojoJS Bindings Index
 // Auto-generated - Do not edit manually
 
-(function(global) {
+(function (global) {
   'use strict';
 
   const MojoBindings = {
@@ -10,21 +10,32 @@
 
     async loadIndex() {
       if (this._indexData) return this._indexData;
-      const response = await fetch('./index.json');
-      this._indexData = await response.json();
-      return this._indexData;
+      try {
+        const response = await fetch('./bindings/index.json');
+        if (!response.ok) {
+          console.warn('Bindings index not found, using demo data');
+          this._indexData = { interfaces: [], files: [] };
+          return this._indexData;
+        }
+        this._indexData = await response.json();
+        return this._indexData;
+      } catch (error) {
+        console.warn('Failed to load bindings index:', error.message);
+        this._indexData = { interfaces: [], files: [] };
+        return this._indexData;
+      }
     },
 
     async getInterfaces() {
       const data = await this.loadIndex();
-      return data.interfaces;
+      return data.interfaces || [];
     },
 
     async searchInterfaces(query) {
       const interfaces = await this.getInterfaces();
       const q = query.toLowerCase();
-      return interfaces.filter(i => 
-        i.name.toLowerCase().includes(q) || 
+      return interfaces.filter(i =>
+        i.name.toLowerCase().includes(q) ||
         i.module.toLowerCase().includes(q)
       );
     },
@@ -35,7 +46,7 @@
       }
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = `./${filename}`;
+        script.src = `./bindings/${filename}`;
         script.onload = () => {
           this._loadedModules[filename] = true;
           resolve(true);
