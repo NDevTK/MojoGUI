@@ -11,6 +11,8 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SubAppsServiceResultCode
 blink.mojom.SubAppsServiceResultCode = {
+  kSuccess: 0,
+  kFailure: 1,
 };
 
 // Struct: SubAppsServiceAddParameters

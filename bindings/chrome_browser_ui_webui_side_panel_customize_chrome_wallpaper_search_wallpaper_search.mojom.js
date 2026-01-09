@@ -12,14 +12,20 @@ side_panel.customize_chrome.mojom = side_panel.customize_chrome.mojom || {};
 
 // Enum: DescriptorDName
 side_panel.customize_chrome.mojom.DescriptorDName = {
+  kYellow: 0,
 };
 
 // Enum: WallpaperSearchStatus
 side_panel.customize_chrome.mojom.WallpaperSearchStatus = {
+  kOk: 0,
+  not: 1,
 };
 
 // Enum: UserFeedback
 side_panel.customize_chrome.mojom.UserFeedback = {
+  kUnspecified: 0,
+  kThumbsUp: 1,
+  kThumbsDown: 2,
 };
 
 // Struct: KeyLabel

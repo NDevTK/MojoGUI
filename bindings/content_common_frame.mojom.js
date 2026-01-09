@@ -15,14 +15,22 @@ content.mojom.ViewWidgetType = {
 
 // Enum: ChildFrameOwnerElementType
 content.mojom.ChildFrameOwnerElementType = {
+  kIframe: 0,
+  kObject: 1,
+  kEmbed: 2,
+  kFrame: 3,
 };
 
 // Enum: FrameDeleteIntention
 content.mojom.FrameDeleteIntention = {
+  and: 0,
+  and: 1,
 };
 
 // Enum: CreateNewWindowStatus
 content.mojom.CreateNewWindowStatus = {
+  e: 0,
+  e: 1,
 };
 
 // Struct: CreateViewParams

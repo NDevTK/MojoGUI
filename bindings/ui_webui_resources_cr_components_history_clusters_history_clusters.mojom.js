@@ -11,18 +11,28 @@ history_clusters.mojom = history_clusters.mojom || {};
 
 // Enum: ClusterAction
 history_clusters.mojom.ClusterAction = {
+  kDeleted: 0,
+  kOpenedInTabGroup: 1,
+  kRelatedSearchClicked: 2,
+  kVisitClicked: 3,
 };
 
 // Enum: RelatedSearchAction
 history_clusters.mojom.RelatedSearchAction = {
+  kClicked: 0,
 };
 
 // Enum: VisitAction
 history_clusters.mojom.VisitAction = {
+  kClicked: 0,
+  kHidden: 1,
+  kDeleted: 2,
 };
 
 // Enum: VisitType
 history_clusters.mojom.VisitType = {
+  kSRP: 0,
+  kNonSRP: 1,
 };
 
 // Struct: QueryResult

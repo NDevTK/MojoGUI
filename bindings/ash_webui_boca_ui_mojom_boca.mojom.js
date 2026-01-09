@@ -12,30 +12,57 @@ ash.boca.mojom = ash.boca.mojom || {};
 
 // Enum: MaterialType
 ash.boca.mojom.MaterialType = {
+  kUnknown: 0,
+  kSharedDriveFile: 1,
+  kYoutubeVideo: 2,
+  kLink: 3,
+  kForm: 4,
 };
 
 // Enum: AssignmentType
 ash.boca.mojom.AssignmentType = {
+  kUnspecified: 0,
+  kAssignment: 1,
+  kShortAnswerQuestion: 2,
+  kMultipleChoiceQuestion: 3,
 };
 
 // Enum: NetworkType
 ash.boca.mojom.NetworkType = {
+  kCellular: 0,
+  kEthernet: 1,
+  kWiFi: 2,
+  kUnsupported: 3,
 };
 
 // Enum: Permission
 ash.boca.mojom.Permission = {
+  kMicrophone: 0,
+  kCamera: 1,
 };
 
 // Enum: PermissionSetting
 ash.boca.mojom.PermissionSetting = {
+  kAllow: 0,
+  kAsk: 1,
+  kBlock: 2,
 };
 
 // Enum: NavigationType
 ash.boca.mojom.NavigationType = {
+  kUnknown: 0,
+  kOpen: 1,
+  kBlock: 2,
+  kDomain: 3,
+  kLimited: 4,
+  kSameDomainOpenOtherDomainLimited: 5,
+  kWorkspace: 6,
 };
 
 // Enum: JoinMethod
 ash.boca.mojom.JoinMethod = {
+  kRoster: 0,
+  kAccessCode: 1,
 };
 
 // Enum: BocaValidPref
@@ -44,14 +71,21 @@ ash.boca.mojom.BocaValidPref = {
 
 // Enum: StudentStatusDetail
 ash.boca.mojom.StudentStatusDetail = {
+  kUnknown: 0,
+  hasn: 1,
 };
 
 // Enum: GetSessionError
 ash.boca.mojom.GetSessionError = {
+  kHTTPError: 0,
+  kEmpty: 1,
 };
 
 // Enum: UpdateSessionError
 ash.boca.mojom.UpdateSessionError = {
+  kInvalid: 0,
+  kHTTPError: 1,
+  kPreconditionFailed: 2,
 };
 
 // Enum: RemoveStudentError
@@ -72,18 +106,26 @@ ash.boca.mojom.SubmitAccessCodeError = {
 
 // Enum: ViewStudentScreenError
 ash.boca.mojom.ViewStudentScreenError = {
+  kHTTPError: 0,
 };
 
 // Enum: EndViewScreenSessionError
 ash.boca.mojom.EndViewScreenSessionError = {
+  kHTTPError: 0,
 };
 
 // Enum: SetViewScreenSessionActiveError
 ash.boca.mojom.SetViewScreenSessionActiveError = {
+  kHTTPError: 0,
 };
 
 // Enum: SpeechRecognitionInstallState
 ash.boca.mojom.SpeechRecognitionInstallState = {
+  kUnknown: 0,
+  kSystemLanguageUnsupported: 1,
+  kInProgress: 2,
+  kFailed: 3,
+  kReady: 4,
 };
 
 // Enum: CreateSessionError
@@ -92,6 +134,11 @@ ash.boca.mojom.CreateSessionError = {
 
 // Enum: CrdConnectionState
 ash.boca.mojom.CrdConnectionState = {
+  kUnknown: 0,
+  kConnecting: 1,
+  kConnected: 2,
+  kDisconnected: 3,
+  kFailed: 4,
 };
 
 // Struct: TabInfo

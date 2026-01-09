@@ -11,6 +11,12 @@ network.mojom = network.mojom || {};
 
 // Enum: DocumentIsolationPolicyValue
 network.mojom.DocumentIsolationPolicyValue = {
+  cross: 0,
+  fetching: 1,
+  depending: 2,
+  fetching: 3,
+  an: 4,
+  depending: 5,
 };
 
 // Struct: DocumentIsolationPolicy

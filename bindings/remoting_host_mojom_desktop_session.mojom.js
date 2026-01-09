@@ -11,38 +11,105 @@ remoting.mojom = remoting.mojom || {};
 
 // Enum: Encoding
 remoting.mojom.Encoding = {
+  kInvalid: 0,
+  kRaw: 1,
+  kOpus: 2,
 };
 
 // Enum: SamplingRate
 remoting.mojom.SamplingRate = {
+  kInvalid: 0,
+  kRate_44100: 1,
+  kRate_48000: 2,
 };
 
 // Enum: BytesPerSample
 remoting.mojom.BytesPerSample = {
+  kInvalid: 0,
+  kBytesPerSample_2: 1,
 };
 
 // Enum: Channels
 remoting.mojom.Channels = {
+  kInvalid: 0,
+  kMono: 1,
+  kStereo: 2,
+  kSurround: 3,
+  kChannel_4_0: 4,
+  kChannel_4_1: 5,
+  kChannel_5_1: 6,
+  kChannel_6_1: 7,
+  kChannel_7_1: 8,
 };
 
 // Enum: MouseButton
 remoting.mojom.MouseButton = {
+  kUndefined: 0,
+  kLeft: 1,
+  kMiddle: 2,
+  kRight: 3,
+  kBack: 4,
+  kForward: 5,
 };
 
 // Enum: TouchEventType
 remoting.mojom.TouchEventType = {
+  kUndefined: 0,
+  kStart: 1,
+  kMove: 2,
+  kEnd: 3,
+  kCancel: 4,
 };
 
 // Enum: UrlForwarderState
 remoting.mojom.UrlForwarderState = {
+  kUnknown: 0,
 };
 
 // Enum: Type
 remoting.mojom.Type = {
+  kUnknown: 0,
+  kCanceled: 1,
+  kUnexpectedError: 2,
+  kProtocolError: 3,
+  kPermissionDenied: 4,
+  kOutOfDiskSpace: 5,
+  kIoError: 6,
+  kNotLoggedIn: 7,
 };
 
 // Enum: ProtocolErrorCode
 remoting.mojom.ProtocolErrorCode = {
+  kOk: 0,
+  kPeerIsOffline: 1,
+  kSessionRejected: 2,
+  kIncompatibleProtocol: 3,
+  kAuthenticationFailed: 4,
+  kInvalidAccount: 5,
+  kChannelConnectionError: 6,
+  kSignalingError: 7,
+  kSignalingTimeout: 8,
+  kHostOverload: 9,
+  kMaxSessionLength: 10,
+  kHostConfigurationError: 11,
+  kUnknownError: 12,
+  kElevationError: 13,
+  kHostCertificateError: 14,
+  kHostRegistrationError: 15,
+  kExistingAdminSession: 16,
+  kAuthzPolicyCheckFailed: 17,
+  kDisallowedByPolicy: 18,
+  kLocationAuthzPolicyCheckFailed: 19,
+  kUnauthorizedAccount: 20,
+  kReauthzPolicyCheckFailed: 21,
+  kNoCommonAuthMethod: 22,
+  kLoginScreenNotSupported: 23,
+  kSessionPoliciesChanged: 24,
+  kUnexpectedAuthenticatorError: 25,
+  kInvalidState: 26,
+  kInvalidArgument: 27,
+  kNetworkFailure: 28,
+  kOperationTimeout: 29,
 };
 
 // Struct: AudioPacket

@@ -11,18 +11,51 @@ downloads.mojom = downloads.mojom || {};
 
 // Enum: DangerType
 downloads.mojom.DangerType = {
+  kDangerousFile: 0,
+  kDangerousUrl: 1,
+  kDangerousContent: 2,
+  kCookieTheft: 3,
+  kUncommonContent: 4,
+  kDangerousHost: 5,
+  kPotentiallyUnwanted: 6,
+  kAsyncScanning: 7,
+  kAsyncLocalPasswordScanning: 8,
+  kBlockedPasswordProtected: 9,
+  kBlockedTooLarge: 10,
+  kSensitiveContentWarning: 11,
+  kSensitiveContentBlock: 12,
+  kDeepScannedFailed: 13,
+  kDeepScannedSafe: 14,
+  kDeepScannedOpenedDangerous: 15,
+  kBlockedScanFailed: 16,
+  kForcedSaveToGdrive: 17,
 };
 
 // Enum: TailoredWarningType
 downloads.mojom.TailoredWarningType = {
+  kNoApplicableTailoredWarningType: 0,
+  kCookieTheft: 1,
+  kSuspiciousArchive: 2,
 };
 
 // Enum: State
 downloads.mojom.State = {
+  kInProgress: 0,
+  kCancelled: 1,
+  kComplete: 2,
+  kPaused: 3,
+  kDangerous: 4,
+  kInterrupted: 5,
+  kInsecure: 6,
+  kPromptForScanning: 7,
+  kPromptForLocalPasswordScanning: 8,
 };
 
 // Enum: SafeBrowsingState
 downloads.mojom.SafeBrowsingState = {
+  kNoSafeBrowsing: 0,
+  kStandardProtection: 1,
+  kEnhancedProtection: 2,
 };
 
 // Struct: Data

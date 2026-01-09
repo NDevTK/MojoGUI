@@ -11,10 +11,16 @@ printing.mojom = printing.mojom || {};
 
 // Enum: Status
 printing.mojom.Status = {
+  kSuccess: 0,
+  kHandleMapError: 1,
+  kContentFormatError: 2,
+  kCompositingFailure: 3,
 };
 
 // Enum: DocumentType
 printing.mojom.DocumentType = {
+  kPDF: 0,
+  kXPS: 1,
 };
 
 // Interface: PrintCompositor

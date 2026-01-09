@@ -11,6 +11,9 @@ password_manager.mojom = password_manager.mojom || {};
 
 // Enum: Status
 password_manager.mojom.Status = {
+  kOK: 0,
+  kSyntaxError: 1,
+  kSemanticError: 2,
 };
 
 // Struct: CSVPasswordSequence

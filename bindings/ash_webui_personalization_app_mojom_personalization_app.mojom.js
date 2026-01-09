@@ -16,38 +16,73 @@ ash.personalization_app.mojom.WallpaperLayout = {
 
 // Enum: WallpaperType
 ash.personalization_app.mojom.WallpaperType = {
+  kDaily: 0,
+  can: 1,
+  which: 2,
 };
 
 // Enum: OnlineImageType
 ash.personalization_app.mojom.OnlineImageType = {
+  kUnknown: 0,
+  kLight: 1,
+  kDark: 2,
+  kPreview: 3,
+  kLateAfternoon: 4,
 };
 
 // Enum: GooglePhotosEnablementState
 ash.personalization_app.mojom.GooglePhotosEnablementState = {
+  or: 0,
 };
 
 // Enum: StaticColor
 ash.personalization_app.mojom.StaticColor = {
+  kUnknown: 0,
+  kGoogleBlue: 1,
+  kLightPink: 2,
+  kDarkGreen: 3,
+  kLightPurple: 4,
 };
 
 // Enum: AmbientTheme
 ash.personalization_app.mojom.AmbientTheme = {
+  kSlideshow: 0,
+  kFeelTheBreeze: 1,
+  kFloatOnBy: 2,
+  kVideo: 3,
 };
 
 // Enum: TopicSource
 ash.personalization_app.mojom.TopicSource = {
+  but: 0,
+  etc: 1,
 };
 
 // Enum: TemperatureUnit
 ash.personalization_app.mojom.TemperatureUnit = {
+  kFahrenheit: 0,
+  kCelsius: 1,
 };
 
 // Enum: AmbientUiVisibility
 ash.personalization_app.mojom.AmbientUiVisibility = {
+  kShouldShow: 0,
+  kPreview: 1,
+  kHidden: 2,
+  kClosed: 3,
 };
 
 // Enum: BacklightColor
 ash.personalization_app.mojom.BacklightColor = {
+  kWallpaper: 0,
+  kWhite: 1,
+  kRed: 2,
+  kYellow: 3,
+  kGreen: 4,
+  kBlue: 5,
+  kIndigo: 6,
+  kPurple: 7,
+  kRainbow: 8,
 };
 
 // Struct: WallpaperCollection

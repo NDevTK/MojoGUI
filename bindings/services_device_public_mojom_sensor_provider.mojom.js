@@ -17,14 +17,19 @@ device.mojom.SensorCreationResult = {
 
 // Enum: CreateVirtualSensorResult
 device.mojom.CreateVirtualSensorResult = {
+  kSuccess: 0,
+  kSensorTypeAlreadyOverridden: 1,
 };
 
 // Enum: UpdateVirtualSensorResult
 device.mojom.UpdateVirtualSensorResult = {
+  kSuccess: 0,
+  kSensorTypeNotOverridden: 1,
 };
 
 // Enum: GetVirtualSensorInformationError
 device.mojom.GetVirtualSensorInformationError = {
+  kSensorTypeNotOverridden: 0,
 };
 
 // Struct: SensorInitParams

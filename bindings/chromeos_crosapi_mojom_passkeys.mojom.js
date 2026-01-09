@@ -11,6 +11,8 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: UserVerificationRequirement
 crosapi.mojom.UserVerificationRequirement = {
+  kDiscouraged: 0,
+  kRequired: 1,
 };
 
 // Enum: PasskeyCreationError

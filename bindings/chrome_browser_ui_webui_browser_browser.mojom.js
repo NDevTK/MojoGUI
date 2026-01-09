@@ -15,15 +15,15 @@ webui_browser.mojom.FullscreenContext = {
 
 // Enum: SecurityIcon
 webui_browser.mojom.SecurityIcon = {
-  H: 0,
-  S: 1,
-  N: 2,
-  N: 3,
-  B: 4,
-  D: 5,
-  P: 6,
-  E: 7,
-  O: 8,
+  HttpChromeRefresh: 0,
+  SecurePageInfoChromeRefresh: 1,
+  NoEncryption: 2,
+  NotSecureWarningChromeRefresh: 3,
+  BusinessChromeRefresh: 4,
+  DangerousChromeRefresh: 5,
+  ProductChromeRefresh: 6,
+  ExtensionChromeRefresh: 7,
+  OfflinePin: 8,
 };
 
 // Interface: PageHandlerFactory

@@ -11,10 +11,17 @@ shopping_service.mojom = shopping_service.mojom || {};
 
 // Enum: PriceBucket
 shopping_service.mojom.PriceBucket = {
+  kUnknown: 0,
+  kLow: 1,
+  kTypical: 2,
+  kHigh: 3,
 };
 
 // Enum: UserFeedback
 shopping_service.mojom.UserFeedback = {
+  kUnspecified: 0,
+  kThumbsUp: 1,
+  kThumbsDown: 2,
 };
 
 // Struct: PricePoint

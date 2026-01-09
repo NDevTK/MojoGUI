@@ -11,6 +11,10 @@ network.mojom = network.mojom || {};
 
 // Enum: CrossOriginEmbedderPolicyValue
 network.mojom.CrossOriginEmbedderPolicyValue = {
+  cross: 0,
+  fetching: 1,
+  fetching: 2,
+  an: 3,
 };
 
 // Struct: CrossOriginEmbedderPolicy

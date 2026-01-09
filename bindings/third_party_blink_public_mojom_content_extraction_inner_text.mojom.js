@@ -11,6 +11,7 @@ blink.mojom = blink.mojom || {};
 
 // Enum: NodeLocationType
 blink.mojom.NodeLocationType = {
+  kStart: 0,
 };
 
 // Struct: InnerTextFrame

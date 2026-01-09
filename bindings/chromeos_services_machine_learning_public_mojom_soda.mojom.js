@@ -12,10 +12,13 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: OptionalBool
 chromeos.machine_learning.mojom.OptionalBool = {
+  kFalse: 0,
+  kTrue: 1,
 };
 
 // Enum: SodaRecognitionMode
 chromeos.machine_learning.mojom.SodaRecognitionMode = {
+  kIme: 0,
 };
 
 // Enum: SpeakerDiarizationMode
@@ -24,14 +27,17 @@ chromeos.machine_learning.mojom.SpeakerDiarizationMode = {
 
 // Enum: EndpointerType
 chromeos.machine_learning.mojom.EndpointerType = {
+  but: 0,
 };
 
 // Enum: EndpointReason
 chromeos.machine_learning.mojom.EndpointReason = {
+  unknown: 0,
 };
 
 // Enum: AsrSwitchResult
 chromeos.machine_learning.mojom.AsrSwitchResult = {
+  but: 0,
 };
 
 // Struct: SodaMultilangConfig

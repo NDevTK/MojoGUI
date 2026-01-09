@@ -12,6 +12,8 @@ content.optional_numerics_unittest.mojom = content.optional_numerics_unittest.mo
 
 // Enum: RegularEnum
 content.optional_numerics_unittest.mojom.RegularEnum = {
+  kFoo: 0,
+  kBar: 1,
 };
 
 // Struct: OptionalNumericsStruct

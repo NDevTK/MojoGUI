@@ -11,14 +11,27 @@ subresource_filter.mojom = subresource_filter.mojom || {};
 
 // Enum: ActivationLevel
 subresource_filter.mojom.ActivationLevel = {
+  kDisabled: 0,
+  kDryRun: 1,
+  kEnabled: 2,
 };
 
 // Enum: AdsViolation
 subresource_filter.mojom.AdsViolation = {
+  kMobileAdDensityByHeightAbove30: 0,
+  kHeavyAdsInterventionAtHostLimit: 1,
+  kLargeStickyAd: 2,
+  kOverlayPopupAd: 3,
 };
 
 // Enum: SubresourceFilterDisabledReason
 subresource_filter.mojom.SubresourceFilterDisabledReason = {
+  the: 0,
+  or: 1,
+  chrome: 2,
+  due: 3,
+  e: 4,
+  which: 5,
 };
 
 // Struct: ActivationState

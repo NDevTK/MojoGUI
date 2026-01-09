@@ -11,14 +11,24 @@ cros.mojom = cros.mojom || {};
 
 // Enum: LidState
 cros.mojom.LidState = {
+  kOpen: 0,
 };
 
 // Enum: DeviceType
 cros.mojom.DeviceType = {
+  kAudio: 0,
+  e: 1,
+  microphone: 2,
+  e: 3,
+  webcam: 4,
 };
 
 // Enum: ClockwiseRotation
 cros.mojom.ClockwiseRotation = {
+  kRotate0: 0,
+  kRotate90: 1,
+  kRotate180: 2,
+  kRotate270: 3,
 };
 
 // Interface: CrosDisplayObserver

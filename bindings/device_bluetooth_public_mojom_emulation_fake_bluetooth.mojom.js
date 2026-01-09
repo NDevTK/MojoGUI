@@ -18,18 +18,30 @@ bluetooth.mojom.CentralState = {
 
 // Enum: WriteType
 bluetooth.mojom.WriteType = {
+  kNone: 0,
+  kWriteDefaultDeprecated: 1,
+  kWriteWithResponse: 2,
+  kWriteWithoutResponse: 3,
 };
 
 // Enum: GATTOperationType
 bluetooth.mojom.GATTOperationType = {
+  kConnect: 0,
+  kDiscovery: 1,
 };
 
 // Enum: CharacteristicOperationType
 bluetooth.mojom.CharacteristicOperationType = {
+  kRead: 0,
+  kWrite: 1,
+  kSubscribeToNotifications: 2,
+  kUnsubscribeFromNotifications: 3,
 };
 
 // Enum: DescriptorOperationType
 bluetooth.mojom.DescriptorOperationType = {
+  kRead: 0,
+  kWrite: 1,
 };
 
 // Struct: Appearance

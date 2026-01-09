@@ -11,6 +11,8 @@ arc.mojom = arc.mojom || {};
 
 // Enum: RoundedWindowCompatStrategy
 arc.mojom.RoundedWindowCompatStrategy = {
+  kBottomOnlyGesture: 0,
+  kLeftRightBottomGesture: 1,
 };
 
 // Struct: FeatureFlags

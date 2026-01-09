@@ -12,14 +12,21 @@ ash.ime.mojom = ash.ime.mojom || {};
 
 // Enum: CommitTextCursorBehavior
 ash.ime.mojom.CommitTextCursorBehavior = {
+  kMoveCursorBeforeText: 0,
 };
 
 // Enum: CompositionSpanStyle
 ash.ime.mojom.CompositionSpanStyle = {
+  this: 0,
+  distinguishing: 1,
+  this: 2,
 };
 
 // Enum: InputMethodApiOperation
 ash.ime.mojom.InputMethodApiOperation = {
+  kCommitText: 0,
+  kSetCompositionText: 1,
+  kDeleteSurroundingText: 2,
 };
 
 // Enum: KoreanAction
@@ -28,6 +35,10 @@ ash.ime.mojom.KoreanAction = {
 
 // Enum: HistogramBucketType
 ash.ime.mojom.HistogramBucketType = {
+  buckets: 0,
+  infinity: 1,
+  buckets: 2,
+  infinity: 3,
 };
 
 // Struct: CompositionSpan

@@ -11,10 +11,15 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: ChromeKioskInstallResult
 crosapi.mojom.ChromeKioskInstallResult = {
+  kiosk: 0,
+  network: 1,
+  but: 2,
+  but: 3,
 };
 
 // Enum: ChromeKioskLaunchResult
 crosapi.mojom.ChromeKioskLaunchResult = {
+  but: 0,
 };
 
 // Struct: AppInstallParams

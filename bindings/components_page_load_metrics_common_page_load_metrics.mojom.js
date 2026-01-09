@@ -11,6 +11,7 @@ page_load_metrics.mojom = page_load_metrics.mojom || {};
 
 // Enum: CacheType
 page_load_metrics.mojom.CacheType = {
+  kNotCached: 0,
 };
 
 // Struct: DocumentTiming

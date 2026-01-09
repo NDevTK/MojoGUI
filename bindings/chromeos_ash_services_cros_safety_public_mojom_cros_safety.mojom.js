@@ -16,6 +16,7 @@ ash.cros_safety.mojom.SafetyClassifierVerdict = {
 
 // Enum: SafetyRuleset
 ash.cros_safety.mojom.SafetyRuleset = {
+  kMantis: 0,
 };
 
 // Interface: CloudSafetySession

@@ -11,10 +11,40 @@ device.mojom = device.mojom || {};
 
 // Enum: SmartCardSuccess
 device.mojom.SmartCardSuccess = {
+  kOk: 0,
 };
 
 // Enum: SmartCardError
 device.mojom.SmartCardError = {
+  kResetCard: 0,
+  kUnpoweredCard: 1,
+  kUnresponsiveCard: 2,
+  kUnsupportedCard: 3,
+  kReaderUnavailable: 4,
+  kSharingViolation: 5,
+  kNotTransacted: 6,
+  kNoSmartcard: 7,
+  kProtoMismatch: 8,
+  kSystemCancelled: 9,
+  kNotReady: 10,
+  kCancelled: 11,
+  kInsufficientBuffer: 12,
+  kInvalidHandle: 13,
+  kInvalidParameter: 14,
+  kInvalidValue: 15,
+  kNoMemory: 16,
+  kTimeout: 17,
+  kUnknownReader: 18,
+  kUnsupportedFeature: 19,
+  kNoReadersAvailable: 20,
+  kServiceStopped: 21,
+  kNoService: 22,
+  kCommError: 23,
+  kInternalError: 24,
+  kUnknownError: 25,
+  kServerTooBusy: 26,
+  kUnexpected: 27,
+  kShutdown: 28,
 };
 
 // Enum: SmartCardShareMode

@@ -11,6 +11,12 @@ blink.mojom = blink.mojom || {};
 
 // Enum: WellKnownDirectory
 blink.mojom.WellKnownDirectory = {
+  kDirDesktop: 0,
+  kDirDocuments: 1,
+  kDirDownloads: 2,
+  kDirMusic: 3,
+  kDirPictures: 4,
+  kDirVideos: 5,
 };
 
 // Struct: ChooseFileSystemEntryAcceptsOption

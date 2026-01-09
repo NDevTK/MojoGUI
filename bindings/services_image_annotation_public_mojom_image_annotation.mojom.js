@@ -11,10 +11,17 @@ image_annotation.mojom = image_annotation.mojom || {};
 
 // Enum: AnnotateImageError
 image_annotation.mojom.AnnotateImageError = {
+  kCanceled: 0,
+  kFailure: 1,
+  kAdult: 2,
 };
 
 // Enum: AnnotationType
 image_annotation.mojom.AnnotationType = {
+  kOcr: 0,
+  kLabel: 1,
+  kCaption: 2,
+  kIcon: 3,
 };
 
 // Struct: Annotation

@@ -15,6 +15,8 @@ chrome.mojom.ImageFormat = {
   PNG: 1,
   WEBP: 2,
   JPG: 3,
+  if: 4,
+  encode: 5,
 };
 
 // Interface: ChromeRenderFrame

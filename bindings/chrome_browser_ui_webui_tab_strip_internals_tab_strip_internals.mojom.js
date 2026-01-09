@@ -15,6 +15,8 @@ tab_strip_internals.mojom.Type = {
 
 // Enum: Layout
 tab_strip_internals.mojom.Layout = {
+  kVertical: 0,
+  kHorizontal: 1,
 };
 
 // Struct: Container

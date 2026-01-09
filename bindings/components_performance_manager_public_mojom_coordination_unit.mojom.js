@@ -11,6 +11,10 @@ performance_manager.mojom = performance_manager.mojom || {};
 
 // Enum: CoordinationUnitType
 performance_manager.mojom.CoordinationUnitType = {
+  kFrame: 0,
+  kPage: 1,
+  kProcess: 2,
+  kSystem: 3,
 };
 
 // Interface: DocumentCoordinationUnit

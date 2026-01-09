@@ -15,15 +15,22 @@ on_device_model.mojom.Token = {
 
 // Enum: Priority
 on_device_model.mojom.Priority = {
+  the: 0,
 };
 
 // Enum: PerformanceClass
 on_device_model.mojom.PerformanceClass = {
+  kLow: 0,
+  kMedium: 1,
+  kHigh: 2,
+  kVeryHigh: 3,
 };
 
 // Enum: LoadModelResult
 on_device_model.mojom.LoadModelResult = {
-  E: 0,
+  kSuccess: 0,
+  kGpuBlocked: 1,
+  EnableIf: 2,
 };
 
 // Struct: AdaptationAssets

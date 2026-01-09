@@ -21,18 +21,42 @@ arc.mojom.GetNetworksRequestType = {
 
 // Enum: ConnectionStateType
 arc.mojom.ConnectionStateType = {
+  or: 0,
+  or: 1,
+  but: 2,
+  kStateIdle: 3,
+  but: 4,
+  and: 5,
 };
 
 // Enum: EapMethod
 arc.mojom.EapMethod = {
+  kNone: 0,
+  kLeap: 1,
+  kPeap: 2,
+  kTls: 3,
+  kTtls: 4,
 };
 
 // Enum: EapPhase2Method
 arc.mojom.EapPhase2Method = {
+  kNone: 0,
+  kPap: 1,
+  kMschap: 2,
+  kMschapv2: 3,
 };
 
 // Enum: KeyManagement
 arc.mojom.KeyManagement = {
+  kNone: 0,
+  kIeee8021X: 1,
+  kFtEap: 2,
+  kFtPsk: 3,
+  kFtSae: 4,
+  kWpaEap: 5,
+  kWpaEapSha256: 6,
+  kWpaPsk: 7,
+  kSae: 8,
 };
 
 // Enum: IPAddressType
@@ -59,26 +83,42 @@ arc.mojom.MeteredOverride = {
 
 // Enum: Flag
 arc.mojom.Flag = {
+  b: 0,
 };
 
 // Enum: WifiBand
 arc.mojom.WifiBand = {
+  k2Ghz: 0,
+  k5Ghz: 1,
+  k6Ghz: 2,
+  k60Ghz: 3,
 };
 
 // Enum: LohsStatus
 arc.mojom.LohsStatus = {
+  kSuccess: 0,
+  kErrorGeneric: 1,
+  kErrorIncompatibleMode: 2,
+  kErrorTetheringDisallowed: 3,
+  but: 4,
 };
 
 // Enum: IpProtocol
 arc.mojom.IpProtocol = {
+  kTcp: 0,
+  kUdp: 1,
 };
 
 // Enum: SocketEvent
 arc.mojom.SocketEvent = {
+  kOpen: 0,
+  kClose: 1,
 };
 
 // Enum: QosCategory
 arc.mojom.QosCategory = {
+  kRealtimeInteractive: 0,
+  kMultimediaConferencing: 1,
 };
 
 // Struct: VisibleNetworkDetails

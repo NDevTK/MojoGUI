@@ -11,10 +11,16 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 // Enum: KAnonymityBidMode
 auction_worklet.mojom.KAnonymityBidMode = {
+  kNone: 0,
+  but: 1,
 };
 
 // Enum: KAnonymityStatus
 auction_worklet.mojom.KAnonymityStatus = {
+  kUnknown: 0,
+  kBelowThreshold: 1,
+  kPassingNotEnforced: 2,
+  kPassingAndEnforced: 3,
 };
 
 // Enum: BidRole
@@ -23,6 +29,11 @@ auction_worklet.mojom.BidRole = {
 
 // Enum: ReportingIdField
 auction_worklet.mojom.ReportingIdField = {
+  kNone: 0,
+  kInterestGroupName: 1,
+  kBuyerReportingId: 2,
+  kBuyerAndSellerReportingId: 3,
+  kSelectedBuyerAndSellerReportingId: 4,
 };
 
 // Struct: KAnonKey

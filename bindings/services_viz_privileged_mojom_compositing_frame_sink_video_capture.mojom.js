@@ -11,7 +11,10 @@ viz.mojom = viz.mojom || {};
 
 // Enum: BufferFormatPreference
 viz.mojom.BufferFormatPreference = {
-  DMA: 0,
+  kDefault: 0,
+  kPreferGpuMemoryBuffer: 1,
+  DMA: 2,
+  allowing: 3,
 };
 
 // Struct: VideoCaptureTarget

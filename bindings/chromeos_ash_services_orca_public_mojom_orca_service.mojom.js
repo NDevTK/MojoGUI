@@ -12,14 +12,25 @@ ash.orca.mojom = ash.orca.mojom || {};
 
 // Enum: PresetTextQueryType
 ash.orca.mojom.PresetTextQueryType = {
+  kShorten: 0,
+  kElaborate: 1,
+  kRephrase: 2,
+  kFormalize: 3,
+  kEmojify: 4,
 };
 
 // Enum: MetricEvent
 ash.orca.mojom.MetricEvent = {
+  kRefineRequest: 0,
+  kFeedbackThumbsUp: 1,
+  kFeedbackThumbsDown: 2,
+  kReturnToPreviousSuggestions: 3,
+  kWebUIRequest: 4,
 };
 
 // Enum: TextQueryErrorCode
 ash.orca.mojom.TextQueryErrorCode = {
+  kInvalidArgument: 0,
 };
 
 // Struct: PresetTextQuery

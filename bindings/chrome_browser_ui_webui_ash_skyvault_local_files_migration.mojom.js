@@ -12,10 +12,15 @@ policy.local_user_files.mojom = policy.local_user_files.mojom || {};
 
 // Enum: CloudProvider
 policy.local_user_files.mojom.CloudProvider = {
+  kGoogleDrive: 0,
+  kOneDrive: 1,
+  kDelete: 2,
 };
 
 // Enum: TimeUnit
 policy.local_user_files.mojom.TimeUnit = {
+  kMinutes: 0,
+  kHours: 1,
 };
 
 // Struct: TimeUnitAndValue

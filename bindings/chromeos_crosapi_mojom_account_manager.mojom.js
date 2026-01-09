@@ -11,22 +11,44 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: AccountType
 crosapi.mojom.AccountType = {
+  kGaia: 0,
 };
 
 // Enum: State
 crosapi.mojom.State = {
+  kNone: 0,
+  kInvalidGaiaCredentials: 1,
+  kAccountNotFound: 2,
+  kConnectionFailed: 3,
+  kServiceUnavailable: 4,
+  kRequestCanceled: 5,
+  kUnexpectedServiceResponse: 6,
+  kServiceError: 7,
 };
 
 // Enum: InvalidGaiaCredentialsReason
 crosapi.mojom.InvalidGaiaCredentialsReason = {
+  kCredentialsRejectedByServer: 0,
+  kCredentialsRejectedByClient: 1,
+  kCredentialsMissing: 2,
 };
 
 // Enum: ScopeLimitedUnrecoverableErrorReason
 crosapi.mojom.ScopeLimitedUnrecoverableErrorReason = {
+  kInvalidGrantRaptError: 0,
+  kInvalidScope: 1,
+  kRestrictedClient: 2,
+  kAdminPolicyEnforced: 3,
+  kRemoteConsentResolutionRequired: 4,
+  kAccessDenied: 5,
 };
 
 // Enum: Status
 crosapi.mojom.Status = {
+  kSuccess: 0,
+  kAlreadyInProgress: 1,
+  kCancelledByUser: 2,
+  kNetworkError: 3,
 };
 
 // Struct: AccountKey

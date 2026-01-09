@@ -11,6 +11,9 @@ drivefs.mojom = drivefs.mojom || {};
 
 // Enum: ExtensionConnectionStatus
 drivefs.mojom.ExtensionConnectionStatus = {
+  kSuccess: 0,
+  kExtensionNotFound: 1,
+  kFeatureNotEnabled: 2,
 };
 
 // Struct: ExtensionConnectionParams

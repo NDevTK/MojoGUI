@@ -11,6 +11,8 @@ device.mojom = device.mojom || {};
 
 // Enum: PressureManagerAddClientResult
 device.mojom.PressureManagerAddClientResult = {
+  kNotSupported: 0,
+  kOk: 1,
 };
 
 // Struct: VirtualPressureSourceMetadata

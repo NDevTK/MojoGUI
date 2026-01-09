@@ -11,14 +11,20 @@ handwriting.mojom = handwriting.mojom || {};
 
 // Enum: HandwritingRecognitionType
 handwriting.mojom.HandwritingRecognitionType = {
+  kText: 0,
 };
 
 // Enum: HandwritingInputType
 handwriting.mojom.HandwritingInputType = {
+  kMouse: 0,
+  kStylus: 1,
+  kTouch: 2,
 };
 
 // Enum: CreateHandwritingRecognizerResult
 handwriting.mojom.CreateHandwritingRecognizerResult = {
+  kOk: 0,
+  kError: 1,
 };
 
 // Struct: HandwritingPoint

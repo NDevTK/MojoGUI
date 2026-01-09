@@ -10,6 +10,9 @@ var mojom = mojom || {};
 
 // Enum: Type
 mojom.Type = {
+  kActive: 0,
+  kBackForwardCache: 1,
+  kPrerender: 2,
 };
 
 // Struct: ProcessCountInfo

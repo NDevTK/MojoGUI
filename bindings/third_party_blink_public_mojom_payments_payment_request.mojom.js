@@ -33,7 +33,8 @@ payments.mojom.HasEnrolledInstrumentQueryResult = {
   HAS_ENROLLED_INSTRUMENT: 0,
   HAS_NO_ENROLLED_INSTRUMENT: 1,
   QUERY_QUOTA_EXCEEDED: 2,
-  WARNING_HAS_NO_ENROLLED_INSTRUMENT: 3,
+  but: 3,
+  WARNING_HAS_NO_ENROLLED_INSTRUMENT: 4,
 };
 
 // Enum: AndroidPayEnvironment

@@ -11,18 +11,28 @@ media.mojom = media.mojom || {};
 
 // Enum: ConfidenceLevel
 media.mojom.ConfidenceLevel = {
+  kUnknown: 0,
+  kNotConfident: 1,
+  kConfident: 2,
+  kHighlyConfident: 3,
 };
 
 // Enum: AsrSwitchResult
 media.mojom.AsrSwitchResult = {
+  kDefaultNoSwitch: 0,
+  kSwitchSucceeded: 1,
+  kSwitchFailed: 2,
+  kSwitchSkipedNoLp: 3,
 };
 
 // Enum: SpeechRecognitionMode
 media.mojom.SpeechRecognitionMode = {
+  kUnknown: 0,
 };
 
 // Enum: RecognizerClientType
 media.mojom.RecognizerClientType = {
+  kUnknown: 0,
 };
 
 // Struct: HypothesisParts

@@ -15,16 +15,20 @@ nearby_share.mojom.SelectShareTargetResult = {
 
 // Enum: TransferStatus
 nearby_share.mojom.TransferStatus = {
+  kUnknown: 0,
+  or: 1,
 };
 
 // Enum: StartDiscoveryResult
 nearby_share.mojom.StartDiscoveryResult = {
-  W: 0,
+  Wi: 0,
+  etc: 1,
 };
 
 // Enum: RegisterReceiveSurfaceResult
 nearby_share.mojom.RegisterReceiveSurfaceResult = {
-  W: 0,
+  Wi: 0,
+  etc: 1,
 };
 
 // Struct: PayloadPreview

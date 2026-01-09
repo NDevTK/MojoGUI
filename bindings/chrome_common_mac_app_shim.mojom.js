@@ -11,10 +11,14 @@ chrome.mojom = chrome.mojom || {};
 
 // Enum: AppShimLaunchType
 chrome.mojom.AppShimLaunchType = {
+  but: 0,
 };
 
 // Enum: AppShimLaunchResult
 chrome.mojom.AppShimLaunchResult = {
+  but: 0,
+  is: 1,
+  or: 2,
 };
 
 // Enum: AppShimAttentionType
@@ -23,10 +27,13 @@ chrome.mojom.AppShimAttentionType = {
 
 // Enum: AppShimLoginItemRestoreState
 chrome.mojom.AppShimLoginItemRestoreState = {
+  with: 0,
 };
 
 // Enum: AppShimScreenReaderSupportMode
 chrome.mojom.AppShimScreenReaderSupportMode = {
+  kPartial: 0,
+  kComplete: 1,
 };
 
 // Struct: ProfileMenuItem

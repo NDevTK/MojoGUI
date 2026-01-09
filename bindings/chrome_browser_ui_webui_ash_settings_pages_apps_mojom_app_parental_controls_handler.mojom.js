@@ -13,6 +13,7 @@ ash.settings.app_parental_controls.mojom = ash.settings.app_parental_controls.mo
 
 // Enum: PinValidationResult
 ash.settings.app_parental_controls.mojom.PinValidationResult = {
+  kPinValidationSuccess: 0,
 };
 
 // Struct: App

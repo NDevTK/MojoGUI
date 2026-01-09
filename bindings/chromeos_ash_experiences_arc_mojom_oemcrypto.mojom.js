@@ -51,6 +51,8 @@ arc.mojom.OemCryptoResult = {
   ERROR_INSUFFICIENT_RESOURCES: 37,
   ERROR_INSUFFICIENT_HDCP: 38,
   ERROR_BUFFER_TOO_LARGE: 39,
+  not: 40,
+  not: 41,
 };
 
 // Enum: OemCryptoCipherMode

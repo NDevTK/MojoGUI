@@ -12,6 +12,20 @@ ash.personalization_app.mojom = ash.personalization_app.mojom || {};
 
 // Enum: MantaStatusCode
 ash.personalization_app.mojom.MantaStatusCode = {
+  kOk: 0,
+  kGenericError: 1,
+  kInvalidInput: 2,
+  kResourceExhausted: 3,
+  kBackendFailure: 4,
+  kMalformedResponse: 5,
+  kNoInternetConnection: 6,
+  kUnsupportedLanguage: 7,
+  kBlockedOutputs: 8,
+  kRestrictedCountry: 9,
+  kNoIdentityManager: 10,
+  kPerUserQuotaExceeded: 11,
+  kImageHasPerson: 12,
+  kMax: 13,
 };
 
 // Struct: SeaPenThumbnail

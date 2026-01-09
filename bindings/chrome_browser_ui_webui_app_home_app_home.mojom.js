@@ -15,6 +15,9 @@ app_home.mojom.RunOnOsLoginMode = {
 
 // Enum: AppType
 app_home.mojom.AppType = {
+  kWebApp: 0,
+  kIsolatedWebApp: 1,
+  kDeprecatedChromeApp: 2,
 };
 
 // Struct: AppInfo

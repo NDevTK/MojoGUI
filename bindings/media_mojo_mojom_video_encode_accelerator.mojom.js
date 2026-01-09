@@ -11,18 +11,29 @@ media.mojom = media.mojom || {};
 
 // Enum: VideoEncodeAcceleratorSupportedRateControlMode
 media.mojom.VideoEncodeAcceleratorSupportedRateControlMode = {
+  kNoMode: 0,
+  kConstantMode: 1,
+  kVariableMode: 2,
+  kExternalMode: 3,
 };
 
 // Enum: ContentType
 media.mojom.ContentType = {
+  kCamera: 0,
+  kDisplay: 1,
 };
 
 // Enum: StorageType
 media.mojom.StorageType = {
+  kShmem: 0,
+  kGpuMemoryBuffer: 1,
 };
 
 // Enum: EncoderType
 media.mojom.EncoderType = {
+  kHardware: 0,
+  kSoftware: 1,
+  kNoPreference: 2,
 };
 
 // Struct: VideoEncodeAcceleratorSupportedProfile

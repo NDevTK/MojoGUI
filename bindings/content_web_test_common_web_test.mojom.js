@@ -11,6 +11,9 @@ content.mojom = content.mojom || {};
 
 // Enum: AutoResponseMode
 content.mojom.AutoResponseMode = {
+  kNone: 0,
+  kAutoAccept: 1,
+  kAutoReject: 2,
 };
 
 // Struct: WebTestRunTestConfiguration

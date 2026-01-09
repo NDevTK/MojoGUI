@@ -11,6 +11,9 @@ media.mojom = media.mojom || {};
 
 // Enum: AudioLogComponent
 media.mojom.AudioLogComponent = {
+  kInputController: 0,
+  kOutputController: 1,
+  kOutputStream: 2,
 };
 
 // Interface: AudioLog

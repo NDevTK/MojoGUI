@@ -11,46 +11,106 @@ blink.mojom = blink.mojom || {};
 
 // Enum: WebPrintingMultipleDocumentHandling
 blink.mojom.WebPrintingMultipleDocumentHandling = {
+  kSeparateDocumentsCollatedCopies: 0,
+  kSeparateDocumentsUncollatedCopies: 1,
 };
 
 // Enum: WebPrintingSides
 blink.mojom.WebPrintingSides = {
+  kOneSided: 0,
+  kTwoSidedLongEdge: 1,
+  kTwoSidedShortEdge: 2,
 };
 
 // Enum: WebPrintQuality
 blink.mojom.WebPrintQuality = {
+  kDraft: 0,
+  kNormal: 1,
+  kHigh: 2,
 };
 
 // Enum: WebPrintColorMode
 blink.mojom.WebPrintColorMode = {
+  kColor: 0,
+  kMonochrome: 1,
 };
 
 // Enum: WebPrintingOrientationRequested
 blink.mojom.WebPrintingOrientationRequested = {
+  kPortrait: 0,
+  kLandscape: 1,
 };
 
 // Enum: WebPrinterState
 blink.mojom.WebPrinterState = {
+  kIdle: 0,
+  kProcessing: 1,
+  kStopped: 2,
 };
 
 // Enum: WebPrinterStateReason
 blink.mojom.WebPrinterStateReason = {
+  kOther: 0,
+  kConnectingToDevice: 1,
+  kCoverOpen: 2,
+  kDeveloperEmpty: 3,
+  kDeveloperLow: 4,
+  kDoorOpen: 5,
+  kFuserOverTemp: 6,
+  kFuserUnderTemp: 7,
+  kInputTrayMissing: 8,
+  kInterlockOpen: 9,
+  kInterpreterResourceUnavailable: 10,
+  kMarkerSupplyEmpty: 11,
+  kMarkerSupplyLow: 12,
+  kMarkerWasteAlmostFull: 13,
+  kMarkerWasteFull: 14,
+  kMediaEmpty: 15,
+  kMediaJam: 16,
+  kMediaLow: 17,
+  kMediaNeeded: 18,
+  kMovingToPaused: 19,
+  kOpcLifeOver: 20,
+  kOpcNearEol: 21,
+  kOutputAreaAlmostFull: 22,
+  kOutputAreaFull: 23,
+  kOutputTrayMissing: 24,
+  kPaused: 25,
+  kShutdown: 26,
+  kSpoolAreaFull: 27,
+  kStoppedPartly: 28,
+  kStopping: 29,
+  kTimedOut: 30,
+  kTonerEmpty: 31,
+  kTonerLow: 32,
 };
 
 // Enum: WebPrintJobState
 blink.mojom.WebPrintJobState = {
+  kPending: 0,
+  kProcessing: 1,
+  kCompleted: 2,
+  kCanceled: 3,
+  kAborted: 4,
 };
 
 // Enum: GetPrintersError
 blink.mojom.GetPrintersError = {
+  kUserPermissionDenied: 0,
 };
 
 // Enum: WebPrinterFetchError
 blink.mojom.WebPrinterFetchError = {
+  kPrinterUnreachable: 0,
+  kUserPermissionDenied: 1,
 };
 
 // Enum: WebPrintError
 blink.mojom.WebPrintError = {
+  kPrinterUnreachable: 0,
+  kDocumentMalformed: 1,
+  kPrintJobTemplateAttributesMismatch: 2,
+  kUserPermissionDenied: 3,
 };
 
 // Struct: WebPrinterInfo

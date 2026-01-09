@@ -12,6 +12,9 @@ ash.manage_mirrorsync.mojom = ash.manage_mirrorsync.mojom || {};
 
 // Enum: GetSyncPathError
 ash.manage_mirrorsync.mojom.GetSyncPathError = {
+  kServiceUnavailable: 0,
+  kSuccess: 1,
+  kFailed: 2,
 };
 
 // Interface: PageHandlerFactory

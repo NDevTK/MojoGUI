@@ -12,10 +12,16 @@ ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
 // Enum: ExternalPowerSource
 ash.diagnostics.mojom.ExternalPowerSource = {
+  kAc: 0,
+  kUsb: 1,
+  kDisconnected: 2,
 };
 
 // Enum: BatteryState
 ash.diagnostics.mojom.BatteryState = {
+  kCharging: 0,
+  kDischarging: 1,
+  kFull: 2,
 };
 
 // Struct: DeviceCapabilities

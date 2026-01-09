@@ -12,10 +12,30 @@ ash.audio_config.mojom = ash.audio_config.mojom || {};
 
 // Enum: AudioDeviceType
 ash.audio_config.mojom.AudioDeviceType = {
+  kHeadphone: 0,
+  kMic: 1,
+  kUsb: 2,
+  kBluetooth: 3,
+  kBluetoothNbMic: 4,
+  kHdmi: 5,
+  kInternalSpeaker: 6,
+  kInternalMic: 7,
+  kFrontMic: 8,
+  kRearMic: 9,
+  kKeyboardMic: 10,
+  kHotword: 11,
+  kPostDspLoopback: 12,
+  kPostMixLoopback: 13,
+  kLineout: 14,
+  kAlsaLoopback: 15,
+  kOther: 16,
 };
 
 // Enum: AudioEffectState
 ash.audio_config.mojom.AudioEffectState = {
+  kNotSupported: 0,
+  kNotEnabled: 1,
+  kEnabled: 2,
 };
 
 // Enum: MuteState
@@ -24,6 +44,11 @@ ash.audio_config.mojom.MuteState = {
 
 // Enum: AudioEffectType
 ash.audio_config.mojom.AudioEffectType = {
+  kNone: 0,
+  kNoiseCancellation: 1,
+  kHfpMicSr: 2,
+  kStyleTransfer: 3,
+  kBeamforming: 4,
 };
 
 // Struct: VoiceIsolationUIAppearance

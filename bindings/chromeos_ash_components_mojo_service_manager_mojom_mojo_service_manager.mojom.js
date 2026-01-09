@@ -16,6 +16,9 @@ chromeos.mojo_service_manager.mojom.Type = {
 
 // Enum: ErrorCode
 chromeos.mojo_service_manager.mojom.ErrorCode = {
+  all: 0,
+  if: 1,
+  the: 2,
 };
 
 // Struct: ProcessIdentity

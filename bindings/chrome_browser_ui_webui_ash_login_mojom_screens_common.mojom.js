@@ -12,10 +12,16 @@ ash.screens_common.mojom = ash.screens_common.mojom || {};
 
 // Enum: UserCreationFlowType
 ash.screens_common.mojom.UserCreationFlowType = {
+  kManual: 0,
+  kQuickstart: 1,
 };
 
 // Enum: GesturePages
 ash.screens_common.mojom.GesturePages = {
+  kIntro: 0,
+  kHome: 1,
+  kOverview: 2,
+  kBack: 3,
 };
 
 // Interface: AiIntroPageHandler

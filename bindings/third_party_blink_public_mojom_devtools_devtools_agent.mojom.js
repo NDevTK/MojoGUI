@@ -11,6 +11,8 @@ blink.mojom = blink.mojom || {};
 
 // Enum: DevToolsExecutionContextType
 blink.mojom.DevToolsExecutionContextType = {
+  kDedicatedWorker: 0,
+  paint: 1,
 };
 
 // Struct: DevToolsMessage

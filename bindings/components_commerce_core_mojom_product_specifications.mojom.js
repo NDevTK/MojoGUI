@@ -12,10 +12,14 @@ commerce.product_specifications.mojom = commerce.product_specifications.mojom ||
 
 // Enum: DisclosureVersion
 commerce.product_specifications.mojom.DisclosureVersion = {
+  kUnknown: 0,
+  kV1: 1,
 };
 
 // Enum: ShowSetDisposition
 commerce.product_specifications.mojom.ShowSetDisposition = {
+  kInNewTabs: 0,
+  kInNewWindow: 1,
 };
 
 // Interface: ProductSpecificationsHandler

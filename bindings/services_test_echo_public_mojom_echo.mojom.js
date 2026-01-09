@@ -11,6 +11,10 @@ echo.mojom = echo.mojom || {};
 
 // Enum: LoadStatus
 echo.mojom.LoadStatus = {
+  kSuccess: 0,
+  kFailedLoadLibrary: 1,
+  kFailedGetProcAddress: 2,
+  kFailedCallingDelayLoad: 3,
 };
 
 // Interface: EchoService

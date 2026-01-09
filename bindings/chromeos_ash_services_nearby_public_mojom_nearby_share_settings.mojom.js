@@ -11,10 +11,12 @@ nearby_share.mojom = nearby_share.mojom || {};
 
 // Enum: DataUsage
 nearby_share.mojom.DataUsage = {
+  kUnknown: 0,
 };
 
 // Enum: Visibility
 nearby_share.mojom.Visibility = {
+  kUnknown: 0,
 };
 
 // Enum: DeviceNameValidationResult
@@ -23,6 +25,7 @@ nearby_share.mojom.DeviceNameValidationResult = {
 
 // Enum: FastInitiationNotificationState
 nearby_share.mojom.FastInitiationNotificationState = {
+  kEnabled: 0,
 };
 
 // Struct: ContactRecord

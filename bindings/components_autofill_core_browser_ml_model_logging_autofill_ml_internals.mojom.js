@@ -11,6 +11,9 @@ autofill_ml_internals.mojom = autofill_ml_internals.mojom || {};
 
 // Enum: OptimizationTarget
 autofill_ml_internals.mojom.OptimizationTarget = {
+  kUnknown: 0,
+  kAutofill: 1,
+  kPassword: 2,
 };
 
 // Struct: SelectOption

@@ -20,6 +20,7 @@ media_router.mojom.SinkIconType = {
 
 // Enum: RouteControllerType
 media_router.mojom.RouteControllerType = {
+  kNone: 0,
 };
 
 // Enum: Severity

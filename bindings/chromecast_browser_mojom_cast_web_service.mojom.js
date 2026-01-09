@@ -26,6 +26,7 @@ chromecast.mojom.RendererType = {
 
 // Enum: RendererPool
 chromecast.mojom.RendererPool = {
+  which: 0,
 };
 
 // Enum: GesturePriority

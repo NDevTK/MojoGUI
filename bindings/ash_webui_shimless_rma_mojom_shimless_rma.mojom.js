@@ -12,78 +12,204 @@ ash.shimless_rma.mojom = ash.shimless_rma.mojom || {};
 
 // Enum: State
 ash.shimless_rma.mojom.State = {
+  and: 0,
+  kWelcomeScreen: 1,
+  kConfigureNetwork: 2,
+  kUpdateOs: 3,
+  kSelectComponents: 4,
+  kChooseDestination: 5,
+  kChooseWipeDevice: 6,
+  kChooseWriteProtectDisableMethod: 7,
+  kEnterRSUWPDisableCode: 8,
+  kWaitForManualWPDisable: 9,
+  kWPDisableComplete: 10,
+  kUpdateRoFirmware: 11,
+  kRestock: 12,
+  kUpdateDeviceInformation: 13,
+  kCheckCalibration: 14,
+  kSetupCalibration: 15,
+  kRunCalibration: 16,
+  kProvisionDevice: 17,
+  kWaitForManualWPEnable: 18,
+  kFinalize: 19,
+  kRepairComplete: 20,
+  kHardwareError: 21,
+  kReboot: 22,
 };
 
 // Enum: RmadErrorCode
 ash.shimless_rma.mojom.RmadErrorCode = {
+  and: 0,
+  but: 1,
 };
 
 // Enum: OsUpdateOperation
 ash.shimless_rma.mojom.OsUpdateOperation = {
+  kIdle: 0,
+  kCheckingForUpdate: 1,
+  kUpdateAvailable: 2,
+  kDownloading: 3,
+  kVerifying: 4,
+  kFinalizing: 5,
+  kUpdatedNeedReboot: 6,
+  kReportingErrorEvent: 7,
+  kAttemptingRollback: 8,
+  kDisabled: 9,
+  kNeedPermissionToUpdate: 10,
+  kCleanupPreviousUpdate: 11,
+  kUpdatedButDeferred: 12,
 };
 
 // Enum: UpdateErrorCode
 ash.shimless_rma.mojom.UpdateErrorCode = {
+  kSuccess: 0,
+  kDownloadError: 1,
+  unauthorized: 2,
+  and: 3,
 };
 
 // Enum: ComponentType
 ash.shimless_rma.mojom.ComponentType = {
+  and: 0,
+  kBattery: 1,
+  kStorage: 2,
+  kVpdCached: 3,
+  kNetwork: 4,
+  kStylus: 5,
+  kTouchpad: 6,
+  kTouchsreen: 7,
+  kDram: 8,
+  kDisplayPanel: 9,
+  kCellular: 10,
+  kEthernet: 11,
+  kWireless: 12,
+  kBaseAccelerometer: 13,
+  kLidAccelerometer: 14,
+  kBaseGyroscope: 15,
+  kLidGyroscope: 16,
+  kPowerButton: 17,
 };
 
 // Enum: ComponentRepairStatus
 ash.shimless_rma.mojom.ComponentRepairStatus = {
+  and: 0,
+  kOriginal: 1,
+  kReplaced: 2,
+  kMissing: 3,
 };
 
 // Enum: WriteProtectDisableCompleteAction
 ash.shimless_rma.mojom.WriteProtectDisableCompleteAction = {
+  kUnknown: 0,
+  kSkippedAssembleDevice: 1,
+  kCompleteAssembleDevice: 2,
+  kCompleteKeepDeviceOpen: 3,
+  kCompleteNoOp: 4,
 };
 
 // Enum: UpdateRoFirmwareStatus
 ash.shimless_rma.mojom.UpdateRoFirmwareStatus = {
+  kUnknown: 0,
+  kWaitUsb: 1,
+  kFileNotFound: 2,
+  kDownloading: 3,
+  kUpdating: 4,
+  kRebooting: 5,
+  kComplete: 6,
 };
 
 // Enum: CalibrationSetupInstruction
 ash.shimless_rma.mojom.CalibrationSetupInstruction = {
+  kCalibrationInstructionUnknown: 0,
+  kCalibrationInstructionPlaceBaseOnFlatSurface: 1,
+  kCalibrationInstructionPlaceLidOnFlatSurface: 2,
 };
 
 // Enum: CalibrationOverallStatus
 ash.shimless_rma.mojom.CalibrationOverallStatus = {
+  kCalibrationOverallComplete: 0,
+  kCalibrationOverallCurrentRoundComplete: 1,
+  kCalibrationOverallCurrentRoundFailed: 2,
+  kCalibrationOverallInitializationFailed: 3,
 };
 
 // Enum: CalibrationStatus
 ash.shimless_rma.mojom.CalibrationStatus = {
+  kCalibrationWaiting: 0,
+  kCalibrationInProgress: 1,
+  kCalibrationComplete: 2,
+  kCalibrationFailed: 3,
+  kCalibrationSkip: 4,
 };
 
 // Enum: ProvisioningStatus
 ash.shimless_rma.mojom.ProvisioningStatus = {
+  kInProgress: 0,
+  kComplete: 1,
+  kFailedBlocking: 2,
+  kFailedNonBlocking: 3,
 };
 
 // Enum: ProvisioningError
 ash.shimless_rma.mojom.ProvisioningError = {
+  kUnknown: 0,
+  kInternal: 1,
+  kWpEnabled: 2,
+  kCannotRead: 3,
+  kCannotWrite: 4,
+  kGenerateSecret: 5,
+  kMissingBaseAccelerometer: 6,
+  kMissingLidAccelerometer: 7,
+  kMissingBaseGyroscope: 8,
+  kMissingLidGyroscope: 9,
+  kCr50: 10,
+  kGbb: 11,
 };
 
 // Enum: FinalizationStatus
 ash.shimless_rma.mojom.FinalizationStatus = {
+  kInProgress: 0,
+  kComplete: 1,
+  kFailedBlocking: 2,
+  kFailedNonBlocking: 3,
 };
 
 // Enum: FinalizationError
 ash.shimless_rma.mojom.FinalizationError = {
+  kUnknown: 0,
+  kInternal: 1,
+  kCannotEnableHardwareWp: 2,
+  kCannotEnableSoftwareWp: 3,
+  kCr50: 4,
+  kGbb: 5,
 };
 
 // Enum: ShutdownMethod
 ash.shimless_rma.mojom.ShutdownMethod = {
+  kUnknown: 0,
+  kReboot: 1,
+  kShutdown: 2,
+  kBatteryCutoff: 3,
 };
 
 // Enum: FeatureLevel
 ash.shimless_rma.mojom.FeatureLevel = {
+  kRmadFeatureLevelUnsupported: 0,
+  kRmadFeatureLevelUnknown: 1,
+  kRmadFeatureLevel0: 2,
+  kRmadFeatureLevel1: 3,
 };
 
 // Enum: Show3pDiagnosticsAppResult
 ash.shimless_rma.mojom.Show3pDiagnosticsAppResult = {
+  kOk: 0,
+  kAppNotInstalled: 1,
+  kFailedToLoad: 2,
 };
 
 // Enum: StatePropertyError
 ash.shimless_rma.mojom.StatePropertyError = {
+  kUnsupported: 0,
 };
 
 // Struct: StateResult

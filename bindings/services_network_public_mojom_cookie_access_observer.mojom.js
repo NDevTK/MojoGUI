@@ -11,6 +11,8 @@ network.mojom = network.mojom || {};
 
 // Enum: Type
 network.mojom.Type = {
+  kRead: 0,
+  kChange: 1,
 };
 
 // Struct: CookieAccessDetails

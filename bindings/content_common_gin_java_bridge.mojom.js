@@ -11,6 +11,14 @@ content.mojom = content.mojom || {};
 
 // Enum: GinJavaBridgeError
 content.mojom.GinJavaBridgeError = {
+  kGinJavaBridgeNoError: 0,
+  kGinJavaBridgeUnknownObjectId: 1,
+  kGinJavaBridgeObjectIsGone: 2,
+  kGinJavaBridgeMethodNotFound: 3,
+  kGinJavaBridgeAccessToObjectGetClassIsBlocked: 4,
+  kGinJavaBridgeJavaExceptionRaised: 5,
+  kGinJavaBridgeNonAssignableTypes: 6,
+  kGinJavaBridgeRenderFrameDeleted: 7,
 };
 
 // Interface: GinJavaBridge

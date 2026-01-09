@@ -11,6 +11,7 @@ smbfs.mojom = smbfs.mojom || {};
 
 // Enum: MountError
 smbfs.mojom.MountError = {
+  or: 0,
 };
 
 // Enum: DeleteRecursivelyError

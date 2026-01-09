@@ -11,6 +11,10 @@ arc.mojom = arc.mojom || {};
 
 // Enum: InstallErrorReason
 arc.mojom.InstallErrorReason = {
+  this: 0,
+  for: 1,
+  the: 2,
+  or: 3,
 };
 
 // Enum: CommandResultType

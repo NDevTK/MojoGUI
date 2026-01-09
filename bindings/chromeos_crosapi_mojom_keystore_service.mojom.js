@@ -11,22 +11,38 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: KeystoreType
 crosapi.mojom.KeystoreType = {
+  kUser: 0,
+  kDevice: 1,
 };
 
 // Enum: KeystoreAlgorithmName
 crosapi.mojom.KeystoreAlgorithmName = {
+  kRsassaPkcs115: 0,
+  kRsaOaep: 1,
+  kEcdsa: 2,
 };
 
 // Enum: KeystoreKeyAttributeType
 crosapi.mojom.KeystoreKeyAttributeType = {
+  kPlatformKeysTag: 0,
 };
 
 // Enum: KeystoreSigningScheme
 crosapi.mojom.KeystoreSigningScheme = {
+  kRsassaPkcs1V15None: 0,
+  kRsassaPkcs1V15Sha256: 1,
+  kRsassaPkcs1V15Sha384: 2,
+  kRsassaPkcs1V15Sha512: 3,
+  kEcdsaSha1: 4,
+  kEcdsaSha256: 5,
+  kEcdsaSha384: 6,
+  kEcdsaSha512: 7,
 };
 
 // Enum: KeyTag
 crosapi.mojom.KeyTag = {
+  kNoTags: 0,
+  kCorporate: 1,
 };
 
 // Struct: KeystoreRsaParams

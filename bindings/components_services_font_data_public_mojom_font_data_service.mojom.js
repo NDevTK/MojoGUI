@@ -11,6 +11,9 @@ font_data_service.mojom = font_data_service.mojom || {};
 
 // Enum: TypefaceSlant
 font_data_service.mojom.TypefaceSlant = {
+  kRoman: 0,
+  kItalic: 1,
+  kOblique: 2,
 };
 
 // Struct: TypefaceStyle

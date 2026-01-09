@@ -11,38 +11,38 @@ device.mojom = device.mojom || {};
 
 // Enum: GamepadMapping
 device.mojom.GamepadMapping = {
-  G: 0,
-  G: 1,
-  G: 2,
+  GamepadMappingNone: 0,
+  GamepadMappingStandard: 1,
+  GamepadMappingXRStandard: 2,
 };
 
 // Enum: GamepadHand
 device.mojom.GamepadHand = {
-  G: 0,
-  G: 1,
-  G: 2,
+  GamepadHandNone: 0,
+  GamepadHandLeft: 1,
+  GamepadHandRight: 2,
 };
 
 // Enum: GamepadHapticActuatorType
 device.mojom.GamepadHapticActuatorType = {
-  G: 0,
-  G: 1,
-  G: 2,
+  GamepadHapticActuatorTypeVibration: 0,
+  GamepadHapticActuatorTypeDualRumble: 1,
+  GamepadHapticActuatorTypeTriggerRumble: 2,
 };
 
 // Enum: GamepadHapticEffectType
 device.mojom.GamepadHapticEffectType = {
-  G: 0,
-  G: 1,
+  GamepadHapticEffectTypeDualRumble: 0,
+  GamepadHapticEffectTypeTriggerRumble: 1,
 };
 
 // Enum: GamepadHapticsResult
 device.mojom.GamepadHapticsResult = {
-  G: 0,
-  G: 1,
-  G: 2,
-  G: 3,
-  G: 4,
+  GamepadHapticsResultError: 0,
+  GamepadHapticsResultComplete: 1,
+  GamepadHapticsResultPreempted: 2,
+  GamepadHapticsResultInvalidParameter: 3,
+  GamepadHapticsResultNotSupported: 4,
 };
 
 // Struct: GamepadQuaternion

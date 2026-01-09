@@ -11,10 +11,20 @@ compose.mojom = compose.mojom || {};
 
 // Enum: InputMode
 compose.mojom.InputMode = {
+  kUnset: 0,
+  kPolish: 1,
+  kElaborate: 2,
+  kFormalize: 3,
 };
 
 // Enum: StyleModifier
 compose.mojom.StyleModifier = {
+  kUnset: 0,
+  kFormal: 1,
+  kCasual: 2,
+  kLonger: 3,
+  kShorter: 4,
+  kRetry: 5,
 };
 
 // Enum: CloseReason

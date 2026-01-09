@@ -11,14 +11,23 @@ blink.mojom = blink.mojom || {};
 
 // Enum: AIRewriterTone
 blink.mojom.AIRewriterTone = {
+  kAsIs: 0,
+  kMoreFormal: 1,
+  kMoreCasual: 2,
 };
 
 // Enum: AIRewriterFormat
 blink.mojom.AIRewriterFormat = {
+  kAsIs: 0,
+  kPlainText: 1,
+  kMarkdown: 2,
 };
 
 // Enum: AIRewriterLength
 blink.mojom.AIRewriterLength = {
+  kAsIs: 0,
+  kShorter: 1,
+  kLonger: 2,
 };
 
 // Struct: AIRewriterCreateOptions

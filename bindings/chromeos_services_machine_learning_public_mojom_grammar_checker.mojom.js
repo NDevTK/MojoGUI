@@ -12,6 +12,7 @@ chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
 // Enum: Status
 chromeos.machine_learning.mojom.Status = {
+  candidates: 0,
 };
 
 // Struct: GrammarCheckerQuery

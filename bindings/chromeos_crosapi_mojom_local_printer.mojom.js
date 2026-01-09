@@ -11,26 +11,55 @@ crosapi.mojom = crosapi.mojom || {};
 
 // Enum: Reason
 crosapi.mojom.Reason = {
+  kDeviceError: 0,
+  kDoorOpen: 1,
+  kLowOnInk: 2,
+  kLowOnPaper: 3,
+  kNoError: 4,
+  kOutOfPaper: 5,
+  kOutputAreaAlmostFull: 6,
+  kOutputFull: 7,
+  kPaperJam: 8,
+  kPaused: 9,
+  kPrinterQueueFull: 10,
+  kPrinterUnreachable: 11,
+  kStopped: 12,
+  kTrayMissing: 13,
 };
 
 // Enum: Severity
 crosapi.mojom.Severity = {
+  kReport: 0,
+  kWarning: 1,
+  kError: 2,
 };
 
 // Enum: DuplexType
 crosapi.mojom.DuplexType = {
+  kOneSided: 0,
+  kShortEdge: 1,
+  kLongEdge: 2,
 };
 
 // Enum: QualityType
 crosapi.mojom.QualityType = {
+  kDraft: 0,
+  kNormal: 1,
+  kHigh: 2,
 };
 
 // Enum: DuplexMode
 crosapi.mojom.DuplexMode = {
+  kLongEdge: 0,
+  kShortEdge: 1,
 };
 
 // Enum: Source
 crosapi.mojom.Source = {
+  kPrintPreview: 0,
+  kArc: 1,
+  kExtension: 2,
+  kPrintPreviewIncognito: 3,
 };
 
 // Enum: ServerPrintersFetchingMode
@@ -39,14 +68,26 @@ crosapi.mojom.ServerPrintersFetchingMode = {
 
 // Enum: BackgroundGraphicsModeRestriction
 crosapi.mojom.BackgroundGraphicsModeRestriction = {
+  kEnabled: 0,
+  kDisabled: 1,
 };
 
 // Enum: OptionalBool
 crosapi.mojom.OptionalBool = {
+  kUnset: 0,
+  kFalse: 1,
+  kTrue: 2,
 };
 
 // Enum: PrintJobStatus
 crosapi.mojom.PrintJobStatus = {
+  kStarted: 0,
+  kUpdated: 1,
+  kSuspended: 2,
+  kResumed: 3,
+  kDone: 4,
+  kError: 5,
+  kCancelled: 6,
 };
 
 // Enum: PrintJobSource

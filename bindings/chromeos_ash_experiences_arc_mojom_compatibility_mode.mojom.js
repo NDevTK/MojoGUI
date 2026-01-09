@@ -11,6 +11,7 @@ arc.mojom = arc.mojom || {};
 
 // Enum: ArcResizeLockState
 arc.mojom.ArcResizeLockState = {
+  and: 0,
 };
 
 // Interface: CompatibilityModeInstance

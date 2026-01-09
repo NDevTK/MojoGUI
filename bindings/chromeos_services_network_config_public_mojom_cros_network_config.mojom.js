@@ -12,10 +12,18 @@ chromeos.network_config.mojom = chromeos.network_config.mojom || {};
 
 // Enum: ActivationStateType
 chromeos.network_config.mojom.ActivationStateType = {
+  kUnknown: 0,
+  kNotActivated: 1,
+  kActivating: 2,
+  kPartiallyActivated: 3,
+  kActivated: 4,
+  but: 5,
 };
 
 // Enum: AuthenticationType
 chromeos.network_config.mojom.AuthenticationType = {
+  kNone: 0,
+  k8021x: 1,
 };
 
 // Enum: HiddenSsidMode
@@ -28,6 +36,11 @@ chromeos.network_config.mojom.ProxyMode = {
 
 // Enum: SecurityType
 chromeos.network_config.mojom.SecurityType = {
+  kNone: 0,
+  kWep8021x: 1,
+  kWepPsk: 2,
+  kWpaEap: 3,
+  kWpaPsk: 4,
 };
 
 // Enum: MatchType
@@ -36,18 +49,27 @@ chromeos.network_config.mojom.MatchType = {
 
 // Enum: VpnType
 chromeos.network_config.mojom.VpnType = {
+  kL2TPIPsec: 0,
+  kOpenVPN: 1,
+  kWireGuard: 2,
 };
 
 // Enum: FilterType
 chromeos.network_config.mojom.FilterType = {
+  physically: 0,
 };
 
 // Enum: StartConnectResult
 chromeos.network_config.mojom.StartConnectResult = {
+  or: 0,
+  e: 1,
+  e: 2,
 };
 
 // Enum: CertificateType
 chromeos.network_config.mojom.CertificateType = {
+  kServerCA: 0,
+  kUserCert: 1,
 };
 
 // Enum: InhibitReason
@@ -56,38 +78,68 @@ chromeos.network_config.mojom.InhibitReason = {
 
 // Enum: AlwaysOnVpnMode
 chromeos.network_config.mojom.AlwaysOnVpnMode = {
+  traffic: 0,
+  otherwise: 1,
 };
 
 // Enum: ApnState
 chromeos.network_config.mojom.ApnState = {
+  it: 0,
+  it: 1,
 };
 
 // Enum: ApnAuthenticationType
 chromeos.network_config.mojom.ApnAuthenticationType = {
+  kAutomatic: 0,
 };
 
 // Enum: ApnIpType
 chromeos.network_config.mojom.ApnIpType = {
+  kAutomatic: 0,
+  kIpv4: 1,
+  kIpv6: 2,
+  kIpv4Ipv6: 3,
 };
 
 // Enum: ApnType
 chromeos.network_config.mojom.ApnType = {
+  kDefault: 0,
+  kAttach: 1,
+  kTether: 2,
 };
 
 // Enum: ApnSource
 chromeos.network_config.mojom.ApnSource = {
+  kModem: 0,
+  kModb: 1,
+  kUi: 2,
 };
 
 // Enum: Type
 chromeos.network_config.mojom.Type = {
+  kEmail: 0,
+  kDns: 1,
+  kUri: 2,
 };
 
 // Enum: SuppressionType
 chromeos.network_config.mojom.SuppressionType = {
+  kUnset: 0,
+  kAllow: 1,
+  kSuppress: 2,
 };
 
 // Enum: TrafficCounterSource
 chromeos.network_config.mojom.TrafficCounterSource = {
+  kUnknown: 0,
+  kChrome: 1,
+  kUser: 2,
+  kArc: 3,
+  kCrosvm: 4,
+  kPluginvm: 5,
+  kUpdateEngine: 6,
+  kVpn: 7,
+  kSystem: 8,
 };
 
 // Struct: SIMLockStatus

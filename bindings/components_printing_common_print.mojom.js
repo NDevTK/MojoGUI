@@ -11,6 +11,9 @@ printing.mojom = printing.mojom || {};
 
 // Enum: PrintFailureReason
 printing.mojom.PrintFailureReason = {
+  kGeneralFailure: 0,
+  kInvalidPageRange: 1,
+  kPrintingInProgress: 2,
 };
 
 // Struct: PreviewIds

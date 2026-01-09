@@ -12,6 +12,9 @@ ash.babelorca.mojom = ash.babelorca.mojom || {};
 
 // Enum: ParsingState
 ash.babelorca.mojom.ParsingState = {
+  kOk: 0,
+  kError: 1,
+  kClosed: 2,
 };
 
 // Struct: TranscriptPart

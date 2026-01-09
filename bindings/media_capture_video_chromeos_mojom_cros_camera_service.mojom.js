@@ -17,11 +17,15 @@ cros.mojom.CameraClientType = {
   ANDROID: 3,
   PLUGINVM: 4,
   ASH_CHROME: 5,
+  as: 6,
 };
 
 // Enum: CameraPrivacySwitchState
 cros.mojom.CameraPrivacySwitchState = {
-  UNKNOWN: 0,
+  it: 0,
+  UNKNOWN: 1,
+  which: 2,
+  which: 3,
 };
 
 // Enum: CameraAutoFramingState

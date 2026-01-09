@@ -11,6 +11,8 @@ ash.mojom = ash.mojom || {};
 
 // Enum: HidWarningDialogSource
 ash.mojom.HidWarningDialogSource = {
+  kOsSettings: 0,
+  kQuickSettings: 1,
 };
 
 // Interface: HidPreservingBluetoothStateController

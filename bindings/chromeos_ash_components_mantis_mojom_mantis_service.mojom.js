@@ -11,10 +11,14 @@ mantis.mojom = mantis.mojom || {};
 
 // Enum: MantisFeatureStatus
 mantis.mojom.MantisFeatureStatus = {
+  kARCVMDisabled: 0,
+  kAvailable: 1,
 };
 
 // Enum: InitializeResult
 mantis.mojom.InitializeResult = {
+  kSuccess: 0,
+  kGpuBlocked: 1,
 };
 
 // Interface: PlatformModelProgressObserver

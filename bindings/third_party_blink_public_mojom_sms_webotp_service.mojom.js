@@ -11,6 +11,7 @@ blink.mojom = blink.mojom || {};
 
 // Enum: SmsStatus
 blink.mojom.SmsStatus = {
+  kSuccess: 0,
 };
 
 // Interface: WebOTPService

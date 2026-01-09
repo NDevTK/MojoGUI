@@ -11,10 +11,22 @@ blink.mojom = blink.mojom || {};
 
 // Enum: CacheStorageError
 blink.mojom.CacheStorageError = {
+  kSuccess: 0,
+  kErrorExists: 1,
+  kErrorStorage: 2,
+  kErrorNotFound: 3,
+  kErrorQuotaExceeded: 4,
+  kErrorCacheNameNotFound: 5,
+  kErrorQueryTooLarge: 6,
+  kErrorDuplicateOperation: 7,
+  kErrorCrossOriginResourcePolicy: 8,
 };
 
 // Enum: OperationType
 blink.mojom.OperationType = {
+  kUndefined: 0,
+  kPut: 1,
+  kDelete: 2,
 };
 
 // Struct: CacheStorageVerboseError

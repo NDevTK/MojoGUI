@@ -11,6 +11,9 @@ feed_internals.mojom = feed_internals.mojom || {};
 
 // Enum: FeedOrder
 feed_internals.mojom.FeedOrder = {
+  kUnspecified: 0,
+  kGrouped: 1,
+  kReverseChron: 2,
 };
 
 // Struct: Properties

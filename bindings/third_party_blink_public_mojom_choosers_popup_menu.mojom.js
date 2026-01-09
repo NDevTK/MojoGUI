@@ -11,6 +11,11 @@ blink.mojom = blink.mojom || {};
 
 // Enum: Type
 blink.mojom.Type = {
+  kOption: 0,
+  kCheckableOption: 1,
+  kGroup: 2,
+  kSeparator: 3,
+  kSubMenu: 4,
 };
 
 // Struct: MenuItem

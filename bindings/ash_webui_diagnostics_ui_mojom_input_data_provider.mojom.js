@@ -12,10 +12,15 @@ ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
 // Enum: KeyEventType
 ash.diagnostics.mojom.KeyEventType = {
+  kPress: 0,
+  kRelease: 1,
 };
 
 // Enum: TouchDeviceType
 ash.diagnostics.mojom.TouchDeviceType = {
+  kDirect: 0,
+  drawing: 1,
+  drawing: 2,
 };
 
 // Struct: KeyEvent

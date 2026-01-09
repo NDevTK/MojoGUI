@@ -12,26 +12,50 @@ ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
 // Enum: AuthenticationType
 ash.diagnostics.mojom.AuthenticationType = {
+  kNone: 0,
+  k8021x: 1,
 };
 
 // Enum: NetworkState
 ash.diagnostics.mojom.NetworkState = {
+  kOnline: 0,
+  kConnected: 1,
+  kPortal: 2,
+  kConnecting: 3,
+  kNotConnected: 4,
+  kDisabled: 5,
 };
 
 // Enum: NetworkType
 ash.diagnostics.mojom.NetworkType = {
+  kCellular: 0,
+  kEthernet: 1,
+  kWiFi: 2,
+  kUnsupported: 3,
 };
 
 // Enum: RoamingState
 ash.diagnostics.mojom.RoamingState = {
+  kNone: 0,
+  kRoaming: 1,
+  kHome: 2,
 };
 
 // Enum: LockType
 ash.diagnostics.mojom.LockType = {
+  kNone: 0,
+  kSimPin: 1,
+  kSimPuk: 2,
+  kNetworkPin: 3,
 };
 
 // Enum: SecurityType
 ash.diagnostics.mojom.SecurityType = {
+  kNone: 0,
+  kWep8021x: 1,
+  kWepPsk: 2,
+  kWpaEap: 3,
+  kWpaPsk: 4,
 };
 
 // Struct: IPConfigProperties

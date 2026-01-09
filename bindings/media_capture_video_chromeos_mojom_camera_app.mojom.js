@@ -11,18 +11,31 @@ cros.mojom = cros.mojom || {};
 
 // Enum: Effect
 cros.mojom.Effect = {
+  kNoEffect: 0,
+  kPortraitMode: 1,
 };
 
 // Enum: StreamType
 cros.mojom.StreamType = {
+  kPreviewOutput: 0,
+  kJpegOutput: 1,
+  kJpegPortraitOutput: 2,
+  kRecordingOutput: 3,
+  kUnknown: 4,
 };
 
 // Enum: GetCameraAppDeviceStatus
 cros.mojom.GetCameraAppDeviceStatus = {
+  kSuccess: 0,
+  kErrorInvalidId: 1,
 };
 
 // Enum: CaptureIntent
 cros.mojom.CaptureIntent = {
+  kDefault: 0,
+  kVideoRecord: 1,
+  kStillCapture: 2,
+  kPortraitCapture: 3,
 };
 
 // Interface: CameraAppDeviceProvider

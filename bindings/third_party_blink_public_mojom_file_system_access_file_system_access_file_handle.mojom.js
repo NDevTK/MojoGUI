@@ -11,10 +11,15 @@ blink.mojom = blink.mojom || {};
 
 // Enum: FileSystemAccessAccessHandleLockMode
 blink.mojom.FileSystemAccessAccessHandleLockMode = {
+  kReadwrite: 0,
+  kReadOnly: 1,
+  kReadwriteUnsafe: 2,
 };
 
 // Enum: FileSystemAccessWritableFileStreamLockMode
 blink.mojom.FileSystemAccessWritableFileStreamLockMode = {
+  kExclusive: 0,
+  kSiloed: 1,
 };
 
 // Struct: FileSystemAccessRegularFile

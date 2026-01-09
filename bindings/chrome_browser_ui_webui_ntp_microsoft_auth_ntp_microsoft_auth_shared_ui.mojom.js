@@ -11,6 +11,8 @@ new_tab_page.mojom = new_tab_page.mojom || {};
 
 // Enum: AuthType
 new_tab_page.mojom.AuthType = {
+  kSilent: 0,
+  kPopup: 1,
 };
 
 // Interface: MicrosoftAuthUntrustedDocument

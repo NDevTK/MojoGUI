@@ -12,6 +12,10 @@ ash.device_sync.mojom = ash.device_sync.mojom || {};
 
 // Enum: NetworkRequestResult
 ash.device_sync.mojom.NetworkRequestResult = {
+  but: 0,
+  called: 1,
+  but: 2,
+  but: 3,
 };
 
 // Enum: FeatureStatusChange
@@ -20,18 +24,31 @@ ash.device_sync.mojom.FeatureStatusChange = {
 
 // Enum: CryptAuthService
 ash.device_sync.mojom.CryptAuthService = {
+  kEnrollment: 0,
+  kDeviceSync: 1,
 };
 
 // Enum: ConnectivityStatus
 ash.device_sync.mojom.ConnectivityStatus = {
+  kOnline: 0,
+  kOffline: 1,
+  kUnknownConnectivity: 2,
 };
 
 // Enum: GroupPrivateKeyStatus
 ash.device_sync.mojom.GroupPrivateKeyStatus = {
+  it: 0,
+  it: 1,
+  but: 2,
+  but: 3,
+  so: 4,
 };
 
 // Enum: BetterTogetherMetadataStatus
 ash.device_sync.mojom.BetterTogetherMetadataStatus = {
+  it: 0,
+  it: 1,
+  clients: 2,
 };
 
 // Struct: FindEligibleDevicesResponse

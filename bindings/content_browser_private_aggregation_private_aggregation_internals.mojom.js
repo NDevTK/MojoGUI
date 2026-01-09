@@ -11,6 +11,10 @@ private_aggregation_internals.mojom = private_aggregation_internals.mojom || {};
 
 // Enum: ReportStatus
 private_aggregation_internals.mojom.ReportStatus = {
+  kPending: 0,
+  kSent: 1,
+  kFailedToAssemble: 2,
+  kFailedToSend: 3,
 };
 
 // Struct: AggregatableReportRequestID

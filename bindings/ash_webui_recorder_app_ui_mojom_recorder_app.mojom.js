@@ -12,6 +12,7 @@ ash.recorder_app.mojom = ash.recorder_app.mojom || {};
 
 // Enum: ModelStateType
 ash.recorder_app.mojom.ModelStateType = {
+  or: 0,
 };
 
 // Struct: ModelState

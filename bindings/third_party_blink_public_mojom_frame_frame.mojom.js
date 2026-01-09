@@ -11,34 +11,73 @@ blink.mojom = blink.mojom || {};
 
 // Enum: PluginActionType
 blink.mojom.PluginActionType = {
+  kRotate90Clockwise: 0,
+  kRotate90Counterclockwise: 1,
 };
 
 // Enum: JavaScriptExecutionResultType
 blink.mojom.JavaScriptExecutionResultType = {
+  kSuccess: 0,
+  kException: 1,
 };
 
 // Enum: TraverseCancelledReason
 blink.mojom.TraverseCancelledReason = {
+  kNotFound: 0,
+  kSandboxViolation: 1,
+  kAbortedBeforeCommit: 2,
 };
 
 // Enum: ViewTransitionSameOriginOptIn
 blink.mojom.ViewTransitionSameOriginOptIn = {
+  kDisabled: 0,
+  kEnabled: 1,
 };
 
 // Enum: FrameOwnerElementType
 blink.mojom.FrameOwnerElementType = {
+  kNone: 0,
+  kIframe: 1,
+  kObject: 2,
+  kEmbed: 3,
+  kFrame: 4,
+  kFencedframe: 5,
 };
 
 // Enum: NavigationApiEntryRestoreReason
 blink.mojom.NavigationApiEntryRestoreReason = {
+  kBFCache: 0,
+  kPrerenderActivationPush: 1,
+  kPrerenderActivationReplace: 2,
 };
 
 // Enum: StorageTypeAccessed
 blink.mojom.StorageTypeAccessed = {
+  kCacheStorage: 0,
+  kIndexedDB: 1,
+  kFileSystem: 2,
+  kWebLocks: 3,
+  kLocalStorage: 4,
+  kSessionStorage: 5,
 };
 
 // Enum: WindowProxyAccessType
 blink.mojom.WindowProxyAccessType = {
+  kLocation: 0,
+  kClosed: 1,
+  kLength: 2,
+  kSelf: 3,
+  kWindow: 4,
+  kFrames: 5,
+  kOpener: 6,
+  kParent: 7,
+  kTop: 8,
+  kPostMessage: 9,
+  kAnonymousIndexedGetter: 10,
+  kClose: 11,
+  kFocus: 12,
+  kBlur: 13,
+  kAnonymousNamedGetter: 14,
 };
 
 // Struct: SavableSubframe

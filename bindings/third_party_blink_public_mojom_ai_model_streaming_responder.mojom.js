@@ -11,6 +11,7 @@ blink.mojom = blink.mojom || {};
 
 // Enum: ModelStreamingResponseStatus
 blink.mojom.ModelStreamingResponseStatus = {
+  and: 0,
 };
 
 // Struct: ModelExecutionContextInfo

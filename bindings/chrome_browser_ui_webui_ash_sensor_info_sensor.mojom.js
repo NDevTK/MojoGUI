@@ -11,6 +11,12 @@ sensor.mojom = sensor.mojom || {};
 
 // Enum: SensorType
 sensor.mojom.SensorType = {
+  kLidAngle: 0,
+  kAccelerometerBase: 1,
+  kAccelerometerLid: 2,
+  kGyroscopeBase: 3,
+  kGyroscopeLid: 4,
+  kSensorTypeCount: 5,
 };
 
 // Struct: NonLidAngleUpdateInfo

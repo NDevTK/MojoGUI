@@ -15,10 +15,16 @@ crosapi.mojom.DisplayConfigResult = {
 
 // Enum: DisplayLayoutMode
 crosapi.mojom.DisplayLayoutMode = {
+  a: 0,
+  the: 1,
+  or: 2,
 };
 
 // Enum: DisplayLayoutPosition
 crosapi.mojom.DisplayLayoutPosition = {
+  kRight: 0,
+  kBottom: 1,
+  kLeft: 2,
 };
 
 // Enum: DisplayConfigOperation
@@ -31,10 +37,16 @@ crosapi.mojom.DisplayConfigSource = {
 
 // Enum: DisplayRotationOptions
 crosapi.mojom.DisplayRotationOptions = {
-  S: 0,
-  S: 1,
-  S: 2,
-  S: 3,
+  enables: 0,
+  it: 1,
+  Sets: 2,
+  it: 3,
+  Sets: 4,
+  it: 5,
+  Sets: 6,
+  it: 7,
+  Sets: 8,
+  it: 9,
 };
 
 // Struct: TouchCalibrationPair

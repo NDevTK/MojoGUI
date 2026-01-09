@@ -12,6 +12,7 @@ remoting.mojom = remoting.mojom || {};
 // Enum: OpenUrlResult
 remoting.mojom.OpenUrlResult = {
   UNSPECIFIED_OPEN_URL_RESULT: 0,
+  and: 1,
 };
 
 // Interface: RemoteUrlOpener

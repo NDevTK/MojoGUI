@@ -15,6 +15,10 @@ emoji_picker.mojom.Feature = {
 
 // Enum: Category
 emoji_picker.mojom.Category = {
+  kEmojis: 0,
+  kSymbols: 1,
+  kEmoticons: 2,
+  kGifs: 3,
 };
 
 // Struct: EmojiVariant

@@ -11,6 +11,9 @@ arc.mojom = arc.mojom || {};
 
 // Enum: GetArcSafetySessionResult
 arc.mojom.GetArcSafetySessionResult = {
+  kOk: 0,
+  kSafetyServiceNotFound: 1,
+  kBindSafetyServiceError: 2,
 };
 
 // Interface: OnDeviceSafetyHost

@@ -11,24 +11,41 @@ updater.mojom = updater.mojom || {};
 
 // Enum: State
 updater.mojom.State = {
+  but: 0,
 };
 
 // Enum: PolicySource
 updater.mojom.PolicySource = {
-  G: 0,
-  M: 1,
+  if: 0,
+  Group: 1,
+  Managed: 2,
 };
 
 // Enum: PolicySameVersionUpdate
 updater.mojom.PolicySameVersionUpdate = {
+  the: 0,
+  and: 1,
 };
 
 // Enum: Result
 updater.mojom.Result = {
+  such: 0,
+  kUpdateCanceled: 1,
+  or: 2,
+  because: 3,
+  or: 4,
+  either: 5,
+  or: 6,
 };
 
 // Enum: ErrorCategory
 updater.mojom.ErrorCategory = {
+  kNone: 0,
+  kDownload: 1,
+  kUnpack: 2,
+  kInstall: 3,
+  kService: 4,
+  kUpdateCheck: 5,
 };
 
 // Enum: Priority

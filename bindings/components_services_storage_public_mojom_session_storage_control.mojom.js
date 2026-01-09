@@ -11,6 +11,8 @@ storage.mojom = storage.mojom || {};
 
 // Enum: SessionStorageCloneType
 storage.mojom.SessionStorageCloneType = {
+  because: 0,
+  ordered: 1,
 };
 
 // Struct: SessionStorageUsageInfo

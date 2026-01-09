@@ -36,6 +36,8 @@ ash.eche_app.mojom.WebNotificationType = {
 
 // Enum: StreamStatus
 ash.eche_app.mojom.StreamStatus = {
+  kStreamStatusUnknown: 0,
+  not: 1,
 };
 
 // Enum: StreamAction
@@ -44,11 +46,13 @@ ash.eche_app.mojom.StreamAction = {
 
 // Enum: ConnectionStatus
 ash.eche_app.mojom.ConnectionStatus = {
+  kConnectionStatusDisconnected: 0,
 };
 
 // Enum: AppStreamLaunchEntryPoint
 ash.eche_app.mojom.AppStreamLaunchEntryPoint = {
   APPS_LIST: 0,
+  a: 1,
 };
 
 // Interface: SignalingMessageExchanger
