@@ -192,7 +192,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec 
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetLifecycleState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_Pa
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetHasNonEmptyBeforeUnload_Params',
       packedSize: 16,
       fields: [
-        { name: 'has_nonempty_beforeunload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_nonempty_beforeunload', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,7 +272,7 @@ performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = {
       name: 'performance_manager.mojom.DocumentCoordinationUnit.SetIsAdFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_ad_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_ad_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnFirstContentfulPaint_Params',
       packedSize: 16,
       fields: [
-        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time_since_navigation_start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -313,7 +313,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
       name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -459,7 +459,7 @@ performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_Par
       name: 'performance_manager.mojom.ProcessCoordinationUnit.SetMainThreadTaskLoadIsLow_Params',
       packedSize: 16,
       fields: [
-        { name: 'main_thread_task_load_is_low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'main_thread_task_load_is_low', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -473,8 +473,8 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec 
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'iframe_attribution_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -488,7 +488,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDetached_Params',
       packedSize: 16,
       fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -502,7 +502,7 @@ performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpe
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnV8ContextDestroyed_Params',
       packedSize: 16,
       fields: [
-        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'v8_context_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -516,9 +516,9 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsS
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeAttached_Params',
       packedSize: 32,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'iframe_attribution_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -532,8 +532,8 @@ performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsS
       name: 'performance_manager.mojom.ProcessCoordinationUnit.OnRemoteIframeDetached_Params',
       packedSize: 24,
       fields: [
-        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'parent_frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -620,8 +620,8 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
       name: 'performance_manager.mojom.ChildProcessCoordinationUnit.InitializeChildProcessCoordination_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'process_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

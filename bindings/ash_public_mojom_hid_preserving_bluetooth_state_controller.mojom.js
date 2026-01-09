@@ -78,8 +78,8 @@ ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Pa
       name: 'ash.mojom.HidPreservingBluetoothStateController.TryToSetBluetoothEnabledState_Params',
       packedSize: 24,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

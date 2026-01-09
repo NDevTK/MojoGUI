@@ -144,7 +144,7 @@ chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.SetColorTemperature_Params',
       packedSize: 16,
       fields: [
-        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,8 +158,8 @@ chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.SetColorTemperatureSmooth_Params',
       packedSize: 24,
       fields: [
-        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.SetBrightness_Params',
       packedSize: 16,
       fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,8 +200,8 @@ chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.SetBrightnessSmooth_Params',
       packedSize: 24,
       fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.SetScreenOn_Params',
       packedSize: 16,
       fields: [
-        { name: 'display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,7 +242,7 @@ chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.SetAllowScreenPowerOff_Params',
       packedSize: 16,
       fields: [
-        { name: 'allow_power_off', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allow_power_off', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,7 +256,7 @@ chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
       name: 'chromecast.mojom.DisplaySettings.AddDisplaySettingsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -331,7 +331,7 @@ chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec =
       name: 'chromecast.mojom.DisplaySettingsObserver.OnDisplayBrightnessChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }

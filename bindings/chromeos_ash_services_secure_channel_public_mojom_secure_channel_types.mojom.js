@@ -81,7 +81,7 @@ ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
       name: 'ash.secure_channel.mojom.FilePayloadListener.OnFileTransferUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

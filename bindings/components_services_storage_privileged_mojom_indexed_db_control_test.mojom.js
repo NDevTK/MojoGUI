@@ -92,10 +92,10 @@ storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
       name: 'storage.mojom.MockFailureInjector.FailOperation_Params',
       packedSize: 40,
       fields: [
-        { name: 'failure_class', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'failure_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'instance_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'call_num', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'failure_class', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'failure_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'instance_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'call_num', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -254,7 +254,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec 
       name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,8 +268,8 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_Params',
       packedSize: 24,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'for_sqlite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'for_sqlite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,7 +282,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,9 +309,9 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_Params',
       packedSize: 32,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'database_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'blob_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'database_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'blob_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -324,7 +324,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec =
       name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -338,7 +338,7 @@ storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.FlushBackingStoreForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.FlushBucketSequenceForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -378,7 +378,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
       name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'total_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'total_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,7 +392,7 @@ storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec
       name: 'storage.mojom.IndexedDBControlTest.BindMockFailureSingletonForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

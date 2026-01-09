@@ -112,7 +112,7 @@ storage.mojom.FileLock_Release_ResponseParamsSpec = {
       name: 'storage.mojom.FileLock.Release_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ storage.mojom.Directory_Clone_ParamsSpec = {
       name: 'storage.mojom.Directory.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,7 +282,7 @@ storage.mojom.Directory_PathExists_ParamsSpec = {
       name: 'storage.mojom.Directory.PathExists_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,7 +295,7 @@ storage.mojom.Directory_PathExists_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.PathExists_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,8 +309,8 @@ storage.mojom.Directory_GetEntries_ParamsSpec = {
       name: 'storage.mojom.Directory.GetEntries_Params',
       packedSize: 24,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,8 +323,8 @@ storage.mojom.Directory_GetEntries_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.GetEntries_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -338,10 +338,10 @@ storage.mojom.Directory_OpenFile_ParamsSpec = {
       name: 'storage.mojom.Directory.OpenFile_Params',
       packedSize: 40,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'read_access', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'write_access', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'read_access', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'write_access', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,8 +354,8 @@ storage.mojom.Directory_OpenFile_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.OpenFile_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -369,7 +369,7 @@ storage.mojom.Directory_CreateDirectory_ParamsSpec = {
       name: 'storage.mojom.Directory.CreateDirectory_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -382,7 +382,7 @@ storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.CreateDirectory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -396,7 +396,7 @@ storage.mojom.Directory_DeleteFile_ParamsSpec = {
       name: 'storage.mojom.Directory.DeleteFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,7 +409,7 @@ storage.mojom.Directory_DeleteFile_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.DeleteFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -423,7 +423,7 @@ storage.mojom.Directory_GetFileInfo_ParamsSpec = {
       name: 'storage.mojom.Directory.GetFileInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -436,7 +436,7 @@ storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.GetFileInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -450,7 +450,7 @@ storage.mojom.Directory_GetPathAccess_ParamsSpec = {
       name: 'storage.mojom.Directory.GetPathAccess_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.GetPathAccess_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -477,8 +477,8 @@ storage.mojom.Directory_RenameFile_ParamsSpec = {
       name: 'storage.mojom.Directory.RenameFile_Params',
       packedSize: 24,
       fields: [
-        { name: 'old_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'old_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,7 +491,7 @@ storage.mojom.Directory_RenameFile_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.RenameFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -505,7 +505,7 @@ storage.mojom.Directory_LockFile_ParamsSpec = {
       name: 'storage.mojom.Directory.LockFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -518,8 +518,8 @@ storage.mojom.Directory_LockFile_ResponseParamsSpec = {
       name: 'storage.mojom.Directory.LockFile_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'lock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec =
       name: 'new_tab_page_third_party.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
       name: 'new_tab_page_third_party.mojom.Page.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -80,7 +80,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHa
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.CreateCustomHelpBubbleHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,7 +155,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandler.NotifyUserAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

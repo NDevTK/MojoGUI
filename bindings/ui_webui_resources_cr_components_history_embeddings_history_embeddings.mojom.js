@@ -145,7 +145,7 @@ history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.Search_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -173,8 +173,8 @@ history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SendQualityLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'num_entered_chars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selected_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'num_entered_chars', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,12 +188,12 @@ history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.RecordSearchResultsMetrics_Params',
       packedSize: 56,
       fields: [
-        { name: 'nonEmptyResults', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'userClickedResult', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'answerShown', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'answerCitationClicked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'otherHistoryResultClicked', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'queryWordCount', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'nonEmptyResults', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'userClickedResult', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'answerShown', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'answerCitationClicked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'otherHistoryResultClicked', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'queryWordCount', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
       name: 'history_embeddings.mojom.PageHandler.SetUserFeedback_Params',
       packedSize: 16,
       fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,7 +308,7 @@ history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
       name: 'history_embeddings.mojom.Page.SearchResultChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

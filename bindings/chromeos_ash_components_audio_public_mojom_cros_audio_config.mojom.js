@@ -118,7 +118,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsS
       name: 'ash.audio_config.mojom.AudioSystemPropertiesObserver.OnPropertiesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,7 +301,7 @@ ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec =
       name: 'ash.audio_config.mojom.CrosAudioConfig.ObserveAudioSystemProperties_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,7 +315,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputMuted_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetOutputVolumePercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,7 +343,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputGainPercent_Params',
       packedSize: 16,
       fields: [
-        { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -357,7 +357,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetActiveDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetInputMuted_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -398,7 +398,7 @@ ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange
       name: 'ash.audio_config.mojom.CrosAudioConfig.RecordVoiceIsolationPreferredEffectChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'preferred_effect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -412,7 +412,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = 
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetNoiseCancellationEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -426,7 +426,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetStyleTransferEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -440,7 +440,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec 
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetForceRespectUiGainsEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -454,7 +454,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetHfpMicSrEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -468,7 +468,7 @@ ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = {
       name: 'ash.audio_config.mojom.CrosAudioConfig.SetSpatialAudioEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

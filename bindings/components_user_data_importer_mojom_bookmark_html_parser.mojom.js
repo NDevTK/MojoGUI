@@ -72,7 +72,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
       name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_Params',
       packedSize: 16,
       fields: [
-        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
       name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

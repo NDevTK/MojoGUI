@@ -72,7 +72,7 @@ media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec =
       name: 'media.mojom.FlingingRendererClientExtension.OnRemotePlayStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -177,8 +177,8 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec 
       name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = 
       name: 'media.mojom.MediaFoundationRendererExtension.SetVideoStreamEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
       name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = 
       name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -346,7 +346,7 @@ media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Param
       name: 'media.mojom.MediaFoundationRendererNotifier.MediaFoundationRendererCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

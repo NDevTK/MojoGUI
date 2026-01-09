@@ -100,7 +100,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_P
       name: 'subresource_filter.mojom.SubresourceFilterRulesetObserver.SetRulesetForProcess_Params',
       packedSize: 16,
       fields: [
-        { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ruleset_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

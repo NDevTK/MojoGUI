@@ -90,10 +90,10 @@ blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterDataHost_Params',
       packedSize: 40,
       fields: [
-        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'registration_eligibility', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_for_background_requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reporting_origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'registration_eligibility', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_for_background_requests', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reporting_origins', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,8 +107,8 @@ blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterNavigationDataHost_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,8 +122,8 @@ blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart
       name: 'blink.mojom.AttributionHost.NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

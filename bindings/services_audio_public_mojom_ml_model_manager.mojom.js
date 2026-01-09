@@ -81,7 +81,7 @@ audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
       name: 'audio.mojom.MlModelManager.SetResidualEchoEstimationModel_Params',
       packedSize: 16,
       fields: [
-        { name: 'tflite_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tflite_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -73,8 +73,8 @@ ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.mojom.sample_swa.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
       name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
       name: 'ash.mojom.sample_swa.PageHandler.Send_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
       name: 'ash.mojom.sample_swa.Page.OnEventOccurred_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,8 +304,8 @@ ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
       name: 'ash.mojom.sample_swa.Page.CreateParentPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'parent_trusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'parent_trusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

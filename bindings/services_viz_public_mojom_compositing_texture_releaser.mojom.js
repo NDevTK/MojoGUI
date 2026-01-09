@@ -72,8 +72,8 @@ viz.mojom.TextureReleaser_Release_ParamsSpec = {
       name: 'viz.mojom.TextureReleaser.Release_Params',
       packedSize: 24,
       fields: [
-        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_lost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_lost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

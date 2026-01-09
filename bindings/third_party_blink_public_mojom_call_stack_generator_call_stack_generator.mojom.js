@@ -84,8 +84,8 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
       name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'javascript_call_stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'javascript_call_stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

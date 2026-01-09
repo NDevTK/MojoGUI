@@ -72,8 +72,8 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDo
       name: 'chrome.mojom.OpenSearchDescriptionDocumentHandler.PageHasOpenSearchDescriptionDocument_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'osdd_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'osdd_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

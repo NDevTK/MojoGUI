@@ -72,10 +72,10 @@ network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Param
       name: 'network.mojom.NetworkQualityEstimatorManagerClient.OnNetworkQualityChanged_Params',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'downlink_bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'downlink_bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,7 +150,7 @@ network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
       name: 'network.mojom.NetworkQualityEstimatorManager.RequestNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

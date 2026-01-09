@@ -72,7 +72,7 @@ content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
       name: 'content.mojom.FieldTrialRecorder.FieldTrialActivated_Params',
       packedSize: 16,
       fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

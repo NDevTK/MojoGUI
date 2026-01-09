@@ -84,7 +84,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
       name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -100,8 +100,8 @@ webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
       name: 'webui_browser.mojom.PageHandlerFactory.GetTabStripInset_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
       name: 'webui_browser.mojom.Page.SetFocusToLocationBar_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_user_initiated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_user_initiated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,7 +252,7 @@ webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
       name: 'webui_browser.mojom.Page.SetReloadStopState_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -266,8 +266,8 @@ webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
       name: 'webui_browser.mojom.Page.ShowSidePanel_Params',
       packedSize: 24,
       fields: [
-        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,8 +294,8 @@ webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
       name: 'webui_browser.mojom.Page.OnFullscreenModeChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_fullscreen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_fullscreen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -460,8 +460,8 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -474,7 +474,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -500,7 +500,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.LoadTabSearch_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -514,7 +514,7 @@ webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.ShowTabSearchBubble_Params',
       packedSize: 16,
       fields: [
-        { name: 'anchor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'anchor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -765,7 +765,7 @@ webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.Navigate_Params',
       packedSize: 16,
       fields: [
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -791,7 +791,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.CanGoBack_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -830,7 +830,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.CanGoForward_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_go_forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_go_forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -908,7 +908,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.GetSecurityIcon_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

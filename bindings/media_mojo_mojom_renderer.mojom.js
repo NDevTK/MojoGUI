@@ -126,8 +126,8 @@ media.mojom.Renderer_Initialize_ParamsSpec = {
       name: 'media.mojom.Renderer.Initialize_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'streams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'streams', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ media.mojom.Renderer_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.Renderer.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,7 +167,7 @@ media.mojom.Renderer_StartPlayingFrom_ParamsSpec = {
       name: 'media.mojom.Renderer.StartPlayingFrom_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ media.mojom.Renderer_SetPlaybackRate_ParamsSpec = {
       name: 'media.mojom.Renderer.SetPlaybackRate_Params',
       packedSize: 16,
       fields: [
-        { name: 'playback_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'playback_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,7 +195,7 @@ media.mojom.Renderer_SetVolume_ParamsSpec = {
       name: 'media.mojom.Renderer.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,7 +209,7 @@ media.mojom.Renderer_SetCdm_ParamsSpec = {
       name: 'media.mojom.Renderer.SetCdm_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ media.mojom.Renderer_SetCdm_ResponseParamsSpec = {
       name: 'media.mojom.Renderer.SetCdm_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ media.mojom.Renderer_SetLatencyHint_ParamsSpec = {
       name: 'media.mojom.Renderer.SetLatencyHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'latency_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'latency_hint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -392,9 +392,9 @@ media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnTimeUpdate_Params',
       packedSize: 32,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'capture_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capture_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -408,8 +408,8 @@ media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnBufferingStateChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -436,7 +436,7 @@ media.mojom.RendererClient_OnError_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -450,7 +450,7 @@ media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnAudioConfigChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -464,7 +464,7 @@ media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoConfigChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -478,7 +478,7 @@ media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoNaturalSizeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -492,7 +492,7 @@ media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnVideoOpacityChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'opaque', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'opaque', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -506,7 +506,7 @@ media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnStatisticsUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,7 +520,7 @@ media.mojom.RendererClient_OnWaiting_ParamsSpec = {
       name: 'media.mojom.RendererClient.OnWaiting_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

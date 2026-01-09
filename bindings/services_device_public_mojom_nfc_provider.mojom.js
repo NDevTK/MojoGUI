@@ -90,8 +90,8 @@ device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
       name: 'device.mojom.NFCProvider.GetNFCForHost_Params',
       packedSize: 24,
       fields: [
-        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

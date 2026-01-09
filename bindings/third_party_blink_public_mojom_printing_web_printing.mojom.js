@@ -178,7 +178,7 @@ blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
       name: 'blink.mojom.WebPrintJobStateObserver.OnWebPrintJobUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -348,7 +348,7 @@ blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
       name: 'blink.mojom.WebPrinter.FetchAttributes_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -362,8 +362,8 @@ blink.mojom.WebPrinter_Print_ParamsSpec = {
       name: 'blink.mojom.WebPrinter.Print_Params',
       packedSize: 24,
       fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -376,7 +376,7 @@ blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
       name: 'blink.mojom.WebPrinter.Print_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
       name: 'blink.mojom.WebPrintingService.GetPrinters_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

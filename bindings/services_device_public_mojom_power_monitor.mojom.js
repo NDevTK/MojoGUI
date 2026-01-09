@@ -72,7 +72,7 @@ device.mojom.PowerMonitor_AddClient_ParamsSpec = {
       name: 'device.mojom.PowerMonitor.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,7 +165,7 @@ device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
       name: 'device.mojom.PowerMonitorClient.PowerStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -136,7 +136,7 @@ content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
       name: 'content.mojom.SandboxSupport.GetSystemColors_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -150,9 +150,9 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
       name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_Params',
       packedSize: 32,
       fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'default_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'defaults', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'defaults', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -165,8 +165,8 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
       name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'first_day_of_week', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'first_day_of_week', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,8 +180,8 @@ content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
       name: 'content.mojom.SandboxSupport.DigitsAndSigns_Params',
       packedSize: 24,
       fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,12 +194,12 @@ content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
       name: 'content.mojom.SandboxSupport.DigitsAndSigns_ResponseParams',
       packedSize: 56,
       fields: [
-        { name: 'digit_substitution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'digits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decimal', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'thousand', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'negative_sign', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'negnumber', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'digit_substitution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'digits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decimal', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'thousand', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'negative_sign', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'negnumber', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,9 +213,9 @@ content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
       name: 'content.mojom.SandboxSupport.LocaleString_Params',
       packedSize: 32,
       fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
       name: 'content.mojom.SandboxSupport.LocaleString_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'str', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'str', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,9 +242,9 @@ content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
       name: 'content.mojom.SandboxSupport.LocaleStrings_Params',
       packedSize: 32,
       fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'collection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'collection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -257,7 +257,7 @@ content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
       name: 'content.mojom.SandboxSupport.LocaleStrings_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

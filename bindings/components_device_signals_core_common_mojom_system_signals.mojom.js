@@ -106,7 +106,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
       name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_Params',
       packedSize: 16,
       fields: [
-        { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpe
       name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -145,7 +145,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec
       name: 'device_signals.mojom.SystemSignalsService.GetAntiVirusSignals_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'av_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'av_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = 
       name: 'device_signals.mojom.SystemSignalsService.GetHotfixSignals_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hotfix_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hotfix_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

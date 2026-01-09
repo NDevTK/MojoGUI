@@ -106,7 +106,7 @@ ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,7 +332,7 @@ ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.TriggerWelcomeTipCallToAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -358,7 +358,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.IsLauncherSearchEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -410,7 +410,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.GetDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -424,7 +424,7 @@ ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpe
       name: 'ash.help_app.mojom.PageHandler.OpenUrlInBrowserAndTriggerInstallDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -438,7 +438,7 @@ ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.OpenSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

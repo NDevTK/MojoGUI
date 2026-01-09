@@ -72,7 +72,7 @@ cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec 
       name: 'cert_verifier.mojom.URLLoaderFactoryConnector.CreateURLLoaderFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,8 +174,8 @@ cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.EnableNetworkAccess_Params',
       packedSize: 24,
       fields: [
-        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'reconnector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +189,9 @@ cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.Verify_Params',
       packedSize: 32,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,10 +205,10 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_Params',
       packedSize: 40,
       fields: [
-        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,7 +221,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = 
       name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -235,7 +235,7 @@ cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.SetConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -384,8 +384,8 @@ cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierRequest.Complete_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

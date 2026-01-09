@@ -103,7 +103,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = {
       name: 'ntp.calendar.mojom.GoogleCalendarPageHandler.GetEvents_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

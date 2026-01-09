@@ -99,8 +99,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpe
       name: 'auction_worklet.mojom.AuctionNetworkEventsHandler.OnNetworkSendRequest_Params',
       packedSize: 24,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,10 +114,10 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_Para
       name: 'auction_worklet.mojom.AuctionNetworkEventsHandler.OnNetworkResponseReceived_Params',
       packedSize: 40,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'loader_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'request_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'loader_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'request_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,8 +131,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_Param
       name: 'auction_worklet.mojom.AuctionNetworkEventsHandler.OnNetworkRequestComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,7 +146,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = {
       name: 'auction_worklet.mojom.AuctionNetworkEventsHandler.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

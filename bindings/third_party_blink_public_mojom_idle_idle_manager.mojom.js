@@ -78,8 +78,8 @@ blink.mojom.IdleMonitor_Update_ParamsSpec = {
       name: 'blink.mojom.IdleMonitor.Update_Params',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_overridden_by_devtools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_overridden_by_devtools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
       name: 'blink.mojom.IdleManager.AddMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,8 +167,8 @@ blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
       name: 'blink.mojom.IdleManager.AddMonitor_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

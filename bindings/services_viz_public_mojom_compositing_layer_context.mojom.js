@@ -96,7 +96,7 @@ viz.mojom.LayerContext_SetVisible_ParamsSpec = {
       name: 'viz.mojom.LayerContext.SetVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,7 +110,7 @@ viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
       name: 'viz.mojom.LayerContext.UpdateDisplayTree_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -124,7 +124,7 @@ viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
       name: 'viz.mojom.LayerContext.UpdateDisplayTiling_Params',
       packedSize: 16,
       fields: [
-        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
       name: 'viz.mojom.LayerContextClient.OnRequestCommitForFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,8 +222,8 @@ viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
       name: 'viz.mojom.LayerContextClient.OnTilingsReadyForCleanup_Params',
       packedSize: 24,
       fields: [
-        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'tiling_scales_to_clean_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tiling_scales_to_clean_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

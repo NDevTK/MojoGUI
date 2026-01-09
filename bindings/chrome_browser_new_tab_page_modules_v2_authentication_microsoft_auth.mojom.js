@@ -129,7 +129,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParam
       name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.ShouldShowModule_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

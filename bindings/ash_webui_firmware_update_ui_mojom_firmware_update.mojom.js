@@ -110,7 +110,7 @@ ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = {
       name: 'ash.firmware_update.mojom.UpdateObserver.OnUpdateListChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'firmware_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'firmware_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,7 +185,7 @@ ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = {
       name: 'ash.firmware_update.mojom.DeviceRequestObserver.OnDeviceRequest_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = {
       name: 'ash.firmware_update.mojom.UpdateProgressObserver.OnStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -353,7 +353,7 @@ ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = {
       name: 'ash.firmware_update.mojom.UpdateProvider.ObservePeripheralUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,7 +367,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
       name: 'ash.firmware_update.mojom.UpdateProvider.PrepareForUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -380,7 +380,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = {
       name: 'ash.firmware_update.mojom.UpdateProvider.PrepareForUpdate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -406,7 +406,7 @@ ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpe
       name: 'ash.firmware_update.mojom.UpdateProvider.FetchInProgressUpdate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -499,8 +499,8 @@ ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = {
       name: 'ash.firmware_update.mojom.InstallController.BeginUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'filepath', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'filepath', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -514,7 +514,7 @@ ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec 
       name: 'ash.firmware_update.mojom.InstallController.AddDeviceRequestObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -528,7 +528,7 @@ ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec
       name: 'ash.firmware_update.mojom.InstallController.AddUpdateProgressObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

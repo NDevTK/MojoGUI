@@ -81,7 +81,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
       name: 'network.mojom.MdnsResponder.CreateNameForAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,8 +94,8 @@ network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
       name: 'network.mojom.MdnsResponder.CreateNameForAddress_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'announcement_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'announcement_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -122,8 +122,8 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'goodbye_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'goodbye_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

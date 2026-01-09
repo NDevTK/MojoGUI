@@ -141,7 +141,7 @@ mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = 
       name: 'mac_notifications.mojom.MacNotificationService.DisplayNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'notification', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -155,8 +155,8 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
       name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_Params',
       packedSize: 24,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_Respons
       name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'notifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'notifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = {
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotification_Params',
       packedSize: 16,
       fields: [
-        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Para
       name: 'mac_notifications.mojom.MacNotificationService.CloseNotificationsForProfile_Params',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponsePa
       name: 'mac_notifications.mojom.MacNotificationService.OkayToTerminateService_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_terminate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_terminate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params
       name: 'mac_notifications.mojom.MacNotificationActionHandler.OnNotificationAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,8 +386,8 @@ mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSp
       name: 'mac_notifications.mojom.MacNotificationProvider.BindNotificationService_Params',
       packedSize: 24,
       fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -93,7 +93,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
       name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParam
       name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -215,7 +215,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
       name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -241,7 +241,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParam
       name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -338,8 +338,8 @@ cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
       name: 'cast_streaming.mojom.DemuxerConnector.OnStreamsInitialized_Params',
       packedSize: 24,
       fields: [
-        { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

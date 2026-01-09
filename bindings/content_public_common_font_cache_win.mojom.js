@@ -81,7 +81,7 @@ content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
       name: 'content.mojom.FontCacheWin.PreCacheFont_Params',
       packedSize: 16,
       fields: [
-        { name: 'log_font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'log_font', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

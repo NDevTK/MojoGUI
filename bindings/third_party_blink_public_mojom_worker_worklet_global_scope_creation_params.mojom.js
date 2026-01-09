@@ -72,8 +72,8 @@ blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = {
       name: 'blink.mojom.WorkletDevToolsHost.OnReadyForInspection_Params',
       packedSize: 24,
       fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

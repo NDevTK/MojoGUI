@@ -353,7 +353,7 @@ ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendStartSessionEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,7 +367,7 @@ ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendCaptureEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -381,7 +381,7 @@ ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendAndroidIntentEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -395,7 +395,7 @@ ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendOpenPTZPanelEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -409,7 +409,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendDocScanActionEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -423,7 +423,7 @@ ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendDocScanResultEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,7 +437,7 @@ ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendOpenCameraEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendLowStorageActionEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -465,7 +465,7 @@ ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendBarcodeDetectedEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -479,7 +479,7 @@ ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendPerfEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -506,7 +506,7 @@ ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.UpdateMemoryUsageEventParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -520,7 +520,7 @@ ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
       name: 'ash.camera_app.mojom.EventsSender.SendOcrEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

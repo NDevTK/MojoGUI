@@ -81,7 +81,7 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
       name: 'on_device_translation.mojom.Translator.Translate_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
       name: 'on_device_translation.mojom.Translator.SplitSentences_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
       name: 'on_device_translation.mojom.Translator.SplitSentences_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sentences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sentences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = {
       name: 'content.mojom.ThreadTypeSwitcher.SetThreadType_Params',
       packedSize: 24,
       fields: [
-        { name: 'platform_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'thread_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'platform_thread_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'thread_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -333,7 +333,7 @@ ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -359,7 +359,7 @@ ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.ForceEnrollmentNow_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -385,7 +385,7 @@ ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.ForceSyncNow_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,7 +411,7 @@ ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.GetGroupPrivateKeyStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,7 +437,7 @@ ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsS
       name: 'ash.device_sync.mojom.DeviceSync.GetBetterTogetherMetadataStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.GetSyncedDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -489,7 +489,7 @@ ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.GetLocalDeviceMetadata_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'local_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -503,10 +503,10 @@ ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.SetSoftwareFeatureState_Params',
       packedSize: 40,
       fields: [
-        { name: 'device_public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'software_feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_exclusive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'software_feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_exclusive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -519,7 +519,7 @@ ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.SetSoftwareFeatureState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,9 +533,9 @@ ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.SetFeatureStatus_Params',
       packedSize: 32,
       fields: [
-        { name: 'device_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status_change', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status_change', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -548,7 +548,7 @@ ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.SetFeatureStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,7 +562,7 @@ ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.FindEligibleDevices_Params',
       packedSize: 16,
       fields: [
-        { name: 'software_feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'software_feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -575,8 +575,8 @@ ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.FindEligibleDevices_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -590,9 +590,9 @@ ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.NotifyDevices_Params',
       packedSize: 32,
       fields: [
-        { name: 'device_instance_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cryptauth_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_instance_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cryptauth_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -605,7 +605,7 @@ ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.NotifyDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -631,8 +631,8 @@ ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.GetDevicesActivityStatus_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_activity_statuses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_activity_statuses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -658,7 +658,7 @@ ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec = {
       name: 'ash.device_sync.mojom.DeviceSync.GetDebugInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

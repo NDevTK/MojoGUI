@@ -73,8 +73,8 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,7 +158,7 @@ actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPageHandler.OnHoverStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_hovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_hovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,7 +184,7 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponsePa
       name: 'actor.ui.mojom.ActorOverlayPageHandler.GetCurrentBorderGlowVisibility_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,7 +295,7 @@ actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPage.SetScrimBackground_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,7 +309,7 @@ actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPage.SetBorderGlowVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,7 +323,7 @@ actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPage.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
       name: 'actor.ui.mojom.ActorOverlayPage.MoveCursorTo_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

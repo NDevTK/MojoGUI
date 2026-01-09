@@ -81,7 +81,7 @@ IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
       name: 'IPC.mojom.Channel.SetPeerPid_Params',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
       name: 'IPC.mojom.Channel.GetAssociatedInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

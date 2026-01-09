@@ -145,7 +145,7 @@ device.mojom.SerialPortManager_SetClient_ParamsSpec = {
       name: 'device.mojom.SerialPortManager.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,7 +171,7 @@ device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
       name: 'device.mojom.SerialPortManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,11 +185,11 @@ device.mojom.SerialPortManager_OpenPort_ParamsSpec = {
       name: 'device.mojom.SerialPortManager.OpenPort_Params',
       packedSize: 48,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'use_alternate_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'watcher', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'use_alternate_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'watcher', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -202,7 +202,7 @@ device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
       name: 'device.mojom.SerialPortManager.OpenPort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -295,7 +295,7 @@ device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = {
       name: 'device.mojom.SerialPortManagerClient.OnPortAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,7 +309,7 @@ device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = {
       name: 'device.mojom.SerialPortManagerClient.OnPortRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,7 +323,7 @@ device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = {
       name: 'device.mojom.SerialPortManagerClient.OnPortConnectedStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ device.mojom.SerialPort_StartWriting_ParamsSpec = {
       name: 'device.mojom.SerialPort.StartWriting_Params',
       packedSize: 16,
       fields: [
-        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,7 +484,7 @@ device.mojom.SerialPort_StartReading_ParamsSpec = {
       name: 'device.mojom.SerialPort.StartReading_Params',
       packedSize: 16,
       fields: [
-        { name: 'producer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'producer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -498,7 +498,7 @@ device.mojom.SerialPort_Flush_ParamsSpec = {
       name: 'device.mojom.SerialPort.Flush_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -537,7 +537,7 @@ device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
       name: 'device.mojom.SerialPort.GetControlSignals_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -551,7 +551,7 @@ device.mojom.SerialPort_SetControlSignals_ParamsSpec = {
       name: 'device.mojom.SerialPort.SetControlSignals_Params',
       packedSize: 16,
       fields: [
-        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -564,7 +564,7 @@ device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
       name: 'device.mojom.SerialPort.SetControlSignals_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -578,7 +578,7 @@ device.mojom.SerialPort_ConfigurePort_ParamsSpec = {
       name: 'device.mojom.SerialPort.ConfigurePort_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -591,7 +591,7 @@ device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
       name: 'device.mojom.SerialPort.ConfigurePort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -617,7 +617,7 @@ device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
       name: 'device.mojom.SerialPort.GetPortInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -631,7 +631,7 @@ device.mojom.SerialPort_Close_ParamsSpec = {
       name: 'device.mojom.SerialPort.Close_Params',
       packedSize: 16,
       fields: [
-        { name: 'flush', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'flush', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -715,7 +715,7 @@ device.mojom.SerialPortClient_OnReadError_ParamsSpec = {
       name: 'device.mojom.SerialPortClient.OnReadError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -729,7 +729,7 @@ device.mojom.SerialPortClient_OnSendError_ParamsSpec = {
       name: 'device.mojom.SerialPortClient.OnSendError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

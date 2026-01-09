@@ -117,8 +117,8 @@ blink.mojom.RemoteObjectHost_GetObject_ParamsSpec = {
       name: 'blink.mojom.RemoteObjectHost.GetObject_Params',
       packedSize: 24,
       fields: [
-        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -132,7 +132,7 @@ blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec = {
       name: 'blink.mojom.RemoteObjectHost.AcquireObject_Params',
       packedSize: 16,
       fields: [
-        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -146,7 +146,7 @@ blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec = {
       name: 'blink.mojom.RemoteObjectHost.ReleaseObject_Params',
       packedSize: 16,
       fields: [
-        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ blink.mojom.RemoteObject_HasMethod_ParamsSpec = {
       name: 'blink.mojom.RemoteObject.HasMethod_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -261,7 +261,7 @@ blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec = {
       name: 'blink.mojom.RemoteObject.HasMethod_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'method_exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'method_exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -287,7 +287,7 @@ blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec = {
       name: 'blink.mojom.RemoteObject.GetMethods_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'method_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'method_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,8 +301,8 @@ blink.mojom.RemoteObject_InvokeMethod_ParamsSpec = {
       name: 'blink.mojom.RemoteObject.InvokeMethod_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -315,7 +315,7 @@ blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = {
       name: 'blink.mojom.RemoteObject.InvokeMethod_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -403,8 +403,8 @@ blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec = {
       name: 'blink.mojom.RemoteObjectGatewayFactory.CreateRemoteObjectGateway_Params',
       packedSize: 24,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'gateway', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'gateway', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -488,8 +488,8 @@ blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec = {
       name: 'blink.mojom.RemoteObjectGateway.AddNamedObject_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -503,7 +503,7 @@ blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec = {
       name: 'blink.mojom.RemoteObjectGateway.RemoveNamedObject_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

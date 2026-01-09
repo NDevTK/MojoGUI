@@ -206,7 +206,7 @@ chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.SetWindowFeatures_Params',
       packedSize: 16,
       fields: [
-        { name: 'window_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = 
       name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -271,8 +271,8 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_Respons
       name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNodeWithBoundsHint_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec 
       name: 'chrome.mojom.ChromeRenderFrame.RequestBoundsHintForAllImages_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'all_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'all_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,10 +312,10 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_Params',
       packedSize: 40,
       fields: [
-        { name: 'image_min_area_pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'image_max_size_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'image_format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'quality', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image_min_area_pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'image_max_size_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_format', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'quality', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,11 +328,11 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'image_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'original_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'downscaled_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'log_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'original_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'downscaled_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'log_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -346,7 +346,7 @@ chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.ExecuteWebUIJavaScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -360,7 +360,7 @@ chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.SetCCTClientHeader_Params',
       packedSize: 16,
       fields: [
-        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -386,7 +386,7 @@ chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.GetMediaFeedURL_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -400,7 +400,7 @@ chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.LoadBlockedPlugins_Params',
       packedSize: 16,
       fields: [
-        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -414,7 +414,7 @@ chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.SetShouldDeferMediaLoad_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_defer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_defer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -428,7 +428,7 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -441,7 +441,7 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -455,7 +455,7 @@ chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.CancelTool_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -469,7 +469,7 @@ chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.StartActorJournal_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -483,9 +483,9 @@ chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor_Params',
       packedSize: 32,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'supports_paint_stability', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supports_paint_stability', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

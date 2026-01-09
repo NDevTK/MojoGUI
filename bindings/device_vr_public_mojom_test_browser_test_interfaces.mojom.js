@@ -168,7 +168,7 @@ device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
       name: 'device_test.mojom.XRTestHook.OnFrameSubmitted_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -246,7 +246,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSp
       name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,7 +273,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Response
       name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -287,7 +287,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerData_Params',
       packedSize: 16,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,7 +300,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetControllerData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetEventData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -366,7 +366,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_Params',
       packedSize: 16,
       fields: [
-        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
       name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
       name: 'device_test.mojom.XRServiceTestHook.SetTestHook_Params',
       packedSize: 16,
       fields: [
-        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

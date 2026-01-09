@@ -74,7 +74,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_Para
       name: 'ash.settings.magic_boost_handler.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

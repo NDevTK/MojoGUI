@@ -81,7 +81,7 @@ device.mojom.VibrationManager_Vibrate_ParamsSpec = {
       name: 'device.mojom.VibrationManager.Vibrate_Params',
       packedSize: 16,
       fields: [
-        { name: 'milliseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'milliseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }

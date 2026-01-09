@@ -84,7 +84,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
       name: 'content.mojom.MainFrameCounterTest.HasMainFrame_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

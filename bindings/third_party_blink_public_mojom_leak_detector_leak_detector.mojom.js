@@ -84,7 +84,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
       name: 'blink.mojom.LeakDetector.PerformLeakDetection_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

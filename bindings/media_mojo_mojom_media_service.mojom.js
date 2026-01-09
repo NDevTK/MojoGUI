@@ -72,8 +72,8 @@ media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
       name: 'media.mojom.MediaService.CreateInterfaceFactory_Params',
       packedSize: 24,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

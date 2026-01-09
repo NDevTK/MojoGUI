@@ -84,7 +84,7 @@ foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
       name: 'foo.mojom.FooHandler.GetData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

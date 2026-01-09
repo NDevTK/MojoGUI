@@ -81,7 +81,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec = 
       name: 'on_load_script_injector.mojom.OnLoadScriptInjector.AddOnLoadScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

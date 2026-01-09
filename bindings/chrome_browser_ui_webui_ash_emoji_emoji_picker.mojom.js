@@ -89,7 +89,7 @@ emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,9 +303,9 @@ emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.InsertEmoji_Params',
       packedSize: 32,
       fields: [
-        { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'search_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'emoji', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_variant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'search_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -319,7 +319,7 @@ emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.InsertGif_Params',
       packedSize: 16,
       fields: [
-        { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gif', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -345,7 +345,7 @@ emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.IsIncognitoTextField_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -371,7 +371,7 @@ emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetFeatureList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feature_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,8 +397,8 @@ emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetCategories_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'gif_categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'gif_categories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -425,8 +425,8 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetFeaturedGifs_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'featured_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'featured_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -440,7 +440,7 @@ emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.SearchGifs_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -454,8 +454,8 @@ emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.SearchGifs_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'search_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'search_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -469,7 +469,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetGifsByIds_Params',
       packedSize: 16,
       fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -482,8 +482,8 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetGifsByIds_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selected_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selected_gifs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -522,7 +522,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetInitialCategory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -548,7 +548,7 @@ emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetInitialQuery_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,8 +562,8 @@ emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.UpdateHistoryInPrefs_Params',
       packedSize: 24,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -577,7 +577,7 @@ emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.UpdatePreferredVariantsInPrefs_Params',
       packedSize: 16,
       fields: [
-        { name: 'preferred_variants', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'preferred_variants', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -591,7 +591,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetHistoryFromPrefs_Params',
       packedSize: 16,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = {
       name: 'emoji_picker.mojom.PageHandler.GetHistoryFromPrefs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

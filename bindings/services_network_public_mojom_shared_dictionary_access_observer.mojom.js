@@ -87,7 +87,7 @@ network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSp
       name: 'network.mojom.SharedDictionaryAccessObserver.OnSharedDictionaryAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,7 +101,7 @@ network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.SharedDictionaryAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

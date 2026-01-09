@@ -140,7 +140,7 @@ dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
       name: 'dlp_internals.mojom.ReportingObserver.OnReportEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,7 +263,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -289,7 +289,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = 
       name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'web_contents_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'web_contents_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +303,7 @@ dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.ObserveReporting_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'db_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'db_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -343,7 +343,7 @@ dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.GetFileInode_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.GetFileInode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'inode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'inode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -88,8 +88,8 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
       name: 'auction_worklet.mojom.TrustedSignalsCacheClient.OnSuccess_Params',
       packedSize: 24,
       fields: [
-        { name: 'compression_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'compression_group_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'compression_scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'compression_group_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,7 +103,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
       name: 'auction_worklet.mojom.TrustedSignalsCacheClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -178,8 +178,8 @@ auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
       name: 'auction_worklet.mojom.TrustedSignalsCache.GetTrustedSignals_Params',
       packedSize: 24,
       fields: [
-        { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

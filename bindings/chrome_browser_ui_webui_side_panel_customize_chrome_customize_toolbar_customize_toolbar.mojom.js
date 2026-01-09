@@ -110,8 +110,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomize
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.CreateCustomizeToolbarHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponsePa
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListActions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_Respons
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListCategories_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,8 +274,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec =
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.PinAction_Params',
       packedSize: 24,
       fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,7 +301,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Respon
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.GetIsCustomized_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -398,8 +398,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsS
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarClient.SetActionPinned_Params',
       packedSize: 24,
       fields: [
-        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pinned', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

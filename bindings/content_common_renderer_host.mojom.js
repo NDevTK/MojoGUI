@@ -108,7 +108,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
       name: 'content.mojom.RendererHost.GetBrowserHistogram_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
       name: 'content.mojom.RendererHost.GetBrowserHistogram_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'histogram_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'histogram_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,7 +135,7 @@ content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
       name: 'content.mojom.RendererHost.SuddenTerminationAllowedChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
       name: 'content.mojom.RendererHost.RecordUserMetricsAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,7 +163,7 @@ content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
       name: 'content.mojom.RendererHost.SetPrivateMemoryFootprint_Params',
       packedSize: 16,
       fields: [
-        { name: 'private_memory_footprint_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'private_memory_footprint_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
       name: 'content.mojom.RendererHost.HasGpuProcess_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_gpu_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_gpu_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

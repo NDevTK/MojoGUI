@@ -73,7 +73,7 @@ ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Param
       name: 'ash.color_internals.mojom.WallpaperColorsObserver.OnWallpaperColorsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -148,7 +148,7 @@ ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Para
       name: 'ash.color_internals.mojom.WallpaperColorsHandler.SetWallpaperColorsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

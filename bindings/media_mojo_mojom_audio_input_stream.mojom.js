@@ -105,7 +105,7 @@ media.mojom.AudioInputStream_SetVolume_ParamsSpec = {
       name: 'media.mojom.AudioInputStream.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
       name: 'media.mojom.AudioInputStreamClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = {
       name: 'media.mojom.AudioInputStreamClient.OnMutedStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

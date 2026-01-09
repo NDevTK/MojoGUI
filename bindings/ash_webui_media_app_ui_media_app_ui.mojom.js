@@ -73,7 +73,7 @@ ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -254,7 +254,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.IsFileArcWritable_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.IsFileArcWritable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.IsFileBrowserWritable_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.IsFileBrowserWritable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -308,8 +308,8 @@ ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.EditInPhotos_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,9 +323,9 @@ ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.PageHandler.SubmitForm_Params',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'header', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'header', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

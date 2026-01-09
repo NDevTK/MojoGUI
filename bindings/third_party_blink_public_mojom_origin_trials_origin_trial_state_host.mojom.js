@@ -81,7 +81,7 @@ blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
       name: 'blink.mojom.OriginTrialStateHost.ApplyFeatureDiffForOriginTrial_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +95,8 @@ blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
       name: 'blink.mojom.OriginTrialStateHost.EnablePersistentTrial_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec = 
       name: 'video_capture.mojom.AcceleratorFactory.CreateJpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.InjectGpuDependencies_Params',
       packedSize: 16,
       fields: [
-        { name: 'accelerator_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'accelerator_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpe
       name: 'video_capture.mojom.VideoCaptureService.ConnectToCameraAppDeviceBridge_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec
       name: 'video_capture.mojom.VideoCaptureService.BindVideoCaptureDeviceFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec 
       name: 'video_capture.mojom.VideoCaptureService.ConnectToVideoSourceProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.BindControlsForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = {
       name: 'video_capture.mojom.VideoCaptureService.OnGpuInfoUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'luid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

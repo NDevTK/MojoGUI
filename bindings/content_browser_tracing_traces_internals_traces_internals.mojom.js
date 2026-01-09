@@ -102,8 +102,8 @@ traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpe
       name: 'traces_internals.mojom.TracesInternalsHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -349,8 +349,8 @@ traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.StartTraceSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'enable_privacy_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'enable_privacy_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -363,7 +363,7 @@ traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.StartTraceSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -389,8 +389,8 @@ traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.CloneTraceSession_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.StopTraceSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -442,7 +442,7 @@ traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = 
       name: 'traces_internals.mojom.PageHandler.GetTrackEventCategories_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -468,9 +468,9 @@ traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.GetBufferUsage_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'percent_full', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'percent_full', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'data_loss', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -496,7 +496,7 @@ traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.GetAllTraceReports_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -510,7 +510,7 @@ traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.DeleteSingleTrace_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -523,7 +523,7 @@ traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.DeleteSingleTrace_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -549,7 +549,7 @@ traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.DeleteAllTraces_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -563,7 +563,7 @@ traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.UserUploadSingleTrace_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -576,7 +576,7 @@ traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.UserUploadSingleTrace_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -590,7 +590,7 @@ traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.DownloadTrace_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -603,7 +603,7 @@ traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.DownloadTrace_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -629,7 +629,7 @@ traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.GetAllScenarios_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -643,7 +643,7 @@ traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.SetEnabledScenarios_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -656,7 +656,7 @@ traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.SetEnabledScenarios_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -670,7 +670,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromString_Params',
       packedSize: 16,
       fields: [
-        { name: 'config_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -683,7 +683,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSp
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromString_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -697,7 +697,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromBuffer_Params',
       packedSize: 16,
       fields: [
-        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -710,7 +710,7 @@ traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSp
       name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -736,7 +736,7 @@ traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = 
       name: 'traces_internals.mojom.PageHandler.GetPrivacyFilterEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -750,7 +750,7 @@ traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.SetPrivacyFilterEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -776,8 +776,8 @@ traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.GetSystemTracingState_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'service_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'service_registered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'service_registered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -803,7 +803,7 @@ traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec =
       name: 'traces_internals.mojom.PageHandler.GetSecurityShieldIconUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'shield_icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shield_icon_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -829,7 +829,7 @@ traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.EnableSystemTracing_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -855,7 +855,7 @@ traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
       name: 'traces_internals.mojom.PageHandler.DisableSystemTracing_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -930,8 +930,8 @@ traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
       name: 'traces_internals.mojom.Page.OnTraceComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

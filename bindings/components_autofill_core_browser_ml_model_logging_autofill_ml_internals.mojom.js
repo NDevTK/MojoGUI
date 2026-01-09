@@ -79,7 +79,7 @@ autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
       name: 'autofill_ml_internals.mojom.Page.OnLogAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'autofill_ml_internals.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

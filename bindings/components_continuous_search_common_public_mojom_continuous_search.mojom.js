@@ -90,7 +90,7 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_Params',
       packedSize: 16,
       fields: [
-        { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -103,8 +103,8 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Respon
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

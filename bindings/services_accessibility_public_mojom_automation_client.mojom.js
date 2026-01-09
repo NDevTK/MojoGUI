@@ -111,7 +111,7 @@ ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
       name: 'ax.mojom.AutomationClient.Enable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'desktop_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'desktop_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
       name: 'ax.mojom.AutomationClient.EnableChildTree_Params',
       packedSize: 16,
       fields: [
-        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
       name: 'ax.mojom.AutomationClient.PerformAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

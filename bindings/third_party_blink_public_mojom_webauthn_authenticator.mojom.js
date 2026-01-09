@@ -233,7 +233,7 @@ blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
       name: 'blink.mojom.Authenticator.MakeCredential_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,9 +246,9 @@ blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.MakeCredential_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'dom_exception_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ blink.mojom.Authenticator_GetCredential_ParamsSpec = {
       name: 'blink.mojom.Authenticator.GetCredential_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.GetCredential_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -301,7 +301,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_Response
       name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,7 +327,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -341,7 +341,7 @@ blink.mojom.Authenticator_Report_ParamsSpec = {
       name: 'blink.mojom.Authenticator.Report_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,8 +354,8 @@ blink.mojom.Authenticator_Report_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.Report_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dom_exception_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dom_exception_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -381,7 +381,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
       name: 'blink.mojom.Authenticator.GetClientCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

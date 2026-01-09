@@ -84,7 +84,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
       name: 'feed.mojom.RssLinkReader.GetRssLinks_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

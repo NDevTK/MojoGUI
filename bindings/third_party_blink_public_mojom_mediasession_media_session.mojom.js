@@ -86,8 +86,8 @@ blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
       name: 'blink.mojom.MediaSessionClient.DidReceiveAction_Params',
       packedSize: 24,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetPlaybackState_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -253,7 +253,7 @@ blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetPositionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -267,7 +267,7 @@ blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetMicrophoneState_Params',
       packedSize: 16,
       fields: [
-        { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,7 +295,7 @@ blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.SetCameraState_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,7 +309,7 @@ blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.EnableAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,7 +323,7 @@ blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
       name: 'blink.mojom.MediaSessionService.DisableAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

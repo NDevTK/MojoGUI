@@ -121,8 +121,8 @@ ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkListObserver.OnNetworkListChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkStateObserver.OnNetworkStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetworkList_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -295,8 +295,8 @@ ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetwork_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

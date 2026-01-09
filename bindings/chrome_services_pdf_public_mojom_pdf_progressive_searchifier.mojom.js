@@ -90,8 +90,8 @@ pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
       name: 'pdf.mojom.PdfProgressiveSearchifier.AddPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,7 +105,7 @@ pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
       name: 'pdf.mojom.PdfProgressiveSearchifier.DeletePage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,7 +131,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
       name: 'pdf.mojom.PdfProgressiveSearchifier.Save_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

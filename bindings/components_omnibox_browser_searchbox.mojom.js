@@ -289,7 +289,7 @@ searchbox.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -303,7 +303,7 @@ searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.OnFocusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'focused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'focused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -317,8 +317,8 @@ searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.QueryAutocomplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'prevent_inline_autocomplete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'prevent_inline_autocomplete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -332,7 +332,7 @@ searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.StopAutocomplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'clear_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'clear_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -346,14 +346,14 @@ searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.OpenAutocompleteMatch_Params',
       packedSize: 72,
       fields: [
-        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'are_matches_showing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mouse_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'alt_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ctrl_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'meta_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shift_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'are_matches_showing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mouse_button', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alt_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,9 +367,9 @@ searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.OnNavigationLikely_Params',
       packedSize: 32,
       fields: [
-        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'navigation_predictor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'navigation_predictor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,8 +383,8 @@ searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.DeleteAutocompleteMatch_Params',
       packedSize: 24,
       fields: [
-        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -398,10 +398,10 @@ searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.ActivateKeyword_Params',
       packedSize: 40,
       fields: [
-        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'match_selection_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_mouse_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'match_selection_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_mouse_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -415,7 +415,7 @@ searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.ShowContextMenu_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -429,15 +429,15 @@ searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.ExecuteAction_Params',
       packedSize: 80,
       fields: [
-        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'action_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'match_selection_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mouse_button', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'alt_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ctrl_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'meta_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shift_key', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'line', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'action_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'match_selection_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'mouse_button', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alt_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -476,7 +476,7 @@ searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
       name: 'searchbox.mojom.PageHandler.GetPlaceholderConfig_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -502,7 +502,7 @@ searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
       name: 'searchbox.mojom.PageHandler.GetRecentTabs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -516,7 +516,7 @@ searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.GetTabPreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -569,8 +569,8 @@ searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.AddFileContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'file_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -583,7 +583,7 @@ searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
       name: 'searchbox.mojom.PageHandler.AddFileContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -597,8 +597,8 @@ searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.AddTabContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'delay_upload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'delay_upload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -611,7 +611,7 @@ searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
       name: 'searchbox.mojom.PageHandler.AddTabContext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -625,8 +625,8 @@ searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.DeleteContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'from_automatic_chip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'from_automatic_chip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -653,12 +653,12 @@ searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = {
       name: 'searchbox.mojom.PageHandler.SubmitQuery_Params',
       packedSize: 56,
       fields: [
-        { name: 'query_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'mouse_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'alt_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ctrl_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'meta_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shift_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'mouse_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'alt_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ctrl_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'meta_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'shift_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -863,7 +863,7 @@ searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = {
       name: 'searchbox.mojom.Page.AutocompleteResultChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -877,8 +877,8 @@ searchbox.mojom.Page_UpdateSelection_ParamsSpec = {
       name: 'searchbox.mojom.Page.UpdateSelection_Params',
       packedSize: 24,
       fields: [
-        { name: 'old_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'old_selection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -892,7 +892,7 @@ searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = {
       name: 'searchbox.mojom.Page.SetKeywordSelected_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_keyword_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_keyword_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -919,7 +919,7 @@ searchbox.mojom.Page_SetInputText_ParamsSpec = {
       name: 'searchbox.mojom.Page.SetInputText_Params',
       packedSize: 16,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -933,8 +933,8 @@ searchbox.mojom.Page_SetThumbnail_ParamsSpec = {
       name: 'searchbox.mojom.Page.SetThumbnail_Params',
       packedSize: 24,
       fields: [
-        { name: 'thumbnail_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_deletable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'thumbnail_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'is_deletable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -948,9 +948,9 @@ searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = {
       name: 'searchbox.mojom.Page.OnContextualInputStatusChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'error_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -977,8 +977,8 @@ searchbox.mojom.Page_AddFileContext_ParamsSpec = {
       name: 'searchbox.mojom.Page.AddFileContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'file_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'file_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -992,7 +992,7 @@ searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = {
       name: 'searchbox.mojom.Page.UpdateAutoSuggestedTabContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1006,7 +1006,7 @@ searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = {
       name: 'searchbox.mojom.Page.UpdateLensSearchEligibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1020,7 +1020,7 @@ searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = {
       name: 'searchbox.mojom.Page.UpdateContentSharingPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1034,7 +1034,7 @@ searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = {
       name: 'searchbox.mojom.Page.UpdateAimEligibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1048,7 +1048,7 @@ searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = {
       name: 'searchbox.mojom.Page.OnShowAiModePrefChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'canShow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'canShow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

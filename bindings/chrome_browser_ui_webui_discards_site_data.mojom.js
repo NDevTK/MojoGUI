@@ -81,7 +81,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_Params',
       packedSize: 16,
       fields: [
-        { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -120,7 +120,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

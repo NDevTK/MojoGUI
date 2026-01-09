@@ -72,8 +72,8 @@ viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
       name: 'viz.mojom.VSyncParameterObserver.OnUpdateVSyncParameters_Params',
       packedSize: 24,
       fields: [
-        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

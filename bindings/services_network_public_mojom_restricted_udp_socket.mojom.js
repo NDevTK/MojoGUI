@@ -114,7 +114,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.JoinGroup_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -141,7 +141,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.ReceiveMore_Params',
       packedSize: 16,
       fields: [
-        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.Send_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -195,7 +195,7 @@ network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.Send_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,9 +209,9 @@ network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.SendTo_Params',
       packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -224,7 +224,7 @@ network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
       name: 'network.mojom.RestrictedUDPSocket.SendTo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

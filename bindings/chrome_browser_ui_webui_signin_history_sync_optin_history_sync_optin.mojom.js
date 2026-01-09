@@ -86,8 +86,8 @@ history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params
       name: 'history_sync_optin.mojom.PageHandlerFactory.CreateHistorySyncOptinHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
       name: 'history_sync_optin.mojom.PageHandler.UpdateDialogHeight_Params',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
       name: 'history_sync_optin.mojom.Page.SendAccountInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
       name: 'history_sync_optin.mojom.Page.SendScreenMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'screen_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'screen_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

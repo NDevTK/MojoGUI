@@ -246,7 +246,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Re
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetTutorials_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tutorial_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tutorial_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_P
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_Params',
       packedSize: 16,
       fields: [
-        { name: 'tutorial_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tutorial_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,7 +273,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_R
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetSessionData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetFeaturePromos_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feature_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -339,7 +339,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -366,7 +366,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,7 +405,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearSessionData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -431,7 +431,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ForceNewSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -457,7 +457,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.RemoveGracePeriods_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -483,7 +483,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Re
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNewBadges_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'new_badges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_badges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -509,7 +509,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewModules_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'whats_new_modules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'whats_new_modules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -535,7 +535,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewEditions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'whats_new_editions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'whats_new_editions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -561,7 +561,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Re
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromos_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ntp_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ntp_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -587,7 +587,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromoPreferences_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ntp_promo_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ntp_promo_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -601,7 +601,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -614,7 +614,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -640,7 +640,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearWhatsNewData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -654,7 +654,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -667,7 +667,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -693,7 +693,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoPreferences_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

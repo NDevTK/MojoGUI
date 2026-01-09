@@ -158,7 +158,7 @@ device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = {
       name: 'device.mojom.FingerprintObserver.OnStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -172,9 +172,9 @@ device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = {
       name: 'device.mojom.FingerprintObserver.OnEnrollScanDone_Params',
       packedSize: 32,
       fields: [
-        { name: 'scan_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'percent_complete', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scan_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'is_complete', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'percent_complete', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,8 +188,8 @@ device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = {
       name: 'device.mojom.FingerprintObserver.OnAuthScanDone_Params',
       packedSize: 24,
       fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'matches', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'matches', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,7 +367,7 @@ device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = {
       name: 'device.mojom.Fingerprint.GetRecordsForUser_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -380,8 +380,8 @@ device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.GetRecordsForUser_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'records', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'records', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -395,8 +395,8 @@ device.mojom.Fingerprint_StartEnrollSession_ParamsSpec = {
       name: 'device.mojom.Fingerprint.StartEnrollSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -422,7 +422,7 @@ device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.CancelCurrentEnrollSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -436,7 +436,7 @@ device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = {
       name: 'device.mojom.Fingerprint.RequestRecordLabel_Params',
       packedSize: 16,
       fields: [
-        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -449,7 +449,7 @@ device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.RequestRecordLabel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,8 +463,8 @@ device.mojom.Fingerprint_SetRecordLabel_ParamsSpec = {
       name: 'device.mojom.Fingerprint.SetRecordLabel_Params',
       packedSize: 24,
       fields: [
-        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -477,7 +477,7 @@ device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.SetRecordLabel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -491,7 +491,7 @@ device.mojom.Fingerprint_RemoveRecord_ParamsSpec = {
       name: 'device.mojom.Fingerprint.RemoveRecord_Params',
       packedSize: 16,
       fields: [
-        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'record_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -504,7 +504,7 @@ device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.RemoveRecord_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -543,7 +543,7 @@ device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.EndCurrentAuthSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -569,7 +569,7 @@ device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.DestroyAllRecords_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -583,7 +583,7 @@ device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = {
       name: 'device.mojom.Fingerprint.AddFingerprintObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -609,7 +609,7 @@ device.mojom.Fingerprint_RequestType_ResponseParamsSpec = {
       name: 'device.mojom.Fingerprint.RequestType_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

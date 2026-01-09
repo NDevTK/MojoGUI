@@ -103,7 +103,7 @@ chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpe
       name: 'chrome.mojom.NetErrorPageSupport.SetIsShowingDownloadButtonInErrorPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'showing_download_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

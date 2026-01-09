@@ -81,7 +81,7 @@ zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'zero_state_promo.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
       name: 'zero_state_promo.mojom.PageHandler.LaunchWebStoreLink_Params',
       packedSize: 16,
       fields: [
-        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'link', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -81,7 +81,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRange_Params',
       packedSize: 16,
       fields: [
-        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRange_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -108,7 +108,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_Params',
       packedSize: 16,
       fields: [
-        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'p', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

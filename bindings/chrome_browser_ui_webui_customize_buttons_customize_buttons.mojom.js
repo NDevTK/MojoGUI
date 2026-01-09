@@ -78,8 +78,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHan
       name: 'customize_buttons.mojom.CustomizeButtonsHandlerFactory.CreateCustomizeButtonsHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -198,9 +198,9 @@ customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisib
       name: 'customize_buttons.mojom.CustomizeButtonsHandler.SetCustomizeChromeSidePanelVisible_Params',
       packedSize: 32,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'section', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'trigger', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'section', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trigger', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -275,7 +275,7 @@ customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisi
       name: 'customize_buttons.mojom.CustomizeButtonsDocument.SetCustomizeChromeSidePanelVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

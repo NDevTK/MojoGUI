@@ -218,7 +218,7 @@ mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.GetDebugInfoAsJsonString_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromDevProxy_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,7 +245,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpe
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromDevProxy_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_Res
       name: 'mojom.WebAppInternalsHandler.SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -285,7 +285,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.ParseUpdateManifestFromUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update_manifest_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.ParseUpdateManifestFromUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -312,7 +312,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromBundleUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSp
       name: 'mojom.WebAppInternalsHandler.InstallIsolatedWebAppFromBundleUrl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -339,7 +339,7 @@ mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.UpdateDevProxyIsolatedWebApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,7 +352,7 @@ mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.UpdateDevProxyIsolatedWebApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -366,7 +366,7 @@ mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Para
       name: 'mojom.WebAppInternalsHandler.SelectFileAndUpdateIsolatedWebAppFromDevBundle_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -379,7 +379,7 @@ mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_Resp
       name: 'mojom.WebAppInternalsHandler.SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -393,7 +393,7 @@ mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec = 
       name: 'mojom.WebAppInternalsHandler.UpdateManifestInstalledIsolatedWebApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -406,7 +406,7 @@ mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParam
       name: 'mojom.WebAppInternalsHandler.UpdateManifestInstalledIsolatedWebApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -420,7 +420,7 @@ mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.DeleteIsolatedWebApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -433,7 +433,7 @@ mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.DeleteIsolatedWebApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -447,8 +447,8 @@ mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.SetUpdateChannelForIsolatedWebApp_Params',
       packedSize: 24,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'update_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'update_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -461,7 +461,7 @@ mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpe
       name: 'mojom.WebAppInternalsHandler.SetUpdateChannelForIsolatedWebApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -475,8 +475,8 @@ mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.SetPinnedVersionForIsolatedWebApp_Params',
       packedSize: 24,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pinned_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'pinned_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -489,7 +489,7 @@ mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpe
       name: 'mojom.WebAppInternalsHandler.SetPinnedVersionForIsolatedWebApp_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -503,7 +503,7 @@ mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.ResetPinnedVersionForIsolatedWebApp_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -517,8 +517,8 @@ mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.SetAllowDowngradesForIsolatedWebApp_Params',
       packedSize: 24,
       fields: [
-        { name: 'allow_downgrades', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'allow_downgrades', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -544,7 +544,7 @@ mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec =
       name: 'mojom.WebAppInternalsHandler.SearchForIsolatedWebAppUpdates_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -570,7 +570,7 @@ mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec 
       name: 'mojom.WebAppInternalsHandler.GetIsolatedWebAppDevModeAppInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,8 +584,8 @@ mojom.WebAppInternalsHandler_RotateKey_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.RotateKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'web_bundle_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'rotated_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'web_bundle_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'rotated_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -152,7 +152,7 @@ attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnSourcesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnReportsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnSourceHandled_Params',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnReportHandled_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -208,7 +208,7 @@ attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnDebugReportSent_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec = 
       name: 'attribution_internals.mojom.Observer.OnAggregatableDebugReportSent_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -236,7 +236,7 @@ attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnTriggerHandled_Params',
       packedSize: 16,
       fields: [
-        { name: 'trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -250,7 +250,7 @@ attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnOsRegistration_Params',
       packedSize: 16,
       fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,7 +264,7 @@ attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec = {
       name: 'attribution_internals.mojom.Observer.OnDebugModeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'debug_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'debug_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -369,8 +369,8 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParams
       name: 'attribution_internals.mojom.Handler.IsAttributionReportingEnabled_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'attribution_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'attribution_support', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -384,7 +384,7 @@ attribution_internals.mojom.Handler_SendReport_ParamsSpec = {
       name: 'attribution_internals.mojom.Handler.SendReport_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -472,8 +472,8 @@ attribution_internals.mojom.Factory_Create_ParamsSpec = {
       name: 'attribution_internals.mojom.Factory.Create_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

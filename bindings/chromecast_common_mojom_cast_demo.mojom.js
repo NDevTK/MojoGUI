@@ -73,7 +73,7 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemoVolumeChangeObserver.VolumeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,8 +256,8 @@ chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.RecordEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.SetRetailerName_Params',
       packedSize: 16,
       fields: [
-        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -285,7 +285,7 @@ chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.SetStoreId_Params',
       packedSize: 16,
       fields: [
-        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetRetailerName_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetStoreId_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -351,7 +351,7 @@ chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.SetDefaultVolumeLevel_Params',
       packedSize: 16,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -377,7 +377,7 @@ chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetDefaultVolumeLevel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -404,8 +404,8 @@ chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.SetWifiCredentials_Params',
       packedSize: 24,
       fields: [
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'psk', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'psk', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -431,7 +431,7 @@ chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetAvailableWifiNetworks_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'network_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -457,7 +457,7 @@ chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.GetConnectionStatus_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -471,7 +471,7 @@ chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = {
       name: 'chromecast.shell.mojom.CastDemo.AddVolumeChangeObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

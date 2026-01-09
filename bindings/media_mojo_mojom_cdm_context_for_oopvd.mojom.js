@@ -85,7 +85,7 @@ media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = {
       name: 'media.mojom.CdmContextEventCallback.EventCallback_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,8 +214,8 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.GetHwKeyData_Params',
       packedSize: 24,
       fields: [
-        { name: 'decrypt_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'decrypt_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,8 +228,8 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.GetHwKeyData_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -243,7 +243,7 @@ media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.RegisterEventCallback_Params',
       packedSize: 16,
       fields: [
-        { name: 'callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,8 +269,8 @@ media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.GetHwConfigData_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'config_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'config_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,7 +296,7 @@ media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.GetScreenResolutions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -310,7 +310,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.AllocateSecureBuffer_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,7 +323,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.AllocateSecureBuffer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'secure_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'secure_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -337,9 +337,9 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.ParseEncryptedSliceHeader_Params',
       packedSize: 32,
       fields: [
-        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stream_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -352,8 +352,8 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.ParseEncryptedSliceHeader_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'slice_header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'slice_header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -367,8 +367,8 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.DecryptVideoBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -381,9 +381,9 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.DecryptVideoBuffer_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decoder_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decoder_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

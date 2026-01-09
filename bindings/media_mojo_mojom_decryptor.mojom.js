@@ -144,10 +144,10 @@ media.mojom.Decryptor_Initialize_ParamsSpec = {
       name: 'media.mojom.Decryptor.Initialize_Params',
       packedSize: 40,
       fields: [
-        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decrypt_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'decrypted_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decrypt_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'decrypted_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,8 +161,8 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
       name: 'media.mojom.Decryptor.Decrypt_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'encrypted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,8 +175,8 @@ media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.Decrypt_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -190,7 +190,7 @@ media.mojom.Decryptor_CancelDecrypt_ParamsSpec = {
       name: 'media.mojom.Decryptor.CancelDecrypt_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeAudioDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeAudioDecoder_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeVideoDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -244,7 +244,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.InitializeVideoDecoder_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -258,7 +258,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_Params',
       packedSize: 16,
       fields: [
-        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,8 +271,8 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'audio_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -286,7 +286,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_Params',
       packedSize: 16,
       fields: [
-        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'encrypted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,9 +299,9 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
       name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'video_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -315,7 +315,7 @@ media.mojom.Decryptor_ResetDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.ResetDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -329,7 +329,7 @@ media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = {
       name: 'media.mojom.Decryptor.DeinitializeDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -171,7 +171,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementClick_Params',
       packedSize: 16,
       fields: [
-        { name: 'clicked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'clicked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -185,8 +185,8 @@ blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportNewAnchorElements_Params',
       packedSize: 24,
       fields: [
-        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'removed_elements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'removed_elements', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,7 +200,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsS
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementsEnteredViewport_Params',
       packedSize: 16,
       fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementsLeftViewport_Params',
       packedSize: 16,
       fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -228,7 +228,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSp
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementsPositionUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -242,7 +242,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec =
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerOver_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointer_over_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pointer_over_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -256,7 +256,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = 
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerOut_Params',
       packedSize: 16,
       fields: [
-        { name: 'hover_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hover_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -270,7 +270,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec =
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerDown_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointer_down_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pointer_down_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -284,7 +284,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerF
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerDataOnHoverTimerFired_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec 
       name: 'blink.mojom.AnchorElementMetricsHost.ProcessPointerEventUsingMLModel_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointer_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pointer_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -324,7 +324,7 @@ blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec =
       name: 'blink.mojom.AnchorElementMetricsHost.ShouldSkipUpdateDelays_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_skip_for_testing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_skip_for_testing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

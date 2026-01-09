@@ -87,7 +87,7 @@ optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
       name: 'optimization_guide.mojom.PageTextConsumer.OnTextDumpChunk_Params',
       packedSize: 16,
       fields: [
-        { name: 'chunk', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'chunk', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,8 +175,8 @@ optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
       name: 'optimization_guide.mojom.PageTextService.RequestPageTextDump_Params',
       packedSize: 24,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

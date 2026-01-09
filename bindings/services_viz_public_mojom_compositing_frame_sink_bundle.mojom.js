@@ -90,8 +90,8 @@ viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundle.SetNeedsBeginFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'needs_begin_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'needs_begin_frame', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,7 +105,7 @@ viz.mojom.FrameSinkBundle_Submit_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundle.Submit_Params',
       packedSize: 16,
       fields: [
-        { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'submissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,8 +119,8 @@ viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundle.SetThreads_Params',
       packedSize: 24,
       fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,9 +213,9 @@ viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundleClient.FlushNotifications_Params',
       packedSize: 32,
       fields: [
-        { name: 'acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'acks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'reclaimed_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,8 +229,8 @@ viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = {
       name: 'viz.mojom.FrameSinkBundleClient.OnBeginFramePausedChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'paused', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'paused', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -244,8 +244,8 @@ viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_Pa
       name: 'viz.mojom.FrameSinkBundleClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
       packedSize: 24,
       fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sequence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sequence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

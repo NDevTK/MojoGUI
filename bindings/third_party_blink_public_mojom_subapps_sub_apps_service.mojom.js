@@ -96,7 +96,7 @@ blink.mojom.SubAppsService_Add_ParamsSpec = {
       name: 'blink.mojom.SubAppsService.Add_Params',
       packedSize: 16,
       fields: [
-        { name: 'sub_apps_to_add', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sub_apps_to_add', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
       name: 'blink.mojom.SubAppsService.Add_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -135,7 +135,7 @@ blink.mojom.SubAppsService_List_ResponseParamsSpec = {
       name: 'blink.mojom.SubAppsService.List_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ blink.mojom.SubAppsService_Remove_ParamsSpec = {
       name: 'blink.mojom.SubAppsService.Remove_Params',
       packedSize: 16,
       fields: [
-        { name: 'manifest_id_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'manifest_id_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,7 +162,7 @@ blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
       name: 'blink.mojom.SubAppsService.Remove_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

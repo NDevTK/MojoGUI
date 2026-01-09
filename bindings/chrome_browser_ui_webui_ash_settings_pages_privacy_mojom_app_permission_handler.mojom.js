@@ -128,7 +128,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec =
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSp
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetApps_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCame
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseCamera_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicr
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseMicrophone_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSet
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.OpenBrowserPermissionSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_Param
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.OpenNativeSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,8 +248,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.SetPermission_Params',
       packedSize: 24,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec
       name: 'ash.settings.app_permission.mojom.AppPermissionsObserver.OnAppRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -347,7 +347,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec
       name: 'ash.settings.app_permission.mojom.AppPermissionsObserver.OnAppUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

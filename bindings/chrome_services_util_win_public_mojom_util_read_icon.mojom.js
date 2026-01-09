@@ -79,9 +79,9 @@ chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
       name: 'chrome.mojom.UtilReadIcon.ReadIcon_Params',
       packedSize: 32,
       fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -94,7 +94,7 @@ chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
       name: 'chrome.mojom.UtilReadIcon.ReadIcon_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

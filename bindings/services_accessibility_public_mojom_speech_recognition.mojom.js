@@ -109,7 +109,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognitionEventObserver.OnResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -123,7 +123,7 @@ ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognitionEventObserver.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ ax.mojom.SpeechRecognition_Start_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Start_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
       name: 'ax.mojom.SpeechRecognition.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

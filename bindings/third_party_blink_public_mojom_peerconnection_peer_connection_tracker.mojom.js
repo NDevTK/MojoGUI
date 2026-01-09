@@ -157,7 +157,7 @@ blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionManager.OnThermalStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'thermal_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -171,8 +171,8 @@ blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionManager.StartEventLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output_period_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'output_period_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -186,7 +186,7 @@ blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionManager.StopEventLog_Params',
       packedSize: 16,
       fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -200,7 +200,7 @@ blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionManager.StartDataChannelLog_Params',
       packedSize: 16,
       fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionManager.StopDataChannelLog_Params',
       packedSize: 16,
       fields: [
-        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peer_connection_local_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -423,7 +423,7 @@ blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.AddPeerConnection_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,7 +437,7 @@ blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.RemovePeerConnection_Params',
       packedSize: 16,
       fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,9 +451,9 @@ blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.UpdatePeerConnection_Params',
       packedSize: 32,
       fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,8 +467,8 @@ blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = 
       name: 'blink.mojom.PeerConnectionTrackerHost.OnPeerConnectionSessionIdSet_Params',
       packedSize: 24,
       fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -482,11 +482,11 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.GetUserMedia_Params',
       packedSize: 48,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_constraints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'video', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'video_constraints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -500,10 +500,10 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.GetUserMediaSuccess_Params',
       packedSize: 40,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_track_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'audio_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'video_track_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -517,9 +517,9 @@ blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.GetUserMediaFailure_Params',
       packedSize: 32,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,11 +533,11 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.GetDisplayMedia_Params',
       packedSize: 48,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_constraints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'video', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'audio_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'video_constraints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -551,10 +551,10 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.GetDisplayMediaSuccess_Params',
       packedSize: 40,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_track_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'audio_track_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'video_track_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -568,9 +568,9 @@ blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.GetDisplayMediaFailure_Params',
       packedSize: 32,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -584,8 +584,8 @@ blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.WebRtcEventLogWrite_Params',
       packedSize: 24,
       fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -599,8 +599,8 @@ blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.WebRtcDataChannelLogWrite_Params',
       packedSize: 24,
       fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -614,8 +614,8 @@ blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = {
       name: 'blink.mojom.PeerConnectionTrackerHost.AddStandardStats_Params',
       packedSize: 24,
       fields: [
-        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -72,8 +72,8 @@ chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'chrome_urls.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
       name: 'chrome_urls.mojom.PageHandler.GetUrls_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
       name: 'chrome_urls.mojom.PageHandler.SetDebugPagesEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -106,7 +106,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -158,7 +158,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
       name: 'blink.mojom.KeyboardLockService.GetKeyboardLayoutMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

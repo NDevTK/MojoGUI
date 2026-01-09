@@ -72,7 +72,7 @@ shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
       name: 'shape_detection.mojom.TextDetection.Detect_Params',
       packedSize: 16,
       fields: [
-        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = {
       name: 'shape_detection.mojom.TextDetection.Detect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

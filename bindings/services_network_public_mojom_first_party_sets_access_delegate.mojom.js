@@ -81,7 +81,7 @@ network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
       name: 'network.mojom.FirstPartySetsAccessDelegate.NotifyReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ready_event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
       name: 'network.mojom.FirstPartySetsAccessDelegate.SetEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

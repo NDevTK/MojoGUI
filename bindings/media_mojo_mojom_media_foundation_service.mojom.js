@@ -72,7 +72,7 @@ media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
       name: 'media.mojom.GpuInfoObserver.OnGpuInfoUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,8 +169,8 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,8 +184,8 @@ media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
       name: 'media.mojom.MediaFoundationService.CreateInterfaceFactory_Params',
       packedSize: 24,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,7 +269,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,7 +282,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,8 +296,8 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.GetService_Params',
       packedSize: 24,
       fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

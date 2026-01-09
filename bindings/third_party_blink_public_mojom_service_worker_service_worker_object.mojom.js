@@ -81,7 +81,7 @@ blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerObjectHost.PostMessageToServiceWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -169,7 +169,7 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerObject.StateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -79,7 +79,7 @@ search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'search_engine_choice.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,8 +203,8 @@ search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSp
       name: 'search_engine_choice.mojom.PageHandler.HandleSearchEngineChoiceSelected_Params',
       packedSize: 24,
       fields: [
-        { name: 'prepopulate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'save_guest_mode_selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'prepopulate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'save_guest_mode_selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -244,7 +244,7 @@ search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
       name: 'search_engine_choice.mojom.PageHandler.RecordScrollState_Params',
       packedSize: 16,
       fields: [
-        { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scroll_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

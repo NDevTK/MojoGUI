@@ -100,7 +100,7 @@ ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_Params
       name: 'ash.personalization_app.mojom.SeaPenObserver.OnSelectedSeaPenImageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -114,7 +114,7 @@ ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpe
       name: 'ash.personalization_app.mojom.SeaPenObserver.OnTextQueryHistoryChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -306,7 +306,7 @@ ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SeaPenProvider.SetSeaPenObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,7 +320,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SeaPenProvider.GetSeaPenThumbnails_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,8 +333,8 @@ ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsS
       name: 'ash.personalization_app.mojom.SeaPenProvider.GetSeaPenThumbnails_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'thumbnails', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'statusCode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'thumbnails', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'statusCode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -348,8 +348,8 @@ ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec = 
       name: 'ash.personalization_app.mojom.SeaPenProvider.SelectSeaPenThumbnail_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'preview_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'preview_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -362,7 +362,7 @@ ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParam
       name: 'ash.personalization_app.mojom.SeaPenProvider.SelectSeaPenThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -388,7 +388,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponsePar
       name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageIds_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -402,8 +402,8 @@ ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec 
       name: 'ash.personalization_app.mojom.SeaPenProvider.SelectRecentSeaPenImage_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'preview_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'preview_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,7 +416,7 @@ ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponsePar
       name: 'ash.personalization_app.mojom.SeaPenProvider.SelectRecentSeaPenImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -430,7 +430,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_Param
       name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageThumbnail_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -443,7 +443,7 @@ ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_Respo
       name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'thumbnail_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'thumbnail_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -457,7 +457,7 @@ ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec 
       name: 'ash.personalization_app.mojom.SeaPenProvider.DeleteRecentSeaPenImage_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponsePar
       name: 'ash.personalization_app.mojom.SeaPenProvider.DeleteRecentSeaPenImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,7 +484,7 @@ ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SeaPenProvider.OpenFeedbackDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -510,7 +510,7 @@ ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_
       name: 'ash.personalization_app.mojom.SeaPenProvider.ShouldShowSeaPenIntroductionDialog_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -549,7 +549,7 @@ ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductio
       name: 'ash.personalization_app.mojom.SeaPenProvider.ShouldShowSeaPenFreeformIntroductionDialog_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'should_show_freeform_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_show_freeform_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -588,7 +588,7 @@ ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec =
       name: 'ash.personalization_app.mojom.SeaPenProvider.IsInTabletMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

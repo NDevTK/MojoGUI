@@ -73,8 +73,8 @@ ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.extended_updates.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec
       name: 'ash.extended_updates.mojom.PageHandler.OptInToExtendedUpdates_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,7 +218,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpe
       name: 'ash.extended_updates.mojom.PageHandler.GetInstalledAndroidApps_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

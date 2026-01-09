@@ -72,8 +72,8 @@ media.mojom.RemoterFactory_Create_ParamsSpec = {
       name: 'media.mojom.RemoterFactory.Create_Params',
       packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -157,7 +157,7 @@ media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamSender.SendFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -316,10 +316,10 @@ media.mojom.Remoter_StartDataStreams_ParamsSpec = {
       name: 'media.mojom.Remoter.StartDataStreams_Params',
       packedSize: 40,
       fields: [
-        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
+        { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ media.mojom.Remoter_Stop_ParamsSpec = {
       name: 'media.mojom.Remoter.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -347,7 +347,7 @@ media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
       name: 'media.mojom.Remoter.SendMessageToSink_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -373,7 +373,7 @@ media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
       name: 'media.mojom.Remoter.EstimateTransmissionCapacity_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,7 +493,7 @@ media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnSinkAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,7 +533,7 @@ media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnStartFailed_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -547,7 +547,7 @@ media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnMessageFromSink_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -561,7 +561,7 @@ media.mojom.RemotingSource_OnStopped_ParamsSpec = {
       name: 'media.mojom.RemotingSource.OnStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -672,7 +672,7 @@ media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
       name: 'media.mojom.Remotee.OnRemotingSinkReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -686,7 +686,7 @@ media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
       name: 'media.mojom.Remotee.SendMessageToSource_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -700,8 +700,8 @@ media.mojom.Remotee_StartDataStreams_ParamsSpec = {
       name: 'media.mojom.Remotee.StartDataStreams_Params',
       packedSize: 24,
       fields: [
-        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -715,8 +715,8 @@ media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
       name: 'media.mojom.Remotee.OnFlushUntil_Params',
       packedSize: 24,
       fields: [
-        { name: 'audio_frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'video_frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'video_frame_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -730,7 +730,7 @@ media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
       name: 'media.mojom.Remotee.OnVideoNaturalSizeChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -805,7 +805,7 @@ media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
       name: 'media.mojom.RemotingSink.OnMessageFromSource_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -898,7 +898,7 @@ media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamReceiver.InitializeDataPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -912,8 +912,8 @@ media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamReceiver.ReceiveFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -927,7 +927,7 @@ media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
       name: 'media.mojom.RemotingDataStreamReceiver.FlushUntil_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

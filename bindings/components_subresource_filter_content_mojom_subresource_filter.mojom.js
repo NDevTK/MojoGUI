@@ -72,8 +72,8 @@ subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Par
       name: 'subresource_filter.mojom.SubresourceFilterAgent.ActivateForNextCommittedLoad_Params',
       packedSize: 24,
       fields: [
-        { name: 'activation_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ad_evidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'activation_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ad_evidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Para
       name: 'subresource_filter.mojom.SubresourceFilterHost.AdScriptDidCreateFencedFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'fenced_frame_root_placeholder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'fenced_frame_root_placeholder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,7 +246,7 @@ subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsS
       name: 'subresource_filter.mojom.SubresourceFilterHost.SetDocumentLoadStatistics_Params',
       packedSize: 16,
       fields: [
-        { name: 'statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,7 +260,7 @@ subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpe
       name: 'subresource_filter.mojom.SubresourceFilterHost.OnAdsViolationTriggered_Params',
       packedSize: 16,
       fields: [
-        { name: 'violation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'violation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

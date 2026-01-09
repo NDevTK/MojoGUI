@@ -72,7 +72,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
       name: 'media_router.mojom.MediaRouterTraitsTestService.EchoMediaSink_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -85,7 +85,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec
       name: 'media_router.mojom.MediaRouterTraitsTestService.EchoMediaSink_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

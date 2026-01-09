@@ -102,7 +102,7 @@ private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = {
       name: 'private_aggregation_internals.mojom.Observer.OnReportHandled_Params',
       packedSize: 16,
       fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
       name: 'private_aggregation_internals.mojom.Handler.GetReports_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,7 +221,7 @@ private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = {
       name: 'private_aggregation_internals.mojom.Handler.SendReports_Params',
       packedSize: 16,
       fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -309,8 +309,8 @@ private_aggregation_internals.mojom.Factory_Create_ParamsSpec = {
       name: 'private_aggregation_internals.mojom.Factory.Create_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

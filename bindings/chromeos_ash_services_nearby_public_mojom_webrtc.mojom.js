@@ -84,7 +84,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
       name: 'sharing.mojom.IceConfigFetcher.GetIceServers_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ice_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ice_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,7 +159,7 @@ sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
       name: 'sharing.mojom.MdnsResponderFactory.CreateMdnsResponder_Params',
       packedSize: 16,
       fields: [
-        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

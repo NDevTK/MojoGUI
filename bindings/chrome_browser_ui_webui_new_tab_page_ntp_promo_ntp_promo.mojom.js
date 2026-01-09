@@ -146,8 +146,8 @@ ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
       name: 'ntp_promo.mojom.NtpPromoHandler.OnPromosShown_Params',
       packedSize: 24,
       fields: [
-        { name: 'eligible_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'completed_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eligible_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'completed_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
       name: 'ntp_promo.mojom.NtpPromoHandler.OnPromoClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -288,8 +288,8 @@ ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
       name: 'ntp_promo.mojom.NtpPromoClient.SetPromos_Params',
       packedSize: 24,
       fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -364,8 +364,8 @@ ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
       name: 'ntp_promo.mojom.NtpPromoHandlerFactory.CreateNtpPromoHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

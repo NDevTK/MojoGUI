@@ -108,7 +108,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Update_Params',
       packedSize: 16,
       fields: [
-        { name: 'outside_fetch_client_settings_object', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outside_fetch_client_settings_object', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec = {
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Update_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -148,7 +148,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec = 
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.Unregister_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -163,7 +163,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSp
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.EnableNavigationPreload_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_Response
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.EnableNavigationPreload_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -203,9 +203,9 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_Respon
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.GetNavigationPreloadState_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -219,7 +219,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Param
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.SetNavigationPreloadHeader_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -232,7 +232,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_Respo
       name: 'blink.mojom.ServiceWorkerRegistrationObjectHost.SetNavigationPreloadHeader_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
         { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -326,10 +326,10 @@ blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec =
       name: 'blink.mojom.ServiceWorkerRegistrationObject.SetServiceWorkerObjects_Params',
       packedSize: 40,
       fields: [
-        { name: 'changed_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'installing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'waiting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'changed_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'installing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'waiting', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -343,7 +343,7 @@ blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerRegistrationObject.SetUpdateViaCache_Params',
       packedSize: 16,
       fields: [
-        { name: 'update_via_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update_via_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

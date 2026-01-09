@@ -90,8 +90,8 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,9 +105,9 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponseStream_Params',
       packedSize: 32,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,8 +121,8 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnFallback_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

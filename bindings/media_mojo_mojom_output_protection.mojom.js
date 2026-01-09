@@ -111,9 +111,9 @@ media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
       name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'link_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'protection_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'link_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'protection_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -127,7 +127,7 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
       name: 'media.mojom.OutputProtection.EnableProtection_Params',
       packedSize: 16,
       fields: [
-        { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
       name: 'media.mojom.OutputProtection.EnableProtection_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

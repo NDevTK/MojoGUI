@@ -82,7 +82,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
       name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpe
       name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec 
       name: 'ash.enhanced_network_tts.mojom.AudioDataObserver.OnAudioDataReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

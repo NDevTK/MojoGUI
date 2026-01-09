@@ -81,7 +81,7 @@ content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = 
       name: 'content.mojom.RendererVariationsConfiguration.SetVariationsHeaders_Params',
       packedSize: 16,
       fields: [
-        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -95,8 +95,8 @@ content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
       name: 'content.mojom.RendererVariationsConfiguration.SetFieldTrialGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

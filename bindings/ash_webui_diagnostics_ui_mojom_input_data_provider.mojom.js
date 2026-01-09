@@ -103,7 +103,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
       name: 'ash.diagnostics.mojom.KeyboardObserver.OnKeyEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerSt
       name: 'ash.diagnostics.mojom.InternalDisplayPowerStateObserver.OnInternalDisplayPowerStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_display_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -279,7 +279,7 @@ ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
       name: 'ash.diagnostics.mojom.TabletModeObserver.OnTabletModeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -354,7 +354,7 @@ ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
       name: 'ash.diagnostics.mojom.LidStateObserver.OnLidStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -456,7 +456,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = 
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnKeyboardConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_keyboard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_keyboard', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,7 +470,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnKeyboardDisconnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -484,7 +484,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnTouchDeviceConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_touch_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_touch_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -498,7 +498,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsS
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnTouchDeviceDisconnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -657,7 +657,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec =
       name: 'ash.diagnostics.mojom.InputDataProvider.GetConnectedDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -671,7 +671,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveConnectedDevices_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -685,8 +685,8 @@ ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveKeyEvents_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -700,7 +700,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveTabletMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -713,7 +713,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveTabletMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -727,7 +727,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveLidState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -740,7 +740,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveLidState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -754,7 +754,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsS
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveInternalDisplayPowerState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -768,7 +768,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.MoveAppToTestingScreen_Params',
       packedSize: 16,
       fields: [
-        { name: 'evdev_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'evdev_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -795,7 +795,7 @@ ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
       name: 'ash.diagnostics.mojom.InputDataProvider.SetA11yTouchPassthrough_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

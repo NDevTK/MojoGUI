@@ -143,7 +143,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAXTreeUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParams
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAXTreeUpdate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAnnotation_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -183,7 +183,7 @@ screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSp
       name: 'screen_ai.mojom.ScreenAIAnnotator.PerformOcrAndReturnAnnotation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.SetClientType_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,7 +223,7 @@ screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.GetMaxImageDimension_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'max_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'max_dimension', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,7 +237,7 @@ screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.SetOCRLightMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -263,7 +263,7 @@ screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIAnnotator.IsOCRBusy_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'busy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'busy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -365,7 +365,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -378,7 +378,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSp
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainContent_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'content_node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content_node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,7 +392,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainNode_Params',
       packedSize: 16,
       fields: [
-        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -405,7 +405,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec 
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.ExtractMainNode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'main_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'main_node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -419,7 +419,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.IdentifyMainNode_Params',
       packedSize: 16,
       fields: [
-        { name: 'ax_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ax_tree', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -432,8 +432,8 @@ screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.IdentifyMainNode_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -447,7 +447,7 @@ screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = {
       name: 'screen_ai.mojom.Screen2xMainContentExtractor.SetClientType_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -522,7 +522,7 @@ screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = {
       name: 'screen_ai.mojom.OCRService.BindAnnotator_Params',
       packedSize: 16,
       fields: [
-        { name: 'annotator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'annotator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -597,7 +597,7 @@ screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec
       name: 'screen_ai.mojom.MainContentExtractionService.BindMainContentExtractor_Params',
       packedSize: 16,
       fields: [
-        { name: 'main_content_extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'main_content_extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
       ],
       versions: [{version: 0}]
     }

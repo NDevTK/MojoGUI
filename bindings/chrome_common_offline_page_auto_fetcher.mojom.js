@@ -89,7 +89,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
       name: 'chrome.mojom.OfflinePageAutoFetcher.TrySchedule_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -102,7 +102,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
       name: 'chrome.mojom.OfflinePageAutoFetcher.TrySchedule_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

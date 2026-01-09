@@ -82,8 +82,8 @@ chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
       name: 'chromeos.tts.mojom.TtsService.BindGoogleTtsStream_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,9 +97,9 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
       name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_Params',
       packedSize: 32,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
       name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'audio_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'audio_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -241,8 +241,8 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_Params',
       packedSize: 24,
       fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'voice_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'voice_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -255,7 +255,7 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -269,7 +269,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_Params',
       packedSize: 16,
       fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,7 +282,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,8 +296,8 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_Params',
       packedSize: 24,
       fields: [
-        { name: 'text_jspb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'speaker_params_jspb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'text_jspb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'speaker_params_jspb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -310,7 +310,7 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
       name: 'chromeos.tts.mojom.GoogleTtsStream.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -495,7 +495,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.Play_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -509,9 +509,9 @@ chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.SendAudioBuffer_Params',
       packedSize: 32,
       fields: [
-        { name: 'frames_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'last_buffer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frames_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'last_buffer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -538,7 +538,7 @@ chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
       name: 'chromeos.tts.mojom.PlaybackTtsStream.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -679,7 +679,7 @@ chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
       name: 'chromeos.tts.mojom.TtsEventObserver.OnTimepoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

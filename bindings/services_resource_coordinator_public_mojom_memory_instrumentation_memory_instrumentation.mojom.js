@@ -140,7 +140,7 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = 
       name: 'memory_instrumentation.mojom.ClientProcess.RequestChromeMemoryDump_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -153,9 +153,9 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParam
       name: 'memory_instrumentation.mojom.ClientProcess.RequestChromeMemoryDump_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dump_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'raw_process_memory_dump', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dump_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'raw_process_memory_dump', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -169,9 +169,9 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
       name: 'memory_instrumentation.mojom.ClientProcess.RequestOSMemoryDump_Params',
       packedSize: 32,
       fields: [
-        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'pids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -184,8 +184,8 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpe
       name: 'memory_instrumentation.mojom.ClientProcess.RequestOSMemoryDump_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dumps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dumps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -260,8 +260,8 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
       name: 'memory_instrumentation.mojom.HeapProfiler.DumpProcessesForTracing_Params',
       packedSize: 24,
       fields: [
-        { name: 'strip_path_from_mapped_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'write_proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'strip_path_from_mapped_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'write_proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,7 +274,7 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParams
       name: 'memory_instrumentation.mojom.HeapProfiler.DumpProcessesForTracing_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -349,7 +349,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Para
       name: 'memory_instrumentation.mojom.HeapProfilerHelper.GetVmRegionsForHeapProfiler_Params',
       packedSize: 16,
       fields: [
-        { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -362,7 +362,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Resp
       name: 'memory_instrumentation.mojom.HeapProfilerHelper.GetVmRegionsForHeapProfiler_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'vm_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'vm_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -464,10 +464,10 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDump_Params',
       packedSize: 40,
       fields: [
-        { name: 'dump_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'level_of_detail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'allocator_dump_names', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dump_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'level_of_detail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allocator_dump_names', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -480,8 +480,8 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsS
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDump_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -495,8 +495,8 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpe
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpForPid_Params',
       packedSize: 24,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'allocator_dump_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'allocator_dump_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -509,8 +509,8 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseP
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpForPid_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -524,7 +524,7 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpe
       name: 'memory_instrumentation.mojom.Coordinator.RequestPrivateMemoryFootprint_Params',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -537,8 +537,8 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseP
       name: 'memory_instrumentation.mojom.Coordinator.RequestPrivateMemoryFootprint_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'global_memory_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -552,9 +552,9 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpAndAppendToTrace_Params',
       packedSize: 32,
       fields: [
-        { name: 'dump_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'level_of_detail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'dump_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'level_of_detail', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'determinism', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -567,8 +567,8 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
       name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpAndAppendToTrace_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dump_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dump_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -643,8 +643,8 @@ memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Para
       name: 'memory_instrumentation.mojom.CoordinatorConnector.RegisterCoordinatorClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

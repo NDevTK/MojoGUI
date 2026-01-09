@@ -146,7 +146,7 @@ audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = {
       name: 'audio.mojom.DeviceNotifier.RegisterListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -144,8 +144,8 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.GetSourceInfos_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -159,8 +159,8 @@ video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.GetVideoSource_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -174,9 +174,9 @@ video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec 
       name: 'video_capture.mojom.VideoSourceProvider.AddSharedMemoryVirtualDevice_Params',
       packedSize: 32,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -190,8 +190,8 @@ video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = {
       name: 'video_capture.mojom.VideoSourceProvider.AddTextureVirtualDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,8 +205,8 @@ video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Pa
       name: 'video_capture.mojom.VideoSourceProvider.RegisterVirtualDevicesChangedObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpe
       name: 'video_capture.mojom.VideoSourceProvider.RegisterDevicesChangedObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

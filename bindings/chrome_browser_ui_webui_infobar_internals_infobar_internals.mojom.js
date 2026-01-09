@@ -149,7 +149,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.GetInfoBars_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'infobars', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'infobars', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -163,7 +163,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -176,7 +176,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
       name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,8 +251,8 @@ infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'infobar_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

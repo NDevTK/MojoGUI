@@ -178,7 +178,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetIsNextEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -192,7 +192,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec 
       name: 'system_media_controls.mojom.SystemMediaControls.SetIsPreviousEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec
       name: 'system_media_controls.mojom.SystemMediaControls.SetIsPlayPauseEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetIsStopEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -234,7 +234,7 @@ system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = 
       name: 'system_media_controls.mojom.SystemMediaControls.SetIsSeekToEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetPlaybackStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,7 +262,7 @@ system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetTitle_Params',
       packedSize: 16,
       fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -276,7 +276,7 @@ system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetArtist_Params',
       packedSize: 16,
       fields: [
-        { name: 'artist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'artist', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetAlbum_Params',
       packedSize: 16,
       fields: [
-        { name: 'album', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'album', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,7 +304,7 @@ system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetThumbnail_Params',
       packedSize: 16,
       fields: [
-        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -318,7 +318,7 @@ system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControls.SetPosition_Params',
       packedSize: 16,
       fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -556,7 +556,7 @@ system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = {
       name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnSeekTo_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

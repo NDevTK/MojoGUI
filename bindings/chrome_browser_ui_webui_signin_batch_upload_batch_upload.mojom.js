@@ -72,8 +72,8 @@ batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec = {
       name: 'batch_upload.mojom.PageHandlerFactory.CreateBatchUploadHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
       name: 'batch_upload.mojom.PageHandler.UpdateViewHeight_Params',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec = {
       name: 'batch_upload.mojom.PageHandler.SaveToAccount_Params',
       packedSize: 16,
       fields: [
-        { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'idsToMove', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = {
       name: 'batch_upload.mojom.Page.SendBatchUploadData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

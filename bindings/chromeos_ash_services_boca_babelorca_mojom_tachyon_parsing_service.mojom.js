@@ -80,7 +80,7 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
       name: 'ash.babelorca.mojom.TachyonParsingService.Parse_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -93,9 +93,9 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
       name: 'ash.babelorca.mojom.TachyonParsingService.Parse_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'stream_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'stream_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

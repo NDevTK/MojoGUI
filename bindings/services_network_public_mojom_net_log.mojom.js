@@ -96,10 +96,10 @@ network.mojom.NetLogExporter_Start_ParamsSpec = {
       name: 'network.mojom.NetLogExporter.Start_Params',
       packedSize: 40,
       fields: [
-        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'extra_constants', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'capture_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_file_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'extra_constants', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'capture_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_file_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -112,7 +112,7 @@ network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
       name: 'network.mojom.NetLogExporter.Start_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -126,7 +126,7 @@ network.mojom.NetLogExporter_Stop_ParamsSpec = {
       name: 'network.mojom.NetLogExporter.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -139,7 +139,7 @@ network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
       name: 'network.mojom.NetLogExporter.Stop_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
       name: 'network.mojom.NetLogProxySource.UpdateCaptureModes_Params',
       packedSize: 16,
       fields: [
-        { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -289,11 +289,11 @@ network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
       name: 'network.mojom.NetLogProxySink.AddEntry_Params',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'phase', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'params', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'phase', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'params', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

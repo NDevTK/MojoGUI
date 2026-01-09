@@ -81,8 +81,8 @@ tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripExperimentService.UpdateTabGroupVisual_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'visual_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visual_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -96,8 +96,8 @@ tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripExperimentService.ShowTabContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

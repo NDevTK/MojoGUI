@@ -72,8 +72,8 @@ segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'segmentation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
       name: 'segmentation_internals.mojom.PageHandler.ExecuteModel_Params',
       packedSize: 16,
       fields: [
-        { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,8 +202,8 @@ segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
       name: 'segmentation_internals.mojom.PageHandler.OverwriteResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'segment_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -217,8 +217,8 @@ segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
       name: 'segmentation_internals.mojom.PageHandler.SetSelected_Params',
       packedSize: 24,
       fields: [
-        { name: 'segmentation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'optimization_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'segmentation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'optimization_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -302,8 +302,8 @@ segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
       name: 'segmentation_internals.mojom.Page.OnServiceStatusChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'status_flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'status_flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -317,7 +317,7 @@ segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
       name: 'segmentation_internals.mojom.Page.OnClientInfoAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

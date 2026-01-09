@@ -99,7 +99,7 @@ ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
       name: 'ax.mojom.TtsUtteranceClient.OnEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -219,8 +219,8 @@ ax.mojom.Tts_Speak_ParamsSpec = {
       name: 'ax.mojom.Tts.Speak_Params',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ ax.mojom.Tts_Speak_ResponseParamsSpec = {
       name: 'ax.mojom.Tts.Speak_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -298,7 +298,7 @@ ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
       name: 'ax.mojom.Tts.IsSpeaking_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -324,7 +324,7 @@ ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
       name: 'ax.mojom.Tts.GetVoices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

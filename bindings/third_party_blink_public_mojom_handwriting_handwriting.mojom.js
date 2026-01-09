@@ -91,8 +91,8 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
       name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_Params',
       packedSize: 24,
       fields: [
-        { name: 'strokes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'strokes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -105,7 +105,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
       name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'prediction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'prediction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Para
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_Params',
       packedSize: 16,
       fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,8 +202,8 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Resp
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handwriting_recognizer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'handwriting_recognizer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -217,7 +217,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Param
       name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_Params',
       packedSize: 16,
       fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -230,7 +230,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Respo
       name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

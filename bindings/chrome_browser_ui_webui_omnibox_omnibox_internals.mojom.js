@@ -105,7 +105,7 @@ mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = {
       name: 'mojom.OmniboxPageHandler.SetClientPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,14 +119,14 @@ mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = {
       name: 'mojom.OmniboxPageHandler.StartOmniboxQuery_Params',
       packedSize: 72,
       fields: [
-        { name: 'input_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reset_autocomplete_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cursor_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'zero_suggest', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'prevent_inline_autocomplete', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'prefer_keyword', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'current_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'page_classification', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'reset_autocomplete_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'cursor_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'zero_suggest', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'prevent_inline_autocomplete', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'prefer_keyword', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'current_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'page_classification', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,7 +152,7 @@ mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = {
       name: 'mojom.OmniboxPageHandler.GetMlModelVersion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ mojom.OmniboxPageHandler_StartMl_ParamsSpec = {
       name: 'mojom.OmniboxPageHandler.StartMl_Params',
       packedSize: 16,
       fields: [
-        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -179,7 +179,7 @@ mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = {
       name: 'mojom.OmniboxPageHandler.StartMl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,8 +281,8 @@ mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = {
       name: 'mojom.OmniboxPage.HandleNewAutocompleteQuery_Params',
       packedSize: 24,
       fields: [
-        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,8 +296,8 @@ mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = {
       name: 'mojom.OmniboxPage.HandleNewAutocompleteResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,9 +311,9 @@ mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = {
       name: 'mojom.OmniboxPage.HandleNewMlResponse_Params',
       packedSize: 32,
       fields: [
-        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'matches', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'input_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'matches', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -327,9 +327,9 @@ mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = {
       name: 'mojom.OmniboxPage.HandleAnswerIconImageData_Params',
       packedSize: 32,
       fields: [
-        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'image_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'image_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'autocomplete_controller_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'image_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

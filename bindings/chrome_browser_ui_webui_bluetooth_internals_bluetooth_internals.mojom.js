@@ -71,7 +71,7 @@ mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = {
       name: 'mojom.DebugLogsChangeHandler.ChangeDebugLogsState_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_debug_logs_be_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_debug_logs_be_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -221,7 +221,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.GetAdapter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -247,8 +247,8 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.GetDebugLogsChangeHandler_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'initial_toggle_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'initial_toggle_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,10 +274,10 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.CheckSystemPermissions_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'need_location_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'need_nearby_devices_permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'need_location_services', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'can_request_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'need_location_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'need_nearby_devices_permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'need_location_services', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_request_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,7 +342,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.StartBtsnoop_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'btsnoop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'btsnoop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -368,7 +368,7 @@ mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.IsBtsnoopFeatureEnabled_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -455,7 +455,7 @@ mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = {
       name: 'mojom.BluetoothBtsnoop.Stop_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

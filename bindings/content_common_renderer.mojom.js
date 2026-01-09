@@ -240,7 +240,7 @@ content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
       name: 'content.mojom.Renderer.CreateAgentSchedulingGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -254,7 +254,7 @@ content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
       name: 'content.mojom.Renderer.CreateAssociatedAgentSchedulingGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -268,7 +268,7 @@ content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = {
       name: 'content.mojom.Renderer.TransferSharedLastForegroundTime_Params',
       packedSize: 16,
       fields: [
-        { name: 'last_foreground_time_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'last_foreground_time_region', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,8 +282,8 @@ content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = {
       name: 'content.mojom.Renderer.OnNetworkConnectionChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'max_bandwidth_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'max_bandwidth_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -297,10 +297,10 @@ content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = {
       name: 'content.mojom.Renderer.OnNetworkQualityChanged_Params',
       packedSize: 40,
       fields: [
-        { name: 'effective_connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'effective_connection_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -314,7 +314,7 @@ content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = {
       name: 'content.mojom.Renderer.SetWebKitSharedTimersSuspended_Params',
       packedSize: 16,
       fields: [
-        { name: 'suspend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'suspend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -328,7 +328,7 @@ content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = {
       name: 'content.mojom.Renderer.UpdateScrollbarTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -342,7 +342,7 @@ content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = {
       name: 'content.mojom.Renderer.OnSystemColorsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'aqua_color_variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'aqua_color_variant', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -356,7 +356,7 @@ content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = {
       name: 'content.mojom.Renderer.UpdateSystemColorInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -396,8 +396,8 @@ content.mojom.Renderer_SetProcessState_ParamsSpec = {
       name: 'content.mojom.Renderer.SetProcessState_Params',
       packedSize: 24,
       fields: [
-        { name: 'process_priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'visible_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'process_priority', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'visible_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,7 +437,7 @@ content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = {
       name: 'content.mojom.Renderer.SetIsCrossOriginIsolated_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -451,7 +451,7 @@ content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = {
       name: 'content.mojom.Renderer.SetIsWebSecurityDisabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -465,7 +465,7 @@ content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = {
       name: 'content.mojom.Renderer.SetIsIsolatedContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -479,7 +479,7 @@ content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = {
       name: 'content.mojom.Renderer.SetWebUIResourceUrlToCodeCacheMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'resource_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'resource_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,12 +493,12 @@ content.mojom.Renderer_InitializeRenderer_ParamsSpec = {
       name: 'content.mojom.Renderer.InitializeRenderer_Params',
       packedSize: 56,
       fields: [
-        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cors_exempt_header_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'origin_trials_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cpu_performance_tier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cors_exempt_header_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'origin_trials_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cpu_performance_tier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

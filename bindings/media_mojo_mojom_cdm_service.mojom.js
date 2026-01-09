@@ -72,8 +72,8 @@ media.mojom.CdmService_CreateCdmFactory_ParamsSpec = {
       name: 'media.mojom.CdmService.CreateCdmFactory_Params',
       packedSize: 24,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
       name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -235,9 +235,9 @@ media.mojom.CdmServiceBroker_GetService_ParamsSpec = {
       name: 'media.mojom.CdmServiceBroker.GetService_Params',
       packedSize: 32,
       fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'token_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

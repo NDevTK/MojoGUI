@@ -95,8 +95,8 @@ side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSp
       name: 'side_panel.mojom.BookmarksPageHandlerFactory.CreateBookmarksPageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -369,7 +369,7 @@ side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.BookmarkCurrentTabInFolder_Params',
       packedSize: 16,
       fields: [
-        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -383,8 +383,8 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.CreateFolder_Params',
       packedSize: 24,
       fields: [
-        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -397,7 +397,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.CreateFolder_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'new_folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'new_folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -411,7 +411,7 @@ side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.DropBookmarks_Params',
       packedSize: 16,
       fields: [
-        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -425,8 +425,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteEditCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -440,8 +440,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteMoveCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -455,8 +455,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInNewTabCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -470,8 +470,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec =
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInNewWindowCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -485,8 +485,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_Params
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInIncognitoWindowCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -500,8 +500,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInNewTabGroupCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'side_panel_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -515,8 +515,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec =
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInSplitViewCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -530,8 +530,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteAddToBookmarksBarCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -545,8 +545,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_Param
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteRemoveFromBookmarksBarCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -560,8 +560,8 @@ side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteDeleteCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -575,10 +575,10 @@ side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.OpenBookmark_Params',
       packedSize: 40,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'parent_folder_depth', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'parent_folder_depth', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -605,8 +605,8 @@ side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.RenameBookmark_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -620,8 +620,8 @@ side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.MoveBookmark_Params',
       packedSize: 24,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'folder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'folder_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -635,7 +635,7 @@ side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.RemoveBookmarks_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -649,7 +649,7 @@ side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.SetSortOrder_Params',
       packedSize: 16,
       fields: [
-        { name: 'sort_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sort_order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -663,7 +663,7 @@ side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.SetViewType_Params',
       packedSize: 16,
       fields: [
-        { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -677,9 +677,9 @@ side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.ShowContextMenu_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -718,7 +718,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
       name: 'side_panel.mojom.BookmarksPageHandler.GetAllBookmarks_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -829,7 +829,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'node', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -843,7 +843,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodesRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -857,8 +857,8 @@ side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpe
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkParentFolderChildrenReordered_Params',
       packedSize: 24,
       fields: [
-        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'children_ordered_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'children_ordered_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -872,10 +872,10 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeMoved_Params',
       packedSize: 40,
       fields: [
-        { name: 'old_parent_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'old_node_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_parent_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_node_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'old_parent_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'old_node_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'new_parent_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_node_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -889,9 +889,9 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

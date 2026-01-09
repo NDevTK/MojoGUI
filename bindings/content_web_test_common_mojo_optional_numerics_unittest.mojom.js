@@ -457,7 +457,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullBool_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -471,7 +471,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -485,7 +485,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -499,7 +499,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -513,7 +513,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -527,7 +527,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -541,7 +541,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -555,7 +555,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint64_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -569,7 +569,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt64_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -583,7 +583,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullFloat_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_float', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_float', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -597,7 +597,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullDouble_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_double', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_double', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -611,7 +611,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullEnum_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -625,7 +625,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullBools_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_bools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_bools', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -639,7 +639,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullInt16s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -653,7 +653,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullUint32s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -667,7 +667,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullDoubles_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -681,7 +681,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullEnums_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -695,7 +695,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullBoolMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -709,7 +709,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullDoubleMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -723,7 +723,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullEnumMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -737,7 +737,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBool_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -750,7 +750,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsS
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBool_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -764,7 +764,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -777,7 +777,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint8_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -791,7 +791,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt8_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int8', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -804,7 +804,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsS
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt8_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -818,7 +818,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -831,7 +831,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParam
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint16_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -845,7 +845,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int16', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -858,7 +858,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -872,7 +872,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -885,7 +885,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParam
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -899,7 +899,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt32_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int32', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -912,7 +912,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt32_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -926,7 +926,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint64_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -939,7 +939,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParam
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint64_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -953,7 +953,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt64_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -966,7 +966,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt64_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -980,7 +980,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalFloat_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_float', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_float', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -993,7 +993,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalFloat_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1007,7 +1007,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDouble_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_double', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_double', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1020,7 +1020,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParam
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDouble_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1034,7 +1034,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnum_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_enum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1047,7 +1047,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsS
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnum_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1061,7 +1061,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBools_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1074,7 +1074,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBools_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1088,7 +1088,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec = 
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_int16s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1101,7 +1101,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParam
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalInt16s_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1115,7 +1115,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32s_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_uint32s', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1128,7 +1128,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalUint32s_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1142,7 +1142,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubles_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_doubles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1155,7 +1155,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubles_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1169,7 +1169,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec = {
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnums_Params',
       packedSize: 16,
       fields: [
-        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_enums', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1182,7 +1182,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnums_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1196,7 +1196,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBoolMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1209,7 +1209,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalBoolMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1223,7 +1223,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubleMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1236,7 +1236,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponsePa
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalDoubleMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1250,7 +1250,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec =
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnumMap_Params',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1263,7 +1263,7 @@ content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.Params.SendOptionalEnumMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1277,7 +1277,7 @@ content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumeri
       name: 'content.optional_numerics_unittest.mojom.Params.SendNullStructWithOptionalNumerics_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1291,7 +1291,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumeri
       name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithNullOptionalNumerics_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1305,7 +1305,7 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_P
       name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithOptionalNumerics_Params',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1318,18 +1318,18 @@ content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_R
       name: 'content.optional_numerics_unittest.mojom.Params.SendStructWithOptionalNumerics_ResponseParams',
       packedSize: 104,
       fields: [
-        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint8_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint16_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int16_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint32_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int32_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint64_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int64_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'float_value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'uint8_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'int8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'uint16_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'int16_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'uint32_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'int32_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'uint64_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'int64_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'float_value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1794,7 +1794,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullBool_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1820,7 +1820,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint8_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1846,7 +1846,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt8_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1872,7 +1872,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponsePa
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint16_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1898,7 +1898,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt16_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1924,7 +1924,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponsePa
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint32_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1950,7 +1950,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt32_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1976,7 +1976,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponsePa
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint64_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2002,7 +2002,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt64_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2028,7 +2028,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullFloat_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2054,7 +2054,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponsePa
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullDouble_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2080,7 +2080,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponsePara
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullEnum_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2106,7 +2106,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullBools_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2132,7 +2132,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponsePa
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt16s_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2158,7 +2158,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseP
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullUint32s_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2184,7 +2184,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseP
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullDoubles_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2210,7 +2210,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponsePar
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullEnums_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2236,7 +2236,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseP
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullBoolMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2262,7 +2262,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_Response
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullInt32Map_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2288,7 +2288,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseP
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullEnumMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2302,7 +2302,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBool_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2315,7 +2315,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_Response
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBool_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2329,7 +2329,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint8_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2342,7 +2342,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint8_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2356,7 +2356,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt8_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2369,7 +2369,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_Response
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt8_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int8, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2383,7 +2383,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint16_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2396,7 +2396,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Respon
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint16_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2410,7 +2410,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2423,7 +2423,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2437,7 +2437,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2450,7 +2450,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Respon
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2464,7 +2464,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt32_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2477,7 +2477,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt32_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2491,7 +2491,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint64_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2504,7 +2504,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Respon
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint64_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2518,7 +2518,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt64_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2531,7 +2531,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt64_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2545,7 +2545,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloat_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2558,7 +2558,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloat_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2572,7 +2572,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDouble_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2585,7 +2585,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Respon
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDouble_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2599,7 +2599,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnum_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2612,7 +2612,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Response
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnum_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2626,7 +2626,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBools_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2639,7 +2639,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBools_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2653,7 +2653,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16s_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2666,7 +2666,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Respon
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalInt16s_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2680,7 +2680,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32s_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2693,7 +2693,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Respo
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalUint32s_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2707,7 +2707,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDoubles_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2720,7 +2720,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Respo
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalDoubles_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2734,7 +2734,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsS
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnums_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2747,7 +2747,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Respons
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnums_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2761,8 +2761,8 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBoolMap_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2775,7 +2775,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Respo
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalBoolMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2789,8 +2789,8 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Para
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloatMap_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2803,7 +2803,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Resp
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalFloatMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2817,8 +2817,8 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Param
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnumMap_Params',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2831,7 +2831,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Respo
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetOptionalEnumMap_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'optional_values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2857,7 +2857,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptiona
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetNullStructWithOptionalNumerics_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -2883,7 +2883,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptiona
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithNullOptionalNumerics_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2897,18 +2897,18 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithOptionalNumerics_Params',
       packedSize: 104,
       fields: [
-        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint8_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint16_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int16_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint32_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int32_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'uint64_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'int64_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'float_value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bool_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'uint8_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'int8_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
+        { name: 'uint16_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'int16_value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false },
+        { name: 'uint32_value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'int32_value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'uint64_value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'int64_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'float_value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'double_value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'enum_value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -2921,7 +2921,7 @@ content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNum
       name: 'content.optional_numerics_unittest.mojom.ResponseParams.GetStructWithOptionalNumerics_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 's', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

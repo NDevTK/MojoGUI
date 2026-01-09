@@ -144,7 +144,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
       name: 'mojom.ProcessInternalsHandler.GetProcessCountInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
       name: 'mojom.ProcessInternalsHandler.GetIsolationMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
       name: 'mojom.ProcessInternalsHandler.GetProcessPerSiteMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec
       name: 'mojom.ProcessInternalsHandler.GetUserTriggeredIsolatedOrigins_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -248,7 +248,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec 
       name: 'mojom.ProcessInternalsHandler.GetWebTriggeredIsolatedOrigins_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,7 +274,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
       name: 'mojom.ProcessInternalsHandler.GetGloballyIsolatedOrigins_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -300,7 +300,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
       name: 'mojom.ProcessInternalsHandler.GetAllWebContentsInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

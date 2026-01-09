@@ -142,7 +142,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = 
       name: 'connectors_internals.mojom.PageHandler.GetDeviceTrustState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -181,7 +181,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsS
       name: 'connectors_internals.mojom.PageHandler.GetClientCertificateState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSp
       name: 'connectors_internals.mojom.PageHandler.GetSignalsReportingState_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

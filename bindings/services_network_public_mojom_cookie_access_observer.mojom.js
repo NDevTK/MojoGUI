@@ -87,7 +87,7 @@ network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
       name: 'network.mojom.CookieAccessObserver.OnCookiesAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -101,7 +101,7 @@ network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.CookieAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

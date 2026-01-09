@@ -72,7 +72,7 @@ ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
       name: 'ukm.mojom.SingularUkmInterface.Submit_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderClientInterface.SetParameters_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -231,7 +231,7 @@ ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderInterface.AddEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -245,8 +245,8 @@ ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderInterface.UpdateSourceURL_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -321,8 +321,8 @@ ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
       name: 'ukm.mojom.UkmRecorderFactory.CreateUkmRecorder_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }

@@ -72,7 +72,7 @@ blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec
       name: 'blink.mojom.SubresourceLoaderUpdater.UpdateSubresourceLoaderFactories_Params',
       packedSize: 16,
       fields: [
-        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subresource_loader_factories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

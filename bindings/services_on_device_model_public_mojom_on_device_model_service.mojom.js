@@ -192,8 +192,8 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -206,7 +206,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -220,7 +220,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_Params',
       packedSize: 16,
       fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = 
       name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -247,8 +247,8 @@ on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModelService.LoadTextSafetyModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -274,8 +274,8 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseP
       name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

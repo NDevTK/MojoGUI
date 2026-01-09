@@ -72,7 +72,7 @@ network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = {
       name: 'network.mojom.NetworkAnnotationMonitor.Report_Params',
       packedSize: 16,
       fields: [
-        { name: 'hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hash_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

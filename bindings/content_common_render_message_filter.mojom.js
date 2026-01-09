@@ -93,7 +93,7 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsS
       name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -119,7 +119,7 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec =
       name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

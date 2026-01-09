@@ -72,7 +72,7 @@ blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
       name: 'blink.mojom.BrowsingTopicsDocumentService.GetBrowsingTopics_Params',
       packedSize: 16,
       fields: [
-        { name: 'observe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

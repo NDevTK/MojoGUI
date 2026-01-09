@@ -80,9 +80,9 @@ network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
       name: 'network.mojom.P2PNetworkNotificationClient.NetworkListChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'default_ipv4_local_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'default_ipv6_local_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'default_ipv4_local_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'default_ipv6_local_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
       name: 'network.mojom.P2PSocketManager.StartNetworkNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,9 +189,9 @@ network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
       name: 'network.mojom.P2PSocketManager.GetHostAddress_Params',
       packedSize: 32,
       fields: [
-        { name: 'host_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'enable_mdns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'host_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'enable_mdns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -204,7 +204,7 @@ network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
       name: 'network.mojom.P2PSocketManager.GetHostAddress_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -218,14 +218,14 @@ network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
       name: 'network.mojom.P2PSocketManager.CreateSocket_Params',
       packedSize: 72,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'port_range', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -318,8 +318,8 @@ network.mojom.P2PSocket_Send_ParamsSpec = {
       name: 'network.mojom.P2PSocket.Send_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -333,7 +333,7 @@ network.mojom.P2PSocket_SendBatch_ParamsSpec = {
       name: 'network.mojom.P2PSocket.SendBatch_Params',
       packedSize: 16,
       fields: [
-        { name: 'packet_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'packet_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -347,8 +347,8 @@ network.mojom.P2PSocket_SetOption_ParamsSpec = {
       name: 'network.mojom.P2PSocket.SetOption_Params',
       packedSize: 24,
       fields: [
-        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -450,8 +450,8 @@ network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.SocketCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -465,7 +465,7 @@ network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.SendComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -479,7 +479,7 @@ network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.SendBatchComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_metrics_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'send_metrics_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -493,7 +493,7 @@ network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.DataReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

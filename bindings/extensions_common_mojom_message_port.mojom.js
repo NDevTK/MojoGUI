@@ -104,7 +104,7 @@ extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
       name: 'extensions.mojom.MessagePort.DispatchDisconnect_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,7 +118,7 @@ extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
       name: 'extensions.mojom.MessagePort.DeliverMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
       name: 'extensions.mojom.MessagePortHost.ClosePort_Params',
       packedSize: 24,
       fields: [
-        { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
         { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -226,7 +226,7 @@ extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
       name: 'extensions.mojom.MessagePortHost.PostMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

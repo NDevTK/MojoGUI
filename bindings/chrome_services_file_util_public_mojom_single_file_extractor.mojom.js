@@ -72,9 +72,9 @@ chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = {
       name: 'chrome.mojom.SingleFileExtractor.Extract_Params',
       packedSize: 32,
       fields: [
-        { name: 'src_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'dst_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'src_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'dst_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -87,7 +87,7 @@ chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = {
       name: 'chrome.mojom.SingleFileExtractor.Extract_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -162,8 +162,8 @@ chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec = {
       name: 'chrome.mojom.SingleFileExtractorListener.OnProgress_Params',
       packedSize: 24,
       fields: [
-        { name: 'total_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'progress_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'total_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'progress_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }

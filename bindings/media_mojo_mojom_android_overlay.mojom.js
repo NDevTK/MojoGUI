@@ -72,9 +72,9 @@ media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayProvider.CreateOverlay_Params',
       packedSize: 32,
       fields: [
-        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -149,7 +149,7 @@ media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
       name: 'media.mojom.AndroidOverlay.ScheduleLayout_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -251,7 +251,7 @@ media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayClient.OnSurfaceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayClient.OnPowerEfficientState_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

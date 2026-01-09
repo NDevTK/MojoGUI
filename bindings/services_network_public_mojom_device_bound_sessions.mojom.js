@@ -259,7 +259,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionManager.GetAllSessions_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sessions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'sessions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -273,8 +273,8 @@ network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionManager.DeleteSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -288,10 +288,10 @@ network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionManager.DeleteAllSessions_Params',
       packedSize: 40,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'created_after_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'created_before_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'created_after_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'created_before_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -305,8 +305,8 @@ network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionManager.AddObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -320,7 +320,7 @@ network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionManager.AddEventObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -334,10 +334,10 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionManager.CreateBoundSessions_Params',
       packedSize: 40,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cookies_to_set', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cookie_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cookies_to_set', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cookie_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -350,8 +350,8 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec =
       name: 'network.mojom.DeviceBoundSessionManager.CreateBoundSessions_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'session_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cookie_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'cookie_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -435,7 +435,7 @@ network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Para
       name: 'network.mojom.DeviceBoundSessionAccessObserver.OnDeviceBoundSessionAccessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -449,7 +449,7 @@ network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.DeviceBoundSessionAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -533,7 +533,7 @@ network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_
       name: 'network.mojom.DeviceBoundSessionEventObserver.OnDeviceBoundSessionEventReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -547,7 +547,7 @@ network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Para
       name: 'network.mojom.DeviceBoundSessionEventObserver.AddDeviceBoundSessionDisplays_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_displays', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_displays', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

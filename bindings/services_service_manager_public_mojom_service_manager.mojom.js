@@ -124,7 +124,7 @@ service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnInit_Params',
       packedSize: 16,
       fields: [
-        { name: 'running_services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'running_services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -138,7 +138,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -152,8 +152,8 @@ service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceStarted_Params',
       packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pid_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -167,8 +167,8 @@ service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServicePIDReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,7 +182,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec =
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceFailedToStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -196,7 +196,7 @@ service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -271,7 +271,7 @@ service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManager.AddListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

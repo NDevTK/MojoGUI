@@ -105,10 +105,10 @@ network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = {
       name: 'network.mojom.ClientCertificateResponder.ContinueWithCertificate_Params',
       packedSize: 40,
       fields: [
-        { name: 'x509_certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'provider_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'algorithm_preferences', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ssl_private_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'x509_certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'provider_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'algorithm_preferences', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ssl_private_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,8 +209,8 @@ network.mojom.SSLPrivateKey_Sign_ParamsSpec = {
       name: 'network.mojom.SSLPrivateKey.Sign_Params',
       packedSize: 24,
       fields: [
-        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -223,8 +223,8 @@ network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = {
       name: 'network.mojom.SSLPrivateKey.Sign_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -299,7 +299,7 @@ network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = {
       name: 'network.mojom.AuthChallengeResponder.OnAuthCredentials_Params',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -473,10 +473,10 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec =
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnSSLCertificateError_Params',
       packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ssl_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'fatal', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'ssl_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fatal', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -489,7 +489,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponsePara
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnSSLCertificateError_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -503,9 +503,9 @@ network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec 
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnCertificateRequested_Params',
       packedSize: 32,
       fields: [
-        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cert_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cert_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'cert_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'cert_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -519,13 +519,13 @@ network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnAuthRequired_Params',
       packedSize: 64,
       fields: [
-        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'first_auth_attempt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'auth_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'head_headers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'auth_challenge_responder', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'first_auth_attempt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'auth_info', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'head_headers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'auth_challenge_responder', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -539,8 +539,8 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequ
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnLocalNetworkAccessPermissionRequired_Params',
       packedSize: 24,
       fields: [
-        { name: 'transport_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'transport_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -553,7 +553,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequ
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnLocalNetworkAccessPermissionRequired_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -567,11 +567,11 @@ network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnClearSiteData_Params',
       packedSize: 48,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'header_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'load_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'cookie_partition_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'partitioned_state_allowed_only', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'header_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'load_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'cookie_partition_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'partitioned_state_allowed_only', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -585,7 +585,7 @@ network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = 
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnLoadingStateUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -599,9 +599,9 @@ network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnDataUseUpdate_Params',
       packedSize: 32,
       fields: [
-        { name: 'network_traffic_annotation_id_hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'recv_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'sent_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'network_traffic_annotation_id_hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'recv_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'sent_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -615,9 +615,9 @@ network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_Para
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnSharedStorageHeaderReceived_Params',
       packedSize: 32,
       fields: [
-        { name: 'request_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'methods_with_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'with_lock', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'methods_with_options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'with_lock', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -631,8 +631,8 @@ network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceiv
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnAdAuctionEventRecordHeaderReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'ad_auction_event_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ad_auction_event_record', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -646,7 +646,7 @@ network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = {
       name: 'network.mojom.URLLoaderNetworkServiceObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -660,8 +660,8 @@ network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwo
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnWebSocketConnectedToPrivateNetwork_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ip_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -675,10 +675,10 @@ network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwo
       name: 'network.mojom.URLLoaderNetworkServiceObserver.OnUrlLoaderConnectedToPrivateNetwork_Params',
       packedSize: 40,
       fields: [
-        { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'response_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client_address_space', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'target_address_space', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'response_address_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client_address_space', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'target_address_space', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -246,8 +246,8 @@ fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgs_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -261,8 +261,8 @@ fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsResp_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -276,8 +276,8 @@ fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsSyncResp_Params',
       packedSize: 24,
       fields: [
-        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'a', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -291,7 +291,7 @@ fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzAssociated_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

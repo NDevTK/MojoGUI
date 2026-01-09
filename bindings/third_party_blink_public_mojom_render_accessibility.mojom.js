@@ -81,9 +81,9 @@ blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
       name: 'blink.mojom.RenderAccessibilityHost.HandleAXEvents_Params',
       packedSize: 32,
       fields: [
-        { name: 'events_and_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'location_and_scroll_updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reset_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'events_and_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'location_and_scroll_updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reset_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -97,8 +97,8 @@ blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
       name: 'blink.mojom.RenderAccessibilityHost.HandleAXLocationChanges_Params',
       packedSize: 24,
       fields: [
-        { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -209,8 +209,8 @@ blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
       name: 'blink.mojom.RenderAccessibility.SetMode_Params',
       packedSize: 24,
       fields: [
-        { name: 'ax_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'ax_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'reset_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -237,9 +237,9 @@ blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
       name: 'blink.mojom.RenderAccessibility.HitTest_Params',
       packedSize: 32,
       fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'event_to_fire', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'event_to_fire', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -252,7 +252,7 @@ blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
       name: 'blink.mojom.RenderAccessibility.HitTest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hit_test_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'hit_test_response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -266,7 +266,7 @@ blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
       name: 'blink.mojom.RenderAccessibility.PerformAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -280,7 +280,7 @@ blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
       name: 'blink.mojom.RenderAccessibility.Reset_Params',
       packedSize: 16,
       fields: [
-        { name: 'reset_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'reset_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }

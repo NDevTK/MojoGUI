@@ -90,7 +90,7 @@ suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'suggest_internals.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,8 +104,8 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
       name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_Params',
       packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,7 +118,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
       name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
       name: 'suggest_internals.mojom.Page.OnRequestCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
       name: 'suggest_internals.mojom.Page.OnRequestStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -239,7 +239,7 @@ suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
       name: 'suggest_internals.mojom.Page.OnRequestCompleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -126,7 +126,7 @@ blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.OnLcpUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'lcp_element', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lcp_element', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -140,7 +140,7 @@ blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSp
       name: 'blink.mojom.LCPCriticalPathPredictorHost.OnLcpTimingPredictedForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'element_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'element_locator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -154,7 +154,7 @@ blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec =
       name: 'blink.mojom.LCPCriticalPathPredictorHost.SetLcpInfluencerScriptUrls_Params',
       packedSize: 16,
       fields: [
-        { name: 'lcp_influencer_scripts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'lcp_influencer_scripts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -168,7 +168,7 @@ blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.AddPreconnectOrigin_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -182,8 +182,8 @@ blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.NotifyFetchedFont_Params',
       packedSize: 24,
       fields: [
-        { name: 'font_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'hit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'font_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'hit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,9 +197,9 @@ blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.NotifyFetchedSubresource_Params',
       packedSize: 32,
       fields: [
-        { name: 'subresource_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'subresource_load_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'request_destination', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'subresource_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'subresource_load_start', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request_destination', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -213,7 +213,7 @@ blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = {
       name: 'blink.mojom.LCPCriticalPathPredictorHost.SetUnusedPreloads_Params',
       packedSize: 16,
       fields: [
-        { name: 'unused_preloads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'unused_preloads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

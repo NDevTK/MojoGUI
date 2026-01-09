@@ -82,7 +82,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Par
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Res
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -121,7 +121,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Res
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigExport_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }

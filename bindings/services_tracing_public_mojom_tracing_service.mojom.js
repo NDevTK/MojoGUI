@@ -90,7 +90,7 @@ tracing.mojom.TracingService_Initialize_ParamsSpec = {
       name: 'tracing.mojom.TracingService.Initialize_Params',
       packedSize: 16,
       fields: [
-        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,7 +104,7 @@ tracing.mojom.TracingService_AddClient_ParamsSpec = {
       name: 'tracing.mojom.TracingService.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -118,7 +118,7 @@ tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
       name: 'tracing.mojom.TracingService.BindConsumerHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

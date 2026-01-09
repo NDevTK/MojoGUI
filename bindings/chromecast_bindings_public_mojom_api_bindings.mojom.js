@@ -93,7 +93,7 @@ chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
       name: 'chromecast.mojom.ApiBindings.GetAll_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bindings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bindings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -107,8 +107,8 @@ chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
       name: 'chromecast.mojom.ApiBindings.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

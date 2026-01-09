@@ -147,7 +147,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticSmoothDrag_Params',
       packedSize: 16,
       fields: [
-        { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,7 +161,7 @@ content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticSmoothScroll_Params',
       packedSize: 16,
       fields: [
-        { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticPinch_Params',
       packedSize: 16,
       fields: [
-        { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticTap_Params',
       packedSize: 16,
       fields: [
-        { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -203,7 +203,7 @@ content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
       name: 'content.mojom.InputInjector.QueueSyntheticPointerAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

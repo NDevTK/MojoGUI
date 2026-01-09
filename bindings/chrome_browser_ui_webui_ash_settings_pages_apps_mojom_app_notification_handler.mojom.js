@@ -133,7 +133,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsS
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.SetQuietMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSp
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,8 +161,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermi
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.SetNotificationPermission_Params',
       packedSize: 24,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -188,7 +188,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponsePara
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetApps_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,7 +214,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_Respons
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetQuietMode_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -311,7 +311,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppCh
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnNotificationAppChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnQuietModeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

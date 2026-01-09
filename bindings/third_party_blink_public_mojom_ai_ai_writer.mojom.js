@@ -101,9 +101,9 @@ blink.mojom.AIWriter_Write_ParamsSpec = {
       name: 'blink.mojom.AIWriter.Write_Params',
       packedSize: 32,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'pending_responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -117,8 +117,8 @@ blink.mojom.AIWriter_MeasureUsage_ParamsSpec = {
       name: 'blink.mojom.AIWriter.MeasureUsage_Params',
       packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -131,7 +131,7 @@ blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = {
       name: 'blink.mojom.AIWriter.MeasureUsage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'number_of_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
       ],
       versions: [{version: 0}]
     }

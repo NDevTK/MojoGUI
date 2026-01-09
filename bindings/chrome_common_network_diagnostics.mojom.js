@@ -72,7 +72,7 @@ chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
       name: 'chrome.mojom.NetworkDiagnostics.RunNetworkDiagnostics_Params',
       packedSize: 16,
       fields: [
-        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -156,7 +156,7 @@ chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsS
       name: 'chrome.mojom.NetworkDiagnosticsClient.SetCanShowNetworkDiagnosticsDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -170,7 +170,7 @@ chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
       name: 'chrome.mojom.NetworkDiagnosticsClient.DNSProbeStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }

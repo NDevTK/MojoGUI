@@ -84,7 +84,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Response
       name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

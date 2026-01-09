@@ -84,7 +84,7 @@ blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
       name: 'blink.mojom.PluginRegistry.GetPlugins_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'plugins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'plugins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -88,9 +88,9 @@ network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpe
       name: 'network.mojom.DocumentIsolationPolicyReporter.QueueCorpViolationReport_Params',
       packedSize: 32,
       fields: [
-        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'report_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'report_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -104,7 +104,7 @@ network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = {
       name: 'network.mojom.DocumentIsolationPolicyReporter.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

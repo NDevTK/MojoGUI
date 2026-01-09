@@ -120,7 +120,7 @@ android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = {
       name: 'android_webview.mojom.LocalMainFrame.SetInitialPageScale_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page_scale_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -134,7 +134,7 @@ android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = {
       name: 'android_webview.mojom.LocalMainFrame.SetTextZoomFactor_Params',
       packedSize: 16,
       fields: [
-        { name: 'zoom_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'zoom_factor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -160,7 +160,7 @@ android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = {
       name: 'android_webview.mojom.LocalMainFrame.DocumentHasImage_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -187,9 +187,9 @@ android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = {
       name: 'android_webview.mojom.LocalMainFrame.SmoothScroll_Params',
       packedSize: 32,
       fields: [
-        { name: 'target_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'target_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'target_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'target_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -282,7 +282,7 @@ android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = {
       name: 'android_webview.mojom.FrameHost.UpdateHitTestData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -296,7 +296,7 @@ android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = {
       name: 'android_webview.mojom.FrameHost.ContentsSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'contents_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'contents_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -310,10 +310,10 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
       name: 'android_webview.mojom.FrameHost.ShouldOverrideUrlLoading_Params',
       packedSize: 40,
       fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_redirect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_outermost_main_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'has_user_gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_redirect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_outermost_main_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -326,7 +326,7 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = {
       name: 'android_webview.mojom.FrameHost.ShouldOverrideUrlLoading_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -80,7 +80,7 @@ blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisVoiceListObserver.OnSetVoiceList_Params',
       packedSize: 16,
       fields: [
-        { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'voice_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -222,7 +222,7 @@ blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnFinishedSpeaking_Params',
       packedSize: 16,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -262,8 +262,8 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredWordBoundary_Params',
       packedSize: 24,
       fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -277,8 +277,8 @@ blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesisClient.OnEncounteredSentenceBoundary_Params',
       packedSize: 24,
       fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'char_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -402,7 +402,7 @@ blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesis.AddVoiceListObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -416,8 +416,8 @@ blink.mojom.SpeechSynthesis_Speak_ParamsSpec = {
       name: 'blink.mojom.SpeechSynthesis.Speak_Params',
       packedSize: 24,
       fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

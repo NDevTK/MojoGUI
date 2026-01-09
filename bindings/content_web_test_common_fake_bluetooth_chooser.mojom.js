@@ -104,7 +104,7 @@ content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec = {
       name: 'content.mojom.FakeBluetoothChooser.SelectPeripheral_Params',
       packedSize: 16,
       fields: [
-        { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'peripheral_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -205,8 +205,8 @@ content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec 
       name: 'content.mojom.FakeBluetoothChooserFactory.CreateFakeBluetoothChooser_Params',
       packedSize: 24,
       fields: [
-        { name: 'fake_chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'fake_chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec = {
       name: 'content.mojom.FakeBluetoothChooserClient.OnEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

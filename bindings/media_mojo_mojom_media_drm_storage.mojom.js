@@ -120,8 +120,8 @@ media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.Initialize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'origin_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -147,7 +147,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.OnProvisioned_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -161,8 +161,8 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.SavePersistentSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'session_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'session_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -175,7 +175,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.SavePersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -189,7 +189,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -202,7 +202,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -216,7 +216,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,7 +229,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
       name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

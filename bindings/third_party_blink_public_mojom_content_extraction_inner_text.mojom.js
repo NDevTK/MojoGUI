@@ -77,7 +77,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
       name: 'blink.mojom.InnerTextAgent.GetInnerText_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -90,7 +90,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
       name: 'blink.mojom.InnerTextAgent.GetInnerText_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

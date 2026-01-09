@@ -121,8 +121,8 @@ new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -467,8 +467,8 @@ new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.SetMostVisitedSettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -494,8 +494,8 @@ new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.GetMostVisitedSettings_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'shortcuts_visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -521,7 +521,7 @@ new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.GetDoodle_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'doodle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'doodle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -548,7 +548,7 @@ new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.BlocklistPromo_Params',
       packedSize: 16,
       fields: [
-        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -562,7 +562,7 @@ new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.UndoBlocklistPromo_Params',
       packedSize: 16,
       fields: [
-        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -576,7 +576,7 @@ new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnDismissModule_Params',
       packedSize: 16,
       fields: [
-        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -590,7 +590,7 @@ new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnRestoreModule_Params',
       packedSize: 16,
       fields: [
-        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -604,7 +604,7 @@ new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.SetModulesVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -631,7 +631,7 @@ new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnModulesLoadedWithData_Params',
       packedSize: 16,
       fields: [
-        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -645,7 +645,7 @@ new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnModuleUsed_Params',
       packedSize: 16,
       fields: [
-        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -671,7 +671,7 @@ new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.GetModulesIdNames_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -697,7 +697,7 @@ new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec =
       name: 'new_tab_page.mojom.PageHandler.GetModulesEligibleForRemoval_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -711,7 +711,7 @@ new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.SetModulesOrder_Params',
       packedSize: 16,
       fields: [
-        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -737,7 +737,7 @@ new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.GetModulesOrder_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -764,9 +764,9 @@ new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.SetModulesDisabled_Params',
       packedSize: 32,
       fields: [
-        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'is_user_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_user_action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -845,7 +845,7 @@ new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnOneGoogleBarRendered_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -859,8 +859,8 @@ new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnPromoRendered_Params',
       packedSize: 24,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -874,7 +874,7 @@ new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnCustomizeDialogAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -888,8 +888,8 @@ new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnDoodleImageClicked_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -903,9 +903,9 @@ new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnDoodleImageRendered_Params',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'log_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'log_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -919,7 +919,7 @@ new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'image_click_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'interaction_log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interaction_log_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
         { name: 'share_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -934,8 +934,8 @@ new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnDoodleShared_Params',
       packedSize: 32,
       fields: [
-        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'doodle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'doodle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
         { name: 'share_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
       ],
       versions: [{version: 0}]
@@ -963,7 +963,7 @@ new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec = {
       name: 'new_tab_page.mojom.PageHandler.OnAppRendered_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1110,7 +1110,7 @@ new_tab_page.mojom.Page_SetTheme_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.SetTheme_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1124,8 +1124,8 @@ new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.SetDisabledModules_Params',
       packedSize: 24,
       fields: [
-        { name: 'all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1152,7 +1152,7 @@ new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.SetActionChipsVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1166,7 +1166,7 @@ new_tab_page.mojom.Page_SetPromo_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.SetPromo_Params',
       packedSize: 16,
       fields: [
-        { name: 'promo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'promo', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1193,7 +1193,7 @@ new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.SetWallpaperSearchButtonVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1207,7 +1207,7 @@ new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.FooterVisibilityUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1221,7 +1221,7 @@ new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec = {
       name: 'new_tab_page.mojom.Page.ConnectToParentDocument_Params',
       packedSize: 16,
       fields: [
-        { name: 'child_untrusted_document_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'child_untrusted_document_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }

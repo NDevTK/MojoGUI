@@ -152,7 +152,7 @@ media_router.mojom.MediaController_SetMute_ParamsSpec = {
       name: 'media_router.mojom.MediaController.SetMute_Params',
       packedSize: 16,
       fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -166,7 +166,7 @@ media_router.mojom.MediaController_SetVolume_ParamsSpec = {
       name: 'media_router.mojom.MediaController.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,7 +180,7 @@ media_router.mojom.MediaController_Seek_ParamsSpec = {
       name: 'media_router.mojom.MediaController.Seek_Params',
       packedSize: 16,
       fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

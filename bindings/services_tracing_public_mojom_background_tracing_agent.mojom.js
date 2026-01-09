@@ -94,9 +94,9 @@ tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec =
       name: 'tracing.mojom.BackgroundTracingAgentClient.OnTriggerBackgroundTrace_Params',
       packedSize: 32,
       fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'histogram_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'flow_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'histogram_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: true },
+        { name: 'flow_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -180,10 +180,10 @@ tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
       name: 'tracing.mojom.BackgroundTracingAgent.SetUMACallback_Params',
       packedSize: 40,
       fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'histogram_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'histogram_lower_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'histogram_upper_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'histogram_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'histogram_lower_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'histogram_upper_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -197,7 +197,7 @@ tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
       name: 'tracing.mojom.BackgroundTracingAgent.ClearUMACallback_Params',
       packedSize: 16,
       fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -272,9 +272,9 @@ tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
       name: 'tracing.mojom.BackgroundTracingAgentProvider.Create_Params',
       packedSize: 32,
       fields: [
-        { name: 'tracing_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'agent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'tracing_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'agent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }

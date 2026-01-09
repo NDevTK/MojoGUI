@@ -100,8 +100,8 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -114,8 +114,8 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'smbfs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'smbfs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -211,7 +211,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -225,7 +225,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -238,7 +238,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFs.DeleteRecursively_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -325,7 +325,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
       name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }

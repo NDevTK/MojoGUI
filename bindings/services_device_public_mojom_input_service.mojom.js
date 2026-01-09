@@ -96,7 +96,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -110,7 +110,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -194,7 +194,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -207,7 +207,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -233,7 +233,7 @@ device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }

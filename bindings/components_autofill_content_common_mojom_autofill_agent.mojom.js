@@ -232,7 +232,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpe
       name: 'autofill.mojom.AutofillAgent.TriggerFormExtractionWithResponse_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -246,11 +246,11 @@ autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.ApplyFieldsAction_Params',
       packedSize: 48,
       fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'action_persistence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'fill_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'supports_refill', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_persistence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'fill_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supports_refill', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -264,10 +264,10 @@ autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.ApplyFieldAction_Params',
       packedSize: 40,
       fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'action_persistence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'field', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action_persistence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'field', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -281,7 +281,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.ExtractFormWithField_Params',
       packedSize: 16,
       fields: [
-        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -294,7 +294,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.ExtractFormWithField_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -308,9 +308,9 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.ExtractLabeledTextNodeValue_Params',
       packedSize: 32,
       fields: [
-        { name: 'value_regex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'label_regex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'number_of_ancestor_levels_to_search', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value_regex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'label_regex', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'number_of_ancestor_levels_to_search', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -323,7 +323,7 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.ExtractLabeledTextNodeValue_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -337,7 +337,7 @@ autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.FieldTypePredictionsAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'forms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -377,8 +377,8 @@ autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.TriggerSuggestions_Params',
       packedSize: 24,
       fields: [
-        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'trigger_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'trigger_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -392,8 +392,8 @@ autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.SetSuggestionAvailability_Params',
       packedSize: 24,
       fields: [
-        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'suggestion_availability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'suggestion_availability', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -407,8 +407,8 @@ autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.AcceptDataListSuggestion_Params',
       packedSize: 24,
       fields: [
-        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -422,8 +422,8 @@ autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.PreviewPasswordSuggestion_Params',
       packedSize: 24,
       fields: [
-        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -437,7 +437,7 @@ autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.PreviewPasswordGenerationSuggestion_Params',
       packedSize: 16,
       fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -463,7 +463,7 @@ autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Re
       name: 'autofill.mojom.AutofillAgent.GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'potential_matches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'potential_matches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -477,8 +477,8 @@ autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec = {
       name: 'autofill.mojom.AutofillAgent.DispatchEmailVerifiedEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'presentation_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'presentation_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -661,7 +661,7 @@ autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec
       name: 'autofill.mojom.PasswordAutofillAgent.ApplyFillDataOnParsingCompletion_Params',
       packedSize: 16,
       fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -675,8 +675,8 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillPasswordSuggestion_Params',
       packedSize: 24,
       fields: [
-        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -689,7 +689,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec =
       name: 'autofill.mojom.PasswordAutofillAgent.FillPasswordSuggestion_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -703,11 +703,11 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillPasswordSuggestionById_Params',
       packedSize: 48,
       fields: [
-        { name: 'username_element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'password_element_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'suggestion_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'username_element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password_element_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'suggestion_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -721,10 +721,10 @@ autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec = 
       name: 'autofill.mojom.PasswordAutofillAgent.PreviewPasswordSuggestionById_Params',
       packedSize: 40,
       fields: [
-        { name: 'username_element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'password_element_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'username_element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password_element_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -738,7 +738,7 @@ autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.InformNoSavedCredentials_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_show_popup_without_passwords', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'should_show_popup_without_passwords', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -752,8 +752,8 @@ autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillIntoFocusedField_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'credential', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -767,8 +767,8 @@ autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.PreviewField_Params',
       packedSize: 24,
       fields: [
-        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -782,9 +782,9 @@ autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillField_Params',
       packedSize: 32,
       fields: [
-        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'field_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'field_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -797,7 +797,7 @@ autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillField_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -811,11 +811,11 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.FillChangePasswordForm_Params',
       packedSize: 48,
       fields: [
-        { name: 'password_element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_password_element_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'confirm_password_element_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'old_password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'new_password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'password_element_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_password_element_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'confirm_password_element_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'old_password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'new_password', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -828,7 +828,7 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec =
       name: 'autofill.mojom.PasswordAutofillAgent.FillChangePasswordForm_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -842,7 +842,7 @@ autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.SetLoggingState_Params',
       packedSize: 16,
       fields: [
-        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -869,7 +869,7 @@ autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec 
       name: 'autofill.mojom.PasswordAutofillAgent.AnnotateFieldsWithParsingResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'parsing_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'parsing_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -883,7 +883,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.CheckViewAreaVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'field_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -896,7 +896,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = {
       name: 'autofill.mojom.PasswordAutofillAgent.CheckViewAreaVisible_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1007,7 +1007,7 @@ autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec = {
       name: 'autofill.mojom.PasswordGenerationAgent.GeneratedPasswordAccepted_Params',
       packedSize: 16,
       fields: [
-        { name: 'generated_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'generated_password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -1046,7 +1046,7 @@ autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsS
       name: 'autofill.mojom.PasswordGenerationAgent.TriggeredGeneratePassword_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -1060,7 +1060,7 @@ autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec
       name: 'autofill.mojom.PasswordGenerationAgent.FoundFormEligibleForGeneration_Params',
       packedSize: 16,
       fields: [
-        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

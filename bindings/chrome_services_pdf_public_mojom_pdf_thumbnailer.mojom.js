@@ -81,8 +81,8 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -95,7 +95,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -109,7 +109,7 @@ pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'pdf.mojom.PdfThumbnailer.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

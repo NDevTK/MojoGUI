@@ -74,8 +74,8 @@ ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.settings.date_time.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -193,7 +193,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
       name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'timezones', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'timezones', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -290,7 +290,7 @@ ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
       name: 'ash.settings.date_time.mojom.Page.OnSystemClockCanSetTimeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -304,7 +304,7 @@ ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = 
       name: 'ash.settings.date_time.mojom.Page.OnParentAccessValidationComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }

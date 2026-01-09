@@ -104,7 +104,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
       name: 'ash.cros_healthd.connectivity.mojom.State.LastCallHasNext_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'has_next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -214,8 +214,8 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsS
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
       ],
       versions: [{version: 0}]
     }
@@ -229,8 +229,8 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Pa
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindTestProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

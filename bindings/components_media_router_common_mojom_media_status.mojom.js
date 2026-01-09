@@ -79,7 +79,7 @@ media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
       name: 'media_router.mojom.MediaStatusObserver.OnMediaStatusUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
       ],
       versions: [{version: 0}]
     }

@@ -73,7 +73,7 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = {
       name: 'ash.quick_start.mojom.QuickStartDecoder.DecodeQuickStartMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
       ],
       versions: [{version: 0}]
     }
@@ -86,8 +86,8 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSp
       name: 'ash.quick_start.mojom.QuickStartDecoder.DecodeQuickStartMessage_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
       ],
       versions: [{version: 0}]
     }
