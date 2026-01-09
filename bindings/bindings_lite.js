@@ -367,7 +367,8 @@ mojo.internal.Message = class {
     } else if (
       (flags &
         (mojo.internal.kMessageFlagExpectsResponse |
-          mojo.internal.kMessageFlagIsResponse)) == 0) {
+          mojo.internal.kMessageFlagIsResponse |
+          mojo.internal.kMessageFlagIsSync)) == 0) {
       headerSize = mojo.internal.kMessageV0HeaderSize;
       version = 0;
     } else {
