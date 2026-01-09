@@ -867,56 +867,56 @@ jobs:
                   'files': []
               }
               
-               # Pass 1: Parse all files and build Global Type Map
-               all_parsed = []
-               global_kind_map = {}
-               
-               for mojom_path in files:
-                   if not os.path.isfile(mojom_path):
-                       continue
-                   
-                   parsed = parse_mojom_file(mojom_path)
-                   if parsed:
-                       all_parsed.append({'path': mojom_path, 'data': parsed})
-                       
-                       # Populate Global Map
-                       mod_prefix = f"{parsed['module']}." if parsed.get('module') else ""
-                       for s in parsed.get('structs', []): global_kind_map[f"{mod_prefix}{s['name']}"] = 'struct'
-                       for u in parsed.get('unions', []): global_kind_map[f"{mod_prefix}{u['name']}"] = 'union'
-                       for e in parsed.get('enums', []): global_kind_map[f"{mod_prefix}{e['name']}"] = 'enum'
-               
-               print(f"Global Type Map detected {len(global_kind_map)} types.")
+              # Pass 1: Parse all files and build Global Type Map
+              all_parsed = []
+              global_kind_map = {}
+              
+              for mojom_path in files:
+                  if not os.path.isfile(mojom_path):
+                      continue
+                  
+                  parsed = parse_mojom_file(mojom_path)
+                  if parsed:
+                      all_parsed.append({'path': mojom_path, 'data': parsed})
+                      
+                      # Populate Global Map
+                      mod_prefix = f"{parsed['module']}." if parsed.get('module') else ""
+                      for s in parsed.get('structs', []): global_kind_map[f"{mod_prefix}{s['name']}"] = 'struct'
+                      for u in parsed.get('unions', []): global_kind_map[f"{mod_prefix}{u['name']}"] = 'union'
+                      for e in parsed.get('enums', []): global_kind_map[f"{mod_prefix}{e['name']}"] = 'enum'
+              
+              print(f"Global Type Map detected {len(global_kind_map)} types.")
 
-               # Pass 2: Generate Bindings
-               for item in all_parsed:
-                   mojom_path = item['path']
-                   parsed = item['data']
-                   
-                   if parsed and (parsed.get('interfaces') or parsed.get('structs') or parsed.get('unions') or parsed.get('enums')):
-                       rel_path = mojom_path.replace('chromium_src/', '')
-                       out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
-                       out_path = bindings_dir / out_filename
-                       
-                       js_code = generate_js_binding(parsed, global_kind_map)
-                       if js_code:
-                           with open(out_path, 'w') as f:
-                               f.write(js_code)
-                           success_count += 1
-                           
-                           for interface in parsed['interfaces']:
-                               index_data['interfaces'].append({
-                                   'name': interface['name'],
-                                   'module': parsed['module'],
-                                   'file': out_filename,
-                                   'methods': [m['name'] for m in interface.get('methods', [])]
-                               })
-                           
-                           index_data['files'].append({
-                               'filename': out_filename,
-                               'source': rel_path,
-                               'module': parsed['module'],
-                               'imports': parsed.get('imports', [])
-                           })
+              # Pass 2: Generate Bindings
+              for item in all_parsed:
+                  mojom_path = item['path']
+                  parsed = item['data']
+                  
+                  if parsed and (parsed.get('interfaces') or parsed.get('structs') or parsed.get('unions') or parsed.get('enums')):
+                      rel_path = mojom_path.replace('chromium_src/', '')
+                      out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
+                      out_path = bindings_dir / out_filename
+                      
+                      js_code = generate_js_binding(parsed, global_kind_map)
+                      if js_code:
+                          with open(out_path, 'w') as f:
+                              f.write(js_code)
+                          success_count += 1
+                          
+                          for interface in parsed['interfaces']:
+                              index_data['interfaces'].append({
+                                  'name': interface['name'],
+                                  'module': parsed['module'],
+                                  'file': out_filename,
+                                  'methods': [m['name'] for m in interface.get('methods', [])]
+                              })
+                          
+                          index_data['files'].append({
+                              'filename': out_filename,
+                              'source': rel_path,
+                              'module': parsed['module'],
+                              'imports': parsed.get('imports', [])
+                          })
               
               # Write index.json
               with open(bindings_dir / 'index.json', 'w') as f:
