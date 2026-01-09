@@ -52,154 +52,14 @@ jobs:
           
           git pull --depth=1 origin main || git pull --depth=1 origin master
 
-      - name: Filter broken .mojom files
+      - name: List .mojom files
         run: |
-          # Find ALL .mojom files first
-          find chromium_src -name "*.mojom" > all_mojoms.txt
+          # Finds all .mojom files in chromium_src
+          # We sort them to help with stability, though dependencies matter more
+          find chromium_src -name "*.mojom" | sort > mojom_files.txt
           
-          # Create the filter script
-          cat << 'EOF' > filter_mojoms.py
-          import os
-          import sys
-          import re
-          
-          # Configuration
-          ROOTS = [os.getcwd(), os.path.join(os.getcwd(), 'chromium_src')]
-          
-          def resolve_import(import_path, current_file_path):
-              # Imports are relative to roots.
-              # But sometimes they might be relative to the file?
-              # Mojo docs say imports are relative to source root.
-              for root in ROOTS:
-                  candidate = os.path.join(root, import_path)
-                  if os.path.isfile(candidate):
-                      return candidate
-              return None
-
-          def parse_imports(file_path):
-              imports = []
-              try:
-                  with open(file_path, 'r', encoding='utf-8') as f:
-                      content = f.read()
-                  # Regex for: import "foo/bar.mojom";
-                  # Simplistic, ignores comments, but sufficient for 99%
-                  matches = re.findall(r'^\s*import\s+"([^"]+)"', content, re.MULTILINE)
-                  return matches
-              except Exception as e:
-                  print(f"Error reading {file_path}: {e}")
-                  return None
-
-          def main():
-              with open('all_mojoms.txt', 'r') as f:
-                  files = [line.strip() for line in f if line.strip()]
-              
-              # Map absolute path -> list of absolute paths it imports
-              dependency_graph = {}
-              # Map clean relative path (for output) -> absolute path
-              
-              abs_files = set()
-              for f in files:
-                  abs_path = os.path.abspath(f)
-                  abs_files.add(abs_path)
-              
-              print(f"Scanning {len(abs_files)} files for broken dependencies...")
-              
-              for f in files:
-                  abs_path = os.path.abspath(f)
-                  imports = parse_imports(abs_path)
-                  if imports is None:
-                      continue # File unreadable
-                  
-                  dependency_graph[abs_path] = []
-                  for imp in imports:
-                      resolved = resolve_import(imp, abs_path)
-                      if not resolved:
-                          # Dependency missing!
-                          # print(f"File {f} is missing dependency {imp}")
-                          # Add a dummy marker that won't be in abs_files
-                          dependency_graph[abs_path].append(f"MISSING:{imp}")
-                      else:
-                          dependency_graph[abs_path].append(resolved)
-
-              # Iteratively remove broken files
-              removed_count = 0
-              while True:
-                  current_removed = 0
-                  to_remove = set()
-                  
-                  for f, deps in dependency_graph.items():
-                      if f not in abs_files: 
-                          continue
-                          
-                      for dep in deps:
-                          if dep.startswith("MISSING:") or dep not in abs_files:
-                              to_remove.add(f)
-                              # print(f"Removing {os.path.relpath(f)} because of broken dependency {dep}")
-                              break
-                  
-                  if not to_remove:
-                      break
-                  
-                  for f in to_remove:
-                      abs_files.remove(f)
-                      current_removed += 1
-                  
-                  removed_count += current_removed
-              
-              # Topological Sort of the remaining valid files
-              print("Sorting files topologically...")
-              sorted_files = []
-              visited = set()
-              temp_mark = set()
-
-              def visit(node):
-                  if node in temp_mark:
-                      # Circular dependency, just treat as visited to break
-                      return
-                  if node in visited:
-                      return
-                  if node not in abs_files:
-                      return # Should have been filtered, but safety check
-
-                  temp_mark.add(node)
-                  
-                  # Visit dependencies first
-                  for dep in dependency_graph.get(node, []):
-                      if dep in abs_files:
-                          visit(dep)
-                  
-                  temp_mark.remove(node)
-                  visited.add(node)
-                  sorted_files.append(node)
-
-              for f in abs_files:
-                  if f not in visited:
-                      visit(f)
-              
-              print(f"Sorted {len(sorted_files)} files.")
-              
-              with open('mojom_files_list.txt', 'w') as f:
-                  for abs_p in sorted_files:
-                      # Convert back to relative path for tools
-                      rel_p = os.path.relpath(abs_p, os.getcwd())
-                      f.write(rel_p + '\n')
-
-          if __name__ == '__main__':
-              main()
-          EOF
-          
-          python3 filter_mojoms.py
-          
-          echo "Final list for parser:"
-          head -10 mojom_files_list.txt
-
-          # Rename bindings.js to mojo_bindings.js as that is what is often expected, 
-          # but keep original if needed by other files?
-          # Actually, let's just copy it to mojo_bindings.js so we have the standard name
-          cp chromium_src/mojo/public/js/bindings.js bindings/mojo_bindings.js
-          
-          echo "Core bindings copied."
-          ls -la bindings/
+          echo "Found $(wc -l < mojom_files.txt) .mojom files"
+          head -10 mojom_files.txt
 
       - name: Generate Mojo JS bindings
         run: |
@@ -211,7 +71,7 @@ jobs:
           # Directory for bindings
           mkdir -p bindings
           
-          # Create a Python script to drive the generation and indexing
+          # Create a Python script to drive the generation
           cat << 'SCRIPT' > generate_bindings.py
           import os
           import sys
@@ -220,207 +80,50 @@ jobs:
           import re
           from pathlib import Path
           
-          def parse_mojom_file(file_path):
-              """Basic regex-based parsing of mojom files to extract interface names and methods."""
-              try:
-                  with open(file_path, 'r', encoding='utf-8') as f:
-                      content = f.read()
-                  
-                  module_match = re.search(r'module\s+([\w.]+);', content)
-                  module = module_match.group(1) if module_match else 'unknown'
-                  
-                  interfaces = []
-                  # Regex to find interfaces
-                  # This is simplified and might miss some complex cases
-                  interface_blocks = re.finditer(r'interface\s+(\w+)\s*{(.*?)}', content, re.DOTALL)
-                  
-                  for match in interface_blocks:
-                      interface_name = match.group(1)
-                      body = match.group(2)
-                      
-                      methods = []
-                      # Find methods: name(args) => ...
-                      # Very basic regex, assumes standard formatting
-                      method_matches = re.finditer(r'(\w+)\s*\(', body)
-                      for m in method_matches:
-                          methods.append({'name': m.group(1)})
-                          
-                      interfaces.append({
-                          'name': interface_name,
-                          'methods': methods
-                      })
-                      
-                  return {
-                      'module': module,
-                      'interfaces': interfaces
-                  }
-              except Exception as e:
-                  print(f"Error parsing {file_path}: {e}")
-                  return None
-
-          def run_parser(mojom_files):
-              """Run the mojom parser to generate -module files."""
-              print("Running mojom parser...")
-              # Create filelist for parser
-              # We need to make sure we pass relative paths that make sense with the roots
-              # But simple invocation often works best:
-              
-              # We use a temporary file for the list of files to parse
-              with open('mojom_files_list.txt', 'w') as f:
-                  for p in mojom_files:
-                      f.write(f"{p}\n")
+          # Configuration
+          # We treat 'chromium_src' as the root of the source tree
+          ROOT_DIR = 'chromium_src'
+          
+          def run_parser(mojom_path):
+              """Run the mojom parser to generate -module file for a single input."""
+              # We interpret the path relative to the checkout to keep things consistent
+              # Input: chromium_src/foo/bar.mojom
+              # We want parser to see: root=chromium_src, file=foo/bar.mojom
               
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/mojom/mojom_parser.py',
                   '--output-root', 'chromium_src',
-                  '--input-root', 'chromium_src', 
-                  '--input-root', '.',
-                  '--mojom-file-list', 'mojom_files_list.txt'
+                  '--input-root', 'chromium_src',
+                  '--mojom-file-list', 'parser_input_list.txt'
               ]
               
+              # Write temporary list file for this single input
+              with open('parser_input_list.txt', 'w') as f:
+                  f.write(mojom_path + '\n')
+              
               try:
-                  subprocess.run(cmd, check=True)
+                  # We capture output to avoid spamming logs with expected failures
+                  subprocess.run(cmd, check=True, capture_output=True)
                   return True
-              except subprocess.CalledProcessError as e:
-                  # This is expected for some files due to missing deps in sparse checkout
-                  # The "Parser failed" message from subprocess is enough
+              except subprocess.CalledProcessError:
+                  # Many files will fail due to missing dependencies in sparse checkout
                   return False
 
           def run_generator(mojom_path):
-              """Run the official mojom bindings generator."""
-          def run_generator(mojom_path):
-              """Run the official mojom bindings generator."""
-              # mojom_path is relative: chromium_src/foo/bar.mojom
-              # We need to make sure RelativePath behaves correctly.
-              # The generator internally converts args to absolute paths.
-              # RelativePath(abs_path, abs_root, abs_output)
+              """Run the bindings generator for a single input."""
+              # Input: chromium_src/foo/bar.mojom
+              # We use --depth chromium_src so the generator treats inputs as relative to that
               
-              # If we pass --depth . and --output_dir ., root is CWD.
-              # absolute path of CWD/chromium_src/foo/bar.mojom starts with CWD.
-              # But filename might be being passed weirdly.
-              
-              # Let's verify module path existence first
-              # mojom_parser: --output-root . --input-root . 
-              # implies module is at ./chromium_src/foo/bar.mojom-module
-              module_path = mojom_path + '-module'
-              if not os.path.exists(module_path):
-                  print(f"DEBUG source module missing: {module_path}")
-                  return False
-
-              # Ensure path starts with ./ if depth is .
-              # The generator's RelativePath check is strict.
-              if mojom_path.startswith('chromium_src') and not mojom_path.startswith('./'):
-                  mojom_path_arg = './' + mojom_path
-              else:
-                  mojom_path_arg = mojom_path
-
               cmd = [
                   sys.executable,
                   'chromium_src/mojo/public/tools/bindings/mojom_bindings_generator.py',
                   '--use_bundled_pylibs',
                   'generate',
                   '-g', 'javascript',
-                  '--output_dir', '.', 
-                  '--depth', '.', 
+                  '--output_dir', 'chromium_src', 
+                  '--depth', 'chromium_src', 
                   '--bytecode_path', 'bindings', 
-                  mojom_path_arg
-              ]
-              try:
-                  subprocess.run(cmd, check=True, capture_output=True)
-                  return True
-              except subprocess.CalledProcessError as e:
-                  print(f"Failed to generate for {mojom_path}: {e.stderr.decode()}")
-                  return False
-
-          # Main execution
-          bindings_dir = Path('bindings')
-          bindings_dir.mkdir(exist_ok=True)
-          
-          index_data = {
-              'generated_at': '',
-              'interfaces': [],
-              'files': []
-          }
-          
-          import datetime
-          index_data['generated_at'] = datetime.datetime.utcnow().isoformat() + 'Z'
-          
-          # Read mojom files list
-          with open('mojom_files_list.txt', 'r') as f:
-              mojom_files = [line.strip() for line in f if line.strip()]
-          
-          print(f"Processing {len(mojom_files)} .mojom files...")
-          
-          # Step 1: Process files serially (Parser then Generator)
-          # We process in topological order so dependencies are ready.
-          
-          for mojom_path in mojom_files:
-              # 1. Parse individual file
-              # We reuse run_parser but passing just one file.
-              # NOTE: run_parser writes to mojom_files_list.txt which overwrites previous.
-              # This is fine as we process serially.
-              
-              if not run_parser([mojom_path]):
-                  print(f"Skipping {mojom_path} due to parse failure.")
-                  continue
-
-              # 2. Generate bindings
-              if run_generator(mojom_path):
-                  # Move generated files to bindings/ directory to flatten structure
-                  # The generator outputs to {root}/{path/to/file}.js
-                  # We want to move them to bindings/ and flatten them potentially, 
-                  # OR keep structure but we need to know where they are.
-                  # Let's see: if input is chromium_src/foo/bar.mojom
-                  # output is chromium_src/foo/bar.mojom.js under --output_dir .
-                  
-                  # We want to move these to bindings/ directory
-                  # Construct expected output path
-                  src_path = Path(mojom_path)
-                  gen_base = src_path.with_suffix('.mojom.js') # Standard bindings
-                  gen_lite = src_path.with_suffix('.mojom-lite.js') # Lite bindings (what we want)
-                  
-                  if gen_lite.exists():
-                      # Flattened name for bindings dir: third_party_blink_public_mojom_foo.mojom.js
-                      # This avoids collisions and directory depth issues in the simple server
-                      rel_path = str(src_path).replace('chromium_src/', '').replace('chromium_src\\', '')
-                      flat_name = rel_path.replace('/', '_').replace('\\', '_').replace('.mojom', '.mojom.js')
-                      
-                      dest_lite = bindings_dir / flat_name
-                      
-                      # Copy/Move the lite binding to destination as the main file we use
-                      import shutil
-                      shutil.move(str(gen_lite), str(dest_lite))
-                      
-                      # Also move the HTML-formatted binding if it exists (useful for reading)
-                      # shutil.move(str(gen_base), str(bindings_dir / (flat_name + '.full.js')))
-                      
-                      parsed = parse_mojom_file(mojom_path)
-                      if parsed and parsed.get('interfaces'):
-                          # Add to index
-                          for interface in parsed['interfaces']:
-                              index_data['interfaces'].append({
-                                  'name': interface['name'],
-                                  'module': parsed['module'],
-                                  'file': flat_name, # Point to the lite binding
-                                  'methods': [m['name'] for m in interface.get('methods', [])]
-                              })
-                          
-                          index_data['files'].append({
-                              'filename': flat_name,
-                              'source': rel_path,
-                              'module': parsed['module']
-                          })
-                          print(f"Index updated for: {flat_name}")
-                  else:
-                      print(f"Warning: Expected generated file not found: {gen_lite}")
-
-          # Write index.json
-          with open(bindings_dir / 'index.json', 'w') as f:
-              json.dump(index_data, f, indent=2)
-          
-          print(f"\nIndexed {len(index_data['files'])} binding files")
-          print(f"Total interfaces: {len(index_data['interfaces'])}")
           
           SCRIPT
           
