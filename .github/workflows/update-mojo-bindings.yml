@@ -113,14 +113,13 @@ jobs:
               print(f"Running mojom parser on {len(mojom_files)} files...")
               
               current_files = mojom_files[:]
-              max_retries = 50 # Generous limit to chew through broken chains
+              max_retries = 50 
               attempt = 0
               
               while attempt < max_retries:
                   attempt += 1
                   print(f"\n--- Parser Attempt {attempt} ({len(current_files)} files) ---")
                   
-                  # Write current list
                   with open('mojom_files_list.txt', 'w') as f:
                       for p in current_files:
                           f.write(f"{p}\n")
@@ -135,18 +134,16 @@ jobs:
                   ]
                   
                   try:
-                      # Capture stderr to analyze failures
                       result = subprocess.run(cmd, check=True, capture_output=True, text=True)
                       print("Parser succeeded!")
-                      # print(result.stdout)
                       return True
                   except subprocess.CalledProcessError as e:
                       stderr = e.stderr
                       print(f"Parser failed with exit code {e.returncode}")
-                      # print(stderr) # Too verbose to print all?
                       
                       # ANALYZE FAILURE
-                      # Pattern 1: ValueError: "..." imported by <FILE> does not exist
+                      
+                      # 1. Broken Import (Explicit file)
                       match_import = re.search(r'ValueError: ".*?", imported by (.*?), does not exist', stderr)
                       
                       # Pattern 2: Exception: Unknown spec: ... Check for missing imports in <FILE>
